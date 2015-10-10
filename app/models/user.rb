@@ -12,4 +12,13 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :phone, presence: true
+
+  after_create :first_user_gets_admin
+
+  private
+    def first_user_gets_admin
+      if User.all.count == 1
+        self.update(admin: true)
+      end
+    end
 end
