@@ -5,6 +5,28 @@ angular.module("iamin")
       needs: -> $http.get("/api/v1/needs.json").then (res) =>
         @_parse_needs res.data.data
 
+      addNeed: (need) ->
+        niceNeed = {}
+        niceNeed.attributes = {
+          'start-time': need.start
+          'end-time': need.end
+        }
+        niceNeed.type = "needs"
+        # need['start-time'] = need.start
+        # need['end-time'] = need.end#.format()
+        $http({
+          url: "/api/v1/needs.json",
+          dataType: "json",
+          method: "POST",
+          headers: {
+              "Content-Type": "application/vnd.api+json"
+          }
+          data: {'data': niceNeed}
+        })
+
+        # $http.post("/api/v1/needs.json", data: need).then (res) =>
+        #   @_parse_need res.data
+
       _parse_needs:  (rawNeeds) ->
         (@_parse_need rawNeed for rawNeed in rawNeeds)
 
