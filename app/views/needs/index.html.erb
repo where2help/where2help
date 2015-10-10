@@ -1,35 +1,46 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Needs</h1>
-
-<table>
+<%- model_class = Need -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(count: 2) %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Location</th>
-      <th>Start time</th>
-      <th>End time</th>
-      <th>Skill</th>
-      <th>Volunteers needed</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:start_time) %></th>
+      <th><%= model_class.human_attribute_name(:end_time) %></th>
+      <th><%= model_class.human_attribute_name(:skill) %></th>
+      <th><%= model_class.human_attribute_name(:volunteers_needed) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @needs.each do |need| %>
       <tr>
+        <td><%= link_to need.id, need_path(need) %></td>
         <td><%= need.location %></td>
         <td><%= need.start_time %></td>
         <td><%= need.end_time %></td>
         <td><%= need.skill %></td>
         <td><%= need.volunteers_needed %></td>
-        <td><%= link_to 'Show', need %></td>
-        <td><%= link_to 'Edit', edit_need_path(need) %></td>
-        <td><%= link_to 'Destroy', need, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= need.city %></td>
+        <td><%=l need.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_need_path(need), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      need_path(need),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Need', new_need_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_need_path,
+            :class => 'btn btn-primary' %>

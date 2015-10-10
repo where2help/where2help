@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Need -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @need.location %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+  <dd><%= @need.location %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
+  <dd><%= @need.start_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end_time) %>:</strong></dt>
+  <dd><%= @need.end_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:skill) %>:</strong></dt>
+  <dd><%= @need.skill %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:volunteers_needed) %>:</strong></dt>
+  <dd><%= @need.volunteers_needed %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @need.city %></dd>
+</dl>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @need.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @need.end_time %>
-</p>
-
-<p>
-  <strong>Skill:</strong>
-  <%= @need.skill %>
-</p>
-
-<p>
-  <strong>Volunteers needed:</strong>
-  <%= @need.volunteers_needed %>
-</p>
-
-<%= link_to 'Edit', edit_need_path(@need) %> |
-<%= link_to 'Back', needs_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              needs_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_need_path(@need), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              need_path(@need),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
