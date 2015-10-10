@@ -9,10 +9,24 @@ de:
         first_name: Vorname
         last_name: Nachname
         phone: Telefon
+      topic:
+        created_at: angelegt
+        title: Titel
+        color_id: Farbe
+      need:
+        location: Ort
+        start_time: Von
+        end_time: Bis
+        volunteers_needed: Anzahl Helfer
+        skill: Fähigkeit
+        city: Stadt
     models:
       user:
         one: Benutzer
         other: Benutzer
+      need:
+        one: Bedarf
+        other: Bedarfe
 
   ramons_keys:
     mykey: meinschlüssel
