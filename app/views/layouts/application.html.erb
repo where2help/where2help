@@ -54,6 +54,10 @@
             <% else %>
               <li><%= link_to "Login", :new_user_session %></li>
             <% end %>
+            <% if current_user && current_user.admin? %>
+              <li><%= link_to "Benutzer", users_path %></li>           
+              <li><%= link_to "Bedarfe", users_path %></li>           
+            <% end %>
           </ul>
         </div>
       </div>
