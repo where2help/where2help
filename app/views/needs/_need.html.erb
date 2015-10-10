@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-2">
+    <%= icon_for need %>
+  </div>
+  <div class="col-xs-7">
+    <h2><%= need.i18n_category %></h2>
+    <p>
+      <i class="fa fa-map-marker"></i>
+      <%= "#{need.city},#{need.location}" %>
+    </p>
+    <span>
+      <i class="fa fa-calendar-o"></i>
+      in <%= distance_of_time_in_words_to_now(need.start_time) %>
+    </span>
+  </div>
+  <div class="col-xs-3">
+    <p>Es werden noch</p>
+    <p class="text-center"><%= need.volunteers_needed - need.volunteerings.size %></p>
+      gebraucht.
+    </p>
+  </div>
+</div>
