@@ -21,15 +21,19 @@ class ApplicationController < ActionController::Base
     end    
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+
   def only_admin
     unless current_user.admin?
-      redirect_to login_path, alert: "Nicht erlaubt!"
+      redirect_to new_user_session_path, alert: "Nicht erlaubt!"
     end
   end
 
   def only_ngo_admin
-    unless current_user.ngo_admin?
-      redirect_to login_path, alert: "Nicht erlaubt!"
+    unless (current_user.ngo_admin? or current_user.admin?)
+      redirect_to new_user_session_path, alert: "Nicht erlaubt!"
     end
   end
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   jsonapi_resources :needs
 
+  get  'pages/calendar' => 'pages#calendar'
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

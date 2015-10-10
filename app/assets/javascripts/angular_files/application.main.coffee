@@ -1,6 +1,12 @@
 'use strict'
-
-angular.module('bopsterApp', [])
+angular.module('iamin', [])
+  # 'ngAnimate',
+  # 'ngCookies',
+  # 'ngResource',
+  # 'ngRoute',
+  # 'ngSanitize',
+  # 'ngTouch'
+  #])
 
   # Setup the application configuration
   .config () ->

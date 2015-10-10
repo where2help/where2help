@@ -7,10 +7,10 @@
   <%= error_span(@need[:end_time]) %>
   <%= f.input :volunteers_needed %>
   <%= error_span(@need[:volunteers_needed]) %>
+  <%= f.input :category, collection: Need.categories_for_select %>
+  <%= error_span(@need[:category]) %>
   <%= f.input :city %>
   <%= error_span(@need[:city]) %>
-  <%= f.input :category %>
-  <%= error_span(@need[:category]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

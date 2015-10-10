@@ -71,6 +71,14 @@ class NeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def need_params
-      params.require(:need).permit(:location, :city, :start_time, :end_time, :skill, :volunteers_needed)
+      params.
+      require(:need).
+      permit(:location,
+              :city,
+              :start_time,
+              :end_time,
+              :category,
+              :volunteers_needed).
+      merge(user_id: current_user.id)
     end
 end
