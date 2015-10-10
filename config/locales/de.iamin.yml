@@ -19,8 +19,13 @@ de:
         start_time: Von
         end_time: Bis
         volunteers_needed: Anzahl Helfer
-        category: Kategorie
         city: Stadt
+        category: Kategorie
+        categories:
+          legal: Rechtsberatung
+          general: Freiwillige
+          medical: Medizinische Unterstützung
+          translation: Dolmetscher
     models:
       user:
         one: Benutzer
