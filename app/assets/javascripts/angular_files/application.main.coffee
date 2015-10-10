@@ -8,10 +8,10 @@ angular.module('iamin', [])
   # 'ngTouch'
   #])
 
-  # Setup the application configuration
-  .config () ->
-    console.debug 'config'
-
-  # Initialize all of the things
-  .run () ->
-    console.debug 'run'
+  # # Setup the application configuration
+  # .config () ->
+  #   console.debug 'config'
+  #
+  # # Initialize all of the things
+  # .run () ->
+  #   console.debug 'run'

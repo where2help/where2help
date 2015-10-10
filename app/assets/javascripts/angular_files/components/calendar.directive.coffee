@@ -1,6 +1,6 @@
 angular.module('iamin')
   #.directive 'calendar', ($compile, $state, $interval, $timeout, Api, calendarConfig) ->
-  .directive 'calendar', ($compile) ->
+  .directive 'calendar', ($compile, Api) ->
     templateUrl: "/views/directives/calendar.html"
     restrict: 'A'
     link: (scope, element, attrs) ->
@@ -8,13 +8,13 @@ angular.module('iamin')
 
       scope.fetch = ->
         console.debug 'fetch needs'
-        # Api.Needs.all().then (needs) ->
-        #   #console.debug('API returned blocks')
-        #   # we got the needs
-        #   scope.needs = needs
-        #   $('#calendar').fullCalendar 'removeEvents'
-        #   # tell the calendar to call events to read needs and rerender them
-        #   $('#calendar').fullCalendar 'refetchEvents'
+        Api.Calendar.needs().then (needs) ->
+          console.debug('got needs ', needs)
+          # we got the needs
+          scope.needs = needs
+          # $('#calendar').fullCalendar 'removeEvents'
+          # # tell the calendar to call events to read needs and rerender them
+          $('#calendar').fullCalendar 'refetchEvents'
 
       # navigate away
       # scope.navigateToPlaylistPreview = ->
@@ -25,12 +25,13 @@ angular.module('iamin')
 
       $(document).ready ->
         $('#calendar').fullCalendar
-          header: false
-          columnFormat: 'ddd'
-          allDaySlot: false
+          #header: true
+          #columnFormat: 'ddd'
+          allDaySlot: true
           defaultView: 'agendaWeek'
           firstDay: 1
-          timezone: 'UTC'
+          #timezone: 'UTC'
+          timezone: 'local'
           #defaultDate: calendarConfig.defaultDate
           selectable: true
           selectHelper: true
@@ -66,7 +67,7 @@ angular.module('iamin')
           #   # remove scope explicitly
           #   angular.element(element).scope().$destroy()
           eventRender: (need, element) ->
-            console.debug 'event rendered'
+            #console.debug 'event rendered'
             # # add the data into the scope
             # needScope = scope.$new() # child scope
             # # because fullcalendar does some weird time rendering,
