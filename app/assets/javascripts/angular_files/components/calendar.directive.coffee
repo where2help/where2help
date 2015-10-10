@@ -40,19 +40,19 @@ angular.module('iamin')
           select: (start, end) ->
             console.debug 'create', start, end
             $('#calendar').fullCalendar 'unselect'
-            title = 'new need'
+            #title = 'new need'
             newNeed = undefined
             newNeed =
-              title: title
-              isLoading: true
+              #title: title
+              #isLoading: true
               start: start
               end: end
             $('#calendar').fullCalendar 'renderEvent', newNeed, false
             # notify the API
-            # Api.Schedule.appendBlock(newBlock).then =>
-            #   # only one of these should be necessary when watching is fixed
-            #   scope.needs.append newBlock
-            #   scope.reloadSchedule()
+            Api.Calendar.addNeed(newNeed).then (need) =>
+              # only one of these should be necessary when watching is fixed
+              scope.needs.push need
+              scope.fetch()
           # eventResize: (need, delta, revertFunc) ->
           #   Api.Schedule.updateBlock(need).then (need) ->
           #     console.debug 'event resize'
