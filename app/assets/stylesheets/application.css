@@ -15,3 +15,7 @@
  *= require fullcalendar/dist/fullcalendar.css
  *= require_self
  */
+
+.navbar {
+  height: 75px;
+}
