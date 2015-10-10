@@ -49,7 +49,7 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <% if current_user %>
-              <li><%= link_to "Profil berarbeiten", edit_user_path(current_user.id) %></li>
+              <li><%= link_to "Profil bearbeiten", edit_user_path(current_user.id) %></li>
               <li><%= link_to "Abmelden", :destroy_user_session, method: :delete %></li>
             <% else %>
               <li><%= link_to "Login", :new_user_session %></li>
