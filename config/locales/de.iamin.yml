@@ -9,6 +9,7 @@ de:
         first_name: Vorname
         last_name: Nachname
         phone: Telefon
+        remember_me: angemeldet bleiben
       topic:
         created_at: angelegt
         title: Titel
