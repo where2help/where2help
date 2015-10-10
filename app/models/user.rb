@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   # associations
   has_many :volunteerings
-  has_many :needs, through: :volunteerings
+  has_many :needs
 
   # validations
   validates :first_name, presence: true, length: { maximum: 50 }
