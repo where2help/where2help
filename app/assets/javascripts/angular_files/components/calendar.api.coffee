@@ -24,8 +24,25 @@ angular.module("iamin")
           data: {'data': niceNeed}
         })
 
-        # $http.post("/api/v1/needs.json", data: need).then (res) =>
-        #   @_parse_need res.data
+      updateNeed: (need) ->
+        niceNeed =
+          id: need.id
+        niceNeed.attributes = {
+          'start-time': need.start
+          'end-time': need.end
+        }
+        niceNeed.type = "needs"
+        # need['start-time'] = need.start
+        # need['end-time'] = need.end#.format()
+        $http({
+          url: "/api/v1/needs/" + niceNeed.id + '.json'
+          dataType: "json",
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/vnd.api+json"
+          }
+          data: {'data': niceNeed}
+        })
 
       _parse_needs:  (rawNeeds) ->
         (@_parse_need rawNeed for rawNeed in rawNeeds)
