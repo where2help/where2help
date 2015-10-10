@@ -1,10 +1,12 @@
 class NeedsController < ApplicationController
   before_action :set_need, only: [:show, :edit, :update, :destroy]
   before_action :only_ngo_admin, except: [:show, :index]
+  respond_to :html
 
   # GET /needs
   # GET /needs.json
   def index
+
     @needs = Need.all
   end
 
@@ -80,11 +82,4 @@ class NeedsController < ApplicationController
               :volunteers_needed).
       merge(user_id: current_user.id)
     end
-end
-
-module Api
-  module V1
-    class NeedsController < JSONAPI::ResourceController
-    end
-  end
 end
