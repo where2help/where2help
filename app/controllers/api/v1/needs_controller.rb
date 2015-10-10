@@ -7,4 +7,5 @@ module Api
 
     def authenticate_via_email
     end
+  end
 end
