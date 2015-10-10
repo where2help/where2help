@@ -6,10 +6,9 @@ de:
         email: E-Mail
         password: Passwort
         password_confirmation: Passwortbestätigung
-      topic:
-        created_at: angelegt
-        title: Titel
-        color_id: Farbe
+        first_name: Vorname
+        last_name: Nachname
+        phone: Telefon
     models:
       user:
         one: Benutzer
