@@ -48,9 +48,12 @@
         <a class="navbar-brand" href="#">Iamin</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <% if current_user %>
+              <li><%= link_to "Profil berarbeiten", edit_user_path(current_user.id) %></li>
+              <li><%= link_to "Abmelden", :destroy_user_session, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Login", :new_user_session %></li>
+            <% end %>
           </ul>
         </div>
       </div>

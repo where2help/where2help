@@ -14,3 +14,6 @@ de:
       user:
         one: Benutzer
         other: Benutzer
+
+  ramons_keys:
+    mykey: meinschlüssel
