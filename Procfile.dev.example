@@ -1,4 +1,4 @@
-web: bundle exec unicorn -p 3000
+web: bundle exec rails server
 guard: bundle exec guard
 #pg: postgres -D /usr/local/var/postgres -p 5432
 #pg: postgres -D tmp/postgres -p 5432
