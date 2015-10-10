@@ -24,6 +24,10 @@
   color: #102631 !important;
 }
 
+.navbar-nav {
+  margin-top: 23px;
+}
+
 .navbar, .table-striped > tbody > tr:nth-child(odd), .sidebar-nav {
   background-color: #f3efe0;
 }
