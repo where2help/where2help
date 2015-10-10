@@ -6,6 +6,9 @@ de:
         email: E-Mail
         password: Passwort
         password_confirmation: Passwortbestätigung
+        first_name: Vorname
+        last_name: Nachname
+        phone: Telefon
       topic:
         created_at: angelegt
         title: Titel
