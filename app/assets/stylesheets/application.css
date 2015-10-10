@@ -19,3 +19,28 @@
 .navbar {
   height: 75px;
 }
+
+.container {
+  color: #102631 !important;
+}
+
+.navbar-nav {
+  margin-top: 23px;
+}
+
+.navbar, .table-striped > tbody > tr:nth-child(odd), .sidebar-nav {
+  background-color: #f3efe0;
+}
+
+a.btn-info {
+  background-color: #6ec9c6;
+  color: #fff;
+}
+a.btn-info:hover {
+  background-color: #578F8D;
+}
+
+a.btn-primary:visited {
+  color: #fff;
+}
+

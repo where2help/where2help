@@ -6,7 +6,8 @@ class PagesController < ApplicationController
       redirect_to pages_calendar_path
     else
       # TODO: Max, input your route
-      # redirect_to
+      # no route yet ;)
+      @needs = Need.all
     end
   end
 

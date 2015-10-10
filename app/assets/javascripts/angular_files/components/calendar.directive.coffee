@@ -1,6 +1,6 @@
 angular.module('iamin')
   #.directive 'calendar', ($compile, $state, $interval, $timeout, Api, calendarConfig) ->
-  .directive 'calendar', ($compile, Api) ->
+  .directive 'calendar', ($compile, $location, Api) ->
     templateUrl: "/views/directives/calendar.html"
     restrict: 'A'
     link: (scope, element, attrs) ->
@@ -57,15 +57,18 @@ angular.module('iamin')
               # only one of these should be necessary when watching is fixed
               scope.needs.push need
               scope.fetch()
-          # eventResize: (need, delta, revertFunc) ->
-          #   Api.Schedule.updateBlock(need).then (need) ->
-          #     console.debug 'event resize'
-          #     scope.reloadSchedule()
-          #     # TODO: update needs with the new block without fetch?
+          eventResize: (need, delta, revertFunc) ->
+            Api.Calendar.updateNeed(need).then (need) ->
+              scope.fetch()
+              # TODO: update needs with the new block without fetch?
           eventDrop: (need, delta, revertFunc) ->
             Api.Calendar.updateNeed(need).then (need) ->
               scope.fetch()
           #     # TODO: update needs with the new block without fetch?
+
+          eventClick: (calEvent, jsEvent, view) ->
+            window.location.href = '/needs/' + calEvent.id + '/edit'
+            #$location.path '/needs/1/edit'
 
           # eventDestroy: (need, element) ->
           #   # remove scope explicitly

@@ -38,3 +38,4 @@ config/secrets.yml
 Procfile.dev
 Gemfile.lock
 .env
+.ruby-gemset
