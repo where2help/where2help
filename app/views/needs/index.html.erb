@@ -1,6 +1,6 @@
 <%- model_class = Need -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human(count: 2) %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -9,9 +9,9 @@
       <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:start_time) %></th>
       <th><%= model_class.human_attribute_name(:end_time) %></th>
-      <th><%= model_class.human_attribute_name(:skill) %></th>
       <th><%= model_class.human_attribute_name(:volunteers_needed) %></th>
       <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:category) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -23,9 +23,9 @@
         <td><%= need.location %></td>
         <td><%= need.start_time %></td>
         <td><%= need.end_time %></td>
-        <td><%= need.skill %></td>
         <td><%= need.volunteers_needed %></td>
         <td><%= need.city %></td>
+        <td><%= need.category %></td>
         <td><%=l need.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

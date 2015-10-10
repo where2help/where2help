@@ -10,12 +10,12 @@
   <dd><%= @need.start_time %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_time) %>:</strong></dt>
   <dd><%= @need.end_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:skill) %>:</strong></dt>
-  <dd><%= @need.skill %></dd>
   <dt><strong><%= model_class.human_attribute_name(:volunteers_needed) %>:</strong></dt>
   <dd><%= @need.volunteers_needed %></dd>
   <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
   <dd><%= @need.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
+  <dd><%= @need.category %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

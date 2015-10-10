@@ -19,7 +19,7 @@ de:
         start_time: Von
         end_time: Bis
         volunteers_needed: Anzahl Helfer
-        skill: Fähigkeit
+        category: Kategorie
         city: Stadt
     models:
       user:
