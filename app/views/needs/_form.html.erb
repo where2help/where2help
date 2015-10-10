@@ -9,7 +9,7 @@
   <%= error_span(@need[:volunteers_needed]) %>
   <%= f.input :city %>
   <%= error_span(@need[:city]) %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: Need.categories.keys %>
   <%= error_span(@need[:category]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
