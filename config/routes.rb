@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       jsonapi_resources :needs
+      post 'sessions/create' => 'sessions#create'
+      delete 'sessions/destroy' => 'sessions#destroy'
     end
   end
 
