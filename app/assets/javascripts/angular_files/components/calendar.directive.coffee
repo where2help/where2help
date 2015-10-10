@@ -26,6 +26,10 @@ angular.module('iamin')
       $(document).ready ->
         $('#calendar').fullCalendar
           #header: true
+          header:
+            left: 'today prev,next',
+            center: 'title',
+            right: 'agendaDay,agendaWeek,month'
           #columnFormat: 'ddd'
           allDaySlot: true
           defaultView: 'agendaWeek'
@@ -58,9 +62,9 @@ angular.module('iamin')
           #     console.debug 'event resize'
           #     scope.reloadSchedule()
           #     # TODO: update needs with the new block without fetch?
-          # eventDrop: (need, delta, revertFunc) ->
-          #   Api.Schedule.updateBlock(need).then (need) ->
-          #     scope.reloadSchedule()
+          eventDrop: (need, delta, revertFunc) ->
+            Api.Calendar.updateNeed(need).then (need) ->
+              scope.fetch()
           #     # TODO: update needs with the new block without fetch?
 
           # eventDestroy: (need, element) ->
