@@ -1,6 +1,7 @@
 class NeedsController < ApplicationController
-  before_action :set_need, only: [:show, :edit, :update, :destroy]
+  before_action :set_need, only: [:edit, :update, :destroy]
   before_action :only_ngo_admin, except: [:show, :index]
+  respond_to :html
 
   # GET /needs
   # GET /needs.json
@@ -11,6 +12,7 @@ class NeedsController < ApplicationController
   # GET /needs/1
   # GET /needs/1.json
   def show
+    @need = Need.find(params[:id])
   end
 
   # GET /needs/new
@@ -65,7 +67,11 @@ class NeedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_need
-      @need = Need.find(params[:id])
+      if current_user && current_user.admin?
+        @need = Need.find(params[:id])
+      else
+        @need = Need.find(params[:id]).where(user_id: current_user.id)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -80,11 +86,4 @@ class NeedsController < ApplicationController
               :volunteers_needed).
       merge(user_id: current_user.id)
     end
-end
-
-module Api
-  module V1
-    class NeedsController < JSONAPI::ResourceController
-    end
-  end
 end

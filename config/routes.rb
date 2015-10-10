@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :needs
+
   devise_for :users
   resources :users
 
@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       jsonapi_resources :needs
     end
   end
+
+  resources :needs
 
   get  'pages/calendar' => 'pages#calendar'
   root 'pages#home'
