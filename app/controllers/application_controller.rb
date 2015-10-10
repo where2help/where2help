@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   # params for sign_up
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :authenticate_user!
+
   protected
 
   def configure_permitted_parameters
@@ -17,5 +19,17 @@ class ApplicationController < ActionController::Base
               :password,
               :password_confirmation)
     end    
+  end
+
+  def only_admin
+    unless current_user.admin?
+      redirect_to login_path, alert: "Nicht erlaubt!"
+    end
+  end
+
+  def only_ngo_admin
+    unless current_user.ngo_admin?
+      redirect_to login_path, alert: "Nicht erlaubt!"
+    end
   end
 end

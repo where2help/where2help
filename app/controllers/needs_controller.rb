@@ -1,5 +1,6 @@
 class NeedsController < ApplicationController
   before_action :set_need, only: [:show, :edit, :update, :destroy]
+  before_action :only_ngo_admin, except: [:show, :index]
 
   # GET /needs
   # GET /needs.json
