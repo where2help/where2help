@@ -26,6 +26,10 @@ angular.module('iamin')
       $(document).ready ->
         $('#calendar').fullCalendar
           #header: true
+          header:
+            left: 'today prev,next',
+            center: 'title',
+            right: 'agendaDay,agendaWeek,month'
           #columnFormat: 'ddd'
           allDaySlot: true
           defaultView: 'agendaWeek'

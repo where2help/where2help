@@ -44,6 +44,26 @@ angular.module("iamin")
           data: {'data': niceNeed}
         })
 
+      deleteNeed: (need) ->
+        # niceNeed =
+        #   id: need.id
+        # niceNeed.attributes = {
+        #   'start-time': need.start
+        #   'end-time': need.end
+        # }
+        # niceNeed.type = "needs"
+        # need['start-time'] = need.start
+        # need['end-time'] = need.end#.format()
+        $http({
+          url: "/api/v1/needs/" + need.id + '.json'
+          dataType: "json",
+          method: "DELETE",
+          headers: {
+              "Content-Type": "application/vnd.api+json"
+          }
+          data: {'data': niceNeed}
+        })
+
       _parse_needs:  (rawNeeds) ->
         (@_parse_need rawNeed for rawNeed in rawNeeds)
 
