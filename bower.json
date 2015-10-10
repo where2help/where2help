@@ -1,0 +1,8 @@
+{
+  "name": "iamin",
+  "version": "0.0.1",
+  "homepage": "https://github.com/refugeeHackVienna/iamin",
+  "dependencies": {
+    "angular": "~1.4.7"
+  }
+}
