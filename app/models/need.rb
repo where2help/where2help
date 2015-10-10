@@ -1,8 +1,12 @@
 class Need < ActiveRecord::Base
 
   # scopes  
-  #scope :required, -> { where() }
+  scope :upcoming, -> { where("
+                              (start_time >= (?))
+                              OR
+                              (start_time IS (?))", Time.now, nil) }
 
+  # macros
   enum category: {general: 0, legal: 1, medical: 2, translation: 3}
 
   # associations
@@ -10,7 +14,6 @@ class Need < ActiveRecord::Base
   belongs_to :user
 
   # validations
-  #validates 
 
   # class methods
   def self.categories_for_select

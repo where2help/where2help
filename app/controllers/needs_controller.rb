@@ -1,7 +1,13 @@
 class NeedsController < ApplicationController
   before_action :set_need, only: [:edit, :update, :destroy]
-  before_action :only_ngo_admin, except: [:show, :index]
+  before_action :only_ngo_admin, except: [:show, :index, :feed]
   respond_to :html
+
+  def feed
+    @needs = Need.upcoming.
+                  includes(:volunteerings).
+                  page(params[:page]).per(20)
+  end
 
   # GET /needs
   # GET /needs.json

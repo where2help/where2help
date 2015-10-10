@@ -5,9 +5,7 @@ class PagesController < ApplicationController
     if current_user.admin?
       redirect_to pages_calendar_path
     else
-      # TODO: Max, input your route
-      # no route yet ;)
-      @needs = Need.all
+      redirect_to needs_feed_path
     end
   end
 

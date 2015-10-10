@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row feed-item">
   <div class="col-xs-2">
     <%= icon_for need %>
   </div>
@@ -8,10 +8,12 @@
       <i class="fa fa-map-marker"></i>
       <%= "#{need.city},#{need.location}" %>
     </p>
-    <span>
-      <i class="fa fa-calendar-o"></i>
-      in <%= distance_of_time_in_words_to_now(need.start_time) %>
-    </span>
+    <% if need.start_time %>
+      <span>
+        <i class="fa fa-calendar-o"></i>
+        <%= I18n.localize(need.start_time, format:'%a, %d. %b %H:%M') %> - <%= need.end_time.strftime('%H:%M') %> Uhr
+      </span>
+    <% end %>
   </div>
   <div class="col-xs-3">
     <p>Es werden noch</p>
