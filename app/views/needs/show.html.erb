@@ -7,9 +7,9 @@
   <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
   <dd><%= @need.location %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
-  <dd><%= @need.start_time %></dd>
+  <dd><%= l @need.start_time %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_time) %>:</strong></dt>
-  <dd><%= @need.end_time %></dd>
+  <dd><%= l @need.end_time %></dd>
   <dt><strong><%= model_class.human_attribute_name(:volunteers_needed) %>:</strong></dt>
   <dd><%= @need.volunteers_needed %></dd>
   <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
