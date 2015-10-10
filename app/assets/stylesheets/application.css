@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require devise_bootstrap_views_less
+ *= require fullcalendar/dist/fullcalendar.css
  *= require_self
  */

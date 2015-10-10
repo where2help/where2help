@@ -15,4 +15,6 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require angular/angular
+//= require moment/moment
+//= require fullcalendar/dist/fullcalendar
 //= require angular_files
