@@ -1,5 +1,4 @@
 class NeedsController < ApplicationController
-  include JSONAPI::ActsAsResourceController
   before_action :set_need, only: [:show, :edit, :update, :destroy]
   before_action :only_ngo_admin, except: [:show, :index]
 
@@ -81,4 +80,11 @@ class NeedsController < ApplicationController
               :volunteers_needed).
       merge(user_id: current_user.id)
     end
+end
+
+module Api
+  module V1
+    class NeedsController < JSONAPI::ResourceController
+    end
+  end
 end
