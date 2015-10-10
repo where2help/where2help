@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :needs
   devise_for :users
   resources :users
+  jsonapi_resources :needs
 
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-     
+
 
   # Example resource route with options:
   #   resources :products do

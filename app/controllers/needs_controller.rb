@@ -1,4 +1,5 @@
 class NeedsController < ApplicationController
+  include JSONAPI::ActsAsResourceController
   before_action :set_need, only: [:show, :edit, :update, :destroy]
   before_action :only_ngo_admin, except: [:show, :index]
 

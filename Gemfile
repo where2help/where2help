@@ -40,6 +40,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'jsonapi-resources'
 
 
 group :development, :test do
