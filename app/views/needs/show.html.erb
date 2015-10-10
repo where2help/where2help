@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @need.location %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @need.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @need.end_time %>
+</p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @need.skill %>
+</p>
+
+<p>
+  <strong>Volunteers needed:</strong>
+  <%= @need.volunteers_needed %>
+</p>
+
+<%= link_to 'Edit', edit_need_path(@need) %> |
+<%= link_to 'Back', needs_path %>

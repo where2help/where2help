@@ -1,0 +1,15 @@
+<%= simple_form_for(@need) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :location %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.input :skill %>
+    <%= f.input :volunteers_needed %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
