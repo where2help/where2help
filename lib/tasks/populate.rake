@@ -11,6 +11,13 @@ namespace :db do
       phone: '12345678987654321',
       ngo_admin: true)
 
+    normal_user = User.create(
+      email: 'normal_user@example.com',
+      first_name: 'normal',
+      last_name: 'user',
+      password: 'supersecret',
+      phone: '12345678987654321')
+
     50.times do
       ngo_admin.needs.create(
         city: 'Wien',
