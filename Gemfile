@@ -14,8 +14,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
-gem 'foreman'
-gem 'guard'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -47,6 +45,9 @@ gem 'devise-bootstrap-views'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'foreman'
+  gem 'guard'
+  gem 'guard-livereload'
 end
 
 group :development do
