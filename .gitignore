@@ -36,3 +36,4 @@ bower.json
 
 # developers might have their own workflows
 Procfile.dev
+Gemfile.lock
