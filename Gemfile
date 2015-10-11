@@ -43,7 +43,7 @@ gem 'devise-bootstrap-views'
 gem 'jsonapi-resources'
 
 gem 'unicorn'
-#gem 'sucker_punch'
+gem 'sucker_punch'
 gem 'rails_12factor'
 
 group :development, :test do
