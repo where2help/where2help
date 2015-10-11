@@ -2,8 +2,6 @@ module Api
   module V1
     class SessionsController < JSONAPI::ResourceController      
       before_filter :ensure_params_exist
-
-      respond_to :json
       
       def create
         build_resource
