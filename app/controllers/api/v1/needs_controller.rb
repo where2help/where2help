@@ -27,6 +27,12 @@ module Api
         need_json = JSONAPI::ResourceSerializer.new(NeedResource).serialize_to_hash(NeedResource.new(need, nil))
         render json: need_json
       end
+
+      def update
+        super
+        ::NotifyJob.new.perform("notify!!!!!!!!!!!")
+        Rails.logger.debug '=========================lslslalfas'
+      end
     end
   end
 end
