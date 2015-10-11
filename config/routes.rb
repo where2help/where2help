@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :needs
   get :needs_feed, to: 'needs#feed'
 
+  resources :volunteerings, only: [:create, :destroy]
+
   get  'pages/calendar' => 'pages#calendar'
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
