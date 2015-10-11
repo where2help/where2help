@@ -76,7 +76,7 @@ class NeedsController < ApplicationController
       if current_user && current_user.admin?
         @need = Need.find(params[:id])
       else
-        @need = Need.find(params[:id]).where(user_id: current_user.id)
+        @need = Need.where(id: params[:id], user_id: current_user.id)
       end
     end
 
