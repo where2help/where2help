@@ -8,7 +8,14 @@ class Api::SessionsController < Api::BaseController
   def create
     build_resource
     resource = User.where(email: params[:email])
-    return invalid_login_attempt unless resource
+
+    unless resource
+      resource = User.new(email: params[:email], phone: params[:phone])
+      resource.save(validate: false)
+
+      render :json=> {:success=>true, :auth_token=>resource.authentication_token, :login=>resource.login, :email=>resource.email}
+      return
+    end
 
     sign_in("user", resource)
     render :json=> {:success=>true, :auth_token=>resource.authentication_token, :login=>resource.login, :email=>resource.email}
