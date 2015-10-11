@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :needs
+  get :needs_feed, to: 'needs#feed'
 
   get  'pages/calendar' => 'pages#calendar'
   root 'pages#home'
