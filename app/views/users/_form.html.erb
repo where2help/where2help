@@ -7,10 +7,13 @@
   <%= error_span(@user[:last_name]) %>
   <%= f.input :phone %>
   <%= error_span(@user[:phone]) %>
-  <%= f.input :admin %>
-  <%= error_span(@user[:admin]) %>
-  <%= f.input :ngo_admin %>
-  <%= error_span(@user[:ngo_admin]) %>
+  <% if current_user && current_user.admin? %>
+    <%= f.input :admin %>
+    <%= error_span(@user[:admin]) %>
+    <%# Only admins can set users to be NGO admins %>
+    <%= f.input :ngo_admin %>
+    <%= error_span(@user[:ngo_admin]) %>
+  <% end %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
