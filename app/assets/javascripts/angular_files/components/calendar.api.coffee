@@ -90,7 +90,15 @@ angular.module("iamin")
           volunteersNeeded: rawNeed.attributes['volunteers-needed']
 
         #need.title = need.start.format("H:mm") + " – " + need.end.format("H:mm")
-        need.title = "#{need.volunteersNeeded} #{need.category} volunteers at #{need.location}, #{need.city}"
+        need.title = "#{need.volunteersNeeded} #{need.category}"
+        if need.volunteersNeeded == 1
+          need.title += " volunteer"
+        else
+          need.title += " volunteers"
+        if need.location
+          need.title += " at #{need.location}, #{need.city}."
+        else
+          need.title += ". (no location)"
 
         need
     new ApiCalendar
