@@ -2,7 +2,7 @@
 angular.module("iamin")
   .service "ApiCalendar", ($http) ->
     class ApiCalendar
-      needs: -> $http.get("/api/v1/needs.json").then (res) =>
+      needs: -> $http.get("/api/v1/org/needs.json").then (res) =>
         @_parse_needs res.data.data
 
       addNeed: (need) ->
@@ -88,9 +88,12 @@ angular.module("iamin")
           end: moment.utc rawNeed.attributes['end-time']
           location: rawNeed.attributes.location
           volunteersNeeded: rawNeed.attributes['volunteers-needed']
+          volunteersCount: +rawNeed.attributes['volunteers-count']
 
+        need.volunteersMissing = need.volunteersNeeded - need.volunteersCount
+        need.fulfilled = (need.volunteersMissing < 1)
         #need.title = need.start.format("H:mm") + " – " + need.end.format("H:mm")
-        need.title = "#{need.volunteersNeeded} #{need.category}"
+        need.title = "#{need.volunteersCount}/#{need.volunteersNeeded} #{need.category}"
         if need.volunteersNeeded == 1
           need.title += " volunteer"
         else

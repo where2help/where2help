@@ -1,13 +1,29 @@
 @import "colors";
 
+// TODO:
+// - add icons
+// - block fill full column
+
 #calendar {
+
+  p, ol, ul, td, .fc-event {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+  }
+
   .fc-event {
     border-color: $iamin_dark_blue;
     background-color: $iamin_dark_blue;
   }
 
+  .fc-event.need-fulfilled {
+    border-color: $iamin_gray;
+    background-color: $iamin_gray;
+    color: $iamin_light_gray;
+  }
+
   .fc-today {
-    background-color: $iamin_white;
+    background-color: $iamin_yellow;
   }
 
   // .fc-button { // copied from bootstrap
