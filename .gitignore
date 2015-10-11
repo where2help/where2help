@@ -36,7 +36,6 @@ config/secrets.yml
 
 # developers might have their own workflows
 Procfile.dev
-Gemfile.lock
 .env
 .ruby-gemset
 .ruby-version
