@@ -1,8 +1,8 @@
 angular.module('iamin')
   #.directive 'calendar', ($compile, $state, $interval, $timeout, Api, calendarConfig) ->
   .directive 'calendar', ($compile, $location, Api) ->
-    templateUrl: "/views/directives/calendar.html"
-    #template: "<p><div id="calendar"></div></p>"
+    #templateUrl: "/views/directives/calendar.html"
+    template: '<p><div id="calendar"></div></p>'
     restrict: 'A'
     link: (scope, element, attrs) ->
       scope.needs = []
