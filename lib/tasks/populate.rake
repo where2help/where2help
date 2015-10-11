@@ -9,7 +9,7 @@ namespace :db do
       last_name: 'admin',
       password: 'supersecret',
       phone: '12345678987654321',
-      ngo_admin: true)
+      admin: true)
 
     ngo_admin = User.create(
       email: 'ngo_admin@example.com',
