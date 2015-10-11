@@ -10,9 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require colors
+ *= require fullcalendar/dist/fullcalendar.css
  *= require devise_bootstrap_views_less
  *= require_tree .
- *= require fullcalendar/dist/fullcalendar.css
  *= require_self
  */
 
@@ -43,4 +44,3 @@ a.btn-info:hover {
 a.btn-primary:visited {
   color: #fff;
 }
-
