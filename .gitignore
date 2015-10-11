@@ -39,3 +39,4 @@ Procfile.dev
 Gemfile.lock
 .env
 .ruby-gemset
+.ruby-version
