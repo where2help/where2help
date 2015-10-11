@@ -2,8 +2,9 @@ module Api
   module V1
     class NeedsController < JSONAPI::ResourceController
     	before_action :authenticate_user!, except: [:show, :index, :feed]
-      def index
-        if current_user.admin?
+
+      def ngo_index
+        if current_user && current_user.admin?
           needs = Need.all
         else
           needs = Need.where(user_id: current_user.id)
@@ -12,6 +13,7 @@ module Api
         json = JSONAPI::ResourceSerializer.new(NeedResource).serialize_to_hash(resources)
         render json: json
       end
+
 
       def create
         sparams = params['data']['attributes']
