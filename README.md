@@ -14,8 +14,7 @@ Volunteers can see the needs in a list and join a need by clicking *I'm in*.
 ![need calendar](docs/img/user_web.png)
 
 This way, volunteers applying for a need are registered (no volunteers will be
-turned down on the spot due to too many people showing up),
-the number of missing volunteers is decreased and the
+turned down on the spot due to too many people showing up) and the
 organisers can keep track of those needs that still need more people.
 
 The web app is getting its last fixes and is coming soon, along with an Android
