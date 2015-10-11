@@ -8,7 +8,7 @@ angular.module('iamin', [])
   # 'ngTouch'
   #])
 
-  .controller 'iaminController', ($scope) ->
+  .controller('iaminController', ['$scope', ($scope) ->
     console.debug 'iamin Angular controller'
 
   # # Setup the application configuration
@@ -18,3 +18,4 @@ angular.module('iamin', [])
   # # Initialize all of the things
   # .run () ->
   #   console.debug 'run'
+  ])
