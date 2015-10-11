@@ -2,6 +2,7 @@ angular.module('iamin')
   #.directive 'calendar', ($compile, $state, $interval, $timeout, Api, calendarConfig) ->
   .directive 'calendar', ($compile, $location, Api) ->
     templateUrl: "/views/directives/calendar.html"
+    #template: "<p><div id="calendar"></div></p>"
     restrict: 'A'
     link: (scope, element, attrs) ->
       scope.needs = []
@@ -60,41 +61,18 @@ angular.module('iamin')
           eventResize: (need, delta, revertFunc) ->
             Api.Calendar.updateNeed(need).then (need) ->
               scope.fetch()
-              # TODO: update needs with the new block without fetch?
+
           eventDrop: (need, delta, revertFunc) ->
             Api.Calendar.updateNeed(need).then (need) ->
               scope.fetch()
-          #     # TODO: update needs with the new block without fetch?
 
           eventClick: (calEvent, jsEvent, view) ->
             window.location.href = '/needs/' + calEvent.id + '/edit'
-            #$location.path '/needs/1/edit'
 
-          # eventDestroy: (need, element) ->
-          #   # remove scope explicitly
-          #   angular.element(element).scope().$destroy()
           eventRender: (need, element) ->
-            #console.debug 'event rendered'
-            # # add the data into the scope
-            # needScope = scope.$new() # child scope
-            # # because fullcalendar does some weird time rendering,
-            # # we just copy their hard work
-            # if need.title
-            #   needScope.title = need.title
-            # needScope.isLoading = need.isLoading
-            # needScope.timeHtml = element.find('.fc-time')[0].outerHTML
-            # needScope.need = need
-            # needScope.tags = need.tags
-            # needScope.playlists = need.playlists
-            # needScope.complete = need.complete
-            # # massage the html, add our directive inside it
-            # element.find('.fc-content').empty()
-            # element.find('.fc-content').append "<div schedule-block></div>"
-            #
-            # # scope.$apply
-            # # bind the thing
-            # element = $compile(element)(needScope)
-            # return element
+            if need.fulfilled
+              $(element).addClass('need-fulfilled')
+            element
 
           editable: true
           eventOverlap: true
