@@ -12,7 +12,11 @@
   <%= f.input :volunteers_needed %>
   <%= error_span(@need[:volunteers_needed]) %>
 
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                needs_path, :class => 'btn btn-default' %>
+  <%= f.button :submit, class: 'btn-primary' %>  
+  <%= link_to t('.destroy', default: t('helpers.links.destroy')),
+                f.object,
+                data: { confirm: 'Are you sure?' },
+                method: :delete, class: 'btn btn-danger' %>
+  <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                root_path, class: 'btn btn-default' %>
 <% end %>
