@@ -1,8 +1,6 @@
 module Api
   module V1
-    class SessionsController < JSONAPI::ResourceController
-      prepend_before_filter :require_no_authentication, :only => [:create ]
-      
+    class SessionsController < JSONAPI::ResourceController      
       before_filter :ensure_params_exist
 
       respond_to :json
