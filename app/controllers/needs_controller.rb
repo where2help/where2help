@@ -89,7 +89,8 @@ class NeedsController < ApplicationController
               :start_time,
               :end_time,
               :category,
-              :volunteers_needed).
+              :volunteers_needed,
+              :user_id).
       merge(user_id: current_user.id)
     end
 end
