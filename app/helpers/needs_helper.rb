@@ -26,11 +26,12 @@ module NeedsHelper
 
   def _button_options(need)
     volunteering = need.volunteerings.find_by_user_id(current_user)
+    open = need.volunteerings.count < need.volunteers_needed
     { url: volunteering ? volunteering_path(volunteering) : volunteerings_path(need_id: need.id),
       txt: volunteering ? 'Absagen' : 'Helfen',
       icon: volunteering ? 'fa fa-times' : 'fa fa-check',
       method: volunteering ? :delete : :post,
-      btn_class: volunteering ? 'btn btn-danger btn-lg btn-block' : 'btn btn-success btn-lg btn-block'
+      btn_class: volunteering ? 'btn btn-danger btn-lg btn-block' : "btn btn-#{open ? 'success' : 'warning'} btn-lg btn-block"
     }
     
   end

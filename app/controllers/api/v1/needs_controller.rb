@@ -1,7 +1,7 @@
 module Api
   module V1
     class NeedsController < JSONAPI::ResourceController
-    	before_action :authenticate_user!
+    	before_action :authenticate_user!, except: [:show, :index, :feed]
       def index
         if current_user.admin?
           needs = Need.all
