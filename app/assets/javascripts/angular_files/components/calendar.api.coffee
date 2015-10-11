@@ -1,6 +1,6 @@
 #/api/v1/needs.json
 angular.module("iamin")
-  .service "ApiCalendar", ($http) ->
+  .service("ApiCalendar", ['$http', ($http) ->
     class ApiCalendar
       needs: -> $http.get("/api/v1/org/needs.json").then (res) =>
         @_parse_needs res.data.data
@@ -105,3 +105,4 @@ angular.module("iamin")
 
         need
     new ApiCalendar
+  ])
