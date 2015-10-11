@@ -1,6 +1,6 @@
 angular.module('iamin')
   #.directive 'calendar', ($compile, $state, $interval, $timeout, Api, calendarConfig) ->
-  .directive 'calendar', ($compile, $location, Api) ->
+  .directive('calendar', ['$compile', '$location', 'Api', ($compile, $location, Api) ->
     #templateUrl: "/views/directives/calendar.html"
     template: '<p><div id="calendar"></div></p>'
     restrict: 'A'
@@ -80,3 +80,4 @@ angular.module('iamin')
             callback scope.needs
 
         scope.fetch()
+  ])
