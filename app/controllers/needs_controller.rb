@@ -4,8 +4,8 @@ class NeedsController < ApplicationController
   respond_to :html
 
   def feed
-    @needs = Need.upcoming.
-                  includes(:volunteerings).
+    @needs = Need.includes(:volunteerings).
+                  upcoming.                  
                   page(params[:page]).per(20)
   end
 

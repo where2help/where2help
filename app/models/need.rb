@@ -1,10 +1,7 @@
 class Need < ActiveRecord::Base
 
   # scopes  
-  scope :upcoming, -> { where("
-                              (start_time >= (?))
-                              OR
-                              (start_time IS (?))", Time.now, nil) }
+  scope :upcoming, -> { where('start_time >= (?)', Time.now) }
 
   # macros
   enum category: {general: 0, legal: 1, medical: 2, translation: 3}
