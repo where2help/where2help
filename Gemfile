@@ -52,6 +52,7 @@ group :development, :test do
   gem 'foreman'
   gem 'guard'
   gem 'guard-livereload'
+  gem 'sqlite3'
 end
 
 group :development do
