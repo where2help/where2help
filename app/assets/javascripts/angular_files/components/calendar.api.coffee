@@ -2,7 +2,7 @@
 angular.module("iamin")
   .service "ApiCalendar", ($http) ->
     class ApiCalendar
-      needs: -> $http.get("/api/v1/needs.json").then (res) =>
+      needs: -> $http.get("/api/v1/org/needs.json").then (res) =>
         @_parse_needs res.data.data
 
       addNeed: (need) ->
