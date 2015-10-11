@@ -1,4 +1,4 @@
-<div class="row feed-item">
+<%= div_for(need, class: 'row feed-item') do %>
   <div class="col-xs-2">
     <%= icon_for need %>
   </div>
@@ -16,9 +16,14 @@
     <% end %>
   </div>
   <div class="col-xs-3">
-    <p>Es werden noch</p>
-    <p class="text-center"><%= need.volunteers_needed - need.volunteerings.size %></p>
-      gebraucht.
-    </p>
+    <div class="row">
+      <p>Es werden noch</p>
+      <p class="text-center"><%= need.volunteers_needed - need.volunteerings.size %></p>
+        gebraucht.
+      </p>
+    </div>
+    <div class="row">
+      <%= volunteerings_button(need) %>
+    </div>
   </div>
-</div>
+<% end %>

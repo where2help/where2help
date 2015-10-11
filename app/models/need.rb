@@ -11,6 +11,7 @@ class Need < ActiveRecord::Base
 
   # associations
   has_many :volunteerings
+  has_many :volunteers, through: :volunteerings, source: :user
   belongs_to :user
 
   # validations
