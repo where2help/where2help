@@ -37,7 +37,7 @@
 
     <%= javascript_include_tag "application" %>
   </head>
-  <body ng-app="iamin">
+  <body>
 
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -59,6 +59,7 @@
             <% if current_user && current_user.admin? %>
               <li><%= link_to "Benutzer", users_path %></li>
               <li><%= link_to "Bedarfe", needs_path %></li>
+              <li><%= link_to "Kalendar", pages_calendar_path %></li>
             <% end %>
           </ul>
         </div>

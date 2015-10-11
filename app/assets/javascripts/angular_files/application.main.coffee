@@ -8,6 +8,9 @@ angular.module('iamin', [])
   # 'ngTouch'
   #])
 
+  .controller 'iaminController', ($scope) ->
+    console.debug 'iamin Angular controller'
+
   # # Setup the application configuration
   # .config () ->
   #   console.debug 'config'

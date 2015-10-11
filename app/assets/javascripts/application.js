@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require angular/angular.min
 //= require moment/min/moment.min
 //= require fullcalendar/dist/fullcalendar.min
