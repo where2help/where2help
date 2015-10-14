@@ -35,6 +35,8 @@ gem 'sucker_punch'
 # pagination
 gem 'kaminari'
 
+gem 'pry'
+
 group :production do
   gem "rails_12factor"
 end
@@ -49,4 +51,7 @@ end
 group :development do
   gem 'web-console', '~> 2.0'         # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'spring'                        # keeps application running in the background.
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
