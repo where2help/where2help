@@ -36,6 +36,8 @@ config/secrets.yml
 
 # developers might have their own workflows
 Procfile.dev
-.env
 .ruby-gemset
 .ruby-version
+
+# your own ENV related stuff. Copy over .env.example locally
+.env

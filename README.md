@@ -24,3 +24,11 @@ and iOS app at the following URL:
 
 Initial version of the web and mobile app was built in two days as part of the
 [Refugee Hack Vienna](http://www.hackathon.wien/).
+
+## Installation
+
+__ENV Variables for configuration managment__
+
+Your system environmental variables are kept in your `.env` file. There is an example of all of the vars you need in `.env.example`. You can copy this file to `.env` when you start and edit the vars to how you like your system setup.
+
+If you need environment specific (eg. test, development) .env files, [look here](https://github.com/bkeepers/dotenv#multiple-rails-environments)
