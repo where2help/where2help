@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
       jsonapi_resources :needs
       jsonapi_resources :volunteerings
+      jsonapi_resources :needs, controller: "calendar_needs_controller"
       get 'org/needs' => 'needs#ngo_index'
     end
   end
