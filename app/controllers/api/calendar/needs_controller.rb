@@ -29,9 +29,10 @@ module Api
       end
 
       def update
-        super
-        ::NotifyJob.new.perform("notify!!!!!!!!!!!")
+        need = Need.find_by(id: params['id'])
+        ::NotifyJob.new.perform(need)
         Rails.logger.debug '=========================lslslalfas'
+        super
       end
     end
   end
