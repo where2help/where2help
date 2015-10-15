@@ -8,12 +8,15 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :api do
+    namespace :calendar do
+      jsonapi_resources :needs, controller: "calendar_needs_controller"      
+    end
+
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
 
       jsonapi_resources :needs
       jsonapi_resources :volunteerings
-      jsonapi_resources :needs, controller: "calendar_needs_controller"
       get 'org/needs' => 'needs#ngo_index'
     end
   end
