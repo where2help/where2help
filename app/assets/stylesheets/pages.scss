@@ -1,3 +1,19 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+section.home {
+  background-image: url(image_path('pages/landing_page.jpg'));
+  background-size: cover;
+
+  h1 {
+    color: #fff;
+    font-size: 3rem;
+    padding-top: 15%;
+  }
+
+  div.row {
+    div {
+      padding-top: 5%;
+    }
+  }
+}

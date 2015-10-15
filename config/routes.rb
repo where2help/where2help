@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
-  devise_scope :user do
-    root to: 'devise/sessions#new'
-  end
   resources :users
 
   namespace :api do
@@ -25,5 +21,7 @@ Rails.application.routes.draw do
 
   resources :volunteerings, only: [:create, :destroy]
 
-  get  'pages/calendar' => 'pages#calendar'
+  get 'pages/calendar' => 'pages#calendar'
+  get 'pages/home' => 'pages#home'
+  root 'pages#home'
 end
