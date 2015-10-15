@@ -1,0 +1,2 @@
+class VolunteerMailer < ApplicationMailer
+end
