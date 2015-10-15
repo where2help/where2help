@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
   devise_scope :user do
     root to: 'devise/sessions#new'
@@ -8,11 +9,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
+
       jsonapi_resources :needs
       jsonapi_resources :volunteerings
       get 'org/needs' => 'needs#ngo_index'
-      post 'sessions/create' => 'sessions#create'
-      delete 'sessions/destroy' => 'sessions#destroy'
     end
   end
 

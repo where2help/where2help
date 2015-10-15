@@ -26,6 +26,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 gem 'devise'                          # Authentication
 gem 'devise-bootstrap-views'          # Bootstrap integration for devise
 gem 'devise_token_auth'               # Token generation for the API
+gem 'omniauth'               # Token generation for the API
 gem 'jsonapi-resources'               # API - Generator
 
 gem 'sucker_punch'

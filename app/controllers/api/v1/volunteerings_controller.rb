@@ -1,6 +1,7 @@
 module Api
   module V1
     class VolunteeringsController < JSONAPI::ResourceController
+      include DeviseTokenAuth::Concerns::SetUserByToken
 
       def create
       	sparams = params['data']['attributes']

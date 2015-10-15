@@ -1,7 +1,8 @@
 module Api
   module V1
     class NeedsController < JSONAPI::ResourceController
-    	before_action :authenticate_user!, except: [:show, :index, :feed]
+    	before_action :authenticate_user!, only: [:ngo_index]
+      include DeviseTokenAuth::Concerns::SetUserByToken
 
       def ngo_index
         if current_user && current_user.admin?
