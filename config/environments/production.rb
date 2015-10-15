@@ -81,4 +81,15 @@ Rails.application.configure do
 
   # Devise needs that on Heroku (Stefan Haslinger)
   config.assets.initialize_on_precompile = false
+
+  # Sendgrid Settings
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
 end

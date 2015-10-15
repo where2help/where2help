@@ -45,6 +45,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.3)
     bcrypt (3.1.10)
     better_errors (2.1.1)
@@ -125,6 +126,8 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.7.0)
@@ -132,6 +135,8 @@ GEM
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     libv8 (3.16.14.11)
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
@@ -279,6 +284,7 @@ DEPENDENCIES
   jsonapi-resources
   kaminari
   less-rails
+  letter_opener
   omniauth
   pg
   pry
