@@ -1,6 +1,6 @@
 module Api
   module V1
-    class CalendarNeedsController < JSONAPI::ResourceController
+    class NeedsController < JSONAPI::ResourceController
     	before_action :authenticate_user!, only: [:ngo_index]
 
       def ngo_index

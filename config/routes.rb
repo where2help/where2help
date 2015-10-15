@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :calendar do
-      jsonapi_resources :needs, controller: "calendar_needs_controller"      
+      jsonapi_resources :needs    
     end
 
     namespace :v1 do
