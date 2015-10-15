@@ -47,6 +47,11 @@ Setup the database
 
     $ bundle exec rake db:setup
 
+Migrate and populate the data
+
+    $ bundle exec rake db:migrate
+    $ bundle exec rake db:populate
+
 Start up rails!
 
     $ rails server
