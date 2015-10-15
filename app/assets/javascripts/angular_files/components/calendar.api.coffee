@@ -1,8 +1,7 @@
-#/api/v1/needs.json
 angular.module("iamin")
   .service("ApiCalendar", ['$http', ($http) ->
     class ApiCalendar
-      needs: -> $http.get("/api/v1/org/needs.json").then (res) =>
+      needs: -> $http.get("/api/calendar/org/needs.json").then (res) =>
         @_parse_needs res.data.data
 
       addNeed: (need) ->
@@ -15,7 +14,7 @@ angular.module("iamin")
         # need['start-time'] = need.start
         # need['end-time'] = need.end#.format()
         $http({
-          url: "/api/v1/needs.json",
+          url: "/api/calendar/needs.json",
           dataType: "json",
           method: "POST",
           headers: {
@@ -35,7 +34,7 @@ angular.module("iamin")
         # need['start-time'] = need.start
         # need['end-time'] = need.end#.format()
         $http({
-          url: "/api/v1/needs/" + niceNeed.id + '.json'
+          url: "/api/calendar/needs/" + niceNeed.id + '.json'
           dataType: "json",
           method: "PUT",
           headers: {
@@ -55,7 +54,7 @@ angular.module("iamin")
         # need['start-time'] = need.start
         # need['end-time'] = need.end#.format()
         $http({
-          url: "/api/v1/needs/" + need.id + '.json'
+          url: "/api/calendar/needs/" + need.id + '.json'
           dataType: "json",
           method: "DELETE",
           headers: {
