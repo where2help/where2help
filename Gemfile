@@ -41,11 +41,14 @@ group :production do
 end
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'byebug'                        # Debugger
   gem 'foreman'
   gem 'guard'
   gem 'guard-livereload'
+end
+
+group :development, :test, :staging do
+  gem 'dotenv-rails'
 end
 
 group :development do
