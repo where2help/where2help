@@ -3,7 +3,7 @@
   <%= f.input :end_time %>
   <%= f.input :location %>
   <%= f.input :city %>
-  <%= f.input :category, collection: Need.categories_for_select %>
+  <%= f.input :category, collection: Need.categories_for_select, include_blank: false %>
   <%= f.input :volunteers_needed %>
 
   <%= f.button :button,
