@@ -1,7 +1,7 @@
 module DeviseTokenAuth
   class RegistrationsController < DeviseTokenAuth::ApplicationController
     # start @informatom 20151016
-    skip_before_filter :verify_authenticity_token, only: :create
+    skip_before_filter :verify_authenticity_token, only: [:create, :sign_in]
     skip_before_filter :authenticate_user!, only: :create
 
     before_action :configure_permitted_parameters, if: :devise_controller?
