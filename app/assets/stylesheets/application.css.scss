@@ -11,9 +11,20 @@
  * file per style scope.
  *
  *= require fullcalendar/dist/fullcalendar.css
- *= require devise_bootstrap_views
- *= require font-awesome
- *= require_tree .
- *= require_self
  */
 
+// vendor
+@import 'bootstrap';
+@import 'devise_bootstrap_views';
+@import 'font-awesome';
+
+// util
+@import 'util/colors';
+@import 'util/bootstrap_overwrites';
+
+// components
+@import 'components/calendar';
+@import 'components/needs_feed';
+
+// page specific
+@import 'pages/*';
