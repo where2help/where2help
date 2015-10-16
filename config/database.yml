@@ -1,5 +1,5 @@
 default: &default
-  adapter: postgres
+  adapter: postgresql
   pool: 5
   timeout: 5000
   url: <%= ENV['DATABASE_URL'] %>
@@ -8,6 +8,9 @@ development:
   <<: *default
 
 test:
+  <<: *default
+
+staging:
   <<: *default
 
 production:

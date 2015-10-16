@@ -18,8 +18,9 @@ gem 'jbuilder', '~> 2.0'              # Build JSON APIs with ease.
 gem 'sdoc', '~> 0.4.0', group: :doc   # bundle exec rake doc:rails generates the API under doc/api.
 gem 'unicorn'                         # Application server
 
-gem "less-rails"                      # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"         # Twitter Bootstrap integration
+gem 'bootstrap-sass'                  # Twitter Bootstrap integration
+gem 'bootstrap-sass-extras'           # Twitter Bootstrap helpers (taken from less version)
+gem 'font-awesome-rails'              # Better Icon Font
 gem "simple_form"                     # Form Generation
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
@@ -31,8 +32,7 @@ gem 'jsonapi-resources'               # API - Generator
 
 gem 'sucker_punch'
 
-# pagination
-gem 'kaminari'
+gem 'kaminari'                        # pagination
 
 gem 'pry'
 
@@ -41,11 +41,14 @@ group :production do
 end
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'byebug'                        # Debugger
   gem 'foreman'
   gem 'guard'
   gem 'guard-livereload'
+end
+
+group :development, :test, :staging do
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -55,4 +58,5 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "letter_opener"
+  gem "awesome_print"
 end

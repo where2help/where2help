@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable,
-          :omniauthable
+          :recoverable, :rememberable, :trackable, :validatable
 
-  #:confirmable,
+  # start @informatom 20151016
+  #:confirmable, :omniauthable
+  # end @informatom 20151016
 
   include DeviseTokenAuth::Concerns::User
 
@@ -13,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :needs
 
   # validations
+
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :phone, presence: true
