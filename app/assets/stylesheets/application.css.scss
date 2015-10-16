@@ -10,37 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require colors
  *= require fullcalendar/dist/fullcalendar.css
- *= require devise_bootstrap_views_less
+ *= require devise_bootstrap_views
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
-.navbar {
-  height: 75px;
-}
-
-.container {
-  color: #102631 !important;
-}
-
-.navbar-nav {
-  margin-top: 23px;
-}
-
-.navbar, .table-striped > tbody > tr:nth-child(odd), .sidebar-nav {
-  background-color: #f3efe0;
-}
-
-a.btn-info {
-  background-color: #6ec9c6;
-  color: #fff;
-}
-a.btn-info:hover {
-  background-color: #578F8D;
-}
-
-a.btn-primary:visited {
-  color: #fff;
-}
