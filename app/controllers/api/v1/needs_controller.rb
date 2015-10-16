@@ -1,7 +1,6 @@
 module Api
   module V1
     class NeedsController < JSONAPI::ResourceController
-    	before_action :authenticate_user!, only: [:ngo_index]
       include DeviseTokenAuth::Concerns::SetUserByToken
 
       def create
