@@ -1,16 +1,10 @@
 <%= simple_form_for @need, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :start_time %>
-  <%= error_span(@need[:start_time]) %>
   <%= f.input :end_time %>
-  <%= error_span(@need[:end_time]) %>
   <%= f.input :location %>
-  <%= error_span(@need[:location]) %>
   <%= f.input :city %>
-  <%= error_span(@need[:city]) %>
   <%= f.input :category, collection: Need.categories_for_select %>
-  <%= error_span(@need[:category]) %>
   <%= f.input :volunteers_needed %>
-  <%= error_span(@need[:volunteers_needed]) %>
 
   <%= f.button :button,
                 data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
