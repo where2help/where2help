@@ -4,18 +4,6 @@ module Api
     	before_action :authenticate_user!, only: [:ngo_index]
       include DeviseTokenAuth::Concerns::SetUserByToken
 
-      def ngo_index
-        if current_user && current_user.admin?
-          needs = Need.all
-        else
-          needs = Need.where(user_id: current_user.id)
-        end
-        resources = needs.map { |need| NeedResource.new(need, nil) }
-        json = JSONAPI::ResourceSerializer.new(NeedResource).serialize_to_hash(resources)
-        render json: json
-      end
-
-
       def create
         sparams = params['data']['attributes']
         start_time = sparams['start-time']
