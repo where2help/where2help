@@ -10,7 +10,7 @@ development:
 test:
   <<: *default
 
-stagang:
+staging:
   <<: *default
 
 production:
