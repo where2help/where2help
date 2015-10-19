@@ -34,7 +34,15 @@ gem 'sucker_punch'
 
 gem 'kaminari'                        # pagination
 
-gem 'pry'
+gem 'pry-rails'
+
+# External Client Deps
+gem 'faraday', require: false
+gem 'faraday-http-cache', require: false
+gem 'faraday_middleware', require: false
+gem 'typhoeus', require: false
+gem 'oj', require: false
+gem 'oj_mimic_json', require: false
 
 group :production do
   gem "rails_12factor"
