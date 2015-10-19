@@ -5,7 +5,7 @@ class NeedsController < ApplicationController
 
   def feed
     @needs = Need.includes(:volunteerings).
-                  upcoming.                  
+                  upcoming.
                   page(params[:page]).per(20)
   end
 
@@ -51,6 +51,8 @@ class NeedsController < ApplicationController
   def update
     respond_to do |format|
       if @need.update(need_params)
+        # Add lat and lng to need
+        Workers::Coords.new.async.perform(@need.id)
         format.html { redirect_to root_path, notice: 'Need was successfully updated.' }
         format.json { render :show, status: :ok, location: @need }
       else
