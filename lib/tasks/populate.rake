@@ -26,12 +26,17 @@ namespace :db do
       password: 'supersecret',
       phone: '12345678987654321')
 
+    cities = ['Wien', 'Salzburg', 'Graz', 'Linz']
+    locations = ['Westbahnhof', 'Hauptbahnhof', 'Falcogasse 8', 'Ringstraße 10']
     50.times do
+      start = Time.now + rand(7).days + rand(86400).seconds
       ngo_admin.needs.create(
-        city: 'Wien',
-        location: 'Westbahnhof',
-        start_time: Time.now+2.days,
-        end_time: Time.now+2.days+2.hours)
+        city: cities.sample,
+        location: locations.sample,
+        category: Need.categories.keys.sample,
+        volunteers_needed: rand(1..50),
+        start_time: start,
+        end_time: start + rand(5).hours)
     end
   end
 end
