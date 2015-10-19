@@ -15,7 +15,7 @@ module Jobs
 
       def location(need)
         city, place = need.city, need.location
-        return "%s, %s" % [city, place]
+        return "%s, %s" % [place, city]
       end
     end
   end
