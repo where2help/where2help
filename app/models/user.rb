@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
 
@@ -8,17 +7,18 @@ class User < ActiveRecord::Base
   # end @informatom 20151016
 
   include DeviseTokenAuth::Concerns::User
+  include AdminConfirmable
 
   # associations
   has_many :volunteerings
   has_many :needs
 
   # validations
-
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :phone, presence: true
 
+  # callbacks
   after_create :first_user_gets_admin
 
   private
