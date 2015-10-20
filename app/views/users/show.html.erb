@@ -22,6 +22,9 @@
               users_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_user_path(@user), :class => 'btn btn-default' %>
+<% if current_user && current_user.admin? %>
+  <%= admin_confirm_link @user %>
+<% end %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               user_path(@user),
               :method => 'delete',
