@@ -5,7 +5,7 @@ class VolunteerMailer < ApplicationMailer
     @volunteers = User.where.not(ngo_admin: true)
     @need = need
     @url = 'http://where2help.at'
-    mail(to: @volunteers.map(&:email), subject: "Wir brauchen dir am #{need.location}!")
+    mail(to: @volunteers.map(&:email), subject: "Wir brauchen dir am #{need.location}!") unless @volunteers.empty?
   end
 
 end
