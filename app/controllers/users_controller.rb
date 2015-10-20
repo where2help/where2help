@@ -62,6 +62,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def admin_confirm
+    @user = User.find(params[:id])
+    if @user.toggle(:admin_confirmed).save && @user.admin_confirmed?
+      UserMailer.admin_confirmation(@user).deliver_later
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -81,7 +88,6 @@ class UsersController < ApplicationController
                            :password_confirmation,
                            :phone,
                            :admin,
-                           :ngo_admin,
-                           :admin_confirmed)
+                           :ngo_admin)
     end
 end

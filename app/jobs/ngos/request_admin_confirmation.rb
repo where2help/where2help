@@ -3,7 +3,7 @@ module Ngos
     include SuckerPunch::Job
 
     def perform(user)
-      AdminMailer.ngo_confirmation_request(user).deliver
+      AdminMailer.ngo_confirmation_request(user).deliver_now
     end
   end
 end

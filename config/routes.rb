@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :users
+  resources :users do
+    post :admin_confirm, on: :member
+  end
   devise_scope :user do
     namespace :ngos do
       get :sign_up, to: 'registrations#new'

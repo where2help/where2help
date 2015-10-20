@@ -14,7 +14,9 @@ module AdminConfirmable
         super # Use whatever other message
       end
     end
+  end
 
+  class_methods do
     def self.send_reset_password_instructions(attributes={})
       recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
       if !recoverable.admin_confirmed?
