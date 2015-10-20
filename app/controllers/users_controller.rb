@@ -81,6 +81,7 @@ class UsersController < ApplicationController
                            :password_confirmation,
                            :phone,
                            :admin,
-                           :ngo_admin)
+                           :ngo_admin,
+                           :admin_confirmed)
     end
 end

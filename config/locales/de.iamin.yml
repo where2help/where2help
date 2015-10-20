@@ -10,6 +10,7 @@ de:
         last_name: Nachname
         phone: Telefon
         remember_me: angemeldet bleiben
+        admin_confirmed: Account Freischalten
       topic:
         created_at: angelegt
         title: Titel

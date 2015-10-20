@@ -1,18 +1,13 @@
 <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :email %>
-  <%= error_span(@user[:email]) %>
   <%= f.input :first_name %>
-  <%= error_span(@user[:first_name]) %>
   <%= f.input :last_name %>
-  <%= error_span(@user[:last_name]) %>
   <%= f.input :phone %>
-  <%= error_span(@user[:phone]) %>
   <% if current_user && current_user.admin? %>
     <%= f.input :admin %>
-    <%= error_span(@user[:admin]) %>
     <%# Only admins can set users to be NGO admins %>
     <%= f.input :ngo_admin %>
-    <%= error_span(@user[:ngo_admin]) %>
+    <%= f.input :admin_confirmed %>
   <% end %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
