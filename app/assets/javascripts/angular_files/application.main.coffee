@@ -1,5 +1,5 @@
 'use strict'
-angular.module('iamin', [])
+angular.module('where2help', [])
   # 'ngAnimate',
   # 'ngCookies',
   # 'ngResource',
@@ -8,8 +8,8 @@ angular.module('iamin', [])
   # 'ngTouch'
   #])
 
-  .controller('iaminController', ['$scope', ($scope) ->
-    console.debug 'iamin Angular controller'
+  .controller('where2helpController', ['$scope', ($scope) ->
+    console.debug 'where2help Angular controller'
 
   # # Setup the application configuration
   # .config () ->

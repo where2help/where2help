@@ -1,4 +1,4 @@
-angular.module("iamin")
+angular.module("where2help")
   .service("ApiCalendar", ['$http', ($http) ->
     class ApiCalendar
       needs: -> $http.get("/api/calendar/org/needs.json").then (res) =>

@@ -10,18 +10,18 @@
   }
 
   .fc-event {
-    border-color: $iamin_dark_blue;
-    background-color: $iamin_dark_blue;
+    border-color: $where2help_dark_blue;
+    background-color: $where2help_dark_blue;
   }
 
   .fc-event.need-fulfilled {
-    border-color: $iamin_gray;
-    background-color: $iamin_gray;
-    color: $iamin_light_gray;
+    border-color: $where2help_gray;
+    background-color: $where2help_gray;
+    color: $where2help_light_gray;
   }
 
   .fc-today {
-    background-color: $iamin_yellow;
+    background-color: $where2help_yellow;
   }
 
   // .fc-button { // copied from bootstrap

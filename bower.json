@@ -1,7 +1,7 @@
 {
-  "name": "iamin",
+  "name": "where2help",
   "version": "0.0.1",
-  "homepage": "https://github.com/refugeeHackVienna/iamin",
+  "homepage": "https://github.com/refugeeHackVienna/where2help",
   "dependencies": {
     "angular": "~1.4.7",
     "fullcalendar": "~2.4.0"
