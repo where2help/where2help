@@ -1,3 +1,20 @@
-<li><%= link_to 'Kalender', pages_calendar_path %></li>
-<li><%= link_to 'Bedarfe', needs_path %></li>
-<li><%= link_to 'Benutzer', users_path %></li>
+<li>
+  <%= link_to pages_calendar_path do %>
+    <i class="fa fa-calendar-o fa-fw"></i> Kalender
+  <% end %>
+</li>
+<li>
+  <%= link_to needs_path do %>
+    <i class="fa fa-child fa-fw"></i> Termine
+  <% end %>
+</li>
+<li>
+  <%= link_to users_path do %>
+    <i class="fa fa-child fa-fw"></i> Termine
+  <% end %>
+</li>
+<li>
+  <%= link_to 'Benutzer', users_path do %>
+    <i class="fa fa-users fa-fw"></i> Benutzer
+  <% end %>
+<li>
