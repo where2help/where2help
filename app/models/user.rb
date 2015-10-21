@@ -21,6 +21,18 @@ class User < ActiveRecord::Base
   # callbacks
   after_create :first_user_gets_admin
 
+  # instance methods
+  def role
+    case
+    when admin?
+      :admin
+    when ngo_admin?
+      :ngo
+    else
+      :volunteer      
+    end
+  end
+
   private
     def first_user_gets_admin
       if User.all.count == 1

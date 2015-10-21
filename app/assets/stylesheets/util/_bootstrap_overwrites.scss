@@ -2,30 +2,37 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Open Sans", sans-serif !important;
 }
 
-.navbar {
-  height: 75px;
+body {
+  padding-top: 70px;
 }
 
-.container {
-  color: #102631 !important;
+.navbar-brand {
+  margin-top: -0.5rem;
 }
-
-.navbar-nav {
-  margin-top: 23px;
-}
-
-.navbar, .table-striped > tbody > tr:nth-child(odd), .sidebar-nav {
-  background-color: #f3efe0;
-}
-
-a.btn-info {
-  background-color: #6ec9c6;
-  color: #fff;
-}
-a.btn-info:hover {
-  background-color: #578F8D;
-}
-
-a.btn-primary:visited {
-  color: #fff;
-}
+// .navbar {
+//   height: 75px;
+// }
+//
+// .container {
+//   color: #102631 !important;
+// }
+//
+// .navbar-nav {
+//   margin-top: 23px;
+// }
+//
+// .navbar, .table-striped > tbody > tr:nth-child(odd), .sidebar-nav {
+//   background-color: #f3efe0;
+// }
+//
+// a.btn-info {
+//   background-color: #6ec9c6;
+//   color: #fff;
+// }
+// a.btn-info:hover {
+//   background-color: #578F8D;
+// }
+//
+// a.btn-primary:visited {
+//   color: #fff;
+// }

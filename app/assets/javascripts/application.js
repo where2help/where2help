@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require angular/angular.min
 //= require moment/min/moment.min
 //= require fullcalendar/dist/fullcalendar.min
