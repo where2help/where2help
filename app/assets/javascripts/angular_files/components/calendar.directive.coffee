@@ -1,4 +1,4 @@
-angular.module('iamin')
+angular.module('where2help')
   #.directive 'calendar', ($compile, $state, $interval, $timeout, Api, calendarConfig) ->
   .directive('calendar', ['$compile', '$location', 'Api', ($compile, $location, Api) ->
     #templateUrl: "/views/directives/calendar.html"

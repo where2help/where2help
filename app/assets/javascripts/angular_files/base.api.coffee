@@ -1,4 +1,4 @@
-angular.module('iamin')
+angular.module('where2help')
   .service('Api', ['ApiCalendar', (ApiCalendar) ->
     class Api
       constructor: ->
