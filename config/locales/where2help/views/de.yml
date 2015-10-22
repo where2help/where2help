@@ -1,0 +1,16 @@
+de:
+  application:
+    nav:
+      sign_up: Anmelden
+    nav_admin:
+      calendar: Kalender
+      needs: Termine
+      users: Benutzer
+    nav_ngo:
+      calendar: Kalender
+      needs: Termine
+    nav_volunteer:
+      needs: Termine
+    nav_personal:
+      profile: Profil
+      sign_out: Abmelden
