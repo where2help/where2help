@@ -18,6 +18,17 @@ module Api
         ::NotifyJob.new.perform("notify!!!!!!!!!!!")
         Rails.logger.debug '=========================lslslalfas'
       end
+
+      def index
+        super
+        puts "======================================="
+        puts "Access-Token: " + request.headers["Access-Token"]
+        puts "Token-Type: " + request.headers["Token-Type"]
+        puts "Client: " + request.headers["Client"]
+        puts "Uid: " + request.headers["Uid"]
+        puts "======================================="
+      end
     end
   end
 end
+
