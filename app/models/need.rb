@@ -1,10 +1,12 @@
 class Need < ActiveRecord::Base
 
-  # scopes  
+  # scopes
   scope :upcoming, -> { where('start_time >= (?)', Time.now) }
+  scope :unfulfilled, -> { where('volunteerings_count < volunteers_needed') }
+  scope :fulfilled, -> { where('volunteerings_count >= volunteers_needed') }
 
   # macros
-  enum category: {general: 0, legal: 1, medical: 2, translation: 3}
+  enum category: { general: 0, legal: 1, medical: 2, translation: 3 }
 
   # associations
   has_many :volunteerings
@@ -26,6 +28,6 @@ class Need < ActiveRecord::Base
   end
 
   def i18n_category
-    I18n.t(category, scope: [:activerecord, :attributes, :need, :categories])    
+    I18n.t(category, scope: [:activerecord, :attributes, :need, :categories])
   end
 end

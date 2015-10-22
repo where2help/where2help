@@ -6,6 +6,7 @@ class NeedsController < ApplicationController
   def feed
     @needs = Need.includes(:volunteerings).
                   upcoming.
+                  unfulfilled.
                   page(params[:page]).per(20)
   end
 
