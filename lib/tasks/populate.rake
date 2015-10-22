@@ -5,6 +5,7 @@ namespace :db do
 
     admin = User.create(
       email: 'admin@example.com',
+      uid: 'admin@example.com',
       first_name: 'real',
       last_name: 'admin',
       password: 'supersecret',
@@ -13,6 +14,7 @@ namespace :db do
 
     ngo_admin = User.create(
       email: 'ngo_admin@example.com',
+      uid: 'ngo_admin@example.com',
       first_name: 'ngo',
       last_name: 'admin',
       password: 'supersecret',
@@ -21,6 +23,7 @@ namespace :db do
 
     normal_user = User.create(
       email: 'normal_user@example.com',
+      uid: 'normal_user@example.com',
       first_name: 'normal',
       last_name: 'user',
       password: 'supersecret',
