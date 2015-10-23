@@ -55,3 +55,19 @@ Migrate and populate the data
 Start up rails!
 
     $ rails server
+
+### Tests
+
+Add a test env file and change the `DATABASE_URL` to e.g. `where2help_test`
+
+    $ cp .env.sample .env.test
+
+Setup the test db
+
+    $ bundle exec rake db:setup RAILS_ENV='test'
+    
+Run specs
+
+    $ rspec spec/
+
+    

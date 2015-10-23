@@ -1,7 +1,7 @@
 class Need < ActiveRecord::Base
 
   # scopes
-  scope :upcoming, -> { where('start_time >= (?)', Time.now) }
+  scope :upcoming, -> { where('start_time >= (?)', Time.now).order(:start_time) }
   scope :unfulfilled, -> { where('volunteerings_count < volunteers_needed') }
   scope :fulfilled, -> { where('volunteerings_count >= volunteers_needed') }
 

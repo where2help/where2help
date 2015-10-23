@@ -70,3 +70,7 @@ group :development do
   gem "letter_opener"
   gem "awesome_print"
 end
+
+group :test do
+  gem 'faker'
+end
