@@ -49,6 +49,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'byebug'                        # Debugger
   gem 'foreman'
   gem 'guard'
