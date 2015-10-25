@@ -8,6 +8,7 @@ module NeedsHelper
     link_to_next_page resource, 'Mehr anzeigen',
       remote: true,
       data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
+      params: { category: params[:category], place: params[:place] },
       class: 'btn btn-primary btn-lg btn-block view-more'
   end
 
@@ -33,6 +34,6 @@ module NeedsHelper
       method: volunteering ? :delete : :post,
       btn_class: volunteering ? 'btn btn-danger btn-lg btn-block' : "btn btn-#{open ? 'success' : 'warning'} btn-lg btn-block"
     }
-    
+
   end
 end
