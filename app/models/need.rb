@@ -22,6 +22,22 @@ class Need < ActiveRecord::Base
     end
   end
 
+  def self.filter_category(category)
+    if category.present?
+      where(category: Need.categories[category])
+    else
+      all
+    end
+  end
+
+  def self.filter_place(place)
+    if place.present?
+      where('city @@ :q or location @@ :q', q: place)
+    else
+      all
+    end
+  end
+
   # instance methods
   def volunteers_needed?
     volunteerings.size < volunteers_needed

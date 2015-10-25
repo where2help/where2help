@@ -101,8 +101,100 @@ RSpec.describe Need, type: :model do
     end
   end
 
+  describe '.filter_category' do
+    context 'without category param' do
+      before { 3.times{ create(:need) } }
+
+      subject(:needs) { Need.filter_category('') }
+
+      it 'returns all needs' do
+        expect(needs).to eq Need.all
+        expect(needs.size).to eq 3
+      end
+    end
+
+    context 'with valid category param' do
+      let!(:legal_need) { create(:need, category: 'legal') }
+      let!(:general_need) { create(:need, category: 'general') }
+
+      subject(:needs) { Need.filter_category('legal') }
+
+      it 'includes needs from category' do
+        expect(needs).to include(legal_need)
+      end
+
+      it 'excludes needs from category' do
+        expect(needs).not_to include(general_need)
+      end
+    end
+    
+    context 'with invalid category' do
+      before { 3.times{ create(:need)} }
+
+      subject(:needs) { Need.filter_category('random_stuff') }
+
+      it 'returns empy scope' do
+        expect(needs).to be_empty
+      end
+    end
+  end
+
+  describe '.filter_place' do
+    context 'without place param' do
+      before { 3.times{create(:need)} }
+
+      subject(:needs) { Need.filter_place('') }
+
+      it 'returns all needs' do
+        expect(needs).to eq Need.all
+        expect(needs.size).to eq 3
+      end
+    end
+
+    context 'with needs where city matches place param' do
+      let!(:wien_need) { create(:need, city: 'wien') }
+      let!(:graz_need) { create(:need, city: 'graz') }
+
+      subject(:needs) { Need.filter_place('Wien') }
+
+      it 'includes needs from city' do
+        expect(needs).to include(wien_need)
+      end
+
+      it 'excludes needs from other city' do
+        expect(needs).not_to include(graz_need)
+      end
+    end
+
+    context 'with needs where location fuzzy matches place param' do
+      let!(:wien_need) { create(:need, location: 'wien museum') }
+      let!(:graz_need) { create(:need, city: 'wie') }
+
+      subject(:needs) { Need.filter_place('Wien') }
+
+      it 'includes needs with matching location' do
+        expect(needs).to include(wien_need)
+      end
+
+      it 'excludes needs with other location' do
+        expect(needs).not_to include(graz_need)
+      end
+    end
+
+    context 'with needs where neither city nor location match place param' do
+      let!(:wien_need) { create(:need, location: 'Westbahnhof') }
+      let!(:graz_need) { create(:need, city: 'Wien') }
+
+      subject(:needs) { Need.filter_place('Graz') }
+
+      it 'returns empty scope' do
+        expect(needs).to be_empty
+      end
+    end
+  end
+
   describe '.categories_for_select' do
-    it 'is a pending example'    
+    it 'is a pending example'
   end
 
   describe '#volunteers_needed?' do
