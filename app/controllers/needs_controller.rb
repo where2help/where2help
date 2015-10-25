@@ -1,9 +1,17 @@
 class NeedsController < ApplicationController
   before_action :set_need, only: [:edit, :update, :destroy]
-  before_action :only_ngo_admin, except: [:show, :index, :feed]
+  before_action :only_ngo_admin, except: [:show, :index, :list]
   respond_to :html
 
   def feed
+    @needs = Need.includes(:volunteerings).
+                  upcoming.
+                  unfulfilled.
+                  page(params[:page]).per(20)
+  end
+
+
+  def list
     @needs = Need.includes(:volunteerings).
                   upcoming.
                   unfulfilled.

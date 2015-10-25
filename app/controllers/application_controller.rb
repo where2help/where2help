@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     if resource.ngo_admin? || resource.admin?
       pages_calendar_path
     else
-      needs_feed_path
+      list_needs_path
     end
   end
 

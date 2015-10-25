@@ -24,8 +24,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :needs
-  get :needs_feed, to: 'needs#feed'
+  resources :needs do
+    get :list, on: :collection
+  end
 
   resources :volunteerings, only: [:create, :destroy]
 
