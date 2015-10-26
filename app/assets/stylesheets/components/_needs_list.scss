@@ -30,6 +30,9 @@ div.list-item {
     color: $white;
     background-color: $where2help_blue;
     border-color: $blue-accent;
+    @media (max-width: 768px) {
+      margin-top: 10px;
+    }
 
     &:hover {
       background-color: $blue-accent;
