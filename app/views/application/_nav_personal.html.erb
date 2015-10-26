@@ -3,12 +3,12 @@
 <li class="visible-xs"><hr></li>
 <li class="<%= 'visible-xs' if mobile %>">
   <%= link_to user_path(current_user) do %>
-    <i class="fa fa-cog fa-fw"></i> Profil
+    <i class="fa fa-cog fa-fw"></i> <%= t '.profile' %>
   <% end %>
 </li>
 <li role="separator" class="divider hidden-xs"></li>
 <li class="<%= 'visible-xs' if mobile %>">
   <%= link_to destroy_user_session_path, method: :delete do %>
-    <i class="fa fa-sign-out fa-fw"></i> Abmelden
+    <i class="fa fa-sign-out fa-fw"></i> <%= t '.sign_out' %>
   <% end %>
 </li>
