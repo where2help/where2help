@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :users do
     post :admin_confirm, on: :member
   end
+
+  # singular routes for user
+  resource :user do
+    get :appointments, to: 'volunteers/needs#index'
+  end
+
   devise_scope :user do
     namespace :ngos do
       get :sign_up, to: 'registrations#new'
