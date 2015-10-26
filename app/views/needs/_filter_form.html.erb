@@ -1,6 +1,7 @@
 <div class="row">
-  <%= form_tag list_needs_path, method: :get, id: 'filter-form', remote: true, class: 'form-inline' do %>
+  <%= form_tag list_needs_path, method: :get, id: 'filter-form', remote: true, class: 'form-inline col-lg-10 col-lg-offset-1' do %>
     <%= hidden_field_tag :filter, true %>
+
     <div class="form-group">
       <%= label_tag :category, nil, class: 'sr-only' %>
       <%= select_tag :category,
@@ -9,19 +10,17 @@
                     onchange: "$('#filter-form').submit();",
                     class: 'form-control' %>
     </div>
-    <div class="form-group">
-      <div class="input-group">
-        <%= label_tag :place, nil, class: 'sr-only' %>
-        <%= text_field_tag :place, params[:place],
-                            placeholder: 'Stadt / Ort',
-                            onchange: "$('#filter-form').submit();",
-                            class: 'form-control' %>
-        <span class="input-group-btn">
-          <%= button_tag data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-default' do %>
-            <i class="fa fa-search"></i>
-          <% end %>
-        </span>
-      </div>
+    <div class="input-group pull-right">
+      <%= label_tag :place, nil, class: 'sr-only' %>
+      <%= text_field_tag :place, params[:place],
+                          placeholder: 'Stadt / Ort',
+                          onchange: "$('#filter-form').submit();",
+                          class: 'form-control' %>
+      <span class="input-group-btn">
+        <%= button_tag data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-default' do %>
+          <i class="fa fa-search"></i>
+        <% end %>
+      </span>
     </div>
   <% end %>
 </div>

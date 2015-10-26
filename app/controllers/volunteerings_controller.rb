@@ -9,5 +9,6 @@ class VolunteeringsController < ApplicationController
     volunteering = Volunteering.find(params[:id])
     @need = volunteering.need
     volunteering.destroy
+    @need.reload
   end
 end

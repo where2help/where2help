@@ -1,7 +1,7 @@
 module NeedsHelper
 
   def icon_for(need)
-    image_tag("needs/#{need.category}.png", class: 'img-responsive')
+    image_tag("needs/#{need.category}.png", height: '64', class: 'media-object')
   end
 
   def view_more_link(resource)
@@ -18,8 +18,8 @@ module NeedsHelper
               method: button_options[:method],
               remote: true,
               data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
-              class:  button_options[:btn_class] do
-      content_tag(:i, nil, class: button_options[:icon]) + ' ' + button_options[:txt]
+              class:  "btn btn-default btn-block btn-volunteering #{button_options[:class] if button_options[:class]}" do
+      render 'volunteerings/button', need: need, txt: button_options[:txt], action: button_options[:action]
     end
   end
 
@@ -27,12 +27,13 @@ module NeedsHelper
 
   def _button_options(need)
     volunteering = need.volunteerings.find_by_user_id(current_user)
-    open = need.volunteerings.count < need.volunteers_needed
+    #open = need.volunteerings.count < need.volunteers_needed
     { url: volunteering ? volunteering_path(volunteering) : volunteerings_path(need_id: need.id),
-      txt: volunteering ? 'Absagen' : 'Helfen',
-      icon: volunteering ? 'fa fa-times' : 'fa fa-check',
+      txt: volunteering ? "Bitte komm um #{I18n.localize(need.start_time, format:'%H:%M')}" : "Wir brauchen noch #{[0, need.volunteers_needed - need.volunteerings_count].max} Helfer",
+      action: volunteering ? 'Absagen' : 'Helfen',
+      #icon: volunteering ? 'fa fa-times' : 'fa fa-check',
       method: volunteering ? :delete : :post,
-      btn_class: volunteering ? 'btn btn-danger btn-lg btn-block' : "btn btn-#{open ? 'success' : 'warning'} btn-lg btn-block"
+      class: volunteering ? 'btn-active' : nil
     }
 
   end

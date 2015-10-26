@@ -3,15 +3,50 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-h2.need-category {
-  margin-top: 0;
+form#filter-form {
+  margin-bottom: 40px;
 }
 
-div.feed-item {
-  padding-top: 20px;
-  padding-bottom: 20px;
+// h2.need-category {
+//   margin-top: 0;
+// }
+//
+div.list-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
 
-  p.need-volunteersNeeded {
-    font-size: 2em;
+  &:after {
+    content : "";
+    padding-top: 20px;
+    width: 75%;
+    margin: auto;
+    border-bottom:1px solid $gray-light;
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+  }
+
+  .btn-volunteering {
+    color: $white;
+    background-color: $where2help_blue;
+    border-color: $blue-accent;
+
+    &:hover {
+      background-color: $blue-accent;
+    }
+
+    .button-info {
+      color: $gray-light;
+    }
+
+    .button-action {
+      margin-top: 0.5em;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  .btn-active {
+    background-color: $where2help_light_blue;
   }
 }
