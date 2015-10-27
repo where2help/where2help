@@ -2,6 +2,7 @@ class Need < ActiveRecord::Base
 
   # scopes
   scope :upcoming, -> { where('start_time >= (?)', Time.now).order(:start_time) }
+  scope :past, -> { where('start_time < (?)', Time.now).order(start_time: :desc) }
   scope :unfulfilled, -> { where('volunteerings_count < volunteers_needed') }
   scope :fulfilled, -> { where('volunteerings_count >= volunteers_needed') }
 
@@ -23,19 +24,20 @@ class Need < ActiveRecord::Base
   end
 
   def self.filter_category(category)
-    if category.present?
-      where(category: Need.categories[category])
-    else
-      all
-    end
+    return all unless category.present?
+    where(category: Need.categories[category])
   end
 
   def self.filter_place(place)
-    if place.present?
-      where('city @@ :q or location @@ :q', q: place)
-    else
-      all
-    end
+    return all unless place.present?
+    where('city @@ :q or location @@ :q', q: place)
+  end
+
+  def self.filter_scope(scope)
+    send(scope)
+  rescue NoMethodError
+    puts 'IN RESCUE BLOCK'
+    all
   end
 
   # instance methods

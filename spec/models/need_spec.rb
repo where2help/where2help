@@ -68,6 +68,22 @@ RSpec.describe Need, type: :model do
       end
     end
 
+    describe 'past' do
+      let!(:need_day_before_yesterday) { create(:need, start_time: Time.now-2.days) }
+      let!(:need_today) { create(:need, start_time: Time.now+5.seconds) }
+      let!(:need_yesterday) { create(:need, start_time: Time.now-1.day) }
+
+      subject(:needs) { Need.past }
+
+      it 'retrieves nearest first (ignore :created_at)' do
+        expect(needs.to_a).to eq [need_yesterday, need_day_before_yesterday]
+      end
+
+      it 'excludes upcoming' do
+        expect(needs).not_to include(need_today)
+      end
+    end
+
     describe 'fulfilled' do
       let!(:need_fulfilled) { create(:need, volunteerings_count: 1) }
       let!(:need_over_fulfilled) { create(:need, volunteerings_count: 2) }
@@ -127,7 +143,7 @@ RSpec.describe Need, type: :model do
         expect(needs).not_to include(general_need)
       end
     end
-    
+
     context 'with invalid category' do
       before { 3.times{ create(:need)} }
 
@@ -189,6 +205,52 @@ RSpec.describe Need, type: :model do
 
       it 'returns empty scope' do
         expect(needs).to be_empty
+      end
+    end
+  end
+
+  describe '.filter_scope' do
+    context 'without scope param' do
+      before { 3.times{create(:need)} }
+
+      subject(:needs) { Need.filter_scope('') }
+
+      it 'returns all needs' do
+        expect(needs).to eq Need.all
+        expect(needs.size).to eq 3
+      end
+    end
+
+    context 'with scope upcoming' do
+      before { 3.times{create(:need, start_time: Date.tomorrow)} }
+
+      subject(:needs) { Need.filter_scope('upcoming') }
+
+      it 'retuns :upcoming scope' do
+        expect(needs.to_a).to eq Need.upcoming
+        expect(needs.size).to eq 3
+      end
+    end
+
+    context 'with scope past' do
+      before { 3.times{create(:need, start_time: Date.yesterday)} }
+
+      subject(:needs) { Need.filter_scope('past') }
+
+      it 'retuns :past scope' do
+        expect(needs.to_a).to eq Need.past
+        expect(needs.size).to eq 3
+      end
+    end
+
+    context 'with invalid scope' do
+      before { 3.times{create(:need)} }
+
+      subject(:needs) { Need.filter_scope('random_stuff') }
+
+      it 'returns all needs' do
+        expect(needs).to eq Need.all
+        expect(needs.size).to eq 3
       end
     end
   end
