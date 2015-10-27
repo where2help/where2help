@@ -1,0 +1,31 @@
+<%= div_for(need, class: 'row list-item') do %>
+  <div class="col-sm-7 col-lg-7 col-lg-offset-1">
+    <div class="media">
+      <div class="media-left text-center">
+        <%= link_to '#' do %>
+          <!-- <%= icon_for(need) %> -->
+
+        <div class="day"><%= need.start_time.day %></div>
+        <div class="month"><%= I18n.localize(need.start_time, format:'%b') %></div>
+        <% end %>
+      </div>
+      <div class="media-body">
+        <%= link_to '#' do %>
+          <h4 class="media-heading"><%= need.i18n_category %></h4>
+        <% end %>
+        <div class="date">
+          <i class="fa fa-calendar-o fa-fw"></i>
+          <%= I18n.localize(need.start_time, format:'%A, %d. %B %Y') %>
+        </div>
+        <div class="time">
+          <i class="fa fa-clock-o fa-fw"></i>
+          <%= need.start_time.strftime('%H:%M') %> - <%= need.end_time.strftime('%H:%M') %> Uhr
+        </div>
+        <div class="place">
+          <i class="fa fa-map-marker fa-fw"></i>
+          <%= need.city %>, <%= need.location %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

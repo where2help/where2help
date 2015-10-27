@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   # associations
   has_many :volunteerings
+  has_many :appointments, through: :volunteerings, source: :need
   has_many :needs
 
   # validations
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
     when ngo_admin?
       :ngo
     else
-      :volunteer      
+      :volunteer
     end
   end
 

@@ -1,0 +1,21 @@
+<div class="row text-center">
+  <%= form_tag list_needs_path, method: :get, id: 'filter-form', remote: true, class: 'form-inline col-lg-10 col-lg-offset-1' do %>
+    <%= hidden_field_tag :filter, true %>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-default">Bevorstehend</button>
+      <button type="button" class="btn btn-default">Vergangen</button>
+      <div class="input-group">
+        <%= label_tag :place, nil, class: 'sr-only' %>
+        <%= text_field_tag :place, params[:place],
+                            placeholder: 'Suchen',
+                            onchange: "$('#filter-form').submit();",
+                            class: 'form-control' %>
+        <span class="input-group-btn">
+          <%= button_tag data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-default' do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        </span>
+      </div>
+  <% end %>
+</div>

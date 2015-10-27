@@ -10,7 +10,7 @@ de:
       calendar: Kalender
       needs: Termine
     nav_volunteer:
-      needs: Termine
+      needs: Meine Termine
     nav_personal:
       profile: Profil
       sign_out: Abmelden
