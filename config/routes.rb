@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     get :appointments, to: 'volunteers/needs#index'
   end
 
+  namespace :volunteers do
+    resources :needs, only: :show
+  end
+
   devise_scope :user do
     namespace :ngos do
       get :sign_up, to: 'registrations#new'
