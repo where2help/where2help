@@ -1,4 +1,4 @@
-<div class="row">
-  <%= render 'filter_form' %>
+<%= render 'filter_form' %>
+<div id="list-wrapper">
+  <%= render 'list', needs: @needs %>
 </div>
-<%= render @needs %>

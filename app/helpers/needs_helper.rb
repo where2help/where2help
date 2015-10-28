@@ -4,11 +4,11 @@ module NeedsHelper
     image_tag("needs/#{need.category}.png", height: '64', class: 'media-object')
   end
 
-  def view_more_link(resource)
+  def view_more_link(resource, opt_1=:category, opt_2=:place)
     link_to_next_page resource, 'Mehr anzeigen',
       remote: true,
       data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
-      params: { category: params[:category], place: params[:place] },
+      params: { opt_1 => params[opt_1], opt_2 => params[opt_2] },
       class: 'btn btn-primary btn-lg btn-block view-more'
   end
 

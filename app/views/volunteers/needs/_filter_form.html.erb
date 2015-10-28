@@ -1,21 +1,25 @@
-<div class="row text-center">
-  <%= form_tag list_needs_path, method: :get, id: 'filter-form', remote: true, class: 'form-inline col-lg-10 col-lg-offset-1' do %>
+<div class="row">
+  <%= form_tag appointments_user_path, method: :get, id: 'filter-form', remote: true, class: 'form-inline col-lg-10 col-lg-offset-1' do %>
     <%= hidden_field_tag :filter, true %>
 
-    <div class="btn-group">
-      <button type="button" class="btn btn-default">Bevorstehend</button>
-      <button type="button" class="btn btn-default">Vergangen</button>
-      <div class="input-group">
-        <%= label_tag :place, nil, class: 'sr-only' %>
-        <%= text_field_tag :place, params[:place],
-                            placeholder: 'Suchen',
-                            onchange: "$('#filter-form').submit();",
-                            class: 'form-control' %>
-        <span class="input-group-btn">
-          <%= button_tag data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-default' do %>
-            <i class="fa fa-search"></i>
-          <% end %>
-        </span>
-      </div>
+    <div class="form-group">
+      <%= label_tag :scope, nil, class: 'sr-only' %>
+      <%= select_tag :scope,
+                    options_for_select({ Bevorstehend: :upcoming, Vergangen: :past, Alle: '' }, :upcoming),
+                    onchange: "$('#filter-form').submit();",
+                    class: 'form-control' %>
+    </div>
+    <div class="input-group pull-right">
+      <%= label_tag :place, nil, class: 'sr-only' %>
+      <%= text_field_tag :place, params[:place],
+                          placeholder: 'Stadt / Ort',
+                          onchange: "$('#filter-form').submit();",
+                          class: 'form-control' %>
+      <span class="input-group-btn">
+        <%= button_tag data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-default' do %>
+          <i class="fa fa-search"></i>
+        <% end %>
+      </span>
+    </div>
   <% end %>
 </div>
