@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
       jsonapi_resources :needs
       jsonapi_resources :volunteerings
+      jsonapi_resources :users
     end
   end
 
