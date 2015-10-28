@@ -43,6 +43,16 @@ Copy over the environment variables file
 
     $ cp .env.example .env
 
+Modify the `DATABASE_URL` in .env to reflect this:
+
+   DATABASE_URL='postgres://where2help:where2help@127.0.0.1:5432/where2help_development'
+
+On Linux, create a database role, and database:
+
+    $ sudo -u postgres -i
+    % createuser where2help --pwprompt # just use where2help as password in the prompt
+    % createdb --owner where2help where2help_development
+
 Setup the database
 
     $ bundle exec rake db:setup
