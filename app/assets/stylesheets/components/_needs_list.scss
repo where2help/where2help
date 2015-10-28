@@ -58,4 +58,20 @@ div.list-item {
       background-color: lighten($blue-accent, 10%);
     }
   }
+
+  .calendar-icon {
+    display: block;
+    background: $where2help_blue;
+    color: $white;
+    text-transform: uppercase;
+    padding: 0.75em;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      background-color: darken($where2help_blue, 10%);
+    }
+  }
 }

@@ -2,11 +2,9 @@
   <div class="col-sm-7 col-lg-7 col-lg-offset-1">
     <div class="media">
       <div class="media-left text-center">
-        <%= link_to '#' do %>
-          <!-- <%= icon_for(need) %> -->
-
-        <div class="day"><%= need.start_time.day %></div>
-        <div class="month"><%= I18n.localize(need.start_time, format:'%b') %></div>
+        <%= link_to '#', class: 'calendar-icon text-center' do %>
+          <div class="month"><%= I18n.localize(need.start_time, format:'%b') %></div>
+          <div class="day"><%= need.start_time.day %></div>
         <% end %>
       </div>
       <div class="media-body">
