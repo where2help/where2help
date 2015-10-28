@@ -6,4 +6,8 @@ class Volunteers::NeedsController < ApplicationController
                           filter_place(params[:place]).
                           page(params[:page]).per(10)
   end
+
+  def show
+    @need = Need.find(params[:id])
+  end
 end
