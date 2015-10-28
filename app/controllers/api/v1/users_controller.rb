@@ -7,6 +7,14 @@ module Api
       def context
         {current_user: current_user}
       end
+
+      def create
+        # nope, we don't create users here
+      end
+
+      def destroy
+        # nope, we don't destroy users here
+      end
     end
   end
 end
