@@ -41,5 +41,6 @@ namespace :db do
         start_time: start,
         end_time: start + rand(5).hours)
     end
+    puts "Data has been populated ..."
   end
 end
