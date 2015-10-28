@@ -45,7 +45,7 @@ Copy over the environment variables file
 
 Modify the `DATABASE_URL` in .env to reflect this:
 
-   DATABASE_URL='postgres://where2help:where2help@127.0.0.1:5432/where2help_development'
+    DATABASE_URL='postgres://where2help:where2help@127.0.0.1:5432/where2help_development'
 
 On Linux, create a database role, and database:
 
