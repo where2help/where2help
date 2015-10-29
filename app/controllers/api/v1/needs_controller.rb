@@ -1,9 +1,6 @@
 module Api
   module V1
-    class NeedsController < JSONAPI::ResourceController
-      include DeviseTokenAuth::Concerns::SetUserByToken
-      before_filter :authenticate_user!
-
+    class NeedsController < ApiController
       def create
         sparams    = params['data']['attributes']
         start_time = sparams['start-time']
@@ -18,17 +15,6 @@ module Api
         ::NotifyJob.new.perform("notify!!!!!!!!!!!")
         Rails.logger.debug '=========================lslslalfas'
       end
-
-      def index
-        super
-        puts "======================================="
-        puts "Access-Token: " + request.headers["Access-Token"]
-        puts "Token-Type: " + request.headers["Token-Type"]
-        puts "Client: " + request.headers["Client"]
-        puts "Uid: " + request.headers["Uid"]
-        puts "======================================="
-      end
     end
   end
 end
-
