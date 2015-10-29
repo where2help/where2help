@@ -4,7 +4,8 @@ module Api
       attributes :email, :first_name, :last_name, :phone, :uid, :name, :nickname
 
       has_many :volunteerings
-      has_many :needs, through: :volunteerings
+      has_many :needs
+      has_many :appointments, through: :volunteerings, source: :need
 
       def self.records(options = {})
         context = options[:context]
