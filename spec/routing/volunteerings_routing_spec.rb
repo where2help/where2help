@@ -23,14 +23,16 @@ RSpec.describe VolunteeringsController, type: :routing do
     it 'routes POST volunteerings_path to volunteerings#create' do
       expect(post: volunteerings_path).to route_to(
         controller: 'volunteerings',
-        action: 'create')
+        action: 'create',
+        locale: 'de')
     end
 
     it 'routes DELETE volunteerings_path to volunteerings#destroy' do
       expect(delete: volunteering_path('id')).to route_to(
         controller: 'volunteerings',
         action: 'destroy',
-        id: 'id')
+        id: 'id',
+        locale: 'de')
     end
   end
 end

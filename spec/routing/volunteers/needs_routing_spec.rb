@@ -16,7 +16,8 @@ RSpec.describe Volunteers::NeedsController, type: :routing do
     it 'routes GET appointments_user_path to volunteers/needs#index' do
       expect(get: appointments_user_path).to route_to(
         controller: 'volunteers/needs',
-        action: 'index')
+        action: 'index',
+        locale: 'de')
     end
   end
 end
