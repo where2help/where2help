@@ -78,10 +78,10 @@ class NeedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_need
-      if current_user && current_user.admin?
+      if current_user.admin?
         @need = Need.find(params[:id])
       else
-        @need = Need.where(id: params[:id], user_id: current_user.id)
+        @need = current_user.needs.find(params[:id])
       end
     end
 
