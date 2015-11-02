@@ -27,6 +27,7 @@ de:
           general: Freiwillige
           medical: Medizinische Unterstützung
           translation: Dolmetscher
+        description: Beschreibung
     models:
       user:
         one: Benutzer
@@ -34,6 +35,3 @@ de:
       need:
         one: Bedarf
         other: Bedarfe
-
-  ramons_keys:
-    mykey: meinschlüssel
