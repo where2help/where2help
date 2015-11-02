@@ -1,18 +1,50 @@
-<%= simple_form_for @need, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :location %>
-  <%= f.input :city %>
-  <%= f.input :category, collection: Need.categories_for_select, include_blank: false %>
-  <%= f.input :volunteers_needed %>
-
-  <%= f.button :button,
-                data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
-                class: 'btn-primary' %>
-  <%= link_to t('.destroy', default: t('helpers.links.destroy')),
-                f.object,
-                data: { confirm: 'Are you sure?', disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
-                method: :delete, class: 'btn btn-danger' %>
-  <%= link_to t('.cancel', default: t("helpers.links.cancel")),
-                root_path, class: 'btn btn-default' %>
+<%= form_for @need do |f| %>
+    <div class="form-group row">
+      <div class="col-sm-2 col-sm-offset-3">
+        <%= f.label :volunteers_needed %>
+        <%= f.number_field :volunteers_needed, class: 'form-control' %>
+      </div>
+      <div class="col-sm-2 col-sm-offset-2">
+        <%= f.label :category %>
+        <%= f.select :category, options_for_select(Need.categories_for_select), {}, { class: 'form-control' } %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 5, placeholder: true, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <%= f.label :location%>
+        <%= f.text_field :location, class: 'form-control' %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.label :city %>
+        <%= f.text_field :city, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <%= f.label :start_time %>
+        <%= f.datetime_local_field :start_time, class: 'form-control' %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.label :end_time %>
+        <%= f.datetime_local_field :end_time, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <%= f.button data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
+                      class: 'btn btn-primary' %>
+        <%= link_to t('.destroy', default: t('helpers.links.destroy')),
+                      f.object,
+                      data: { confirm: 'Are you sure?', disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
+                      method: :delete, class: 'btn btn-danger' %>
+        <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                      root_path, class: 'btn btn-default' %>
+      </div>
+    </div>
 <% end %>
