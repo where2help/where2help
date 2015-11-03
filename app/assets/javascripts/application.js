@@ -17,3 +17,4 @@
 //= require moment/min/moment.min
 //= require fullcalendar/dist/fullcalendar.min
 //= require angular_files
+//= require bootstrap/modal

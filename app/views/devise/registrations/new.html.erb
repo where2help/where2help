@@ -14,38 +14,7 @@
 
       <div class="panel-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
-          <div class="form-group row">
-            <div class="col-sm-6">
-              <%= f.label :first_name %>
-              <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
-            </div>
-            <div class="col-sm-6">
-              <%= f.label :last_name %>
-              <%= f.text_field :last_name, class: "form-control" %>
-            </div>
-          </div>
-          <div class="form-group">
-            <%= f.label :email %>
-            <%= f.email_field :email, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :phone %>
-            <%= f.telephone_field :phone, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control", placeholder: "min. #{@minimum_password_length} #{t :characters}" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, class: "form-control" %>
-          </div>
-          <div class="checkbox">
-            <label>
-              <%= f.check_box(:terms_and_conditions )%>
-              I agree to the <%= link_to 'Terms of Service', '#' %>
-            </label>
-          </div>
+          <%= render 'fields', f: f %>
           <%= f.submit t('.sign_up', default: 'Sign up'), class: "btn btn-primary" %>
         <% end %>
       </div>
