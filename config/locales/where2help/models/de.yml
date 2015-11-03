@@ -11,6 +11,7 @@ de:
         phone: Telefon
         remember_me: angemeldet bleiben
         admin_confirmed: Account Freischalten
+        terms_and_conditions: Allgemeine Geschäftsbedinungen
       topic:
         created_at: angelegt
         title: Titel

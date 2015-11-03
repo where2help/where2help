@@ -24,7 +24,8 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
               :first_name,
               :phone,
               :password,
-              :password_confirmation).
+              :password_confirmation,
+              :terms_and_conditions).
         merge(last_name: 'ngo',
               ngo_admin: true,
               admin_confirmed: false)

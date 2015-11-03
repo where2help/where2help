@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def default_url_options(options = {})
     { locale: I18n.locale }.merge options
   end
- 
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
@@ -26,7 +26,8 @@ class ApplicationController < ActionController::Base
               :last_name,
               :phone,
               :password,
-              :password_confirmation)
+              :password_confirmation,
+              :terms_and_conditions,)
     end
   end
 

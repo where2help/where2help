@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :phone, presence: true
+  validates :terms_and_conditions, acceptance: true
 
   # callbacks
   after_create :first_user_gets_admin
