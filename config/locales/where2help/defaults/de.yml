@@ -204,3 +204,4 @@ de:
   activerecord:
     errors:
       <<: *errors
+  characters: Zeichen
