@@ -18,3 +18,5 @@
 //= require fullcalendar/dist/fullcalendar.min
 //= require angular_files
 //= require bootstrap/modal
+//= require leaflet
+//= require_tree .
