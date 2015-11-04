@@ -14,3 +14,28 @@
   <div class="col-sm-5 col-lg-3">
     <%= volunteerings_button(@need) %>
   </div>
+  <div id='single-need-map'>
+  </div>
+  <%= javascript_tag do %>
+    var lat = <%= @need.lat %>;
+    var lng = <%= @need.lng %>;
+    L.mapbox.accessToken = 'pk.eyJ1IjoicmFtb25oIiwiYSI6ImNpZ2t4YnJ5ZTAwNmF3ZWtubTVzdWgzdnYifQ.i3I-dfGvIoO4HbLhFfmE9w';
+    var map = L.mapbox.map('single-need-map', 'ramonh.o2plj8a0').setView([lat, lng], 15);
+    L.mapbox.featureLayer({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            // coordinates here are in longitude, latitude order because
+            // x, y is the standard for GeoJSON and many formats
+            coordinates: [
+              lng,
+              lat
+            ]
+        },
+        properties: {
+            'marker-size': 'large',
+            'marker-color': '#6EC9C6',
+            'marker-symbol': 'star'
+        }
+    }).addTo(map);
+  <% end %>
