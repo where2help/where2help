@@ -33,13 +33,14 @@ namespace :db do
     locations = ['Westbahnhof', 'Hauptbahnhof', 'Falcogasse 8', 'Ringstraße 10']
     50.times do
       start = Time.now + rand(7).days + rand(86400).seconds
-      ngo_admin.needs.create(
+      need = ngo_admin.needs.create(
         city: cities.sample,
         location: locations.sample,
         category: Need.categories.keys.sample,
         volunteers_needed: rand(1..50),
         start_time: start,
         end_time: start + rand(5).hours)
+      Workers::Coords.new.async.perform(need.id)
     end
     puts "Data has been populated ..."
   end
