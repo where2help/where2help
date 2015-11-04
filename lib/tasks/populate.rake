@@ -40,7 +40,7 @@ namespace :db do
         volunteers_needed: rand(1..50),
         start_time: start,
         end_time: start + rand(5).hours)
-      Workers::Coords.new.async.perform(need.id)
+      Workers::Coords.new.perform(need.id)
     end
     puts "Data has been populated ..."
   end
