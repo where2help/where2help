@@ -1,7 +1,7 @@
 module Api
   module V1
     class UserResource < JSONAPI::Resource
-      attributes :email, :first_name, :last_name, :phone, :uid, :name, :nickname
+      attributes :email, :first_name, :last_name, :phone, :uid, :name, :nickname, :organisation
 
       has_many :volunteerings
       has_many :needs

@@ -3,7 +3,7 @@ module Api
     class NeedResource < JSONAPI::Resource
       attributes :location, :start_time, :end_time, :volunteers_needed,
                  :city, :category, :user_id, :volunteers_count,
-                 :lat, :lng
+                 :lat, :lng, :description
 
       def volunteers_count
         @model.volunteers.count
