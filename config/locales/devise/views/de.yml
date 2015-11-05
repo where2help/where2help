@@ -66,6 +66,7 @@ de:
         unhappy: "Unglücklich"
       new:
         sign_up: Registrieren
+        agree: Ich akzeptiere die
       destroyed: "Auf Wiedersehen! Ihr Konto wurde erfolreich gekündigt. Wir hoffen Sie bald wiederzusehen."
       signed_up: "Willkommen! Sie haben sich erfolgreich registriert."
       signed_up_but_inactive: "Sie haben sich erfolgreich registriert. Aber wir konnten Sie nicht anmelden, da Ihr Konto noch nicht aktiviert ist."

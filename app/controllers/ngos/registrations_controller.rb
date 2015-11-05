@@ -22,6 +22,8 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_up) do |n|
       n.permit(:email,
               :first_name,
+              :last_name,
+              :organization,
               :phone,
               :password,
               :password_confirmation,

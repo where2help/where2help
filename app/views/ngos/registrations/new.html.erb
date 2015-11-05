@@ -15,7 +15,6 @@
       <div class="panel-body">
         <%= form_for(resource, as: resource_name, url: ngos_sign_up_path, html: { role: "form" }) do |f| %>
           <%= render 'fields', f: f %>
-          <%= f.submit t('.sign_up', default: 'Sign up'), class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>

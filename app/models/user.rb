@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   # validations
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
+  validates :organization, presence: true, if: :registered_as_ngo?
   validates :phone, presence: true
   validates :terms_and_conditions, acceptance: true
 
@@ -36,9 +37,14 @@ class User < ActiveRecord::Base
   end
 
   private
-    def first_user_gets_admin
-      if User.all.count == 1
-        self.update(admin: true)
-      end
+
+  def first_user_gets_admin
+    if User.all.count == 1
+      self.update(admin: true)
     end
+  end
+
+  def registered_as_ngo?
+    ngo_admin
+  end
 end

@@ -11,7 +11,8 @@ de:
         phone: Telefon
         remember_me: angemeldet bleiben
         admin_confirmed: Account Freischalten
-        terms_and_conditions: Allgemeine Geschäftsbedinungen
+        terms_and_conditions: Nutzungsbedingungen
+        organization: Organisation
       topic:
         created_at: angelegt
         title: Titel

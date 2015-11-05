@@ -1,39 +1,55 @@
+<div class="form-group row">
+  <div class="col-sm-6">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
+  </div>
+</div>
 <% if /ngos\/*/ =~ params[:controller] %>
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
-  </div>
-<% else %>
-  <div class="form-group row">
-    <div class="col-sm-6">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, class: "form-control" %>
-    </div>
+    <%= f.label :organization %>
+    <%= f.text_field :organization, class: 'form-control' %>
   </div>
 <% end %>
 <div class="form-group">
   <%= f.label :email %>
-  <%= f.email_field :email, class: "form-control" %>
+  <%= f.email_field :email, class: 'form-control' %>
 </div>
 <div class="form-group">
   <%= f.label :phone %>
-  <%= f.telephone_field :phone, autofocus: true, class: "form-control" %>
+  <%= f.telephone_field :phone, autofocus: true, class: 'form-control' %>
 </div>
 <div class="form-group">
   <%= f.label :password %>
-  <%= f.password_field :password, class: "form-control", placeholder: "min. #{@minimum_password_length} #{t :characters}" %>
+  <%= f.password_field :password, class: 'form-control', placeholder: "min. #{@minimum_password_length} #{t :characters}" %>
 </div>
 <div class="form-group">
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: "form-control" %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
 </div>
 <div class="checkbox">
   <label>
     <%= f.check_box(:terms_and_conditions )%>
-    I agree to the <%= link_to 'Terms of Service', '#' %>
+    <%= t(:agree, scope: [:devise, :registrations, :new]) %>
+    <%= link_to User.human_attribute_name(:terms_and_conditions), '#',
+                data: { toggle: 'modal', target: '#modal'} %>
   </label>
+</div>
+<%= f.submit t(:sign_up, scope: [:devise, :registrations, :new]), class: "btn btn-primary" %>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= User.human_attribute_name(:terms_and_conditions) %></h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_format t(:terms_and_conditions) %>
+      </div>
+    </div>
+  </div>
 </div>
