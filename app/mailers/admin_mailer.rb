@@ -4,6 +4,6 @@ class AdminMailer < ApplicationMailer
 
   def ngo_confirmation_request(user)
     @user = user
-    mail(subject: "NGO Account Anfrage von #{@user.first_name}")
+    mail(subject: "NGO Account Anfrage von #{@user.organization}")
   end
 end

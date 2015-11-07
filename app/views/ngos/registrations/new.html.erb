@@ -1,9 +1,9 @@
 <%= bootstrap_devise_error_messages! %>
 <div class="row">
-  <div class="col-sm-6 col-sm-push-6">
+  <div class="col-sm-5 col-sm-push-7">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4>NGO registrieren</h4>
+        <h4><%= t '.sign_up' %></h4>
       </div>
 
       <% if User.count == 0 %>
@@ -20,7 +20,10 @@
     </div>
     <%= render 'devise/shared/links' %>
   </div>
-  <div class="col-sm-6 col-sm-pull-6">
-    explanation stuff...
+  <div class="col-sm-7 col-sm-pull-5">
+    <h1><%= t '.register' %></h1>
+    <h4><%= t '.why' %></h4>
+    <%= image_tag 'registration/placeholder.svg', class: 'img-responsive img-rounded center-block' %>
+    <small><em class="text-muted"><%= t '.volunteer' %> <%= link_to t('.register_as_volunteer'), user_registration_path  %><em></small>
   </div>
 </div>

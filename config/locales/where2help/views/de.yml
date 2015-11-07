@@ -14,3 +14,11 @@ de:
     nav_personal:
       profile: Profil
       sign_out: Abmelden
+  ngos:
+    registrations:
+      new:
+        sign_up: 'NGO Registrieren'
+        register: Registriere eine NGO!
+        why: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+        volunteer: Du bist ein Helfer?
+        register_as_volunteer: Registriere Dich als Helfer
