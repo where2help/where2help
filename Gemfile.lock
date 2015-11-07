@@ -263,9 +263,6 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     shellany (0.0.1)
-    simple_form (3.2.0)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     slop (3.6.0)
     spring (1.4.0)
     sprockets (3.4.0)
@@ -345,7 +342,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  simple_form
   spring
   sucker_punch
   therubyracer
