@@ -67,6 +67,10 @@ de:
       new:
         sign_up: Registrieren
         agree: Ich akzeptiere die
+        register: Registriere Dich als Helfer!
+        why: Erfahre, wo Du gerade gebraucht wirst und buche die Zeit und den Ort direkt online oder mit unserer App. Wir freuen uns auf Dich!
+        ngo: Du bist eine NGO?
+        register_as_ngo: Registriere Dich als NGO
       destroyed: "Auf Wiedersehen! Ihr Konto wurde erfolreich gekündigt. Wir hoffen Sie bald wiederzusehen."
       signed_up: "Willkommen! Sie haben sich erfolgreich registriert."
       signed_up_but_inactive: "Sie haben sich erfolgreich registriert. Aber wir konnten Sie nicht anmelden, da Ihr Konto noch nicht aktiviert ist."

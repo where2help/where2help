@@ -65,6 +65,10 @@ en:
       new:
         sign_up: "Sign up"
         agree: I agree to the
+        register: Register as a volunteer!
+        why: Get information on where you are needed and book your shift online or with our App. We are looking forward to welcoming you abord!
+        ngo: You are an NGO?
+        register_as_ngo: Register as NGO
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."

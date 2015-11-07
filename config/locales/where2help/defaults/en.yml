@@ -211,6 +211,7 @@ en:
   activerecord:
     errors:
       <<: *errors
+  characters: characters
   terms_and_conditions: |
     Da du, o Herr, dich einmal wieder nahst
     Und fragst, wie alles sich bei uns befinde,
