@@ -22,7 +22,6 @@ gem 'unicorn'                         # Application server
 gem 'bootstrap-sass'                  # Twitter Bootstrap integration
 gem 'bootstrap-sass-extras'           # Twitter Bootstrap helpers (taken from less version)
 gem 'font-awesome-rails'              # Better Icon Font
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 gem 'devise'                          # Authentication
 gem 'devise-bootstrap-views'          # Bootstrap integration for devise
