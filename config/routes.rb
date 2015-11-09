@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :needs, only: [:index, :show]
 
   namespace :volunteers do
-    #resources :needs, only: :show
   end
 
   devise_scope :user do
@@ -23,6 +22,12 @@ Rails.application.routes.draw do
       post :sign_up, to: 'registrations#create'
     end
   end
+
+  resources :volunteerings, only: [:create, :destroy]
+
+  get 'pages/calendar' => 'pages#calendar'
+  get 'pages/home' => 'pages#home'
+  root 'pages#home'
 
   namespace :api do
     namespace :calendar do
@@ -37,10 +42,4 @@ Rails.application.routes.draw do
       jsonapi_resources :users
     end
   end
-
-  resources :volunteerings, only: [:create, :destroy]
-
-  get 'pages/calendar' => 'pages#calendar'
-  get 'pages/home' => 'pages#home'
-  root 'pages#home'
 end
