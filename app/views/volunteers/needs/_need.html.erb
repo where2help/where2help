@@ -2,13 +2,13 @@
   <div class="col-sm-7 col-lg-7 col-lg-offset-1">
     <div class="media">
       <div class="media-left text-center">
-        <%= link_to volunteers_need_path need, class: 'calendar-icon text-center' do %>
+        <%= link_to need_path need, class: 'calendar-icon text-center' do %>
           <div class="month"><%= I18n.localize(need.start_time, format:'%b') %></div>
           <div class="day"><%= need.start_time.day %></div>
         <% end %>
       </div>
       <div class="media-body">
-        <%= link_to volunteers_need_path need do %>
+        <%= link_to need_path need do %>
           <h4 class="media-heading"><%= need.i18n_category %></h4>
         <% end %>
         <div class="date">
