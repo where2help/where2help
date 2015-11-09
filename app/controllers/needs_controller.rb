@@ -3,19 +3,13 @@ class NeedsController < ApplicationController
   before_action :only_ngo_admin, except: [:show, :index, :list]
   respond_to :html
 
-  def list
+  def index
     @needs = Need.includes(:volunteerings).
                   upcoming.
                   unfulfilled.
                   filter_category(params[:category]).
                   filter_place(params[:place]).
                   page(params[:page]).per(10)
-  end
-
-  # GET /needs
-  # GET /needs.json
-  def index
-    @needs = Need.all
   end
 
   # GET /needs/1

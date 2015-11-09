@@ -10,10 +10,11 @@ RSpec.describe NeedsController, type: :routing do
         action: 'index')
     end
 
-    it 'routes GET /needs/list to needs#list' do
-      expect(get: 'needs/list').to route_to(
+    it 'routes GET /needs/:id to needs#show' do
+      expect(get: 'needs/:id').to route_to(
         controller: 'needs',
-        action: 'list')
+        action: 'show',
+        id: ':id')
     end
   end
 
@@ -26,10 +27,11 @@ RSpec.describe NeedsController, type: :routing do
         locale: 'de')
     end
 
-    it 'routes GET list_needs_path to needs#list' do
-      expect(get: list_needs_path).to route_to(
+    it 'routes GET need_path(id) to needs#show' do
+      expect(get: need_path('id')).to route_to(
         controller: 'needs',
-        action: 'list',
+        action: 'show',
+        id: 'id',
         locale: 'de')
     end
   end
