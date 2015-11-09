@@ -33,8 +33,7 @@ Rails.application.routes.draw do
   end
 
   resources :volunteerings, only: [:create, :destroy]
-
-  get 'pages/calendar' => 'pages#calendar'
+  
   get 'pages/home' => 'pages#home'
   root 'pages#home'
 
