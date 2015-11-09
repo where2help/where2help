@@ -16,12 +16,6 @@ class NeedsController < ApplicationController
     @need = Need.find(params[:id])
   end
 
-  # GET /needs/1
-  # GET /needs/1.json
-  def show
-    @need = Need.find(params[:id])
-  end
-
   # GET /needs/new
   def new
     @need = Need.new
