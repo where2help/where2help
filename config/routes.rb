@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+
+  # TODO add admin confirm toggle to admin's user form
   # resources :users do
   #   post :admin_confirm, on: :member
   # end
 
   # only temporary
-  resources :needs, only: [:index, :show, :update, :destroy]
+  resources :needs
 
   namespace :volunteers do
   end

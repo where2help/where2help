@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
   end
 
   def only_ngo_admin
-    unless (current_user.ngo_admin? or current_user.admin?)
+    unless (current_user.ngo_admin? || current_user.admin)
       redirect_to new_user_session_path, alert: "Nicht erlaubt!"
     end
   end

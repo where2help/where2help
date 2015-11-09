@@ -1,7 +1,6 @@
 class NeedsController < ApplicationController
   before_action :set_need, only: [:edit, :update, :destroy]
-  before_action :only_ngo_admin, except: [:show, :index, :list]
-  respond_to :html
+  before_action :only_ngo_admin, except: [:show, :index]
 
   def index
     @needs = Need.includes(:volunteerings).
