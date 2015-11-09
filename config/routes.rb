@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   #   post :admin_confirm, on: :member
   # end
 
+  resources :needs, only: [:index, :show]
+
   namespace :volunteers do
     #resources :needs, only: :show
   end
@@ -35,11 +37,6 @@ Rails.application.routes.draw do
       jsonapi_resources :users
     end
   end
-
-  resources :needs, only: [:index, :show]
-  # do
-  #   get :list, on: :collection
-  # end
 
   resources :volunteerings, only: [:create, :destroy]
 
