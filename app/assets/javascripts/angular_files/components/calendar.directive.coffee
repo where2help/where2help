@@ -67,7 +67,7 @@ angular.module('where2help')
               scope.fetch()
 
           eventClick: (calEvent, jsEvent, view) ->
-            window.location.href = '/needs/' + calEvent.id + '/edit'
+            window.location.href = '/ngos/needs/' + calEvent.id + '/edit'
 
           eventRender: (need, element) ->
             if need.fulfilled

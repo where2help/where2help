@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.ngo_admin? || resource.admin?
-      pages_calendar_path
+      calendar_ngos_needs_path
     else
       list_needs_path
     end

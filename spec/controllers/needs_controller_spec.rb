@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe NeedsController, type: :controller do
 
-  describe 'GET list' do
+  describe 'GET index' do
     context 'without current_user' do
       context 'when html request' do
-        before { get :list }
+        before { get :index }
 
         it 'redirects to sign_in' do
           expect(response).to redirect_to(new_user_session_path)
@@ -24,7 +24,7 @@ RSpec.describe NeedsController, type: :controller do
       context 'when html request' do
         before do
           20.times{create(:need, start_time: Date.tomorrow)}
-          get :list
+          get :index
         end
 
         it 'assigns first 10 @needs' do
@@ -33,7 +33,7 @@ RSpec.describe NeedsController, type: :controller do
 
         it 'renders list.html' do
           expect(response['Content-Type']).to eq 'text/html; charset=utf-8'
-          expect(response).to render_template(:list)
+          expect(response).to render_template(:index)
         end
       end
 
@@ -41,7 +41,7 @@ RSpec.describe NeedsController, type: :controller do
         context 'with page param' do
           before do
             20.times{create(:need, start_time: Date.tomorrow)}
-            xhr :get, :list, page: 2
+            xhr :get, :index, page: 2
           end
 
           it 'assigns next 10 upcoming @needs' do
@@ -50,7 +50,7 @@ RSpec.describe NeedsController, type: :controller do
 
           it 'renders list.js' do
             expect(response['Content-Type']).to eq 'text/javascript; charset=utf-8'
-            expect(response).to render_template(:list)
+            expect(response).to render_template(:index)
           end
         end
       end

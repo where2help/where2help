@@ -11,9 +11,16 @@ Rails.application.routes.draw do
   #   post :admin_confirm, on: :member
   # end
 
-  resources :needs, only: [:index, :show]
+  # only temporary
+  resources :needs, only: [:index, :show, :update, :destroy]
 
   namespace :volunteers do
+  end
+
+  namespace :ngos do
+    resources :needs do
+      get :calendar, on: :collection
+    end
   end
 
   devise_scope :user do
