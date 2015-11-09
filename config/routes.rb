@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :users do
-    post :admin_confirm, on: :member
-  end
-
-  # singular routes for user
-  resource :user do
+  resource :user, only: [:show] do
     get :appointments, to: 'volunteers/needs#index'
   end
+  namespace :admin do
+    resources :users
+  end
+  # resources :users do
+  #   post :admin_confirm, on: :member
+  # end
 
   namespace :volunteers do
-    resources :needs, only: :show
+    #resources :needs, only: :show
   end
 
   devise_scope :user do
@@ -35,9 +36,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :needs do
-    get :list, on: :collection
-  end
+  resources :needs, only: [:index, :show]
+  # do
+  #   get :list, on: :collection
+  # end
 
   resources :volunteerings, only: [:create, :destroy]
 
