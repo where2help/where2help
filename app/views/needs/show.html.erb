@@ -1,6 +1,6 @@
-  <div class="media-body">
+<div class="media-body">
   <%= link_to '#' do %>
-    <h4 class="media-heading"><%= @need.volunteers_needed %> <%= @need.i18n_category %></h4>
+  <h4 class="media-heading"><%= @need.volunteers_needed %> <%= @need.i18n_category %></h4>
   <% end %>
   <div class="time">
     <i class="fa fa-calendar-o fa-fw"></i>
@@ -16,3 +16,4 @@
   </div>
 
   <%= tag('div', id: 'single-need-map', data: { lat: @need.lat, long: @need.lng }) %>
+</div>
