@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     if resource.ngo_admin? || resource.admin?
       calendar_ngos_needs_path
     else
-      list_needs_path
+      needs_path
     end
   end
 
