@@ -2,7 +2,7 @@ de:
   activerecord:
     attributes:
       user:
-        created_at: angelegt
+        created_at: angemeldet
         email: E-Mail
         password: Passwort
         password_confirmation: Passwortbestätigung
@@ -13,6 +13,7 @@ de:
         admin_confirmed: Account Freischalten
         terms_and_conditions: Nutzungsbedingungen
         organization: Organisation
+        ngo_admin: NGO
       topic:
         created_at: angelegt
         title: Titel
