@@ -12,9 +12,8 @@ RSpec.describe Admin::UsersController, type: :controller do
 
     context 'when signed in' do
       context 'when normal user' do
-        let!(:user) { create(:user) }
         before do
-          sign_in user
+          sign_in create(:user)
           get :index
         end
         it_behaves_like :an_unauthorized_request
@@ -47,9 +46,8 @@ RSpec.describe Admin::UsersController, type: :controller do
 
     context 'when signed in' do
       context 'when normal user' do
-        let!(:other_user) { create(:user) }
         before do
-          sign_in other_user
+          sign_in create(:user)
           get :edit, id: user
         end
         it_behaves_like :an_unauthorized_request
@@ -74,8 +72,9 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   describe 'POST confirm' do
     before { sign_in admin }
+
     context 'when user not admin_confirmed' do
-      let!(:user) { create(:user, admin_confirmed: false) }
+      let(:user) { create(:user, admin_confirmed: false) }
 
       it 'updates admin_confirmed column' do
         expect{
@@ -126,7 +125,7 @@ RSpec.describe Admin::UsersController, type: :controller do
           expect(assigns(:user)).to eq user
         end
 
-        it 'redirect_to @user' do
+        it 'redirects to @user' do
           expect(response).to redirect_to user
         end
       end
@@ -148,7 +147,6 @@ RSpec.describe Admin::UsersController, type: :controller do
 
         it 'assigns @user' do
           expect(assigns(:user)).to eq user
-          expect(assigns(:user).valid?).to eq false
         end
 
         it 'renders :edit' do
@@ -174,42 +172,28 @@ RSpec.describe Admin::UsersController, type: :controller do
     before { sign_in admin }
 
     context 'with valid attributes' do
-
-      it 'does not change password' do
-        expect{
-          put :update, params
-          user.reload
-        }.not_to change(user, :password)
+      before do
+        put :update, params
+        user.reload
       end
 
-      describe 'request' do
-        before do
-          put :update, params
-          user.reload
-        end
-
-        it 'assigns @user' do
-          expect(assigns(:user)).to eq user
-        end
-
-        it 'updates attributes' do
-          expect(user).to have_attributes(
-            first_name: 'first_new',
-            last_name: 'last_new',
-            organization: 'orga_new',
-            email: 'email_new@example.com',
-            phone: '1234'
-          )
-        end
-
-        it 'redirects to @user' do
-          expect(response).to redirect_to user
-        end
+      it 'assigns @user' do
+        expect(assigns(:user)).to eq user
       end
-    end
 
-    context 'with password param' do
-      it 'is a pending example'
+      it 'updates attributes' do
+        expect(user).to have_attributes(
+          first_name: 'first_new',
+          last_name: 'last_new',
+          organization: 'orga_new',
+          email: 'email_new@example.com',
+          phone: '1234'
+        )
+      end
+
+      it 'redirects to @user' do
+        expect(response).to redirect_to user
+      end
     end
   end
 
