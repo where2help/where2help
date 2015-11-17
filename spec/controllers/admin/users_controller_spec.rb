@@ -17,7 +17,6 @@ RSpec.describe Admin::UsersController, type: :controller do
           sign_in user
           get :index
         end
-
         it_behaves_like :an_unauthorized_request
       end
 
@@ -43,7 +42,6 @@ RSpec.describe Admin::UsersController, type: :controller do
 
     context 'when not signed in' do
       before { get :edit, id: user }
-
       it_behaves_like :an_unauthorized_request
     end
 
@@ -54,7 +52,6 @@ RSpec.describe Admin::UsersController, type: :controller do
           sign_in other_user
           get :edit, id: user
         end
-
         it_behaves_like :an_unauthorized_request
       end
 
@@ -158,6 +155,77 @@ RSpec.describe Admin::UsersController, type: :controller do
           expect(response).to render_template('admin/users/edit')
         end
       end
+    end
+  end
+
+  describe 'PUT update' do
+    let!(:user) { create(:user) }
+    let(:params) {
+      {
+        user: {
+          first_name: 'first_new',
+          last_name: 'last_new',
+          organization: 'orga_new',
+          email: 'email_new@example.com',
+          phone: '1234'
+        }, id: user
+      }
+    }
+    before { sign_in admin }
+
+    context 'with valid attributes' do
+
+      it 'does not change password' do
+        expect{
+          put :update, params
+          user.reload
+        }.not_to change(user, :password)
+      end
+
+      describe 'request' do
+        before do
+          put :update, params
+          user.reload
+        end
+
+        it 'assigns @user' do
+          expect(assigns(:user)).to eq user
+        end
+
+        it 'updates attributes' do
+          expect(user).to have_attributes(
+            first_name: 'first_new',
+            last_name: 'last_new',
+            organization: 'orga_new',
+            email: 'email_new@example.com',
+            phone: '1234'
+          )
+        end
+
+        it 'redirects to @user' do
+          expect(response).to redirect_to user
+        end
+      end
+    end
+
+    context 'with password param' do
+      it 'is a pending example'
+    end
+  end
+
+  describe 'DELETE destroy' do
+    let!(:user) { create(:user) }
+    before { sign_in admin }
+
+    it 'deletes user record' do
+      expect{
+        delete :destroy, id: user
+      }.to change(User, :count).by(-1)
+    end
+
+    it 'redirects to admin_users_path' do
+      delete :destroy, id: user
+      expect(response).to redirect_to admin_users_path
     end
   end
 end

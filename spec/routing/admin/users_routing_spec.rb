@@ -21,6 +21,20 @@ RSpec.describe Admin::UsersController, type: :routing do
         action: 'confirm',
         id: ':id')
     end
+
+    it 'routes PUT /admin/users/:id to admin/users#update' do
+      expect(put: 'admin/users/:id').to route_to(
+        controller: 'admin/users',
+        action: 'update',
+        id: ':id')
+    end
+
+    it 'routes DELETE /admin/users/:id to admin/users#destroy' do
+      expect(delete: 'admin/users/:id').to route_to(
+        controller: 'admin/users',
+        action: 'destroy',
+        id: ':id')
+    end
   end
 
   describe 'named routes' do
@@ -44,6 +58,22 @@ RSpec.describe Admin::UsersController, type: :routing do
       expect(post: confirm_admin_user_path('id')).to route_to(
         controller: 'admin/users',
         action: 'confirm',
+        id: 'id',
+        locale: 'de')
+    end
+
+    it 'routes PUT admin_user_path(id) to admin/users#update' do
+      expect(put: admin_user_path('id')).to route_to(
+        controller: 'admin/users',
+        action: 'update',
+        id: 'id',
+        locale: 'de')
+    end
+
+    it 'routes DELETE admin_user_path(id) to admin/users#destroy' do
+      expect(delete: admin_user_path('id')).to route_to(
+        controller: 'admin/users',
+        action: 'destroy',
         id: 'id',
         locale: 'de')
     end

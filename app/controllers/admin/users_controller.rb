@@ -1,18 +1,32 @@
 class Admin::UsersController < ApplicationController
   before_action :only_admin
-  before_action :set_user, only: [:edit, :update, :confirm]
+  before_action :set_user, except: [:index]
 
   def index
     @users = User.all.page(params[:page])
   end
 
-  # def update
-  #   if @user.update(user_params)
-  #     redirect_to @user, notice: 'User was successfully updated.'
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if user_params[:password].blank?
+      user_params.delete(:password)
+      user_params.delete(:password_confirmation)
+    end
+    updated = if user_params[:password].present?
+                @user.update(user_params)
+              else
+                @user.update_without_password(user_params)
+              end
+    if updated
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to admin_users_path, notice: 'User was successfully destroyed.'
+  end
 
   def confirm
     if @user.toggle(:admin_confirmed).save
@@ -39,6 +53,7 @@ class Admin::UsersController < ApplicationController
     params[:user].permit(:email,
                          :first_name,
                          :last_name,
+                         :organization,
                          :password,
                          :password_confirmation,
                          :phone,
