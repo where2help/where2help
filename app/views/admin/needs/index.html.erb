@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-12 col-lg-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= t '.owner' %></th>
+          <th><%= t '.category' %></th>
+          <th><%= t '.city' %></th>
+          <th><%= t '.location'%></th>
+          <th><%= t '.start_time' %></th>
+          <th><%= t '.end_time' %></th>
+          <th><%= t '.volunteerings' %> / <%= t '.needs'%></th>
+          <th><%= t '.description' %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @needs.each do |n|%>
+        <tr>
+          <td><%= n.user.organization %></td>
+          <td><%= n.i18n_category %></td>
+          <td><%= n.city %></td>
+          <td><%= n.location %></td>
+          <td><%= l n.start_time, format: :short %> </td>
+          <td><%= l n.end_time, format: :short %></td>
+          <td><%= "#{n.volunteerings_count} / #{n.volunteers_needed}" %></td>
+          <td><%= n.description %></td>
+          <td>
+            <%= link_to t('helpers.links.edit'), edit_admin_need_path(n) %>
+            <%= link_to t('helpers.links.destroy'), admin_need_path(n), method: :delete, data: { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
