@@ -8,14 +8,7 @@ RSpec.describe Ngos::NeedsController, type: :controller do
     context 'when not signed in' do
       before { get :calendar }
 
-      it 'redirects to sign_in' do
-        expect(response).to redirect_to(new_user_session_path)
-      end
-
-      it 'renders sign_in page with flash' do
-        expect(response).to render_template(session[:new])
-        expect(flash[:alert]).to be_present
-      end
+      it_behaves_like :an_unauthorized_request
     end
 
     context 'when signed in as volunteer' do
@@ -25,14 +18,7 @@ RSpec.describe Ngos::NeedsController, type: :controller do
         get :calendar
       end
 
-      it 'redirects to sign_in' do
-        expect(response).to redirect_to(new_user_session_path)
-      end
-
-      it 'renders sign_in page with flash' do
-        expect(response).to render_template(session[:new])
-        expect(flash[:alert]).to be_present
-      end
+      it_behaves_like :an_unauthorized_request
     end
 
     context 'when signed in as ngo' do

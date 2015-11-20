@@ -22,3 +22,10 @@ en:
         why: Let volunteers know when and where you need them and view in realtime how many have already signed up.
         volunteer: You are a volunteer?
         register_as_volunteer: Register as a volunteer
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"

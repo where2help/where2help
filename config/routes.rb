@@ -5,13 +5,10 @@ Rails.application.routes.draw do
     get :appointments, to: 'volunteers/needs#index'
   end
   namespace :admin do
-    resources :users
+    resources :users do
+      post :confirm, on: :member
+    end
   end
-
-  # TODO add admin confirm toggle to admin's user form
-  # resources :users do
-  #   post :admin_confirm, on: :member
-  # end
 
   # only temporary
   resources :needs
@@ -33,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :volunteerings, only: [:create, :destroy]
-  
+
   get 'pages/home' => 'pages#home'
   root 'pages#home'
 

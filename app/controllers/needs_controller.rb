@@ -1,4 +1,5 @@
 class NeedsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_need, only: [:edit, :update, :destroy]
   before_action :only_ngo_admin, except: [:show, :index]
 
@@ -85,6 +86,7 @@ class NeedsController < ApplicationController
               :start_time,
               :end_time,
               :category,
+              :description,
               :volunteers_needed,
               :user_id).
       merge(user_id: current_user.id)

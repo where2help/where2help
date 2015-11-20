@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
   include AdminConfirmable
 
   # associations
-  has_many :volunteerings
+  has_many :volunteerings, dependent: :destroy
   has_many :appointments, through: :volunteerings, source: :need
-  has_many :needs
+  has_many :needs, dependent: :destroy
 
   # validations
   validates :first_name, presence: true, length: { maximum: 50 }
