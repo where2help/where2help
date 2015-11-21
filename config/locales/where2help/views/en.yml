@@ -29,3 +29,5 @@ en:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
+    needs:
+      back_to_list: "Back to List"
