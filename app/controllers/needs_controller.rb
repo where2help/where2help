@@ -48,7 +48,7 @@ class NeedsController < ApplicationController
       if @need.update(need_params)
         # Add lat and lng to need
         Workers::Coords.new.async.perform(@need.id)
-        format.html { redirect_to root_path, notice: 'Need was successfully updated.' }
+        format.html { redirect_to action: :index, notice: 'Need was successfully updated.' }
         format.json { render :show, status: :ok, location: @need }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class NeedsController < ApplicationController
   def destroy
     @need.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Need was successfully destroyed.' }
+      format.html { redirect_to action: :index, notice: 'Need was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

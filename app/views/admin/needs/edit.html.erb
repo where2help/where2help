@@ -1,0 +1,5 @@
+<%- model_class = Need -%>
+<div class="page-header text-center">
+  <h1><%=t '.title', default: [:'helpers.titles.edit', 'Edit %{model}'], model: model_class.model_name.human.titleize %></h1>
+</div>
+<%= render 'form' %>

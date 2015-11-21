@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :users do
       post :confirm, on: :member
     end
-    resources :needs
+    resources :needs, except: [:show, :new, :create]
   end
 
   # only temporary

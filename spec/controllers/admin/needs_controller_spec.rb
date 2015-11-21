@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::NeedsController, type: :controller do
   before { create(:admin) }
+
   describe 'GET index' do
     context 'when not signed in' do
       context 'when html request' do
@@ -42,5 +43,13 @@ RSpec.describe Admin::NeedsController, type: :controller do
         expect(response).to render_template('admin/needs/index')
       end
     end
+  end
+
+  describe 'GET edit' do
+    it 'is a pending example'
+  end
+
+  describe 'PATCH update' do
+    it 'is a pending example'
   end
 end

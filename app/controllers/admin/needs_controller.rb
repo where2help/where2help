@@ -5,4 +5,19 @@ class Admin::NeedsController < NeedsController
   def index
     @needs = Need.all
   end
+
+  private
+
+  def need_params
+    params
+      .require(:need)
+      .permit(:location,
+              :city,
+              :start_time,
+              :end_time,
+              :category,
+              :description,
+              :volunteers_needed,
+              :user_id)
+  end
 end

@@ -26,8 +26,14 @@
           <td><%= "#{n.volunteerings_count} / #{n.volunteers_needed}" %></td>
           <td><%= n.description %></td>
           <td>
-            <%= link_to t('helpers.links.edit'), edit_admin_need_path(n) %>
-            <%= link_to t('helpers.links.destroy'), admin_need_path(n), method: :delete, data: { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } %>
+            <%= link_to t('helpers.links.edit'),
+                        edit_admin_need_path(n),
+                        class: 'btn btn-default btn-xs' %>
+            <%= link_to t('helpers.links.destroy'),
+                        admin_need_path(n),
+                        method: :delete,
+                        data: { confirm: t('helpers.links.confirm') },
+                        class: 'btn btn-xs btn-danger' %>
           </td>
         </tr>
         <% end %>
