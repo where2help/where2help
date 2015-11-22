@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
   # start @informatom 20151016
   #:confirmable, :omniauthable
@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
 
   include DeviseTokenAuth::Concerns::User
   include AdminConfirmable
+
+  # scopes
+  scope :volunteers, -> { where(ngo_admin: false, admin: false) }
+  scope :ngos, -> { where(ngo_admin: true) }
+  scope :admins, -> { where(admin: true) }
 
   # associations
   has_many :volunteerings, dependent: :destroy

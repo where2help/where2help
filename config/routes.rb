@@ -8,10 +8,11 @@ Rails.application.routes.draw do
     resources :users do
       post :confirm, on: :member
     end
+    resources :needs, except: [:show, :new, :create]
   end
 
   # only temporary
-  resources :needs
+  resources :needs, only: [:index, :show]
 
   namespace :volunteers do
   end

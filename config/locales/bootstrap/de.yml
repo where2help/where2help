@@ -2,6 +2,18 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 de:
+  admin:
+    needs:
+      index:
+        owner: Organisator
+        category: Kategorie
+        city: Stadt
+        location: Ort
+        start_time: Startzeit
+        end_time: Endzeit
+        volunteerings: Freiwillige
+        needs: Bedarf
+        description: Beschreibung
   breadcrumbs:
     application:
       root: "Index"

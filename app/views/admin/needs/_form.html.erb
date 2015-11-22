@@ -1,4 +1,10 @@
-<%= form_for @need do |f| %>
+<%= form_for [:admin, @need] do |f| %>
+    <div class="form-group row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <%= f.label :user %>
+        <%= f.collection_select :user_id, User.ngos, :id, :organization, {}, { class: 'form-control'} %>
+      </div>
+    </div>
     <div class="form-group row">
       <div class="col-sm-2 col-sm-offset-3">
         <%= f.label :volunteers_needed %>
