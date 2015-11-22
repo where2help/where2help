@@ -1,6 +1,8 @@
 class Admin::NeedsController < NeedsController
+  # authenticate_user! has to be added again for index action
   append_before_action :authenticate_user!
   before_action :only_admin
+  append_before_action :set_need, only: [:edit, :update, :destroy]
 
   def index
     @needs = Need.all

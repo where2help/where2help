@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   # only temporary
-  resources :needs
+  resources :needs, only: [:index, :show]
 
   namespace :volunteers do
   end
