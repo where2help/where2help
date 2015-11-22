@@ -118,19 +118,18 @@ RSpec.describe Admin::NeedsController, type: :controller do
       it_behaves_like :an_unauthorized_request
     end
 
-    context 'when signed in as admin' do
-      it 'test makes CoordsWorker fail - further configuration needed'
-      # let(:admin) { create(:admin) }
-      # before do
-      #   sign_in admin
-      #   patch :update, id: need.id, need: attributes_for(:need)
-      # end
+    context 'when signed in as admin', job: true do
+      let(:admin) { create(:admin) }
+      before do
+        sign_in admin
+        patch :update, id: need.id, need: attributes_for(:need)
+      end
 
-      # it 'renders :index' do
-      #   expect(response).to redirect_to action: :index,
-      #                                   locale: 'de',
-      #                                   notice: 'Need was successfully updated.'
-      # end
+      it 'renders :index' do
+        expect(response).to redirect_to action: :index,
+                                        locale: 'de',
+                                        notice: 'Need was successfully updated.'
+      end
     end
   end
 end
