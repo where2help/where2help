@@ -1,0 +1,22 @@
+<dl class="dl-horizontal">
+  <dt><%= User.human_attribute_name :first_name %></dt>
+  <dd><%= user.first_name %></dd>
+  <dt><%= User.human_attribute_name :last_name %></dt>
+  <dd><%= user.last_name %></dd>
+  <% if user.ngo_admin? %>
+    <dt><%= User.human_attribute_name :organization %></dt>
+    <dd><%= user.organization %></dd>
+  <% end %>
+  <dt><%= User.human_attribute_name :email %></dt>
+  <dd><%= user.email %></dd>
+  <dt><%= User.human_attribute_name :phone %></dt>
+  <dd><%= user.phone %></dd>
+  <% if current_user && current_user.admin? %>
+    <dt><%= User.human_attribute_name :admin %></dt>
+    <dd><i class="<%= user.admin ? 'fa fa-check' : 'fa fa-minus' %>"></i></dd>
+    <dt><%= User.human_attribute_name :ngo_admin %></dt>
+    <dd><i class="<%= user.ngo_admin ? 'fa fa-check' : 'fa fa-minus' %>"></i></dd>
+    <dt><%= User.human_attribute_name :admin_confirmed %></dt>
+    <dd><i class="<%= user.admin_confirmed ? 'fa fa-check' : 'fa fa-minus' %>"></i></dd>
+  <% end %>
+</dl>

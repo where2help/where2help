@@ -36,6 +36,40 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
   end
 
+  describe 'GET show' do
+    let(:user) { create(:user) }
+
+    context 'when not signed in' do
+      before { get :show, id: user }
+      it_behaves_like :an_unauthorized_request
+    end
+
+    context 'when signed in' do
+      context 'when normal user' do
+        before do
+          sign_in create(:user)
+          get :show, id: user
+        end
+        it_behaves_like :an_unauthorized_request
+      end
+
+      context 'when admin' do
+        before do
+          sign_in admin
+          get :show, id: user
+        end
+
+        it 'assigns @user' do
+          expect(assigns(:user)).to eq user
+        end
+
+        it 'renders /admin/users/show' do
+          expect(response).to render_template('admin/users/show')
+        end
+      end
+    end
+  end
+
   describe 'GET edit' do
     let(:user) { create(:user) }
 

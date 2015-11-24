@@ -8,6 +8,13 @@ RSpec.describe Admin::UsersController, type: :routing do
       expect(get: '/admin/users').to route_to('admin/users#index')
     end
 
+    it 'routes GET /admin/users/:id to admin/users#show' do
+      expect(get: 'admin/users/:id').to route_to(
+        controller: 'admin/users',
+        action: 'show',
+        id: ':id')
+    end
+
     it 'routes GET /admin/users/:id/edit to admin/users#edit' do
       expect(get: 'admin/users/:id/edit').to route_to(
         controller: 'admin/users',
@@ -43,6 +50,14 @@ RSpec.describe Admin::UsersController, type: :routing do
       expect(get: admin_users_path).to route_to(
         controller: 'admin/users',
         action: 'index',
+        locale: 'de')
+    end
+
+    it 'routes GET admin_user_path(id) to admin/users#show' do
+      expect(get: admin_user_path('id')).to route_to(
+        controller: 'admin/users',
+        action: 'show',
+        id: 'id',
         locale: 'de')
     end
 
