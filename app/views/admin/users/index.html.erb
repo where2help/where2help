@@ -2,7 +2,7 @@
   <h1><%= t User.model_name.human(count: 2) %></h1>
 </div>
 <div class="table-responsive">
-  <table class="table table-hover">
+  <table class="table table-hover table-clickable">
     <thead>
       <tr>
         <th><%= User.human_attribute_name(:id) %></th>
@@ -17,7 +17,7 @@
     </thead>
     <tbody>
       <% @users.each do |user| %>
-        <tr>
+        <tr data-url="<%= admin_user_path(user) %>">
           <td><%= link_to user.id, admin_user_path(user) %></td>
           <td><%= user.email %></td>
           <td><%= user.first_name %></td>
