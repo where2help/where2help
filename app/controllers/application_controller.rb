@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # params for sign_up
-  before_action :store_resource_return_to
+  #before_action :store_resource_return_to
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   before_action :set_locale
@@ -33,16 +33,16 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if session[:resource_return_to]
-      session.delete(:resource_return_to) 
+    stored_location_for(resource) || root_for(resource)
+  end
+
+  def root_for(user)
+    if user.ngo_admin?
+      calendar_ngos_needs_path
+    elsif user.admin?
+      admin_needs_path
     else
-      if resource.ngo_admin?
-        calendar_ngos_needs_path
-      elsif resource.admin?
-        admin_needs_path
-      else
-        needs_path
-      end
+      needs_path
     end
   end
 
