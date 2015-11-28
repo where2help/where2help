@@ -45,6 +45,49 @@ RSpec.describe Admin::NeedsController, type: :controller do
     end
   end
 
+  describe 'GET show' do
+    let(:need) { create :need }
+    context 'when not signed in' do
+      before { get :show, id: need }
+
+      it_behaves_like :an_unauthorized_request
+    end
+
+    context 'when signed in as volunteer' do
+      before do
+        sign_in create(:user, ngo_admin: false, admin: false)
+        get :show, id: need
+      end
+
+      it_behaves_like :an_unauthorized_request
+    end
+
+    context 'when signed in as ngo_admin' do
+      before do
+        sign_in create(:ngo)
+        get :show, id: need
+      end
+
+      it_behaves_like :an_unauthorized_request
+    end
+
+    context 'when signed in as admin' do
+      let(:admin) { create :admin }
+      before do
+        sign_in admin
+        get :show, id: need
+      end
+
+      it 'assigns @need' do
+        expect(assigns :need).to be
+      end
+
+      it 'renders :show' do
+        expect(response).to render_template('admin/needs/show')
+      end
+    end
+  end
+
   describe 'GET edit' do
     let(:need) { create :need }
     context 'when not signed in' do

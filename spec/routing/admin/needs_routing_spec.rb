@@ -8,6 +8,13 @@ RSpec.describe Admin::NeedsController, type: :routing do
         action: 'index')
     end
 
+    it 'routes GET /admin/needs/:id to admin/needs#show' do
+      expect(get: '//admin/needs/:id').to route_to(
+        controller: 'admin/needs',
+        action: 'show',
+        id: ':id')
+    end
+
     it 'routes GET /admin/needs/:id/edit to admin/needs#edit' do
       expect(get: '//admin/needs/:id/edit').to route_to(
         controller: 'admin/needs',
@@ -28,6 +35,14 @@ RSpec.describe Admin::NeedsController, type: :routing do
       expect(get: admin_needs_path).to route_to(
         controller: 'admin/needs',
         action: 'index',
+        locale: 'de')
+    end
+
+    it 'routes GET admin_need_path(id) to admin/needs#show' do
+      expect(get: admin_need_path('id')).to route_to(
+        controller: 'admin/needs',
+        action: 'show',
+        id: 'id',
         locale: 'de')
     end
 
