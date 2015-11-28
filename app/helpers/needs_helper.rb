@@ -32,7 +32,7 @@ module NeedsHelper
     button_options = _button_options(need)
     button_to button_options[:url],
               method: button_options[:method],
-              remote: true,
+              remote: false,
               data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
               class:  "btn btn-default btn-block btn-volunteering #{button_options[:class] if button_options[:class]}" do
       render 'volunteerings/button_individual', need: need, action: button_options[:action]
