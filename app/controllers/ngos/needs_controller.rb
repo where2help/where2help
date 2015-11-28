@@ -1,5 +1,6 @@
 class Ngos::NeedsController < NeedsController
-  before_action :only_ngo_admin, except: [:show, :index]
+  before_action :authenticate_user!
+  before_action :only_ngo_admin
 
   def calendar
   end
