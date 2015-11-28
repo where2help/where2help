@@ -5,7 +5,7 @@ class Admin::NeedsController < NeedsController
   append_before_action :set_need, only: [:edit, :update, :destroy]
 
   def index
-    @needs = Need.all
+    @needs = Need.all.page(params[:page])
   end
 
   private
