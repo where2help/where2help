@@ -22,6 +22,14 @@ en:
         why: Let volunteers know when and where you need them and view in realtime how many have already signed up.
         volunteer: You are a volunteer?
         register_as_volunteer: Register as a volunteer
+  needs:
+    index:
+      sorry: |
+        Seems like there are currently no volunteers needed...
+
+        Take the time to relax <i class="fa fa-coffee"></i>
+    list:
+      sorry: <i class="fa fa-frown-o"></i> sorry, no results for this search
   views:
     pagination:
       first: "&laquo;"
