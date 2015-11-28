@@ -23,6 +23,22 @@ module NeedsHelper
     end
   end
 
+  def volunteerings_info_individual(need)
+    button_options = _button_options(need)
+    render 'volunteerings/info_individual', txt: button_options[:txt]
+  end
+
+  def volunteerings_button_individual(need)
+    button_options = _button_options(need)
+    button_to button_options[:url],
+              method: button_options[:method],
+              remote: true,
+              data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
+              class:  "btn btn-default btn-block btn-volunteering #{button_options[:class] if button_options[:class]}" do
+      render 'volunteerings/button_individual', need: need, action: button_options[:action]
+    end
+  end
+
   private
 
   def _button_options(need)
