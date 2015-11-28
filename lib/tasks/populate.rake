@@ -41,7 +41,8 @@ namespace :db do
         category: Need.categories.keys.sample,
         volunteers_needed: rand(1..50),
         start_time: start,
-        end_time: start + rand(5).hours)
+        end_time: start + rand(5).hours,
+        description: Faker::Lorem.paragraph)
       Workers::Coords.new.perform(need.id)
     end
     puts "Data has been populated ..."
