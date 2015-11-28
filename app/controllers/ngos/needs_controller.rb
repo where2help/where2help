@@ -20,4 +20,12 @@ class Ngos::NeedsController < NeedsController
     end
   end
 
+  def edit
+    @need = Need.find_by(id: params[:id], user_id: current_user.id)
+  end
+
+  def index
+    ngo_admin_ids = User.where(organization: current_user.organization).pluck(:id)
+    @needs = Need.where(user_id: ngo_admin_ids).page(params[:page])
+  end
 end
