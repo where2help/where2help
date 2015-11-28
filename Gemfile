@@ -48,6 +48,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'faker'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'byebug'                        # Debugger
@@ -71,6 +72,5 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
   gem 'database_cleaner'
 end
