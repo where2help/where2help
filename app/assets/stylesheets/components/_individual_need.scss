@@ -1,0 +1,24 @@
+.go-back {
+  i {
+    font-size: 16px;
+  }
+  font-size: 12px;
+}
+
+.volunteering-info {
+}
+
+.btn-volunteering {
+  color: $black-light;
+  background-color: $black-basic;
+  border-color: $black-light;
+
+  &:hover {
+    background-color: lighten($black-light, 10%);
+  }
+
+}
+
+.voluntering-description {
+}
+

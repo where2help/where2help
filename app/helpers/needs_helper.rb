@@ -24,8 +24,11 @@ module NeedsHelper
   end
 
   def volunteerings_info_individual(need)
-    button_options = _button_options(need)
-    render 'volunteerings/info_individual', txt: button_options[:txt]
+    volunteering = need.volunteerings.find_by_user_id(current_user)
+    before = volunteering ? "Bitte komm um " : "Wir brauchen noch "
+    strong = volunteering ? I18n.localize(need.start_time, format:'%H:%M') : [0, need.volunteers_needed - need.volunteerings_count].max
+    after = " Helfer" unless volunteering
+    render 'volunteerings/info_individual', before: before, strong_text: strong, after: after
   end
 
   def volunteerings_button_individual(need)
