@@ -1,6 +1,8 @@
 module Api
   module V1
     class UserResource < JSONAPI::Resource
+      immutable
+
       attributes :email, :first_name, :last_name, :phone, :uid, :name, :nickname, :organisation
 
       has_many :volunteerings
