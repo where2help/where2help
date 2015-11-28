@@ -1,5 +1,5 @@
 class Ngos::NeedsController < NeedsController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:show, :index]
   before_action :only_ngo_admin
 
   def calendar
