@@ -5,17 +5,14 @@ RSpec.describe Admin::NeedsController, type: :controller do
 
   describe 'GET index' do
     context 'when not signed in' do
-      context 'when html request' do
-        before { get :index }
+      before { get :index }
 
-        it_behaves_like :an_unauthorized_request
-      end
+      it_behaves_like :an_unauthorized_request
     end
 
     context 'when signed in as volunteer' do
-      let(:user) { create(:user, ngo_admin: false, admin: false) }
       before do
-        sign_in user
+        sign_in create(:user, ngo_admin: false, admin: false)
         get :index
       end
 
@@ -23,9 +20,8 @@ RSpec.describe Admin::NeedsController, type: :controller do
     end
 
     context 'when signed in as ngo_admin' do
-      let(:ngo) { create(:ngo) }
       before do
-        sign_in ngo
+        sign_in create(:ngo)
         get :index
       end
 
@@ -33,10 +29,14 @@ RSpec.describe Admin::NeedsController, type: :controller do
     end
 
     context 'when signed in as admin' do
-      let(:admin) { create(:admin) }
+      let(:admin) { create :admin }
       before do
         sign_in admin
         get :index
+      end
+
+      it 'assigns @needs' do
+        expect(assigns :needs).to be
       end
 
       it 'renders :index' do
@@ -46,40 +46,40 @@ RSpec.describe Admin::NeedsController, type: :controller do
   end
 
   describe 'GET edit' do
-    let(:need) { create(:need) }
+    let(:need) { create :need }
     context 'when not signed in' do
-      context 'when html request' do
-        before { get :edit, id: need.id }
+      before { get :edit, id: create(:need) }
 
-        it_behaves_like :an_unauthorized_request
-      end
+      it_behaves_like :an_unauthorized_request
     end
 
     context 'when signed in as volunteer' do
-      let(:user) { create(:user, ngo_admin: false, admin: false) }
       before do
-        sign_in user
-        get :edit, id: need.id
+        sign_in create(:user, ngo_admin: false, admin: false)
+        get :edit, id: need
       end
 
       it_behaves_like :an_unauthorized_request
     end
 
     context 'when signed in as ngo_admin' do
-      let(:ngo) { create(:ngo) }
       before do
-        sign_in ngo
-        get :edit, id: need.id
+        sign_in create(:ngo)
+        get :edit, id: need
       end
 
       it_behaves_like :an_unauthorized_request
     end
 
     context 'when signed in as admin' do
-      let(:admin) { create(:admin) }
+      let(:admin) { create :admin }
       before do
         sign_in admin
-        get :edit, id: need.id
+        get :edit, id: need
+      end
+
+      it 'assigns @need' do
+        expect(assigns :need).to eq need
       end
 
       it 'renders :edit' do
@@ -88,30 +88,26 @@ RSpec.describe Admin::NeedsController, type: :controller do
     end
   end
 
-  describe 'PATCH update' do
-    let(:need) { create(:need) }
+  describe 'PUT update' do
+    let(:need) { create :need }
     context 'when not signed in' do
-      context 'when html request' do
-        before { patch :update, id: need.id, need: need.attributes }
+      before { put :update, id: need.id, need: need.attributes }
 
-        it_behaves_like :an_unauthorized_request
-      end
+      it_behaves_like :an_unauthorized_request
     end
 
     context 'when signed in as volunteer' do
-      let(:user) { create(:user, ngo_admin: false, admin: false) }
       before do
-        sign_in user
-        patch :update, id: need.id, need: need.attributes
+        sign_in create(:user, ngo_admin: false, admin: false)
+        put :update, id: need.id, need: need.attributes
       end
 
       it_behaves_like :an_unauthorized_request
     end
 
     context 'when signed in as ngo_admin' do
-      let(:ngo) { create(:ngo) }
       before do
-        sign_in ngo
+        sign_in create(:ngo)
         patch :update, id: need.id, need: need.attributes
       end
 
@@ -119,10 +115,34 @@ RSpec.describe Admin::NeedsController, type: :controller do
     end
 
     context 'when signed in as admin', job: true do
-      let(:admin) { create(:admin) }
+      let(:admin) { create :admin }
+      let(:ngo) { create :ngo }
+      let(:params) {
+        {
+          need: {
+            user_id: ngo.id,
+            location: 'somewhere',
+            city: 'some city',
+            description: 'lorem',
+          }, id: need
+        }
+      }
       before do
         sign_in admin
-        patch :update, id: need.id, need: attributes_for(:need)
+        put :update, params
+        need.reload
+      end
+
+      it 'assigns @need' do
+        expect(assigns :need).to eq need
+      end
+
+      it 'updates attributes' do
+        expect(need).to have_attributes(
+          user: ngo,
+          location: 'somewhere',
+          city: 'some city',
+          description: 'lorem')
       end
 
       it 'renders :index' do
