@@ -22,6 +22,14 @@ de:
         why: Schicke deine aktuellen Hilfeanfragen direkt via App an freiwillige Helfer und behalte jederzeit den Überblick wie viele bereits zugesagt haben.
         volunteer: Du bist ein Helfer?
         register_as_volunteer: Registriere Dich als Helfer
+  needs:
+    index:
+      sorry: |
+        Scheinbar werden gerade keine Helfer gebraucht...
+
+        Nimm Dir die Zeit und erhol Dich <i class="fa fa-coffee"></i>
+    list:
+      sorry: <i class="fa fa-frown-o"></i> für diese Suche konnten wir leider nichts finden...
   views:
     pagination:
       first: "&laquo;"

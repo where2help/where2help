@@ -1,4 +1,8 @@
 <%= render 'filter_form' %>
 <div id="list-wrapper">
-  <%= render 'list', needs: @needs %>
+  <% if @needs.empty? %>
+    <%= render 'shared/sorry_message', message: t('.sorry') %>
+  <% else %>
+    <%= render 'list', needs: @needs %>
+  <% end %>
 </div>
