@@ -36,10 +36,10 @@ class ApplicationController < ActionController::Base
     if session[:resource_return_to]
       session.delete(:resource_return_to) 
     else
-      if resource.ngo_admin? || resource.admin?
+      if resource.ngo_admin?
         calendar_ngos_needs_path
       else
-        needs_path
+        admin_needs_path
       end
     end
   end
