@@ -31,6 +31,8 @@ de:
           medical: Medizinische Unterstützung
           translation: Dolmetscher
         description: Beschreibung
+      volunteering:
+        created_at: Zeit
     models:
       user:
         one: Benutzer
@@ -38,3 +40,6 @@ de:
       need:
         one: Bedarf
         other: Bedarfe
+      volunteering:
+        one: Zusage
+        other: Zusagen
