@@ -16,6 +16,7 @@
 //= require angular/angular.min
 //= require moment/min/moment.min
 //= require fullcalendar/dist/fullcalendar.min
+//= require fullcalendar/dist/lang/de-at
 //= require angular_files
 //= require bootstrap/modal
 //= require leaflet

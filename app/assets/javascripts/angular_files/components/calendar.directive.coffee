@@ -37,6 +37,8 @@ angular.module('where2help')
           firstDay: 1
           #timezone: 'UTC'
           timezone: 'local'
+          lang: 'de-at'
+          timeFormat: 'HH(:mm)'
           #defaultDate: calendarConfig.defaultDate
           selectable: true
           selectHelper: true
