@@ -18,7 +18,7 @@
     <tbody>
       <% @needs.each do |need| %>
         <tr data-url="<%= admin_need_path need %>">
-          <td><%= link_to need.id, admin_need_path(need) %></td>
+          <td><%= link_to need.id, ngos_need_path(need) %></td>
           <td><%= need.volunteerings_count %> / <%= need.volunteers_needed %></td>
           <td><%= need.i18n_category %></td>
           <td><%= need.location %></td>

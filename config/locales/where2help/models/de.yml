@@ -32,7 +32,7 @@ de:
           translation: Dolmetscher
         description: Beschreibung
       volunteering:
-        created_at: Zeit
+        created_at: zugesagt
     models:
       user:
         one: Benutzer
