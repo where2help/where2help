@@ -39,10 +39,12 @@
       <div class="col-sm-6 col-sm-offset-3">
         <%= f.button data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
                       class: 'btn btn-primary' %>
-        <%= link_to t('.destroy', default: t('helpers.links.destroy')),
-                      ngos_need_path(@need),
-                      data: { confirm: 'Are you sure?', disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
-                      method: :delete, class: 'btn btn-danger' %>
+        <%= if @need.id.present?
+              link_to t('.destroy', default: t('helpers.links.destroy')),
+                        ngos_need_path(@need),
+                        data: { confirm: 'Are you sure?', disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
+                        method: :delete, class: 'btn btn-danger' 
+            end %>
         <%= link_to t('.cancel', default: t("helpers.links.cancel")),
                       root_path, class: 'btn btn-default' %>
       </div>
