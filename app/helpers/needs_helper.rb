@@ -12,17 +12,6 @@ module NeedsHelper
       class: 'btn btn-primary btn-lg btn-block view-more'
   end
 
-  def volunteerings_button(need)
-    button_options = _button_options(need)
-    button_to button_options[:url],
-              method: button_options[:method],
-              remote: true,
-              data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
-              class:  "btn btn-default btn-block btn-volunteering #{button_options[:class] if button_options[:class]}" do
-      render 'volunteerings/button', need: need, txt: button_options[:txt], action: button_options[:action]
-    end
-  end
-
   def volunteerings_info_individual(need)
     volunteering = need.volunteerings.find_by_user_id(current_user)
     before = volunteering ? "Bitte komm um " : "Wir brauchen noch "
