@@ -30,7 +30,7 @@ angular.module('where2help')
           header:
             left: 'today prev,next',
             center: 'title',
-            right: 'agendaDay,agendaWeek,month'
+            right: 'agendaDay,agendaWeek,month,basicDay'
           #columnFormat: 'ddd'
           allDaySlot: true
           defaultView: 'agendaWeek'
@@ -81,5 +81,7 @@ angular.module('where2help')
           events: (start, end, timezone, callback) ->
             callback scope.needs
 
+        # some customizations
+        $('.fc-basicDay-button').text('Agenda')
         scope.fetch()
   ])
