@@ -35,6 +35,8 @@ gem 'sucker_punch'
 gem 'kaminari'                        # pagination
 
 gem 'pry-rails'
+gem 'faker'
+
 
 # External Client Deps
 gem 'faraday', require: false
@@ -49,7 +51,6 @@ group :production do
 end
 
 group :development, :test do
-  gem 'faker'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'byebug'                        # Debugger
