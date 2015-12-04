@@ -1,28 +1,34 @@
 <%= div_for(need, class: 'row list-item') do %>
-  <div class="col-sm-7 col-lg-7 col-lg-offset-1">
+  <div class="col-sm-4 col-lg-3 col-lg-offset-1">
     <div class="media">
-      <div class="media-left">
-        <%= link_to need_path need do %>
-          <%= icon_for(need) %>
-        <% end %>
-      </div>
+      <div class="media-left"><%= link_to icon_for(need), need_path(need) %></div>
       <div class="media-body">
-        <%= link_to need_path need do %>
-          <h4 class="media-heading"><%= need.volunteers_needed %> <%= need.i18n_category %></h4>
-        <% end %>
-        <div class="time">
+        <h4 class="media-heading"><%= need.i18n_category %></h4>
+        <div class="visible-xs time">
           <i class="fa fa-calendar-o fa-fw"></i>
           <%= I18n.localize(need.start_time, format:'%a, %d. %b %H:%M') %> - <%= need.end_time.strftime('%H:%M') %> Uhr
         </div>
-        <div class="place">
+        <div class="visible-xs place">
           <i class="fa fa-map-marker fa-fw"></i>
           <%= need.city %>, <%= need.location %>
         </div>
+        <%= link_to 'details', need_path(need) %>
       </div>
     </div>
   </div>
 
-  <div class="col-sm-5 col-lg-3">
-    <%= volunteerings_button(need) %>
+  <div class="hidden-xs col-sm-4 col-lg-4">
+    <div class="time">
+      <i class="fa fa-calendar-o fa-fw"></i>
+      <%= I18n.localize(need.start_time, format:'%a, %d. %b %H:%M') %> - <%= need.end_time.strftime('%H:%M') %> Uhr
+    </div>
+    <div class="place">
+      <i class="fa fa-map-marker fa-fw"></i>
+      <%= need.city %>, <%= need.location %>
+    </div>
+  </div>
+
+  <div id="<%= dom_id(need, :button) %>" class="col-sm-4 col-lg-3 text-center">
+    <%= render 'volunteerings/button', need: need %>
   </div>
 <% end %>

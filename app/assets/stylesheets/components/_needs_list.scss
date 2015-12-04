@@ -26,29 +26,6 @@ div.list-item {
     }
   }
 
-  .btn-volunteering {
-    color: $white;
-    background-color: $where2help_blue;
-    border-color: $blue-accent;
-    @media (max-width: 768px) {
-      margin-top: 10px;
-    }
-
-    &:hover {
-      background-color: $blue-accent;
-    }
-
-    .button-info {
-      color: darken($white, 10%);
-    }
-
-    .button-action {
-      margin-top: 0.5em;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-  }
-
   .btn-active {
     // background-color: $where2help_light_blue;
     background-color: lighten($where2help_blue, 10%);
