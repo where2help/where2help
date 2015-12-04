@@ -5,6 +5,10 @@ class Ngos::NeedsController < NeedsController
   def calendar
   end
 
+  def new
+    @need = Need.new
+  end
+
   # PATCH/PUT /needs/1
   # PATCH/PUT /needs/1.json
   def update
