@@ -67,27 +67,27 @@ class NeedsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_need
-      if current_user.admin?
-        @need = Need.find(params[:id])
-      else
-        @need = current_user.needs.find(params[:id])
-      end
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_need
+    if current_user.admin?
+      @need = Need.find(params[:id])
+    else
+      @need = current_user.needs.find(params[:id])
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def need_params
-      params.
-      require(:need).
-      permit(:location,
-              :city,
-              :start_time,
-              :end_time,
-              :category,
-              :description,
-              :volunteers_needed,
-              :user_id).
-      merge(user_id: current_user.id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def need_params
+    params.
+    require(:need).
+    permit(:location,
+            :city,
+            :start_time,
+            :end_time,
+            :category,
+            :description,
+            :volunteers_needed).
+    merge(user_id: current_user.id)
+  end
 end
