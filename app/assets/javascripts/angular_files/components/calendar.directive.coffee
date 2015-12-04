@@ -27,10 +27,15 @@ angular.module('where2help')
       $(document).ready ->
         $('#calendar').fullCalendar
           #header: true
+          customButtons:
+            newNeed:
+              text: '+ Neues Gesuch erstellen'
+              click: ->
+                window.location.href = '/ngos/needs/new';
           header:
-            left: 'today prev,next',
+            left: 'newNeed',
             center: 'title',
-            right: 'agendaDay,agendaWeek,month'
+            right: ' prev,today,next agendaDay,agendaWeek,month,basicDay'
           #columnFormat: 'ddd'
           allDaySlot: true
           defaultView: 'agendaWeek'
@@ -81,5 +86,7 @@ angular.module('where2help')
           events: (start, end, timezone, callback) ->
             callback scope.needs
 
+        # some customizations
+        $('.fc-basicDay-button').text('Agenda')
         scope.fetch()
   ])
