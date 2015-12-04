@@ -18,13 +18,8 @@
           <%= render 'nav_personal', mobile: true %>
         </ul>
         <ul class="nav navbar-nav navbar-right hidden-xs">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i> <span class="caret"></span></a>
-            <ul class="dropdown-menu dropdown-menu-right inverse-dropdown">
-              <%= render 'nav_personal' %>
-            </ul>
-          </li>
-        </ul>
+          <%= render 'nav_personal' %>
+         </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
           <li>
