@@ -18,7 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'        # Coffeescript support in the asset pipeli
 gem 'jquery-rails'                    # JQ asset pipeline integration
 gem 'jbuilder', '~> 2.0'              # Build JSON APIs with ease.
 gem 'sdoc', '~> 0.4.0', group: :doc   # bundle exec rake doc:rails generates the API under doc/api.
-gem 'unicorn'                         # Application server
+#gem 'unicorn'                         # Application server
+gem 'puma'                         # Application server
 
 gem 'bootstrap-sass'                  # Twitter Bootstrap integration
 gem 'bootstrap-sass-extras'           # Twitter Bootstrap helpers (taken from less version)
