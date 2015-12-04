@@ -63,7 +63,8 @@ de:
         title: ! '%{resource} bearbeiten'
         we_need_your_current_password_to_confirm_your_changes: wir benötigen Ihr aktuelles Passwort, um die Änderung zu bestätigen
         update: "Aktualisieren"
-        unhappy: "Unglücklich"
+        unhappy: "Wollen sie Ihren Account löschen"
+        back: "Zurück"
       new:
         sign_up: Registrieren
         agree: Ich akzeptiere die

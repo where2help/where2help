@@ -6,6 +6,7 @@ de:
         email: E-Mail
         password: Passwort
         password_confirmation: Passwortbestätigung
+        current_password: "Aktuelles Passwort"
         first_name: Vorname
         last_name: Nachname
         phone: Telefon
