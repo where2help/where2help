@@ -1,6 +1,7 @@
 <% if @view_is_list %>
-  var item_id = "div#need_" + "<%= @need.id %>";
-  $(item_id).replaceWith("<%= j render @need %>");
+  console.log("here");
+  var $button = $('div#<%= dom_id(@need, :button) %>');
+  $button.html("<%= j render 'volunteerings/button', need: @need %>");
 <% else %>
   $('.volunteering-info').html("<%= j volunteerings_info_individual(@need) %>");
   $('.volunteering-button').html("<%= j volunteerings_button_individual(@need) %>");
