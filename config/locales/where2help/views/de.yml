@@ -15,6 +15,14 @@ de:
       profile: Profil
       sign_out: Abmelden
   ngos:
+    needs:
+      calendar:
+        explanation: |
+          Du brauchst Freiwillige vor Ort? Gib einfach in den Kalendar ein, wen
+          Du genau suchst, wann und wo. Alle bei Where2Help angemeldeten
+          Freiwilligen werden automatisch benachrichtigt und können sich direkt
+          anmelden. Der Kalendar zeigt in Echtzeit wie viele Leute bereits
+          angemeldeten sind.
     registrations:
       new:
         sign_up: 'NGO Registrieren'
