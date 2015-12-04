@@ -1,6 +1,6 @@
 class Admin::NeedsController < NeedsController
   # authenticate_user! has to be added again for index action
-  before_action :authenticate_user!
+  prepend_before_action :authenticate_user!
   before_action :only_admin
 
   def index
