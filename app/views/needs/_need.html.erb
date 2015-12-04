@@ -4,6 +4,7 @@
       <div class="media-left"><%= link_to icon_for(need), need_path(need) %></div>
       <div class="media-body">
         <h4 class="media-heading"><%= need.i18n_category %></h4>
+        <%= link_to 'Details', need_path(need) %>
         <div class="visible-xs time">
           <i class="fa fa-calendar-o fa-fw"></i>
           <%= I18n.localize(need.start_time, format:'%a, %d. %b %H:%M') %> - <%= need.end_time.strftime('%H:%M') %> Uhr
@@ -12,7 +13,6 @@
           <i class="fa fa-map-marker fa-fw"></i>
           <%= need.city %>, <%= need.location %>
         </div>
-        <%= link_to 'details', need_path(need) %>
       </div>
     </div>
   </div>
