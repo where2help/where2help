@@ -42,4 +42,10 @@ Rails.application.configure do
 
   # dev email opens in browser
   config.action_mailer.delivery_method = :letter_opener
+
+  # bullet
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.rails_logger = true
+  end
 end

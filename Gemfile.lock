@@ -55,6 +55,9 @@ GEM
     bootstrap-sass-extras (0.0.6)
       rails (>= 3.1.0)
     builder (3.2.2)
+    bullet (4.14.10)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     byebug (8.2.1)
     celluloid (0.17.2)
       celluloid-essentials
@@ -295,6 +298,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.9.0)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -312,6 +316,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bootstrap-sass-extras
+  bullet
   byebug
   coffee-rails (~> 4.1.0)
   database_cleaner

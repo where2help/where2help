@@ -72,6 +72,7 @@ group :development do
   gem 'binding_of_caller'
   gem "letter_opener"
   gem "awesome_print"
+  gem 'bullet'                       # n+1 queries
 end
 
 group :test do
