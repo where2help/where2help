@@ -24,12 +24,11 @@ en:
         register_as_volunteer: Register as a volunteer
   needs:
     index:
-      sorry: |
+      empty: |
         Seems like there are currently no volunteers needed...
 
         Take the time to relax <i class="fa fa-coffee"></i>
-    list:
-      sorry: <i class="fa fa-frown-o"></i> sorry, no results for this search
+      no_results: <i class="fa fa-frown-o"></i> sorry, no results for this search
   views:
     pagination:
       first: "&laquo;"

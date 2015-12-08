@@ -1,8 +1,9 @@
 <%= render 'filter_form' %>
-<div id="list-wrapper">
-  <% if @needs.empty? %>
-    <%= render 'shared/sorry_message', message: t('.sorry') %>
-  <% else %>
-    <%= render 'list', needs: @needs %>
-  <% end %>
+<div id="needs">
+  <%= render(@needs) || render('shared/sorry_message', message: t('.empty')) %>
+</div>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4 text-center">
+    <%= view_more_link(@needs) %>
+  </div>
 </div>
