@@ -3,11 +3,14 @@
     <div class="media">
       <div class="media-left"><%= link_to icon_for(need), need_path(need) %></div>
       <div class="media-body">
-        <h4 class="media-heading"><%= need.i18n_category %></h4>
-        <%= link_to 'Details', need_path(need) %>
+        <h4 class="media-heading">
+          <%= link_to need.i18n_category, need_path(need) %>
+          <% if need.volunteerings.find_by_user_id(current_user) %>
+            <i class="visible-xs fa fa-bookmark-o fa-2x pull-right"></i>
+          <% end %>
+        </h4>
         <div class="visible-xs time">
-          <i class="fa fa-calendar-o fa-fw"></i>
-          <%= I18n.localize(need.start_time, format:'%a, %d. %b %H:%M') %> - <%= need.end_time.strftime('%H:%M') %> Uhr
+          <strong><i class="fa fa-calendar-o fa-fw"></i> <%= short_date_for_need need %></strong> <%= need.start_time.strftime('%H:%M') %> - <%= need.end_time.strftime('%H:%M') %>
         </div>
         <div class="visible-xs place">
           <i class="fa fa-map-marker fa-fw"></i>
@@ -18,9 +21,11 @@
   </div>
 
   <div class="hidden-xs col-sm-4 col-lg-4">
+    <div class="date">
+      <strong><i class="fa fa-calendar-o fa-fw"></i> <%= short_date_for_need need %></strong>
+    </div>
     <div class="time">
-      <i class="fa fa-calendar-o fa-fw"></i>
-      <%= I18n.localize(need.start_time, format:'%a, %d. %b %H:%M') %> - <%= need.end_time.strftime('%H:%M') %> Uhr
+      <i class="fa fa-clock-o fa-fw"></i> <%= need.start_time.strftime('%H:%M') %> - <%= need.end_time.strftime('%H:%M') %>
     </div>
     <div class="place">
       <i class="fa fa-map-marker fa-fw"></i>
@@ -28,7 +33,7 @@
     </div>
   </div>
 
-  <div id="<%= dom_id(need, :button) %>" class="col-sm-4 col-lg-3 text-center">
+  <div id="<%= dom_id(need, :button) %>" class="hidden-xs col-sm-4 col-lg-3 text-center">
     <%= render 'volunteerings/button', need: need %>
   </div>
 <% end %>

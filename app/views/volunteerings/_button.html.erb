@@ -1,4 +1,5 @@
 <% if need.volunteerings.find_by_user_id(current_user) %>
+  <i class="fa fa-bookmark-o fa-2x"></i><br>
   <strong>Bitte komm um <%= I18n.localize(need.start_time, format:'%H:%M') %></strong>
 <% else %>
     <p>Noch <strong><%= [0, need.volunteers_needed - need.volunteerings_count].max %></strong> Helfer gesucht</p>

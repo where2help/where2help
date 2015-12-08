@@ -12,6 +12,17 @@ module NeedsHelper
       class: 'btn btn-primary btn-lg btn-block view-more'
   end
 
+  def short_date_for_need(need)
+    case need.start_time.to_date
+    when Date.today
+      t(:today)
+    when Date.tomorrow
+      t(:tomorrow)
+    else
+      I18n.localize(need.start_time, format:'%a %d.%m')
+    end
+  end
+
   def volunteerings_info_individual(need)
     volunteering = need.volunteerings.find_by_user_id(current_user)
     before = volunteering ? "Bitte komm um " : "Wir brauchen noch "

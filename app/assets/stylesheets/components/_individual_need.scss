@@ -12,6 +12,8 @@
   color: $black-light;
   background-color: $black-basic;
   border-color: $black-light;
+  max-width: 300px;
+  margin: auto;
 
   &:hover {
     background-color: lighten($black-light, 10%);
@@ -21,4 +23,3 @@
 
 .voluntering-description {
 }
-
