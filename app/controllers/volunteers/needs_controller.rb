@@ -1,7 +1,7 @@
 class Volunteers::NeedsController < ApplicationController
-  
+
   def index
-    @needs = current_user.appointments.
+    @needs = current_user.appointments.includes(:user).
                           filter_scope(params[:scope] || 'upcoming').
                           filter_place(params[:place]).
                           page(params[:page]).per(10)

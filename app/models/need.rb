@@ -48,4 +48,8 @@ class Need < ActiveRecord::Base
   def i18n_category
     I18n.t(category, scope: [:activerecord, :attributes, :need, :categories])
   end
+
+  def upcoming?
+    start_time >= Time.now
+  end
 end

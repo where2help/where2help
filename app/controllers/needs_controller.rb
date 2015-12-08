@@ -3,7 +3,7 @@ class NeedsController < ApplicationController
   before_action :set_need, only: [:edit, :update, :destroy]
 
   def index
-    @needs = Need.includes(:volunteerings).
+    @needs = Need.includes(:user).
                   upcoming.
                   unfulfilled.
                   filter_category(params[:category]).
@@ -67,7 +67,7 @@ class NeedsController < ApplicationController
   end
 
   private
-  
+
   # Use callbacks to share common setup or constraints between actions.
   def set_need
     if current_user.admin?
