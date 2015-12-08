@@ -1,6 +1,6 @@
 <% if params[:filter].present? %>
-  $('div#list-wrapper').html("<%= j render 'list', needs: @needs %>");
+  $('div#needs').html("<%= j render(@needs) || render('shared/sorry_message', message: t('.no_results')) %>");
 <% else %>
-  $('div.list-item').last().after("<%= j render @needs %>");
-  $('a.view-more').replaceWith("<%= j view_more_link @needs %>")
+  $('div#needs').append("<%= j render @needs %>");
 <% end %>
+$('a.view-more').replaceWith("<%= j view_more_link(@needs, :scope) %>")

@@ -33,10 +33,16 @@ de:
   needs:
     index:
       empty: |
-        Scheinbar werden gerade keine Helfer gebraucht...
-
-        Nimm Dir die Zeit und erhol Dich <i class="fa fa-coffee"></i>
+        Du bist aktuell für keine Hilfsaktionen angemeldet.
       no_results: <i class="fa fa-frown-o"></i> für diese Suche konnten wir leider nichts finden...
+  volunteers:
+    needs:
+      index:
+        empty: |
+          Scheinbar werden gerade keine Helfer gebraucht...
+
+          Nimm Dir die Zeit und erhol Dich <i class="fa fa-coffee"></i>
+        no_results: <i class="fa fa-frown-o"></i> für diese Suche konnten wir leider nichts finden...
   views:
     pagination:
       first: "&laquo;"
