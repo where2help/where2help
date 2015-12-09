@@ -13,17 +13,17 @@ body {
 }
 
 .inverse-dropdown {
-  background-color: $blue_dark;
-  border-color: $blue_dark;
+  background-color: $gray_main;
+  border-color: $gray_main;
   li a {
     color: $gray_light;
     &:hover{
       color: $white;
-      background-color: $blue_dark;
+      background-color: $gray_main;
     }
   }
   .divider {
-    background-color: $blue_dark;
+    background-color: $gray_main;
   }
 }
 

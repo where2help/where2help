@@ -28,7 +28,7 @@ div.list-item {
 
   .btn-active {
     // background-color: $where2help_light_blue;
-    background-color: lighten($blue_dark, 10%);
+    background-color: lighten($gray_main, 10%);
     border-color: lighten($blue_light, 10%);
 
     &:hover {
@@ -38,7 +38,7 @@ div.list-item {
 
   .calendar-icon {
     display: block;
-    background: $blue_dark;
+    background: $gray_main;
     color: $white;
     text-transform: uppercase;
     padding: 0.75em;
@@ -48,7 +48,7 @@ div.list-item {
     text-decoration: none;
 
     &:hover {
-      background-color: darken($blue_dark, 10%);
+      background-color: darken($gray_main, 10%);
     }
   }
 }
