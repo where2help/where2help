@@ -10,14 +10,14 @@
   }
 
   .fc-event {
-    border-color: $where2help_dark_blue;
-    background-color: $where2help_dark_blue;
+    border-color: $blue_dark;
+    background-color: $blue_dark;
   }
 
   .fc-event.need-fulfilled {
-    border-color: $where2help_gray;
-    background-color: $where2help_gray;
-    color: $where2help_light_gray;
+    border-color: $gray_light;
+    background-color: $gray_light;
+    color: $white;
   }
 
   .fc-today {

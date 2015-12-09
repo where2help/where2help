@@ -14,16 +14,20 @@
  *= require leaflet
  */
 
+// basics
+@import 'util/colors';
+@import 'util/bootstrap_overwrites';
+
 // vendor
 @import 'bootstrap';
 @import 'devise_bootstrap_views';
 @import 'font-awesome';
 
 // util
-@import 'util/colors';
-@import 'util/bootstrap_overwrites';
-
-// components
+//@import 'util/colors';
+@import 'util/globals';
+//
+// // components
 @import 'components/calendar';
 @import 'components/needs_list';
 @import 'components/map';
@@ -31,6 +35,6 @@
 @import 'components/footer';
 @import 'components/error_messages';
 @import 'components/table_clickable';
-
-// page specific
+//
+// // page specific
 @import 'pages/*';

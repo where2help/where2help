@@ -9,14 +9,14 @@
 }
 
 .btn-volunteering {
-  color: $black-light;
-  background-color: $black-basic;
-  border-color: $black-light;
+  color: $gray_light;
+  background-color: $blue_dark;
+  border-color: $gray_light;
   max-width: 300px;
   margin: auto;
 
   &:hover {
-    background-color: lighten($black-light, 10%);
+    background-color: lighten($gray_light, 10%);
   }
 
 }
