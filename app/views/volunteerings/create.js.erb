@@ -1,8 +1,2 @@
-<% if @view_is_list %>
-  console.log("here");
-  var $button = $('div#<%= dom_id(@need, :button) %>');
-  $button.html("<%= j render 'volunteerings/button', need: @need %>");
-<% else %>
-  $('.volunteering-info').html("<%= j volunteerings_info_individual(@need) %>");
-  $('.volunteering-button').html("<%= j volunteerings_button_individual(@need) %>");
-<% end %>
+console.log('render list button');
+$('div#<%= dom_id(@need, :button) %>').html("<%= j volunteerings_button(@need) %>");

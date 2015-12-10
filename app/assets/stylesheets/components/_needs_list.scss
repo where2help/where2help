@@ -7,10 +7,13 @@ form#filter-form {
   margin-bottom: 40px;
 }
 
-// h2.need-category {
-//   margin-top: 0;
-// }
-//
+div.stream-button {
+  .btn-volunteering {
+    &.-destroy {
+      display: none;
+    }
+  }
+}
 div.list-item {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -27,7 +30,6 @@ div.list-item {
   }
 
   .btn-active {
-    // background-color: $where2help_light_blue;
     background-color: lighten($gray_main, 10%);
     border-color: lighten($blue_light, 10%);
 

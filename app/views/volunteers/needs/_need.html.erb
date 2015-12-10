@@ -34,12 +34,7 @@
     </div>
   </div>
 
-  <div class="hidden-xs col-sm-4 col-lg-3 text-center">
-    <% if need.upcoming? %>
-      <i class="fa fa-bookmark-o fa-2x"></i><br>
-      <strong>Bitte komm um <%= I18n.localize(need.start_time, format:'%H:%M') %></strong>
-    <% else %>
-      <strong>Danke dass Du da warst!</strong>
-    <% end %>
+  <div id="<%= dom_id(need, :button) %>" class="hidden-xs col-sm-4 col-lg-3 text-center">
+    <%= volunteerings_button(need) %>
   </div>
 <% end %>

@@ -1,5 +1,4 @@
 class VolunteeringsController < ApplicationController
-  before_action :view_is_list?
 
   def create
     @need = Need.find(params[:need_id])
@@ -12,9 +11,4 @@ class VolunteeringsController < ApplicationController
     volunteering.destroy
     @need.reload
   end
-
-  def view_is_list?
-    @view_is_list = params[:list] == 'true'
-  end
-
 end

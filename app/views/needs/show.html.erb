@@ -26,12 +26,8 @@
     </div>
   </div>
   <br />
-  <div class="volunteering-info">
-    <%= volunteerings_info_individual(@need) %>
-  </div>
-  <br />
-  <div class="volunteering-button">
-    <%= volunteerings_button_individual(@need) %>
+  <div id="<%= dom_id(@need, :button) %>" class="text-center">
+    <%= volunteerings_button(@need) %>
   </div>
   <br />
   <div class="volunteering-description">

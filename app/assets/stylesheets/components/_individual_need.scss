@@ -4,22 +4,3 @@
   }
   font-size: 12px;
 }
-
-.volunteering-info {
-}
-
-.btn-volunteering {
-  color: $gray_light;
-  background-color: $gray_main;
-  border-color: $gray_light;
-  max-width: 300px;
-  margin: auto;
-
-  &:hover {
-    background-color: lighten($gray_light, 10%);
-  }
-
-}
-
-.voluntering-description {
-}

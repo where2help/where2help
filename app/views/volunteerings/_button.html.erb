@@ -1,11 +1,1 @@
-<% if need.volunteerings.find_by_user_id(current_user) %>
-  <i class="fa fa-bookmark-o fa-2x"></i><br>
-  <strong>Bitte komm um <%= I18n.localize(need.start_time, format:'%H:%M') %></strong>
-<% else %>
-    <p>Noch <strong><%= [0, need.volunteers_needed - need.volunteerings_count].max %></strong> Helfer gesucht</p>
-    <%= button_to 'Helfen', volunteerings_path(need_id: need, list: true),
-              method: :post,
-              remote: true,
-              data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
-              class:  'btn btn-default btn-block btn-volunteering' %>
-<% end %>
+
