@@ -2,8 +2,12 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  it 'has a valid factory' do
-    expect(build_stubbed(:need)).to be_valid
+  it 'has a valid factory for volunteers' do
+    expect(build_stubbed(:user)).to be_valid
+  end
+
+  it 'has a valid factory for ngos' do
+    expect(build_stubbed(:ngo)).to be_valid
   end
 
   describe 'validations' do
@@ -27,7 +31,11 @@ RSpec.describe User, type: :model do
     context 'when ngo_admin' do
 
       it 'is invalid without organization' do
-        expect(build(:user, ngo_admin: true, organization: '')).not_to be_valid
+        expect(build(:ngo, organization: '')).not_to be_valid
+      end
+
+      it 'is invalid without phone number' do
+        expect(build(:ngo, phone: nil)).not_to be_valid
       end
     end
   end

@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :organization, presence: true, if: :registered_as_ngo?
-  validates :phone, presence: true
+  validates :phone, presence: true, if: :registered_as_ngo?
   validates :terms_and_conditions, acceptance: true
 
   # callbacks
