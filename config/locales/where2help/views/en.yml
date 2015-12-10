@@ -4,14 +4,15 @@ en:
       sign_up: Login
     nav_admin:
       calendar: Calendar
-      needs: Events
+      needs: Needs
+      appointments: Events
       users: User
     nav_ngo:
       calendar: Calendar
-      needs_ngo: Needs
-      needs: Events
+      needs: Needs
+      appointments: Events
     nav_volunteer:
-      needs: Events
+      appointments: Events
     nav_personal:
       profile: Profile
       sign_out: Logout

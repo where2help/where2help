@@ -4,14 +4,15 @@ de:
       sign_up: Anmelden
     nav_admin:
       calendar: Kalender
-      needs: Termine
+      needs: Bedarfe
       users: Benutzer
+      appointments: Termine
     nav_ngo:
       calendar: Kalender
-      needs_ngo: Bedarfe
-      needs: Termine
+      needs: Bedarfe
+      appointments: Termine
     nav_volunteer:
-      needs: Meine Termine
+      appointments: Meine Termine
     nav_personal:
       profile: Profil
       sign_out: Abmelden
