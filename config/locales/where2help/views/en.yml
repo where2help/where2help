@@ -8,6 +8,7 @@ en:
       users: User
     nav_ngo:
       calendar: Calendar
+      needs_ngo: Needs
       needs: Events
     nav_volunteer:
       needs: Events
