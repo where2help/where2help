@@ -4,11 +4,15 @@ module Api
       immutable
 
       attributes :location, :start_time, :end_time, :volunteers_needed,
-                 :city, :category, :user_id, :volunteers_count,
+                 :city, :category, :user_id, :organization_name, :volunteers_count,
                  :lat, :lng, :description
 
       def volunteers_count
         @model.volunteers.count
+      end
+
+      def organization_name
+        @model.user.organization
       end
     end
   end
