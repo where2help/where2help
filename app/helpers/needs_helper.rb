@@ -1,7 +1,7 @@
 module NeedsHelper
 
   def icon_for(need)
-    image_tag("needs/#{need.category}.png", height: '64', class: 'media-object')
+    image_tag("needs/#{need.category}.svg", height: '64', class: 'media-object')
   end
 
   def view_more_link(resource, opt_1=:category, opt_2=:place)
