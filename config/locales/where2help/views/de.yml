@@ -54,3 +54,8 @@ de:
       truncate: "&hellip;"
     needs:
       back_to_list: "Zurück zur Liste"
+  admin_mailer:
+    ngo_confirmation_request:
+      subject: "NGO Account Anfrage von %{organization}"
+      headline: "Neue NGO Account Anfrage von %{organization}"
+      action: "Bitte überprüfen und ggf. Freischalten"

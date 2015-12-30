@@ -40,3 +40,8 @@ en:
       truncate: "&hellip;"
     needs:
       back_to_list: "Back to List"
+  admin_mailer:
+    ngo_confirmation_request:
+      subject: "NGO account request by %{organization}"
+      headline: "New NGO account request by %{organization}"
+      action: "Please check and eventually confirm"
