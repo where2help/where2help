@@ -30,8 +30,12 @@ ActiveRecord::Schema.define(version: 20160218161133) do
   end
 
   create_table "languages_users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["language_id"], name: "index_languages_users_on_language_id", using: :btree
+    t.index ["user_id"], name: "index_languages_users_on_user_id", using: :btree
   end
 
   create_table "ngos", force: :cascade do |t|
