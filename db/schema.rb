@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(version: 20160218161133) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "ngo_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ngo_id"], name: "index_contacts_on_ngo_id", using: :btree
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
