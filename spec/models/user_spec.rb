@@ -18,4 +18,12 @@ RSpec.describe User, type: :model do
       expect(build :user, last_name: nil).not_to be_valid
     end
   end
+
+  describe 'attributes' do
+    let(:user) { build :user }
+
+    it 'can be admin (default false)' do
+      expect(user.admin).to be_falsy
+    end
+  end
 end
