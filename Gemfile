@@ -11,7 +11,6 @@ gem 'puma'
 gem 'sass-rails', '~> 5.0'
 
 gem 'bootstrap-sass'
-gem 'fontawesome-rails'
 
 gem 'devise', '>= 4.0.0.rc1'
 
