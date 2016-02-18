@@ -7,11 +7,19 @@ RSpec.describe User, type: :model do
   end
 
   it { is_expected.to have_many(:languages)}
+  it { is_expected.to have_many(:abilities)}
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of :email }
-    it { is_expected.to validate_length_of :first_name }
-    it { is_expected.to validate_length_of :last_name }
+    it 'is invalid without email' do
+      expect(build :user, email: nil).not_to be_valid
+    end
+    it 'is invalid without first_name' do
+      expect(build :user, first_name: nil).not_to be_valid
+    end
+
+    it 'is invalid without last_name' do
+      expect(build :user, last_name: nil).not_to be_valid
+    end
   end
 
   describe 'attributes' do
