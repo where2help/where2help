@@ -1,9 +1,0 @@
-console.log('render destroy button');
-var $listItem = $('div#<%= dom_id(@need) %>.list-item');
-var $button = $('div#<%= dom_id(@need, :button) %>');
-
-if ($($listItem).length) {
-  $listItem.hide();
-} else {
-  $button.html("<%= j volunteerings_button(@need) %>");
-}

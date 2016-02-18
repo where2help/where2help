@@ -1,6 +1,0 @@
-<%=  link_to user.admin_confirmed ? 'Benutzer Sperren' : 'Benutzer Freischalten',
-          confirm_admin_user_path(user),
-          method: :post,
-          data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" },
-          id: 'admin-confirm',
-          class: user.admin_confirmed ? 'btn btn-danger' : 'btn btn-success' %>

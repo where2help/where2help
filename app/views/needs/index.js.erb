@@ -1,7 +1,0 @@
-<% if params[:filter].present? %>
-  console.log("<% @needs || 'hello' %>")
-  $('div#needs').html("<%= j render(@needs) || render('shared/sorry_message', message: t('.no_results')) %>");
-<% else %>
-  $('div#needs').append("<%= j render @needs %>");
-<% end %>
-$('a.view-more').replaceWith("<%= j view_more_link @needs %>")
