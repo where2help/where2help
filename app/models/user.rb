@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :confirmable, :validatable
 
   has_many :languages_users
-  has_many :users, through: :language_users
+  has_many :languages, through: :languages_users
 
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }
