@@ -1,6 +1,9 @@
 class Ngo < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, :validatable
+
+  has_one :contact, dependent: :destroy
+
+  validates :name, presence: true
+  validates :identifier, presence: true
 end
