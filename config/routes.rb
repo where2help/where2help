@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     sessions: 'ngos/sessions',
     unlocks: 'ngos/unlocks' }
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users
     end
