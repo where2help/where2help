@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= f.label :locale %><br />
-    <%= select_tag(:locale, options_for_select([['English', 'en'], ['Deutsch', 'de']])) %>
+    <%= f.select :locale, User.locales.keys.to_a %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

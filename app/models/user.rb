@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, :validatable
 
-  enum locale: [:de, :en]
+  enum locale: { de: 0, en: 1 }
 
   has_secure_token :api_token #That's a rails feature!
 
