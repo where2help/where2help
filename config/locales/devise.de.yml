@@ -35,6 +35,7 @@ de:
       updated_not_active: "Dein Passwort wurde geändert."
     registrations:
       destroyed: "Dein Account wurde gelöscht."
+      deactivated: "Baba! Dein Account wurde erfolgreich deaktviert. Du kannst ihn jederzeit wieder aktivieren."
       signed_up: "Du hast dich erfolgreich registriert."
       signed_up_but_inactive: "Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account inaktiv ist."
       signed_up_but_locked: "Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account gesperrt ist."

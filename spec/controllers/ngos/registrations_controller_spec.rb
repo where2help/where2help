@@ -6,9 +6,9 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
   end
 
   describe 'GET new' do
-    it 'return success' do
+    it 'return 200 ok status' do
       get :new
-      expect(response).to have_http_status :success
+      expect(response).to have_http_status 200
     end
   end
 
@@ -16,14 +16,14 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
     context 'with valid attributes' do
       let(:params) {
         {
-          ngo: attributes_for(:ngo, email: 'ngo@ngo.at').merge({
+          ngo: attributes_for(:ngo, email: 'ngo@ngo.we').merge({
             password: 'supersecret',
             password_confirmation: 'supersecret',
             contact_attributes: attributes_for(:contact)})
         }
       }
 
-      it 'returns 302' do
+      it 'returns a 302 found response' do
         post :create, params: params
         expect(response).to have_http_status 302
       end
@@ -40,15 +40,15 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
         }.to change{Contact.count}.by 1
       end
 
-      it 'send email to ngo' do
-        ActionMailer::Base.deliveries.clear
+      it 'sends email to ngo' do
+        Devise::Mailer.deliveries.clear
         post :create, params: params
-        expect(ActionMailer::Base.deliveries.count).to eq 1
-        expect(ActionMailer::Base.deliveries.first.to).to contain_exactly 'ngo@ngo.at'
-        ActionMailer::Base.deliveries.clear
+        expect(Devise::Mailer.deliveries.count).to eq 1
+        expect(Devise::Mailer.deliveries.first.to).to contain_exactly 'ngo@ngo.we'
+        Devise::Mailer.deliveries.clear
       end
 
-      it 'sends email to admins' do
+      it 'sends async email to admins' do
         create :user, admin: true
         message_delivery = instance_double(ActionMailer::MessageDelivery)
         expect(AdminMailer).to receive(:new_ngo).and_return(message_delivery)
@@ -65,7 +65,7 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
         }
       }
 
-      it 'returns 200' do
+      it 'returns a 200 ok status' do
         post :create, params: params
         expect(response).to have_http_status 200
       end
@@ -75,6 +75,39 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
           post :create, params: params
         }.not_to change{Ngo.count}
       end
+    end
+  end
+
+  describe 'DELETE destroy' do
+    let(:ngo) { create(:ngo,
+      email: 'ngo@ngo.we',
+      confirmed_at: Faker::Time.backward(5),
+      admin_confirmed_at: Faker::Time.backward(2),
+      confirmation_token: Faker::Bitcoin.address) }
+
+    let(:destroy_ngo) { -> { delete :destroy; ngo.reload } }
+
+    before { sign_in ngo }
+
+    it 'returns a 302 found status' do
+      delete :destroy
+      expect(response).to have_http_status 302
+    end
+
+    it 'does not destroy ngo record' do
+      expect(destroy_ngo).not_to change{Ngo.count}
+    end
+
+    it 'resets confirmed_at' do
+      expect(destroy_ngo).to change{ngo.confirmed_at}.to nil
+    end
+
+    it 'resets confirmation_token' do
+      expect(destroy_ngo).to change{ngo.confirmation_token}.to nil
+    end
+
+    it 'does not reset admin_confirmed_at' do
+      expect(destroy_ngo).not_to change{ngo.admin_confirmed_at}
     end
   end
 end
