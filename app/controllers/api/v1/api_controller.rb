@@ -5,7 +5,7 @@ class Api::V1::ApiController < ApplicationController
 
   before_action :api_authenticate
   before_action :set_token_header
-s
+
   TOKEN_VALIDITY = 1.week
 
   private
