@@ -28,4 +28,17 @@ RSpec.describe Ngo, type: :model do
       end
     end
   end
+
+  describe 'callbacks' do
+    describe 'after_commit' do
+      before { create :user, admin: true }
+
+      it 'sends email to admins' do
+        message_delivery = instance_double(ActionMailer::MessageDelivery)
+        expect(AdminMailer).to receive(:new_ngo).and_return(message_delivery)
+        expect(message_delivery).to receive(:deliver_later)
+        create :ngo
+      end
+    end
+  end
 end

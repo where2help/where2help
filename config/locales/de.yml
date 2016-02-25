@@ -13,3 +13,7 @@ de:
     attributes:
       ngo:
         identifier: Identifikationsnummer
+  admin_mailer:
+    new_ngo:
+      subject: "[where2help] Neue NGO Registrierung"
+      content: Neue NGO Account Anfrage

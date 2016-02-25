@@ -11,10 +11,12 @@ class Ngo < ApplicationRecord
   validates :identifier, presence: true
   validates_presence_of :contact
 
+  after_commit :request_admin_confirmation, on: :create
+
   def self.send_reset_password_instructions(attributes={})
    recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
    if !recoverable.admin_confirmed_at?
-     recoverable.errors[:base] << I18n.t("devise.failure.not_admin_confirmed")
+     recoverable.errors[:base] << I18n.t('devise.failure.not_admin_confirmed')
    elsif recoverable.persisted?
      recoverable.send_reset_password_instructions
    end
@@ -29,5 +31,11 @@ class Ngo < ApplicationRecord
   # custom message if requires admin confirmation
   def inactive_message
     admin_confirmed_at ? :not_admin_confirmed : super
+  end
+
+  private
+
+  def request_admin_confirmation
+    AdminMailer.new_ngo(self).deliver_later
   end
 end
