@@ -1,9 +1,15 @@
 class AdminMailer < ApplicationMailer
   default from: 'no-reply@where2help.at',
-          to: Proc.new { User.where(admin: true).pluck(:email) }
+          to: proc { admins.pluck(:email) }
 
   def new_ngo(ngo)
     @ngo = ngo
-    mail unless User.where(admin: true).empty?
+    mail unless admins.empty?
+  end
+
+  private
+
+  def admins
+    @admins ||= User.where(admin: true)
   end
 end
