@@ -1,0 +1,15 @@
+de:
+  activerecord:
+    models:
+      contact: Kontakt
+    attributes:
+      contact:
+        first_name: Vorname
+        last_name: Nachname
+        phone: Telefon
+        street: Straße
+        zip: Postleitzahl
+        city: Stadt
+    attributes:
+      ngo:
+        identifier: Identifikationsnummer
