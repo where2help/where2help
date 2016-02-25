@@ -6,6 +6,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   attr_accessor :resource
 
+  # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" -S http://localhost:3000/api/v1/users/
   def index
     @users = User.all
   end
@@ -22,9 +23,8 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   def destroy
-    current_user.update(encrypted_password:    "deleted", 
-                        confirmation_token:    nil,  
-                        confirmed_at:          nil, 
+    current_user.update(confirmation_token:    nil,
+                        confirmed_at:          nil,
                         confirmation_sent_at:  nil,
                         admin:                 false,
                         api_token:             nil,
@@ -33,8 +33,6 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   # wget --post-data="email=jane@doe.com&password=supersecret" -S http://localhost:3000/api/v1/users/login
-  # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" -S http://localhost:3000/api/v1/users/
-
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.confirmed_at.present? && @user.valid_password?(params[:password])
