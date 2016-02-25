@@ -3,6 +3,7 @@ class Api::V1::RegistrationsController < Users::RegistrationsController
   respond_to :json
 
   def create
+    request.session_options[:skip] = true
     params[:user] = params 
     super
   end

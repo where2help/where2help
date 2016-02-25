@@ -5,6 +5,7 @@ class Api::V1::ApiController < ApplicationController
 
   before_action :api_authenticate
   before_action :set_token_header
+  before_action :disable_cookies
 
   TOKEN_VALIDITY = 1.week
 
@@ -22,5 +23,9 @@ class Api::V1::ApiController < ApplicationController
     if @current_user
       response.headers['TOKEN'] = @current_user.api_token
     end
+  end
+
+  def disable_cookies
+    request.session_options[:skip] = true  
   end
 end
