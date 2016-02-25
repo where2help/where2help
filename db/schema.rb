@@ -101,9 +101,9 @@ ActiveRecord::Schema.define(version: 20160225163054) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.integer  "volunteers_needed"
-    t.integer  "volunteers_count"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "volunteers_count",  default: 0
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["event_id"], name: "index_shifts_on_event_id", using: :btree
   end
 
