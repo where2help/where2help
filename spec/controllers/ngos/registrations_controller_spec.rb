@@ -13,7 +13,7 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
   end
 
   describe 'POST create' do
-    context 'with valid params' do
+    context 'with valid attributes' do
       let(:params) {
         {
           ngo: attributes_for(:ngo, email: 'ngo@ngo.at').merge({
@@ -46,6 +46,34 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
         expect(ActionMailer::Base.deliveries.count).to eq 1
         expect(ActionMailer::Base.deliveries.first.to).to contain_exactly 'ngo@ngo.at'
         ActionMailer::Base.deliveries.clear
+      end
+
+      it 'sends email to admins' do
+        create :user, admin: true
+        message_delivery = instance_double(ActionMailer::MessageDelivery)
+        expect(AdminMailer).to receive(:new_ngo).and_return(message_delivery)
+        expect(message_delivery).to receive(:deliver_later)
+        post :create, params: params
+      end
+    end
+    context 'with missing attributes' do
+      let(:params) {
+        {
+          ngo: attributes_for(:ngo, email: 'ngo@ngo.at').merge({
+            password: 'supersecret',
+            password_confirmation: 'supersecret'})
+        }
+      }
+
+      it 'returns 200' do
+        post :create, params: params
+        expect(response).to have_http_status 200
+      end
+
+      it 'does not create new ngo record' do
+        expect{
+          post :create, params: params
+        }.not_to change{Ngo.count}
       end
     end
   end

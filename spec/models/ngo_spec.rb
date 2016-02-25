@@ -15,16 +15,18 @@ RSpec.describe Ngo, type: :model do
   it { is_expected.to define_enum_for(:locale).with([:de, :en])}
 
   describe 'associations' do
-    let(:ngo) { create :ngo }
+    it { is_expected.to have_one(:contact).dependent :destroy }
+  end
 
-    describe 'contact' do
-      it { is_expected.to have_one :contact }
+  describe 'callbacks' do
+    describe 'after_commit' do
+      before { create :user, admin: true }
 
-      it 'destroys contact on destroy' do
-        create :contact, ngo: ngo
-        expect{
-          ngo.destroy
-        }.to change{Contact.count}.by -1
+      it 'sends email to admins' do
+        message_delivery = instance_double(ActionMailer::MessageDelivery)
+        expect(AdminMailer).to receive(:new_ngo).and_return(message_delivery)
+        expect(message_delivery).to receive(:deliver_later)
+        create :ngo
       end
     end
   end

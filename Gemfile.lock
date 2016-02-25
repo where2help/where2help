@@ -187,6 +187,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sucker_punch (2.0.1)
+      concurrent-ruby (~> 1.0.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -235,6 +237,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   shoulda
   spring
+  sucker_punch
   therubyracer
   turbolinks
   tzinfo-data
