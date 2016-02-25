@@ -1,6 +1,5 @@
 class Api::V1::UsersController < Api::V1::ApiController
   before_action :set_user, only: [:show, :update, :destroy]
-  session :off
 
   skip_before_action :api_authenticate, only: [:login, :create]
   skip_before_action :set_token_header, only: [:login, :create]
