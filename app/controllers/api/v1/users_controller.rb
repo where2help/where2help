@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::ApiController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update]
 
   skip_before_action :api_authenticate, only: [:login, :create]
   skip_before_action :set_token_header, only: [:login, :create]
@@ -22,8 +22,14 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   def destroy
-    @user.destroy
-    head :no_content
+    current_user.update(encrypted_password:    "deleted", 
+                        confirmation_token:    nil,  
+                        confirmed_at:          nil, 
+                        confirmation_sent_at:  nil,
+                        admin:                 false,
+                        api_token:             nil,
+                        api_token_valid_until: nil)
+    render json: [deleted: true], status: :ok
   end
 
   # wget --post-data="email=jane@doe.com&password=supersecret" -S http://localhost:3000/api/v1/users/login
@@ -31,7 +37,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def login
     @user = User.find_by(email: params[:email])
-    if @user && @user.valid_password?(params[:password])
+    if @user && @user.confirmed_at.present? && @user.valid_password?(params[:password])
       sign_in(@user)
       @user.regenerate_api_token
       @user.update(api_token_valid_until: Time.now + TOKEN_VALIDITY)
