@@ -5,7 +5,7 @@ class CreateShifts < ActiveRecord::Migration[5.0]
       t.datetime :starts_at
       t.datetime :ends_at
       t.integer :volunteers_needed
-      t.integer :volunteers_count
+      t.integer :volunteers_count, default: 0
 
       t.timestamps
     end
