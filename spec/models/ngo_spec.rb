@@ -11,6 +11,8 @@ RSpec.describe Ngo, type: :model do
     it { is_expected.to validate_presence_of :identifier }
   end
 
+  it { is_expected.to define_enum_for(:locale).with([:de, :en])}
+
   describe 'associations' do
     let(:ngo) { create :ngo }
 
