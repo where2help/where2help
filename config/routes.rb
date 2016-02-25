@@ -19,6 +19,10 @@ Rails.application.routes.draw do
           post 'login'
         end
       end
+
+      devise_scope :user do
+        post "registrations"=> "registrations#create"
+      end
     end
   end
 

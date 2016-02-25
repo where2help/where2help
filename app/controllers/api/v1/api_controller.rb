@@ -3,8 +3,8 @@ class Api::V1::ApiController < ApplicationController
 
   helper_method "current_user", "user_signed_in?", "user_session" # so that we can use devise's methods
 
-  before_action :api_authenticate, except: :login
-  before_action :set_token_header, except: :login
+  before_action :api_authenticate
+  before_action :set_token_header
 
   TOKEN_VALIDITY = 1.week
 
