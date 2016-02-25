@@ -11,4 +11,6 @@ RSpec.describe Event, type: :model do
 
   it { is_expected.to define_enum_for(:category).with([:volunteer, :medical, :legal])}
 
+  it { is_expected.to have_many(:shifts) }
+
 end
