@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  has_many :shifts
+
   validates :category, :volunteers_needed, :starts_at, :ends_at, presence: true
   validates :shift_length, :address, presence: true
 
