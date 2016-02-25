@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
+  let(:ngo) { build :ngo }
+
   it 'has a valid factory' do
-    expect(create :contact).to be_valid
+    expect(build :contact, ngo: ngo).to be_valid
   end
 
   describe 'validations' do

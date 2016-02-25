@@ -14,6 +14,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :identifier %><br />
+    <%= f.text_field :identifier %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -25,6 +30,44 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <h3><%= Contact.model_name.human %></h3>
+  <%= f.fields_for :contact, (resource.contact || resource.build_contact) do |c| %>
+    <div class="field">
+      <%= c.label :first_name %><br />
+      <%= c.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= c.label :last_name %><br />
+      <%= c.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= c.label :email %><br />
+      <%= c.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= c.label :phone %><br />
+      <%= c.phone_field :phone %>
+    </div>
+
+    <div class="field">
+      <%= c.label :street %><br />
+      <%= c.text_field :street %>
+    </div>
+
+    <div class="field">
+      <%= c.label :zip %><br />
+      <%= c.text_field :zip %>
+    </div>
+
+    <div class="field">
+      <%= c.label :city %><br />
+      <%= c.text_field :city %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

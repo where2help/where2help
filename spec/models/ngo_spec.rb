@@ -9,6 +9,7 @@ RSpec.describe Ngo, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :identifier }
+    it { is_expected.to validate_presence_of :contact }
   end
 
   it { is_expected.to define_enum_for(:locale).with([:de, :en])}
