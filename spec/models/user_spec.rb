@@ -8,6 +8,7 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to have_many(:languages)}
   it { is_expected.to have_many(:abilities)}
+  it { is_expected.to define_enum_for(:locale).with([:de, :en])}
 
   describe 'validations' do
     it 'is invalid without email' do
