@@ -1,12 +1,12 @@
 class Api::V1::ApiController < ApplicationController
   skip_before_action :verify_authenticity_token # No CSRF for API needed
-  session :off
+  sessions :off
 
   helper_method "current_user", "user_signed_in?", "user_session" # so that we can use devise's methods
 
   before_action :api_authenticate
   before_action :set_token_header
-
+s
   TOKEN_VALIDITY = 1.week
 
   private

@@ -1,6 +1,6 @@
 class Api::V1::RegistrationsController < Users::RegistrationsController
   skip_before_action :verify_authenticity_token # No CSRF for API needed
-  session :off
+  sessions :off
   respond_to :json
 
   def create
