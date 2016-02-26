@@ -29,7 +29,7 @@ class Api::V1::UsersController < Api::V1::ApiController
                         admin:                 false,
                         api_token:             nil,
                         api_token_valid_until: nil)
-    render json: [deleted: true], status: :ok
+    render json: {deleted: true}, status: :ok
   end
 
   # wget --post-data="email=jane@doe.com&password=supersecret" -S http://localhost:3000/api/v1/users/login
@@ -40,9 +40,9 @@ class Api::V1::UsersController < Api::V1::ApiController
       @user.regenerate_api_token
       @user.update(api_token_valid_until: Time.now + TOKEN_VALIDITY)
       response.headers['TOKEN'] = @user.api_token
-      render json: [logged_in: true], status: :ok
+      render json: {logged_in: true}, status: :ok
     else
-      render json: [logged_in: false], status: :forbidden
+      render json: {logged_in: false}, status: :forbidden
     end
   end
 
