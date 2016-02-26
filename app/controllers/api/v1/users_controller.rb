@@ -32,6 +32,7 @@ class Api::V1::UsersController < Api::V1::ApiController
     render json: {deleted: true}, status: :ok
   end
 
+
   # wget --post-data="email=jane@doe.com&password=supersecret" -S http://localhost:3000/api/v1/users/login
   def login
     @user = User.find_by(email: params[:email])
@@ -46,10 +47,18 @@ class Api::V1::UsersController < Api::V1::ApiController
     end
   end
 
+  # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" -S http://localhost:3000/api/v1/users/logout
+  def logout
+    current_user.update(api_token: nil, api_token_valid_until: nil)
+    render json: {logged_out: true}, status: :ok
+  end
+
+
   private
     def set_user
       @user = User.find(params[:id])
     end
+
 
     def user_params
       params.fetch(:user, {})
