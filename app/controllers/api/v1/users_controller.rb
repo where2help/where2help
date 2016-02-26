@@ -1,8 +1,8 @@
 class Api::V1::UsersController < Api::V1::ApiController
-  before_action :set_user, only: [:show, :update]
+  before_action :set_user, only: [:show]
 
-  skip_before_action :api_authenticate, only: [:login, :create]
-  skip_before_action :set_token_header, only: [:login, :create]
+  skip_before_action :api_authenticate, only: [:login, :create, :send_reset]
+  skip_before_action :set_token_header, only: [:login, :create, :send_reset]
 
   attr_accessor :resource
 
@@ -14,14 +14,8 @@ class Api::V1::UsersController < Api::V1::ApiController
   def show
   end
 
-  def update
-    if @user.update(user_params)
-      render :show, status: :ok, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
-  end
 
+  # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" --method=delete -S http://localhost:3000/api/v1/users
   def destroy
     current_user.update(confirmation_token:    nil,
                         confirmed_at:          nil,
@@ -68,6 +62,14 @@ class Api::V1::UsersController < Api::V1::ApiController
     else
       render json: {passwords: "not_matching"}, status: :unprocessable_entity
     end
+  end
+
+
+  # wget --post-data="email=jane@doe.com" -S http://localhost:3000/api/v1/users/send_reset
+  def send_reset
+    @user = User.find_by(email: params[:email])
+    @user.send_reset_password_instructions
+    render json: {password_reset: "sent"}, status: :ok
   end
 
 

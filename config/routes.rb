@@ -20,6 +20,7 @@ Rails.application.routes.draw do
           delete 'destroy'
           get 'logout'
           post 'change_password'
+          post 'send_reset'
         end
       end
 
