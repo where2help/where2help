@@ -47,10 +47,27 @@ class Api::V1::UsersController < Api::V1::ApiController
     end
   end
 
+
   # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" -S http://localhost:3000/api/v1/users/logout
   def logout
     current_user.update(api_token: nil, api_token_valid_until: nil)
     render json: {logged_out: true}, status: :ok
+  end
+
+
+  # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" --post-data="password=mynewpassword&password_confirmation=mynewpassword" -S http://localhost:3000/api/v1/users/change_password
+  def change_password
+    if params[:password] == params[:password_confirmation]
+      current_user.password = params[:password]
+      current_user.password_confirmation = params[:password_confirmation]
+      if current_user.save
+        render json: {password_changed: true}, status: :ok
+      else
+        render json: {password_changed: false}, status: :unprocessable_entity
+      end
+    else
+      render json: {passwords: "not_matching"}, status: :unprocessable_entity
+    end
   end
 
 
