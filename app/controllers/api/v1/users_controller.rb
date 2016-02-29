@@ -15,8 +15,8 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
 
-  # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" --method=delete -S http://localhost:3000/api/v1/users
-  def destroy
+  # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" --method=delete -S http://localhost:3000/api/v1/users/unregister
+  def unregister
     current_user.update(confirmation_token:    nil,
                         confirmed_at:          nil,
                         confirmation_sent_at:  nil,
@@ -30,15 +30,27 @@ class Api::V1::UsersController < Api::V1::ApiController
   # wget --post-data="email=jane@doe.com&password=supersecret" -S http://localhost:3000/api/v1/users/login
   def login
     @user = User.find_by(email: params[:email])
-    if @user && @user.confirmed_at.present? && @user.valid_password?(params[:password])
-      sign_in(@user)
-      @user.regenerate_api_token
-      @user.update(api_token_valid_until: Time.now + TOKEN_VALIDITY)
-      response.headers['TOKEN'] = @user.api_token
-      render json: {logged_in: true}, status: :ok
-    else
-      render json: {logged_in: false}, status: :forbidden
+
+    unless @user
+      render json: {logged_in: false}, status: :ok
+      return
     end
+
+    unless @user.confirmed_at.present?
+      render json: {logged_in: false, user: "not_confirmed"}, status: :ok
+      return
+    end
+
+    unless @user.valid_password?(params[:password])
+      render json: {logged_in: false, password: "wrong"}, status: :ok
+      return
+    end
+
+    sign_in(@user)
+    @user.regenerate_api_token
+    @user.update(api_token_valid_until: Time.now + TOKEN_VALIDITY)
+    response.headers['TOKEN'] = @user.api_token
+    render json: {logged_in: true}, status: :ok
   end
 
 

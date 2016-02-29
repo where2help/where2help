@@ -17,15 +17,16 @@ Rails.application.routes.draw do
       resources :users do
         collection do
           post 'login'
-          delete 'destroy'
+          delete 'unregister'
           get 'logout'
           post 'change_password'
           post 'send_reset'
         end
       end
 
+
       devise_scope :user do
-        post "registrations"=> "registrations#create"
+        post "/users/register"=> "registrations#create"
       end
     end
   end
