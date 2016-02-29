@@ -50,7 +50,7 @@ class Api::V1::UsersController < Api::V1::ApiController
     @user.regenerate_api_token
     @user.update(api_token_valid_until: Time.now + TOKEN_VALIDITY)
     response.headers['TOKEN'] = @user.api_token
-    render json: {logged_in: true}, status: :ok
+    render :show
   end
 
 
