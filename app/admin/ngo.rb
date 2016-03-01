@@ -16,6 +16,13 @@ ActiveAdmin.register Ngo do
   # show { render 'show', context: self }
   # form partial: 'form'
 
+  batch_action :confirm do |ids|
+    batch_action_collection.find(ids).each do |ngo|
+      ngo.admin_confirm!
+    end
+    redirect_to collection_path, alert: 'NGOs wurden bestätigt.'
+  end
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

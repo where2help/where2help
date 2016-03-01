@@ -25,3 +25,8 @@ de:
         Euer Account ist jetzt freigeschalten. Wenn Ihr eure Emailadresse bereits bestätigt hab,
         könnt Ihr jetzt loslegen Events zu erstellen!
       link: Bei Where2Help Loslegen
+  active_admin:
+    batch_actions:
+      button_label: Stapelverarbeitung
+      labels:
+        confirm: Bestätige
