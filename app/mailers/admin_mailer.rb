@@ -10,6 +10,7 @@ class AdminMailer < ApplicationMailer
   private
 
   def admins
+    # uses the default language
     @admins ||= User.where(admin: true)
   end
 end

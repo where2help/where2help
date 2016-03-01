@@ -50,4 +50,21 @@ RSpec.describe Ngo, type: :model do
       end
     end
   end
+
+  describe '#admin_confirm!' do
+    let(:ngo) { create :ngo }
+
+    it 'updates admin_confirmed_at value' do
+      expect{
+        ngo.admin_confirm!
+      }.to change{ngo.admin_confirmed_at?}.from(false).to(true)
+    end
+
+    it 'sends email to ngo' do
+      message_delivery = instance_double(ActionMailer::MessageDelivery)
+      expect(NgoMailer).to receive(:admin_confirmed).and_return(message_delivery)
+      expect(message_delivery).to receive(:deliver_later)
+      ngo.admin_confirm!
+    end
+  end
 end

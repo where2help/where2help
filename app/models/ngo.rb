@@ -36,6 +36,11 @@ class Ngo < ApplicationRecord
     admin_confirmed_at ? :not_admin_confirmed : super
   end
 
+  def admin_confirm!
+    update admin_confirmed_at: Time.now
+    NgoMailer.admin_confirmed(self).deliver_later
+  end
+
   private
 
   def request_admin_confirmation
