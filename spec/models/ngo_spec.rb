@@ -30,4 +30,24 @@ RSpec.describe Ngo, type: :model do
       end
     end
   end
+
+  describe 'scopes' do
+    let!(:unconfirmed) { create_list :ngo, 3, admin_confirmed_at: nil }
+    let!(:confirmed) { create_list :ngo, 3, admin_confirmed_at: Time.now }
+
+    describe '.unconfirmed' do
+      subject(:scoped) { Ngo.unconfirmed }
+
+      it 'returns non-admin confirmed records' do
+        expect(scoped.ids).to match_array unconfirmed.map(&:id)
+      end
+    end
+    describe '.confirmed' do
+      subject(:scoped) { Ngo.confirmed }
+
+      it 'returns non-admin confirmed records' do
+        expect(scoped.ids).to match_array confirmed.map(&:id)
+      end
+    end
+  end
 end
