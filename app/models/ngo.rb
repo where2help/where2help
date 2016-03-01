@@ -2,6 +2,9 @@ class Ngo < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, :validatable
 
+  scope :unconfirmed, -> { where(admin_confirmed_at: nil) }
+  scope :confirmed, -> { where.not(admin_confirmed_at: nil) }
+
   enum locale: { de: 0, en: 1 }
 
   has_one :contact, dependent: :destroy, inverse_of: :ngo
