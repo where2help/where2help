@@ -14,7 +14,7 @@ ActiveAdmin.register Ngo do
   filter :created_at
 
   index { render 'index', context: self }
-  # show { render 'show', context: self }
+  show { render 'show', context: self }
   # form partial: 'form'
 
   batch_action :confirm do |ids|
