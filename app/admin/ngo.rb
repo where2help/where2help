@@ -15,7 +15,7 @@ ActiveAdmin.register Ngo do
 
   index { render 'index', context: self }
   show { render 'show', context: self }
-  # form partial: 'form'
+  form partial: 'form'
 
   batch_action :confirm do |ids|
     batch_action_collection.find(ids).each do |ngo|
@@ -31,18 +31,18 @@ ActiveAdmin.register Ngo do
     redirect_to collection_path, alert: 'Ausgewählte NGOs wurden deaktiviert.'
   end
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
-
-
+  permit_params :name,
+    :email,
+    :identifier,
+    :locale,
+    :aasm_state,
+    contact_attributes: [
+      :id,
+      :first_name,
+      :last_name,
+      :email,
+      :phone,
+      :street,
+      :zip,
+      :city]
 end
