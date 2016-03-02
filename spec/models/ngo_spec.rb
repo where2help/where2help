@@ -31,40 +31,57 @@ RSpec.describe Ngo, type: :model do
     end
   end
 
-  describe 'scopes' do
-    let!(:unconfirmed) { create_list :ngo, 3, admin_confirmed_at: nil }
-    let!(:confirmed) { create_list :ngo, 3, admin_confirmed_at: Time.now }
+  describe '#aasm' do
+    before { ActiveJob::Base.queue_adapter = :test }
 
-    describe '.unconfirmed' do
-      subject(:scoped) { Ngo.unconfirmed }
+    describe ':pending' do
+      let!(:ngo) { create :ngo, confirmed_at: Time.now, confirmation_token: '123' }
 
-      it 'returns non-admin confirmed records' do
-        expect(scoped.ids).to match_array unconfirmed.map(&:id)
+      it 'is initial state' do
+        expect(ngo).to have_state :pending
+      end
+
+      it 'can transition to :admin_confirmed and :deactivated' do
+        expect(ngo).to transition_from(:pending).to(:admin_confirmed).on_event(:admin_confirm)
+        expect(ngo).to transition_from(:pending).to(:deactivated).on_event(:deactivate)
+      end
+
+      it 'send confirmation email on admin_confirm' do
+        expect{
+          ngo.admin_confirm!
+        }.to have_enqueued_job(ActionMailer::DeliveryJob)
+      end
+
+      it 'resets confirmed_at on deactivate' do
+        expect{
+          ngo.deactivate!
+        }.to change{ngo.confirmed_at}.to nil
+      end
+
+      it 'resets confirmation_token on deactivate' do
+        expect{
+          ngo.deactivate!
+        }.to change{ngo.confirmation_token}.to nil
       end
     end
-    describe '.confirmed' do
-      subject(:scoped) { Ngo.confirmed }
+    describe ':admin_confirmed' do
+      let!(:ngo) { create :ngo, aasm_state: 'admin_confirmed' }
 
-      it 'returns non-admin confirmed records' do
-        expect(scoped.ids).to match_array confirmed.map(&:id)
+      it 'is confirmed' do
+        expect(ngo).to have_state :admin_confirmed
       end
-    end
-  end
 
-  describe '#admin_confirm!' do
-    let(:ngo) { create :ngo }
+      it 'can transition to :deactivated' do
+        expect(ngo).to transition_from(:admin_confirmed).to(:deactivated).on_event(:deactivate)
+      end
 
-    it 'updates admin_confirmed_at value' do
-      expect{
-        ngo.admin_confirm!
-      }.to change{ngo.admin_confirmed_at?}.from(false).to(true)
-    end
+      it 'cannot transition to :pending' do
+        expect(ngo).to_not allow_transition_to(:pending)
+      end
 
-    it 'sends email to ngo' do
-      message_delivery = instance_double(ActionMailer::MessageDelivery)
-      expect(NgoMailer).to receive(:admin_confirmed).and_return(message_delivery)
-      expect(message_delivery).to receive(:deliver_later)
-      ngo.admin_confirm!
+      it 'cannot be confirmed again' do
+        expect(ngo).to_not allow_event :admin_confirm
+      end
     end
   end
 end
