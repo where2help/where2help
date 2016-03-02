@@ -13,6 +13,10 @@ de:
     attributes:
       ngo:
         identifier: Identifikationsnummer
+        aasm_state: Status
+        aasm_state/pending: Unbestätigt
+        aasm_state/admin_confirmed: Von Admin Bestätigt
+        aasm_state/deactivated: "Deaktiviert"
   admin_mailer:
     new_ngo:
       subject: "[where2help] Neue NGO Registrierung"
@@ -30,3 +34,4 @@ de:
       button_label: Stapelverarbeitung
       labels:
         confirm: Bestätige
+        deactivate: Deaktiviere

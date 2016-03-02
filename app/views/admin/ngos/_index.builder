@@ -6,6 +6,6 @@ context.instance_eval do
   column :email
   column :locale
   column :confirmed_at
-  column :admin_confirmed_at
+  column(:aasm_state){ |ngo| status_tag(ngo.aasm.current_state) }
   actions
 end

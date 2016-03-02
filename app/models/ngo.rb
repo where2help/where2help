@@ -2,8 +2,9 @@ class Ngo < ApplicationRecord
   include AASM
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, :validatable
-         
+
   enum locale: { de: 0, en: 1 }
+  attr_accessor :active_admin_requested_event # tmp variable used in ActiveAdmin after_save
 
   has_one :contact, dependent: :destroy, inverse_of: :ngo
   accepts_nested_attributes_for :contact, reject_if: :all_blank
