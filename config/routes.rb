@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'events/new'
+
+  get 'events_controller/new'
+
   root 'pages#home'
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {
@@ -33,6 +37,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :events, only: [:new]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
