@@ -1,8 +1,8 @@
 class Api::V1::UsersController < Api::V1::ApiController
   before_action :set_user, only: [:show]
 
-  skip_before_action :api_authenticate, only: [:login, :create, :send_reset]
-  skip_before_action :set_token_header, only: [:login, :create, :send_reset]
+  skip_before_action :api_authenticate, only: [:login, :create, :send_reset, :resend_confirmation]
+  skip_before_action :set_token_header, only: [:login, :create, :send_reset, :resend_confirmation]
 
   attr_accessor :resource
 
@@ -80,8 +80,24 @@ class Api::V1::UsersController < Api::V1::ApiController
   # wget --post-data="email=jane@doe.com" -S http://localhost:3000/api/v1/users/send_reset
   def send_reset
     @user = User.find_by(email: params[:email])
-    @user.send_reset_password_instructions
-    render json: {password_reset: "sent"}, status: :ok
+    if @user
+      @user.send_reset_password_instructions
+      render json: {password_reset: "sent"}, status: :ok
+    else
+      render json: {error: "user_not_found"}, status: :ok
+    end      
+  end
+
+
+  # wget --post-data="email=jane@doe.com" -S http://localhost:3000/api/v1/users/resend_confirmation
+  def resend_confirmation
+    @user = User.find_by(email: params[:email])
+    if @user
+      @user.send_confirmation_instructions
+      render json: {password_reset: "sent"}, status: :ok
+    else
+      render json: {error: "user_not_found"}, status: :ok
+    end
   end
 
 
