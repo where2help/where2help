@@ -10,9 +10,13 @@ de:
         street: Straße
         zip: Postleitzahl
         city: Stadt
-    attributes:
+      user:
+        first_name: Vorname
+        last_name: Nachname
+        confirmed_at: Bestätigt
       ngo:
         identifier: Identifikationsnummer
+        confirmed_at: Bestätigt
         aasm_state: Status
         aasm_state/pending: Unbestätigt
         aasm_state/admin_confirmed: Von Admin Bestätigt
