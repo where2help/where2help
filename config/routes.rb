@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'events/new'
+
+  get 'events_controller/new'
+
   root 'pages#home'
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
     sessions: 'ngos/sessions',
     unlocks: 'ngos/unlocks' }
 
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users do
@@ -23,15 +28,17 @@ Rails.application.routes.draw do
           get 'logout'
           post 'change_password'
           post 'send_reset'
+          post 'resend_confirmation'
         end
       end
-
 
       devise_scope :user do
         post "/users/register"=> "registrations#create"
       end
     end
   end
+
+  resources :events, only: [:new]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
