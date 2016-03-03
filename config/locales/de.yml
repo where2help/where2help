@@ -14,9 +14,11 @@ de:
         first_name: Vorname
         last_name: Nachname
         confirmed_at: Bestätigt
+        created_at: Erstellt
       ngo:
         identifier: Identifikationsnummer
         confirmed_at: Bestätigt
+        created_at: Erstellt
         aasm_state: Status
         aasm_state/pending: Unbestätigt
         aasm_state/admin_confirmed: Von Admin Bestätigt

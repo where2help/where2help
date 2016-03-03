@@ -1,4 +1,5 @@
 ActiveAdmin.register Ngo do
+  actions :all, except: [:new, :create]
   includes :contact
 
   scope :all, default: true
