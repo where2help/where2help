@@ -1,7 +1,13 @@
 de:
   activerecord:
     models:
+      ability:
+        one: Fähigkeit
+        other: Fähigkeiten
       contact: Kontakt
+      language:
+        one: Sprache
+        other: Sprachen
     attributes:
       contact:
         first_name: Vorname
