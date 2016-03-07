@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <%= navigation_for current_user %>
+    <%= navigation_for(current_user || current_ngo) %>
     <main class="container">
       <%= yield %>
     </main>

@@ -7,4 +7,8 @@ module ApplicationHelper
       render 'nav'
     end
   end
+
+  def active?(path)
+    current_page?(path) ? 'active' : ''
+  end
 end
