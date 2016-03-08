@@ -79,10 +79,10 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
   end
 
   describe 'DELETE destroy' do
-    let(:ngo) { create(:ngo,
+    let!(:ngo) { create(:ngo,
       email: 'ngo@ngo.we',
       confirmed_at: Faker::Time.backward(5),
-      admin_confirmed_at: Faker::Time.backward(2),
+      aasm_state: 'admin_confirmed',
       confirmation_token: Faker::Bitcoin.address) }
 
     let(:destroy_ngo) { -> { delete :destroy; ngo.reload } }
@@ -106,8 +106,8 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
       expect(destroy_ngo).to change{ngo.confirmation_token}.to nil
     end
 
-    it 'does not reset admin_confirmed_at' do
-      expect(destroy_ngo).not_to change{ngo.admin_confirmed_at}
+    it 'sets aasm_state to :deactivated' do
+      expect(destroy_ngo).to change{ngo.deactivated?}.to true
     end
   end
 end

@@ -3,3 +3,11 @@ en:
     new_ngo:
       subject: "[where2help] New NGO registration"
       content: New NGO account request
+  ngo_mailer:
+    admin_confirmed:
+      subject: "[where2help] Your account has been confirmed"
+      greeting: "Hi %{name}"
+      content: |
+        Your account has been confirmed. If you already confirmed your emailaddress,
+        you can go ahead and start creating events!
+      link: Get started at Where2Help

@@ -1,7 +1,13 @@
 de:
   activerecord:
     models:
+      ability:
+        one: Fähigkeit
+        other: Fähigkeiten
       contact: Kontakt
+      language:
+        one: Sprache
+        other: Sprachen
     attributes:
       contact:
         first_name: Vorname
@@ -10,10 +16,34 @@ de:
         street: Straße
         zip: Postleitzahl
         city: Stadt
-    attributes:
+      user:
+        first_name: Vorname
+        last_name: Nachname
+        confirmed_at: Bestätigt
+        created_at: Erstellt
       ngo:
         identifier: Identifikationsnummer
+        confirmed_at: Bestätigt
+        created_at: Erstellt
+        aasm_state: Status
+        aasm_state/pending: Unbestätigt
+        aasm_state/admin_confirmed: Von Admin Bestätigt
+        aasm_state/deactivated: "Deaktiviert"
   admin_mailer:
     new_ngo:
       subject: "[where2help] Neue NGO Registrierung"
       content: Neue NGO Account Anfrage
+  ngo_mailer:
+    admin_confirmed:
+      subject: "[where2help] Ihr Account wurde bestätigt"
+      greeting: "Hallo %{name}"
+      content: |
+        Euer Account ist jetzt freigeschalten. Wenn Ihr eure Emailadresse bereits bestätigt hab,
+        könnt Ihr jetzt loslegen Events zu erstellen!
+      link: Bei Where2Help Loslegen
+  active_admin:
+    batch_actions:
+      button_label: Stapelverarbeitung
+      labels:
+        confirm: Bestätige
+        deactivate: Deaktiviere

@@ -4,12 +4,15 @@
     <title>Where2help</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= navigation_for(current_user || current_ngo) %>
+    <main class="container">
+      <%= yield %>
+    </main>
   </body>
 </html>
