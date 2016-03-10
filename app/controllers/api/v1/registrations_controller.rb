@@ -24,7 +24,9 @@ class Api::V1::RegistrationsController < Users::RegistrationsController
       clean_up_passwords resource
       set_minimum_password_length
 
-      render json: { errors: resource.errors.messages }, status: 404
+      @errors = resource.errors.messages
+
+      render :create, status: 422
     end
   end
 end

@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.debug_exception_response_format = :api
+  config.debug_exception_response_format = :default
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
