@@ -17,3 +17,8 @@ en:
         please_login: Please Login
         login: Login
         login_as_ngo: Login As NGO Instead
+  ngos:
+    sessions:
+      new:
+        please_login: Please Login
+        login: Login

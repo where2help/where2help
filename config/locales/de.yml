@@ -54,3 +54,8 @@ de:
         please_login: Bitte Anmelden
         login: Anmelden
         login_as_ngo: Als NGO Anmelden
+  ngos:
+    sessions:
+      new:
+        please_login: Bitte Anmelden
+        login: Anmelden
