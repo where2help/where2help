@@ -11,7 +11,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="<%= active?('..path') %>"><a href="#">Login</a></li>
+        <li class="<%= active?(new_user_session_path) %>"><%= link_to 'Login', new_user_session_path %></li>
       </ul>
     </div>
   </div>
