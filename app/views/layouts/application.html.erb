@@ -12,6 +12,7 @@
   <body>
     <%= navigation_for(current_user || current_ngo) %>
     <main class="container">
+      <%= flash_messages %>
       <%= yield %>
     </main>
   </body>
