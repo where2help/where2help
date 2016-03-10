@@ -3,4 +3,5 @@ class Event < ApplicationRecord
 
   validates :shift_length, :address, presence: true
 
+  accepts_nested_attributes_for :shifts
 end
