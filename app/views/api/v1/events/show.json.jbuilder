@@ -1,8 +1,5 @@
 json.extract! @event, :id,  
                       :description, 
-                      :volunteers_needed, 
-                      :starts_at, 
-                      :ends_at, 
                       :shift_length,
                       :address, 
                       :lat, 
