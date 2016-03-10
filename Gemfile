@@ -9,7 +9,7 @@ gem 'pg', '~> 0.18'
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-
+gem 'nested_form_fields', '~> 0.7.4'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 
