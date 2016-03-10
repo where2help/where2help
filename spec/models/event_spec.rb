@@ -2,9 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
 
-  it { is_expected.to validate_presence_of(:volunteers_needed)}
-  it { is_expected.to validate_presence_of(:starts_at)}
-  it { is_expected.to validate_presence_of(:ends_at)}
   it { is_expected.to validate_presence_of(:shift_length)}
   it { is_expected.to validate_presence_of(:address)}
 

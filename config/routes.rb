@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'events/new'
-
-  get 'events_controller/new'
+  resources :events, only: [:new, :index]
 
   root 'pages#home'
   ActiveAdmin.routes(self)
