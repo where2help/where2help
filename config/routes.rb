@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :users do
+      resources :users, only: [] do
         collection do
           post 'login'
           delete 'unregister'
@@ -35,6 +35,8 @@ Rails.application.routes.draw do
       devise_scope :user do
         post "/users/register"=> "registrations#create"
       end
+
+      resources :events, only: [:show, :index]
     end
   end
 
