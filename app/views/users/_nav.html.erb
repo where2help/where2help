@@ -15,13 +15,13 @@
         <li class="<%= active?('..path') %>"><a href="#">My Shifts</a></li>
           <li class="<%= active?('..path') %> visible-xs-block"><a href="#">Profile</a></li>
           <% if current_user.admin? %>
-            <li><%= link_to 'Admin', admin_dashboard_path %></li>
+            <li class="visible-xs-block"><%= link_to 'Admin', admin_dashboard_path %></li>
           <% end %>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <li class="visible-xs-block"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown hidden-xs">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Name <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="<%= active?('..path') %>"><a href="#">Profile</a></li>
             <% if current_user.admin? %>
