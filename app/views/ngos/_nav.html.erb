@@ -15,7 +15,7 @@
         <li class="<%= active?('..path') %>"><a href="#">Calendar</a></li>
         <li class="<%= active?('..path') %>"><a href="#">Events</a></li>
           <li class="<%= active?('..path') %> visible-xs-block"><a href="#">Profile</a></li>
-          <li class="<%= active?('..path') %> visible-xs-block"><a href="#">Logout</a></li>
+          <li><%= link_to 'Logout', destroy_ngo_session_path, method: :delete %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown hidden-xs">
@@ -23,7 +23,7 @@
           <ul class="dropdown-menu">
             <li class="<%= active?('..path') %>"><a href="#">Profile</a></li>
             <li role="separator" class="divider"></li>
-            <li class="<%= active?('..path') %>"><a href="#">Logout</a></li>
+            <li><%= link_to 'Logout', destroy_ngo_session_path, method: :delete %></li>
           </ul>
         </li>
       </ul>
