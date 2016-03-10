@@ -6,6 +6,9 @@ class EventsController < ApplicationController
     @event.shifts.build(volunteers_needed: 1, starts_at: Time.now, ends_at: 2.hours.from_now)
   end
 
+  def show
+  end
+
   def create
     @event = Event.new(event_params)
     respond_to do |format|
