@@ -14,7 +14,9 @@
         <li class="<%= active?('..path') %>"><a href="#">Home</a></li>
         <li class="<%= active?('..path') %>"><a href="#">My Shifts</a></li>
           <li class="<%= active?('..path') %> visible-xs-block"><a href="#">Profile</a></li>
-          <li class="<%= active?('..path') %> visible-xs-block"><a href="#">Admin</a></li>
+          <% if current_user.admin? %>
+            <li><%= link_to 'Admin', admin_dashboard_path %></li>
+          <% end %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -22,7 +24,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Name <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="<%= active?('..path') %>"><a href="#">Profile</a></li>
-            <li class="<%= active?('..path') %>"><a href="#">Admin</a></li>
+            <% if current_user.admin? %>
+              <li><%= link_to 'Admin', admin_dashboard_path %></li>
+            <% end %>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           </ul>
