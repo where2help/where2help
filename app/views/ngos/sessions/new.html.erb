@@ -1,26 +1,22 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h2><%= t('.please_login') %></h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.label :email, class: 'sr-only' %><br />
+        <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: resource.class.human_attribute_name(:email) %>
+        <%= f.label :password, class: 'sr-only' %><br />
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: resource.class.human_attribute_name(:password) %>
+        <% if devise_mapping.rememberable? -%>
+          <div class="checkbox">
+            <%= f.label :remember_me do %>
+              <%= f.check_box :remember_me %><%= resource.class.human_attribute_name(:remember_me) %>
+            <% end %>
+          </div>
+        <% end -%>
+        <%= f.button t('.login'), data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
+      </div>
+    <% end %>
+    <%= render "ngos/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "ngos/shared/links" %>
+</div>
