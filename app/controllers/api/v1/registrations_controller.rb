@@ -24,7 +24,7 @@ class Api::V1::RegistrationsController < Users::RegistrationsController
       clean_up_passwords resource
       set_minimum_password_length
 
-      render json: resource.errors.messages , status: 400
+      render json: resource.errors.messages, status: :unprocessable_entity
 
     end
   end
