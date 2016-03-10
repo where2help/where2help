@@ -28,6 +28,30 @@
     <%= f.number_field :shift_length %>
   </div>
 
+
+  <h2>Shifts</h2>
+  <%= f.nested_fields_for :shifts do |ff| %>
+
+    <%= ff.remove_nested_fields_link %>
+
+    <div class="field">
+      <%= ff.label :volunteers_needed %>
+      <%= ff.number_field :volunteers_needed %>
+    </div>
+
+    <div class="field">
+      <%= ff.label :starts_at %>
+      <%= ff.datetime_field :starts_at %>
+    </div>
+
+    <div class="field">
+      <%= ff.label :ends_at %>
+      <%= ff.datetime_field :ends_at %>
+    </div>
+
+  <% end %>
+  <%= f.add_nested_fields_link :shifts %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

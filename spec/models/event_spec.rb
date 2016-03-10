@@ -7,4 +7,5 @@ RSpec.describe Event, type: :model do
 
   it { is_expected.to have_many(:shifts).dependent(:destroy) }
 
+  it { is_expected.to accept_nested_attributes_for(:shifts) }
 end
