@@ -1,6 +1,4 @@
-class EventsController < ApplicationController
+class EventsController < InheritedResources::Base
   before_filter :authenticate_ngo!, only: :new
 
-  def new
-  end
 end
