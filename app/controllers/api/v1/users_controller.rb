@@ -22,17 +22,17 @@ class Api::V1::UsersController < Api::V1::ApiController
     @user = User.find_by(email: params[:email])   
     
     unless @user    
-      render json: {logged_in: false}, status: :ok    
+      render json: {logged_in: false}, status: :not_found    
       return    
     end   
     
    unless @user.confirmed_at.present?    
-      render json: {logged_in: false, user: "not_confirmed"}, status: :ok   
+      render json: {logged_in: false, user: "not_confirmed"}, status: :forbidden   
       return    
     end   
     
     unless @user.valid_password?(params[:password])   
-      render json: {logged_in: false, password: "wrong"}, status: :ok   
+      render json: {logged_in: false, password: "wrong"}, status: :unauthorized   
       return    
     end   
     
@@ -46,8 +46,11 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" -S http://localhost:3000/api/v1/users/logout
   def logout
-    current_user.update(api_token: nil, api_token_valid_until: nil)
-    render json: {logged_out: true}, status: :ok
+    if current_user.update(api_token: nil, api_token_valid_until: nil)
+      render json: {logged_out: true}, status: :ok
+    else
+      render json: {current_user.errors.messages}, status: :bad_request
+    end
   end
 
 
@@ -59,10 +62,10 @@ class Api::V1::UsersController < Api::V1::ApiController
       if current_user.save
         render json: {password_changed: true}, status: :ok
       else
-        render json: {password_changed: false}, status: :unprocessable_entity
+        render json: {current_user.errors.messages}, status: :bad_request
       end
     else
-      render json: {passwords: "not_matching"}, status: :unprocessable_entity
+      render json: {passwords: "not_matching"}, status: :not_acceptable
     end
   end
 
@@ -74,7 +77,7 @@ class Api::V1::UsersController < Api::V1::ApiController
       @user.send_reset_password_instructions
       render json: {password_reset: "sent"}, status: :ok
     else
-      render json: {error: "user_not_found"}, status: :ok
+      render json: {error: "user_not_found"}, status: :not_found
     end      
   end
 
@@ -86,7 +89,7 @@ class Api::V1::UsersController < Api::V1::ApiController
       @user.send_confirmation_instructions
       render json: {password_reset: "sent"}, status: :ok
     else
-      render json: {error: "user_not_found"}, status: :ok
+      render json: {error: "user_not_found"}, status: :not_found
     end
   end
 end
