@@ -6,7 +6,7 @@ class Api::V1::ShiftsController < Api::V1::ApiController
     if @shiftuser.persisted?
       render json: {opted_id: true}, status: :ok
     else   
-      render json: {@shiftsuser.errors.messages}, status: :bad_request
+      render json: @shiftsuser.errors.messages, status: :bad_request
     end
   end
 
@@ -18,7 +18,8 @@ class Api::V1::ShiftsController < Api::V1::ApiController
       if @shiftsuser.destroy
         render json: {opted_out: true}, status: :ok
       else
-      render json: {@shiftsuser.errors.messages}, status: :bad_request       
+        render json: @shiftsuser.errors.messages, status: :bad_request      
+      end 
     else
       render json: {opted_out: false}, status: :not_found
     end

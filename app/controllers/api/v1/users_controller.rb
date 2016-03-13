@@ -49,7 +49,7 @@ class Api::V1::UsersController < Api::V1::ApiController
     if current_user.update(api_token: nil, api_token_valid_until: nil)
       render json: {logged_out: true}, status: :ok
     else
-      render json: {current_user.errors.messages}, status: :bad_request
+      render json: current_user.errors.messages, status: :bad_request
     end
   end
 
@@ -62,7 +62,7 @@ class Api::V1::UsersController < Api::V1::ApiController
       if current_user.save
         render json: {password_changed: true}, status: :ok
       else
-        render json: {current_user.errors.messages}, status: :bad_request
+        render json: current_user.errors.messages, status: :bad_request
       end
     else
       render json: {passwords: "not_matching"}, status: :not_acceptable
