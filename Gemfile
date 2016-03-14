@@ -41,6 +41,8 @@ gem 'leaflet'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rake', '~> 10.5.0'  #problems with 11.0.1
+
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
 end

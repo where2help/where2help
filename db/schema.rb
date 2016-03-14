@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(version: 20160310150734) do
     t.integer  "ability_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ability_id"], name: "index_abilities_users_on_ability_id", using: :btree
-    t.index ["user_id"], name: "index_abilities_users_on_user_id", using: :btree
   end
+
+  add_index "abilities_users", ["ability_id"], name: "index_abilities_users_on_ability_id", using: :btree
+  add_index "abilities_users", ["user_id"], name: "index_abilities_users_on_user_id", using: :btree
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -41,10 +42,11 @@ ActiveRecord::Schema.define(version: 20160310150734) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
   end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "ngo_id"
@@ -57,8 +59,9 @@ ActiveRecord::Schema.define(version: 20160310150734) do
     t.string   "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ngo_id"], name: "index_contacts_on_ngo_id", using: :btree
   end
+
+  add_index "contacts", ["ngo_id"], name: "index_contacts_on_ngo_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.text     "description"
@@ -78,9 +81,14 @@ ActiveRecord::Schema.define(version: 20160310150734) do
   end
 
   create_table "languages_users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "languages_users", ["language_id"], name: "index_languages_users_on_language_id", using: :btree
+  add_index "languages_users", ["user_id"], name: "index_languages_users_on_user_id", using: :btree
 
   create_table "ngos", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -97,10 +105,11 @@ ActiveRecord::Schema.define(version: 20160310150734) do
     t.datetime "updated_at",                          null: false
     t.integer  "locale",                 default: 0
     t.string   "aasm_state"
-    t.index ["confirmation_token"], name: "index_ngos_on_confirmation_token", unique: true, using: :btree
-    t.index ["email"], name: "index_ngos_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_ngos_on_reset_password_token", unique: true, using: :btree
   end
+
+  add_index "ngos", ["confirmation_token"], name: "index_ngos_on_confirmation_token", unique: true, using: :btree
+  add_index "ngos", ["email"], name: "index_ngos_on_email", unique: true, using: :btree
+  add_index "ngos", ["reset_password_token"], name: "index_ngos_on_reset_password_token", unique: true, using: :btree
 
   create_table "shifts", force: :cascade do |t|
     t.integer  "event_id"
@@ -110,17 +119,19 @@ ActiveRecord::Schema.define(version: 20160310150734) do
     t.integer  "volunteers_count",  default: 0
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["event_id"], name: "index_shifts_on_event_id", using: :btree
   end
+
+  add_index "shifts", ["event_id"], name: "index_shifts_on_event_id", using: :btree
 
   create_table "shifts_users", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "shift_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shift_id"], name: "index_shifts_users_on_shift_id", using: :btree
-    t.index ["user_id"], name: "index_shifts_users_on_user_id", using: :btree
   end
+
+  add_index "shifts_users", ["shift_id"], name: "index_shifts_users_on_shift_id", using: :btree
+  add_index "shifts_users", ["user_id"], name: "index_shifts_users_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -139,10 +150,11 @@ ActiveRecord::Schema.define(version: 20160310150734) do
     t.string   "api_token"
     t.datetime "api_token_valid_until"
     t.integer  "locale",                 default: 0
-    t.index ["api_token"], name: "index_users_on_api_token", unique: true, using: :btree
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
+
+  add_index "users", ["api_token"], name: "index_users_on_api_token", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
