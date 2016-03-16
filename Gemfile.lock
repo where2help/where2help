@@ -266,7 +266,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   database_cleaner
-  devise (>= 4.0.0.rc1)
+  devise (>= 4.0.0.rc2)
   factory_girl_rails
   faker
   font-awesome-sass

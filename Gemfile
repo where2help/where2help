@@ -13,7 +13,7 @@ gem 'nested_form_fields', '~> 0.7.4'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 
-gem 'devise', '>= 4.0.0.rc1'
+gem 'devise', '>= 4.0.0.rc2'
 
 #gem 'devise-bootstrap-views'
 # Use Uglifier as compressor for JavaScript assets
