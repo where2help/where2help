@@ -1,0 +1,8 @@
+<%= link_to '#', class: 'list-group-item' do %>
+  <span class="badge"><%= shift.volunteers_count %> / <%= shift.volunteers_needed %></span>
+  <h4><%= shift.event.address %></h4>
+  <p>
+    <%= I18n.localize(shift.starts_at, format:'%d. %b %Y %H:%M') %> -
+    <%= I18n.localize(shift.ends_at, format:'%H:%M') %>
+  </p>
+<% end %>
