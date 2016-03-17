@@ -61,3 +61,7 @@ de:
       new:
         please_login: Bitte Anmelden
         login: Anmelden
+  pages:
+    home:
+      sign_up_ngo: Als NGO Registrieren
+      sign_up_user: Als Helfer Registrieren
