@@ -24,12 +24,6 @@
         <%= f.text_field :address, class: 'form-control' %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :shift_length %>
-        <%= f.number_field :shift_length, class: 'form-control' %>
-      </div>
-
-
       <h2>Shifts</h2>
       <%= f.nested_fields_for :shifts do |ff| %>
 
