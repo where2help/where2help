@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_ngo!, only: :new
+  before_action :authenticate_ngo!, only: :new
 
   def new
     @event = Event.new
