@@ -61,6 +61,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     bourbon (4.2.6)
       sass (~> 3.4)
       thor (~> 0.19)
@@ -134,6 +136,8 @@ GEM
     mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.11.2)
     nested_form_fields (0.7.4)
       coffee-rails (>= 3.2.1)
@@ -261,6 +265,7 @@ DEPENDENCIES
   aasm (~> 4.9)
   activeadmin (>= 1.0.0.pre2)
   bootstrap-sass
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   bullet
   byebug
   coffee-rails (~> 4.1.0)
@@ -272,6 +277,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   leaflet
+  momentjs-rails (>= 2.9.0)
   nested_form_fields (~> 0.7.4)
   pg (~> 0.18)
   puma
