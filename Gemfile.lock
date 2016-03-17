@@ -126,7 +126,6 @@ GEM
       activesupport (>= 3.0.0)
     leaflet (0.0.6)
       positify (~> 0.0.1)
-    libv8 (4.5.95.5)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -273,7 +272,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   leaflet
-  libv8
   nested_form_fields (~> 0.7.4)
   pg (~> 0.18)
   puma
