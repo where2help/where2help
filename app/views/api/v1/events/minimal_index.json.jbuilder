@@ -1,6 +1,5 @@
 json.array!(@events) do |event|
-  json.extract! event, :id, 
-                       :volunteers_needed
+  json.extract! event, :id
 
   json.shifts event.shifts do |shift|  
     json.extract! shift, :id, 
