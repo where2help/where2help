@@ -1,54 +1,63 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= t("activerecord.models.user.one") %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :locale %><br />
-    <%= f.select :locale, User.locales.keys.to_a %>
+    <%= f.select :locale, User.locales.keys.to_a, {}, {class: "form-control"} %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :password %> <i>(<%= t("devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it") %>)</i><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :current_password %> <i><%= t("devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes") %></i><br />
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="form-group">
+    <%= f.input :abilities, :as => :check_boxes %>
   </div>
+
+
+  <%= f.submit t("devise.registrations.edit.update") %>
 <% end %>
 
-<h3>Cancel my account</h3>
+<hr/>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<h3><%= t("devise.registrations.edit.cancel_my_account") %> </h3>
 
-<%= link_to "Back", :back %>
+<p><%= button_to t("devise.registrations.edit.cancel_my_account"), 
+                 registration_path(resource_name), 
+                 data: { confirm: t("devise.registrations.edit.are_you_sure") }, 
+                 method: :delete %></p>
+
+<hr/>
+<%= link_to t("devise.shared.links.back") , :back %>

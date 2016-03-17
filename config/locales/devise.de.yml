@@ -4,9 +4,11 @@ de:
       user:
         current_password: Bisheriges Passwort
         email: E-Mail
+        locale: Sprache
         password: Passwort
         password_confirmation: Passwortbestätigung
         remember_me: Angemeldet bleiben
+        abilities: Fähigkeiten
     models:
       user: Benutzer
   devise:
