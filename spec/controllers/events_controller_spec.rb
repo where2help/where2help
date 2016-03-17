@@ -9,7 +9,7 @@ RSpec.describe EventsController, type: :controller do
   describe "GET #new" do
     context 'given a signed in NGO' do
       before do
-        sign_in :ngo, FactoryGirl.create(:confirmed_ngo)
+        sign_in :ngo, FactoryGirl.create(:ngo, :confirmed)
       end
 
       it "returns http success" do
