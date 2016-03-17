@@ -22,3 +22,7 @@ en:
       new:
         please_login: Please Login
         login: Login
+  pages:
+    home:
+      sign_up_ngo: Sign up as NGO
+      sign_up_user: Sign up as Volunteer

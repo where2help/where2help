@@ -19,6 +19,7 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
           ngo: attributes_for(:ngo, email: 'ngo@ngo.we').merge({
             password: 'supersecret',
             password_confirmation: 'supersecret',
+            terms_and_conditions: 1,
             contact_attributes: attributes_for(:contact)})
         }
       }

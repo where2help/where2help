@@ -12,16 +12,10 @@ RSpec.describe User, type: :model do
   it { is_expected.to define_enum_for(:locale).with([:de, :en])}
 
   describe 'validations' do
-    it 'is invalid without email' do
-      expect(build :user, email: nil).not_to be_valid
-    end
-    it 'is invalid without first_name' do
-      expect(build :user, first_name: nil).not_to be_valid
-    end
-
-    it 'is invalid without last_name' do
-      expect(build :user, last_name: nil).not_to be_valid
-    end
+    it { is_expected.to validate_presence_of :email }
+    it { is_expected.to validate_length_of :first_name }
+    it { is_expected.to validate_length_of :last_name }
+    it { is_expected.to validate_acceptance_of :terms_and_conditions }
   end
 
   describe 'attributes' do

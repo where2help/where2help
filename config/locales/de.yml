@@ -21,6 +21,7 @@ de:
         last_name: Nachname
         confirmed_at: Bestätigt
         created_at: Erstellt
+        terms_and_conditions: Nutzungsbedingungen
       ngo:
         identifier: Identifikationsnummer
         confirmed_at: Bestätigt
@@ -29,6 +30,7 @@ de:
         aasm_state/pending: Unbestätigt
         aasm_state/admin_confirmed: Von Admin Bestätigt
         aasm_state/deactivated: "Deaktiviert"
+        terms_and_conditions: Nutzungsbedingungen
   admin_mailer:
     new_ngo:
       subject: "[where2help] Neue NGO Registrierung"
@@ -59,3 +61,7 @@ de:
       new:
         please_login: Bitte Anmelden
         login: Anmelden
+  pages:
+    home:
+      sign_up_ngo: Als NGO Registrieren
+      sign_up_user: Als Helfer Registrieren
