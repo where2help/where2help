@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :events, only: [:new, :index, :create, :show]
 
-  root 'pages#home'
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
@@ -35,17 +34,25 @@ Rails.application.routes.draw do
       end
 
       resources :events, only: [:show, :index]
-      
+
       resources :shifts, only: [] do
         collection do
           post 'opt_in'
           post 'opt_out'
         end
-      end  
+      end
     end
   end
 
-  resources :events, only: [:new]
+  resources :shifts, only: [:index]
+
+  authenticated :user do
+    root 'shifts#index'
+  end
+  authenticated :ngo do
+    root 'shifts#index'
+  end
+  root 'pages#home'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

@@ -11,7 +11,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="<%= active?('..path') %>"><a href="#">Home</a></li>
+        <li class="<%= active?(root_path) %>"><%= link_to 'Events', root_path %></li>
         <li class="<%= active?('..path') %>"><a href="#">Calendar</a></li>
         <li class="<%= active?('..path') %>"><a href="#">Events</a></li>
           <li class="<%= active?('..path') %> visible-xs-block"><a href="#">Profile</a></li>
