@@ -23,6 +23,6 @@ module Where2help
     # -- all .rb files in that directory are automatically loaded.
     config.active_job.queue_adapter = :sucker_punch
 
-    config.assets.version = '1.1'
+    config.assets.version = '1.2'
   end
 end
