@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :events, only: [:new, :index, :create]
+  resources :events, only: [:new, :index, :create, :show]
 
   root 'pages#home'
   ActiveAdmin.routes(self)
