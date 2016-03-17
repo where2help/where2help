@@ -6,6 +6,13 @@ active_admin_form_for [:admin, resource] do |f|
     input :last_name
     input :admin
     input :locale, as: :select, collection: Ngo.locales.keys, include_blank: false
+
+    f.inputs do
+      f.has_many :abilities, allow_destroy: true do |a|
+        a.input :name
+        a.input :description
+      end
+    end
   end
   actions
 end
