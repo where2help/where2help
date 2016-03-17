@@ -1,4 +1,4 @@
-<%= t("activerecord.models.user.one") %>
+<h2><%=  t("devise.registrations.edit.title", resource: t("activerecord.models.users.one")) %></h2>
 
 <%= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>

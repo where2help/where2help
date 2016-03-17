@@ -8,7 +8,7 @@ de:
       language:
         one: Sprache
         other: Sprachen
-      user: 
+      users: 
         one: Freiwilliger
         other: Freiwillige
     attributes:
