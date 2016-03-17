@@ -19,12 +19,17 @@
         <%= f.label :password %>
         <%= f.password_field :password, autocomplete: 'off', class: 'form-control'  %>
         <% if @minimum_password_length %>
-          <p class="help-block">(<%= @minimum_password_length %> characters minimum)</p>
+          <span class="help-block">(<%= @minimum_password_length %> characters minimum)</span>
         <% end %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
+      </div>
+      <div class="checkbox">
+        <%= f.label :terms_and_conditions do %>
+          <%= f.check_box :terms_and_conditions %><%= f.object.class.human_attribute_name(:terms_and_conditions) %>
+        <% end %>
       </div>
       <%= f.button data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
     <% end %>

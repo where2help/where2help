@@ -11,6 +11,7 @@ class Ngo < ApplicationRecord
   validates :name, presence: true
   validates :identifier, presence: true
   validates_presence_of :contact
+  validates :terms_and_conditions, acceptance: true
 
   after_commit :request_admin_confirmation, on: :create
 
