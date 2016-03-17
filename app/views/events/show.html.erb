@@ -1,16 +1,4 @@
 <div class="row">
-  <div class="col-sm-6">
-    <h3>Address:</h3>
-    <%= @event.address %>
-    <h3>Description:</h3>
-    <%= @event.description %>
-  </div>
-  <div class="col-sm-6">
-    <h2>Shifts</h2>
-    <ul class="list-group">
-      <% @event.shifts.each do |shift| %>
-        <li class="list-group-item"><%= format_shift(shift) %></li>
-      <% end %>
-    </ul>
-  </div>
+  <h2><%= @event.description %></h2>
+  <%= render @event.shifts %>
 </div>

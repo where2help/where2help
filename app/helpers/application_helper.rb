@@ -15,20 +15,6 @@ module ApplicationHelper
     end
   end
 
-  def format_shift(shift)
-    "#{format_volunteers_needed(shift.volunteers_needed)} — #{format_datetimes(shift.starts_at, shift.ends_at)} (#{shift.volunteers_count}/#{shift.volunteers_needed} volunteering)"
-  end
-
-  def format_volunteers_needed(volunteers_needed)
-    "#{volunteers_needed} volunteer#{volunteers_needed == 1 ? '' : 's'} needed"
-  end
-
-  def format_datetimes(starts_at, ends_at)
-    start_datetime = starts_at.strftime("%d. %b. %H:%M")
-    end_time = ends_at.strftime("%H:%M")
-    "#{start_datetime} - #{end_time}"
-  end
-
   def active?(path)
     current_page?(path) ? 'active' : ''
   end
