@@ -49,9 +49,6 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'shifts#index'
   end
-  authenticated :ngo do
-    root 'shifts#index'
-  end
   root 'pages#home'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
