@@ -22,5 +22,7 @@ module Where2help
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.active_job.queue_adapter = :sucker_punch
+
+    config.assets.version = '1.1'
   end
 end
