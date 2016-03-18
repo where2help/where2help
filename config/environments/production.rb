@@ -81,11 +81,11 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_options = {
-    from: 'where2help <no-reply@where2help.herokuapp.com>',
+    from: 'where2help <no-reply@staging-where2help.herokuapp.com>',
     reply_to: 'where2help <where2helpinaustria@gmail.com>'
   }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'where2help.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'staging-where2help.herokuapp.com' }
   config.action_mailer.default charset: 'utf-8'
 
   # Sendgrid Settings
