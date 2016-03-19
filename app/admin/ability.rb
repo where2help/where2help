@@ -2,7 +2,7 @@ ActiveAdmin.register Ability do
   actions :all
 
   filter :name
-  filter :decsription
+  filter :description
   filter :created_at
 
   form partial: 'form'

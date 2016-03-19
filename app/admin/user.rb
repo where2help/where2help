@@ -19,5 +19,6 @@ ActiveAdmin.register User do
     :last_name,
     :admin,
     :locale,
-    ability_ids: []
+    ability_ids: [],
+    language_ids: []
 end

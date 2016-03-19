@@ -48,6 +48,9 @@
     <%= f.input :abilities, :as => :check_boxes, class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.input :languages, :as => :check_boxes, class: "form-control" %>
+  </div>
 
   <%= f.submit t("devise.registrations.edit.update") %>
 <% end %>

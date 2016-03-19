@@ -8,6 +8,9 @@ de:
       language:
         one: Sprache
         other: Sprachen
+      languages:
+        one: Sprache
+        other: Sprachen
       users: 
         one: Freiwilliger
         other: Freiwillige
@@ -25,6 +28,7 @@ de:
         confirmed_at: Bestätigt
         created_at: Erstellt
         terms_and_conditions: Nutzungsbedingungen
+        languages: Sprachen
       ngo:
         identifier: Identifikationsnummer
         confirmed_at: Bestätigt

@@ -17,5 +17,5 @@ class User < ApplicationRecord
   validates :last_name, length: { in: 1..50 }
   validates :terms_and_conditions, acceptance: true
 
-  accepts_nested_attributes_for :abilities
+  accepts_nested_attributes_for :abilities, :languages
 end
