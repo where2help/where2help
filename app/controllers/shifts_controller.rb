@@ -16,6 +16,12 @@ class ShiftsController < ApplicationController
     redirect_to @shift, alert: e.message
   end
 
+  def opt_out
+    set_shift
+    @shift.shifts_users.find_by_user_id(current_user).try(:destroy)
+    redirect_to @shift, notice: 'Fuckin sad'
+  end
+
   private
 
   def set_shift

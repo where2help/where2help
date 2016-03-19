@@ -118,4 +118,58 @@ RSpec.describe ShiftsController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE opt_out' do
+    let(:shift) { create :shift }
+
+    context 'when logged out' do
+      it 'redirects to user sign_in' do
+        delete :opt_out, params: { shift_id: shift }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+    context 'when logged in' do
+      let(:user) { create :user }
+
+      before { sign_in user }
+
+      context 'when opted in yet' do
+        before { create :shifts_user, user: user, shift: shift }
+
+        it 'deletes shifts_user record' do
+          expect{
+            delete :opt_out, params: { shift_id: shift }
+          }.to change{ShiftsUser.count}.by -1
+        end
+
+        it 'assigns @shift' do
+          delete :opt_out, params: { shift_id: shift }
+          expect(assigns :shift).to eq shift
+        end
+
+        it 'redirect_to shift' do
+          delete :opt_out, params: { shift_id: shift }
+          expect(response).to redirect_to shift
+        end
+      end
+      context 'when not opted in' do
+
+        it 'does not change shifts_user records' do
+          expect{
+            delete :opt_out, params: { shift_id: shift }
+          }.not_to change{ShiftsUser.count}
+        end
+
+        it 'assigns @shift' do
+          delete :opt_out, params: { shift_id: shift }
+          expect(assigns :shift).to eq shift
+        end
+
+        it 'redirect_to shift' do
+          delete :opt_out, params: { shift_id: shift }
+          expect(response).to redirect_to shift
+        end
+      end
+    end
+  end
 end
