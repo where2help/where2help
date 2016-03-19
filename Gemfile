@@ -77,6 +77,7 @@ gem 'sucker_punch'
 
 # Admin Interface
 gem 'activeadmin', '>= 1.0.0.pre2'
+gem 'formtastic-bootstrap'
 
 # Statemachine
 gem 'aasm', '~> 4.9'
