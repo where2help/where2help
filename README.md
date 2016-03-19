@@ -1,24 +1,19 @@
-## README
+# Where2Help
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Development
 
-Things you may want to cover:
+Install bundled gems
 
-* Ruby version
+    $ bundle install
 
-* System dependencies
+Setup the database
 
-* Configuration
+    $ rails db:setup
 
-* Database creation
+Populate database with sample data
 
-* Database initialization
+    $ rails db:populate
 
-* How to run the test suite
+Start up rails!
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    $ rails server
