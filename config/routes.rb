@@ -44,7 +44,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :shifts, only: [:index]
+  resources :shifts, only: [:index, :show] do
+    post :opt_in
+    delete :opt_out
+  end
 
   authenticated :user do
     root 'shifts#index'

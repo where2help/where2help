@@ -26,3 +26,7 @@ en:
     home:
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Volunteer
+  shifts:
+    opt_in: I'm In
+    opt_out: Can't Make It
+    are_you_sure: Are you sure you can't make it?

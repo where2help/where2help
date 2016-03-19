@@ -64,3 +64,7 @@ de:
     home:
       sign_up_ngo: Als NGO Registrieren
       sign_up_user: Als Helfer Registrieren
+  shifts:
+    opt_in: Helfen
+    opt_out: Absagen
+    are_you_sure: Willst Du wirklich absagen?
