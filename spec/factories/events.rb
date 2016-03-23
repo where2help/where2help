@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :event do
-    category 1
-    description "MyText"
+    title { Faker::StarWars.quote }
+    description { Faker::Hipster.paragraph(2) }
     volunteers_needed 1
     starts_at "2016-02-25 17:01:35"
     ends_at "2016-02-25 17:01:35"

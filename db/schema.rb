@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310150734) do
+ActiveRecord::Schema.define(version: 20160323190758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160310150734) do
     t.string   "state",        default: "pending", null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "title"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -81,17 +82,11 @@ ActiveRecord::Schema.define(version: 20160310150734) do
   end
 
   create_table "languages_users", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "language_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "languages_users", ["language_id"], name: "index_languages_users_on_language_id", using: :btree
-  add_index "languages_users", ["user_id"], name: "index_languages_users_on_user_id", using: :btree
-
   create_table "ngos", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -103,12 +98,12 @@ ActiveRecord::Schema.define(version: 20160310150734) do
     t.string   "identifier"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
     t.integer  "locale",                 default: 0
     t.string   "aasm_state"
   end
 
   add_index "ngos", ["confirmation_token"], name: "index_ngos_on_confirmation_token", unique: true, using: :btree
-  add_index "ngos", ["email"], name: "index_ngos_on_email", unique: true, using: :btree
   add_index "ngos", ["reset_password_token"], name: "index_ngos_on_reset_password_token", unique: true, using: :btree
 
   create_table "shifts", force: :cascade do |t|

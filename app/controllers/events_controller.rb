@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_ngo!, only: :new
+  before_action :authenticate_ngo!, only: [:new, :create]
 
   def new
     @event = Event.new
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :description, :address, :shift_length,
+      :title, :description, :address, :shift_length,
       shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at]
     )
   end
