@@ -19,4 +19,5 @@
 //= require bootstrap-datetimepicker
 //= require leaflet
 //= require moment/de
+//= require icheck.min
 //= require_tree .

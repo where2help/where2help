@@ -8,11 +8,9 @@
         <%= f.label :password, class: 'sr-only' %><br />
         <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: resource.class.human_attribute_name(:password) %>
         <% if devise_mapping.rememberable? -%>
-          <div class="checkbox">
-            <%= f.label :remember_me do %>
-              <%= f.check_box :remember_me %><%= resource.class.human_attribute_name(:remember_me) %>
-            <% end %>
-          </div>
+        <%= f.label :remember_me do %>
+          <%= f.check_box :remember_me %><%= resource.class.human_attribute_name(:remember_me) %>
+        <% end %>
         <% end -%>
         <%= f.button t('.login'), data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
       </div>
