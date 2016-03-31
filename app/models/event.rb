@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   belongs_to :ngo
 
   validates :title, length: { in: 1..100 }
-  validates :shift_length, :address, presence: true
+  validates :address, presence: true
 
   accepts_nested_attributes_for :shifts
 end
