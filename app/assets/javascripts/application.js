@@ -17,5 +17,6 @@
 //= require nested_form_fields
 //= require moment
 //= require bootstrap-datetimepicker
+//= require leaflet
 //= require moment/de
 //= require_tree .
