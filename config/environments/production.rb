@@ -85,7 +85,7 @@ Rails.application.configure do
     reply_to: 'where2help <where2helpinaustria@gmail.com>'
   }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'staging-where2help.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: ENV['FQDN'] }
   config.action_mailer.default charset: 'utf-8'
 
   # Sendgrid Settings
