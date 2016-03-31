@@ -48,12 +48,12 @@ namespace :db do
           city: Faker::Address.city))
     end
     Ngo.find_each do |ngo|
-      # TODO: assoicate event with ngo
       5.times do
         event = Event.new(
           title: Faker::StarWars.quote,
           description: Faker::Hipster.paragraph,
-          address: "#{Faker::Address.street_address}, #{Faker::Address.city}")
+          address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+          ngo_id: ngo.id)
         rand(1..5).times do
           start = Time.now + rand(7).days + rand(86400).seconds
           event.shifts.new(

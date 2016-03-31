@@ -6,6 +6,29 @@ RSpec.describe EventsController, type: :controller do
     @request.env['devise.mapping'] = Devise.mappings[:ngo]
   end
 
+  describe "GET #index" do
+    let(:ngo) { create :ngo, :confirmed }
+    let(:other_ngo) { create :ngo, :confirmed }
+    let(:other_event) { create(:event, ngo: other_ngo) }
+    let(:own_events) { create_list(:event, 4, ngo: ngo) }
+
+    context 'given a signed in NGO' do
+      before do
+        sign_in :ngo, ngo
+      end
+
+      it "@events includes the signed in ngo's events" do
+        get :index
+        expect(assigns(:events)).to match_array(own_events)
+      end
+
+      it "@events does not include the other ngo's events" do
+        get :index
+        expect(assigns(:events)).to_not include(other_event)
+      end
+    end
+  end
+
   describe "GET #new" do
     context 'given a signed in NGO' do
       before do
@@ -56,6 +79,11 @@ RSpec.describe EventsController, type: :controller do
         it 'assigns @event' do
           post :create, params: params
           expect(assigns :event).to be
+        end
+
+        it 'assigns @event the current signed in ngo' do
+          post :create, params: params
+          expect(assigns(:event).ngo).to eq(ngo)
         end
 
         it 'renders :new' do

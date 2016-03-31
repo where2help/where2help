@@ -9,7 +9,7 @@ json.array!(@events) do |event|
                        :state,
                        :created_at,
                        :updated_at
-
+  json.organization_name event.ngo.name
   json.url api_v1_event_url(event, format: :json)
 
   json.shifts event.shifts do |shift|

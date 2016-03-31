@@ -11,11 +11,12 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = current_ngo.events
   end
 
   def create
     @event = Event.new(event_params)
+    @event.ngo = current_ngo
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

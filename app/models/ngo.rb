@@ -5,6 +5,7 @@ class Ngo < ApplicationRecord
 
   enum locale: { de: 0, en: 1 }
 
+  has_many :events, dependent: :restrict_with_error
   has_one :contact, dependent: :destroy, inverse_of: :ngo
   accepts_nested_attributes_for :contact, reject_if: :all_blank
 
