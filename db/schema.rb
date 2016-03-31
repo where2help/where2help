@@ -72,8 +72,11 @@ ActiveRecord::Schema.define(version: 20160323190758) do
     t.string   "state",        default: "pending", null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "ngo_id"
     t.string   "title"
   end
+
+  add_index "events", ["ngo_id"], name: "index_events_on_ngo_id", using: :btree
 
   create_table "languages", force: :cascade do |t|
     t.string   "name"
@@ -82,11 +85,17 @@ ActiveRecord::Schema.define(version: 20160323190758) do
   end
 
   create_table "languages_users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  add_index "languages_users", ["language_id"], name: "index_languages_users_on_language_id", using: :btree
+  add_index "languages_users", ["user_id"], name: "index_languages_users_on_user_id", using: :btree
+
   create_table "ngos", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -98,12 +107,12 @@ ActiveRecord::Schema.define(version: 20160323190758) do
     t.string   "identifier"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
     t.integer  "locale",                 default: 0
     t.string   "aasm_state"
   end
 
   add_index "ngos", ["confirmation_token"], name: "index_ngos_on_confirmation_token", unique: true, using: :btree
+  add_index "ngos", ["email"], name: "index_ngos_on_email", unique: true, using: :btree
   add_index "ngos", ["reset_password_token"], name: "index_ngos_on_reset_password_token", unique: true, using: :btree
 
   create_table "shifts", force: :cascade do |t|
@@ -152,4 +161,5 @@ ActiveRecord::Schema.define(version: 20160323190758) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "events", "ngos"
 end
