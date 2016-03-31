@@ -6,4 +6,8 @@ class Event < ApplicationRecord
   validates :address, presence: true
 
   accepts_nested_attributes_for :shifts
+
+  def earliest_shift
+    shifts.first
+  end
 end
