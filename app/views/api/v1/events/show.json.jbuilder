@@ -8,7 +8,7 @@ json.extract! @event, :id,
                       :state,
                       :created_at,
                       :updated_at
-json.organisation_name @event.ngo.name
+json.organization_name @event.ngo.name
 
 
 json.shifts @event.shifts do |shift|
