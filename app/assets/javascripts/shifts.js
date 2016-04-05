@@ -13,7 +13,7 @@ document.addEventListener("page:change", function() {
     var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
     var osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 18, attribution: osmAttrib});
     map.setView(new L.LatLng(lat, long), 15);
-	  map.addLayer(osm);
+    map.addLayer(osm);
     new L.marker([lat, long]).addTo(map);
   }
 
