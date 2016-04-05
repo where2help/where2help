@@ -4,5 +4,6 @@ class Shift < ApplicationRecord
   belongs_to :event
   validates :volunteers_needed, :starts_at, :ends_at, presence: true
 
-  scope :is_not_full, -> { where("volunteers_needed > volunteers_count") } 
+  default_scope { order(starts_at: :asc }
+  scope :is_not_full, -> { where("volunteers_needed > volunteers_count") }
 end
