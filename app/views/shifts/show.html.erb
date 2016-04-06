@@ -1,12 +1,30 @@
+<div class="page-header">
+  <h1><i class="fa fa-calendar-o fa-2x"></i> <%= @shift.event.title %></h1>
+</div>
 <div class="row">
-  <div class="col-xs-12">
-    <h1><%= @shift.event.address %></h1>
-    <p>Volunteers: <span class="label <%= label_for(@shift, current_user) %>"><%= @shift.volunteers_count %> / <%= @shift.volunteers_needed %></span>
-    <p><%= @shift.event.description %></p>
-    <h2>
-      <%= I18n.localize(@shift.starts_at, format:'%d. %b %Y %H:%M') %> -
-      <%= I18n.localize(@shift.ends_at, format:'%H:%M') %>
-    </h2>
-    <%= opt_button_for(@shift, current_user) %>
+  <div class="col-sm-3 col-sm-push-9">
+    <%= opt_button_for @shift, current_user %>
+    <span class="label <%= label_for(@shift, current_user) %>"><%= @shift.volunteers_count %> / <%= @shift.volunteers_needed %></span>
+  </div>
+  <div class="col-sm-9 col-sm-pull-3">
+    <ul class="fa-ul">
+      <li>
+        <i class="fa-li fa fa-clock-o fa-fw"></i>
+        <%= @shift.starts_at.strftime('%H:%M') %> - <%= @shift.ends_at.strftime('%H:%M') %>
+      </li>
+      <li>
+        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <%= @shift.event.address %>
+        <div id="shift-map" class="map" data-behavior="map-container" data-lat="51.505" data-long="-0.09"></div>
+      </li>
+      <li>
+        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <%= @shift.event.description %>
+      </li>
+      <li>
+        <i class="fa-li fa fa-child fa-fw"></i>
+        NGO of yeah <!-- TODO add real ngo name -->
+      </li>
+    </ul>
   </div>
 </div>
