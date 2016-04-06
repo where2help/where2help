@@ -61,8 +61,6 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap3-datetimepicker-rails (4.17.37)
-      momentjs-rails (>= 2.8.1)
     bourbon (4.2.6)
       sass (~> 3.4)
       thor (~> 0.19)
@@ -266,7 +264,6 @@ DEPENDENCIES
   aasm (~> 4.9)
   activeadmin (>= 1.0.0.pre2)
   bootstrap-sass
-  bootstrap3-datetimepicker-rails (~> 4.17.37)
   bullet
   byebug
   cocoon

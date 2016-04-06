@@ -13,7 +13,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+#gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
 gem 'devise', '>= 4.0.0.rc2'
 
 #gem 'devise-bootstrap-views'
@@ -48,7 +49,6 @@ group :production do
 end
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '>= 3.5.0.beta2'
   gem 'factory_girl_rails'
@@ -69,7 +69,6 @@ group :development do
   gem 'bullet'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ActiveJob backend
