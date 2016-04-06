@@ -1,0 +1,9 @@
+<div class="nested-fields">
+  <%= f.inputs do %>
+    <%= f.input :volunteers_needed %>
+    <%= f.input :starts_at %>
+    <%= f.input :ends_at %>
+
+    <%= link_to_remove_association "Remove Shift", f %>
+  <% end %>
+</div>

@@ -9,7 +9,7 @@ gem 'pg', '~> 0.18'
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'nested_form_fields', '~> 0.7.4'
+
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'momentjs-rails', '>= 2.9.0'
@@ -78,6 +78,8 @@ gem 'sucker_punch'
 # Admin Interface
 gem 'activeadmin', '>= 1.0.0.pre2'
 gem 'formtastic-bootstrap'
+gem "cocoon"
+
 
 # Statemachine
 gem 'aasm', '~> 4.9'
