@@ -36,7 +36,7 @@ de:
         aasm_state: Status
         aasm_state/pending: Unbestätigt
         aasm_state/admin_confirmed: Von Admin Bestätigt
-        aasm_state/deactivated: "Deaktiviert"
+        aasm_state/deactivated: Deaktiviert
         terms_and_conditions: Nutzungsbedingungen
   admin_mailer:
     new_ngo:
