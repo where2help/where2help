@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12">
-    <h2>New Event</h2>
+    <h2>Neuer Event</h2>
     <%= semantic_form_for(@event) do |f| %>
       <% if @event.errors.any? %>
         <div id="error_explanation">
@@ -18,18 +18,18 @@
       <%= f.input :description, :input_html => { :class => 'autogrow', :rows => 5, :cols => 20 } %>
       <%= f.input :address %>
 
-      <h2>Shifts</h2>
-      
+      <hr/>
+      <h3>Schichten</h3>
 
       <%= f.semantic_fields_for :shifts do |shift| %>
         <%= render 'shift_fields', f: shift %>
         <div class="links">
-          <%= link_to_add_association 'Add Shift', f, :shifts %>
+          <%= link_to_add_association 'Schicht hinzufügen', f, :shifts, class: "btn btn-info" %><br/><br/>
         </div>
       <% end %>
 
       <div class="actions">
-        <%= f.submit %>
+        <%= f.submit "Event speichern", class: "btn btn-default" %>
       </div>
     <% end %>
   </div>
