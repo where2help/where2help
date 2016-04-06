@@ -3,7 +3,9 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @event.shifts.build(volunteers_needed: 1, starts_at: Time.now, ends_at: 2.hours.from_now)
+    t = Time.now + 15.minutes
+    t = t - t.sec - t.min%15*60
+    @event.shifts.build(volunteers_needed: 1, starts_at: t, ends_at: t + 2.hours)
   end
 
   def show

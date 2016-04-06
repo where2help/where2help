@@ -1,8 +1,8 @@
 <div class="nested-fields">
   <%= f.inputs do %>
     <%= f.input :volunteers_needed %>
-    <%= f.input :starts_at, as: :datetime_select %>
-    <%= f.input :ends_at %>
+    <%= f.input :starts_at, minute_step: 15 %>
+    <%= f.input :ends_at, minute_step: 15 %>
 
     <%= link_to_remove_association "Schicht löschen", f, class: "btn btn-danger" %><br/><br/>
     <hr/>
