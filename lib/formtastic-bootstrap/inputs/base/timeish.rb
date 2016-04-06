@@ -3,12 +3,12 @@ module FormtasticBootstrap
     module Base
       module Timeish
         FRAGMENT_CLASSES = {
-          :year   => "col-xs-2",
-          :month  => "col-xs-2",
-          :day    => "col-xs-2",
-          :hour   => "col-xs-offset-2 col-xs-2",
-          :minute => "col-xs-2",
-          :second => "col-xs-0"
+          :year   => "col-sm-2",
+          :month  => "col-sm-2",
+          :day    => "col-sm-2",
+          :hour   => "col-sm-offset-2 col-sm-2",
+          :minute => "col-sm-2",
+          :second => "col-sm-0"
         }
 
         FRAGMENT_PLACEHOLDERS = {
