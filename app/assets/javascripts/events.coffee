@@ -1,6 +1,7 @@
 $(document).on "cocoon:after-insert", (event, insertedItem) ->
   selects = $(insertedItem).find("select")
-  last_entry = $(insertedItem).siblings()[$(insertedItem).siblings().length - 3]
+  
+  last_entry = $("div.inserted-fields")[$("div.inserted-fields").length - 2]
   last_selects = $(last_entry).find("select")
 
   for i in [0,1,2,4,5,6,7,9]

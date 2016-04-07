@@ -1,6 +1,17 @@
 class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!, only: [:new, :create, :index]
 
+
+  def show
+    @event = Event.find(params[:id])
+  end
+
+
+  def index
+    @events = current_ngo.events
+  end
+
+
   def new
     @event = Event.new
     t = Time.now + 15.minutes
@@ -8,25 +19,32 @@ class Ngos::EventsController < ApplicationController
     @event.shifts.build(volunteers_needed: 1, starts_at: t, ends_at: t + 2.hours)
   end
 
-  def show
-    @event = Event.find(params[:id])
-  end
-
-  def index
-    @events = current_ngo.events
-  end
 
   def create
     @event = Event.new(event_params)
     @event.ngo = current_ngo
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to [:ngos, @event], notice: 'Event was successfully created.' }
-      else
-        format.html { render action: :new }
-      end
+    if @event.save
+      redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich erzeugt.'
+    else
+      render action: :new
     end
   end
+
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(event_params)
+      redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich aktualisiert.'
+    else
+      render 'edit'
+    end    
+  end
+
 
   private
 
