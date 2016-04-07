@@ -1,10 +1,21 @@
 <div class="page-header">
-  <h1><i class="fa fa-calendar-o fa-2x"></i> <%= @shift.event.title %></h1>
+  <h3>
+    <span class="fa-stack">
+      <i class="fa fa-calendar-o fa-stack-2x"></i>
+      <span class="fa-stack-1x calendar-text">
+        <%= I18n.localize(@shift.starts_at, format:'%b') %>
+      </span>
+      <span class="fa-stack-1x calendar-text">
+        <%= @shift.starts_at.day %>
+      </span>
+    </span>
+    <%= @shift.event.title %>
+  </h3>
 </div>
 <div class="row">
   <div class="col-sm-3 col-sm-push-9">
     <%= opt_button_for @shift, current_user %>
-    <span class="label <%= label_for(@shift, current_user) %>"><%= @shift.volunteers_count %> / <%= @shift.volunteers_needed %></span>
+    <span class="badge <%= badge_for(@shift, current_user) %>"><%= @shift.volunteers_count %> / <%= @shift.volunteers_needed %></span>
   </div>
   <div class="col-sm-9 col-sm-pull-3">
     <ul class="fa-ul">

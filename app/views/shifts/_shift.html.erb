@@ -1,8 +1,22 @@
 <%= link_to shift, class: 'list-group-item' do %>
-  <span class="label <%= label_for(shift, current_user) %> pull-right"><%= shift.volunteers_count %> / <%= shift.volunteers_needed %></span>
-  <h4><%= shift.event.address %></h4>
-  <p>
-    <%= I18n.localize(shift.starts_at, format:'%d. %b %Y %H:%M') %> -
-    <%= I18n.localize(shift.ends_at, format:'%H:%M') %>
-  </p>
+  <div class="row">
+    <div class="col-xs-3 col-sm-1 text-left">
+      <span class="fa-stack fa-2x">
+        <i class="fa fa-calendar-o fa-stack-2x"></i>
+        <strong class="fa-stack-1x calendar-text">
+          <%= I18n.localize(shift.starts_at, format:'%b') %>
+        </strong>
+        <strong class="fa-stack-1x calendar-text">
+          <%= shift.starts_at.day %>
+        </strong>
+      </span>
+    </div>
+    <div class="col-xs-7 col-sm-10">
+      <strong><%= shift.event.title %></strong><br>
+      <span><%= shift.event.address %></span>
+    </div>
+    <div class="col-xs-2 col-sm-1">
+      <span class="badge <%= badge_for(shift, current_user) %> pull-right"><%= shift.volunteers_count %> / <%= shift.volunteers_needed %></span>
+    </div>
+  </div>
 <% end %>

@@ -1,6 +1,6 @@
 module ShiftsHelper
-  def label_for(shift, user)
-    shift.users.include?(user) ? 'label-info' : 'label-default'
+  def badge_for(shift, user)
+    'badge-info' if shift.users.include?(user)
   end
 
   def opt_button_for(shift, user)
