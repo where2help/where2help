@@ -65,6 +65,12 @@ de:
         Euer Account ist jetzt freigeschalten. Wenn Ihr eure Emailadresse bereits bestätigt hab,
         könnt Ihr jetzt loslegen Events zu erstellen!
       link: Bei Where2Help Loslegen
+  user_mailer:
+    shift_destroyed:
+      subject: "[where2help] Event wurde abgesagt"
+      greeting: "Hallo %{name}"
+      content: |
+        %{title} am %{date} wurde abgesagt, Du brauchst nicht zu kommen!
   active_admin:
     batch_actions:
       button_label: Stapelverarbeitung

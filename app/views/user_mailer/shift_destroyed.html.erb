@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2><%= t('.greeting', name: @user.first_name) %></h2>
+    <p><%= t('.content', title: @shift.event.title, date: I18n.localize(@shift.starts_at, format:'%d. %b %Y %H:%M')) %></p>
+  </body>
+</html>

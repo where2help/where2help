@@ -11,6 +11,12 @@ en:
         Your account has been confirmed. If you already confirmed your emailaddress,
         you can go ahead and start creating events!
       link: Get started at Where2Help
+  user_mailer:
+    shift_destroyed:
+      subject: "[where2help] Event got cancelled"
+      greeting: "Hi %{name}"
+      content: |
+        %{title} at %{date} got cancelled, you don't need to come!
   users:
     sessions:
       new:
