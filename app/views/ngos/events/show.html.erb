@@ -1,4 +1,21 @@
 <div class="row">
-  <h2><%= @event.description %></h2>
+  <div class="row">
+    <div class="col-xs-1 col-sm-1">
+      <%= link_to edit_ngos_event_path(@event) do %>
+      <span class="fa-stack fa-2x">
+        <i class="fa fa-pencil-square-o"></i>
+      </span>
+      <% end %>
+    </div>
+    <div class="col-xs-1 col-sm-1">
+      <%= link_to [:ngos, @event],  method: :delete, data: { confirm: 'Are you sure?' }, confirm: "Soll der Eintrag wirklich gelöscht werden?" do %>
+      <span class="fa-stack fa-2x">
+        <i class="fa fa-trash-o"></i>
+      </span>
+      <% end %>
+    </div>
+  </div>
+  <h2><%= @event.title %></h2>
+  <p><%= @event.description %></p>
   <%= render partial: 'shifts/shift', collection: @event.shifts %>
 </div>

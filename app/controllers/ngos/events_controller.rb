@@ -52,9 +52,15 @@ class Ngos::EventsController < ApplicationController
       redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich aktualisiert.'
     else
       render 'edit'
-    end    
+    end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+
+    redirect_to action: :index
+end
 
   private
 

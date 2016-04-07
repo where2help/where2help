@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :ngos do
-    resources :events, except: [:destroy]
+    resources :events
   end
 
   ActiveAdmin.routes(self)
