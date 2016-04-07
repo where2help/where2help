@@ -1,14 +1,3 @@
-#$ ->
-#  $('#starts-at-datetime-picker').datetimepicker
-#    locale: 'de'
-#  $('#ends-at-datetime-picker').datetimepicker
-#    locale: 'de'
-
-#$(document).on "fields_added.nested_form_fields", (event, param) ->
-#  $(dateField).datetimepicker(
-#    locale: 'de'
-#  ) for dateField in $(event.target).find('.date')
-
 $(document).on "cocoon:after-insert", (event, insertedItem) ->
   selects = $(insertedItem).find("select")
   last_entry = $(insertedItem).siblings()[$(insertedItem).siblings().length - 3]
