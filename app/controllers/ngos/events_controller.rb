@@ -49,7 +49,7 @@ class Ngos::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-      redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich aktualisiert.'
+      redirect_to action: :index, notice: 'Das Event wurde erfolgreich aktualisiert.'
     else
       render 'edit'
     end
