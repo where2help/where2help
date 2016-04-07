@@ -25,7 +25,7 @@ module Where2help
 
     config.assets.version = '1.2'
 
-    config.i18n.available_locales = :de
+    config.i18n.available_locales = [:de, :en]
     config.i18n.default_locale = :de
     config.time_zone = 'Vienna'
   end

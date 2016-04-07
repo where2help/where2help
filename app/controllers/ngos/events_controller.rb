@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!, only: [:new, :create, :index]
 
   def new
@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     @event.ngo = current_ngo
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to [:ngos, @event], notice: 'Event was successfully created.' }
       else
         format.html { render action: :new }
       end
