@@ -7,6 +7,10 @@ class Event < ApplicationRecord
 
   accepts_nested_attributes_for :shifts
 
+  def self.order_by_for_select
+    [:address, :title]
+  end
+
   def earliest_shift
     shifts.first
   end
