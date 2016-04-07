@@ -15,7 +15,7 @@ class Ngos::EventsController < ApplicationController
     elsif filter_by == 'past'
       @events = @events.where(id: Shift.where("starts_at < ?", Time.now).pluck(:event_id).uniq)
     end
-    order_by = params[:order_by].to_sym
+    order_by = params[:order_by]
     if order_by
       @events = @events.order(order_by)
     end
