@@ -1,6 +1,27 @@
 class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!, only: [:new, :create, :index]
 
+
+  def show
+    @event = Event.find(params[:id])
+  end
+
+
+  def index
+    @events = current_ngo.events
+    filter_by = params[:filter_by]
+    if filter_by == 'upcoming'
+      @events = @events.where(id: Shift.where("starts_at >= ?", Time.now).pluck(:event_id).uniq)
+    elsif filter_by == 'past'
+      @events = @events.where(id: Shift.where("starts_at < ?", Time.now).pluck(:event_id).uniq)
+    end
+    order_by = params[:order_by]
+    if order_by
+      @events = @events.order(order_by)
+    end
+  end
+
+
   def new
     @event = Event.new
     t = Time.now + 15.minutes
@@ -8,32 +29,45 @@ class Ngos::EventsController < ApplicationController
     @event.shifts.build(volunteers_needed: 1, starts_at: t, ends_at: t + 2.hours)
   end
 
-  def show
-    @event = Event.find(params[:id])
-  end
-
-  def index
-    @events = current_ngo.events
-  end
 
   def create
     @event = Event.new(event_params)
     @event.ngo = current_ngo
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to [:ngos, @event], notice: 'Event was successfully created.' }
-      else
-        format.html { render action: :new }
-      end
+    if @event.save
+      redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich erzeugt.'
+    else
+      render action: :new
     end
   end
+
+
+  def edit
+    @event = Event.includes(shifts: [:users]).find(params[:id])
+  end
+
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(event_params)
+      redirect_to action: :index, notice: 'Das Event wurde erfolgreich aktualisiert.'
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+
+    redirect_to action: :index
+end
 
   private
 
   def event_params
     params.require(:event).permit(
       :title, :description, :address, :shift_length,
-      shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at]
+      shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at, :_destroy]
     )
   end
 end

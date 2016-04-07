@@ -1,6 +1,7 @@
-<div class="nested-fields">
+<div class="nested-fields inserted-fields">
   <%= f.inputs do %>
-    <%= f.input :volunteers_needed %>
+    <%= f.input :volunteers_needed, hint: "bisher zugesagt: " + f.object.users.count.to_s %>
+
     <%= f.input :starts_at, minute_step: 15 %>
     <%= f.input :ends_at, minute_step: 15 %>
 
