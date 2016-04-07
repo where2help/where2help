@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EventsController, type: :controller do
+RSpec.describe Ngos::EventsController, type: :controller do
 
   before do
     @request.env['devise.mapping'] = Devise.mappings[:ngo]
@@ -105,7 +105,7 @@ RSpec.describe EventsController, type: :controller do
 
         it 'redirects to @event' do
           post :create, params: params
-          expect(response).to redirect_to assigns(:event)
+          expect(response).to redirect_to [:ngos, assigns(:event)]
         end
       end
     end

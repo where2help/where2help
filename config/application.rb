@@ -24,5 +24,9 @@ module Where2help
     config.active_job.queue_adapter = :sucker_punch
 
     config.assets.version = '1.2'
+
+    config.i18n.available_locales = [:de, :en]
+    config.i18n.default_locale = :de
+    config.time_zone = 'Vienna'
   end
 end

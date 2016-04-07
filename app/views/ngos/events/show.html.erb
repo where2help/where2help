@@ -1,0 +1,4 @@
+<div class="row">
+  <h2><%= @event.description %></h2>
+  <%= render partial: 'shifts/shift', collection: @event.shifts %>
+</div>

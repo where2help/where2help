@@ -5,13 +5,19 @@ de:
         one: Fähigkeit
         other: Fähigkeiten
       contact: Kontakt
+      event:
+        one: Event
+        other: Events
       language:
         one: Sprache
         other: Sprachen
       languages:
         one: Sprache
         other: Sprachen
-      users: 
+      shift:
+        one: Dienst
+        other: Dienste
+      users:
         one: Freiwilliger
         other: Freiwillige
     attributes:
@@ -22,6 +28,10 @@ de:
         street: Straße
         zip: Postleitzahl
         city: Stadt
+      event:
+        title: Titel
+        description: Beschreibung
+        address: Adresse
       user:
         first_name: Vorname
         last_name: Nachname
@@ -36,8 +46,13 @@ de:
         aasm_state: Status
         aasm_state/pending: Unbestätigt
         aasm_state/admin_confirmed: Von Admin Bestätigt
-        aasm_state/deactivated: "Deaktiviert"
+        aasm_state/deactivated: Deaktiviert
         terms_and_conditions: Nutzungsbedingungen
+      shift:
+        ends_at: Ende
+        starts_at: Beginn
+        volunteers_needed: Anzahl benötigter Freiwilliger
+
   admin_mailer:
     new_ngo:
       subject: "[where2help] Neue NGO Registrierung"

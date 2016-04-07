@@ -1,9 +1,11 @@
-class EventsController < ApplicationController
-  before_action :authenticate_ngo!, only: [:new, :create]
+class Ngos::EventsController < ApplicationController
+  before_action :authenticate_ngo!, only: [:new, :create, :index]
 
   def new
     @event = Event.new
-    @event.shifts.build(volunteers_needed: 1, starts_at: Time.now, ends_at: 2.hours.from_now)
+    t = Time.now + 15.minutes
+    t = t - t.sec - t.min%15*60
+    @event.shifts.build(volunteers_needed: 1, starts_at: t, ends_at: t + 2.hours)
   end
 
   def show
@@ -19,7 +21,7 @@ class EventsController < ApplicationController
     @event.ngo = current_ngo
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to [:ngos, @event], notice: 'Event was successfully created.' }
       else
         format.html { render action: :new }
       end

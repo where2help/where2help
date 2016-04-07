@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :events, only: [:new, :index, :create, :show]
+  namespace :ngos do
+    resources :events, only: [:new, :index, :create, :show]
+  end
 
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {
@@ -53,7 +55,7 @@ Rails.application.routes.draw do
     root 'shifts#index'
   end
   authenticated :ngo do
-    root 'events#index'
+    root 'ngos/events#index'
   end
   root 'pages#home'
 
