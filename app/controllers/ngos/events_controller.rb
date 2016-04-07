@@ -32,7 +32,7 @@ class Ngos::EventsController < ApplicationController
 
 
   def edit
-    @event = Event.find(params[:id])
+    @event = Event.includes(shifts: [:users]).find(params[:id])
   end
 
 
@@ -51,7 +51,7 @@ class Ngos::EventsController < ApplicationController
   def event_params
     params.require(:event).permit(
       :title, :description, :address, :shift_length,
-      shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at]
+      shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at, :_destroy]
     )
   end
 end
