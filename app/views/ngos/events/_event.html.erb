@@ -1,6 +1,6 @@
-<%= link_to [:ngos, event], class: 'list-group-item' do %>
-  <div class="row">
-    <div class="col-xs-3 col-sm-1 text-left">
+<div class="row">
+  <div class="col-xs-3 col-sm-1 text-left">
+    <%= link_to [:ngos, event], class: 'list-group-item' do %>
       <span class="fa-stack fa-2x">
         <i class="fa fa-calendar-o fa-stack-2x"></i>
         <strong class="fa-stack-1x calendar-text">
@@ -10,11 +10,32 @@
           <%= event.earliest_shift.starts_at.day %>
         </strong>
       </span>
-    </div>
-    <div class="col-xs-9 col-sm-11">
-      <h3><%= event.title %></h3>
-      <p><%= event.description %></p>
-      <strong><%= event.address %></strong>
-    </div>
+    <% end %>
+
   </div>
-<% end %>
+
+  <div class="col-xs-7 col-sm-9">
+    <%= link_to [:ngos, event], class: 'list-group-item' do %>
+      <%= event.description %>
+      <strong><%= event.address %></strong>
+    <% end %>
+  </div>
+
+  <div class="col-xs-2 col-sm-2 text-right">
+    <%= link_to publish_ngos_event_path(event), class: "btn btn-info",
+                                                method: :post do %>
+      <i class="fa fa-users"></i>
+    <% end if event.may_publish? %>
+
+    <%= link_to edit_ngos_event_path(event), class: "btn btn-warning" do %>
+      <i class="fa fa-pencil-square-o"></i>
+    <% end %>
+
+    <%= link_to [:ngos, event],  class: "btn btn-danger",
+                                 method: :delete,
+                                 data: { confirm: 'Are you sure?' },
+                                 confirm: "Soll der Eintrag wirklich gelöscht werden?" do %>
+      <i class="fa fa-trash-o"></i>
+    <% end %>
+  </div>
+</div>

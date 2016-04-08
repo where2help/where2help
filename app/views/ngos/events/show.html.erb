@@ -1,32 +1,28 @@
 <div class="row">
-  <h2><%= @event.description %></h2>
-
-  <div class="row">
-    <div class="col-xs-1">
-      <%= link_to edit_ngos_event_path(@event) do %>
-      <span class="fa-stack fa-2x">
-        <i class="fa fa-pencil-square-o"></i>
-      </span>
-      <% end %>
-    </div>
-    <div class="col-xs-1">
-      <%= link_to [:ngos, @event],  method: :delete, data: { confirm: 'Are you sure?' }, confirm: "Soll der Eintrag wirklich gelöscht werden?" do %>
-      <span class="fa-stack fa-2x">
-        <i class="fa fa-trash-o"></i>
-      </span>
-      <% end %>
-    </div>
-    <div class="col-xs-1">
-      <% if @event.may_publish? %>
-        <%= link_to "Veröffentlichen", publish_ngos_event_path(@event), class: "btn btn-warning", method: :post %>
-      <% end %>
-    </div>
-    <div class="col-xs-3">
-      <p>Status: <span class="labellabel-success"><%t "activerecord.model.attributes.event.state." + @event.aasm.current_state %></span></p>
-    </div>
-  </div>
-  
   <h2><%= @event.title %></h2>
-  <p><%= @event.description %></p>
+  
+  <div class="pull-right">
+   <%= link_to publish_ngos_event_path(@event), class: "btn btn-info",
+                                                  method: :post do %>
+       <i class="fa fa-users"></i> Veröffentlichen
+    <% end if @event.may_publish? %>
+
+    <%= link_to edit_ngos_event_path(@event), class: "btn btn-warning" do %>
+      <i class="fa fa-pencil-square-o"></i> Bearbeiten
+    <% end %>
+
+    <%= link_to [:ngos, @event],  class: "btn btn-danger",
+                                  method: :delete,
+                                  data: { confirm: 'Are you sure?' },
+                                  confirm: "Soll der Eintrag wirklich gelöscht werden?" do %>
+      <i class="fa fa-trash-o"></i> Löschen
+    <% end %>
+  </div>
+
+
+
+  <p>Status: <span class="label label-success"><%= t "activerecord.attributes.event.state." + @event.aasm.current_state.to_s %></span></p>
+
+  <%= @event.description %>
   <%= render partial: 'shifts/shift', collection: @event.shifts %>
 </div>
