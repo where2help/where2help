@@ -2,7 +2,9 @@ class ShiftsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @shifts = Shift.order(:starts_at)
+    @shifts = Shift.where('volunteers_needed > volunteers_count').
+      where('starts_at > NOW()').
+      order(:starts_at)
   end
 
   def show

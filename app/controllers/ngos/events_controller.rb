@@ -49,10 +49,17 @@ class Ngos::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-      redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich aktualisiert.'
+      redirect_to action: :index, notice: 'Das Event wurde erfolgreich aktualisiert.'
     else
       render 'edit'
-    end    
+    end
+  end
+
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to action: :index
   end
 
 
@@ -62,7 +69,7 @@ class Ngos::EventsController < ApplicationController
       redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich publiziert.'
     else
       redirect_to [:ngos, @event], notice: 'Das Event konnte nicht publiziert werden.'
-    end    
+    end
   end
 
   private

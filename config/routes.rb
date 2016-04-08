@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :ngos do
-    resources :events, except: [:destroy] do
+    resources :events do
       member do
         post 'publish'
       end

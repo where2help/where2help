@@ -80,6 +80,9 @@ de:
       labels:
         confirm: Bestätige
         deactivate: Deaktiviere
+  application:
+    empty_message:
+      message: Wir haben gerade nichts für dich...
   users:
     sessions:
       new:
