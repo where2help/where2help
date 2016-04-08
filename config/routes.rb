@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   namespace :ngos do
-    resources :events, except: [:destroy]
+    resources :events, except: [:destroy] do
+      member do
+        post 'publish'
+      end
+    end
   end
 
   ActiveAdmin.routes(self)

@@ -1,4 +1,11 @@
 <div class="row">
   <h2><%= @event.description %></h2>
+
+  <% if @event.may_publish? %>
+    <%= link_to "Veröffentlichen", publish_ngos_event_path(@event), class: "btn btn-warning", method: :post %>
+  <% end %>
+
+  <p>Status: <span class="labellabel-success"><%t "activerecord.model.attributes.event.state." + @event.aasm.current_state %></span></p>
+
   <%= render partial: 'shifts/shift', collection: @event.shifts %>
 </div>
