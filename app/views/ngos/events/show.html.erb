@@ -1,9 +1,9 @@
 <div class="row">
   <h2><%= @event.title %></h2>
-  
+
   <div class="pull-right">
    <%= link_to publish_ngos_event_path(@event), class: "btn btn-info",
-                                                  method: :post do %>
+                                                method: :post do %>
        <i class="fa fa-users"></i> Veröffentlichen
     <% end if @event.may_publish? %>
 
