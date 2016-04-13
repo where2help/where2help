@@ -17,29 +17,44 @@ RSpec.describe ShiftsController, type: :controller do
       end
     end
     context 'when logged in as user' do
-      let!(:upcoming_shifts) { create_list :shift, 10, starts_at: Faker::Date.forward(2) }
+      let!(:recent_upcoming_shifts) { create_list :shift, 25, starts_at: Faker::Date.between(1.day.from_now, 2.days.from_now) }
+      let!(:next_upcoming_shifts) { create_list :shift, 25, starts_at: Faker::Date.between(3.day.from_now, 5.days.from_now) }
       let(:past_shift) { create :shift, starts_at: Faker::Date.backward(2) }
       let(:full_shift) { create :shift, starts_at: Faker::Date.forward(2), volunteers_needed: 2, volunteers_count: 2 }
 
-      before do
-        sign_in create(:user)
-        get :index
-      end
+      before { sign_in create(:user) }
 
-      it 'assigns upcoming @shifts' do
-        expect(assigns :shifts).to match_array upcoming_shifts
-      end
+      context 'when html request' do
+        before { get :index }
 
-      it 'excludes past @shifts' do
-        expect(assigns :shifts).not_to include past_shift
-      end
+        it 'assigns first 25 upcoming @shifts' do
+          expect(assigns :shifts).to match_array recent_upcoming_shifts
+        end
 
-      it 'excludes full @shifts' do
-        expect(assigns :shifts).not_to include full_shift
-      end
+        it 'excludes past @shifts' do
+          expect(assigns :shifts).not_to include past_shift
+        end
 
-      it 'renders :index' do
-        expect(response).to render_template :index
+        it 'excludes full @shifts' do
+          expect(assigns :shifts).not_to include full_shift
+        end
+
+        it 'renders index.html' do
+          expect(response.content_type).to eq 'text/html'
+          expect(response).to render_template :index
+        end
+      end
+      context 'when js request (pagination) with page param' do
+        before { get :index, xhr: true, params: { page: 2 } }
+
+        it 'assigns next 25 upcoming shifts' do
+          expect(assigns :shifts).to match_array next_upcoming_shifts
+        end
+
+        it 'renders index.js' do
+          expect(response.content_type).to eq 'text/javascript'
+          expect(response).to render_template :index
+        end
       end
     end
   end

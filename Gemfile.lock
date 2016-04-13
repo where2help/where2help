@@ -276,6 +276,7 @@ DEPENDENCIES
   formtastic-bootstrap
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   leaflet-rails
   momentjs-rails (>= 2.9.0)
   pg (~> 0.18)

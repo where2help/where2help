@@ -4,7 +4,8 @@ class ShiftsController < ApplicationController
   def index
     @shifts = Shift.where('volunteers_needed > volunteers_count').
       where('starts_at > NOW()').
-      order(:starts_at)
+      order(:starts_at).
+      page(params[:page])
   end
 
   def show

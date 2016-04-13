@@ -16,4 +16,11 @@ module ShiftsHelper
         class: 'btn btn-primary btn-lg btn-block'
     end
   end
+
+  def load_more_shifts_btn(shifts)
+    link_to_next_page @shifts, t('shifts.load_more'),
+      remote: true,
+      data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>", behavior: 'shift-pagination' },
+      class: 'btn'
+  end
 end

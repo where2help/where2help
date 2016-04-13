@@ -48,7 +48,7 @@ namespace :db do
           city: Faker::Address.city))
     end
     Ngo.find_each do |ngo|
-      5.times do
+      10.times do
         event = Event.new(
           title: Faker::StarWars.quote,
           description: Faker::Hipster.paragraph,
