@@ -37,8 +37,13 @@ Start up rails!
 
 # Deployment
 
-[Travis CI](https://travis-ci.org/) is set up to automatically deploy the master branch to the staging application on [Heroku](https://www.heroku.com):  
+[Travis CI](https://travis-ci.org/) is set up to automatically deploy applications to [Heroku](https://www.heroku.com):
+
+* the `master` branch is automatically deployed to the staging environment:  
 https://staging-where2help.herokuapp.com/
+
+* the more stable `fsw` branch is automatically deployed to:  
+https://where2help.herokuapp.com/
 
 If you want to skip continuous integration for your commit, add this to your commit message:
 

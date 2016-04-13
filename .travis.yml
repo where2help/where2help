@@ -17,6 +17,8 @@ deploy:
   provider: heroku
   api_key:
     secure: ui3SQU02xVYKY2SF3YZe31WuDVD4YJPBzIF/cRsxRv9j6abueNgqVZmB5q8JU2bvA32OB71kNaHjHcWA8F/Omr5685HSlK+oSxFKZXpu1YNvkrSCShCKRBORfL+VbcJcxSYo8rv7AiaWlaQu66mQs8UgqksxKHwk3wpo21kuH/gydZDd7IdazcSmwAM0/tHwMFplUoWzuv3SQLASNM2aJJkDrv0K/WcrZw21ycSMfszWOIAG3vPVdZSquo7LR/VtKwq1pX17JR/Q/Jxg9fvmDTXr9xEBITJJX1eXIWcNQ3QVn/w7QiqwVvoE43nTS93QxsXxJMPg/hagZQ9RqTG2ffd8+fIHqJRiMXHejXLk2XF99uaXpnCg0tivT8UHiOExEs5/Gn6mN0Cq/zSSZs47tWiG54kzHzM8B9eCIenGl3xNy5boz/6XLRlTHz/FkYA1vOQ+D9ChsBjI8E/CKnKCqRgMc2HHU9StJO7s57paMYwGVlqueYzrBnuZXGA+xb+wXTaGs7pdOk8KiA38QVOxygVJlseqCQ33wxEC1QT3q+aSC0bHfhN/9x/KbM1lXh5DGzqnfJ7wIMlwS+l8EzFWGALWhzeJlnnvjoLyhxhOwLyJQH5K3QWP7st86ky51QcCx7RTlifVYEMVlUiaa3GTDM2sMfxT3qh8NYIQQe9rQBY=
-  app: staging-where2help
+  app:
+    master: staging-where2help
+    fsw: where2help
   on:
     repo: where2help/where2help
