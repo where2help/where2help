@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aasm (4.9.0)
+    aasm (4.10.0)
     actioncable (5.0.0.beta3)
       actionpack (= 5.0.0.beta3)
       nio4r (~> 1.2)
@@ -136,7 +136,7 @@ GEM
     mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    momentjs-rails (2.11.0)
+    momentjs-rails (2.11.1)
       railties (>= 3.1)
     multi_json (1.11.2)
     nio4r (1.2.1)
@@ -261,7 +261,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aasm (~> 4.9)
+  aasm
   activeadmin (>= 1.0.0.pre2)
   bootstrap-sass
   bullet

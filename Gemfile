@@ -81,6 +81,6 @@ gem "cocoon"
 
 
 # Statemachine
-gem 'aasm', '~> 4.9'
+gem 'aasm'
 # Pagination
 gem 'kaminari'
