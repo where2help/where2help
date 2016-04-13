@@ -9,5 +9,7 @@ before_script:
 cache: bundler
 notifications:
   slack:
-    on_failure: change
     secure: wVtfLC2dFD2Tc4NH//chPle1cbUb/bdlSvf3xoQqzC4HA7XyhV1DE8aiwf693BnwKJZ1Nvn8/vz8cdMTZbqicXMjgqsSC6kJzto2GM5OAmZKJ8ab431/x7ocCjVShudMlJT0e90snW1XOeKe5bhak8cGqbJDzCvnyfxW7pVvgrLTEbNeuTD97uZTySI+zKtT8r/hnsZdZUO/nzr+hDRuZtVACo4j5YOLfkoGS1SnF38uyDPTTGmd7G23MPm77awC7C2C24bW7nBxIOU02cB2t8tnbMcinH+pCC9U0LsRw8DyHxWffeuPamN+hz+APx8anb195h8Nb2KlDrNhv4qBK4uXCOc2XGFlOuU8s5J/roefBP6apY0sw1ekrZ66yEqAXmDl9JRIYpgdMp70+Eeg+6ZrpqUPovw+c03VBwP952U1Qu6tLISZDMnMf3qcu1bOdTdVnmkF+eRN73sm/3OWkIy1vU+l05QZOqWb1aFRQKSoZZbIkozd1CXqZGm2NCQ0W1dznWsBjlAHqJ1SCLPZu80hHHtYRCj2ktiOVAL0unVoXpfjQ9swglvnCPJqWapebOZcDg5qOEm15OrZ+SuPIDPJca4zVZtdjZBw1Suj05p2hCOfZRxM7rvNU6g5qlhD6c9XaZ3Uov3dscCTjboW8xBJWVTC8objGj60FpaE7Yc=
+    on_success: change # default: always
+    on_failure: change # default: always
+    on_start: never   # default: never
