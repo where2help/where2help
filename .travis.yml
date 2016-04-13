@@ -10,6 +10,13 @@ cache: bundler
 notifications:
   slack:
     secure: wVtfLC2dFD2Tc4NH//chPle1cbUb/bdlSvf3xoQqzC4HA7XyhV1DE8aiwf693BnwKJZ1Nvn8/vz8cdMTZbqicXMjgqsSC6kJzto2GM5OAmZKJ8ab431/x7ocCjVShudMlJT0e90snW1XOeKe5bhak8cGqbJDzCvnyfxW7pVvgrLTEbNeuTD97uZTySI+zKtT8r/hnsZdZUO/nzr+hDRuZtVACo4j5YOLfkoGS1SnF38uyDPTTGmd7G23MPm77awC7C2C24bW7nBxIOU02cB2t8tnbMcinH+pCC9U0LsRw8DyHxWffeuPamN+hz+APx8anb195h8Nb2KlDrNhv4qBK4uXCOc2XGFlOuU8s5J/roefBP6apY0sw1ekrZ66yEqAXmDl9JRIYpgdMp70+Eeg+6ZrpqUPovw+c03VBwP952U1Qu6tLISZDMnMf3qcu1bOdTdVnmkF+eRN73sm/3OWkIy1vU+l05QZOqWb1aFRQKSoZZbIkozd1CXqZGm2NCQ0W1dznWsBjlAHqJ1SCLPZu80hHHtYRCj2ktiOVAL0unVoXpfjQ9swglvnCPJqWapebOZcDg5qOEm15OrZ+SuPIDPJca4zVZtdjZBw1Suj05p2hCOfZRxM7rvNU6g5qlhD6c9XaZ3Uov3dscCTjboW8xBJWVTC8objGj60FpaE7Yc=
-    on_success: change # default: always
-    on_failure: change # default: always
-    on_start: never   # default: never
+    on_success: change
+    on_failure: change
+    on_start: never
+deploy:
+  provider: heroku
+  api_key:
+    secure: ui3SQU02xVYKY2SF3YZe31WuDVD4YJPBzIF/cRsxRv9j6abueNgqVZmB5q8JU2bvA32OB71kNaHjHcWA8F/Omr5685HSlK+oSxFKZXpu1YNvkrSCShCKRBORfL+VbcJcxSYo8rv7AiaWlaQu66mQs8UgqksxKHwk3wpo21kuH/gydZDd7IdazcSmwAM0/tHwMFplUoWzuv3SQLASNM2aJJkDrv0K/WcrZw21ycSMfszWOIAG3vPVdZSquo7LR/VtKwq1pX17JR/Q/Jxg9fvmDTXr9xEBITJJX1eXIWcNQ3QVn/w7QiqwVvoE43nTS93QxsXxJMPg/hagZQ9RqTG2ffd8+fIHqJRiMXHejXLk2XF99uaXpnCg0tivT8UHiOExEs5/Gn6mN0Cq/zSSZs47tWiG54kzHzM8B9eCIenGl3xNy5boz/6XLRlTHz/FkYA1vOQ+D9ChsBjI8E/CKnKCqRgMc2HHU9StJO7s57paMYwGVlqueYzrBnuZXGA+xb+wXTaGs7pdOk8KiA38QVOxygVJlseqCQ33wxEC1QT3q+aSC0bHfhN/9x/KbM1lXh5DGzqnfJ7wIMlwS+l8EzFWGALWhzeJlnnvjoLyhxhOwLyJQH5K3QWP7st86ky51QcCx7RTlifVYEMVlUiaa3GTDM2sMfxT3qh8NYIQQe9rQBY=
+  app: staging-where2help
+  on:
+    repo: where2help/where2help
