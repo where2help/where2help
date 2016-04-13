@@ -34,3 +34,12 @@ Set up the following environment variables:
 Start up rails!
 
     $ rails server
+
+# Deployment
+
+[Travis CI](https://travis-ci.org/) is set up to automatically deploy the master branch to the staging application on [Heroku](https://www.heroku.com):  
+https://staging-where2help.herokuapp.com/
+
+If you want to skip continuous integration for your commit, add this to your commit message:
+
+    [ci skip]
