@@ -5,6 +5,5 @@ FactoryGirl.define do
     address "MyString"
     lat 1.5
     lng 1.5
-    state "MyString"
   end
 end
