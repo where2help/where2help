@@ -1,8 +1,5 @@
 sudo: false
 language: ruby
-rvm:
-- 2.2.0
-- 2.3.0
 addons:
   postgresql: '9.4'
 before_script:
