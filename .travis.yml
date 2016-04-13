@@ -1,0 +1,10 @@
+sudo: false
+language: ruby
+rvm:
+- 2.2.0
+- 2.3.0
+addons:
+  postgresql: '9.4'
+before_script:
+- bundle exec rake db:create db:schema:load RAILS_ENV=test
+cache: bundler
