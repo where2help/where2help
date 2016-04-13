@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   namespace :ngos do
-    resources :events
+    resources :events do
+      member do
+        post 'publish'
+      end
+    end
   end
 
   ActiveAdmin.routes(self)
@@ -30,6 +34,9 @@ Rails.application.routes.draw do
           post 'resend_confirmation'
         end
       end
+
+      resources :languages, only: [:index]
+      resources :abilities, only: [:index]
 
       devise_scope :user do
         post "/users/register"=> "registrations#create"

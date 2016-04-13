@@ -32,6 +32,9 @@ de:
         title: Titel
         description: Beschreibung
         address: Adresse
+        state:
+          pending: "in Vorbereitung"
+          published: "öffentlich"
       user:
         first_name: Vorname
         last_name: Nachname

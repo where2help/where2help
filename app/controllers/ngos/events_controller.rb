@@ -55,12 +55,22 @@ class Ngos::EventsController < ApplicationController
     end
   end
 
+
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-
     redirect_to action: :index
-end
+  end
+
+
+  def publish
+    @event = Event.find(params[:id])
+    if @event.publish!
+      redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich publiziert.'
+    else
+      redirect_to [:ngos, @event], notice: 'Das Event konnte nicht publiziert werden.'
+    end
+  end
 
   private
 
