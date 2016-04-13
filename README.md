@@ -1,5 +1,7 @@
 # Where2Help
 
+[![Build Status](https://travis-ci.org/where2help/where2help.svg?branch=master)](https://travis-ci.org/where2help/where2help)
+
 # Development
 
 Install bundled gems
