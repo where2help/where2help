@@ -27,6 +27,17 @@ class ShiftsController < ApplicationController
     redirect_to @shift, notice: 'Fuckin sad'
   end
 
+  def schedule
+    case params[:filter].try(:to_sym)
+    when :past
+      @shifts = current_user.shifts.where('starts_at < NOW()').order(:starts_at).page(params[:page]).per(10)
+    when :all
+      @shifts = current_user.shifts.order(:starts_at).page(params[:page]).per(10)
+    else
+      @shifts = current_user.shifts.where('starts_at > NOW()').order(:starts_at).page(params[:page]).per(10)
+    end
+  end
+
   private
 
   def set_shift

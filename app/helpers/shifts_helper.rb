@@ -17,8 +17,9 @@ module ShiftsHelper
     end
   end
 
-  def load_more_shifts_btn(shifts)
+  def load_more_shifts_btn(shifts, params={})
     link_to_next_page @shifts, t('shifts.load_more'),
+      params: params,
       remote: true,
       data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>", behavior: 'shift-pagination' },
       class: 'btn'

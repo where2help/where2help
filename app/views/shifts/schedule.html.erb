@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <%= simple_format t('.your_shifts') %>
+  </div>
+  <div class="col-xs-12 col-lg-10 col-lg-offset-1 panel">
+    <ul class="nav nav-tabs nav-justified">
+      <li class="<%= current_page?(filter: :past) || current_page?(filter: :all) ? '' : 'active' %>">
+        <%= link_to t('.upcoming'), schedule_path %>
+      </li>
+      <li class="<%= active?(filter: :past) %>"><%= link_to t('.past'), schedule_path(filter: :past) %></li>
+      <li class="<%= active?(filter: :all) %>"><%= link_to t('.all'), schedule_path(filter: :all) %></li>
+    </ul>
+    <div class="tab-pane" data-behavior="shift-container">
+      <%= render(@shifts) || render('empty_message') %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-center pagination-btn">
+      <%= load_more_shifts_btn @shifts, {filter: request.params[:filter]} %>
+    </div>
+  </div>
+</div>

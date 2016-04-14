@@ -11,8 +11,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="<%= active?(root_path) %>"><%= link_to 'Events', root_path %></li>
-        <li class="<%= active?('..path') %>"><a href="#">My Shifts</a></li>
+        <li class="<%= active?(root_path) %>"><%= link_to t('.events'), root_path %></li>
+        <li class="<%= active?(schedule_path) %>"><%= link_to t('.schedule'), schedule_path %></li>
           <li class="<%= active?('..path') %> visible-xs-block"><a href="#">Profile</a></li>
           <% if current_user.admin? %>
             <li class="visible-xs-block"><%= link_to 'Admin', admin_dashboard_path %></li>
