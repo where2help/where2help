@@ -5,5 +5,9 @@ FactoryGirl.define do
     address "MyString"
     lat 1.5
     lng 1.5
+
+    trait :published do
+      state 'published'
+    end
   end
 end

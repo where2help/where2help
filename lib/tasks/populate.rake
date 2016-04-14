@@ -61,7 +61,7 @@ namespace :db do
             ends_at: start+2.hours,
             volunteers_needed: rand(1..20))
         end
-        event.save
+        event.publish!
       end
     end
   end
