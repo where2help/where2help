@@ -103,14 +103,6 @@ de:
       headline: Freiwillige Helfer organisieren leicht gemacht
       sign_up_ngo: Als NGO Registrieren
       sign_up_user: Als Helfer Registrieren
-      landing_page_text: |+
-        Stell dir vor...
-
-        du kommst irgendwohin um als Freiwilliger zu helfen und stellst dort fest, dass du nicht gebraucht wirst, weil schon ausreichend Helfer vor Ort sind.
-
-        <strong>Where2Help</strong> ist ein einfaches Tool um freiwillige Helfer zur richtigen Zeit, in der richtigen Anzahl an den richtigen Ort zu bringen.
-
-        Organisationen und Helfergruppen können Hilfeanfragen erstellen. Angemeldete Helfer melden sich via Mobile- oder Webapp für eine Schicht. Organisationen behalten den vollen Überblick, wie viele Helfer schon zugesagt haben und wie viele noch gebraucht werden. Freiwillige Helfer wissen jederzeit wann und wo ihre Hilfe noch benötigt wird.
   shifts:
     opt_in: Helfen
     opt_out: Absagen

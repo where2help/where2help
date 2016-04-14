@@ -39,14 +39,6 @@ en:
       headline: Organising volunteer in an easy fashion
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Volunteer
-      landing_page_text: |+
-        Imagine...
-
-        you arrive somewhere to volunteer and find out that you aren't needed, because there all already enough volunteers.
-
-        <strong>Where2Help</strong> is a tool to easiyl get the right number of volunteers to the right place at the right time.
-
-        NGOs can create a help-request. Registered volunteers assign themselves to open shifts via the mobile- or webapp. NGOs have an easy overview on how many volunteers will be around and how many are still needed. And the volunteers know exactly when to be where.
     home:
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Volunteer

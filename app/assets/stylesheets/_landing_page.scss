@@ -1,14 +1,28 @@
-.jumbotron {
-  background-image: url(image_path('landing_page.jpg'));
+#landing-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(image_path('landing_page.jpg'));
   background-size: cover;
-  .jumbotron-contents {
-    color: $mediumgray-light;
-  }
-  .logo-img {
-    fill-opacity: 0;
-  }
-  .btn-register {
-    margin-top: 1em;
-    @extend .btn, .btn-primary, .btn-lg, .btn-block;
+  background-position: center top;
+}
+
+.btn-register {
+  @extend .btn, .btn-primary, .btn-lg, .btn-block;
+}
+
+.landing-row {
+  @extend .row;
+  color: $white;
+  padding-top: 5%;
+}
+
+.landing-col {
+  padding-top: 5%;
+  .fa-ul {
+    display: table;
+    margin: 0 auto;
   }
 }
