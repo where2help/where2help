@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     post :opt_in
     delete :opt_out
   end
+  get :schedule, to: 'shifts#schedule'
 
   authenticated :user do
     root 'shifts#index'

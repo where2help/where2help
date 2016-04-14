@@ -84,6 +84,8 @@ de:
     empty_message:
       message: Wir haben gerade nichts für dich...
   users:
+    nav:
+      schedule: Schichten
     sessions:
       new:
         please_login: Bitte Anmelden
@@ -103,7 +105,7 @@ de:
       sign_up_user: Als Helfer Registrieren
       landing_page_text: |+
         Stell dir vor...
-        
+
         du kommst irgendwohin um als Freiwilliger zu helfen und stellst dort fest, dass du nicht gebraucht wirst, weil schon ausreichend Helfer vor Ort sind.
 
         <strong>Where2Help</strong> ist ein einfaches Tool um freiwillige Helfer zur richtigen Zeit, in der richtigen Anzahl an den richtigen Ort zu bringen.
@@ -114,3 +116,10 @@ de:
     opt_out: Absagen
     are_you_sure: Willst Du wirklich absagen?
     load_more: Mehr anzeigen
+    schedule:
+      your_shifts: |+
+        <strong>Deine Schichten</strong>
+        <small>(Sei bitte pünklich. Falls Du nicht kommen kannst, sag bitte frühzeitig ab.)</small>
+      past: vergangene
+      upcoming: bevorstehende
+      all: alle

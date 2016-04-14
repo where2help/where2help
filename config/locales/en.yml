@@ -55,3 +55,7 @@ en:
     opt_out: Can't Make It
     are_you_sure: Are you sure you can't make it?
     load_more: Show more
+    schedule:
+      your_shifts: |+
+        <strong>Your Shifts</strong>
+        <small>(Please be on time. Please cancel early enough if you can't come.)</small>
