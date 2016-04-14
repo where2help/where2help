@@ -32,6 +32,7 @@ Rails.application.routes.draw do
           post 'change_password'
           post 'send_reset'
           post 'resend_confirmation'
+          post 'update_profile'
         end
       end
 

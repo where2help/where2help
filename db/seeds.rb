@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Language.create(name: "Englisch")
+Language.create(name: "Deutsch")
+Language.create(name: "Farsi")
+
+Ability.create(name:        "Medizin",
+               description: "kann medizinische Hilfestellung bieten")
+Ability.create(name:        "Übersetzung",
+               description: "kann Dokumente in den angegebenen Sprachen übersetzen")

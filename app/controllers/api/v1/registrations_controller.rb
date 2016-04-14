@@ -4,8 +4,8 @@ class Api::V1::RegistrationsController < Users::RegistrationsController
 
   def create
     request.session_options[:skip] = true
-    params[:user] = params 
-    
+    params[:user] = params
+
     build_resource(sign_up_params)
 
     resource.save

@@ -1,0 +1,1 @@
+{"id":4,"first_name":"my_first_name","last_name":"my_last_name","email":"my@email.address","created_at":"2016-04-14T13:29:23.272+02:00","updated_at":"2016-04-14T15:56:10.210+02:00"}
