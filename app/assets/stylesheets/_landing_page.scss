@@ -1,0 +1,14 @@
+.jumbotron {
+  background-image: url(image_path('landing_page.jpg'));
+  background-size: cover;
+  .jumbotron-contents {
+    color: $mediumgray-light;
+  }
+  .logo-img {
+    fill-opacity: 0;
+  }
+  .btn-register {
+    margin-top: 1em;
+    @extend .btn, .btn-primary, .btn-lg, .btn-block;
+  }
+}
