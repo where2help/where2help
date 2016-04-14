@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user.try(:admin?)
   end
 
-  def default_url_options(options = {})
+  def self.default_url_options(options = {})
     { locale: I18n.locale }.merge options
   end
 end
