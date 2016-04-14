@@ -5,10 +5,14 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_locale
-    I18n.locale = current_user.try(:locale) || I18n.default_locale
+    I18n.locale = current_user.try(:locale) || params[:locale] || I18n.default_locale
   end
 
   def authenticate_admin!
     redirect_to root_path unless current_user.try(:admin?)
+  end
+
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge options
   end
 end
