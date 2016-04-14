@@ -17,10 +17,19 @@ RSpec.describe ShiftsController, type: :controller do
       end
     end
     context 'when logged in as user' do
-      let!(:recent_upcoming_shifts) { create_list :shift, 25, starts_at: Faker::Date.between(1.day.from_now, 2.days.from_now) }
-      let!(:next_upcoming_shifts) { create_list :shift, 25, starts_at: Faker::Date.between(3.day.from_now, 5.days.from_now) }
-      let(:past_shift) { create :shift, starts_at: Faker::Date.backward(2) }
-      let(:full_shift) { create :shift, starts_at: Faker::Date.forward(2), volunteers_needed: 2, volunteers_count: 2 }
+      let!(:recent_upcoming_shifts) { create_list :shift, 25,
+        event: create(:event, :published),
+        starts_at: Faker::Date.between(1.day.from_now, 2.days.from_now) }
+      let!(:next_upcoming_shifts) { create_list :shift, 25,
+        event: create(:event, :published),
+        starts_at: Faker::Date.between(3.day.from_now, 5.days.from_now) }
+      let(:past_shift) { create :shift,
+        event: create(:event, :published), starts_at: Faker::Date.backward(2) }
+      let(:full_shift) { create :shift,
+        event: create(:event, :published),
+        starts_at: Faker::Date.forward(2), volunteers_needed: 2, volunteers_count: 2 }
+      let(:shift_unpublished) { create :shift,
+        starts_at: Faker::Date.forward(1) }
 
       before { sign_in create(:user) }
 
@@ -31,12 +40,16 @@ RSpec.describe ShiftsController, type: :controller do
           expect(assigns :shifts).to match_array recent_upcoming_shifts
         end
 
-        it 'excludes past @shifts' do
+        it 'excludes past shifts' do
           expect(assigns :shifts).not_to include past_shift
         end
 
-        it 'excludes full @shifts' do
+        it 'excludes full shifts' do
           expect(assigns :shifts).not_to include full_shift
+        end
+
+        it 'excludes unpublished shifts' do
+          expect(assigns :shifts).not_to include shift_unpublished
         end
 
         it 'renders index.html' do

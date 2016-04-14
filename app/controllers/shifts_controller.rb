@@ -2,7 +2,9 @@ class ShiftsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @shifts = Shift.where('volunteers_needed > volunteers_count').
+    @shifts = Shift.joins(:event).
+      where(events: {state: 'published'}).
+      where('volunteers_needed > volunteers_count').
       where('starts_at > NOW()').
       order(:starts_at).
       page(params[:page])
