@@ -13,6 +13,10 @@
   @extend .btn, .btn-primary, .btn-lg, .btn-block;
 }
 
+.btn-signup {
+  @extend .btn, .btn-block;
+}
+
 .landing-row {
   @extend .row;
   color: $white;
