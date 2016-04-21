@@ -12,10 +12,8 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="<%= active?(root_path) %>"><%= link_to 'Events', root_path %></li>
-        <li class="<%= active?('..path') %>"><a href="#">Calendar</a></li>
-        <li class="<%= active?('..path') %>"><a href="#">Events</a></li>
-          <li class="<%= active?('..path') %> visible-xs-block"><%= link_to "Profil", edit_ngo_registration_path %></li>
-          <li class="visible-xs-block"><%= link_to 'Logout', destroy_ngo_session_path, method: :delete %></li>
+        <li class="<%= active?('..path') %> visible-xs-block"><%= link_to "Profil", edit_ngo_registration_path %></li>
+        <li class="visible-xs-block"><%= link_to 'Logout', destroy_ngo_session_path, method: :delete %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown hidden-xs">
