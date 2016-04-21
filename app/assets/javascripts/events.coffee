@@ -20,6 +20,12 @@ $(document).on "cocoon:after-insert", (event, insertedItem) ->
   selects[8].value = ("0" + endhour).slice(-2)
 
 document.addEventListener "page:change", ->
+
+  updateCoordinates = (suggestion) ->
+    coords = suggestion.geometry.coordinates
+    $('#event_lng').val coords[0]
+    $('#event_lat').val coords[1]
+
   addressSearch = new Bloodhound
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value')
     queryTokenizer: Bloodhound.tokenizers.whitespace
@@ -27,6 +33,7 @@ document.addEventListener "page:change", ->
     remote:
       url: "http://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=%QUERY&crs=EPSG:4326"
       filter: (addresses) ->
+        updateCoordinates addresses.features[0]
         addresses.features
       wildcard: '%QUERY'
 
@@ -41,6 +48,4 @@ document.addEventListener "page:change", ->
       suggestion: (data) ->
         "<div>#{data.properties.Adresse}</div>"
   ).on 'typeahead:selected typeahead:autocompleted', (event, suggestion) ->
-    coords = suggestion.geometry.coordinates
-    $('#event_lng').val coords[0]
-    $('#event_lat').val coords[1]
+    updateCoordinates suggestion
