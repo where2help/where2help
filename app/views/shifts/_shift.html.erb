@@ -12,6 +12,7 @@
       </span>
     </div>
     <div class="col-xs-7 col-sm-10">
+      <%= shift.starts_at.to_s(:time) %> - <%= shift.ends_at.to_s(:time) %><br/>
       <strong><%= shift.event.title %></strong><br>
       <span><%= shift.event.address %></span>
     </div>
