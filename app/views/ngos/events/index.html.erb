@@ -32,13 +32,13 @@
     <div class="row">
       <div class="col-xs-12">
         <% if @events.select { |event| event.earliest_shift.starts_at >= DateTime.now }.size > 0 %>
-          <h2>Upcoming:</h2>
+          <h2><%= t(".upcoming").titlecase %></h2>
           <div class="list-group">
             <%= render @events.select { |event| event.earliest_shift.starts_at >= DateTime.now }  %>
           </div>
         <% end %>
         <% if @events.select { |event| event.earliest_shift.starts_at < DateTime.now }.size > 0 %>
-          <h2>Past:</h2>
+          <h2><%= t(".past").titlecase %></h2>
           <div class="list-group">
             <%= render @events.select { |event| event.earliest_shift.starts_at < DateTime.now }  %>
           </div>
