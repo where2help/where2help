@@ -14,6 +14,9 @@ de:
       languages:
         one: Sprache
         other: Sprachen
+      ngo:
+        one: NGO
+        other: NGOs
       shift:
         one: Dienst
         other: Dienste
@@ -46,10 +49,13 @@ de:
         identifier: Identifikationsnummer
         confirmed_at: Bestätigt
         created_at: Erstellt
+        current_password: Aktuelles Passwort
         aasm_state: Status
         aasm_state/pending: Unbestätigt
         aasm_state/admin_confirmed: Von Admin Bestätigt
         aasm_state/deactivated: Deaktiviert
+        password: Passwort
+        password_confirmation: Passwortbestätigung
         terms_and_conditions: Nutzungsbedingungen
       shift:
         ends_at: Ende
