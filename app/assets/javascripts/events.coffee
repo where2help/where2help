@@ -32,7 +32,7 @@ document.addEventListener "page:change", ->
 
   addressSearch.initialize()
 
-  $('.typeahead').typeahead null,
+  $('.typeahead').typeahead(null,
     name: 'addresse'
     source: addressSearch
     displayKey: (data) ->
@@ -40,3 +40,7 @@ document.addEventListener "page:change", ->
     templates:
       suggestion: (data) ->
         "<div>#{data.properties.Adresse}</div>"
+  ).on 'typeahead:selected typeahead:autocompleted', (event, suggestion) ->
+    coords = suggestion.geometry.coordinates
+    $('#event_lng').val coords[0]
+    $('#event_lat').val coords[1]

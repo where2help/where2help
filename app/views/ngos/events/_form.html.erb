@@ -15,6 +15,9 @@
   <%= f.input :description, :input_html => { :class => 'autogrow', :rows => 5, :cols => 20 } %>
   <%= f.input :address, input_html: { class: 'typeahead' } %>
 
+  <%= f.input :lat, as: :hidden %>
+  <%= f.input :lng, as: :hidden %>
+
   <hr/>
   <h3>Schichten</h3>
 
