@@ -80,7 +80,7 @@ GEM
     concurrent-ruby (1.0.1)
     database_cleaner (1.5.2)
     debug_inspector (0.0.2)
-    devise (4.0.0.rc2)
+    devise (4.0.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -195,8 +195,8 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
-    redis (3.2.2)
-    responders (2.1.1)
+    redis (3.3.0)
+    responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.5.0.beta3)
       rspec-support (= 3.5.0.beta3)
@@ -270,7 +270,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.1.0)
   database_cleaner
-  devise (>= 4.0.0.rc2)
+  devise
   factory_girl_rails
   faker
   font-awesome-sass
@@ -285,7 +285,7 @@ DEPENDENCIES
   rails (>= 5.0.0.beta3, < 5.1)
   rails-controller-testing
   rails_12factor (~> 0.0.3)
-  redis (~> 3.0)
+  redis
   rspec-rails (>= 3.5.0.beta2)
   sass-rails (~> 5.0)
   shoulda

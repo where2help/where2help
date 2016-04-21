@@ -10,7 +10,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'momentjs-rails', '>= 2.9.0'
 
-gem 'devise', '>= 4.0.0.rc2'
+gem 'devise'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -20,7 +20,7 @@ gem 'faker'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'redis', '~> 3.0'
+gem 'redis'
 
 gem 'leaflet-rails'
 
