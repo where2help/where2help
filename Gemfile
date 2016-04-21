@@ -53,7 +53,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sucker_punch'
 
 # Admin Interface
-gem 'activeadmin', '>= 1.0.0.pre2'
+gem 'activeadmin', github: 'activeadmin'
 gem 'formtastic-bootstrap'
 gem "cocoon"
 
