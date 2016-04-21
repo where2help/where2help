@@ -186,9 +186,9 @@ RSpec.describe ShiftsController, type: :controller do
           expect(assigns :shift).to eq shift
         end
 
-        it 'redirect_to shift' do
+        it 'redirect_to schedule' do
           delete :opt_out, params: { shift_id: shift }
-          expect(response).to redirect_to shift
+          expect(response).to redirect_to schedule_path
         end
       end
       context 'when not opted in' do
@@ -204,9 +204,9 @@ RSpec.describe ShiftsController, type: :controller do
           expect(assigns :shift).to eq shift
         end
 
-        it 'redirect_to shift' do
+        it 'redirect_to schedule' do
           delete :opt_out, params: { shift_id: shift }
-          expect(response).to redirect_to shift
+          expect(response).to redirect_to schedule_path
         end
       end
     end

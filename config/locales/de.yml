@@ -111,8 +111,8 @@ de:
       sign_up_ngo: Als NGO Registrieren
       sign_up_user: Als Helfer Registrieren
   shifts:
-    opt_in: Helfen
-    opt_out: Absagen
+    opt_in_btn: Helfen
+    opt_out_btn: Absagen
     are_you_sure: Willst Du wirklich absagen?
     load_more: Mehr anzeigen
     schedule:
@@ -122,3 +122,5 @@ de:
       past: vergangene
       upcoming: bevorstehende
       all: alle
+    opt_out:
+      notice: Schade...😢
