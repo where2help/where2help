@@ -26,7 +26,7 @@
       <li class="shift-detail-row">
         <i class="fa-li fa fa-map-marker fa-fw"></i>
         <%= @shift.event.address %>
-        <div id="shift-map" class="map" data-behavior="map-container" data-lat="51.505" data-long="-0.09"></div>
+        <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @shift.event.lat %>" data-long="<%= @shift.event.lng %>"></div>
       </li>
       <li class="shift-detail-row">
         <i class="fa-li fa fa-info-circle fa-fw"></i>
