@@ -130,6 +130,8 @@ de:
     opt_out_btn: Absagen
     are_you_sure: Willst Du wirklich absagen?
     load_more: Mehr anzeigen
+    thank_you: Danke!
+    please_come: Bitte kommen Sie um
     schedule:
       your_shifts: |+
         <strong>Deine Schichten</strong>
