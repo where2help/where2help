@@ -18,3 +18,25 @@ $(document).on "cocoon:after-insert", (event, insertedItem) ->
 
   # sets ends_at hour
   selects[8].value = ("0" + endhour).slice(-2)
+
+document.addEventListener "page:change", ->
+  addressSearch = new Bloodhound
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value')
+    queryTokenizer: Bloodhound.tokenizers.whitespace
+    limit: 7
+    remote:
+      url: "http://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=%QUERY&crs=EPSG:4326"
+      filter: (addresses) ->
+        addresses.features
+      wildcard: '%QUERY'
+
+  addressSearch.initialize()
+
+  $('.typeahead').typeahead null,
+    name: 'addresse'
+    source: addressSearch
+    displayKey: (data) ->
+      data.properties.Adresse
+    templates:
+      suggestion: (data) ->
+        "<div>#{data.properties.Adresse}</div>"

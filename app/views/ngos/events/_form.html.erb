@@ -13,7 +13,7 @@
 
   <%= f.input :title %>
   <%= f.input :description, :input_html => { :class => 'autogrow', :rows => 5, :cols => 20 } %>
-  <%= f.input :address %>
+  <%= f.input :address, input_html: { class: 'typeahead' } %>
 
   <hr/>
   <h3>Schichten</h3>
