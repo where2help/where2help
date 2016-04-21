@@ -96,12 +96,13 @@ de:
       new:
         please_login: Bitte Anmelden
         login: Anmelden
-        login_as_ngo: Als NGO Anmelden
+        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
   ngos:
     sessions:
       new:
         please_login: Bitte Anmelden
         login: Anmelden
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwilliger Anmelden
   pages:
     home:
       subline_user: Wissen wann und wo ich als Helfer gebraucht werde
