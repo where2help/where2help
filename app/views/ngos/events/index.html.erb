@@ -2,27 +2,26 @@
 
   <div class="row">
     <div class="col-xs-2">
-      <%= link_to 'Add an Event', new_ngos_event_path, class: 'btn btn-default' %>
+      <%= link_to t(".add_an_event"), new_ngos_event_path, class: 'btn btn-default' %>
     </div>
   </div>
   <br />
   <div class="col-xs-2">
     <div class="row">
-      <%= form_tag ngos_events_path, method: :get, id: 'filter-form',
-        class: '' do %>
+      <%= form_tag ngos_events_path, method: :get, id: 'filter-form' do %>
         <%= hidden_field_tag :filter, true %>
 
         <div class="form-group">
           <%= select_tag :order_by,
-            options_for_select(Event.order_by_for_select, params[:order_by]),
-            include_blank: 'Order by',
+            options_for_select({t(".address") => :address, t(".title") => :title}, params[:order_by]),
+            include_blank: t(".order_by"),
             onchange: "$('#filter-form').submit();",
             class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= select_tag :filter_by,
-          options_for_select([:all, :upcoming, :past], params[:filter_by]),
-          include_blank: 'Filter by',
+          options_for_select({t(".all") => :all, t(".upcoming") => :upcoming, t(".past") => :past}, params[:filter_by]),
+          include_blank: t(".filter_by"),
           onchange: "$('#filter-form').submit();",
           class: 'form-control' %>
       </div>

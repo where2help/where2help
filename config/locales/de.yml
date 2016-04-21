@@ -98,6 +98,16 @@ de:
         login: Anmelden
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
   ngos:
+    events:
+      index:
+        add_an_event: Event hinzufügen
+        address: Adresse
+        all: alle
+        filter_by: Filtern nach
+        order_by: Ordnen nach
+        past: vergangene
+        title: Titel
+        upcoming: zukünftige
     sessions:
       new:
         please_login: Bitte Anmelden
