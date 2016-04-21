@@ -24,7 +24,7 @@ class ShiftsController < ApplicationController
   def opt_out
     set_shift
     @shift.shifts_users.find_by_user_id(current_user).try(:destroy)
-    redirect_to @shift, notice: 'Fuckin sad'
+    redirect_to schedule_path, notice: t('.notice')
   end
 
   def schedule
