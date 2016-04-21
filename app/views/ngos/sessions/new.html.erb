@@ -13,6 +13,7 @@
         <% end %>
         <% end -%>
         <%= f.button t('.login'), data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
+        <%= link_to t('.login_as_user').html_safe, new_user_session_path, class: 'btn btn-default btn-block btn-sm' %>
       </div>
     <% end %>
     <%= render "ngos/shared/links" %>
