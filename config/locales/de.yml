@@ -93,11 +93,15 @@ de:
   users:
     nav:
       schedule: Schichten
+      profile: Profil
     sessions:
       new:
         please_login: Als Freiwilliger anmelden
         login: Anmelden
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
+    registrations:
+      new:
+        sign_up: Als Freiwilliger registrieren
   ngos:
     events:
       index:
