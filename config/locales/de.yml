@@ -57,6 +57,7 @@ de:
         password: Passwort
         password_confirmation: Passwortbestätigung
         terms_and_conditions: Nutzungsbedingungen
+        remember_me: Angemeldet bleiben
       shift:
         ends_at: Ende
         starts_at: Beginn
@@ -94,7 +95,7 @@ de:
       schedule: Schichten
     sessions:
       new:
-        please_login: Bitte Anmelden
+        please_login: Als Freiwilliger anmelden
         login: Anmelden
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
   ngos:
@@ -110,7 +111,7 @@ de:
         upcoming: zukünftige
     sessions:
       new:
-        please_login: Bitte Anmelden
+        please_login: Als NGO anmelden
         login: Anmelden
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwilliger Anmelden
   pages:
