@@ -13,28 +13,27 @@
   </h3>
 </div>
 <div class="row">
-  <div class="col-sm-3 col-sm-push-9">
+  <div class="col-sm-3 col-sm-push-9 text-center">
     <%= opt_button_for @shift, current_user %>
-    <span class="badge <%= badge_for(@shift, current_user) %>"><%= @shift.volunteers_count %> / <%= @shift.volunteers_needed %></span>
+    <span class="badge <%= badge_for(@shift, current_user) %> shift-badge"><%= @shift.volunteers_count %> / <%= @shift.volunteers_needed %></span>
   </div>
   <div class="col-sm-9 col-sm-pull-3">
     <ul class="fa-ul">
-      <li>
+      <li class="shift-detail-row">
         <i class="fa-li fa fa-clock-o fa-fw"></i>
         <%= @shift.starts_at.strftime('%H:%M') %> - <%= @shift.ends_at.strftime('%H:%M') %>
       </li>
-      <li>
+      <li class="shift-detail-row">
         <i class="fa-li fa fa-map-marker fa-fw"></i>
         <%= @shift.event.address %>
         <div id="shift-map" class="map" data-behavior="map-container" data-lat="51.505" data-long="-0.09"></div>
       </li>
-      <li>
+      <li class="shift-detail-row">
         <i class="fa-li fa fa-info-circle fa-fw"></i>
         <%= @shift.event.description %>
       </li>
-      <li>
-        <i class="fa-li fa fa-child fa-fw"></i>
-        NGO of yeah <!-- TODO add real ngo name -->
+      <li class="shift-detail-row">
+        <i class="fa-li fa fa-users fa-fw"></i> <%= @shift.event.ngo.name %>
       </li>
     </ul>
   </div>
