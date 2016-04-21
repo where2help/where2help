@@ -48,6 +48,8 @@ en:
     opt_out: Can't Make It
     are_you_sure: Are you sure you can't make it?
     load_more: Show more
+    thank_you: Thank you! Looking forward to have you onboard.
+    please_come: Please join us at
     schedule:
       your_shifts: |+
         <strong>Your Shifts</strong>
