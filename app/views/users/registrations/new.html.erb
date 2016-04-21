@@ -29,7 +29,8 @@
       <%= f.label :terms_and_conditions do %>
         <%= f.check_box :terms_and_conditions %><%= f.object.class.human_attribute_name(:terms_and_conditions) %>
       <% end %>
-      <%= f.button data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
+
+      <%= f.button t('devise.registrations.new.sign_up'), data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
     <% end %>
     <%= render "users/shared/links" %>
   <div>
