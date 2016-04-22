@@ -19,12 +19,14 @@
     <% end %>
   </div>
 
-
-
   <p>Status: <span class="label label-success"><%= t "activerecord.attributes.event.state." + @event.aasm.current_state.to_s %></span></p>
 
-  <p><%= @event.description %></p>
+  <p><i class="fa fa-info-circle fa-fw"></i> <%= @event.description %></p>
+  <p><i class="fa fa-map-marker fa-fw"></i> <%= @event.address %></p>
   <br/></br>
+
+  <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
+
   <div class="panel panel-default">
     <%= render partial: 'shift', collection: @event.shifts %>
   </div>
