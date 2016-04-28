@@ -24,25 +24,31 @@ en:
   users:
     sessions:
       new:
-        please_login: Login as a Volunteer
+        please_login: Login as a Helper
         login: Login
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
+    registrations:
+      new:
+        sign_up: Sign up as a Helper
+        profile: Helper Profile
+        min_characters: characters minimum
+        motivation_txt: |
+          <strong>Knowing when and where I am needed as a helper!</strong>
+          Find out where you are currently needed the most and sign up for a shift online or via the Where2Help smartphone app.
+          Looking forward to you!
   ngos:
     sessions:
       new:
         please_login: Login as a NGO
         login: Login
-        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Volunteer Instead
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
   pages:
     home:
       subline_user: Know where and when I am needed
-      subline_ngo: Know where and when how many volunteers show up
-      headline: Organising volunteer in an easy fashion
+      subline_ngo: Know where and when how many helpers show up
+      headline: Organising help in an easy fashion
       sign_up_ngo: Sign up as NGO
-      sign_up_user: Sign up as Volunteer
-    home:
-      sign_up_ngo: Sign up as NGO
-      sign_up_user: Sign up as Volunteer
+      sign_up_user: Sign up as Helper
   shifts:
     opt_in: I'm In
     opt_out: Can't Make It
