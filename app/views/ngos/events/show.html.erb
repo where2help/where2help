@@ -4,22 +4,21 @@
   <div class="pull-right">
    <%= link_to publish_ngos_event_path(@event), class: "btn btn-info",
                                                 method: :post do %>
-       <i class="fa fa-users"></i> Veröffentlichen
+                                                <i class="fa fa-users"></i> <%= t 'ngos.events.show.publish' %>
     <% end if @event.may_publish? %>
 
     <%= link_to edit_ngos_event_path(@event), class: "btn btn-warning" do %>
-      <i class="fa fa-pencil-square-o"></i> Bearbeiten
+      <i class="fa fa-pencil-square-o"></i> <%= t 'ngos.events.show.edit' %>
     <% end %>
 
     <%= link_to [:ngos, @event],  class: "btn btn-danger",
                                   method: :delete,
-                                  data: { confirm: 'Are you sure?' },
-                                  confirm: "Soll der Eintrag wirklich gelöscht werden?" do %>
-      <i class="fa fa-trash-o"></i> Löschen
+                                  data: { confirm: t('ngos.events.show.are_you_sure') } do %>
+      <i class="fa fa-trash-o"></i> <%= t 'ngos.events.show.delete' %>
     <% end %>
   </div>
 
-  <p>Status: <span class="label label-success"><%= t "activerecord.attributes.event.state." + @event.aasm.current_state.to_s %></span></p>
+  <p>Status: <span class="label label-success"><%= t "activerecord.attributes.event.state/" + @event.aasm.current_state.to_s %></span></p>
 
   <p><i class="fa fa-info-circle fa-fw"></i> <%= @event.description %></p>
   <p><i class="fa fa-map-marker fa-fw"></i> <%= @event.address %></p>
