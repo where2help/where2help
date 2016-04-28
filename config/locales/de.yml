@@ -124,6 +124,14 @@ de:
         are_you_sure: Sind Sie sicher?
         edit: Bearbeiten
         delete: Löschen
+      form:
+        new: Neues Event
+        shifts: Schichten
+        add_shift: Schicht hinzufügen
+        save_shift: Event speichern
+        delete_shift: Schicht löschen
+        edit_event: Event aktualisieren
+        confirmed_so_far: "Bisher zugesagt: "
       messages:
         created_successfully: Das Event wurde erfolgreich erzeugt.
         updated_successfully: Das Event wurde erfolgreich aktualisiert.

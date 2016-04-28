@@ -115,6 +115,14 @@ en:
         are_you_sure: Are you sure?
         edit: Edit
         delete: Delete
+      form:
+        new: New Event
+        shifts: Shifts
+        add_shift: Add Shift
+        save_shift: Save Shift
+        delete_shift: Remove Shift
+        edit_event: Edit Event
+        confirmed_so_far: "Opted in so far: "
       messages:
         created_successfully: The event was successfully created.
         updated_successfully: The event was successfully updated.
