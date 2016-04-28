@@ -113,6 +113,11 @@ de:
         past: vergangene
         title: Titel
         upcoming: zukünftige
+      show:
+        publish: Veröffentlichen
+        are_you_sure: Sind Sie sicher?
+        edit: Bearbeiten
+        delete: Löschen
       messages:
         created_successfully: Das Event wurde erfolgreich erzeugt.
         updated_successfully: Das Event wurde erfolgreich aktualisiert.
