@@ -52,6 +52,8 @@ namespace :db do
         event = Event.new(
           title: Faker::StarWars.quote,
           description: Faker::Hipster.paragraph,
+          lat: Faker::Address.latitude,
+          lng: Faker::Address.longitude,
           address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
           ngo_id: ngo.id)
         rand(1..5).times do
