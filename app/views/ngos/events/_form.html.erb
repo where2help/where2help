@@ -19,17 +19,17 @@
   <%= f.input :lng, as: :hidden %>
 
   <hr/>
-  <h3>Schichten</h3>
+  <h3><%= t 'ngos.events.form.shifts' %></h3>
 
   <%= f.semantic_fields_for :shifts do |shift| %>
     <%= render 'shift_fields', f: shift %>
   <% end %>
 
   <div class="links">
-    <%= link_to_add_association 'Schicht hinzufügen', f, :shifts, class: "btn btn-info" %><br/><br/>
+    <%= link_to_add_association t('ngos.events.form.add_shift'), f, :shifts, class: "btn btn-info" %><br/><br/>
   </div>
 
   <div class="actions">
-    <%= f.submit "Event speichern", class: "btn btn-default" %>
+    <%= f.submit t('ngos.events.form.save_shift'), class: "btn btn-default" %>
   </div>
 <% end %>

@@ -38,6 +38,27 @@ class ShiftsController < ApplicationController
     end
   end
 
+  def cal
+    set_shift
+    cal = RiCal.Calendar do |cal|
+      cal.event do |event|
+        event.summary      = @shift.event.title
+        event.description  = @shift.event.description
+        event.dtstart      = @shift.starts_at
+        event.dtend        = @shift.ends_at
+        event.location     = @shift.event.address
+        event.url          = shift_url(@shift)
+        event.add_attendee current_user.email
+        event.alarm do |alarm|
+          alarm.description = @shift.event.title
+        end
+      end
+    end
+    respond_to do |format|
+      format.ics { send_data(cal.export, :filename=>"cal.ics", :disposition=>"inline; filename=cal.ics", :type=>"text/calendar")}
+    end
+  end
+
   private
 
   def set_shift

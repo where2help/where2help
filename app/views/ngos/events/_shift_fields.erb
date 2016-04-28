@@ -1,11 +1,11 @@
 <div class="nested-fields inserted-fields">
   <%= f.inputs do %>
-    <%= f.input :volunteers_needed, hint: "bisher zugesagt: " + f.object.users.count.to_s %>
+    <%= f.input :volunteers_needed, hint: t('ngos.events.form.confirmed_so_far') + f.object.users.count.to_s %>
 
     <%= f.input :starts_at, minute_step: 15 %>
     <%= f.input :ends_at, minute_step: 15 %>
 
-    <%= link_to_remove_association "Schicht löschen", f, class: "btn btn-danger" %><br/><br/>
+    <%= link_to_remove_association t('ngos.events.form.delete_shift'), f, class: "btn btn-danger" %><br/><br/>
     <hr/>
   <% end %>
 </div>
