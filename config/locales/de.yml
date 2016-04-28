@@ -113,6 +113,9 @@ de:
         past: vergangene
         title: Titel
         upcoming: zukünftige
+      messages:
+        created_successfully: Das Event wurde erfolgreich erzeugt.
+        updated_successfully: Das Event wurde erfolgreich aktualisiert.
     sessions:
       new:
         please_login: Als NGO anmelden

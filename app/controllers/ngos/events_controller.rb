@@ -34,7 +34,7 @@ class Ngos::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.ngo = current_ngo
     if @event.save
-      redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich erzeugt.'
+      redirect_to [:ngos, @event], notice: t('ngos.events.messages.created_successfully')
     else
       render action: :new
     end
@@ -49,7 +49,7 @@ class Ngos::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-      redirect_to action: :index, notice: 'Das Event wurde erfolgreich aktualisiert.'
+      redirect_to [:ngos, @event], notice: t('ngos.events.messages.updated_successfully')
     else
       render 'edit'
     end
