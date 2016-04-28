@@ -1,4 +1,67 @@
 en:
+  activerecord:
+    models:
+      ability:
+        one: Ability
+        other: Abilities
+      contact: Contact
+      event:
+        one: Event
+        other: Events
+      language:
+        one: Language
+        other: Languages
+      languages:
+        one: Language
+        other: Languages
+      ngo:
+        one: NGO
+        other: NGOs
+      shift:
+        one: Shift
+        other: Shifts
+      users:
+        one: Volunteer
+        other: Volunteers
+    attributes:
+      contact:
+        first_name: First Name
+        last_name: Last Name
+        phone: Phone
+        street: Street
+        zip: Post Code
+        city: City
+      event:
+        title: Title
+        description: Description
+        address: Address
+        state: Status
+        state/pending: Pending
+        state/published: Public
+      user:
+        first_name: First Name
+        last_name: Last Name
+        confirmed_at: Confirmed
+        created_at: Created
+        terms_and_conditions: Terms & Conditions
+        languages: Languages
+      ngo:
+        identifier: Identifier
+        confirmed_at: Confirmed
+        created_at: Created
+        current_password: Current Password
+        aasm_state: Status
+        aasm_state/pending: Unconfirmed
+        aasm_state/admin_confirmed: Admin Confirmed
+        aasm_state/deactivated: Deactivated
+        password: Password
+        password_confirmation: Password Confirmation
+        terms_and_conditions: Terms & Conditions
+        remember_me: Remember Me
+      shift:
+        ends_at: Ends
+        starts_at: Begins
+        volunteers_needed: Volunteers Needed
   admin_mailer:
     new_ngo:
       subject: "[where2help] New NGO registration"
@@ -28,6 +91,24 @@ en:
         login: Login
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
   ngos:
+    events:
+      index:
+        add_an_event: Add Event
+        address: Address
+        all: All
+        filter_by: Filter By
+        order_by: Order By
+        past: Past
+        title: Title
+        upcoming: Upcoming
+      show:
+        publish: Publish
+        are_you_sure: Are you sure?
+        edit: Edit
+        delete: Delete
+      messages:
+        created_successfully: The event was successfully created.
+        updated_successfully: The event was successfully updated.
     sessions:
       new:
         please_login: Login as a NGO
