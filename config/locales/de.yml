@@ -96,12 +96,18 @@ de:
       profile: Profil
     sessions:
       new:
-        please_login: Als Freiwilliger anmelden
+        please_login: Als Helfer anmelden
         login: Anmelden
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
     registrations:
       new:
-        sign_up: Als Freiwilliger registrieren
+        sign_up: Als Helfer Registrieren
+        profile: Helfer-Profil
+        min_characters: Zeichen mindestens
+        motivation_txt: |
+          <strong>Wissen wann und wo ich als HelferIn gebraucht werde!</strong>
+          Erfahre wo Du gerade gebraucht wirst und melde Dich direkt online oder via der Where2Help Smartphone App an.
+          Wir freuen uns auf Dich!
   ngos:
     events:
       index:
@@ -128,11 +134,11 @@ de:
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwilliger Anmelden
   pages:
     home:
-      subline_user: Wissen wann und wo ich als Helfer gebraucht werde
-      subline_ngo: Wissen wann und wo wie viele Helfer erscheinen
-      headline: Freiwillige Helfer organisieren leicht gemacht
+      subline_user: Wissen wann und wo ich als HelferIn gebraucht werde
+      subline_ngo: Wissen wann und wo wie viele HelferIn erscheinen
+      headline: Freiwillige Hilfe organisieren leicht gemacht
       sign_up_ngo: Als NGO Registrieren
-      sign_up_user: Als Helfer Registrieren
+      sign_up_user: Als HelferIn Registrieren
   shifts:
     download_calendar: Kalendereintrag (.ics)
     opt_in_btn: Helfen
