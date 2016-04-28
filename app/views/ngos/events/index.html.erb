@@ -1,49 +1,43 @@
+
 <div class="row">
-
-  <div class="row">
-    <div class="col-xs-2">
-      <%= link_to t(".add_an_event"), new_ngos_event_path, class: 'btn btn-default' %>
-    </div>
+  <div class="col-sm-2">
+    <%= link_to t(".add_an_event"), new_ngos_event_path, class: 'btn btn-default' %>
+    <br />
+    <br />
   </div>
-  <br />
-  <div class="col-xs-2">
-    <div class="row">
-      <%= form_tag ngos_events_path, method: :get, id: 'filter-form' do %>
-        <%= hidden_field_tag :filter, true %>
+  <div class="col-sm-10">
+    <%= form_tag ngos_events_path, method: :get, id: 'filter-form', class: 'form-inline' do %>
+      <%= hidden_field_tag :filter, true %>
 
-        <div class="form-group">
-          <%= select_tag :order_by,
-            options_for_select({t(".address") => :address, t(".title") => :title}, params[:order_by]),
-            include_blank: t(".order_by"),
-            onchange: "$('#filter-form').submit();",
-            class: 'form-control' %>
-      </div>
       <div class="form-group">
+        <%= select_tag :order_by,
+          options_for_select({t(".address") => :address, t(".title") => :title}, params[:order_by]),
+          include_blank: t(".order_by"),
+          onchange: "$('#filter-form').submit();",
+          class: 'form-control' %>
+        &nbsp;
         <%= select_tag :filter_by,
           options_for_select({t(".all") => :all, t(".upcoming") => :upcoming, t(".past") => :past}, params[:filter_by]),
           include_blank: t(".filter_by"),
           onchange: "$('#filter-form').submit();",
           class: 'form-control' %>
+      <% end %>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <% if @events.select { |event| event.earliest_shift.starts_at >= DateTime.now }.size > 0 %>
+      <h2><%= t(".upcoming").titlecase %></h2>
+      <div class="list-group">
+        <%= render @events.select { |event| event.earliest_shift.starts_at >= DateTime.now }  %>
       </div>
     <% end %>
-    </div>
-  </div>
-  <div class="col-xs-10">
-    <div class="row">
-      <div class="col-xs-12">
-        <% if @events.select { |event| event.earliest_shift.starts_at >= DateTime.now }.size > 0 %>
-          <h2><%= t(".upcoming").titlecase %></h2>
-          <div class="list-group">
-            <%= render @events.select { |event| event.earliest_shift.starts_at >= DateTime.now }  %>
-          </div>
-        <% end %>
-        <% if @events.select { |event| event.earliest_shift.starts_at < DateTime.now }.size > 0 %>
-          <h2><%= t(".past").titlecase %></h2>
-          <div class="list-group">
-            <%= render @events.select { |event| event.earliest_shift.starts_at < DateTime.now }  %>
-          </div>
-        <% end %>
+    <% if @events.select { |event| event.earliest_shift.starts_at < DateTime.now }.size > 0 %>
+      <h2><%= t(".past").titlecase %></h2>
+      <div class="list-group">
+        <%= render @events.select { |event| event.earliest_shift.starts_at < DateTime.now }  %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
