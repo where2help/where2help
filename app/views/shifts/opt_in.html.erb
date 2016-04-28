@@ -1,14 +1,26 @@
 <div class="page-header">
-<h1><%= t('shifts.thank_you')%></h1>
-<p><%= t('shifts.please_come')%> <%= I18n.localize(@shift.starts_at, format:'%b %d %H:%M') %>!</p>
+  <div class="row">
+    <div class="col-xs-4">
+      <h1><%= t('shifts.thank_you')%></h1>
+      <p><%= t('shifts.please_come')%> <%= I18n.localize(@shift.starts_at, format:'%b %d %H:%M') %>!</p>
 
-<p><%= link_to t('shift.download_calendar'), shift_cal_path(@shift, format: :ics) %></p>
-<%= link_to t('shift.google_calendar'), "http://www.google.com/calendar/event?" +
-                                        "action=TEMPLATE&" +
-                                        "text=#{@shift.event.title}&" +
-                                        "dates=" + @shift.starts_at.utc.strftime("%Y%m%dT%H%M%S") + "Z/" +
-                                                   @shift.ends_at.utc.strftime("%Y%m%dT%H%M%S") + "Z&" +
-                                        "details=#{@shift.event.description}&" +
-                                        "location=#{@shift.event.address}&" +
-                                        "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow" %>
+      <p><%= link_to shift_cal_path(@shift, format: :ics), class: "btn btn-block btn-info" do%>
+        <i class="fa fa-calendar-plus-o"></i> <%= t('shifts.download_calendar') %>
+      <% end %></p>
+      <p><%= link_to "http://www.google.com/calendar/event?" +
+                     "action=TEMPLATE&" +
+                     "text=#{@shift.event.title}&" +
+                     "dates=" + @shift.starts_at.utc.strftime("%Y%m%dT%H%M%S") + "Z/" +
+                                @shift.ends_at.utc.strftime("%Y%m%dT%H%M%S") + "Z&" +
+                     "details=#{@shift.event.description}&" +
+                     "location=#{@shift.event.address}&" +
+                     "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow", class: "btn btn-block btn-danger"  do %>
+        <i class="fa fa-google"></i> <i class="fa fa-calendar-plus-o"></i> <%= t('shifts.google_calendar') %>
+      <% end %></p>
+    </div>
+    <div class="col-xs-8">
+      <%= image_tag 'opted_in', class: 'img-responsive img-rounded' %>
+    </div>
+  </div>
+
 </div>

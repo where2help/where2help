@@ -141,6 +141,7 @@ de:
       sign_up_user: Als HelferIn Registrieren
   shifts:
     download_calendar: Kalendereintrag (.ics)
+    google_calendar: zu Google Kalender hinzufügen
     opt_in_btn: Helfen
     opt_out_btn: Absagen
     are_you_sure: Willst Du wirklich absagen?

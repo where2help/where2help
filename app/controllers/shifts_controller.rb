@@ -42,10 +42,12 @@ class ShiftsController < ApplicationController
     set_shift
     cal = RiCal.Calendar do |cal|
       cal.event do |event|
-        event.description  = @shift.event.title
+        event.summary      = @shift.event.title
+        event.description  = @shift.event.description
         event.dtstart      = @shift.starts_at
         event.dtend        = @shift.ends_at
         event.location     = @shift.event.address
+        event.url          = shift_url(@shift)
         event.add_attendee current_user.email
         event.alarm do |alarm|
           alarm.description = @shift.event.title
