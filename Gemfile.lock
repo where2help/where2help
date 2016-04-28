@@ -204,6 +204,7 @@ GEM
     redis (3.3.0)
     responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
+    ri_cal (0.8.8)
     rspec-core (3.5.0.beta3)
       rspec-support (= 3.5.0.beta3)
     rspec-expectations (3.5.0.beta3)
@@ -292,6 +293,7 @@ DEPENDENCIES
   rails-controller-testing
   rails_12factor (~> 0.0.3)
   redis
+  ri_cal
   rspec-rails (>= 3.5.0.beta2)
   sass-rails (~> 5.0)
   shoulda

@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   resources :shifts, only: [:index, :show] do
     post :opt_in
     delete :opt_out
+    get :cal
   end
   get :schedule, to: 'shifts#schedule'
 

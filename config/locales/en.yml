@@ -125,6 +125,7 @@ en:
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Volunteer
   shifts:
+    download_calendar: Calendar Entry (.ics)
     opt_in: I'm In
     opt_out: Can't Make It
     are_you_sure: Are you sure you can't make it?

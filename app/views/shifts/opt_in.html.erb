@@ -1,5 +1,6 @@
 <div class="page-header">
 <h1><%= t('shifts.thank_you')%></h1>
 <p><%= t('shifts.please_come')%> <%= I18n.localize(@shift.starts_at, format:'%b %d %H:%M') %>!</p>
-</div>
 
+<p><%= link_to t('shift.download_calendar'), shift_cal_path(@shift, format: :ics) %></p>
+</div>

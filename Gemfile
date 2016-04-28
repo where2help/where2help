@@ -24,6 +24,8 @@ gem 'redis'
 
 gem 'leaflet-rails'
 
+gem "ri_cal"
+
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
 end

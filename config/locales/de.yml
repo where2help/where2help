@@ -134,6 +134,7 @@ de:
       sign_up_ngo: Als NGO Registrieren
       sign_up_user: Als Helfer Registrieren
   shifts:
+    download_calendar: Kalendereintrag (.ics)
     opt_in_btn: Helfen
     opt_out_btn: Absagen
     are_you_sure: Willst Du wirklich absagen?
