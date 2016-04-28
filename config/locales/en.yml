@@ -123,14 +123,21 @@ en:
         please_login: Login as a NGO
         login: Login
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
+    registrations:
+      new:
+        sign_up: Sign up as an NGO
+        profile: NGO-Profile
+        min_characters: characters minimum
+        motivation_txt: |
+          <strong>Know where and when how many helpers show up!</strong>
+          Publish specific help-requests, when, where how many helpers are needed. Divide your events into shifts where helpers can directly sign up for via the web application or the Where2Help mobile apps.
+          You always keep an overview on how many helpers have signed up to help.
+          Looking forward to you!
   pages:
     home:
       subline_user: Know where and when I am needed
       subline_ngo: Know where and when how many helpers show up
       headline: Organising help in an easy fashion
-      sign_up_ngo: Sign up as NGO
-      sign_up_user: Sign up as Helper
-    home:
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Helper
   shifts:

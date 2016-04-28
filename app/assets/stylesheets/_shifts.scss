@@ -22,3 +22,19 @@ div.map {
 .shift-badge {
   margin-top: 1em;
 }
+
+.registration-row div {
+  display: inline-block;
+  vertical-align: bottom;
+  float: none;
+  margin: -2px;
+}
+
+.registration-row {
+  display: table-cell;
+}
+
+.bottom-column {
+  vertical-align: bottom;
+  padding-top: 0.5em;
+}

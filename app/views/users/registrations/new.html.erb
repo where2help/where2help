@@ -24,10 +24,10 @@
       </div>
       <div class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: 'off', class: 'form-control'  %>
         <% if @minimum_password_length %>
-          <span class="help-block">(<%= "#{@minimum_password_length} #{t('.min_characters')}" %>)</span>
-        <% end %>
+        <em>(<%= "#{@minimum_password_length} #{t('.min_characters')}" %>)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: 'off', class: 'form-control'  %>
       </div>
       <div class="form-group">
         <%= f.label :password_confirmation %>

@@ -1,37 +1,52 @@
+<div class="page-header text-center">
+  <h2><i class="fa fa-users" aria-hidden="true"></i> <%= t('.sign_up') %></h2>
+</div>
+<div class="row registration-row">
+  <div class="col-sm-6">
+    <%= image_tag 'sign_up_ngo', class: 'img-responsive img-rounded' %>
+  </div>
+  <div class="col-sm-6 bottom-column">
+    <%= simple_format t('.motivation_txt') %>
+  </div>
+</div>
 <div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
-    <h2>Sign up</h2>
+  <div class="col-sm-12">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control', autofocus: true %>
+      <div class="col-sm-6">
+        <%= render 'contact_fields', f: f %>
       </div>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
+      <div class="col-sm-6">
+        <h4><i class="fa fa-users" aria-hidden="true"></i> <%= t('.profile') %></h4>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control', autofocus: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :identifier %>
+          <%= f.text_field :identifier, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= "#{@minimum_password_length} #{t('.min_characters')}" %>)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: 'form-control', autocomplete: 'off' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off' %>
+        </div>
+        <%= f.label :terms_and_conditions do %>
+          <%= f.check_box :terms_and_conditions %> <%= f.object.class.human_attribute_name(:terms_and_conditions) %>
+        <% end %>
+        <%= f.button t('devise.registrations.new.sign_up'), data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
+        <%= render "ngos/shared/links" %>
       </div>
-      <div class="form-group">
-        <%= f.label :identifier %>
-        <%= f.text_field :identifier, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, class: 'form-control', autocomplete: 'off' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off' %>
-      </div>
-      <%= render 'contact_fields', f: f %>
-      <%= f.label :terms_and_conditions do %>
-        <%= f.check_box :terms_and_conditions %> <%= f.object.class.human_attribute_name(:terms_and_conditions) %>
-      <% end %>
-      <%= f.button t('devise.registrations.new.sign_up'), data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
     <% end %>
-    <%= render "ngos/shared/links" %>
   </div>
 </div>
