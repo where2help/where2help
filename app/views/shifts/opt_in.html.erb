@@ -3,4 +3,12 @@
 <p><%= t('shifts.please_come')%> <%= I18n.localize(@shift.starts_at, format:'%b %d %H:%M') %>!</p>
 
 <p><%= link_to t('shift.download_calendar'), shift_cal_path(@shift, format: :ics) %></p>
+<%= link_to t('shift.google_calendar'), "http://www.google.com/calendar/event?" +
+                                        "action=TEMPLATE&" +
+                                        "text=#{@shift.event.title}&" +
+                                        "dates=" + @shift.starts_at.utc.strftime("%Y%m%dT%H%M%S") + "Z/" +
+                                                   @shift.ends_at.utc.strftime("%Y%m%dT%H%M%S") + "Z&" +
+                                        "details=#{@shift.event.description}&" +
+                                        "location=#{@shift.event.address}&" +
+                                        "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow" %>
 </div>
