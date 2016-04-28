@@ -21,8 +21,8 @@ en:
         one: Shift
         other: Shifts
       users:
-        one: Volunteer
-        other: Volunteers
+        one: Helper
+        other: Helpers
     attributes:
       contact:
         first_name: First Name
@@ -61,7 +61,7 @@ en:
       shift:
         ends_at: Ends
         starts_at: Begins
-        volunteers_needed: Volunteers Needed
+        volunteers_needed: Helpers Needed
   admin_mailer:
     new_ngo:
       subject: "[where2help] New NGO registration"
@@ -87,7 +87,7 @@ en:
   users:
     sessions:
       new:
-        please_login: Login as a Volunteer
+        please_login: Login as a Helper
         login: Login
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
   ngos:
@@ -113,17 +113,17 @@ en:
       new:
         please_login: Login as a NGO
         login: Login
-        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Volunteer Instead
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
   pages:
     home:
       subline_user: Know where and when I am needed
-      subline_ngo: Know where and when how many volunteers show up
-      headline: Organising volunteer in an easy fashion
+      subline_ngo: Know where and when how many helpers show up
+      headline: Organising helper in an easy fashion
       sign_up_ngo: Sign up as NGO
-      sign_up_user: Sign up as Volunteer
+      sign_up_user: Sign up as Helper
     home:
       sign_up_ngo: Sign up as NGO
-      sign_up_user: Sign up as Volunteer
+      sign_up_user: Sign up as Helper
   shifts:
     opt_in: I'm In
     opt_out: Can't Make It
