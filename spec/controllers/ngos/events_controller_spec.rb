@@ -95,7 +95,12 @@ RSpec.describe Ngos::EventsController, type: :controller do
         let(:params) {{ event: {
           title: 'event title',
           description: 'huge event description',
-          address: 'street with number' }}}
+          address: 'street with number',
+          shifts_attributes: [ { volunteers_needed: "1",
+                                 starts_at: "2016-02-25 17:30:55",
+                                 ends_at: "2016-02-25 17:30:55",
+                                 volunteers_needed: 1,
+                                 volunteers_count: 0 } ] }}}
 
         it 'creates new event record' do
           expect{

@@ -6,6 +6,10 @@ FactoryGirl.define do
     lat 1.5
     lng 1.5
 
+    after :build do |event, evaluator|
+      event.shifts << FactoryGirl.build(:shift, event: nil)
+    end
+
     trait :published do
       state 'published'
     end
