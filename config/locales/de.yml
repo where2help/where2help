@@ -38,6 +38,7 @@ de:
         state: Status
         state/pending: in Vorbereitung
         state/published: öffentlich
+        shifts: Schichten
       user:
         first_name: Vorname
         last_name: Nachname
@@ -132,6 +133,7 @@ de:
         delete_shift: Schicht löschen
         edit_event: Event aktualisieren
         confirmed_so_far: "Bisher zugesagt: "
+        prohibited: "Fehler verhinderte(n), dass dieses Event gespeichert wurde."
       messages:
         created_successfully: Das Event wurde erfolgreich erzeugt.
         updated_successfully: Das Event wurde erfolgreich aktualisiert.

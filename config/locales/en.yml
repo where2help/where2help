@@ -123,6 +123,7 @@ en:
         delete_shift: Remove Shift
         edit_event: Edit Event
         confirmed_so_far: "Opted in so far: "
+        prohibited: "error(s) prohibited this event from being saved"
       messages:
         created_successfully: The event was successfully created.
         updated_successfully: The event was successfully updated.
