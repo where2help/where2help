@@ -159,6 +159,8 @@ de:
       headline: Freiwillige Hilfe organisieren leicht gemacht
       sign_up_ngo: Als NGO Registrieren
       sign_up_user: Als HelferIn Registrieren
+      login_user: Als HelferIn Anmelden
+      login_ngo: Als NGO Anmelden
   shifts:
     download_calendar: Kalendereintrag (.ics)
     google_calendar: zu Google Kalender hinzufügen
@@ -177,3 +179,62 @@ de:
       all: alle
     opt_out:
       notice: Schade...😢
+  faker:
+    address:
+      secondary_address: ["Bognergasse 9","Freyung 7","Graben 7","Himmelpfortgasse 14","Kärntner Ring 17","Kärntner Straße 55","Kohlmarkt 11",
+                       "Hoher Markt 1","Operngasse 16","Plankengasse 6","Rotenturmstrasse 23","Schottenring 14","Schwedenplatz 2","Singerstrasse 15",
+                       "Stadiongasse 10","Stephansplatz 8a","Stubenring 2","Tuchlauben 9","Werdertorgasse 5","Wipplingerstraße 12","Wollzeile 13",
+                       "Ausstellungsstraße 15","Ausstellungsstraße 53","Blumauer Gasse 15","Ennsgasse 23","Franzensbrückenstrasse 17","Gaußplatz 3",
+                       "Heinestraße 37","Hollandstraße 15","Lessinggasse 23","Olympiaplatz 2/Top1","Praterstraße 32","Praterstraße 66",
+                       "Taborstraße 16","Taborstraße 26","Taborstraße 63","Untere Augartenstrasse 13","Vorgartenstraße 159/1","Wehlistraße 307",
+                        "Wittelsbachstraße 4","Boerhaavegasse 7","Erdbergstrasse 6","Hetzgasse 37","Hohlweggasse 21","Kardinal-Nagl-Platz 1",
+                        "Landstraße Hauptstrasse 4","Landstraße Hauptstrasse 50","Landstraße Hauptstrasse 60","Landstraße Hauptstrasse 130",
+                        "Landstraße Hauptstrasse 171","Marxergasse 22","Radetzkyplatz 4","Rennweg 41","Salesianergasse 14","Schlachthausgasse 11",
+                        "Ungargasse 51","Favoritenstrasse 11","Johann-Strauß-Gasse 32","Karolinengasse 34","Margaretenstr 31","Prinz-Eugen-Str 24",
+                        "Wiedner Gürtel 14","Wiedner Hauptstr 14","Wiedner Hauptstr 60a","Arbeitergasse 22","Siebenbrunnengasse 32",
+                        "Kettenbrückengasse 23","Margaretengürtel 98","Margaretenstr 75","Reinprechtsdorfer Str 2","Schönbrunner Str 50",
+                        "Schönbrunner Str 109","Wiedner Hauptstr 95","Bürgerspitalgasse 14","Gumpendorfer Str 30","Gumpendorfer Str 105",
+                        "Hofmühlgasse 9","Linke Wienzeile 20","Mariahilfer Str 55","Schmalzhofgasse 1","Burggasse 22","Kaiserstr 73-75",
+                        "Lerchenfelder Str 41","Mariahilfer Strasse 110","Mariahilfer Strasse 72","Mariahilfer Strasse 8","Neubaugasse 37",
+                        "Stiftgasse 23","Westbahnstraße 32","Alser Straße 51","Florianigasse 13","Josefstädter Str 25","Josefstädter Str 68",
+                        "Lerchenfelder Str 122","Alser Str 12","Alserbachstr 28","Bauernfeldplatz 4","Julius-Tandler-Platz 10",
+                        "Liechtensteinstrasse 93","Nußdorfer Str 79","Porzellangasse 5","Rotenlöwengasse 1","Sechsschimmelgasse 17",
+                        "Universitätsstrasse 10","Währinger Gürtel 18-20","Währinger Strasse 18","Währinger Strasse 56","Zimmermannplatz 1",
+                        "Alma-Rose-Gasse 2","Arthaberplatz 11","Davidgasse 82-90","Favoritenstrasse 166","Favoritenstrasse 213",
+                        "Favoritenstrasse 239 / R1 /A","Favoritenstrasse 76 b","Gudrunstrasse 150","Himbergerstraße 35","Keplerplatz 12",
+                        "Knöllgasse 49","Kundratstrasse 20","Kurbadstrasse 12","Laaer-Berg-strasse 168","Laaer-Berg-strasse 43","Laxenburger Strasse 123-125",
+                        "Laxenburger Strasse 203","Neilreichgasse 66","Quellenstrasse 45","Quellenstrasse 91","Reumannplatz 16","Rotenhofgasse 70",
+                        "Tesarekplatz 1","Van-der-Nüll-Gasse 110","Wienerbergstrasse 6","Ehamgasse 4","Etrichstrasse 34/6","Geiselbergstrasse 26-32",
+                        "Geringergasse 22","Guglgasse 12","Landwehrstraße 6 Huma-Center","Lorystrasse 85-97","Simmeringer Hauptstrasse 128",
+                        "Simmeringer Hauptstrasse 44","Simmeringer Hauptstrasse 76","Thürnlhofstrasse 30 / Ekazent","12. Bezirk","Albrechtsbergergasse 13",
+                        "Am Schöpfwerk 29","Arndtstrasse 88","Breitenfurter Strasse 46-56","Hetzendorfer Strasse 88","Hohenbergstraße 11",
+                        "Längenfeldgasse 33","Meidlinger Hauptstrasse 45","Meidlinger Hauptstrasse 86","Münchenstrasse 10","Oswaldgasse 3",
+                        "Oswaldgasse 65","Schönbrunner Strasse 195","Schönbrunner Strasse 259","Steinbauergasse 15","Tivoligasse 50","Auhofstrasse 141",
+                        "Dr.-Schober-strasse 14-18","Hietzinger Hauptstrasse 24","Hietzinger Hauptstrasse 64","Hietzinger Kai 143",
+                        "Jagdschloßgasse 77-79","Lainzer Strasse 139","Albert-Schweitzer-Gasse 6","Breitenseer Strasse 10","Hauptstraße 84",
+                        "Hütteldorfer Strasse 145","Hütteldorfer Strasse 175","Hütteldorfer Strasse 186","Linzer Strasse 140","Linzer Strasse 250",
+                        "Linzer Strasse 316","Linzer Strasse 383","Linzer Strasse 42","Linzer Strasse 462","Nisselgasse 17","Penzinger Strasse 99",
+                        "Staargasse 28","Europaplatz 1","Gablenzgasse 31","Goldschlagstrasse 102","Hütteldorfer Strasse 76","Mariahilfer Strasse 154",
+                        "Mariahilfer Strasse 190","Mariahilfer Strasse 195","Märzstraße 49","Neubaugürtel 19","Sechshauser Strasse 104",
+                        "Sechshauser Strasse 16","Sechshauser Strasse 41","Hasnerstrasse 71","Herbststrasse 99","J.-Nepomuk-Berger Platz 2",
+                        "Kirchstetterngasse 36","Lerchenfelder Gürtel 27","Neulerchenfelder Strasse 4","Ottakringer Strasse 176","Ottakringer Strasse 31",
+                        "Rückertgasse 26","Schuhmeierplatz 14","Steinbruchstraße 6","Stillfriedplatz 4","Thaliastrasse 62","Wilhelminenstrasse 76",
+                        "Elterleinplatz 12","Hernalser Hauptstrasse 155","Hernalser Hauptstrasse 212","Hernalser Hauptstrasse 99","Hormayrgasse 21",
+                        "Kalvarienberggasse 66","Parhamerplatz 6","Vollbadgasse 1","Gentzgasse 26","Gersthofer Strasse 61","Hasenauerstrasse 1",
+                        "Herbeckstraße 31","Kreuzgasse 6","Kreuzgasse 81","Martinstrasse 2","Martinstrasse 93","Pötzleinsdorfer Strasse 13",
+                        "Sternwartestrasse 6","Währinger Strasse 149","Währinger Strasse 84","Billrothstrasse 39","Cobenzlgasse 10","Döblinger Hauptstrasse 64",
+                        "Grinzinger Strasse 83","Heiligenstädter Strasse 140","Heiligenstädter Strasse 82","Krottenbachstrasse 62","Rathstrasse 14",
+                        "Sieveringer Strasse 1","Silbergasse 15","Weinberggasse 71","Allerheiligenplatz 4","Dresdner Strasse 128",
+                        "Engerthstraße 52","Handelskai 94-96","Hartlgasse 25","Höchstädtplatz 1","Jägerstrasse 69","Klosterneuburger Strasse 118",
+                        "Klosterneuburger Strasse 75","Leystrasse 21","Wallensteinplatz 2","Webergasse 1","Adolf-Loos-Gasse 9",
+                        "Autokaderstrasse 3-7 / 1","Brünner Strasse 128","Brünner Strasse 180","Brünner Strasse 219","Brünner Strasse 256","Brünner Strasse 3",
+                        "Brünner Strasse 37","Brünner Strasse 79","Donaufelder Strasse 22","Donaufelder Strasse 99","Floridsdorfer Hauptstrasse 20",
+                        "Gerasdorfer Strasse 332","Ignaz-Köck-Straße 1","Jedleseer Strasse 66-94","Jerusalemgasse 30","Kürschnergasse 1a",
+                        "Kürschnergasse 9","Leopoldauer Strasse 17","Prager Strasse 276","Prager Strasse 286","Prager Strasse 81","Rußbergstrasse 64",
+                        "Ruthnergasse 89","Alfred-Kubin-Platz 3","Arnikaweg 117","Bernoullistrasse 1","Breitenleer Strasse 3","Donau-City-strasse 6",
+                        "Donaufelder Strasse 177a","Eibengasse 59","Emichgasse 8","Erzherzog-Karl-strasse 84-88","Eßlinger Hauptstrasse 84-86",
+                        "Gewerbeparkstraße 8/1","Groß-Enzersdorfer Strasse 4","Langobardenstrasse 126","Langobardenstrasse 16","Quadenstrasse 124",
+                        "Rennbahnweg 27","Schüttaustrasse 54","Wagramer Straße 135","Altmannsdorfer Strasse 164","Anton-Baumgartner-strasse 44",
+                        "Breitenfurter Strasse 365","Breitenfurter Strasse 534","Erlaaer Platz 1","Ketzergasse 368","Ketzergasse 41",
+                        "Ketzergasse 97","Khemetergasse 8","Kolbegasse 1a","Levasseurgasse 2","Perchtoldsdorfer Strasse 5","Speisinger Strasse 119",
+                        "Speisinger Strasse 260","Triester Strasse 128"]

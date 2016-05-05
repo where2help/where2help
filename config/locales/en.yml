@@ -149,6 +149,8 @@ en:
       headline: Organising help in an easy fashion
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Helper
+      login_user: Login as user
+      login_ngo: Login as NGO
   shifts:
     download_calendar: Calendar Entry (.ics)
     google_calendar: add to Google Calendar
