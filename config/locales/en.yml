@@ -84,6 +84,8 @@ en:
   application:
     empty_message:
       message: Nothing there for you at the moment...
+  events:
+    load_more: Show more
   users:
     sessions:
       new:

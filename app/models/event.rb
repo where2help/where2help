@@ -26,4 +26,32 @@ class Event < ApplicationRecord
   def earliest_shift
     shifts.first
   end
+
+  def starts_at
+    available_shifts.first.try(:starts_at)
+  end
+
+  def ends_at
+    available_shifts.last.try(:ends_at)
+  end
+
+  def user_opted_in?(user)
+    available_shifts.includes(:users).pluck(:user_id).include?(user.id)
+  end
+
+  def volunteers_needed
+    available_shifts.map(&:volunteers_needed).inject(:+)
+  end
+
+  def volunteers_count
+    available_shifts.map(&:volunteers_count).inject(:+)
+  end
+
+  # private
+
+  def available_shifts
+    shifts.
+      where('volunteers_needed > volunteers_count').
+      where('starts_at > NOW()')
+  end
 end

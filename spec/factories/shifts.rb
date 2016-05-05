@@ -1,9 +1,15 @@
 FactoryGirl.define do
   factory :shift do
     event
-    starts_at "2016-02-25 17:30:55"
-    ends_at "2016-02-25 17:30:55"
+    starts_at { Time.now+1.day }
+    ends_at { Time.now+1.day+2.hours }
     volunteers_needed 1
     volunteers_count 0
+
+
+    trait :past do
+      starts_at { Time.now-1.day }
+      ends_at { Time.now-1.day+2.hours }
+    end
   end
 end

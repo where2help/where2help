@@ -1,0 +1,11 @@
+(function() {
+  var $eventsContainer = $("[data-behavior='events-container']");
+  var $paginationBtn = $("[data-behavior='events-pagination']");
+
+  function updateComponent() {
+    $eventsContainer.append("<%= j render @events %>");
+    $paginationBtn.replaceWith("<%= j load_more_events_btn @events %>");
+  }
+
+  updateComponent();
+})();
