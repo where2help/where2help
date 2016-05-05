@@ -10,12 +10,12 @@
       </strong>
     </span>
   </div>
-  <div class="col-xs-5 col-sm-7">
+  <div class="col-xs-6 col-sm-8">
     <h4><%= shift.starts_at.to_s(:time) %> - <%= shift.ends_at.to_s(:time) %></h4>
     <span class="badge <%= badge_for(shift, current_user) %>"><%= shift.volunteers_count %> / <%= shift.volunteers_needed %></span>
   </div>
-  <div class="col-xs-4 col-sm-4">
+  <div class="col-xs-3 col-sm-3">
     <%= opt_button_for shift, current_user %>
   </div>
-  </div>
 </div>
+<hr>
