@@ -159,6 +159,8 @@ de:
       headline: Freiwillige Hilfe organisieren leicht gemacht
       sign_up_ngo: Als NGO Registrieren
       sign_up_user: Als HelferIn Registrieren
+      login_user: Als HelferIn Anmelden
+      login_ngo: Als NGO Anmelden
   shifts:
     download_calendar: Kalendereintrag (.ics)
     google_calendar: zu Google Kalender hinzufügen
