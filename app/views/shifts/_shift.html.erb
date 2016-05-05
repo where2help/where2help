@@ -1,23 +1,21 @@
-<%= link_to shift, class: 'list-group-item' do %>
-  <div class="row">
-    <div class="col-xs-3 col-sm-1 text-left">
-      <span class="fa-stack fa-2x">
-        <i class="fa fa-calendar-o fa-stack-2x"></i>
-        <strong class="fa-stack-1x calendar-text">
-          <%= I18n.localize(shift.starts_at, format:'%b') %>
-        </strong>
-        <strong class="fa-stack-1x calendar-text">
-          <%= shift.starts_at.day %>
-        </strong>
-      </span>
-    </div>
-    <div class="col-xs-7 col-sm-10">
-      <%= shift.starts_at.to_s(:time) %> - <%= shift.ends_at.to_s(:time) %><br/>
-      <strong><%= shift.event.title %></strong><br>
-      <span><%= shift.event.address %></span>
-    </div>
-    <div class="col-xs-2 col-sm-1">
-      <span class="badge <%= badge_for(shift, current_user) %> pull-right"><%= shift.volunteers_count %> / <%= shift.volunteers_needed %></span>
-    </div>
+<div class="row">
+  <div class="col-xs-3 col-sm-1 text-left">
+    <span class="fa-stack fa-2x">
+      <i class="fa fa-calendar-o fa-stack-2x"></i>
+      <strong class="fa-stack-1x calendar-text">
+        <%= I18n.localize(shift.starts_at, format:'%b') %>
+      </strong>
+      <strong class="fa-stack-1x calendar-text">
+        <%= shift.starts_at.day %>
+      </strong>
+    </span>
   </div>
-<% end %>
+  <div class="col-xs-5 col-sm-7">
+    <h4><%= shift.starts_at.to_s(:time) %> - <%= shift.ends_at.to_s(:time) %></h4>
+    <span class="badge <%= badge_for(shift, current_user) %>"><%= shift.volunteers_count %> / <%= shift.volunteers_needed %></span>
+  </div>
+  <div class="col-xs-4 col-sm-4">
+    <%= opt_button_for shift, current_user %>
+  </div>
+  </div>
+</div>
