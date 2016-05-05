@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>
+    <span class="fa-stack">
+      <i class="fa fa-calendar-o fa-stack-2x"></i>
+      <span class="fa-stack-1x calendar-text">
+        <%= I18n.localize(@event.earliest_shift.starts_at, format:'%b') %>
+      </span>
+      <span class="fa-stack-1x calendar-text">
+        <%= @event.earliest_shift.starts_at.day %>
+      </span>
+    </span>
+    <%= @event.title %>
+  </h3>
+</div>
+<div class="row">
+  <div class="col-sm-12 ">
+    <ul class="fa-ul">
+      <li class="shift-detail-row">
+        <i class="fa-li fa fa-clock-o fa-fw"></i>
+        <%= @event.earliest_shift.starts_at.strftime('%H:%M') %> - <%= @event.earliest_shift.ends_at.strftime('%H:%M') %>
+      </li>
+      <li class="shift-detail-row">
+        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <%= @event.address %>
+        <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
+      </li>
+      <li class="shift-detail-row">
+        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <%= @event.description %>
+      </li>
+      <li class="shift-detail-row">
+        <i class="fa-li fa fa-users fa-fw"></i> <%= @event.ngo.name %>
+      </li>
+    </ul>
+  </div>
+</div>
+
