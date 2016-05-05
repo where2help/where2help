@@ -149,9 +149,9 @@ RSpec.describe ShiftsController, type: :controller do
           expect(assigns :shift).to eq shift
         end
 
-        it 'redirect_to shift' do
+        it 'redirect_to event' do
           post :opt_in, params: { shift_id: shift }
-          expect(response).to redirect_to shift
+          expect(response).to redirect_to shift.event
         end
       end
     end

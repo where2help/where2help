@@ -34,4 +34,7 @@
     </ul>
   </div>
 </div>
+<div class="shifts-list" data-behavior="shift-container">
+  <%= render(@event.shifts) || render('empty_message') %>
+</div>
 

@@ -40,7 +40,7 @@
         "text=#{@shift.event.title}&" +
         "dates=" + @shift.starts_at.utc.strftime("%Y%m%dT%H%M%S") + "Z/" +
         @shift.ends_at.utc.strftime("%Y%m%dT%H%M%S") + "Z&" +
-        "details=#{@shift.event.description} - #{shift_url(@shift)}&" +
+        "details=#{@shift.event.description} - #{event_url(@shift.event)}&" +
         "location=#{@shift.event.address}&" +
         "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow", class: "btn btn-block btn-danger"  do %>
         <i class="fa fa-google"></i> <i class="fa fa-calendar-plus-o"></i> <%= t('shifts.google_calendar') %>

@@ -18,7 +18,7 @@ class ShiftsController < ApplicationController
     set_shift
     @shift.users << current_user
   rescue ActiveRecord::RecordInvalid => e
-    redirect_to @shift, alert: e.message
+    redirect_to @shift.event, alert: e.message
   end
 
   def opt_out
