@@ -9,6 +9,10 @@ Install bundled gems
 
     $ bundle install
 
+Start up postgres (if not already running)
+
+    $ postgres -D /usr/local/var/postgres/
+
 Setup the database
 
     $ rails db:setup
