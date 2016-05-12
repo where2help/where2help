@@ -22,3 +22,4 @@ deploy:
     fsw: where2help
   on:
     repo: where2help/where2help
+skip_cleanup: true
