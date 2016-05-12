@@ -79,18 +79,15 @@ RSpec.describe Event, type: :model do
   # end
 
   describe '#user_opted_in?' do
-    let(:event) { build :event }
-    before { event.save }
-
-    let!(:available_shift) { create :shift, event: event }
+    let(:event) { create :event }
+    let(:available_shift) { create :shift, event: event }
     let(:past_shift) { create :shift, :past, event: event }
-    let!(:user) { create :user }
+    let(:user) { create :user }
 
     subject(:user_in?) { event.user_opted_in? user }
 
     it 'returns true if user opted into available shift' do
       available_shift.users << user
-      puts event.available_shifts.ids
       expect(user_in?).to eq true
     end
 
@@ -104,18 +101,18 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  describe '#volunteers_needed, #volunteers_count' do
-    let(:event) { create :event }
-    let!(:available_shifts) { create_list :shift, 3, event: event,
-      volunteers_needed: 2, volunteers_count: 1 }
-    let!(:past_shift) { create :shift, :past, event: event }
-
-    it 'returns sum of volunteers_needed for available_shifts' do
-      expect(event.volunteers_needed).to eq 6
-    end
-
-    it 'returns sum of volunteers_count for available_shifts' do
-      expect(event.volunteers_count).to eq 3
-    end
-  end
+  # describe '#volunteers_needed, #volunteers_count' do
+  #   let(:event) { create :event }
+  #   let!(:available_shifts) { create_list :shift, 3, event: event,
+  #     volunteers_needed: 2, volunteers_count: 1 }
+  #   let!(:past_shift) { create :shift, :past, event: event }
+  #
+  #   it 'returns sum of volunteers_needed for available_shifts' do
+  #     expect(event.volunteers_needed).to eq 6
+  #   end
+  #
+  #   it 'returns sum of volunteers_count for available_shifts' do
+  #     expect(event.volunteers_count).to eq 3
+  #   end
+  # end
 end
