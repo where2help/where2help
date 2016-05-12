@@ -26,58 +26,44 @@ RSpec.describe Event, type: :model do
       expect(event).to_not allow_transition_to :pending
     end
   end
+  describe '#starts_at and #ends_at' do
+    let!(:event) { create :event }
+    let!(:first_shift) { create :shift, event: event, starts_at: Time.now+1.hour }
+    let!(:last_shift) { create :shift, event: event, ends_at: Time.now+3.days }
 
-  # describe '#starts_at, #ends_at' do
-  #   let(:event) { create :event }
-  #   let(:start_time) { Time.now+1.day }
-  #   let(:end_time) { start_time+2.hours }
-  #   let(:full_shift) { create :shift, event: event,
-  #     starts_at: start_time+1.day, ends_at: end_time+1.day,
-  #     volunteers_needed: 1, volunteers_count: 1 }
-  #   let(:past_shift) { create :shift, event: event,
-  #     starts_at: start_time-1.day, ends_at: end_time-1.day,
-  #     volunteers_needed: 1, volunteers_count: 1 }
-  #
-  #   context 'when multiple shifts available' do
-  #     let!(:first_available_shift) { create :shift, event: event,
-  #       starts_at: start_time, ends_at: end_time,
-  #       volunteers_needed: 1, volunteers_count: 0 }
-  #     let!(:last_available_shift) { create :shift, event: event,
-  #       starts_at: start_time+1.hour, ends_at: end_time+1.hour,
-  #       volunteers_needed: 1, volunteers_count: 0 }
-  #
-  #     it 'returns starts_at for first available shift' do
-  #       expect(event.starts_at).to eq start_time
-  #     end
-  #
-  #     it 'returns ends_at for last available shift' do
-  #       expect(event.ends_at).to eq end_time+1.hour
-  #     end
-  #   end
-  #   context 'when shift available' do
-  #     let!(:available_shift) { create :shift, event: event,
-  #       starts_at: start_time, ends_at: end_time,
-  #       volunteers_needed: 1, volunteers_count: 0 }
-  #
-  #     it 'returns starts_at for available shift' do
-  #       expect(event.starts_at).to eq start_time
-  #     end
-  #
-  #     it 'returns ends_at for available shift' do
-  #       expect(event.ends_at).to eq end_time
-  #     end
-  #   end
-  #   context 'when no shifts available' do
-  #     it 'returns nil for start' do
-  #       expect(event.starts_at).to eq nil
-  #     end
-  #
-  #     it 'returns nil for end' do
-  #       expect(event.ends_at).to eq nil
-  #     end
-  #   end
-  # end
+    before do
+      create :shift, :full, event: event, starts_at: Time.now+1.hour
+      create :shift, :past, event: event, starts_at: Time.now+1.hour
+    end
 
+    it 'returns starts_at of first available_shift' do
+      expect(event.starts_at).to eq first_shift.starts_at
+    end
+
+    it 'returns ends_at of first available_shift' do
+      expect(event.ends_at).to eq last_shift.ends_at
+    end
+  end
+  describe '#available_shifts' do
+    let(:event) { create :event }
+    let(:available_shift) { create :shift, event: event }
+    let(:past_shift) { create :shift, :past, event: event }
+    let(:full_shift) { create :shift, :full, event: event }
+
+    subject(:available_shifts) { event.available_shifts }
+
+    it 'includes upcoming shifts with free slots' do
+      expect(available_shifts).to include available_shift
+    end
+
+    it 'excludes past shifts' do
+      expect(available_shifts).not_to include past_shift
+    end
+
+    it 'excludes full shifts' do
+      expect(available_shifts).not_to include full_shift
+    end
+  end
   describe '#user_opted_in?' do
     let(:event) { create :event }
     let(:available_shift) { create :shift, event: event }
@@ -100,19 +86,21 @@ RSpec.describe Event, type: :model do
       expect(user_in?).to eq false
     end
   end
+  describe '#volunteers_needed and #volunteers_count' do
+    let(:event) { create :event }
 
-  # describe '#volunteers_needed, #volunteers_count' do
-  #   let(:event) { create :event }
-  #   let!(:available_shifts) { create_list :shift, 3, event: event,
-  #     volunteers_needed: 2, volunteers_count: 1 }
-  #   let!(:past_shift) { create :shift, :past, event: event }
-  #
-  #   it 'returns sum of volunteers_needed for available_shifts' do
-  #     expect(event.volunteers_needed).to eq 6
-  #   end
-  #
-  #   it 'returns sum of volunteers_count for available_shifts' do
-  #     expect(event.volunteers_count).to eq 3
-  #   end
-  # end
+    before do
+      create_list :shift, 2, event: event, volunteers_needed: 2, volunteers_count: 1
+      create :shift, :past, event: event, volunteers_needed: 100
+      create :shift, event: event, volunteers_needed: 100, volunteers_count: 100
+    end
+
+    it 'sums up all available_shifts volunteers_needed' do
+      expect(event.volunteers_needed).to eq 14
+    end
+
+    it 'sums up all available_shifts volunteers_count' do
+      expect(event.volunteers_count).to eq 2
+    end
+  end
 end

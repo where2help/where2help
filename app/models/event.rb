@@ -34,6 +34,12 @@ class Event < ApplicationRecord
   def ends_at
     available_shifts.last.try(:ends_at)
   end
+  
+  def available_shifts
+    shifts.
+      where('volunteers_needed > volunteers_count').
+      where('starts_at > NOW()')
+  end
 
   def user_opted_in?(user)
     available_shifts.joins(:shifts_users)
@@ -46,13 +52,5 @@ class Event < ApplicationRecord
 
   def volunteers_count
     available_shifts.map(&:volunteers_count).inject(:+)
-  end
-
-  # private
-
-  def available_shifts
-    shifts.
-      where('volunteers_needed > volunteers_count').
-      where('starts_at > NOW()')
   end
 end
