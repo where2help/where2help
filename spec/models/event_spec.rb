@@ -37,11 +37,11 @@ RSpec.describe Event, type: :model do
     end
 
     it 'returns starts_at of first available_shift' do
-      expect(event.starts_at).to eq first_shift.starts_at
+      expect(event.starts_at.to_s).to eq first_shift.starts_at.to_s
     end
 
     it 'returns ends_at of first available_shift' do
-      expect(event.ends_at).to eq last_shift.ends_at
+      expect(event.ends_at.to_s).to eq last_shift.ends_at.to_s
     end
   end
   describe '#available_shifts' do
