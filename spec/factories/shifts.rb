@@ -3,7 +3,7 @@ FactoryGirl.define do
     event
     starts_at { Time.now+1.day }
     ends_at { Time.now+1.day+2.hours }
-    volunteers_needed 1
+    volunteers_needed 10
     volunteers_count 0
 
 
