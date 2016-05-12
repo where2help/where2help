@@ -1,0 +1,23 @@
+<%= link_to event, class: 'list-group-item' do %>
+  <div class="row">
+    <div class="col-xs-3 col-sm-1 text-left">
+      <span class="fa-stack fa-2x">
+        <i class="fa fa-calendar-o fa-stack-2x"></i>
+        <strong class="fa-stack-1x calendar-text">
+          <%= I18n.localize(event.starts_at, format:'%b') %>
+        </strong>
+        <strong class="fa-stack-1x calendar-text">
+          <%= event.starts_at.day %>
+        </strong>
+      </span>
+    </div>
+    <div class="col-xs-7 col-sm-10">
+      <%= event.starts_at.to_s(:time) %> - <%= event.ends_at.to_s(:time) %><br/>
+      <strong><%= event.title %></strong><br>
+      <span><%= event.address %></span>
+    </div>
+    <div class="col-xs-2 col-sm-1">
+      <span class="badge <%= badge_for_event(event, current_user) %> pull-right"><%= event.volunteers_count %> / <%= event.volunteers_needed %></span>
+    </div>
+  </div>
+<% end %>

@@ -91,6 +91,8 @@ de:
   application:
     empty_message:
       message: Wir haben gerade nichts für dich...
+  events:
+    load_more: Mehr anzeigen
   users:
     nav:
       schedule: Schichten

@@ -26,4 +26,81 @@ RSpec.describe Event, type: :model do
       expect(event).to_not allow_transition_to :pending
     end
   end
+  describe '#starts_at and #ends_at' do
+    let!(:event) { create :event }
+    let!(:first_shift) { create :shift, event: event, starts_at: Time.now+1.hour }
+    let!(:last_shift) { create :shift, event: event, ends_at: Time.now+3.days }
+
+    before do
+      create :shift, :full, event: event, starts_at: Time.now+1.hour
+      create :shift, :past, event: event, starts_at: Time.now+1.hour
+    end
+
+    it 'returns starts_at of first available_shift' do
+      expect(event.starts_at.to_s).to eq first_shift.starts_at.to_s
+    end
+
+    it 'returns ends_at of first available_shift' do
+      expect(event.ends_at.to_s).to eq last_shift.ends_at.to_s
+    end
+  end
+  describe '#available_shifts' do
+    let(:event) { create :event }
+    let(:available_shift) { create :shift, event: event }
+    let(:past_shift) { create :shift, :past, event: event }
+    let(:full_shift) { create :shift, :full, event: event }
+
+    subject(:available_shifts) { event.available_shifts }
+
+    it 'includes upcoming shifts with free slots' do
+      expect(available_shifts).to include available_shift
+    end
+
+    it 'excludes past shifts' do
+      expect(available_shifts).not_to include past_shift
+    end
+
+    it 'excludes full shifts' do
+      expect(available_shifts).not_to include full_shift
+    end
+  end
+  describe '#user_opted_in?' do
+    let(:event) { create :event }
+    let(:available_shift) { create :shift, event: event }
+    let(:past_shift) { create :shift, :past, event: event }
+    let(:user) { create :user }
+
+    subject(:user_in?) { event.user_opted_in? user }
+
+    it 'returns true if user opted into available shift' do
+      available_shift.users << user
+      expect(user_in?).to eq true
+    end
+
+    it 'returns false if user opted into past shift' do
+      past_shift.users << user
+      expect(user_in?).to eq false
+    end
+
+    it 'returns false if user opted into no shift' do
+      expect(user_in?).to eq false
+    end
+  end
+  describe '#volunteers_needed and #volunteers_count' do
+    let(:event) { create :event }
+
+    before do
+      create_list :shift, 2, event: event, volunteers_needed: 2, volunteers_count: 1
+      create :shift, :past, event: event, volunteers_needed: 100
+      create :shift, event: event, volunteers_needed: 100, volunteers_count: 100
+    end
+
+    it 'sums up all available_shifts volunteers_needed' do
+      expect(event.volunteers_needed).to eq 14
+    end
+
+    it 'sums up all available_shifts volunteers_count' do
+      expect(event.volunteers_count).to eq 2
+    end
+  end
 end

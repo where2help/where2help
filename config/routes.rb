@@ -54,7 +54,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :shifts, only: [:index, :show] do
+  resources :events, only: [:index, :show]
+  resources :shifts, only: [] do
     post :opt_in
     delete :opt_out
     get :cal
@@ -62,7 +63,7 @@ Rails.application.routes.draw do
   get :schedule, to: 'shifts#schedule'
 
   authenticated :user do
-    root 'shifts#index'
+    root 'events#index'
   end
   authenticated :ngo do
     root 'ngos/events#index'

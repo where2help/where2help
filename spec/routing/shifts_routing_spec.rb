@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe ShiftsController, type: :routing do
   describe 'routes ' do
-    it 'routes GET shifts to #index' do
-      expect(get: 'shifts').to route_to 'shifts#index'
+    it 'does not route GET shifts to #index' do
+      expect(get: 'shifts').not_to be_routable
     end
 
-    it 'routes GET shifts/:id to #show' do
-      expect(get: 'shifts/1').to route_to 'shifts#show', id: '1'
+    it 'does not routes GET shifts/:id to #show' do
+      expect(get: 'shifts/1').not_to be_routable
     end
 
     it 'routes POST shifts/:id/opt_in to #opt_in' do
@@ -23,14 +23,6 @@ RSpec.describe ShiftsController, type: :routing do
     end
   end
   describe 'named routes' do
-    it 'routes GET shifts_path to #index' do
-      expect(get: shifts_path).to route_to 'shifts#index'
-    end
-
-    it 'routes GET shift_path to #show' do
-      expect(get: shift_path('1')).to route_to 'shifts#show', id: '1'
-    end
-
     it 'routes POST shift_opt_in_path to #opt_in' do
       expect(post: shift_opt_in_path('1')).to route_to 'shifts#opt_in', shift_id: '1'
     end
