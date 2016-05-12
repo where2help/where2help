@@ -3,13 +3,12 @@ class EventsController < ApplicationController
 
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.published.find(params[:id])
   end
 
 
   def index
-    @events = Event.
-      where(state: 'published').
+    @events = Event.published.
       includes(shifts: [:users]).
       where('shifts.volunteers_needed > shifts.volunteers_count').
       where('shifts.starts_at > NOW()').

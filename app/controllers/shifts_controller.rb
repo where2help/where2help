@@ -1,19 +1,6 @@
 class ShiftsController < ApplicationController
   before_action :authenticate_user!
-
-  def index
-    @shifts = Shift.joins(:event).
-      where(events: {state: 'published'}).
-      where('volunteers_needed > volunteers_count').
-      where('starts_at > NOW()').
-      order(:starts_at).
-      page(params[:page])
-  end
-
-  def show
-    @shift = Shift.includes(:event).find params[:id]
-  end
-
+  
   def opt_in
     set_shift
     @shift.users << current_user
