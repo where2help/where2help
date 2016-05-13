@@ -30,9 +30,9 @@ Set up the following environment variables:
 * FQDN
 * SECRET_KEY_BASE
 * RAILS_ENV
-* DATABASE_URL          
-* LANG                  
-* RACK_ENV              
+* DATABASE_URL
+* LANG
+* RACK_ENV
 * RAILS_SERVE_STATIC_FILE
 
 Start up rails!
@@ -43,12 +43,22 @@ Start up rails!
 
 [Travis CI](https://travis-ci.org/) is set up to automatically deploy applications to [Heroku](https://www.heroku.com):
 
-* the `master` branch is automatically deployed to the staging environment:  
+* the `master` branch is automatically deployed to the staging environment:
 https://staging-where2help.herokuapp.com/
 
-* the more stable `fsw` branch is automatically deployed to:  
+* the more stable `fsw` branch is automatically deployed to:
 https://where2help.herokuapp.com/
 
 If you want to skip continuous integration for your commit, add this to your commit message:
 
     [ci skip]
+
+# Contributing to Where2Help
+
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
+* Fork the project.
+* Start a feature/bugfix branch.
+* Commit and push until you are happy with your contribution.
+* Make sure to add tests for it, if possible.
+* If you're interested in working on an issue that has been assigned to somebody, we encourage you to get in touch with them first!
