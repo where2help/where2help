@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :show]
-  resources :shifts, only: [] do
+  resources :shifts, only: [:show] do
     post :opt_in
     delete :opt_out
     get :cal

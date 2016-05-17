@@ -1,6 +1,40 @@
 require 'rails_helper'
 
 RSpec.describe ShiftsController, type: :controller do
+  describe 'GET show' do
+    context 'when logged out' do
+      it 'redirects to user sign_in' do
+        get :show, params: { id: 1 }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+    context 'when logged in' do
+      before { sign_in create(:user) }
+
+      context 'when published event' do
+        let(:shift) { create :shift, event: create(:event, :published) }
+
+        before { get :show, params: { id: shift } }
+
+        it 'assigns @shift' do
+          expect(assigns :shift).to eq shift
+        end
+
+        it 'renders show' do
+          expect(response).to render_template :show
+        end
+      end
+      context 'when pending event' do
+        let(:shift) { create :shift }
+
+        it 'raises RecordNotFound error' do
+          expect{
+            get :show, params: { id: shift }
+          }.to raise_error ActiveRecord::RecordNotFound
+        end
+      end
+    end
+  end
   describe 'POST opt_in' do
     let(:shift) { create :shift }
 

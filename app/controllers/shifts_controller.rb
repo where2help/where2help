@@ -1,6 +1,12 @@
 class ShiftsController < ApplicationController
   before_action :authenticate_user!
-  
+
+  def show
+    @shift = Shift.includes(:event).
+      where(events: { state: 'published'}).
+      find(params[:id])
+  end
+
   def opt_in
     set_shift
     @shift.users << current_user
