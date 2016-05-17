@@ -11,7 +11,7 @@
       <li class="<%= active?(filter: :all) %>"><%= link_to t('.all'), schedule_path(filter: :all) %></li>
     </ul>
     <div class="tab-pane" data-behavior="shift-container">
-      <%= render(@shifts) || render('empty_message') %>
+      <%= (render partial: 'schedule', collection: @shifts) || render('empty_message') %>
     </div>
   </div>
   <div class="row">
