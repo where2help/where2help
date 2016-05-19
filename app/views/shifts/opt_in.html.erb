@@ -25,7 +25,7 @@
         </li>
         <li class="detail-row">
           <i class="fa-li fa fa-info-circle fa-fw"></i>
-          <%= @shift.event.description %>
+          <%= format_description @shift.event.description %>
         </li>
         <li class="detail-row">
           <i class="fa-li fa fa-users fa-fw"></i> <%= @shift.event.ngo.name %>

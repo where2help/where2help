@@ -20,7 +20,7 @@
 
   <p>Status: <span class="label label-success"><%= t "activerecord.attributes.event.state/" + @event.aasm.current_state.to_s %></span></p>
 
-  <p><i class="fa fa-info-circle fa-fw"></i> <%= @event.description %></p>
+  <p><i class="fa fa-info-circle fa-fw"></i> <%= format_description @event.description %></p>
   <p><i class="fa fa-map-marker fa-fw"></i> <%= @event.address %></p>
   <br/></br>
 

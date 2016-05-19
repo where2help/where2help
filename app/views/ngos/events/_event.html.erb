@@ -16,7 +16,7 @@
 
   <div class="col-xs-7 col-sm-9">
     <%= link_to [:ngos, event], class: 'list-group-item' do %>
-      <%= event.description %>
+      <%= format_description event.description %>
       <strong><%= event.address %></strong>
     <% end %>
   </div>
