@@ -10,4 +10,8 @@ module EventsHelper
   def badge_for_event(event, user)
     'badge-info' if event.user_opted_in?(user)
   end
+
+  def format_description(description)
+    simple_format(auto_link description)
+  end
 end
