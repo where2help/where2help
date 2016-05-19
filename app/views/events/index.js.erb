@@ -3,8 +3,8 @@
   var $paginationBtn = $("[data-behavior='events-pagination']");
 
   function updateComponent() {
-    $eventsContainer.append("<%= j render @events %>");
-    $paginationBtn.replaceWith("<%= j load_more_events_btn @events %>");
+    $eventsContainer.append("<%= j render 'grouped_events' %>");
+    $paginationBtn.replaceWith("<%= j load_more_events_btn @events, last_date: @events.last.starts_at.to_date %>");
   }
 
   updateComponent();

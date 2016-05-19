@@ -14,5 +14,11 @@ class EventsController < ApplicationController
       where('shifts.starts_at > NOW()').
       order('shifts.starts_at ASC').
       page(params[:page])
+
+    if params[:last_date] && params[:last_date].to_date == @events.first.starts_at.to_date
+      @dayswitch = false
+    else
+      @dayswitch = true
+    end
   end
 end
