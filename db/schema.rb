@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20160331132802) do
     t.string   "state",       default: "pending", null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.integer  "ngo_id"
     t.string   "title"
+    t.integer  "ngo_id"
     t.index ["ngo_id"], name: "index_events_on_ngo_id", using: :btree
   end
 
