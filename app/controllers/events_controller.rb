@@ -12,12 +12,7 @@ class EventsController < ApplicationController
       includes(shifts: [:users]).
       where('shifts.volunteers_needed > shifts.volunteers_count').
       where('shifts.starts_at > NOW()').
-<<<<<<< HEAD
-      order('shifts.starts_at ASC').
-      uniq.
-=======
       order('shifts.starts_at ASC').uniq.
->>>>>>> 0e4e04f... fix ngo event view, make state more meaninful (fixes #120, ref #112)
       page(params[:page])
 
     if params[:last_date] && params[:last_date].to_date == @events.first.starts_at.to_date
