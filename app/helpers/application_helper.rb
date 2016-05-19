@@ -16,6 +16,7 @@ module ApplicationHelper
   end
 
   def active?(path)
+    path = path.split('?').first if path.is_a? String
     current_page?(path) ? 'active' : ''
   end
 
