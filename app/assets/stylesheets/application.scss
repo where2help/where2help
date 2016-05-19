@@ -3,15 +3,18 @@
  */
 
 @import 'colors';
+
 @import 'bootstrap-overwrites';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootflat';
-/*@import 'bootstrap-datetimepicker';*/
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'leaflet';
+
 @import 'layout';
+@import 'components';
+
 @import 'shifts';
 @import 'events';
 @import 'landing_page';
