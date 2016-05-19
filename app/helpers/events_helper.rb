@@ -14,4 +14,9 @@ module EventsHelper
   def format_description(description)
     simple_format(auto_link description)
   end
+  def label_for_event_state(event)
+    state = t "activerecord.attributes.event.state/" + event.aasm.current_state.to_s
+    state_class = event.pending? ? 'label' : 'label label-success'
+    content_tag(:span, state, class: state_class)
+  end
 end

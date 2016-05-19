@@ -1,32 +1,26 @@
 <div class="row">
-  <h2><%= @event.title %></h2>
-
-  <div class="pull-right">
-   <%= link_to publish_ngos_event_path(@event), class: "btn btn-info",
-                                                method: :post do %>
-                                                <i class="fa fa-users"></i> <%= t 'ngos.events.show.publish' %>
-    <% end if @event.may_publish? %>
-
-    <%= link_to edit_ngos_event_path(@event), class: "btn btn-warning" do %>
-      <i class="fa fa-pencil-square-o"></i> <%= t 'ngos.events.show.edit' %>
-    <% end %>
-
-    <%= link_to [:ngos, @event],  class: "btn btn-danger",
-                                  method: :delete,
-                                  data: { confirm: t('ngos.events.show.are_you_sure') } do %>
-      <i class="fa fa-trash-o"></i> <%= t 'ngos.events.show.delete' %>
-    <% end %>
+  <h2 class="col-xs-12"><%= @event.title %></h2>
+  <div class="col-sm-3 col-sm-push-9 text-center">
+    <%= render 'buttons', event: @event %>
   </div>
-
-  <p>Status: <span class="label label-success"><%= t "activerecord.attributes.event.state/" + @event.aasm.current_state.to_s %></span></p>
-
-  <p><i class="fa fa-info-circle fa-fw"></i> <%= format_description @event.description %></p>
-  <p><i class="fa fa-map-marker fa-fw"></i> <%= @event.address %></p>
-  <br/></br>
-
-  <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
-
-  <div class="panel panel-default">
-    <%= render partial: 'shift', collection: @event.shifts %>
+  <div class="col-sm-9 col-sm-pull-3">
+    <ul class="fa-ul">
+      <li class="detail-row">
+        <i class="fa-li fa fa-eye-slash fa-fw"></i>
+        <%= label_for_event_state @event %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <%= @event.description %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <%= @event.address %>
+      </li>
+    </ul>
+    <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
+    <div class="panel panel-default">
+      <%= render partial: 'shift', collection: @event.shifts %>
+    </div>
   </div>
 </div>

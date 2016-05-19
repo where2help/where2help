@@ -1,0 +1,17 @@
+div.map {
+  height: 300px;
+  margin-top: 1em;
+}
+
+.detail-row {
+  margin-bottom: 1em;
+}
+
+.pagination-btn {
+  padding-top: 30px;
+}
+
+.event-btn {
+  @extend .btn, .btn-block;
+  margin-bottom: 0.5em;
+}

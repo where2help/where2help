@@ -1,0 +1,12 @@
+<% if event.may_publish? %>
+  <%= button_to publish_ngos_event_path(event), class: "btn-info event-btn", method: :post do %>
+    <i class="fa fa-users"></i> <%= t 'ngos.events.show.publish' %>
+  <% end %>
+<% end %>
+<%= button_to edit_ngos_event_path(event), class: "btn-warning event-btn", method: :get do %>
+  <i class="fa fa-pencil-square-o"></i> <%= t 'ngos.events.show.edit' %>
+<% end %>
+<%= button_to [:ngos, event],  class: "btn-danger event-btn", method: :delete,
+  data: { confirm: t('ngos.events.show.are_you_sure') } do %>
+    <i class="fa fa-trash-o"></i> <%= t 'ngos.events.show.delete' %>
+<% end %>
