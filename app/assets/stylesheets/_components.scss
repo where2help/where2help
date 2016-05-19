@@ -15,3 +15,11 @@ div.map {
   @extend .btn, .btn-block;
   margin-bottom: 0.5em;
 }
+
+.ngo-event-item {
+  @extend .list-group-item;
+  background: rgba($mediumgray-dark, 0.5);
+  &.-published {
+    background: rgba($grass-light, 0.5);
+  }
+}
