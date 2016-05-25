@@ -1,34 +1,33 @@
-<div id="landing-bg"></div>
-<div class="landing-row">
-  <div class="col-sm-8 col-sm-offset-2 landing-col">
+<div class="home-bg"></div>
+<div class="home-row">
+  <div class="col-sm-8 col-sm-offset-2 home-col">
     <%= image_tag 'logo.svg', class: 'img-responsive logo-img' %>
   </div>
-  <div class="col-xs-12 landing-col">
+  <div class="home-col">
     <h5 class="text-center"><%= t('.headline') %></h5>
     <ul class="fa-ul text-left">
       <li><h6><i class="fa-li fa fa-user" aria-hidden="true"></i><%= t('.subline_user') %></h6></li>
       <li><h6><i class="fa-li fa fa-users" aria-hidden="true"></i><%= t('.subline_ngo') %></h6></li>
     </ul>
   <div>
-  <div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 landing-col">
+  <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 home-col">
     <%= link_to new_user_registration_path, class: 'btn-register' do %>
       <i class="fa fa-user" aria-hidden="true"></i> <%= t('.sign_up_user') %>
     <% end %>
   </div>
-  <div class="col-xs-12 col-sm-5 col-md-4 landing-col">
+  <div class="col-sm-5 col-md-4 home-col">
     <%= link_to new_ngo_registration_path, class: 'btn-register' do %>
       <i class="fa fa-users" aria-hidden="true"></i> <%= t('.sign_up_ngo') %>
     <% end %>
   </div>
-  <div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 landing-col">
+  <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 home-col">
     <%= link_to new_user_session_path, class: 'btn-signup btn-lg' do %>
       <i class="fa fa-sign-in" aria-hidden="true"></i> <%= t('pages.home.login_user') %>
     <% end %>
   </div>
-  <div class="col-xs-12 col-sm-5 col-md-4 landing-col">
+  <div class="col-sm-5 col-md-4 home-col">
     <%= link_to new_ngo_session_path, class: 'btn-signup btn-lg' do %>
       <i class="fa fa-sign-in" aria-hidden="true"></i> <%= t('pages.home.login_ngo') %>
     <% end %>
   </div>
-
 </div>

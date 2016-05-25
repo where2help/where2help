@@ -1,11 +1,11 @@
-#landing-bg {
+.home-bg {
   position: fixed;
   z-index: -1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(image_path('landing_page.jpg'));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(image_path('home.jpg'));
   background-size: cover;
   background-position: center top;
 }
@@ -18,13 +18,14 @@
   @extend .btn, .btn-block;
 }
 
-.landing-row {
+.home-row {
   @extend .row;
   color: $white;
   padding-top: 2.5%;
 }
 
-.landing-col {
+.home-col {
+  @extend .col-xs-12;
   padding-top: 5%;
   .fa-ul {
     display: table;
