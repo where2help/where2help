@@ -62,7 +62,7 @@ de:
       shift:
         ends_at: Ende
         starts_at: Beginn
-        volunteers_needed: Anzahl benötigter Freiwilliger
+        volunteers_needed: Anzahl benötigter Helfer
 
   admin_mailer:
     new_ngo:

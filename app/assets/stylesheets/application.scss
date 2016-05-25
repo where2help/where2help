@@ -1,21 +1,21 @@
-/*
- *= require formtastic-bootstrap
- */
+// Variables and mixins
+@import 'base/variables';
 
-@import 'colors';
-
-@import 'bootstrap-overwrites';
+// Vendor
 @import 'bootstrap-sprockets';
+@import 'formtastic-bootstrap';
 @import 'bootstrap';
 @import 'bootflat';
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 @import 'leaflet';
 
-@import 'layout';
-@import 'components';
+// Globals
+@import 'base/globals';
+@import 'base/components';
 
-@import 'shifts';
-@import 'events';
-@import 'landing_page';
-@import 'registrations';
+// Page or controller specific
+@import 'pages/shifts';
+@import 'pages/events';
+@import 'pages/landing_page';
+@import 'pages/registrations';
