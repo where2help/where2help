@@ -1,15 +1,7 @@
 <%= link_to schedule, class: 'list-group-item' do %>
   <div class="row">
     <div class="col-xs-3 col-sm-1 text-left">
-      <span class="fa-stack fa-2x">
-        <i class="fa fa-calendar-o fa-stack-2x"></i>
-        <strong class="fa-stack-1x calendar-text">
-          <%= I18n.localize(schedule.starts_at, format:'%b') %>
-        </strong>
-        <strong class="fa-stack-1x calendar-text">
-          <%= schedule.starts_at.day %>
-        </strong>
-      </span>
+      <%= render 'calendar_icon', date: schedule.starts_at %>
     </div>
     <div class="col-xs-9 col-sm-10">
       <%= schedule.starts_at.to_s(:time) %> - <%= schedule.ends_at.to_s(:time) %><br/>

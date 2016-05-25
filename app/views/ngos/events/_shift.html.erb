@@ -1,14 +1,6 @@
 <div class="panel-body row">
   <div class="col-xs-3 col-sm-1 text-left">
-    <span class="fa-stack fa-2x">
-      <i class="fa fa-calendar-o fa-stack-2x"></i>
-      <strong class="fa-stack-1x calendar-text">
-        <%= I18n.localize(shift.starts_at, format:'%b') %>
-      </strong>
-      <strong class="fa-stack-1x calendar-text">
-        <%= shift.starts_at.day %>
-      </strong>
-    </span>
+    <%= render 'calendar_icon', date: shift.starts_at %>
   </div>
   <div class="col-xs-7 col-sm-10">
     <%= shift.starts_at.to_s(:time) %> - <%= shift.ends_at.to_s(:time) %><br/>

@@ -3,6 +3,18 @@ div.map {
   margin-top: 1em;
 }
 
+.calendar-icon {
+  @extend .fa-stack, .fa-2x;
+  .calendar-icon-txt {
+    @extend .fa-stack-1x;
+    margin-top: 0em;
+    font-size: .5em;
+    &:nth-of-type(2) {
+      margin-top: 1em;
+    }
+  }
+}
+
 .detail-row {
   margin-bottom: 1em;
 }

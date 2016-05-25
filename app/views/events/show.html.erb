@@ -1,14 +1,6 @@
 <div class="page-header">
   <h3>
-    <span class="fa-stack">
-      <i class="fa fa-calendar-o fa-stack-2x"></i>
-      <span class="fa-stack-1x calendar-text">
-        <%= I18n.localize(@event.earliest_shift.starts_at, format:'%b') %>
-      </span>
-      <span class="fa-stack-1x calendar-text">
-        <%= @event.earliest_shift.starts_at.day %>
-      </span>
-    </span>
+    <%= render 'calendar_icon', date: @event.earliest_shift.starts_at %>
     <%= @event.title %>
   </h3>
 </div>

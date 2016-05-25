@@ -1,15 +1,7 @@
 <%= link_to [:ngos, event], class: "ngo-event-item #{'-published' if event.published?}" do %>
   <div class="row">
     <div class="col-xs-3 col-sm-1 text-left">
-      <span class="fa-stack fa-2x">
-        <i class="fa fa-calendar-o fa-stack-2x"></i>
-        <strong class="fa-stack-1x calendar-text">
-          <%= I18n.localize(event.earliest_shift.starts_at, format:'%b') %>
-        </strong>
-        <strong class="fa-stack-1x calendar-text">
-          <%= event.earliest_shift.starts_at.day %>
-        </strong>
-      </span>
+      <%= render 'calendar_icon', date: event.earliest_shift.starts_at %>
     </div>
     <div class="col-xs-7 col-sm-10">
       <%= time_for_event event %><br/>
