@@ -62,3 +62,14 @@ If you want to skip continuous integration for your commit, add this to your com
 * Commit and push until you are happy with your contribution.
 * Make sure to add tests for it, if possible.
 * If you're interested in working on an issue that has been assigned to somebody, we encourage you to get in touch with them first!
+
+## Styleguide
+
+### CSS
+
+* use the .scss sytax
+* use `@import` over to import styles in `application.css.scss`
+* keep to the conventions of the `application.css.scss` manifest: the granularity of rules increases top to bottom *(general styles on top, more specific ones last)*
+* global rules go into `base/`
+* page specific styles into `pages/`
+* site-wide used component rules go into `base/components.scss` *(extract a components/ directory if it gets to big)*
