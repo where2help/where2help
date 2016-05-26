@@ -1,12 +1,13 @@
 .registration-row {
+  @extend .row;
   display: table-cell;
+  .bottom-column {
+    vertical-align: bottom;
+    padding-top: 0.5em;
+  }
 }
 
-.bottom-column {
-  vertical-align: bottom;
-  padding-top: 0.5em;
-}
-
+// this rule is separate on purpose (css hack)
 .registration-row div {
   display: inline-block;
   vertical-align: bottom;
