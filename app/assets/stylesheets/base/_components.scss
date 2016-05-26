@@ -33,12 +33,14 @@ div.map {
   background: rgba($mediumgray-dark, 0.5);
   &.-published {
     background: rgba($grass-light, 0.5);
+    border: 1px solid rgba($grass-dark, 1);
   }
 }
 
 .massive-font{
-font-size: 22px;
+font-size: 18px;
 text-align: center;
+font-weight: bold;
 }
 
 .progress{
@@ -47,5 +49,5 @@ text-align: center;
 }
 
 .progress-bar {
-  padding-top: 5px;
+  padding-top: 4px;
 }
