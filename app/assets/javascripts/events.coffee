@@ -1,6 +1,6 @@
 $(document).on "cocoon:after-insert", (event, insertedItem) ->
   selects = $(insertedItem).find("select")
-  
+
   last_entry = $("div.inserted-fields")[$("div.inserted-fields").length - 2]
   last_selects = $(last_entry).find("select")
 
@@ -43,9 +43,21 @@ document.addEventListener "page:change", ->
     name: 'addresse'
     source: addressSearch
     displayKey: (data) ->
-      data.properties.Adresse
+      formatAddress(data.properties)
     templates:
       suggestion: (data) ->
-        "<div>#{data.properties.Adresse}</div>"
+        "<span>#{data.properties.Adresse} <small class='district'>#{data.properties.Bezirk}. Bezirk</small></span>"
   ).on 'typeahead:selected typeahead:autocompleted', (event, suggestion) ->
     updateCoordinates suggestion
+
+  formatAddress = (properties) ->
+    zip = properties.PostalCode
+    zip ?= districtToZip(properties.Bezirk)
+    "#{zip}, #{properties.Adresse}"
+
+  districtToZip = (district) ->
+    district = district.replace(/,.*/, "")
+    if district.length > 1
+      "10#{district}"
+    else
+      "10#{district}0"

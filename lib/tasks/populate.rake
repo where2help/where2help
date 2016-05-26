@@ -76,8 +76,12 @@ namespace :db do
       uri = URI.parse("http://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=" + ERB::Util.url_encode(event.address) + "&crs=EPSG:4326")
       response = Net::HTTP.get_response(uri)
       if response.body.length > 1
-        coords = JSON.parse(response.body)["features"].first["geometry"]["coordinates"]
-        event.update(lng: coords[0], lat: coords[1])
+        feature = JSON.parse(response.body)["features"].first
+        coords = feature["geometry"]["coordinates"]
+        zip = feature["properties"]["PostalCode"]
+        zip ||= "10#{feature["properties"]["Bezirk"].split(',').first.rjust(2, '0')}"
+        address = "#{zip}, #{event.address}"
+        event.update(lng: coords[0], lat: coords[1], address: address)
       end
     end
   end

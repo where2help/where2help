@@ -22,4 +22,8 @@
   .tt-suggestion {
     @extend .selecter-item;
   }
+
+  .district {
+    color: $mediumgray-dark;
+  }
 }
