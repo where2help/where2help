@@ -98,13 +98,17 @@ de:
       message: Wir haben gerade nichts für dich...
   events:
     load_more: Mehr anzeigen
+    index:
+      welcome: |
+        <h3>Aktuelle Events</h3>
+        <p>Sieh nach wann und wo Du gebraucht wirst und trage Dich für die Schichten ein in denen Du helfen willst!<p>
   users:
     nav:
       schedule: Schichten
       profile: Profil
     sessions:
       new:
-        please_login: Als Helfer anmelden
+        please_login: Als HelferIn anmelden
         login: Anmelden
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
     registrations:
@@ -148,7 +152,7 @@ de:
       new:
         please_login: Als NGO anmelden
         login: Anmelden
-        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwilliger Anmelden
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als HelferIn Anmelden
     registrations:
       new:
         sign_up: Als NGO Registrieren
@@ -179,8 +183,8 @@ de:
     please_come: Bitte kommen Sie um
     schedule:
       your_shifts: |+
-        <strong>Deine Schichten</strong>
-        <small>(Sei bitte pünklich. Falls Du nicht kommen kannst, sag bitte frühzeitig ab.)</small>
+        <h3>Deine Schichten</h3>
+        <p>Sei bitte pünklich. Falls Du doch nicht kommen kannst, sag bitte frühzeitig ab.</p>
       past: vergangene
       upcoming: bevorstehende
       all: alle
