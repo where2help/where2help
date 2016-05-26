@@ -99,7 +99,7 @@ de:
       profile: Profil
     sessions:
       new:
-        please_login: Als Helfer anmelden
+        please_login: Als HelferIn anmelden
         login: Anmelden
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
     registrations:
@@ -143,7 +143,7 @@ de:
       new:
         please_login: Als NGO anmelden
         login: Anmelden
-        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwilliger Anmelden
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als HelferIn Anmelden
     registrations:
       new:
         sign_up: Als NGO Registrieren
