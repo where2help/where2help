@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :events do
       member do
         post 'publish'
+        get :cal
       end
     end
   end
