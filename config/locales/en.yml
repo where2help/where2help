@@ -86,6 +86,10 @@ en:
       message: Nothing there for you at the moment...
   events:
     load_more: Show more
+    index:
+      welcome: |
+        <h3>Current Events</h3>
+        <p>Find out when and where you are needed and sign up for the shifts you want to help in!<p>
   users:
     sessions:
       new:
@@ -163,6 +167,6 @@ en:
     thank_you: Thank you! Looking forward to have you onboard.
     please_come: Please join us at
     schedule:
-      your_shifts: |+
-        <strong>Your Shifts</strong>
-        <small>(Please be on time. Please cancel early enough if you can't come.)</small>
+      your_shifts: |
+        <h3>Your Shifts</h3>
+        <p>(Please be on time. Please cancel early enough if you can't come.)</p>
