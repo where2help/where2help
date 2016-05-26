@@ -34,7 +34,7 @@ class Event < ApplicationRecord
   def ends_at
     available_shifts.last.try(:ends_at)
   end
-  
+
   def available_shifts
     shifts.
       where('volunteers_needed > volunteers_count').
@@ -52,5 +52,13 @@ class Event < ApplicationRecord
 
   def volunteers_count
     available_shifts.map(&:volunteers_count).inject(:+)
+  end
+
+  def ngo_volunteers_needed
+    shifts.map(&:volunteers_needed).inject(:+)
+  end
+
+  def ngo_volunteers_count
+    shifts.map(&:volunteers_count).inject(:+)
   end
 end

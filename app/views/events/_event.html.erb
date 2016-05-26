@@ -3,13 +3,13 @@
     <div class="col-xs-3 col-sm-1 text-left">
       <%= render 'calendar_icon', date: event.starts_at %>
     </div>
-    <div class="col-xs-7 col-sm-10">
+    <div class="col-xs-6 col-sm-9">
       <%= event.starts_at.to_s(:time) %> - <%= event.ends_at.to_s(:time) %><br/>
       <strong><%= event.title %></strong><br>
       <span><%= event.address %></span>
     </div>
-    <div class="col-xs-2 col-sm-1">
-      <span class="badge <%= badge_for_event(event, current_user) %> pull-right"><%= event.volunteers_count %> / <%= event.volunteers_needed %></span>
+    <div class="col-xs-3 col-sm-2">
+      <%= progress_bar(needed: event.volunteers_needed, signed_up: event.volunteers_count) %>
     </div>
   </div>
 <% end %>

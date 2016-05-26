@@ -59,9 +59,15 @@ en:
         terms_and_conditions: Terms & Conditions
         remember_me: Remember Me
       shift:
+        confirmed_so_far: confirmed
         ends_at: Ends
+        missing: missing
+        needed: needed
         starts_at: Begins
+        surplus: Überschuss
         volunteers_needed: Helpers Needed
+        you: YOU!
+
   admin_mailer:
     new_ngo:
       subject: "[where2help] New NGO registration"

@@ -2,13 +2,13 @@
   <div class="col-xs-3 col-sm-1 text-left">
     <%= render 'calendar_icon', date: shift.starts_at %>
   </div>
-  <div class="col-xs-7 col-sm-10">
+  <div class="col-xs-5 col-sm-8">
     <%= shift.starts_at.to_s(:time) %> - <%= shift.ends_at.to_s(:time) %><br/>
     <strong><%= shift.event.title %></strong><br>
     <span><%= shift.event.address %></span>
   </div>
-  <div class="col-xs-2 col-sm-1">
-    <span class="badge <%= badge_for(shift, current_user) %> pull-right"><%= shift.volunteers_count %> / <%= shift.volunteers_needed %></span>
+  <div class="col-xs-4 col-sm-3">
+    <%= progress_bar(needed: shift.volunteers_needed, signed_up: shift.volunteers_count) %>
   </div>
 </div>
 

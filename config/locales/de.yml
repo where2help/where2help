@@ -60,9 +60,14 @@ de:
         terms_and_conditions: Nutzungsbedingungen
         remember_me: Angemeldet bleiben
       shift:
+        confirmed_so_far: zugesagt
         ends_at: Ende
+        missing: fehlen
+        needed: benötigt
         starts_at: Beginn
+        surplus: zu viel
         volunteers_needed: Anzahl benötigter Helfer
+        you: DU!
 
   admin_mailer:
     new_ngo:
