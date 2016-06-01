@@ -30,7 +30,6 @@ Set up the following environment variables:
 * FQDN
 * SECRET_KEY_BASE
 * RAILS_ENV
-* DATABASE_URL
 * LANG
 * RACK_ENV
 * RAILS_SERVE_STATIC_FILE
