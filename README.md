@@ -66,7 +66,7 @@ If you want to skip continuous integration for your commit, add this to your com
 
 ### CSS
 
-* use the .scss sytax
+* use the .scss syntax
 * use `@import` over to import styles in `application.css.scss`
 * keep to the conventions of the `application.css.scss` manifest: the granularity of rules increases top to bottom *(general styles on top, more specific ones last)*
 * global rules go into `base/`
