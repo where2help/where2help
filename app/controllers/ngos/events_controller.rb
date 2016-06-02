@@ -97,7 +97,7 @@ class Ngos::EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :title, :description, :address, :shift_length, :lat, :lng,
+      :title, :description, :address, :lat, :lng,
       shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at, :_destroy]
     )
   end
