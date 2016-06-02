@@ -38,6 +38,15 @@ en:
         state: Status
         state/pending: Pending
         state/published: Public
+      event/shifts:
+        confirmed_so_far: confirmed
+        ends_at: Ends
+        missing: missing
+        needed: needed
+        starts_at: Begins
+        surplus: Überschuss
+        volunteers_needed: Helpers Needed
+        you: YOU!      
       user:
         first_name: First Name
         last_name: Last Name

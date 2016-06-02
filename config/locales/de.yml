@@ -39,6 +39,15 @@ de:
         state/pending: in Vorbereitung
         state/published: öffentlich
         shifts: Schichten
+      event/shifts:
+        confirmed_so_far: zugesagt
+        ends_at: Ende
+        missing: fehlen
+        needed: benötigt
+        starts_at: Beginn
+        surplus: zu viel
+        volunteers_needed: Anzahl benötigter Helfer
+        you: DU!
       user:
         first_name: Vorname
         last_name: Nachname

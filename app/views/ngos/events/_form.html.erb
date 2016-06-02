@@ -1,5 +1,6 @@
 <%= semantic_form_for([:ngos, @event]) do |f| %>
   <% if @event.errors.any? %>
+    <%= f.semantic_errors :event %>
     <div id="error_explanation" class="alert alert-danger alert-dismissable">
       <h4><%= @event.errors.count %> <%= t 'ngos.events.form.prohibited' %> </h4>
       <ul>
