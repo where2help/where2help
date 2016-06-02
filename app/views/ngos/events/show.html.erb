@@ -1,5 +1,9 @@
+<div class="event-header">
+  <h2>
+    <%= @event.title %>
+  </h2>
+</div>
 <div class="row">
-  <h2 class="col-xs-12"><%= @event.title %></h2>
   <div class="col-sm-3 col-sm-push-9 text-center">
     <%= render 'buttons', event: @event %>
   </div>
