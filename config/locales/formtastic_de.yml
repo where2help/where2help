@@ -2,3 +2,9 @@ de:
   date:
     month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
     abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+  formtastic:
+    placeholders:
+      event:
+        title: "vergeben Sie einen kurzen prägnanten Titel"
+        description: "geben Sie eine Beschreibung mit allen Informationen, die für die Freiwilligen relevant sind, z.B. wo genau der Treffpunkt innerhalb des Hauses ist."
+        address: "Tippen Sie einige Buchstaben, um Autovervollständigung zu erhalten"

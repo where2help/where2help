@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <%= f.input :title %>
-  <%= f.input :description, :input_html => { :class => 'autogrow', :rows => 5, :cols => 20 } %>
-  <%= f.input :address, input_html: { class: 'typeahead' } %>
+  <%= f.input :title, placeholder: true  %>
+  <%= f.input :description, placeholder: true, :input_html => { :class => 'autogrow', :rows => 5, :cols => 20 } %>
+  <%= f.input :address, placeholder: true, input_html: { class: 'typeahead' } %>
 
   <%= f.input :lat, as: :hidden %>
   <%= f.input :lng, as: :hidden %>
