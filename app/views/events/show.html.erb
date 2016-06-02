@@ -1,8 +1,8 @@
-<div class="page-header">
-  <h3>
+<div class="event-header">
+  <h2>
     <%= render 'calendar_icon', date: @event.earliest_shift.starts_at %>
     <%= @event.title %>
-  </h3>
+  </h2>
 </div>
 <div class="row">
   <div class="col-sm-12 ">
@@ -23,9 +23,12 @@
       <li class="detail-row">
         <i class="fa-li fa fa-users fa-fw"></i> <%= @event.ngo.name %>
       </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-child fa-fw"></i><%= Shift.model_name.human(count: 2) %>
+        <div class="event-shifts-list">
+          <%= render(@event.future_shifts) || render('empty_message') %>
+        </div>
+      </li>
     </ul>
   </div>
-</div>
-<div class="event-shifts-list" data-behavior="shift-container">
-  <%= render(@event.future_shifts) || render('empty_message') %>
 </div>

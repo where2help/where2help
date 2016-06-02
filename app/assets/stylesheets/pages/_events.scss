@@ -1,7 +1,22 @@
+.event-header {
+  @extend .page-header;
+  .calendar-icon {
+    font-size: 1em;
+  }
+  @media (max-width: $screen-xs-max) {
+    h2 { font-size: 1.5em; }
+    .calendar-icon { font-size: 1.5em; }
+  }
+}
+
 .event-shifts-list {
+  margin-top: 2em;
   h4 {
     margin-top: 0px;
     margin-bottom: 15px;
+  }
+  .calendar-icon {
+    margin-top: -0.5em
   }
 }
 
