@@ -41,6 +41,11 @@ class Event < ApplicationRecord
       where('starts_at > NOW()')
   end
 
+  def future_shifts
+    shifts.
+      where('starts_at > NOW()')
+  end
+
   def user_opted_in?(user)
     available_shifts.joins(:shifts_users)
       .where(shifts_users: { user_id: user.id }).any?

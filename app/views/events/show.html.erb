@@ -27,5 +27,5 @@
   </div>
 </div>
 <div class="event-shifts-list" data-behavior="shift-container">
-  <%= render(@event.shifts) || render('empty_message') %>
+  <%= render(@event.future_shifts) || render('empty_message') %>
 </div>
