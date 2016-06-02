@@ -13,7 +13,7 @@
 
 <br/><br/>
 <p><%= link_to cal_ngos_event_path(@event, format: :ics), class: "btn btn-block btn-info" do %>
-  <i class="fa fa-calendar-plus-o"></i> <%= t('shifts.download_calendar') %>
+  <i class="fa fa-calendar-plus-o"></i> iCal
 <% end %></p>
 <p><%= link_to "http://www.google.com/calendar/event?" +
                "action=TEMPLATE&" +
@@ -23,5 +23,5 @@
                "details=#{@event.description} - #{ngos_event_url(@event)}&" +
                "location=#{@event.address}&" +
                "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow", class: "btn btn-block btn-primary"  do %>
-               <i class="fa fa-google"></i> <i class="fa fa-calendar-plus-o"></i> <%= t('shifts.google_calendar') %>
+               <i class="fa fa-google"></i> <i class="fa fa-calendar-plus-o"></i> Google
 <% end %></p>
