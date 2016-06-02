@@ -18,8 +18,8 @@ de:
         one: NGO
         other: NGOs
       shift:
-        one: Dienst
-        other: Dienste
+        one: Schicht
+        other: Schichten
       users:
         one: Freiwilliger
         other: Freiwillige
