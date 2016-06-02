@@ -18,8 +18,8 @@ de:
         one: NGO
         other: NGOs
       shift:
-        one: Dienst
-        other: Dienste
+        one: Schicht
+        other: Schichten
       users:
         one: Freiwilliger
         other: Freiwillige
@@ -182,8 +182,6 @@ de:
       login_user: Als HelferIn Anmelden
       login_ngo: Als NGO Anmelden
   shifts:
-    download_calendar: Kalendereintrag (.ics)
-    google_calendar: zu Google Kalender hinzufügen
     opt_in_btn: Helfen
     opt_out_btn: Absagen
     are_you_sure: Willst Du wirklich absagen?

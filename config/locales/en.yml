@@ -173,8 +173,6 @@ en:
       login_user: Login as user
       login_ngo: Login as NGO
   shifts:
-    download_calendar: Calendar Entry (.ics)
-    google_calendar: add to Google Calendar
     opt_in: I'm In
     opt_out: Can't Make It
     are_you_sure: Are you sure you can't make it?
