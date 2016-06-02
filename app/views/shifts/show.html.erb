@@ -6,7 +6,7 @@
 </div>
 <div class="row">
   <div class="col-sm-3 col-sm-push-9 text-center">
-    <%= opt_button_for @shift, current_user %>
+    <%= opt_button_for @shift, current_user if @shift.starts_at > Time.now() %>
 
     <p>
       <%= progress_bar(needed: @shift.volunteers_needed,
