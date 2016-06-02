@@ -23,6 +23,10 @@
         <%= f.email_field :email, class: 'form-control'  %>
       </div>
       <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.email_field :phone, class: 'form-control'  %>
+      </div>
+      <div class="form-group">
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= "#{@minimum_password_length} #{t('.min_characters')}" %>)</em>

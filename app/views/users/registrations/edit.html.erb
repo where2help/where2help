@@ -21,6 +21,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :phone %><br />
+    <%= f.email_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :locale %><br />
     <%= f.select :locale, User.locales.keys.to_a, {}, {class: "form-control"} %>
   </div>

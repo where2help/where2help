@@ -53,6 +53,7 @@ de:
         last_name: Nachname
         confirmed_at: Bestätigt
         created_at: Erstellt
+        phone: Telefonnummer
         terms_and_conditions: Nutzungsbedingungen
         languages: Sprachen
       ngo:

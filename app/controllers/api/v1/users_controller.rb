@@ -12,7 +12,8 @@ class Api::V1::UsersController < Api::V1::ApiController
                         confirmation_sent_at:  nil,
                         admin:                 false,
                         api_token:             nil,
-                        api_token_valid_until: nil)
+                        api_token_valid_until: nil,
+                        phone:                 nil)
     render json: {deleted: true}, status: :ok
   end
 
@@ -109,7 +110,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def user_params
     params.require(:user).permit(
-      :first_name, :last_name, :email, :locale, :password, :password_confirmation,
+      :first_name, :last_name, :email, :locale, :password, :password_confirmation, :phone,
       language_ids: [], ability_ids: [])
   end
 end
