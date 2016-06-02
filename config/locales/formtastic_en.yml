@@ -1,0 +1,7 @@
+de:
+  formtastic:
+    placeholders:
+      event:
+        title: "Please, give a concise title"
+        description: "Please, give a description, with all information relevant to the volunteers, e.g. where is the meeting point within the building"
+        address: "Type a few letters for autocompletion"
