@@ -3,23 +3,28 @@
     <i class="fa fa-users"></i> <%= t 'ngos.events.show.publish' %>
   <% end %>
 <% end %>
-<%= button_to edit_ngos_event_path(event), class: "btn-warning event-btn", method: :get do %>
-  <i class="fa fa-pencil-square-o"></i> <%= t 'ngos.events.show.edit' %>
-<% end %>
-<%= button_to [:ngos, event],  class: "btn-danger event-btn", method: :delete,
-  data: { confirm: t('ngos.events.show.are_you_sure') } do %>
-    <i class="fa fa-trash-o"></i> <%= t 'ngos.events.show.delete' %>
+
+<% if event.shifts.last.ends_at > Time.now() %>
+  <%= button_to edit_ngos_event_path(event), class: "btn-warning event-btn", method: :get do %>
+    <i class="fa fa-pencil-square-o"></i> <%= t 'ngos.events.show.edit' %>
+  <% end %>
+
+  <%= button_to [:ngos, event],  class: "btn-danger event-btn", method: :delete,
+    data: { confirm: t('ngos.events.show.are_you_sure') } do %>
+      <i class="fa fa-trash-o"></i> <%= t 'ngos.events.show.delete' %>
+  <% end %>
+
+  <br/><br/>
 <% end %>
 
-<br/><br/>
 <p><%= link_to cal_ngos_event_path(@event, format: :ics), class: "btn btn-block btn-info" do %>
   <i class="fa fa-calendar-plus-o"></i> <%= t('shifts.download_calendar') %>
 <% end %></p>
 <p><%= link_to "http://www.google.com/calendar/event?" +
                "action=TEMPLATE&" +
                "text=#{@event.title}&" +
-               "dates=" + @event.starts_at.utc.strftime("%Y%m%dT%H%M%S") + "Z/" +
-                        @event.ends_at.utc.strftime("%Y%m%dT%H%M%S") + "Z&" +
+               "dates=" + @event.shifts.first.starts_at.utc.strftime("%Y%m%dT%H%M%S") + "Z/" +
+                        @event.shifts.last.ends_at.utc.strftime("%Y%m%dT%H%M%S") + "Z&" +
                "details=#{@event.description} - #{ngos_event_url(@event)}&" +
                "location=#{@event.address}&" +
                "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow", class: "btn btn-block btn-primary"  do %>
