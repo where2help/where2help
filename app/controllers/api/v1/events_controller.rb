@@ -2,9 +2,9 @@ class Api::V1::EventsController < Api::V1::ApiController
 
   # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" -S http://localhost:3000/api/v1/events/
   def index
-    @events = Event.published.where(id: Shift.is_not_full.pluck(:event_id)).includes(:ngo).includes(shifts: :users)
+    @events = Event.published.where(id: Shift.is_not_full.pluck(:event_id)).includes(:ngo).includes(shifts: [:users])
     if params[:upcoming]
-      @events = @events.where('shifts.starts_at > NOW()')
+      @events = @events.where('shifts.starts_at > NOW()'),references(:shifts)
     end
 
     if params[:minimal]
