@@ -23,3 +23,6 @@ deploy:
   on:
     repo: where2help/where2help
   skip_cleanup: true
+  run:
+  - rake db:migrate
+  - restart
