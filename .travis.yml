@@ -24,5 +24,5 @@ deploy:
     repo: where2help/where2help
   skip_cleanup: true
   run:
-  - rake db:migrate
+  - rails db:migrate
   - restart
