@@ -7,10 +7,6 @@ module EventsHelper
       class: 'btn'
   end
 
-  def badge_for_event(event, user)
-    'badge-info' if event.user_opted_in?(user)
-  end
-
   def format_description(description)
     if description.blank?
       '-'

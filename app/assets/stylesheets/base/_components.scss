@@ -52,3 +52,10 @@ text-align: center;
 .progress-bar {
   padding-top: 4px;
 }
+
+.btn-facebook {
+  background-color: $facebook-blue;
+  &:hover {
+    background-color: lighten( $facebook-blue, 10% );
+  }
+}
