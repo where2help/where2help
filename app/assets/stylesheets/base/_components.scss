@@ -59,3 +59,10 @@ text-align: center;
     background-color: lighten( $facebook-blue, 10% );
   }
 }
+
+.btn-twitter {
+  background-color: $twitter-blue;
+  &:hover {
+    background-color: lighten( $twitter-blue, 10% );
+  }
+}

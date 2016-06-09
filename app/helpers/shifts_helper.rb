@@ -28,6 +28,14 @@ module ShiftsHelper
     end
   end
 
+  def twitter_share_btn
+    hashtags = 'where2help'
+    url = "https://twitter.com/intent/tweet?hashtags=#{hashtags}&url=#{URI.encode(root_url)}"
+    link_to url, target: '_blank', class: 'btn btn-block btn-twitter' do
+      content_tag(:i, nil, class: 'fa fa-twitter') + ' Tweet'
+    end
+  end
+
   def progress_bar(signed_up: 0, needed: 1, current_user: false)
     content_tag :div, class: "progress" do
       if current_user
