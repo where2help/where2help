@@ -151,7 +151,10 @@ RSpec.describe ShiftsController, type: :controller do
     context 'when logged in' do
       let(:user) { create :user }
       let(:upcoming_shifts) { create_list :shift, 10, starts_at: Date.tomorrow }
-      let(:past_shifts) { create_list :shift, 10, starts_at: Date.yesterday }
+      let(:past_shifts) do
+        past_shifts = build_list :shift, 10, starts_at: Date.yesterday
+        past_shifts.each {|shift| shift.save(validate: false)} 
+      end
 
       before do
         sign_in user

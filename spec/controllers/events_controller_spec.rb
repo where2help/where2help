@@ -18,7 +18,10 @@ RSpec.describe EventsController, type: :controller do
     end
     context 'when logged in as user' do
       let(:pending_event) { create :event }
-      let(:past_event) { create :event_with_past_shift }
+      let(:past_event) do
+        past_event = build :event_with_past_shift
+        past_event.save(validate: false) 
+      end
       let(:full_event) { create :event_with_full_shift }
       let!(:events) { create_list :event, 25, :published }
       let!(:next_events) { create_list :event, 25, :published }

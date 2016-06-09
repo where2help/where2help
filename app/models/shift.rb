@@ -20,7 +20,7 @@ class Shift < ApplicationRecord
   end
 
   def not_in_past
-   errors.add(:starts_at, :not_in_past) if starts_at < Time.now()
-   errors.add(:ends_at, :not_in_past)   if ends_at < Time.now
+   errors.add(:starts_at, :not_in_past) if starts_at && starts_at < Time.now()
+   errors.add(:ends_at, :not_in_past)   if ends_at && ends_at < Time.now
  end
 end

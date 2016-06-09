@@ -97,8 +97,8 @@ RSpec.describe Ngos::EventsController, type: :controller do
           description: 'huge event description',
           address: 'street with number',
           shifts_attributes: [ { volunteers_needed: "1",
-                                 starts_at: "2016-02-25 17:30:55",
-                                 ends_at: "2016-02-25 17:30:55",
+                                 starts_at: Time.now + 2.hours,
+                                 ends_at: Time.now + 4.hours,
                                  volunteers_needed: 1,
                                  volunteers_count: 0 } ] }}}
 
