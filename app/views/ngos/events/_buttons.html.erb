@@ -1,6 +1,6 @@
 <% if event.may_publish? %>
   <%= button_to publish_ngos_event_path(event), class: "btn-info event-btn", method: :post do %>
-    <i class="fa fa-users"></i> <%= t 'ngos.events.show.publish' %>
+    <i class="fa fa-eye"></i> <%= t 'ngos.events.show.publish' %>
   <% end %>
 <% end %>
 

@@ -36,8 +36,8 @@ en:
         description: Description
         address: Address
         state: Status
-        state/pending: Pending
-        state/published: Public
+        state/pending: Invisible
+        state/published: Visible
       event/shifts:
         confirmed_so_far: confirmed
         ends_at: Ends

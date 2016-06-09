@@ -30,10 +30,11 @@ div.map {
 
 .ngo-event-item {
   @extend .list-group-item;
-  background: rgba($mediumgray-dark, 0.5);
-  &.-published {
-    background: rgba($grass-light, 0.5);
-    border: 1px solid rgba($grass-dark, 1);
+  // background: rgba($mediumgray-dark, 0.5);
+  &.-invisible {
+    .row { color: $mediumgray-dark; }
+    // background: rgba($grass-light, 0.5);
+    // border: 1px solid rgba($grass-dark, 1);
   }
 }
 
