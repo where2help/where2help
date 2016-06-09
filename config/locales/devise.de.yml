@@ -35,8 +35,8 @@ de:
         instruction: 'Folgen Sie dem untenstehenden Link, um Ihr Konto zu bestätigen:'
         subject: Anleitung zur Bestätigung Ihres Accounts
       password_change:
-        greeting:
-        message:
+        greeting: Hallo %{recipient}!
+        message: Wir benachrichigen Sie, um Ihnen mitzuteilen, dass Ihr Passwort geändert wurde.
         subject: Passwort geändert
       reset_password_instructions:
         action: Passwort ändern
@@ -60,6 +60,7 @@ de:
         change_your_password: Passwort ändern
         confirm_new_password: Neues Passwort bestätigen
         new_password: Neues Passwort
+        min_chars: Zeichen Mindestlänge
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         send_me_reset_password_instructions: Schicken Sie mir die Anleitung, mein Passwort zurückzusetzen

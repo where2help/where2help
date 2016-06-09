@@ -58,6 +58,7 @@ en:
         change_your_password: Change your password
         confirm_new_password: Confirm new password
         new_password: New password
+        min_chars: characters minimum
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
