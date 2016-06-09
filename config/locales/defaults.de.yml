@@ -123,6 +123,7 @@ de:
       less_than_or_equal_to: muss kleiner oder gleich %{count} sein
       not_a_number: ist keine Zahl
       not_an_integer: muss ganzzahlig sein
+      not_in_past: darf nicht in der Vergangenheit liegen
       odd: muss ungerade sein
       taken: ist bereits vergeben
       too_long:

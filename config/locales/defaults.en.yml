@@ -1,0 +1,5 @@
+---
+en:
+  errors:
+    messages:
+      not_in_past: may not be a thing of the past
