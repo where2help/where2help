@@ -36,8 +36,8 @@ de:
         description: Beschreibung
         address: Adresse
         state: Status
-        state/pending: in Vorbereitung
-        state/published: öffentlich
+        state/pending: Unsichtbar
+        state/published: Sichtbar
         shifts: Schichten
       event/shifts:
         confirmed_so_far: zugesagt

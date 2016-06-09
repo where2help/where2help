@@ -1,4 +1,4 @@
-<%= link_to [:ngos, event], class: "ngo-event-item #{'-published' if event.published?}" do %>
+<%= link_to [:ngos, event], class: "ngo-event-item #{'-invisible' if event.pending?}" do %>
   <div class="row">
     <div class="col-xs-3 col-sm-1 text-left">
       <%= render 'calendar_icon', date: event.earliest_shift.starts_at %>
@@ -9,6 +9,7 @@
       <span><%= event.address %></span>
     </div>
     <div class="col-xs-3 col-sm-2">
+      <%= label_for_event_state event %>
       <%= progress_bar(needed: event.ngo_volunteers_needed, signed_up: event.ngo_volunteers_count) %>
     </div>
   </div>
