@@ -4,7 +4,7 @@ class Api::V1::EventsController < Api::V1::ApiController
   def index
     @events = Event.published.where(id: Shift.is_not_full.pluck(:event_id)).includes(:ngo).includes(shifts: [:users])
     if params[:upcoming]
-      @events = @events.select{|event| event.starts_at > Time.now()}
+      @events = @events.select{|event| event.starts_at && event.starts_at > Time.now()}
     end
 
     if params[:minimal]
