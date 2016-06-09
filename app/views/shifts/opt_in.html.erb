@@ -39,13 +39,7 @@
                    "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow", class: "btn btn-block btn-danger"  do %>
                    <i class="fa fa-google"></i> <i class="fa fa-calendar-plus-o"></i> Google
     <% end %></p>
-    <p>
-      <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{URI.encode(root_url)}",
-        target: '_blank',
-        class: 'btn btn-block btn-facebook' do %>
-        <i class="fa fa-facebook" aria-hidden="true"></i> <%= t('.share') %>
-      <% end %>
-    </p>
+    <p><%= facebook_share_btn %></p>
   </div>
   <div class="col-md-8 hidden-sm hidden-xs">
     <%= image_tag 'opted_in.jpg', class: 'img-responsive img-rounded' %>

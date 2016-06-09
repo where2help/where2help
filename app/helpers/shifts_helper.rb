@@ -21,6 +21,13 @@ module ShiftsHelper
       class: 'btn'
   end
 
+  def facebook_share_btn
+    url = "https://www.facebook.com/sharer/sharer.php?u=#{URI.encode(root_url)}"
+    link_to url, target: '_blank', class: 'btn btn-block btn-facebook' do
+      content_tag(:i, nil, class: 'fa fa-facebook') + ' ' + t('helpers.shifts_helper.share')
+    end
+  end
+
   def progress_bar(signed_up: 0, needed: 1, current_user: false)
     content_tag :div, class: "progress" do
       if current_user
