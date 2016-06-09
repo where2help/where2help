@@ -1,4 +1,4 @@
-<%= tag :meta, property: 'og:url', content: root_url %>
-<meta property="og:title"         content="where2help" />
-<meta property="og:description"   content="Your description" />
+<%= tag :meta, property: 'og:url', content: request.base_url %>
+<meta property="og:title" content="where2help" />
+<%= tag :meta, property: 'og:description', content: t('pages.home.headline') %>
 <%= tag :meta, property: 'og:image', content: image_url('logo.png') %>

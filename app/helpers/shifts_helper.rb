@@ -1,8 +1,4 @@
 module ShiftsHelper
-  def badge_for(shift, user)
-    'badge-info' if shift.users.include?(user)
-  end
-
   def opt_button_for(shift, user)
     if shift.users.include? user
       link_to t('shifts.opt_out_btn'), shift_opt_out_path(shift),
