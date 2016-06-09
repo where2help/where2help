@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>where2help</title>
+    <%= tag(:link, rel: 'canonical', href: request.base_url) %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
