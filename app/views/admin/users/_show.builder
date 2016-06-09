@@ -4,6 +4,7 @@ context.instance_eval do
     row :email
     row :first_name
     row :last_name
+    row :phone
     row :admin, as: :status_tag
     row :locale
     row :confirmed_at

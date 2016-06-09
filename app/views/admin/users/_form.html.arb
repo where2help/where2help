@@ -4,6 +4,7 @@ active_admin_form_for [:admin, resource] do |f|
     input :email
     input :first_name
     input :last_name
+    input :phone
     input :admin
     input :locale, as: :select, collection: Ngo.locales.keys, include_blank: false
 

@@ -15,3 +15,6 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+.status_tag.admin_confirmed { background: #8CC152; }
+.status_tag.pending { background: #F6BB42; }
+.status_tag.deactivated { background: #DA4453; }

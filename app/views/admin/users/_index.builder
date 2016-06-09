@@ -4,6 +4,7 @@ context.instance_eval do
   column :email
   column :first_name
   column :last_name
+  column :phone
   column :admin
   column :locale
   column :confirmed_at
