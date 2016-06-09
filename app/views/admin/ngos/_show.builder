@@ -6,7 +6,7 @@ context.instance_eval do
       row :email
       row :locale
       row :identifier
-      row(:aasm_state){|z| status_tag(z.aasm_state)}
+      row(:aasm_state){|z| status_tag(z.aasm.human_state)}
     end
   end
   panel Contact.model_name.human do
