@@ -29,6 +29,8 @@
       <i class="fa fa-calendar-plus-o"></i> iCal
       <% end %>
     </p>
+    <%= link_to 'share', "https://www.facebook.com/sharer/sharer.php?u=#{URI.encode('https://staging-where2help.herokuapp.com/')}", target: '_blank' %>
+</a>
     <p><%= link_to "http://www.google.com/calendar/event?" +
                    "action=TEMPLATE&" +
                    "text=#{@shift.event.title}&" +
