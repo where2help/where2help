@@ -184,3 +184,6 @@ en:
       your_shifts: |
         <h3>Your Shifts</h3>
         <p>(Please be on time. Please cancel early enough if you can't come.)</p>
+  helpers:
+    shifts_helper:
+      share: Teilen

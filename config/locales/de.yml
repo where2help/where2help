@@ -198,6 +198,9 @@ de:
       all: alle
     opt_out:
       notice: Schade...😢
+  helpers:
+    shifts_helper:
+      share: Teilen
   faker:
     address:
       secondary_address: ["Bognergasse 9","Freyung 7","Graben 7","Himmelpfortgasse 14","Kärntner Ring 17","Kärntner Straße 55","Kohlmarkt 11",
