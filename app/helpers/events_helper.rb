@@ -19,7 +19,17 @@ module EventsHelper
     end
   end
 
+  def event_label(event)
+    attrs = event_label_attr event
+    state = t "activerecord.attributes.event.state/" + event.aasm.current_state.to_s
+    content_tag(:div, class: 'ngo-event-item-state') do
+      concat content_tag(:i, nil, class: "fa #{attrs[:icon_class]} fa-fw")
+      concat content_tag(:span, attrs[:state], class: attrs[:label_class])
+    end
+  end
+
   def label_for_event_state(event)
+    attrs = event_label_attr event
     if event.pending?
       state_class = 'label'
       icon_class = 'fa-eye-slash'
@@ -34,5 +44,20 @@ module EventsHelper
 
   def time_for_event(event)
     "#{event.shifts.first.starts_at.to_s(:time)} - #{event.shifts.last.ends_at.to_s(:time)}"
+  end
+
+  private
+
+  def event_label_attr(event)
+    attrs = {}
+    if event.pending?
+      attrs[:label_class] = 'label'
+      attrs[:icon_class] = 'fa-eye-slash'
+    else
+      attrs[:label_class] = 'label label-info'
+      attrs[:icon_class] = 'fa-eye'
+    end
+    attrs[:state] = t "activerecord.attributes.event.state/" + event.aasm.current_state.to_s
+    attrs
   end
 end

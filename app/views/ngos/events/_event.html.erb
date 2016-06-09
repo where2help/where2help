@@ -8,8 +8,8 @@
       <strong><%= event.title %></strong><br>
       <span><%= event.address %></span>
     </div>
-    <div class="col-xs-3 col-sm-2">
-      <%= label_for_event_state event %>
+    <div class="col-xs-3 col-sm-2 text-center">
+      <%= event_label event %>
       <%= progress_bar(needed: event.ngo_volunteers_needed, signed_up: event.ngo_volunteers_count) %>
     </div>
   </div>
