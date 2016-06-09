@@ -34,7 +34,7 @@ end
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '>= 3.5.0.beta2'
+  gem 'rspec-rails', '>= 3.5.0.beta3'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing' # can be removed once rspec 3.5.0 is fully out
 end
