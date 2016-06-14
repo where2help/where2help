@@ -17,12 +17,6 @@ de:
       greeting: "Hallo %{name}"
       content: |
         %{title} am %{date} wurde abgesagt, Du brauchst nicht zu kommen!
-  active_admin:
-    batch_actions:
-      button_label: Stapelverarbeitung
-      labels:
-        confirm: Bestätige
-        deactivate: Deaktiviere
   application:
     empty_message:
       message: Wir haben gerade nichts für dich...

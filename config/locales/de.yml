@@ -1,4 +1,11 @@
 de:
+active_admin:
+  all: Alle
+  batch_actions:
+    button_label: Stapelverarbeitung
+      labels:
+        confirm: Bestätige
+        deactivate: Deaktiviere
   helpers:
     shifts_helper:
       share: Teilen

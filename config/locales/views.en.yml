@@ -17,7 +17,6 @@ en:
       greeting: "Hi %{name}"
       content: |
         %{title} at %{date} got cancelled, you don't need to come!
-
   application:
     empty_message:
       message: Nothing there for you at the moment...

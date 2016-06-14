@@ -1,4 +1,6 @@
 en:
+  active_admin:
+    all: All
   helpers:
     shifts_helper:
       share: Teilen
