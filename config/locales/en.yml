@@ -77,7 +77,8 @@ en:
         surplus: Überschuss
         volunteers_needed: Helpers Needed
         you: YOU!
-
+  active_admin:
+    all: All
   admin_mailer:
     new_ngo:
       subject: "[where2help] New NGO registration"

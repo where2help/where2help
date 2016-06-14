@@ -65,6 +65,7 @@ de:
         aasm_state/pending: Unbestätigt
         aasm_state/admin_confirmed: Von Admin Bestätigt
         aasm_state/deactivated: Deaktiviert
+        locale: Sprache
         password: Passwort
         password_confirmation: Passwortbestätigung
         terms_and_conditions: Nutzungsbedingungen
@@ -98,6 +99,7 @@ de:
       content: |
         %{title} am %{date} wurde abgesagt, Du brauchst nicht zu kommen!
   active_admin:
+    all: Alle
     batch_actions:
       button_label: Stapelverarbeitung
       labels:

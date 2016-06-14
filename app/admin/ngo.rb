@@ -1,11 +1,10 @@
 ActiveAdmin.register Ngo do
+  menu priority: 2
   actions :all, except: [:new, :create]
   includes :contact
 
-  scope :all, default: true
-  scope :pending
-  scope :admin_confirmed
-  scope :deactivated
+  scope I18n.t('active_admin.all'), :all, default: true
+  Ngo.aasm.states.map {|s| scope(s.human_name, s.name.to_sym) }
 
   filter :name
   filter :identifier
