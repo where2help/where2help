@@ -1,0 +1,80 @@
+de:
+  activerecord:
+    models:
+      ability:
+        one: Fähigkeit
+        other: Fähigkeiten
+      contact: Kontakt
+      event:
+        one: Event
+        other: Events
+      language:
+        one: Sprache
+        other: Sprachen
+      languages:
+        one: Sprache
+        other: Sprachen
+      ngo:
+        one: NGO
+        other: NGOs
+      shift:
+        one: Schicht
+        other: Schichten
+      users:
+        one: Freiwilliger
+        other: Freiwillige
+    attributes:
+      contact:
+        first_name: Vorname
+        last_name: Nachname
+        phone: Telefon
+        street: Straße
+        zip: Postleitzahl
+        city: Stadt
+      event:
+        title: Titel
+        description: Beschreibung
+        address: Adresse
+        state: Status
+        state/pending: Unsichtbar
+        state/published: Sichtbar
+        shifts: Schichten
+      event/shifts:
+        confirmed_so_far: zugesagt
+        ends_at: Ende
+        missing: fehlen
+        needed: benötigt
+        starts_at: Beginn
+        surplus: zu viel
+        volunteers_needed: Anzahl benötigter Helfer
+        you: DU!
+      user:
+        first_name: Vorname
+        last_name: Nachname
+        confirmed_at: Bestätigt
+        created_at: Erstellt
+        phone: Telefonnummer
+        terms_and_conditions: Nutzungsbedingungen
+        languages: Sprachen
+      ngo:
+        identifier: Identifikationsnummer
+        confirmed_at: Bestätigt
+        created_at: Erstellt
+        current_password: Aktuelles Passwort
+        aasm_state: Status
+        aasm_state/pending: Unbestätigt
+        aasm_state/admin_confirmed: Von Admin Bestätigt
+        aasm_state/deactivated: Deaktiviert
+        password: Passwort
+        password_confirmation: Passwortbestätigung
+        terms_and_conditions: Nutzungsbedingungen
+        remember_me: Angemeldet bleiben
+      shift:
+        confirmed_so_far: zugesagt
+        ends_at: Ende
+        missing: fehlen
+        needed: benötigt
+        starts_at: Beginn
+        surplus: zu viel
+        volunteers_needed: Anzahl benötigter Helfer
+        you: DU!

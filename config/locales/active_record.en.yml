@@ -1,0 +1,79 @@
+en:
+  activerecord:
+    models:
+      ability:
+        one: Ability
+        other: Abilities
+      contact: Contact
+      event:
+        one: Event
+        other: Events
+      language:
+        one: Language
+        other: Languages
+      languages:
+        one: Language
+        other: Languages
+      ngo:
+        one: NGO
+        other: NGOs
+      shift:
+        one: Shift
+        other: Shifts
+      users:
+        one: Helper
+        other: Helpers
+    attributes:
+      contact:
+        first_name: First Name
+        last_name: Last Name
+        phone: Phone
+        street: Street
+        zip: Post Code
+        city: City
+      event:
+        title: Title
+        description: Description
+        address: Address
+        state: Status
+        state/pending: Invisible
+        state/published: Visible
+      event/shifts:
+        confirmed_so_far: confirmed
+        ends_at: Ends
+        missing: missing
+        needed: needed
+        starts_at: Begins
+        surplus: Überschuss
+        volunteers_needed: Helpers Needed
+        you: YOU!
+      user:
+        first_name: First Name
+        last_name: Last Name
+        confirmed_at: Confirmed
+        created_at: Created
+        phone: Phone Number
+        terms_and_conditions: Terms & Conditions
+        languages: Languages
+      ngo:
+        identifier: Identifier
+        confirmed_at: Confirmed
+        created_at: Created
+        current_password: Current Password
+        aasm_state: Status
+        aasm_state/pending: Unconfirmed
+        aasm_state/admin_confirmed: Admin Confirmed
+        aasm_state/deactivated: Deactivated
+        password: Password
+        password_confirmation: Password Confirmation
+        terms_and_conditions: Terms & Conditions
+        remember_me: Remember Me
+      shift:
+        confirmed_so_far: confirmed
+        ends_at: Ends
+        missing: missing
+        needed: needed
+        starts_at: Begins
+        surplus: Überschuss
+        volunteers_needed: Helpers Needed
+        you: YOU!

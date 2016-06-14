@@ -1,0 +1,120 @@
+de:
+  admin_mailer:
+    new_ngo:
+      subject: "[where2help] Neue NGO Registrierung"
+      content: Neue NGO Account Anfrage
+  ngo_mailer:
+    admin_confirmed:
+      subject: "[where2help] Ihr Account wurde bestätigt"
+      greeting: "Hallo %{name}"
+      content: |
+        Euer Account ist jetzt freigeschalten. Wenn Ihr eure Emailadresse bereits bestätigt hab,
+        könnt Ihr jetzt loslegen Events zu erstellen!
+      link: Bei Where2Help Loslegen
+  user_mailer:
+    shift_destroyed:
+      subject: "[where2help] Event wurde abgesagt"
+      greeting: "Hallo %{name}"
+      content: |
+        %{title} am %{date} wurde abgesagt, Du brauchst nicht zu kommen!
+  active_admin:
+    batch_actions:
+      button_label: Stapelverarbeitung
+      labels:
+        confirm: Bestätige
+        deactivate: Deaktiviere
+  application:
+    empty_message:
+      message: Wir haben gerade nichts für dich...
+  events:
+    load_more: Mehr anzeigen
+    index:
+      welcome: |
+        <h3>Aktuelle Events</h3>
+        <p>Sieh nach wann und wo Du gebraucht wirst und trage Dich für die Schichten ein in denen Du helfen willst!<p>
+  users:
+    nav:
+      schedule: Schichten
+      profile: Profil
+    sessions:
+      new:
+        please_login: Als HelferIn anmelden
+        login: Anmelden
+        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
+    registrations:
+      new:
+        sign_up: Als Helfer Registrieren
+        profile: Helfer-Profil
+        min_characters: Zeichen mindestens
+        motivation_txt: |
+          <strong>Wissen wann und wo ich als HelferIn gebraucht werde!</strong>
+          Erfahre wo Du gerade gebraucht wirst und melde Dich direkt online oder via der Where2Help Smartphone App an.
+          Wir freuen uns auf Dich!
+  ngos:
+    events:
+      index:
+        add_an_event: Event hinzufügen
+        address: Adresse
+        all: alle
+        filter_by: Filtern nach
+        order_by: Ordnen nach
+        past: vergangene
+        title: Titel
+        upcoming: zukünftige
+      show:
+        publish: Veröffentlichen
+        are_you_sure: Sind Sie sicher?
+        edit: Bearbeiten
+        delete: Löschen
+      form:
+        new: Neues Event
+        shifts: Schichten
+        add_shift: Schicht hinzufügen
+        save_shift: Event speichern
+        delete_shift: Schicht löschen
+        edit_event: Event aktualisieren
+        confirmed_so_far: "Bisher zugesagt: "
+        prohibited: "Fehler verhinderte(n), dass dieses Event gespeichert wurde."
+      messages:
+        created_successfully: Das Event wurde erfolgreich erzeugt.
+        updated_successfully: Das Event wurde erfolgreich aktualisiert.
+    sessions:
+      new:
+        please_login: Als NGO anmelden
+        login: Anmelden
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als HelferIn Anmelden
+    registrations:
+      new:
+        sign_up: Als NGO Registrieren
+        profile: NGO-Profil
+        min_characters: Zeichen mindestens
+        motivation_txt: |
+          <strong>Wissen wann und wo wie viele Helfer erscheinen!</strong>
+          Veröffentlich Eure Hilfsanfragen mit genauen Angaben, wann, wo wie viele Helfer gebraucht werden. Teilt Schichten ein, für die sich HelferInnen online oder via der Where2Help Smartphone App melden.
+          Ihr behaltet immer den Überblick wie viele HelferInnen bereits ihre Hilfe zugesagt haben.
+          Wir freuen uns auf Euch!
+  pages:
+    home:
+      subline_user: Wissen wann und wo ich als HelferIn gebraucht werde
+      subline_ngo: Wissen wann und wo wie viele HelferIn erscheinen
+      headline: Freiwillige Hilfe organisieren leicht gemacht
+      sign_up_ngo: Als NGO Registrieren
+      sign_up_user: Als HelferIn Registrieren
+      login_user: Als HelferIn Anmelden
+      login_ngo: Als NGO Anmelden
+  shifts:
+    opt_in_btn: Helfen
+    opt_out_btn: Absagen
+    are_you_sure: Willst Du wirklich absagen?
+    load_more: Mehr anzeigen
+    thank_you: Danke!
+    please_come: Bitte kommen Sie um
+    schedule:
+      your_shifts: |+
+        <h3>Deine Schichten</h3>
+        <p>Sei bitte pünklich. Falls Du doch nicht kommen kannst, sag bitte frühzeitig ab.</p>
+      past: vergangene
+      upcoming: bevorstehende
+      all: alle
+    opt_out:
+      notice: Schade...
