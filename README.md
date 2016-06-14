@@ -64,11 +64,26 @@ If you want to skip continuous integration for your commit, add this to your com
 
 ## Styleguide
 
+### Translations
+* the application is bilingual: *English* & *German*
+* everything visible to end users needs to be translated
+  * views
+  * ActiveRecord model-names and -attributes
+  * error messages
+* translation strings are kept in `/config/locales`
+* please stick to the naming conventions:
+  * model-names and model-attributes go into `active_record.<locale>.yml`
+  * view-specific translations go into `views.<locale>.yml`
+  * human language defaults go into `defaults.<locale>.yml`
+  * if a gem needs a certain amount of translation strings, these go into `<gem_name>.<locale>.yml`
+  * anything else *(helpers, etc.)* goes into `<locale>.yml`
+
 ### CSS
 
 * use the .scss syntax
 * use `@import` over to import styles in `application.css.scss`
-* keep to the conventions of the `application.css.scss` manifest: the granularity of rules increases top to bottom *(general styles on top, more specific ones last)*
-* global rules go into `base/`
-* page specific styles into `pages/`
-* site-wide used component rules go into `base/components.scss` *(extract a components/ directory if it gets to big)*
+* keep to the conventions of the `application.css.scss` manifest:
+* the granularity of rules increases top to bottom *(general styles on top, more specific ones last)*
+  * global rules go into `base/`
+  * page specific styles into `pages/`
+  * site-wide used component rules go into `base/components.scss` *(extract a components/ directory if it gets to big)*
