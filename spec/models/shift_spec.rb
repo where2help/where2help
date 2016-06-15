@@ -20,4 +20,23 @@ RSpec.describe Shift, type: :model do
       end
     end
   end
+  describe 'scopes' do
+    describe '.past' do
+      let!(:upcoming) { create :shift, starts_at: Time.now+1.day }
+      let!(:oldest) { create :shift_skip_validate, starts_at: Time.now-1.day }
+      let!(:old) { create :shift_skip_validate, starts_at: Time.now-12.hours }
+      let!(:middle) { create :shift_skip_validate, starts_at: Time.now-2.hours }
+      let!(:newest) { create :shift_skip_validate, starts_at: Time.now-1.hour }
+
+      subject(:past_shifts) { Shift.past }
+
+      it 'excludes upcoming shifts' do
+        expect(past_shifts).not_to include upcoming
+      end
+
+      it 'sorts shifts by starts_at time ascending' do
+        expect(past_shifts.to_a).to eq [newest, middle, old, oldest]
+      end
+    end
+  end
 end

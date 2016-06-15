@@ -33,8 +33,7 @@ RSpec.describe Event, type: :model do
 
     before do
       create :shift, :full, event: event, starts_at: Time.now+1.hour
-      past_shift = build :shift, :past, event: event, starts_at: Time.now+1.hour
-      past_shift.save(validate: false)
+      create :shift_skip_validate, :past, event: event, starts_at: Time.now+1.hour
     end
 
     it 'returns starts_at of first available_shift' do
@@ -48,11 +47,7 @@ RSpec.describe Event, type: :model do
   describe '#available_shifts' do
     let(:event) { create :event }
     let(:available_shift) { create :shift, event: event }
-    let(:past_shift) do
-      past_shift = build :shift, :past, event: event
-      past_shift.save(validate: false)
-      return past_shift
-    end
+    let(:past_shift) { create :shift_skip_validate, :past, event: event }
     let(:full_shift) { create :shift, :full, event: event }
 
     subject(:available_shifts) { event.available_shifts }
@@ -72,11 +67,7 @@ RSpec.describe Event, type: :model do
   describe '#user_opted_in?' do
     let(:event) { create :event }
     let(:available_shift) { create :shift, event: event }
-    let(:past_shift) do
-      past_shift = build :shift, :past, event: event
-      past_shift.save(validate: false)
-      return past_shift
-    end
+    let(:past_shift) { create :shift_skip_validate, :past, event: event }
     let(:user) { create :user }
 
     subject(:user_in?) { event.user_opted_in? user }
@@ -100,8 +91,7 @@ RSpec.describe Event, type: :model do
 
     before do
       create_list :shift, 2, event: event, volunteers_needed: 2, volunteers_count: 1
-      my_past_shift = build :shift, :past, event: event, volunteers_needed: 100
-      my_past_shift.save(validates: false)
+      create :shift_skip_validate, :past, event: event, volunteers_needed: 100
       create :shift, event: event, volunteers_needed: 100, volunteers_count: 100
     end
 

@@ -20,7 +20,7 @@ RSpec.describe EventsController, type: :controller do
       let(:pending_event) { create :event }
       let(:past_event) do
         past_event = build :event_with_past_shift
-        past_event.save(validate: false) 
+        past_event.save(validate: false)
       end
       let(:full_event) { create :event_with_full_shift }
       let!(:events) { create_list :event, 25, :published }
