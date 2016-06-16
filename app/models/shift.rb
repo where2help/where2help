@@ -9,11 +9,16 @@ class Shift < ApplicationRecord
   validates :volunteers_needed, :starts_at, :ends_at, presence: true
   validate :not_in_past
 
-  scope :is_not_full, -> { where("volunteers_needed > volunteers_count") }
+  scope :is_not_full, -> { where('volunteers_needed > volunteers_count') }
   scope :past, -> { where('starts_at < NOW()').reorder(starts_at: :desc) }
   scope :upcoming, -> { where('starts_at > NOW()') }
 
   before_destroy :notify_volunteers, prepend: true
+
+  def self.filter(scope=nil)
+    scope ||= :upcoming
+    send(scope)
+  end
 
   private
 
