@@ -11,7 +11,7 @@ class ShiftsController < ApplicationController
     set_shift
     @shift.users << current_user
   rescue ActiveRecord::RecordInvalid => e
-    redirect_to @shift.event, alert: e.message
+    redirect_to @shift.event
   end
 
   def opt_out
@@ -25,9 +25,9 @@ class ShiftsController < ApplicationController
     when :past
       @shifts = current_user.shifts.past.page(params[:page]).per(10)
     when :all
-      @shifts = current_user.shifts.order(:starts_at).page(params[:page]).per(10)
+      @shifts = current_user.shifts.page(params[:page]).per(10)
     else
-      @shifts = current_user.shifts.where('starts_at > NOW()').order(:starts_at).page(params[:page]).per(10)
+      @shifts = current_user.shifts.upcoming.page(params[:page]).per(10)
     end
   end
 
