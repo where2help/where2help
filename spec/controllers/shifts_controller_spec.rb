@@ -12,7 +12,7 @@ RSpec.describe ShiftsController, type: :controller do
       before { sign_in create(:user) }
 
       context 'when published event' do
-        let(:shift) { create :shift, event: create(:event, :published) }
+        let(:shift) { create :shift, event: create(:event, :published, :with_shift) }
 
         before { get :show, params: { id: shift } }
 
@@ -151,10 +151,7 @@ RSpec.describe ShiftsController, type: :controller do
     context 'when logged in' do
       let(:user) { create :user }
       let(:upcoming_shifts) { create_list :shift, 10, starts_at: Date.tomorrow }
-      let(:past_shifts) do
-        past_shifts = build_list :shift, 10, starts_at: Date.yesterday
-        past_shifts.each {|shift| shift.save(validate: false)} 
-      end
+      let(:past_shifts) { create_list :shift, 10, :skip_validate, starts_at: Date.yesterday }
 
       before do
         sign_in user

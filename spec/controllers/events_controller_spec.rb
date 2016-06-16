@@ -17,14 +17,11 @@ RSpec.describe EventsController, type: :controller do
       end
     end
     context 'when logged in as user' do
-      let(:pending_event) { create :event }
-      let(:past_event) do
-        past_event = build :event_with_past_shift
-        past_event.save(validate: false)
-      end
-      let(:full_event) { create :event_with_full_shift }
-      let!(:events) { create_list :event, 25, :published }
-      let!(:next_events) { create_list :event, 25, :published }
+      let(:pending_event) { create :event, :with_shift }
+      let(:past_event) { create :event, :with_past_shift, :skip_validate }
+      let(:full_event) { create :event, :with_full_shift }
+      let!(:events) { create_list :event, 25, :published, :with_shift }
+      let!(:next_events) { create_list :event, 25, :published, :with_shift }
       before { sign_in create(:user) }
 
       context 'when html request' do
@@ -84,7 +81,7 @@ RSpec.describe EventsController, type: :controller do
       before { sign_in create(:user) }
 
       context 'when pending event' do
-        let(:event) { create :event }
+        let(:event) { create :event, :with_shift }
 
         it 'throws record not found error' do
           expect{
@@ -93,7 +90,7 @@ RSpec.describe EventsController, type: :controller do
         end
       end
       context 'when published event' do
-        let(:event) { create :event, :published }
+        let(:event) { create :event, :published, :with_shift }
 
         before { get :show, params: { id: event } }
 

@@ -11,7 +11,7 @@ RSpec.describe Event, type: :model do
   it { is_expected.to accept_nested_attributes_for :shifts }
 
   describe 'state' do
-    let(:event) { create :event }
+    let(:event) { create :event, :with_shift }
 
     it 'has initial state :pending' do
       expect(event).to be_pending
@@ -22,12 +22,12 @@ RSpec.describe Event, type: :model do
     end
 
     it 'cannot transition from :published to anywhere' do
-      event = create :event, :published
+      event = create :event, :published, :with_shift
       expect(event).to_not allow_transition_to :pending
     end
   end
   describe '#starts_at and #ends_at' do
-    let!(:event) { create :event }
+    let!(:event) { create :event, :with_shift }
     let!(:first_shift) { create :shift, event: event, starts_at: Time.now+1.hour }
     let!(:last_shift) { create :shift, event: event, ends_at: Time.now+3.days }
 
@@ -45,7 +45,7 @@ RSpec.describe Event, type: :model do
     end
   end
   describe '#available_shifts' do
-    let(:event) { create :event }
+    let(:event) { create :event, :with_shift }
     let(:available_shift) { create :shift, event: event }
     let(:past_shift) { create :shift, :skip_validate, :past, event: event }
     let(:full_shift) { create :shift, :full, event: event }
@@ -65,7 +65,7 @@ RSpec.describe Event, type: :model do
     end
   end
   describe '#user_opted_in?' do
-    let(:event) { create :event }
+    let(:event) { create :event, :with_shift }
     let(:available_shift) { create :shift, event: event }
     let(:past_shift) { create :shift, :skip_validate, :past, event: event }
     let(:user) { create :user }
@@ -87,7 +87,7 @@ RSpec.describe Event, type: :model do
     end
   end
   describe '#volunteers_needed and #volunteers_count' do
-    let(:event) { create :event }
+    let(:event) { create :event, :with_shift }
 
     before do
       create_list :shift, 2, event: event, volunteers_needed: 2, volunteers_count: 1

@@ -9,8 +9,8 @@ RSpec.describe Ngos::EventsController, type: :controller do
   describe "GET #index" do
     let(:ngo) { create :ngo, :confirmed }
     let(:other_ngo) { create :ngo, :confirmed }
-    let(:other_event) { create(:event, ngo: other_ngo) }
-    let(:own_events) { create_list(:event, 4, ngo: ngo) }
+    let(:other_event) { create(:event, :with_shift, ngo: other_ngo) }
+    let(:own_events) { create_list(:event, 4, :with_shift, ngo: ngo) }
 
     context 'given a signed in NGO' do
       before do
