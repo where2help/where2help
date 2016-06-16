@@ -7,6 +7,7 @@ class Shift < ApplicationRecord
 
   default_scope { order(starts_at: :asc) }
   scope :is_not_full, -> { where("volunteers_needed > volunteers_count") }
+  scope :past, -> { where('starts_at < NOW()').reorder(starts_at: :desc) }
 
   before_destroy :notify_volunteers, prepend: true
 
