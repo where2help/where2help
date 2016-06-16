@@ -16,7 +16,7 @@
       <%= flash_messages %>
       <%= yield %>
     </main>
-    <footer>
+    <footer class="navbar-fixed-bottom">
       <div class="container text-center">
         <% unless current_user %>
           <% if I18n.locale == :en %>
