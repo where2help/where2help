@@ -185,26 +185,26 @@ RSpec.describe ShiftsController, type: :controller do
           end
         end
       end
-      context 'when js request' do
-        let(:next_upcoming_shifts) { create_list :shift, 10, :with_event, starts_at: Date.tomorrow+1.day }
-
-        before do
-          next_upcoming_shifts.each{|s| create :shifts_user, user: user, shift: s}
-        end
-
-        context 'without filter' do
-          it 'assigns next 10 shifts' do
-            get :schedule, xhr: true, params: { page: 2 }
-            expect(assigns :shifts).to match_array next_upcoming_shifts
-          end
-        end
-        context 'with :all filter' do
-          it 'assigns next 10 overall' do
-            get :schedule, xhr: true, params: { page: 2, filter: :all }
-            expect(assigns :shifts).to match_array upcoming_shifts
-          end
-        end
-      end
+      # context 'when js request' do
+      #   let(:next_upcoming_shifts) { create_list :shift, 10, :with_event, starts_at: Date.tomorrow+1.day }
+      #
+      #   before do
+      #     next_upcoming_shifts.each{|s| create :shifts_user, user: user, shift: s}
+      #   end
+      #
+      #   context 'without filter' do
+      #     it 'assigns next 10 shifts' do
+      #       get :schedule, xhr: true, params: { page: 2 }
+      #       expect(assigns :shifts).to match_array next_upcoming_shifts
+      #     end
+      #   end
+      #   context 'with :all filter' do
+      #     it 'assigns next 10 overall' do
+      #       get :schedule, xhr: true, params: { page: 2, filter: :all }
+      #       expect(assigns :shifts).to match_array upcoming_shifts
+      #     end
+      #   end
+      # end
     end
   end
 end

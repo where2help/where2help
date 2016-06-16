@@ -21,14 +21,8 @@ class ShiftsController < ApplicationController
   end
 
   def schedule
-    case params[:filter].try(:to_sym)
-    when :past
-      @shifts = current_user.shifts.past.page(params[:page])
-    when :all
-      @shifts = current_user.shifts.page(params[:page])
-    else
-      @shifts = current_user.shifts.upcoming.page(params[:page])
-    end
+    scope = params[:filter].try(:to_sym)
+    @shifts = current_user.shifts.filter(scope).page(params[:page])
   end
 
   def cal
