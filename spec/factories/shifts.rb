@@ -16,7 +16,7 @@ FactoryGirl.define do
       volunteers_count 10
     end
 
-    factory :shift_skip_validate do
+    trait :skip_validate do
       to_create {|instance| instance.save(validate: false) }
     end
   end

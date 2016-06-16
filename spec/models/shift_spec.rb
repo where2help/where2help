@@ -23,10 +23,10 @@ RSpec.describe Shift, type: :model do
   describe 'scopes' do
     describe '.past' do
       let!(:upcoming) { create :shift, starts_at: Time.now+1.day }
-      let!(:oldest) { create :shift_skip_validate, starts_at: Time.now-1.day }
-      let!(:old) { create :shift_skip_validate, starts_at: Time.now-12.hours }
-      let!(:middle) { create :shift_skip_validate, starts_at: Time.now-2.hours }
-      let!(:newest) { create :shift_skip_validate, starts_at: Time.now-1.hour }
+      let!(:oldest) { create :shift, :skip_validate, starts_at: Time.now-1.day }
+      let!(:old) { create :shift, :skip_validate, starts_at: Time.now-12.hours }
+      let!(:middle) { create :shift, :skip_validate, starts_at: Time.now-2.hours }
+      let!(:newest) { create :shift, :skip_validate, starts_at: Time.now-1.hour }
 
       subject(:past_shifts) { Shift.past }
 
