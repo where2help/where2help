@@ -23,17 +23,20 @@ class Api::V1::UsersController < Api::V1::ApiController
     @user = User.find_by(email: params[:email])
 
     unless @user
-      render json: {logged_in: false}, status: :not_found
+      render json: {logged_in: false }, status: :unauthorized
+      # render json: {logged_in: false}, status: :not_found
       return
     end
 
    unless @user.confirmed_at.present?
-      render json: {logged_in: false, user: "not_confirmed"}, status: :forbidden
+      render json: {logged_in: false }, status: :unauthorized
+      # render json: {logged_in: false, user: "not_confirmed"}, status: :forbidden
       return
     end
 
     unless @user.valid_password?(params[:password])
-      render json: {logged_in: false, password: "wrong"}, status: :unauthorized
+      render json: {logged_in: false}, status: :unauthorized
+      # render json: {logged_in: false, password: "wrong"}, status: :unauthorized
       return
     end
 
