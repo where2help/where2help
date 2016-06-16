@@ -64,6 +64,10 @@ If you want to skip continuous integration for your commit, add this to your com
 
 ## Styleguide
 
+### Ruby / Rails
+* for Rails, follow the best practices of the [Rails Style Guide](https://github.com/bbatsov/rails-style-guide)
+* for Ruby code in general, follow the best practices of the [Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide)
+
 ### Translations
 * the application is bilingual: *English* & *German*
 * everything visible to end users needs to be translated

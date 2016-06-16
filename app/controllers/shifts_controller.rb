@@ -23,11 +23,11 @@ class ShiftsController < ApplicationController
   def schedule
     case params[:filter].try(:to_sym)
     when :past
-      @shifts = current_user.shifts.past.page(params[:page]).per(10)
+      @shifts = current_user.shifts.past.page(params[:page])
     when :all
-      @shifts = current_user.shifts.page(params[:page]).per(10)
+      @shifts = current_user.shifts.page(params[:page])
     else
-      @shifts = current_user.shifts.upcoming.page(params[:page]).per(10)
+      @shifts = current_user.shifts.upcoming.page(params[:page])
     end
   end
 
