@@ -25,7 +25,7 @@ RSpec.describe ShiftsController, type: :controller do
         end
       end
       context 'when pending event' do
-        let(:shift) { create :shift }
+        let(:shift) { create :shift, :with_event }
 
         it 'raises RecordNotFound error' do
           expect{
@@ -36,7 +36,13 @@ RSpec.describe ShiftsController, type: :controller do
     end
   end
   describe 'POST opt_in' do
-    let(:shift) { create :shift }
+    let!(:event) { create :event, :skip_validate }
+    let!(:shift) { create :shift, event: event }
+
+    # before do
+    #   event.save
+    #   shift.save
+    # end
 
     context 'when logged out' do
       it 'redirects to user sign_in' do
@@ -82,14 +88,14 @@ RSpec.describe ShiftsController, type: :controller do
 
         it 'redirect_to event' do
           post :opt_in, params: { shift_id: shift }
-          expect(response).to redirect_to shift.event
+          expect(response).to redirect_to event
         end
       end
     end
   end
 
   describe 'DELETE opt_out' do
-    let(:shift) { create :shift }
+    let(:shift) { create :shift, :with_event }
 
     context 'when logged out' do
       it 'redirects to user sign_in' do
@@ -150,8 +156,8 @@ RSpec.describe ShiftsController, type: :controller do
     end
     context 'when logged in' do
       let(:user) { create :user }
-      let(:upcoming_shifts) { create_list :shift, 10, starts_at: Date.tomorrow }
-      let(:past_shifts) { create_list :shift, 10, :skip_validate, starts_at: Date.yesterday }
+      let(:upcoming_shifts) { create_list :shift, 10, :with_event, starts_at: Date.tomorrow }
+      let(:past_shifts) { create_list :shift, 10, :with_event, :skip_validate, starts_at: Date.yesterday }
 
       before do
         sign_in user
@@ -180,7 +186,7 @@ RSpec.describe ShiftsController, type: :controller do
         end
       end
       context 'when js request' do
-        let(:next_upcoming_shifts) { create_list :shift, 10, starts_at: Date.tomorrow+1.day }
+        let(:next_upcoming_shifts) { create_list :shift, 10, :with_event, starts_at: Date.tomorrow+1.day }
 
         before do
           next_upcoming_shifts.each{|s| create :shifts_user, user: user, shift: s}
