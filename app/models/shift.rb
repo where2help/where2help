@@ -2,7 +2,7 @@ class Shift < ApplicationRecord
   default_scope { order(starts_at: :asc) }
   paginates_per 10
 
-  has_many :shifts_users
+  has_many :shifts_users, dependent: :destroy
   has_many :users, through: :shifts_users
   belongs_to :event
 
