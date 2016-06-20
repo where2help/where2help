@@ -6,10 +6,13 @@ RSpec.describe User, type: :model do
     expect(create :user).to be_valid
   end
 
-  it { is_expected.to have_many(:languages)}
-  it { is_expected.to have_many(:abilities)}
-  it { is_expected.to have_many(:shifts)}
-  it { is_expected.to define_enum_for(:locale).with([:de, :en])}
+  it { is_expected.to have_many(:languages_users).dependent(:destroy) }
+  it { is_expected.to have_many(:languages) }
+  it { is_expected.to have_many(:abilities_users).dependent(:destroy) }
+  it { is_expected.to have_many(:abilities) }
+  it { is_expected.to have_many(:shifts_users).dependent(:destroy) }
+  it { is_expected.to have_many(:shifts) }
+  it { is_expected.to define_enum_for(:locale).with([:de, :en]) }
 
   describe 'validations' do
     it { is_expected.to validate_presence_of :email }
