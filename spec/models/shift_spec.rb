@@ -20,6 +20,23 @@ RSpec.describe Shift, type: :model do
         }.to change { ActionMailer::Base.deliveries.count }.by 4
       end
     end
+    describe 'users' do
+      let(:shift) { create :shift, :with_event }
+      let(:user) { create :user }
+
+      before { shift.users << user }
+
+      it 'destroys join record on destroy' do
+        expect{
+          shift.destroy
+        }.to change{ShiftsUser.count}.by -1
+      end
+      it 'does not destroy user record on destroy' do
+        expect{
+          shift.destroy
+        }.not_to change{User.count}
+      end
+    end
   end
   describe 'scopes' do
     describe '.past' do
