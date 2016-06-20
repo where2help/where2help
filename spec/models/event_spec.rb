@@ -26,6 +26,16 @@ RSpec.describe Event, type: :model do
       expect(event).to_not allow_transition_to :pending
     end
   end
+  describe 'callbacks' do
+    let(:event) { create :event, :skip_validate }
+
+    it 'destroys shift record on destroy' do
+      create :shift, event: event
+      expect{
+        event.destroy
+      }.to change{Shift.count}.by -1
+    end
+  end
   describe '#starts_at and #ends_at' do
     let!(:event) { create :event, :with_shift }
     let!(:first_shift) { create :shift, event: event, starts_at: Time.now+1.hour }

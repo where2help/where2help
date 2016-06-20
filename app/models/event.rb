@@ -1,15 +1,6 @@
 class Event < ApplicationRecord
   include AASM
 
-  aasm :column => :state do
-    state :pending, :initial => true
-    state :published
-
-    event :publish do
-      transitions :from => :pending, :to => :published
-    end
-  end
-
   has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
   belongs_to :ngo
 
@@ -18,6 +9,15 @@ class Event < ApplicationRecord
   validates :shifts, presence: true
 
   accepts_nested_attributes_for :shifts, allow_destroy: true
+
+  aasm column: :state do
+    state :pending, initial: true
+    state :published
+
+    event :publish do
+      transitions from: :pending, to: :published
+    end
+  end
 
   def self.order_by_for_select
     [:address, :title]
