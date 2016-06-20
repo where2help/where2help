@@ -4,7 +4,6 @@
 //= require turbolinks
 //= require cocoon
 //= require moment
-// require bootstrap-datetimepicker
 //= require leaflet
 //= require moment/de
 //= require icheck.min
