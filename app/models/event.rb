@@ -1,8 +1,12 @@
 class Event < ApplicationRecord
   include AASM
 
-  has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
   belongs_to :ngo
+  has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
+  has_many :available_shifts, -> {
+    where('starts_at > NOW()').
+    where('volunteers_needed > volunteers_count') }, class_name: 'Shift'
+  has_many :future_shifts, -> { where('starts_at > NOW()') }, class_name: 'Shift'
 
   validates :title, length: { in: 1..100 }
   validates :address, presence: true
@@ -33,17 +37,6 @@ class Event < ApplicationRecord
 
   def ends_at
     available_shifts.last.try(:ends_at)
-  end
-
-  def available_shifts
-    shifts.
-      where('volunteers_needed > volunteers_count').
-      where('starts_at > NOW()')
-  end
-
-  def future_shifts
-    shifts.
-      where('starts_at > NOW()')
   end
 
   def user_opted_in?(user)
