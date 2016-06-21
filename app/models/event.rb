@@ -3,16 +3,21 @@ class Event < ApplicationRecord
 
   belongs_to :ngo
   has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
-  has_many :available_shifts, -> {
-    where('starts_at > NOW()').
-    where('volunteers_needed > volunteers_count') }, class_name: 'Shift'
-  has_many :future_shifts, -> { where('starts_at > NOW()') }, class_name: 'Shift'
+  has_many :available_shifts, -> { available }, class_name: 'Shift'
+  has_many :future_shifts, -> { upcoming }, class_name: 'Shift'
 
   validates :title, length: { in: 1..100 }
   validates :address, presence: true
   validates :shifts, presence: true
 
   accepts_nested_attributes_for :shifts, allow_destroy: true
+
+  scope :with_available_shifts, -> {
+    published.
+    includes(:available_shifts, :shifts).
+    where(id: Shift.available.pluck(:event_id).uniq).
+    order('shifts.starts_at ASC')
+  }
 
   aasm column: :state do
     state :pending, initial: true

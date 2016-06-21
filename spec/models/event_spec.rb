@@ -26,6 +26,7 @@ RSpec.describe Event, type: :model do
       expect(event).to_not allow_transition_to :pending
     end
   end
+
   describe 'callbacks' do
     let(:event) { create :event, :skip_validate }
 
@@ -36,6 +37,7 @@ RSpec.describe Event, type: :model do
       }.to change{Shift.count}.by -1
     end
   end
+
   describe 'associations' do
     describe '#available_shifts' do
       let(:event) { create :event, :with_shift }
@@ -58,6 +60,44 @@ RSpec.describe Event, type: :model do
       end
     end
   end
+
+  describe 'scopes' do
+    describe '.with_available_shifts' do
+      let(:pending_event) { create :event, :with_shift }
+      let(:full_event) { create :event, :skip_validate, :published }
+      let(:past_event) { create :event, :skip_validate, :published }
+      let(:third_event) { create :event, :skip_validate, :published }
+      let(:second_event) { create :event, :skip_validate, :published }
+      let(:first_event) { create :event, :skip_validate, :published }
+
+      subject(:events) { Event.with_available_shifts }
+
+      before do
+        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour
+        create :shift, event: first_event, starts_at: Time.now+1.hour
+        create :shift, event: second_event, starts_at: Time.now+2.hours
+        create :shift, :full, event: full_event
+        create :shift, event: third_event, starts_at: Time.now+3.hours
+      end
+
+      it 'excludes pending events' do
+        expect(events).not_to include pending_event
+      end
+
+      it 'excludes events with only full shifts' do
+        expect(events).not_to include full_event
+      end
+
+      it 'excludes events with only past shifts' do
+        expect(events).not_to include past_event
+      end
+
+      it 'returns events with available shifts ordered by their starts time' do
+        expect(events.to_a).to eq [first_event, second_event, third_event]
+      end
+    end
+  end
+
   describe '#starts_at and #ends_at' do
     let!(:event) { create :event, :with_shift }
     let!(:first_shift) { create :shift, event: event, starts_at: Time.now+1.hour }
@@ -76,6 +116,7 @@ RSpec.describe Event, type: :model do
       expect(event.ends_at.to_s).to eq last_shift.ends_at.to_s
     end
   end
+
   describe '#user_opted_in?' do
     let(:event) { create :event, :with_shift }
     let(:available_shift) { create :shift, event: event }
@@ -98,6 +139,7 @@ RSpec.describe Event, type: :model do
       expect(user_in?).to eq false
     end
   end
+
   describe '#volunteers_needed and #volunteers_count' do
     let(:event) { create :event, :with_shift }
 

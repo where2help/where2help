@@ -38,6 +38,7 @@ RSpec.describe Shift, type: :model do
       end
     end
   end
+
   describe 'scopes' do
     describe '.past' do
       let!(:upcoming) { create :shift, :with_event, starts_at: Time.now+1.day }
@@ -72,7 +73,43 @@ RSpec.describe Shift, type: :model do
         expect(shifts.to_a).to eq [earliest, middle, early]
       end
     end
+    describe '.not_full' do
+      let(:event) { create :event, :with_shift }
+      let(:available_shift) { create :shift, event: event }
+      let(:full_shift) { create :shift, :full, event: event }
+
+      subject(:shifts) { Shift.not_full }
+
+      it 'includes available shifts' do
+        expect(shifts).to include available_shift
+      end
+
+      it 'excludes full shifts' do
+        expect(shifts).not_to include full_shift
+      end
+    end
+    describe '#available' do
+      let(:event) { create :event, :with_shift }
+      let(:not_full) { create :shift, event: event }
+      let(:full) { create :shift, :full, event: event }
+      let(:past) { create :shift, :past, :skip_validate, event: event }
+
+      subject(:shifts) { Shift.available }
+
+      it 'includes upcoming not full shifts' do
+        expect(shifts).to include not_full
+      end
+
+      it 'excludes full shifts' do
+        expect(shifts).not_to include full
+      end
+
+      it 'excludes past shifts' do
+        expect(shifts).not_to include past
+      end
+    end
   end
+  
   describe '.filter' do
     it 'calls :upcoming scope when passing no param' do
       expect(Shift).to receive(:upcoming)
