@@ -17,7 +17,9 @@ class Shift < ApplicationRecord
   before_destroy :notify_volunteers, prepend: true
 
   def self.filter(scope=nil)
+    scopes = [:all, :past, :upcoming]
     scope ||= :upcoming
+    raise ArgumentError.new('Invalid scope given') unless scopes.include?(scope)
     send(scope)
   end
 
