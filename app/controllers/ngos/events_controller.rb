@@ -1,11 +1,9 @@
 class Ngos::EventsController < ApplicationController
-  before_action :authenticate_ngo!, only: [:new, :create, :index]
-
+  before_action :authenticate_ngo!
 
   def show
-    @event = Event.find(params[:id])
+    set_ngo_event
   end
-
 
   def index
     @events = current_ngo.events
@@ -21,14 +19,12 @@ class Ngos::EventsController < ApplicationController
     end
   end
 
-
   def new
     @event = Event.new
     t = Time.now + 15.minutes
     t = t - t.sec - t.min%15*60
     @event.shifts.build(volunteers_needed: 1, starts_at: t, ends_at: t + 2.hours)
   end
-
 
   def create
     @event = Event.new(event_params)
@@ -40,14 +36,12 @@ class Ngos::EventsController < ApplicationController
     end
   end
 
-
   def edit
-    @event = Event.includes(shifts: [:users]).find(params[:id])
+    @event = current_ngo.events.includes(shifts: [:users]).find(params[:id])
   end
 
-
   def update
-    @event = Event.find(params[:id])
+    set_ngo_event
     if @event.update_attributes(event_params)
       redirect_to [:ngos, @event], notice: t('ngos.events.messages.updated_successfully')
     else
@@ -55,16 +49,13 @@ class Ngos::EventsController < ApplicationController
     end
   end
 
-
   def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
+    set_ngo_event.destroy
     redirect_to action: :index
   end
 
-
   def publish
-    @event = Event.find(params[:id])
+    set_ngo_event
     if @event.publish!
       redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich publiziert.'
     else
@@ -100,5 +91,9 @@ class Ngos::EventsController < ApplicationController
       :title, :description, :address, :lat, :lng,
       shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at, :_destroy]
     )
+  end
+
+  def set_ngo_event
+    @event = current_ngo.events.find(params[:id])
   end
 end
