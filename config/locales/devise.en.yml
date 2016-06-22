@@ -22,6 +22,7 @@ en:
       invalid: Invalid email or password.
       last_attempt: You have one more attempt before your account is locked.
       locked: Your account is locked.
+      not_admin_confirmed: NGO account not confirmed by administrator.
       not_found_in_database: Invalid email address or password.
       timeout: Your session expired. Please sign in again to continue.
       unauthenticated: You need to sign in or sign up before continuing.
