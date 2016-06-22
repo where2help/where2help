@@ -11,7 +11,7 @@ $(document).on "cocoon:after-insert", (event, insertedItem) ->
   selects[3].value = last_selects[8].value
 
   # hour overflow handling
-  endhour = (2 * parseInt(last_selects[8].value) - parseInt(last_selects[3].value)) % 24
+  endhour = ((2 * parseInt(last_selects[8].value) - parseInt(last_selects[3].value)) % 24 + 24) % 24
 
   # day overflow handling
   selects[5].value = parseInt(selects[5].value) + 1 if (endhour < parseInt(last_selects[8].value))
