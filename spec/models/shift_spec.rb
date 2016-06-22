@@ -109,7 +109,7 @@ RSpec.describe Shift, type: :model do
       end
     end
   end
-  
+
   describe '.filter' do
     it 'calls :upcoming scope when passing no param' do
       expect(Shift).to receive(:upcoming)
@@ -127,10 +127,10 @@ RSpec.describe Shift, type: :model do
       expect(Shift).to receive(:all)
       Shift.filter(:all)
     end
-    it 'raises NoMethodError when passing a non-existing scope' do
+    it 'raises ArgumentError when passing a non-existing scope' do
       expect{
         Shift.filter(:some_random_crap123)
-      }.to raise_error NoMethodError
+      }.to raise_error ArgumentError
     end
   end
 end
