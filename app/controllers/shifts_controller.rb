@@ -8,15 +8,13 @@ class ShiftsController < ApplicationController
   end
 
   def opt_in
-    set_shift
-    @shift.users << current_user
+    set_shift.users << current_user
   rescue ActiveRecord::RecordInvalid => e
     redirect_to @shift.event
   end
 
   def opt_out
-    set_shift
-    @shift.shifts_users.find_by_user_id(current_user).try(:destroy)
+    current_user.shifts.try(:delete, set_shift)
     redirect_to schedule_path, notice: t('.notice')
   end
 
