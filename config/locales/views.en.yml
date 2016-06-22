@@ -94,8 +94,8 @@ en:
       login_user: Login as user
       login_ngo: Login as NGO
   shifts:
-    opt_in: I'm In
-    opt_out: Can't Make It
+    opt_in_btn: I'm In
+    opt_out_btn: Can't Make It
     are_you_sure: Are you sure you can't make it?
     load_more: Show more
     thank_you: Thank you! Looking forward to have you onboard.
