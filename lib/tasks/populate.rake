@@ -2,6 +2,8 @@ namespace :db do
   require "net/http"
   require "uri"
   require 'json'
+  require "faker"
+  Faker::Config.locale = :de
 
   desc 'Populate DB with sample data'
   task populate: :environment do

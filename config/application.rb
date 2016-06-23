@@ -28,7 +28,5 @@ module Where2help
     config.i18n.available_locales = [:de, :en]
     config.i18n.default_locale = :de
     config.time_zone = 'Vienna'
-
-    Faker::Config.locale = :de
   end
 end
