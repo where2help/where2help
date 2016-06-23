@@ -20,11 +20,11 @@
       <div class="container text-center">
         <% unless current_user %>
           <% if I18n.locale == :en %>
-             <%= link_to url_for(locale: :de, action: request.parameters['action']) do %>
-               <span class="badge badge-default">Bevorzugen Sie Deutsch?</span>
+             <%= link_to(request.get? ? url_for(locale: :de, action: request.parameters['action']) : root_path(locale: :de)) do %>
+             <span class="badge badge-default">Bevorzugen Sie Deutsch?</span>
              <% end %>
           <% else %>
-            <%= link_to url_for(locale: :en, action: request.parameters['action']) do %>
+            <%= link_to(request.get? ? url_for(locale: :en, action: request.parameters['action']) : root_path(locale: :en)) do %>
               <span class="badge badge-default">Do you prefer English?</span>
             <% end %>
           <% end %>
