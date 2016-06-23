@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'controllers/shared/ngos_controller'
 
 RSpec.describe Ngos::EventsController, type: :controller do
 
@@ -7,40 +8,98 @@ RSpec.describe Ngos::EventsController, type: :controller do
   end
 
   describe "GET index" do
-    let(:ngo) { create :ngo, :confirmed }
-    let(:other_ngo) { create :ngo, :confirmed }
-    let(:other_event) { create(:event, :with_shift, ngo: other_ngo) }
-    let(:own_events) { create_list(:event, 4, :with_shift, ngo: ngo) }
 
-    context 'not signed in' do
-      it 'redirects to ngo sign_in' do
-        get :index
-        expect(response).to redirect_to new_ngo_session_path
-      end
-    end
+    it_behaves_like :ngos_index
+
     context 'given a signed in NGO' do
-      before do
-        sign_in :ngo, ngo
-      end
+      let(:ngo) { create :ngo, :confirmed }
 
-      it "@events includes the signed in ngo's events" do
-        get :index
-        expect(assigns(:events)).to match_array(own_events)
+      before { sign_in :ngo, ngo }
+
+      context 'when no events yet' do
+        before { get :index }
+
+        it 'assigns empty @events' do
+          expect(assigns :events).to be_empty
+        end
+        it 'renders :index' do
+          expect(response).to render_template 'ngos/events/index'
+        end
       end
-      it "@events does not include the other ngo's events" do
-        get :index
-        expect(assigns(:events)).to_not include(other_event)
+      context 'with events' do
+        let!(:own_events) { create_list(:event, 4, :with_shift, ngo: ngo) }
+
+        context 'when no filter parameters given' do
+          let(:other_ngo) { create :ngo, :confirmed }
+          let!(:other_event) { create(:event, :with_shift, ngo: other_ngo) }
+
+          before { get :index }
+
+          it "@events includes the signed in ngo's events" do
+            expect(assigns :events).to match_array own_events
+          end
+          it "@events does not include the other ngo's events" do
+            expect(assigns :events).to_not include other_event
+          end
+          it 'renders :index' do
+            expect(response).to render_template 'ngos/events/index'
+          end
+        end
+        context 'with valid filter parameter' do
+          let!(:past_event) { create(:event, :with_past_shift, :skip_validate, ngo: ngo) }
+
+          it 'assigns only past events for filter_by :past' do
+            get :index, params: { filter_by: 'past' }
+            expect(assigns :events).to match_array [past_event]
+          end
+          it 'assigns only upcoming events for filter_by :upcoming' do
+            get :index, params: { filter_by: 'upcoming' }
+            expect(assigns :events).to match_array own_events
+          end
+          it 'assigns all events for filter_by :all' do
+            get :index, params: { filter_by: 'all' }
+            expect(assigns :events).to match_array (own_events << past_event)
+          end
+          it 'assigns all events for filter_by nil' do
+            get :index, params: { filter_by: '' }
+            expect(assigns :events).to match_array (own_events << past_event)
+          end
+        end
+        context 'when invalid filter parameter given' do
+          it 'raises an error' do
+            expect{
+              get :index, params: { filter_by: 'some_random_string' }
+            }.to raise_error ArgumentError
+          end
+        end
+        context 'when invalid order parameter given' do
+          it 'raises an error' do
+            expect{
+              get :index, params: { order_by: 'some_random_string' }
+            }.to raise_error ArgumentError
+          end
+        end
+        context 'with valid order_by and filter_by parameter' do
+          let!(:last_event) { create(:event, :with_shift, :skip_validate, ngo: ngo, title: 'A'*100) }
+          let(:params) {{ filter_by: 'upcoming', order_by: 'title' }}
+
+          before { get :index, params: params }
+
+          it 'returns all filtered events' do
+            expect(assigns :events).to match_array (own_events << last_event)
+          end
+          it 'returns events ordered' do
+            expect(assigns(:events).first).to eq last_event
+          end
+        end
       end
     end
   end
 
   describe 'GET show' do
-    context 'when not signed in' do
-      it 'redirects to ngo sign_in' do
-        get :show, params: { id: 1 }
-        expect(response).to redirect_to new_ngo_session_path
-      end
-    end
+
+    it_behaves_like :ngos_show
+
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
 
