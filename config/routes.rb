@@ -30,6 +30,7 @@ Rails.application.routes.draw do
           post 'login'
           delete 'unregister'
           get 'logout'
+          delete 'logout'
           post 'change_password'
           post 'send_reset'
           post 'resend_confirmation'
