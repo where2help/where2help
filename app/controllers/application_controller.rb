@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_locale
-    I18n.locale = current_user.try(:locale) || params[:locale] || I18n.default_locale
+    locale_param = I18n.available_locales.map(&:to_s).include?(params[:locale]) ? params[:locale] : nil
+    I18n.locale = current_user.try(:locale) || locale_param || I18n.default_locale
   end
 
   def authenticate_admin!
