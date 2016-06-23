@@ -96,6 +96,60 @@ RSpec.describe Event, type: :model do
         expect(events.to_a).to eq [first_event, second_event, third_event]
       end
     end
+    describe '.upcoming, .past' do
+      let(:upcoming_event) { create :event, :skip_validate }
+      let(:past_event) { create :event, :skip_validate }
+
+      before do
+        create :shift, event: upcoming_event, starts_at: Time.now+1.hour
+        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour
+      end
+
+      describe 'upcoming' do
+        subject(:events) { Event.upcoming }
+
+        it 'includes events with upcoming shifts' do
+          expect(events).to include upcoming_event
+        end
+        it 'excludes events with past shifts' do
+          expect(events).not_to include past_event
+        end
+      end
+      describe 'past' do
+        subject(:events) { Event.past }
+
+        it 'includes events with past shifts' do
+          expect(events).to include past_event
+        end
+        it 'excludes events with upcoming shifts' do
+          expect(events).not_to include upcoming_event
+        end
+      end
+    end
+  end
+
+  describe '.filter' do
+    it 'calls :all scope when passing no params' do
+      expect(Event).to receive(:all)
+      Event.filter
+    end
+    it 'calls :all scope when passing nil' do
+      expect(Event).to receive(:all)
+      Event.filter(nil)
+    end
+    it 'calls :past when passing :past' do
+      expect(Event).to receive(:past)
+      Event.filter(:past)
+    end
+    it 'calls :upcoming when passing :upcoming' do
+      expect(Event).to receive(:upcoming)
+      Event.filter(:upcoming)
+    end
+    it 'raises ArgumentError when passing a non-existing scope' do
+      expect{
+        Event.filter(:some_random_crap123)
+      }.to raise_error ArgumentError
+    end
   end
 
   describe '#starts_at and #ends_at' do

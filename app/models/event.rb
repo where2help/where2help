@@ -18,6 +18,8 @@ class Event < ApplicationRecord
     where(id: Shift.available.pluck(:event_id).uniq).
     order('shifts.starts_at ASC')
   }
+  scope :upcoming, -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
+  scope :past, -> { where(id: Shift.past.pluck(:event_id).uniq) }
 
   aasm column: :state do
     state :pending, initial: true
@@ -26,6 +28,13 @@ class Event < ApplicationRecord
     event :publish do
       transitions from: :pending, to: :published
     end
+  end
+
+  def self.filter(scope=nil, order=nil)
+    scopes = [:all, :past, :upcoming]
+    scope ||= :all
+    raise ArgumentError.new('Invalid scope given') unless scopes.include?(scope)
+    send(scope).try(:order_by, order)
   end
 
   def self.order_by_for_select
@@ -63,5 +72,13 @@ class Event < ApplicationRecord
 
   def ngo_volunteers_count
     shifts.map(&:volunteers_count).inject(:+)
+  end
+
+  private
+
+  def self.order_by(order)
+    orders = [nil, :address, :title]
+    raise ArgumentError.new('Invalid order key given') unless orders.include?(order)
+    send(:order, order)
   end
 end
