@@ -293,7 +293,7 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   pg (~> 0.18)
   puma
-  rails (>= 5.0.0.RC2, < 5.1)
+  rails (>= 5.0.0.beta4, < 5.1)
   rails-controller-testing
   rails_12factor (~> 0.0.3)
   rails_autolink (~> 1.1, >= 1.1.6)
