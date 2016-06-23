@@ -6,8 +6,6 @@
   </div>
   <div class="col-sm-10">
     <%= form_tag ngos_events_path, method: :get, id: 'filter-form', class: 'form-inline' do %>
-      <%= hidden_field_tag :filter, true %>
-
       <div class="form-group">
         <%= select_tag :order_by,
           options_for_select({t(".address") => :address, t(".title") => :title}, params[:order_by]),

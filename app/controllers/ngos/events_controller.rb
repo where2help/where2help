@@ -6,17 +6,7 @@ class Ngos::EventsController < ApplicationController
   end
 
   def index
-    @events = current_ngo.events
-    filter_by = params[:filter_by]
-    if filter_by == 'upcoming'
-      @events = @events.where(id: Shift.where("starts_at >= ?", Time.now).pluck(:event_id).uniq)
-    elsif filter_by == 'past'
-      @events = @events.where(id: Shift.where("starts_at < ?", Time.now).pluck(:event_id).uniq)
-    end
-    order_by = params[:order_by]
-    if order_by
-      @events = @events.order(order_by)
-    end
+    @events = current_ngo.events.filter(*filter_params)
   end
 
   def new
@@ -85,6 +75,13 @@ class Ngos::EventsController < ApplicationController
   end
 
   private
+
+  def filter_params
+    [
+      (params[:filter_by].present? && params[:filter_by].to_sym) || nil,
+      (params[:order_by].present? && params[:order_by].to_sym) || nil
+    ]
+  end
 
   def event_params
     params.require(:event).permit(
