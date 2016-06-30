@@ -2,15 +2,13 @@ require 'rails_helper'
 require 'controllers/shared/ngos_controller'
 
 RSpec.describe Ngos::EventsController, type: :controller do
-  before { @request.env['devise.mapping'] = Devise.mappings[:ngo] }
-
   describe 'GET index' do
     it_behaves_like :ngos_index
 
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
 
-      before { sign_in :ngo, ngo }
+      before { sign_in ngo, scope: :ngo }
 
       context 'without events' do
         before { get :index }
@@ -98,7 +96,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
 
-      before { sign_in ngo }
+      before { sign_in ngo, scope: :ngo }
 
       context 'when owning the event' do
         let(:event) { create :event, :with_shift, ngo: ngo }
@@ -127,8 +125,10 @@ RSpec.describe Ngos::EventsController, type: :controller do
   describe 'GET new' do
     it_behaves_like :ngos_new
     context 'given a signed in confirmed ngo' do
+      let(:ngo) { create :ngo, :confirmed }
+
       before do
-        sign_in create :ngo, :confirmed
+        sign_in ngo, scope: :ngo
         get :new
       end
 
@@ -144,22 +144,15 @@ RSpec.describe Ngos::EventsController, type: :controller do
   end
 
   describe 'POST create' do
-    context 'when signed in as user' do
-      before { sign_in create(:user) }
-
-      it 'redirects to ngo login with flash' do
-        post :create, params: {}
-        expect(response).to redirect_to new_ngo_session_path
-        expect(flash[:alert]).to be_present
-      end
+    it_behaves_like :ngos_create
     end
     context 'when signed in as NGO' do
       let(:ngo) { create :ngo, :confirmed }
 
-      before { sign_in ngo }
+      before { sign_in ngo, scope: :ngo }
 
       context 'with invalid params' do
-        let(:params) {{event: {title: ''}}}
+        let(:params) {{ event: {title: ''}} }
         it 'does not create new event record' do
           expect{
             post :create, params: params
@@ -171,7 +164,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
         end
         it 'assigns @event the current signed in ngo' do
           post :create, params: params
-          expect(assigns(:event).ngo).to eq(ngo)
+          expect(assigns(:event).ngo).to eq ngo
         end
         it 'renders :new' do
           post :create, params: params
@@ -212,7 +205,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
 
-      before { sign_in ngo }
+      before { sign_in ngo, scope: :ngo }
 
       context 'when owning the event' do
         let(:event) { create :event, :with_shift, ngo: ngo }
@@ -249,7 +242,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
       let(:ngo) { create :ngo, :confirmed }
       let(:params) {{ id: event, event: { title: 'whatever' } }}
 
-      before { sign_in ngo }
+      before { sign_in ngo, scope: :ngo }
 
       context 'when owning the event' do
         let(:event) { create :event, :with_shift, ngo: ngo }
@@ -292,7 +285,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
       let(:ngo) { create :ngo, :confirmed }
       let(:params) {{ id: event }}
 
-      before { sign_in ngo }
+      before { sign_in ngo, scope: :ngo }
 
       context 'when owning the event' do
         let!(:event) { create :event, :with_shift, ngo: ngo }
@@ -330,7 +323,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
       let(:ngo) { create :ngo, :confirmed }
       let(:params) {{ id: event }}
 
-      before { sign_in ngo }
+      before { sign_in ngo, scope: :ngo }
 
       context 'when owning the event' do
         let(:event) { create :event, :with_shift, ngo: ngo }

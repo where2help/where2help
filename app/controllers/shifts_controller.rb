@@ -8,13 +8,13 @@ class ShiftsController < ApplicationController
   end
 
   def opt_in
-    set_shift.users << current_user
+    find_shift.users << current_user
   rescue ActiveRecord::RecordInvalid => e
     redirect_to @shift.event
   end
 
   def opt_out
-    current_user.shifts.try(:delete, set_shift)
+    current_user.shifts.try(:delete, find_shift)
     redirect_to schedule_path, notice: t('.notice')
   end
 
@@ -24,7 +24,7 @@ class ShiftsController < ApplicationController
   end
 
   def cal
-    set_shift
+    find_shift
     cal = RiCal.Calendar do |cal|
       cal.event do |event|
         event.summary      = @shift.event.title
@@ -46,7 +46,7 @@ class ShiftsController < ApplicationController
 
   private
 
-  def set_shift
+  def find_shift
     @shift = Shift.find params[:shift_id]
   end
 end
