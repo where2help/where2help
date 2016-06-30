@@ -67,8 +67,10 @@ en:
         confirmed_so_far: "Opted in so far: "
         prohibited: "error(s) prohibited this event from being saved"
       messages:
-        created_successfully: The event was successfully created.
-        updated_successfully: The event was successfully updated.
+        created_successfully: Event was successfully created.
+        updated_successfully: Event was successfully updated.
+        publish_success: Event was successfully published.
+        publish_fail: Event could not be published.
     sessions:
       new:
         please_login: Login as a NGO

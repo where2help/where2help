@@ -22,3 +22,18 @@ shared_examples :ngos_new do
     end
   end
 end
+shared_examples :ngos_create do
+  context 'when not signed in' do
+    it 'redirects to ngo sign_in' do
+      post :create
+      expect(response).to redirect_to new_ngo_session_path
+    end
+  end
+  context 'when signed in as a user' do
+    it 'redirects to ngo sign_in' do
+      sign_in create :user
+      post :create
+      expect(response).to redirect_to new_ngo_session_path
+    end
+  end
+end

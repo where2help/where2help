@@ -2,7 +2,7 @@ class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!
 
   def show
-    set_ngo_event
+    @event = find_ngo_event
   end
 
   def index
@@ -14,12 +14,12 @@ class Ngos::EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.ngo = current_ngo
+    @event = current_ngo.events.new event_params
     if @event.save
-      redirect_to [:ngos, @event], notice: t('ngos.events.messages.created_successfully')
+      flash[:notice] = t('ngos.events.messages.created_successfully')
+      redirect_to [:ngos, @event]
     else
-      render action: :new
+      render :new
     end
   end
 
@@ -28,30 +28,32 @@ class Ngos::EventsController < ApplicationController
   end
 
   def update
-    set_ngo_event
-    if @event.update_attributes(event_params)
-      redirect_to [:ngos, @event], notice: t('ngos.events.messages.updated_successfully')
+    @event = find_ngo_event
+    if @event.update(event_params)
+      flash[:notice] = t('ngos.events.messages.updated_successfully')
+      redirect_to [:ngos, @event]
     else
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
-    set_ngo_event.destroy
+    find_ngo_event.destroy
     redirect_to action: :index
   end
 
   def publish
-    set_ngo_event
+    @event = find_ngo_event
     if @event.publish!
-      redirect_to [:ngos, @event], notice: 'Das Event wurde erfolgreich publiziert.'
+      flash[:notice] = t('ngos.events.messages.publish_success')
     else
-      redirect_to [:ngos, @event], notice: 'Das Event konnte nicht publiziert werden.'
+      flash[:notice] = t('ngos.events.messages.publish_fail')
     end
+    redirect_to [:ngos, @event]
   end
 
   def cal
-    @event = Event.find(params[:id])
+    @event = find_ngo_event
     cal = RiCal.Calendar do |cal|
       cal.event do |event|
         event.summary      = @event.title
@@ -88,6 +90,6 @@ class Ngos::EventsController < ApplicationController
   end
 
   def set_ngo_event
-    @event = current_ngo.events.find(params[:id])
+    current_ngo.events.find params[:id]
   end
 end

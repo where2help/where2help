@@ -144,14 +144,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
   end
 
   describe 'POST create' do
-    context 'when signed in as user' do
-      before { sign_in create(:user), scope: :ngo }
-
-      it 'redirects to ngo login with flash' do
-        post :create, params: {}
-        expect(response).to redirect_to new_ngo_session_path
-        expect(flash[:alert]).to be_present
-      end
+    it_behaves_like :ngos_create
     end
     context 'when signed in as NGO' do
       let(:ngo) { create :ngo, :confirmed }
@@ -159,7 +152,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
       before { sign_in ngo, scope: :ngo }
 
       context 'with invalid params' do
-        let(:params) {{event: {title: ''}}}
+        let(:params) {{ event: {title: ''}} }
         it 'does not create new event record' do
           expect{
             post :create, params: params
@@ -171,7 +164,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
         end
         it 'assigns @event the current signed in ngo' do
           post :create, params: params
-          expect(assigns(:event).ngo).to eq(ngo)
+          expect(assigns(:event).ngo).to eq ngo
         end
         it 'renders :new' do
           post :create, params: params
