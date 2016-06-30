@@ -16,7 +16,7 @@ class Ngos::EventsController < ApplicationController
   def create
     @event = current_ngo.events.new event_params
     if @event.save
-      flash[:notice] = t('ngos.events.messages.created_successfully')
+      flash[:notice] = t('ngos.events.messages.create_success')
       redirect_to [:ngos, @event]
     else
       render :new
@@ -30,7 +30,7 @@ class Ngos::EventsController < ApplicationController
   def update
     @event = find_ngo_event
     if @event.update(event_params)
-      flash[:notice] = t('ngos.events.messages.updated_successfully')
+      flash[:notice] = t('ngos.events.messages.update_success')
       redirect_to [:ngos, @event]
     else
       render :edit

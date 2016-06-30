@@ -67,8 +67,8 @@ en:
         confirmed_so_far: "Opted in so far: "
         prohibited: "error(s) prohibited this event from being saved"
       messages:
-        created_successfully: Event was successfully created.
-        updated_successfully: Event was successfully updated.
+        create_success: Event was successfully created.
+        update_success: Event was successfully updated.
         publish_success: Event was successfully published.
         publish_fail: Event could not be published.
     sessions:

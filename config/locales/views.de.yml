@@ -70,8 +70,8 @@ de:
         confirmed_so_far: "Bisher zugesagt: "
         prohibited: "Fehler verhinderte(n), dass dieses Event gespeichert wurde."
       messages:
-        created_successfully: Event wurde erfolgreich erzeugt.
-        updated_successfully: Event wurde erfolgreich aktualisiert.
+        create_success: Event wurde erfolgreich erzeugt.
+        update_success: Event wurde erfolgreich aktualisiert.
         publish_success: Event wurde erfolgreich veröffentlicht.
         publish_fail: Event konnte nicht veröffentlicht werden.
     sessions:
