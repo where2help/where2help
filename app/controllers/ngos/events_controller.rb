@@ -2,7 +2,7 @@ class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!
 
   def show
-    @event = find_ngo_event
+    find_ngo_event
   end
 
   def index
@@ -28,8 +28,7 @@ class Ngos::EventsController < ApplicationController
   end
 
   def update
-    @event = find_ngo_event
-    if @event.update(event_params)
+    if find_ngo_event.update(event_params)
       flash[:notice] = t('ngos.events.messages.update_success')
       redirect_to [:ngos, @event]
     else
@@ -43,8 +42,7 @@ class Ngos::EventsController < ApplicationController
   end
 
   def publish
-    @event = find_ngo_event
-    if @event.publish!
+    if find_ngo_event.publish!
       flash[:notice] = t('ngos.events.messages.publish_success')
     else
       flash[:notice] = t('ngos.events.messages.publish_fail')
@@ -53,7 +51,7 @@ class Ngos::EventsController < ApplicationController
   end
 
   def cal
-    @event = find_ngo_event
+    find_ngo_event
     cal = RiCal.Calendar do |cal|
       cal.event do |event|
         event.summary      = @event.title
@@ -90,6 +88,6 @@ class Ngos::EventsController < ApplicationController
   end
 
   def set_ngo_event
-    current_ngo.events.find params[:id]
+    @event = current_ngo.events.find params[:id]
   end
 end
