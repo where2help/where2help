@@ -51,23 +51,12 @@ class Ngos::EventsController < ApplicationController
   end
 
   def cal
-    find_ngo_event
-    cal = RiCal.Calendar do |cal|
-      cal.event do |event|
-        event.summary      = @event.title
-        event.description  = @event.description
-        event.dtstart      = @event.starts_at
-        event.dtend        = @event.ends_at
-        event.location     = @event.address
-        event.url          = ngos_event_url(@event)
-        event.add_attendee current_ngo.email
-        event.alarm do |alarm|
-          alarm.description = @event.title
-        end
-      end
-    end
+    cal = IcalFile.call item: find_ngo_event, attendee: current_ngo
     respond_to do |format|
-      format.ics { send_data(cal.export, :filename=>"cal.ics", :disposition=>"inline; filename=cal.ics", :type=>"text/calendar")}
+      format.ics { send_data(cal,
+        filename: 'ical.ics',
+        disposition: 'inline; filename=ical.ics',
+        type: 'text/calendar') }
     end
   end
 
