@@ -145,7 +145,6 @@ RSpec.describe Ngos::EventsController, type: :controller do
 
   describe 'POST create' do
     it_behaves_like :ngos_create
-    end
     context 'when signed in as NGO' do
       let(:ngo) { create :ngo, :confirmed }
 

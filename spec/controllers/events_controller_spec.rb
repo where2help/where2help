@@ -97,7 +97,6 @@ RSpec.describe EventsController, type: :controller do
         it 'assigns @event' do
           expect(assigns :event).to eq event
         end
-
         it 'renders :show' do
           expect(response).to render_template 'events/show'
         end
