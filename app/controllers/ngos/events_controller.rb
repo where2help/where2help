@@ -10,10 +10,7 @@ class Ngos::EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
-    t = Time.now + 15.minutes
-    t = t - t.sec - t.min%15*60
-    @event.shifts.build(volunteers_needed: 1, starts_at: t, ends_at: t + 2.hours)
+    @event = current_ngo.new_event
   end
 
   def create
