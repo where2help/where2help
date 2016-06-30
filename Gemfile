@@ -35,6 +35,7 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '>= 3.5.0.beta3'
+  gem 'rspec-json_expectations'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing' # can be removed once rspec 3.5.0 is fully out
 end
@@ -47,7 +48,6 @@ end
 group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
-
   gem 'bullet'
 end
 

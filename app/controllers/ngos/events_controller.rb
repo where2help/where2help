@@ -87,7 +87,7 @@ class Ngos::EventsController < ApplicationController
     )
   end
 
-  def set_ngo_event
+  def find_ngo_event
     @event = current_ngo.events.find params[:id]
   end
 end

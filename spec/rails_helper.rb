@@ -7,6 +7,7 @@ require 'factory_girl_rails'
 require 'aasm/rspec'
 
 require 'faker'
+require "rspec/json_expectations"
 require 'support/request_helpers'
 # Add additional requires below this line. Rails is not loaded until this point!
 

@@ -100,8 +100,8 @@ RSpec.describe Ngo, type: :model do
     it 'has a shift at next quarter hour with 1 volunteer needed' do
       shift = subject.shifts.first
       expect(shift.volunteers_needed).to eq 1
-      expect([0, 15, 30]).to include shift.starts_at.min
-      expect([0, 15, 30]).to include shift.ends_at.min
+      expect([0, 15, 30, 45]).to include shift.starts_at.min
+      expect([0, 15, 30, 45]).to include shift.ends_at.min
     end
   end
 end
