@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Ngos::RegistrationsController, type: :controller do
-  before do
-    @request.env['devise.mapping'] = Devise.mappings[:ngo]
-  end
+  before { @request.env['devise.mapping'] = Devise.mappings[:ngo] }
 
   describe 'GET new' do
     it 'return 200 ok status' do
