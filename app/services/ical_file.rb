@@ -30,7 +30,7 @@ class IcalFile < BaseService
         event.dtstart      = @item.starts_at
         event.dtend        = @item.ends_at
         event.location     = @address
-        event.url          = polymorphic_path(@item)
+        event.url          = polymorphic_url(@item, host: host)
         event.add_attendee @attendee.try(:email)
         event.alarm do |alarm|
           alarm.description = @title
