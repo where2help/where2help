@@ -39,6 +39,6 @@ class Shift < ApplicationRecord
   end
 
   def ends_at_after_starts_at
-    errors.add(:ends_at, :ends_at_before_starts_at) if starts_at > ends_at
+    errors.add(:ends_at, :ends_at_before_starts_at) if starts_at && ends_at && starts_at > ends_at
   end
 end
