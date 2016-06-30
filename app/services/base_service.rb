@@ -1,4 +1,7 @@
 class BaseService
+  include Rails.application.routes.url_helpers
+  include ActionDispatch::Routing::PolymorphicRoutes
+  
   def self.call(*args)
     new(*args).call
   end
