@@ -8,6 +8,7 @@ class Shift < ApplicationRecord
 
   validates :volunteers_needed, :starts_at, :ends_at, presence: true
   validate :not_in_past
+  validate :ends_at_after_starts_at
 
   scope :not_full, -> { where('volunteers_needed > volunteers_count') }
   scope :past, -> { where('starts_at < NOW()').reorder(starts_at: :desc) }
@@ -35,5 +36,9 @@ class Shift < ApplicationRecord
   def not_in_past
    errors.add(:starts_at, :not_in_past) if starts_at && starts_at < Time.now()
    errors.add(:ends_at, :not_in_past)   if ends_at && ends_at < Time.now
- end
+  end
+
+  def ends_at_after_starts_at
+    errors.add(:ends_at, :ends_at_before_starts_at) if starts_at > ends_at
+  end
 end

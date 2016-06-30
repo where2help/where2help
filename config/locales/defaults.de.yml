@@ -112,6 +112,7 @@ de:
       present: darf nicht ausgefüllt werden
       confirmation: stimmt nicht mit %{attribute} überein
       empty: muss ausgefüllt werden
+      ends_at_before_starts_at: kann nicht vor dem Anfang liegen
       equal_to: muss genau %{count} sein
       even: muss gerade sein
       exclusion: ist nicht verfügbar
