@@ -51,6 +51,14 @@ class Ngo < ApplicationRecord
     admin_confirmed? ? :not_admin_confirmed : super
   end
 
+  def new_event
+    t = Time.now + 15.minutes
+    starts = t - t.sec - t.min%15*60
+    ends = starts +  2.hours
+    shifts_attr = [{ volunteers_needed: 1, starts_at: starts, ends_at: ends }]
+    events.build shifts_attributes: shifts_attr
+  end
+
   private
 
   def request_admin_confirmation
