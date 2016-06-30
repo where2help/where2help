@@ -89,24 +89,16 @@ class Api::V1::UsersController < Api::V1::ApiController
   # wget --post-data="email=jane@doe.com" -S http://localhost:3000/api/v1/users/send_reset
   def send_reset
     @user = User.find_by(email: params[:email])
-    if @user
-      @user.send_reset_password_instructions
-      render json: {password_reset: "sent"}, status: :ok
-    else
-      render json: {error: "user_not_found"}, status: :not_found
-    end
+    @user.send_reset_password_instructions if @user
+    render json: {password_reset: "maybe"}, status: :ok
   end
 
 
   # wget --post-data="email=jane@doe.com" -S http://localhost:3000/api/v1/users/resend_confirmation
   def resend_confirmation
     @user = User.find_by(email: params[:email])
-    if @user
-      @user.send_confirmation_instructions
-      render json: {password_reset: "sent"}, status: :ok
-    else
-      render json: {error: "user_not_found"}, status: :not_found
-    end
+    @user.send_confirmation_instructions if @user
+    render json: {password_reset: "maybe"}, status: :ok
   end
 
   private
