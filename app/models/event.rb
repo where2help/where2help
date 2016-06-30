@@ -31,9 +31,9 @@ class Event < ApplicationRecord
   end
 
   def self.filter(scope=nil, order=nil)
-    scopes = [:all, :past, :upcoming]
     scope ||= :all
-    raise ArgumentError.new('Invalid scope given') unless scopes.include?(scope)
+    valid_scope = [:all, :past, :upcoming].include? scope
+    raise ArgumentError.new('Invalid scope given') unless valid_scope
     send(scope).try(:order_by, order)
   end
 
@@ -77,8 +77,8 @@ class Event < ApplicationRecord
   private
 
   def self.order_by(order)
-    orders = [nil, :address, :title]
-    raise ArgumentError.new('Invalid order key given') unless orders.include?(order)
-    send(:order, order)
+    valid_order = [nil, :address, :title].include? order
+    raise ArgumentError.new('Invalid order key given') unless valid_order
+    send :order, order
   end
 end

@@ -14,3 +14,11 @@ shared_examples :ngos_show do
     end
   end
 end
+shared_examples :ngos_new do
+  context 'when not signed in' do
+    it 'redirects to ngo sign_in' do
+      get :new
+      expect(response).to redirect_to new_ngo_session_path
+    end
+  end
+end

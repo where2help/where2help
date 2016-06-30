@@ -2,13 +2,9 @@ require 'rails_helper'
 require 'controllers/shared/ngos_controller'
 
 RSpec.describe Ngos::EventsController, type: :controller do
+  before { @request.env['devise.mapping'] = Devise.mappings[:ngo] }
 
-  before do
-    @request.env['devise.mapping'] = Devise.mappings[:ngo]
-  end
-
-  describe "GET index" do
-
+  describe 'GET index' do
     it_behaves_like :ngos_index
 
     context 'given a signed in NGO' do
@@ -16,7 +12,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
 
       before { sign_in :ngo, ngo }
 
-      context 'when no events yet' do
+      context 'without events' do
         before { get :index }
 
         it 'assigns empty @events' do
@@ -97,7 +93,6 @@ RSpec.describe Ngos::EventsController, type: :controller do
   end
 
   describe 'GET show' do
-
     it_behaves_like :ngos_show
 
     context 'given a signed in NGO' do
@@ -129,32 +124,21 @@ RSpec.describe Ngos::EventsController, type: :controller do
     end
   end
 
-  describe "GET new" do
-    context 'not signed in' do
-      it 'redirects to ngo sign_in' do
-        get :new
-        expect(response).to redirect_to new_ngo_session_path
-      end
-    end
-    context 'given a signed in NGO' do
+  describe 'GET new' do
+    it_behaves_like :ngos_new
+    context 'given a signed in confirmed ngo' do
       before do
-        sign_in :ngo, FactoryGirl.create(:ngo, :confirmed)
-      end
-
-      it "returns http success" do
+        sign_in create :ngo, :confirmed
         get :new
-        expect(response).to have_http_status(:success)
-      end
-    end
-
-    context 'given a signed in user' do
-      before do
-        sign_in :user, FactoryGirl.create(:user)
       end
 
-      it "redirects to the NGO sign in page" do
-        get :new
-        expect(response).to redirect_to(new_ngo_session_path)
+      it 'assigns a new event with one shift' do
+        event = assigns :event
+        expect(event).to be
+        expect(event.shifts.size).to eq 1
+      end
+      it 'renders new' do
+        expect(response).to render_template 'ngos/events/new'
       end
     end
   end
