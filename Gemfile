@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'rails', '>= 5.0.0.rc2', '< 5.1'
+gem 'rails', '~> 5.0'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
@@ -57,9 +57,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sucker_punch'
 
 # Admin Interface
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'formtastic-bootstrap'
-gem "cocoon"
+gem 'cocoon'
 
 
 # Statemachine
