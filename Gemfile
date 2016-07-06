@@ -2,39 +2,39 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
-gem 'pg', '~> 0.18'
+gem 'pg'
 gem 'puma'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
-gem 'momentjs-rails', '>= 2.9.0'
+gem 'momentjs-rails'
 
 gem 'devise', github: "plataformatec/devise"
 
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier'
+gem 'coffee-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 gem 'redis'
 
 gem 'leaflet-rails'
 
-gem "ri_cal"
+gem 'ri_cal'
 
 gem 'rails_autolink', '~> 1.1', '>= 1.1.6'
 gem 'faker', require: false
 
 
 group :production do
-  gem 'rails_12factor', '~> 0.0.3'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '>= 3.5.0.beta3'
+  gem 'rspec-rails'
   gem 'rspec-json_expectations'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing' # can be removed once rspec 3.5.0 is fully out
@@ -46,7 +46,7 @@ group :test do
 end
 
 group :development do
-  gem 'web-console', '~> 3.0'
+  gem 'web-console'
   gem 'spring'
   gem 'bullet'
 end
