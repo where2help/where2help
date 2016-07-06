@@ -17,17 +17,6 @@ GIT
       sass-rails
       sprockets (< 4)
 
-GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 245b1f9de0b3386b7913e14b60ea24f43b77feb0
-  specs:
-    devise (4.2.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.1)
-      responders
-      warden (~> 1.2.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -97,6 +86,12 @@ GEM
     concurrent-ruby (1.0.2)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
+    devise (4.2.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -286,7 +281,7 @@ DEPENDENCIES
   cocoon
   coffee-rails
   database_cleaner
-  devise!
+  devise
   factory_girl_rails
   faker
   font-awesome-sass
@@ -301,7 +296,7 @@ DEPENDENCIES
   rails (>= 5.0.0.rc2, < 5.1)
   rails-controller-testing
   rails_12factor
-  rails_autolink (~> 1.1, >= 1.1.6)
+  rails_autolink
   redis
   ri_cal
   rspec-json_expectations

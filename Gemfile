@@ -10,7 +10,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'momentjs-rails'
 
-gem 'devise', github: "plataformatec/devise"
+gem 'devise'
 
 gem 'uglifier'
 gem 'coffee-rails'
@@ -24,7 +24,7 @@ gem 'leaflet-rails'
 
 gem 'ri_cal'
 
-gem 'rails_autolink', '~> 1.1', '>= 1.1.6'
+gem 'rails_autolink'
 gem 'faker', require: false
 
 
@@ -37,7 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-json_expectations'
   gem 'factory_girl_rails'
-  gem 'rails-controller-testing' # can be removed once rspec 3.5.0 is fully out
+  gem 'rails-controller-testing'
 end
 
 group :test do
