@@ -5,7 +5,8 @@ module Requests
     end
 
     def valid_token
-      user = create :user
+      user = create(:user, email: "jane@doe.com", 
+                           password: "my_secret_password")
       post "/api/v1/users/login", params: {email: user.email, password: user.password}, as: :json
       response.headers["TOKEN"]
     end

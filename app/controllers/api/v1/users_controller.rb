@@ -3,7 +3,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   attr_accessor :resource
 
   skip_before_action :api_authenticate, only: [:login, :create, :send_reset, :resend_confirmation]
-  skip_before_action :set_token_header, only: [:login, :create, :send_reset, :resend_confirmation]
+  skip_before_action :set_token_header, only: [:login, :create, :send_reset, :resend_confirmationm, :logout]
 
   # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" --method=delete -S http://localhost:3000/api/v1/users/unregister
   def unregister
@@ -73,7 +73,7 @@ class Api::V1::UsersController < Api::V1::ApiController
     end
   end
 
-  # wget --post-data="user[first_name]=my_first_name&user[last_name]=my_last_name&user[email]=my@email.address&user[locale]=de&user[password]=my_password&user[password_confirmation]=my_password&user[ability_ids][]=5&user[language_ids][]=1&user[language_ids][]=3" --header="Authorization: Token token=Vh4AdGc6LWW7piG7k1FpRugm" -S http://localhost:3000/api/v1/users/update_profile
+  # wget --post-data="user[first_name]=my_first_name&user[last_name]=my_last_name&user[email]=my@email.address&user[locale]=de&user[ability_ids][]=5&user[language_ids][]=1&user[language_ids][]=3" --header="Authorization: Token token=Vh4AdGc6LWW7piG7k1FpRugm" -S http://localhost:3000/api/v1/users/update_profile
   def update_profile
     request.session_options[:skip] = true
 
@@ -98,7 +98,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   def resend_confirmation
     @user = User.find_by(email: params[:email])
     @user.send_confirmation_instructions if @user
-    render json: {password_reset: "maybe"}, status: :ok
+    render json: {resend_confirmation: "maybe"}, status: :ok
   end
 
   private
