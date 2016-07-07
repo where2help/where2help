@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :languages, through: :languages_users
   has_many :abilities_users, dependent: :destroy
   has_many :abilities, through: :abilities_users
-  has_many :shifts_users, dependent: :destroy
-  has_many :shifts, through: :shifts_users
+  has_many :participations, dependent: :destroy
+  has_many :shifts, through: :participations
 
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }

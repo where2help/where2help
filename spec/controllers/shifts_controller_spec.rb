@@ -56,10 +56,10 @@ RSpec.describe ShiftsController, type: :controller do
       before { sign_in user }
 
       context 'when not opted in yet' do
-        it 'creates shifts_user record' do
+        it 'creates participation record' do
           expect{
             post :opt_in, params: { shift_id: shift }
-          }.to change{ShiftsUser.count}.by 1
+          }.to change{Participation.count}.by 1
         end
 
         it 'assigns @shift' do
@@ -73,12 +73,12 @@ RSpec.describe ShiftsController, type: :controller do
         end
       end
       context 'when already opted in' do
-        before { create :shifts_user, user: user, shift: shift }
+        before { create :participation, user: user, shift: shift }
 
-        it 'does not create shifts_user record' do
+        it 'does not create participation record' do
           expect{
             post :opt_in, params: { shift_id: shift }
-          }.not_to change{ShiftsUser.count}
+          }.not_to change{Participation.count}
         end
 
         it 'assigns @shift' do
@@ -109,12 +109,12 @@ RSpec.describe ShiftsController, type: :controller do
       before { sign_in user }
 
       context 'when opted in yet' do
-        before { create :shifts_user, user: user, shift: shift }
+        before { create :participation, user: user, shift: shift }
 
-        it 'deletes shifts_user record' do
+        it 'deletes participation record' do
           expect{
             delete :opt_out, params: { shift_id: shift }
-          }.to change{ShiftsUser.count}.by -1
+          }.to change{Participation.count}.by -1
         end
 
         it 'assigns @shift' do
@@ -129,10 +129,10 @@ RSpec.describe ShiftsController, type: :controller do
       end
       context 'when not opted in' do
 
-        it 'does not change shifts_user records' do
+        it 'does not change participation records' do
           expect{
             delete :opt_out, params: { shift_id: shift }
-          }.not_to change{ShiftsUser.count}
+          }.not_to change{Participation.count}
         end
 
         it 'assigns @shift' do
@@ -161,8 +161,8 @@ RSpec.describe ShiftsController, type: :controller do
 
       before do
         sign_in user
-        upcoming_shifts.each{|s| create :shifts_user, user: user, shift: s}
-        past_shifts.each{|s| create :shifts_user, user: user, shift: s}
+        upcoming_shifts.each{|s| create :participation, user: user, shift: s}
+        past_shifts.each{|s| create :participation, user: user, shift: s}
       end
 
       context 'when html request' do
@@ -189,7 +189,7 @@ RSpec.describe ShiftsController, type: :controller do
       #   let(:next_upcoming_shifts) { create_list :shift, 10, :with_event, starts_at: Date.tomorrow+1.day }
       #
       #   before do
-      #     next_upcoming_shifts.each{|s| create :shifts_user, user: user, shift: s}
+      #     next_upcoming_shifts.each{|s| create :participation, user: user, shift: s}
       #   end
       #
       #   context 'without filter' do

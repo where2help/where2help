@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_many(:languages) }
   it { is_expected.to have_many(:abilities_users).dependent(:destroy) }
   it { is_expected.to have_many(:abilities) }
-  it { is_expected.to have_many(:shifts_users).dependent(:destroy) }
+  it { is_expected.to have_many(:participations).dependent(:destroy) }
   it { is_expected.to have_many(:shifts) }
   it { is_expected.to define_enum_for(:locale).with([:de, :en]) }
 
@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
       it 'destroys join record on destroy' do
         expect{
           user.destroy
-        }.to change{ShiftsUser.count}.by -1
+        }.to change{Participation.count}.by -1
       end
       it 'does not destroy shift record on destroy' do
         expect{
