@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Userse", :type => :request do
+RSpec.describe "Users", :type => :request do
   describe "POST /login" do
     it 'logs the user in, sets token and returns it, if correct credentials are provided' do
       user = create :user
