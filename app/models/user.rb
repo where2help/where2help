@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   has_secure_token :api_token #That's a rails feature!
 
-  has_many :languages_users, dependent: :destroy
-  has_many :languages, through: :languages_users
+  has_many :spoken_languages, dependent: :destroy
+  has_many :languages, through: :spoken_languages
   has_many :abilities_users, dependent: :destroy
   has_many :abilities, through: :abilities_users
   has_many :participations, dependent: :destroy

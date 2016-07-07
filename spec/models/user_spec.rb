@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
     expect(create :user).to be_valid
   end
 
-  it { is_expected.to have_many(:languages_users).dependent(:destroy) }
+  it { is_expected.to have_many(:spoken_languages).dependent(:destroy) }
   it { is_expected.to have_many(:languages) }
   it { is_expected.to have_many(:abilities_users).dependent(:destroy) }
   it { is_expected.to have_many(:abilities) }
@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
       it 'destroys join record on destroy' do
         expect{
           user.destroy
-        }.to change{LanguagesUser.count}.by -1
+        }.to change{SpokenLanguage.count}.by -1
       end
       it 'does not destroy language record on destroy' do
         expect{
