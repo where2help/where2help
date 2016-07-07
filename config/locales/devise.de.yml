@@ -13,7 +13,7 @@ de:
       user: Benutzer
   devise:
     confirmations:
-      confirmed: Vielen Dank für Deine Registrierung. Du bist jetzt angemeldet.
+      confirmed: Deine E-Mail-Adresse wurde erfolgreich bestätigt.
       new:
         resend_confirmation_instructions: Anleitung zur Bestätigung noch mal schicken
       send_instructions: Du erhältst in wenigen Minuten eine E-Mail, mit der Du Deine Registrierung bestätigen können.
