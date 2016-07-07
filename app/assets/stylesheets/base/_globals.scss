@@ -9,10 +9,12 @@ body {
 }
 
 footer {
-  clear: both;
   position: absolute;
   bottom: 0;
   width: 100%;
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    display: none;
+  }
 }
 
 .navbar-brand {
