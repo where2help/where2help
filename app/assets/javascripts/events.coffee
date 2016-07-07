@@ -19,7 +19,7 @@ $(document).on "cocoon:after-insert", (event, insertedItem) ->
   # sets ends_at hour
   selects[8].value = ("0" + endhour).slice(-2)
 
-document.addEventListener "page:change", ->
+document.addEventListener "turbolinks:load", ->
 
   updateCoordinates = (suggestion) ->
     coords = suggestion.geometry.coordinates
