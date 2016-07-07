@@ -6,7 +6,7 @@ RSpec.describe Ability, type: :model do
   end
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_uniqueness_of :name }
-  it { is_expected.to have_many(:abilities_users).dependent(:destroy) }
+  it { is_expected.to have_many(:qualifications).dependent(:destroy) }
   it { is_expected.to have_many(:users) }
 
   describe 'callbacks' do
@@ -20,7 +20,7 @@ RSpec.describe Ability, type: :model do
       it 'destroys join record on destroy' do
         expect{
           ability.destroy
-        }.to change{AbilitiesUser.count}.by -1
+        }.to change{Qualification.count}.by -1
       end
       it 'does not destroy user record on destroy' do
         expect{

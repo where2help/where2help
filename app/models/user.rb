@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   has_many :spoken_languages, dependent: :destroy
   has_many :languages, through: :spoken_languages
-  has_many :abilities_users, dependent: :destroy
-  has_many :abilities, through: :abilities_users
+  has_many :qualifications, dependent: :destroy
+  has_many :abilities, through: :qualifications
   has_many :participations, dependent: :destroy
   has_many :shifts, through: :participations
 

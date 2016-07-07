@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to have_many(:spoken_languages).dependent(:destroy) }
   it { is_expected.to have_many(:languages) }
-  it { is_expected.to have_many(:abilities_users).dependent(:destroy) }
+  it { is_expected.to have_many(:qualifications).dependent(:destroy) }
   it { is_expected.to have_many(:abilities) }
   it { is_expected.to have_many(:participations).dependent(:destroy) }
   it { is_expected.to have_many(:shifts) }
@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
       it 'destroys join record on destroy' do
         expect{
           user.destroy
-        }.to change{AbilitiesUser.count}.by -1
+        }.to change{Qualification.count}.by -1
       end
       it 'does not destroy ability record on destroy' do
         expect{

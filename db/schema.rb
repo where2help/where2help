@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707122352) do
+ActiveRecord::Schema.define(version: 20160707123832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(version: 20160707122352) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "abilities_users", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "ability_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ability_id"], name: "index_abilities_users_on_ability_id", using: :btree
-    t.index ["user_id"], name: "index_abilities_users_on_user_id", using: :btree
   end
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -105,6 +96,15 @@ ActiveRecord::Schema.define(version: 20160707122352) do
     t.datetime "updated_at", null: false
     t.index ["shift_id"], name: "index_participations_on_shift_id", using: :btree
     t.index ["user_id"], name: "index_participations_on_user_id", using: :btree
+  end
+
+  create_table "qualifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ability_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ability_id"], name: "index_qualifications_on_ability_id", using: :btree
+    t.index ["user_id"], name: "index_qualifications_on_user_id", using: :btree
   end
 
   create_table "shifts", force: :cascade do |t|
