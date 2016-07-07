@@ -9,5 +9,3 @@
 //= require icheck.min
 //= require typeahead.bundle
 //= require_tree .
-// enable turbolinks progress bar
-Turbolinks.enableProgressBar();
