@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602170800) do
+ActiveRecord::Schema.define(version: 20160707123832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,15 +20,6 @@ ActiveRecord::Schema.define(version: 20160602170800) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "abilities_users", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "ability_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ability_id"], name: "index_abilities_users_on_ability_id", using: :btree
-    t.index ["user_id"], name: "index_abilities_users_on_user_id", using: :btree
   end
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -79,15 +69,6 @@ ActiveRecord::Schema.define(version: 20160602170800) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "languages_users", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "language_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["language_id"], name: "index_languages_users_on_language_id", using: :btree
-    t.index ["user_id"], name: "index_languages_users_on_user_id", using: :btree
-  end
-
   create_table "ngos", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -108,6 +89,24 @@ ActiveRecord::Schema.define(version: 20160602170800) do
     t.index ["reset_password_token"], name: "index_ngos_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "participations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "shift_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shift_id"], name: "index_participations_on_shift_id", using: :btree
+    t.index ["user_id"], name: "index_participations_on_user_id", using: :btree
+  end
+
+  create_table "qualifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ability_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ability_id"], name: "index_qualifications_on_ability_id", using: :btree
+    t.index ["user_id"], name: "index_qualifications_on_user_id", using: :btree
+  end
+
   create_table "shifts", force: :cascade do |t|
     t.integer  "event_id"
     t.datetime "starts_at"
@@ -119,13 +118,13 @@ ActiveRecord::Schema.define(version: 20160602170800) do
     t.index ["event_id"], name: "index_shifts_on_event_id", using: :btree
   end
 
-  create_table "shifts_users", force: :cascade do |t|
+  create_table "spoken_languages", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "shift_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shift_id"], name: "index_shifts_users_on_shift_id", using: :btree
-    t.index ["user_id"], name: "index_shifts_users_on_user_id", using: :btree
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["language_id"], name: "index_spoken_languages_on_language_id", using: :btree
+    t.index ["user_id"], name: "index_spoken_languages_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

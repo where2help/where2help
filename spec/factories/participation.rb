@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :shifts_user do
+  factory :participation do
     user
     shift    
   end

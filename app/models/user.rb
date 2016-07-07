@@ -6,12 +6,12 @@ class User < ApplicationRecord
 
   has_secure_token :api_token #That's a rails feature!
 
-  has_many :languages_users, dependent: :destroy
-  has_many :languages, through: :languages_users
-  has_many :abilities_users, dependent: :destroy
-  has_many :abilities, through: :abilities_users
-  has_many :shifts_users, dependent: :destroy
-  has_many :shifts, through: :shifts_users
+  has_many :spoken_languages, dependent: :destroy
+  has_many :languages, through: :spoken_languages
+  has_many :qualifications, dependent: :destroy
+  has_many :abilities, through: :qualifications
+  has_many :participations, dependent: :destroy
+  has_many :shifts, through: :participations
 
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }

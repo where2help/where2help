@@ -1,4 +1,4 @@
-document.addEventListener "page:change", ->
+document.addEventListener "turbolinks:load", ->
   checkMap = ->
     mapContainer = $("[data-behavior='map-container']")
     initMap(mapContainer) if mapContainer.length

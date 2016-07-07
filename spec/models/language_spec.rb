@@ -6,7 +6,7 @@ RSpec.describe Language, type: :model do
   end
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_uniqueness_of :name }
-  it { is_expected.to have_many(:languages_users).dependent(:destroy) }
+  it { is_expected.to have_many(:spoken_languages).dependent(:destroy) }
   it { is_expected.to have_many(:users) }
 
   describe 'callbacks' do
@@ -20,7 +20,7 @@ RSpec.describe Language, type: :model do
       it 'destroys join record on destroy' do
         expect{
           language.destroy
-        }.to change{LanguagesUser.count}.by -1
+        }.to change{SpokenLanguage.count}.by -1
       end
       it 'does not destroy user record on destroy' do
         expect{

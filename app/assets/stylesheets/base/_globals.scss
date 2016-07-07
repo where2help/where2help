@@ -21,6 +21,7 @@ footer {
   }
 }
 
-html.turbolinks-progress-bar::before {
-  background-color: $aqua-dark !important;
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: $aqua-dark;
 }

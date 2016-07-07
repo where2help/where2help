@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Shift, type: :model do
-  it { is_expected.to have_many(:shifts_users).dependent(:destroy) }
+  it { is_expected.to have_many(:participations).dependent(:destroy) }
   it { is_expected.to have_many(:users) }
   it { is_expected.to belong_to(:event) }
 
@@ -12,7 +12,7 @@ RSpec.describe Shift, type: :model do
   describe 'callbacks' do
     describe 'before_destroy' do
       let(:shift) { create :shift, :with_event }
-      before { create_list :shifts_user, 4, shift: shift}
+      before { create_list :participation, 4, shift: shift}
 
       it 'sends an email to each user' do
         expect{
@@ -29,7 +29,7 @@ RSpec.describe Shift, type: :model do
       it 'destroys join record on destroy' do
         expect{
           shift.destroy
-        }.to change{ShiftsUser.count}.by -1
+        }.to change{Participation.count}.by -1
       end
       it 'does not destroy user record on destroy' do
         expect{

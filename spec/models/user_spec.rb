@@ -6,11 +6,11 @@ RSpec.describe User, type: :model do
     expect(create :user).to be_valid
   end
 
-  it { is_expected.to have_many(:languages_users).dependent(:destroy) }
+  it { is_expected.to have_many(:spoken_languages).dependent(:destroy) }
   it { is_expected.to have_many(:languages) }
-  it { is_expected.to have_many(:abilities_users).dependent(:destroy) }
+  it { is_expected.to have_many(:qualifications).dependent(:destroy) }
   it { is_expected.to have_many(:abilities) }
-  it { is_expected.to have_many(:shifts_users).dependent(:destroy) }
+  it { is_expected.to have_many(:participations).dependent(:destroy) }
   it { is_expected.to have_many(:shifts) }
   it { is_expected.to define_enum_for(:locale).with([:de, :en]) }
 
@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
       it 'destroys join record on destroy' do
         expect{
           user.destroy
-        }.to change{LanguagesUser.count}.by -1
+        }.to change{SpokenLanguage.count}.by -1
       end
       it 'does not destroy language record on destroy' do
         expect{
@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
       it 'destroys join record on destroy' do
         expect{
           user.destroy
-        }.to change{AbilitiesUser.count}.by -1
+        }.to change{Qualification.count}.by -1
       end
       it 'does not destroy ability record on destroy' do
         expect{
@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
       it 'destroys join record on destroy' do
         expect{
           user.destroy
-        }.to change{ShiftsUser.count}.by -1
+        }.to change{Participation.count}.by -1
       end
       it 'does not destroy shift record on destroy' do
         expect{

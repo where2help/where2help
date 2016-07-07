@@ -54,8 +54,8 @@ class Event < ApplicationRecord
   end
 
   def user_opted_in?(user)
-    available_shifts.joins(:shifts_users)
-      .where(shifts_users: { user_id: user.id }).any?
+    available_shifts.joins(:participations)
+      .where(participations: { user_id: user.id }).any?
   end
 
   def volunteers_needed
