@@ -25,3 +25,16 @@ footer {
   height: 3px;
   background-color: $aqua-dark;
 }
+
+// fixes for IE
+.img-responsive {
+  width: 100% \9;
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    &[src$="svg"],
+    .thumbnail > img[src$="svg"],
+    .thumbnail a > img[src$="svg"],
+    .carousel-inner > .item > img[src$="svg"],
+    .carousel-inner > .item > a > img[src$="svg"] { width: 100%; }
+  }
+}

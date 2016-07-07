@@ -30,5 +30,8 @@
   .fa-ul {
     display: table;
     margin: 0 auto;
+    @media (max-width: $screen-xs-min) {
+      padding-left: 1.5em;
+    }
   }
 }
