@@ -112,7 +112,8 @@ RSpec.describe "Userse", :type => :request do
       it "ends password reset information via email" do
         create(:user, email: "jane@doe.com")
         expect { 
-          post "/api/v1/users/send_reset", params: { email: "jane@doe.com" }
+          post "/api/v1/users/send_reset", params: { email: "jane@doe.com" },
+                                           as: :json
         }.to change(Devise.mailer.deliveries, :count).by(1)
 
         expect(response).to be_success
@@ -122,14 +123,36 @@ RSpec.describe "Userse", :type => :request do
 
 
     describe "POST /api/v1/users/resend_confirmation" do
-      it "ends password reset information via email" do
+      it "resends confirmation instructions via email" do
         create(:user, email: "jane@doe.com", confirmed_at: nil)
         expect { 
-          post "/api/v1/users/resend_confirmation", params: { email: "jane@doe.com" }
+          post "/api/v1/users/resend_confirmation", params: { email: "jane@doe.com" },
+                                                    as: :json
         }.to change(Devise.mailer.deliveries, :count).by(1)
 
         expect(response).to be_success
         expect(json).to include_json({resend_confirmation: "maybe"})
+      end
+    end
+
+
+    describe "DELETE /api/v1/users/unregister" do
+      it "resets the user account (and makes it unuseable)" do
+ 
+        delete "/api/v1/users/unregister", params: { email: "jane@doe.com" },
+                                           headers: token_header,
+                                           as: :json
+
+        expect(response).to be_success
+        expect(json).to include_json({deleted: true})
+        
+        expect(User.first.confirmation_token).to eq nil
+        expect(User.first.confirmed_at).to eq nil
+        expect(User.first.confirmation_sent_at).to eq nil
+        expect(User.first.admin).to eq false
+        expect(User.first.api_token).to eq nil
+        expect(User.first.api_token_valid_until).to eq nil
+        expect(User.first.phone).to eq nil
       end
     end
   end
