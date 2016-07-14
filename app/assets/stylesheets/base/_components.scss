@@ -45,6 +45,20 @@ div.map {
 
 .progress-bar {
   padding-top: 4px;
+
+  &.-me {
+    @extend .progress-bar-striped, .progress-bar-info;
+  }
+  &.-participants {
+    @extend .progress-bar-striped, .progress-bar-success;
+  }
+  &.-missing {
+    @extend .progress-bar-striped;
+    background-color: $darkgray-light;
+  }
+  &.-full {
+    @extend .progress-bar-striped, .progress-bar-warning;
+  }
 }
 
 .btn-facebook {
