@@ -21,6 +21,7 @@
   <%= f.input :current_password, autocomplete: "off",
                                   hint: t("devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes") %>
   <%= f.input :abilities, as: :check_boxes %>
+
   <%= f.input :languages, :as => :check_boxes %>
   <%= f.submit t("devise.registrations.edit.update"), class: "btn btn-success" %>
 <% end %>
