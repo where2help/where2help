@@ -1,6 +1,7 @@
 de:
   active_admin:
     all: Alle
+    back: Zurück zur Applikation
     batch_actions:
       button_label: Stapelverarbeitung
       labels:
