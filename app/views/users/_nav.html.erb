@@ -13,11 +13,11 @@
       <ul class="nav navbar-nav">
         <li class="<%= active?(root_path) %>"><%= link_to t('.events'), root_path %></li>
         <li class="<%= active?(schedule_path) %>"><%= link_to t('.schedule'), schedule_path %></li>
-          <li class="<%= active?(edit_user_registration_path) %> visible-xs-block"><%= link_to t('.profile'), edit_user_registration_path %></li>
-          <% if current_user.admin? %>
-            <li class="visible-xs-block"><%= link_to 'Admin', admin_dashboard_path %></li>
-          <% end %>
-          <li class="visible-xs-block"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <li class="<%= active?(edit_user_registration_path) %> visible-xs-block"><%= link_to t('.profile'), edit_user_registration_path %></li>
+        <% if current_user.admin? %>
+          <li class="visible-xs-block"><%= link_to 'Admin', admin_dashboard_path, "data-turbolinks": "false" %></li>
+        <% end %>
+        <li class="visible-xs-block"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown hidden-xs">
@@ -25,7 +25,7 @@
           <ul class="dropdown-menu">
             <li class="<%= active?(edit_user_registration_path) %>"><%= link_to t('.profile'), edit_user_registration_path %></li>
             <% if current_user.admin? %>
-              <li><%= link_to 'Admin', admin_dashboard_path %></li>
+              <li><%= link_to 'Admin', admin_dashboard_path, "data-turbolinks": "false" %></li>
             <% end %>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
