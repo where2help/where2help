@@ -21,11 +21,12 @@ class Api::V1::ApiController < ApplicationController
 
   def set_token_header
     if @current_user
+      # see http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html#method-i-token_and_options for details:
       response.headers['TOKEN'] = @current_user.api_token
     end
   end
 
   def disable_cookies
-    request.session_options[:skip] = true  
+    request.session_options[:skip] = true
   end
 end
