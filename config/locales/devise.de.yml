@@ -24,7 +24,7 @@ de:
       invalid: Ungültige Anmeldedaten.
       last_attempt: Du hast noch einen Versuch, bis Dein Account gesperrt wird.
       locked: Dein Account ist gesperrt.
-      not_admin_confirmed: NGO wurde noch nicht durch Administrator bestätigt.
+      not_admin_confirmed: E-Mail wurde bereits bestätigt, aber noch nicht aktiviert. Wir informieren Sie nach der Freischaltung. Bitte noch um etwas Geduld.
       not_found_in_database: Ungültige Anmeldedaten.
       timeout: Deine Sitzung ist abgelaufen, bitte melde Dich erneut an.
       unauthenticated: Du musst Dich anmelden oder registrieren, bevor Du fortfahren kannst.
