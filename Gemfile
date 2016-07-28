@@ -38,6 +38,8 @@ group :development, :test do
   gem 'rspec-json_expectations'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
