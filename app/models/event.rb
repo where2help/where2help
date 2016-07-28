@@ -74,6 +74,15 @@ class Event < ApplicationRecord
     shifts.map(&:volunteers_count).inject(:+)
   end
 
+  def progress_bar(user=nil)
+    if user
+      me = user_opted_in? user
+      ProgressBar.call self, me
+    else
+      ProgressBar.call self
+    end
+  end
+
   private
 
   def self.order_by(order)

@@ -38,18 +38,15 @@ div.map {
   }
 }
 
-.progress {
-  height: 26px;
-  text-align: center;
-}
-
 .progress-bar {
+  height: 26px;
   padding-top: 4px;
+  overflow-y: hidden;
 
-  &.-me {
+  &.-you {
     @extend .progress-bar-striped, .progress-bar-info;
   }
-  &.-participants {
+  &.-people {
     @extend .progress-bar-striped, .progress-bar-success;
   }
   &.-missing {

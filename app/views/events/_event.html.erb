@@ -9,7 +9,7 @@
       <span><%= event.address %></span>
     </div>
     <div class="col-xs-3 col-sm-2">
-      <%= progress_bar(needed: event.volunteers_needed, signed_up: event.volunteers_count) %>
+      <%= render event.progress_bar(current_user) %>
     </div>
   </div>
 <% end %>
