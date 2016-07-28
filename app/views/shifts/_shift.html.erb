@@ -8,9 +8,7 @@
   <div class="col-xs-8 visible-xs-block"><br></div>
 
   <div class="col-xs-12 col-sm-4">
-    <%= progress_bar(needed: shift.volunteers_needed,
-                     signed_up: shift.volunteers_count,
-                     current_user: shift.users.include?(current_user)) %>
+    <%= render shift.progress_bar(current_user) %>
   </div>
   <div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-1">
     <%= opt_button_for shift, current_user %>

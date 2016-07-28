@@ -35,46 +35,4 @@ module ShiftsHelper
       content_tag(:i, nil, class: 'fa fa-twitter') + ' Tweet'
     end
   end
-
-  def progress_bar(signed_up: 0, needed: 1, current_user: false)
-    content_tag :div, class: "progress" do
-      if current_user
-        if signed_up <= needed
-          me = (100.0 / needed).ceil
-          percentage = (100.0 * (signed_up - 1) / needed).ceil
-          content_tag(:div, content_tag(:i, "", class: "fa fa-smile-o") +
-                            " " + I18n.t("activerecord.attributes.shift.you"),
-                      class: "progress-bar -me", style: "width: #{me}%" ) +
-          content_tag(:div, signed_up.to_s + " " + I18n.t("activerecord.attributes.shift.confirmed_so_far"),
-                      class: "progress-bar -participants", style: "width: #{percentage}%" ) +
-          content_tag(:div, (needed - signed_up).to_s + " " + I18n.t("activerecord.attributes.shift.missing"),
-                      class: "progress-bar -missing", style: "width: #{100 - percentage - me}%;")
-        else
-          me = (100.0 / signed_up).ceil
-          percentage = (100.0 * (needed - 1) / signed_up).ceil
-          content_tag(:div, content_tag(:i, "", class: "fa fa-smile-o") +
-                            " " + I18n.t("activerecord.attributes.shift.you"),
-                      class: "progress-bar -me", style: "width: #{me}%" ) +
-          content_tag(:div, (needed - 1).to_s + " " + I18n.t("activerecord.attributes.shift.needed"),
-                      class: "progress-bar -participants", style: "width: #{percentage}%" ) +
-          content_tag(:div, (signed_up - needed).to_s + " " + I18n.t("activerecord.attributes.shift.surplus"),
-                      class: "progress-bar -full", style: "width: #{100 - percentage - me}%")
-        end
-      else
-        if signed_up <= needed
-          percentage = (100.0 * signed_up / needed).ceil
-          content_tag(:div, signed_up.to_s + " " + I18n.t("activerecord.attributes.shift.confirmed_so_far"),
-                      class: "progress-bar -participants", style: "width: #{percentage}%" ) +
-          content_tag(:div, (needed - signed_up).to_s + " " + I18n.t("activerecord.attributes.shift.missing"),
-                      class: "progress-bar -missing", style: "width: #{100 - percentage}%;")
-        else
-          percentage = (100.0 * needed / signed_up).ceil
-          content_tag(:div, needed.to_s + " " + I18n.t("activerecord.attributes.shift.needed"),
-                      class: "progress-bar -participants", style: "width: #{percentage}%" ) +
-          content_tag(:div, (signed_up - needed ).to_s + " " + I18n.t("activerecord.attributes.shift.surplus"),
-                      class: "progress-bar -full", style: "width: #{100 - percentage}%")
-        end
-      end
-    end
-  end
 end

@@ -10,7 +10,7 @@
     </div>
     <div class="col-xs-3 col-sm-2 text-center">
       <%= event_label event %>
-      <%= progress_bar(needed: event.ngo_volunteers_needed, signed_up: event.ngo_volunteers_count) %>
+      <%= render partial: 'progress_bar/progress_bar', object: event.progress_bar %>
     </div>
   </div>
 <% end %>
