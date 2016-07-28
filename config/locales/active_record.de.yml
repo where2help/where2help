@@ -18,8 +18,8 @@ de:
         one: NGO
         other: NGOs
       shift:
-        one: Schicht
-        other: Schichten
+        one: Einsatz
+        other: Einsätze
       users:
         one: Freiwilliger
         other: Freiwillige
@@ -38,7 +38,7 @@ de:
         state: Status
         state/pending: Unsichtbar
         state/published: Sichtbar
-        shifts: Schichten
+        shifts: Einsätze
       event/shifts:
         confirmed_so_far: zugesagt
         ends_at: Ende
