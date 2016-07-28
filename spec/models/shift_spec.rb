@@ -133,4 +133,35 @@ RSpec.describe Shift, type: :model do
       }.to raise_error ArgumentError
     end
   end
+
+  describe '#progress_bar' do
+    context 'when called without params' do
+      let(:shift) { create :shift, :with_event }
+
+      subject { shift.progress_bar }
+
+      it 'returns a public progress bar' do
+        expect(subject).to be_a ProgressBar::Public
+      end
+    end
+    context 'when called with user argument' do
+      let(:user) { create :user }
+      let(:shift) { create :shift, :with_event }
+
+      subject { shift.progress_bar user }
+
+      context 'when user not in shift yet' do
+        it 'returns a public progress bar' do
+          expect(subject).to be_a ProgressBar::Public
+        end
+      end
+      context 'when user in shift' do        
+        let!(:participation) { create :participation, shift: shift, user: user }
+
+        it 'returns a private progress bar' do
+          expect(subject).to be_a ProgressBar::Personal
+        end
+      end
+    end
+  end
 end
