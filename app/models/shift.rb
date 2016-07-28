@@ -24,6 +24,11 @@ class Shift < ApplicationRecord
     send(scope)
   end
 
+  def progress_bar(user)
+    me = users.include? user
+    ProgressBar.new(self, me)
+  end
+
   private
 
   def notify_volunteers

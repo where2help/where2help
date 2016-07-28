@@ -49,9 +49,9 @@ module ShiftsHelper
                       class: "progress-bar -participants", style: "width: #{percentage}%" ) +
           content_tag(:div, (needed - signed_up).to_s + " " + I18n.t("activerecord.attributes.shift.missing"),
                       class: "progress-bar -missing", style: "width: #{100 - percentage - me}%;")
-        else
-          me = (100.0 / signed_up).ceil
-          percentage = (100.0 * (needed - 1) / signed_up).ceil
+          else
+            me = (100.0 / signed_up).ceil
+            percentage = (100.0 * (needed - 1) / signed_up).ceil
           content_tag(:div, content_tag(:i, "", class: "fa fa-smile-o") +
                             " " + I18n.t("activerecord.attributes.shift.you"),
                       class: "progress-bar -me", style: "width: #{me}%" ) +
