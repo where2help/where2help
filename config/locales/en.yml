@@ -1,6 +1,7 @@
 en:
   active_admin:
     all: All
+    back: Back to Min App
   helpers:
     shifts_helper:
       share: Teilen

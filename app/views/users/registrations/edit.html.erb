@@ -5,59 +5,25 @@
                                 html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="form-group">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :phone %><br />
-    <%= f.email_field :phone, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :locale %><br />
-    <%= f.select :locale, User.locales.keys.to_a, {}, {class: "form-control"} %>
-  </div>
+  <%= f.input :first_name, autofocus: true %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :locale %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :password %> <i>(<%= t("devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it") %>)</i><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-  </div>
+  <%= f.input :password, autocomplete: "off",
+                         hint: t("devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it") %>
+  <%= f.input :password_confirmation, autocomplete: "off" %>
+  <%= f.input :current_password, autocomplete: "off",
+                                  hint: t("devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes") %>
+  <%= f.input :abilities, as: :check_boxes %>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :current_password %> <i><%= t("devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes") %></i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :abilities, :as => :check_boxes, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :languages, :as => :check_boxes, class: "form-control" %>
-  </div>
-
-  <%= f.submit t("devise.registrations.edit.update") %>
+  <%= f.input :languages, :as => :check_boxes %>
+  <%= f.submit t("devise.registrations.edit.update"), class: "btn btn-success" %>
 <% end %>
 
 <hr/>
@@ -67,7 +33,8 @@
 <p><%= button_to t("devise.registrations.edit.cancel_my_account"),
                  registration_path(resource_name),
                  data: { confirm: t("devise.registrations.edit.are_you_sure") },
-                 method: :delete %></p>
+                 method: :delete,
+                 class: "btn btn-warning" %></p>
 
 <hr/>
 <%= link_to t("devise.shared.links.back") , :back %>
