@@ -42,10 +42,10 @@ div.map {
   height: 26px;
   padding-top: 4px;
 
-  &.-me {
+  &.-you {
     @extend .progress-bar-striped, .progress-bar-info;
   }
-  &.-participants {
+  &.-people {
     @extend .progress-bar-striped, .progress-bar-success;
   }
   &.-missing {

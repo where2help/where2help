@@ -7,6 +7,6 @@ class ProgressBar::PeopleItem < ProgressBar::Item
   end
 
   def css_class
-    'progress-bar -participants'
+    'progress-bar -people'
   end
 end

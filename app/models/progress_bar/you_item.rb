@@ -1,4 +1,4 @@
-class ProgressBar::MeItem < ProgressBar::Item
+class ProgressBar::YouItem < ProgressBar::Item
 
   def initialize(percentage=0, num=0)
     super percentage, smile
@@ -15,6 +15,6 @@ class ProgressBar::MeItem < ProgressBar::Item
   end
 
   def css_class
-    'progress-bar -me'
+    'progress-bar -you'
   end
 end

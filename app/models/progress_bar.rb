@@ -21,14 +21,14 @@ class ProgressBar
       me = (100.0 / @needed).ceil
       percentage = (100.0 * (@people - 1) / @needed).ceil
 
-      @items << ProgressBar::MeItem.new(me)
+      @items << ProgressBar::YouItem.new(me)
       @items << ProgressBar::PeopleItem.new(percentage, @people)
       @items << missing_item(percentage, me)
     else
       me = (100.0 / @people).ceil
       percentage = (100.0 * (@needed - 1) / @people).ceil
 
-      @items << ProgressBar::MeItem.new(me)
+      @items << ProgressBar::YouItem.new(me)
       @items << needed_item(percentage)
       @items << full_item(percentage, me)
     end
