@@ -41,6 +41,7 @@ div.map {
 .progress-bar {
   height: 26px;
   padding-top: 4px;
+  overflow-y: hidden;
 
   &.-you {
     @extend .progress-bar-striped, .progress-bar-info;
