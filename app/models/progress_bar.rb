@@ -7,10 +7,6 @@ class ProgressBar
     @items = build_items
   end
 
-  def self.call(parent, me=false)
-    me ? ProgressBar::Personal.new(parent) : ProgressBar::Public.new(parent)
-  end
-
   def to_partial_path
     'progress_bar/progress_bar'
   end

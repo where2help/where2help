@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   include AASM
+  include Measurable
 
   belongs_to :ngo
   has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
@@ -53,11 +54,6 @@ class Event < ApplicationRecord
     available_shifts.last.try(:ends_at)
   end
 
-  def user_opted_in?(user)
-    available_shifts.joins(:participations)
-      .where(participations: { user_id: user.id }).any?
-  end
-
   def volunteers_needed
     available_shifts.map(&:volunteers_needed).inject(:+)
   end
@@ -72,15 +68,6 @@ class Event < ApplicationRecord
 
   def ngo_volunteers_count
     shifts.map(&:volunteers_count).inject(:+)
-  end
-
-  def progress_bar(user=nil)
-    if user
-      me = user_opted_in? user
-      ProgressBar.call self, me
-    else
-      ProgressBar.call self
-    end
   end
 
   private

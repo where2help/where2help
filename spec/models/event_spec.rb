@@ -171,29 +171,6 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  describe '#user_opted_in?' do
-    let(:event) { create :event, :with_shift }
-    let(:available_shift) { create :shift, event: event }
-    let(:past_shift) { create :shift, :skip_validate, :past, event: event }
-    let(:user) { create :user }
-
-    subject(:user_in?) { event.user_opted_in? user }
-
-    it 'returns true if user opted into available shift' do
-      available_shift.users << user
-      expect(user_in?).to eq true
-    end
-
-    it 'returns false if user opted into past shift' do
-      past_shift.users << user
-      expect(user_in?).to eq false
-    end
-
-    it 'returns false if user opted into no shift' do
-      expect(user_in?).to eq false
-    end
-  end
-
   describe '#volunteers_needed and #volunteers_count' do
     let(:event) { create :event, :with_shift }
 

@@ -1,4 +1,6 @@
 class Shift < ApplicationRecord
+  include Measurable
+
   default_scope { order(starts_at: :asc) }
   paginates_per 10
 
@@ -22,11 +24,6 @@ class Shift < ApplicationRecord
     valid_scope = [:all, :past, :upcoming].include? scope
     raise ArgumentError.new('Invalid scope given') unless valid_scope
     send(scope)
-  end
-
-  def progress_bar(user)
-    me = users.include? user
-    ProgressBar.call self, me
   end
 
   private
