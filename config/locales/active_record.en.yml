@@ -69,7 +69,7 @@ en:
         terms_and_conditions: Terms & Conditions
         remember_me: Remember Me
       shift:
-        confirmed_so_far: confirmed
+        people: confirmed
         ends_at: Ends
         missing: missing
         needed: needed

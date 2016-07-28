@@ -26,7 +26,7 @@ class Shift < ApplicationRecord
 
   def progress_bar(user)
     me = users.include? user
-    ProgressBar.new(self, me)
+    ProgressBar.call self, me
   end
 
   private
