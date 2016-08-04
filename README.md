@@ -5,6 +5,8 @@
 
 # Development
 
+## Run the project locally
+
 Install bundled gems
 
     $ bundle install
@@ -21,6 +23,44 @@ Populate database with sample data
 
     $ rails db:populate
 
+Start up rails!
+
+    $ rails server
+
+
+## Run the project in Docker
+
+Make sure you have [Docker](https://www.docker.com/) and Docker-Compose setup and running.
+
+Build the project
+
+    $ docker-compose build
+
+Spin up the containers
+
+    $ docker-compose up
+
+Setup the database
+
+    $ docker-compose run app rails db:setup
+
+Populate database with sample data
+
+    $ docker-compose run app rails db:populate
+
+Restart the server
+
+    $ docker-compose stop
+    $ docker-compose up
+
+To run the server as an interactive shell (to use e.g. byebug or pry)
+
+    $ docker-compose run --service-ports app
+
+# Deployment
+
+## Heroku
+
 Set up the following environment variables:
 
 * DATABASE_URL
@@ -34,11 +74,7 @@ Set up the following environment variables:
 * RACK_ENV
 * RAILS_SERVE_STATIC_FILE
 
-Start up rails!
-
-    $ rails server
-
-# Deployment
+## CI
 
 [Travis CI](https://travis-ci.org/) is set up to automatically deploy applications to [Heroku](https://www.heroku.com):
 
