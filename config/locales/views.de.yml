@@ -81,7 +81,7 @@ de:
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwillige/r anmelden
     registrations:
       new:
-        sign_up: Als NGO Registrieren	
+        sign_up: Als NGO registrieren	
         profile: NGO-Profil
         min_characters: Zeichen mindestens
         motivation_txt: |
@@ -93,7 +93,7 @@ de:
       subline_user: Wissen wann und wo ich als Freiwillige/r gebraucht werde
       subline_ngo: Wissen wann und wo wie viele Freiwillige erscheinen
       headline: Freiwillige Hilfe organisieren leicht gemacht
-      sign_up_ngo: Als NGO Registrieren
+      sign_up_ngo: Als NGO registrieren
       sign_up_user: Als Freiwillige/r registrieren
       login_user: Als Freiwillige/r anmelden
       login_ngo: Als NGO anmelden
