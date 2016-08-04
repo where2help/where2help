@@ -13,7 +13,7 @@
   <% end %>
 
   <%= f.input :password, autocomplete: "off",
-                         hint: t("devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it") %>
+                         hint: "(" + t("devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it") + ")" %>
 
   <%= f.input :password_confirmation, autocomplete: "off" %>
 

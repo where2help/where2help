@@ -5,6 +5,6 @@ de:
   formtastic:
     placeholders:
       event:
-        title: "vergeben Sie einen kurzen prägnanten Titel"
-        description: "geben Sie eine Beschreibung mit allen Informationen, die für die Freiwilligen relevant sind, z.B. wo genau der Treffpunkt innerhalb des Hauses ist."
+        title: "kurzer, aussagekräftiger Titel"
+        description: "Beschreibung mit allen Informationen, die für Freiwillige relevant sind (z.B.: wo genau der Treffpunkt innerhalb des Hauses ist)"
         address: "Tippen Sie einige Buchstaben, um Autovervollständigung zu erhalten"

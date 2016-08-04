@@ -46,7 +46,7 @@ de:
         needed: benötigt
         starts_at: Beginn
         surplus: zu viel
-        volunteers_needed: Anzahl benötigter Helfer
+        volunteers_needed: Anzahl benötigter Freiwilliger
         you: DU!
       user:
         first_name: Vorname
@@ -76,5 +76,5 @@ de:
         needed: benötigt
         starts_at: Beginn
         surplus: zu viel
-        volunteers_needed: Anzahl benötigter Helfer
+        volunteers_needed: Anzahl benötigter Freiwilliger
         you: DU!

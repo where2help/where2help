@@ -32,12 +32,12 @@ de:
       profile: Profil
     sessions:
       new:
-        please_login: Als HelferIn anmelden
+        please_login: Als Freiwillige/r anmelden
         login: Anmelden
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
     registrations:
       new:
-        sign_up: Als Helfer Registrieren
+        sign_up: Als Freiwillige/r registrieren
         profile: Profil
         min_characters: Zeichen mindestens
         motivation_txt: |
@@ -78,7 +78,7 @@ de:
       new:
         please_login: Als NGO anmelden
         login: Anmelden
-        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als HelferIn Anmelden
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwillige/r anmelden
     registrations:
       new:
         sign_up: Als NGO Registrieren	
