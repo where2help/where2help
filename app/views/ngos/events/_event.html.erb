@@ -10,7 +10,7 @@
     </div>
     <div class="col-xs-3 col-sm-2 text-center">
       <%= event_label event %>
-      <%= render partial: 'progress_bar/progress_bar', object: event.progress_bar %>
+      <%= render(partial: 'progress_bar/progress_bar', object: event.progress_bar) if event.available_shifts.any? %>
     </div>
   </div>
 <% end %>

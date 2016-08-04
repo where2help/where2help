@@ -8,7 +8,7 @@ de:
       subject: "[where2help] Ihr Account wurde bestätigt"
       greeting: "Hallo %{name}"
       content: |
-        Euer Account ist jetzt freigeschalten. Wenn Ihr eure Emailadresse bereits bestätigt hab,
+        Euer Account ist jetzt freigeschalten. Wenn Ihr eure E-Mail Adresse bereits bestätigt habt,
         könnt Ihr jetzt loslegen Events zu erstellen!
       link: Bei Where2Help Loslegen
   user_mailer:
@@ -25,7 +25,7 @@ de:
     index:
       welcome: |
         <h3>Aktuelle Events</h3>
-        <p>Sieh nach wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein in denen Du helfen willst!<p>
+        <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
   users:
     nav:
       schedule: Einsätze
@@ -34,7 +34,7 @@ de:
       new:
         please_login: Als Freiwillige/r anmelden
         login: Anmelden
-        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO Anmelden
+        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO anmelden
     registrations:
       new:
         sign_up: Als Freiwillige/r registrieren
@@ -86,11 +86,7 @@ de:
         min_characters: Zeichen mindestens
         motivation_txt: |
           <strong>Wissen wann, wo und wie viele Freiwillige erscheinen!</strong>
-          Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann,
-          wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich
-          Freiwillige online oder via Where2Help Smartphone App eintragen können. Ihr
-          behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt
-          haben.
+          Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann, wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich Freiwillige online oder via Where2Help Smartphone App eintragen können. Ihr behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt haben.
           Wir freuen uns auf Euch!
   pages:
     home:
@@ -98,9 +94,9 @@ de:
       subline_ngo: Wissen wann und wo wie viele Freiwillige erscheinen
       headline: Freiwillige Hilfe organisieren leicht gemacht
       sign_up_ngo: Als NGO Registrieren
-      sign_up_user: Als Freiwillige/r Registrieren
+      sign_up_user: Als Freiwillige/r registrieren
       login_user: Als Freiwillige/r anmelden
-      login_ngo: Als NGO Anmelden
+      login_ngo: Als NGO anmelden
   shifts:
     opt_in_btn: Helfen
     opt_out_btn: Absagen

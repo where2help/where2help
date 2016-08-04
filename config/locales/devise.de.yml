@@ -39,8 +39,7 @@ de:
         instruction: |
           Folge dem untenstehenden Link, um Dein Konto zu bestätigen."
           Nach Bestätigung wird Dein Konto von einem Administrator freigeschalten.
-          Nach Aktivierung erfolgt eine Verständigung per E-Mail. Wir bitten um etwas
-          Geduld.
+          Nach Aktivierung erfolgt eine Verständigung per E-Mail. Wir bitten um etwas Geduld.
       password_change:
         greeting: Hallo %{recipient}!
         message: Wir benachrichigen Dich, um Dir mitzuteilen, dass Dein Passwort geändert wurde.
