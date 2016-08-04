@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  actions :all, except: [:new, :create]
+  actions :all
   includes :languages, :abilities
 
   filter :email
@@ -23,4 +23,10 @@ ActiveAdmin.register User do
     :locale,
     ability_ids: [],
     language_ids: []
+
+  controller do 
+    after_create do
+      @user.send_confirmation_instructions
+    end
+  end  
 end
