@@ -47,7 +47,7 @@ de:
   ngos:
     events:
       index:
-        add_an_event: Event hinzufügen
+        add_an_event: Einsatz hinzufügen
         address: Adresse
         all: alle
         filter_by: Filtern nach
@@ -61,19 +61,19 @@ de:
         edit: Bearbeiten
         delete: Löschen
       form:
-        new: Neues Event
-        shifts: Einsätze
-        add_shift: Einsatz hinzufügen
-        save_shift: Event speichern
-        delete_shift: Einsatz löschen
-        edit_event: Event aktualisieren
+        new: Neuer Einsatz
+        shifts: Schichten
+        add_shift: Schicht hinzufügen
+        save_shift: Schicht speichern
+        delete_shift: Schicht löschen
+        edit_event: Einsatz aktualisieren
         confirmed_so_far: "Bisher zugesagt: "
-        prohibited: "Fehler verhinderte(n), dass dieses Event gespeichert wurde."
+        prohibited: "Fehler verhinderte(n), dass dieser Einsatz gespeichert wurde."
       messages:
-        create_success: Event wurde erfolgreich erzeugt.
-        update_success: Event wurde erfolgreich aktualisiert.
-        publish_success: Event wurde erfolgreich veröffentlicht.
-        publish_fail: Event konnte nicht veröffentlicht werden.
+        create_success: Einsatz wurde erfolgreich erzeugt.
+        update_success: Einsatz wurde erfolgreich aktualisiert.
+        publish_success: Einsatz wurde erfolgreich veröffentlicht.
+        publish_fail: Einsatz konnte nicht veröffentlicht werden.
     sessions:
       new:
         please_login: Als NGO anmelden
