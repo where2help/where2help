@@ -9,11 +9,11 @@ de:
       greeting: "Hallo %{name}"
       content: |
         Euer Account ist jetzt freigeschalten. Wenn Ihr eure E-Mail Adresse bereits bestätigt habt,
-        könnt Ihr jetzt loslegen Events zu erstellen!
+        könnt Ihr jetzt loslegen Einsätze zu erstellen!
       link: Bei Where2Help Loslegen
   user_mailer:
     shift_destroyed:
-      subject: "[where2help] Event wurde abgesagt"
+      subject: "[where2help] Einsatz wurde abgesagt"
       greeting: "Hallo %{name}"
       content: |
         %{title} am %{date} wurde abgesagt, Du brauchst nicht zu kommen!
@@ -24,7 +24,7 @@ de:
     load_more: Mehr anzeigen
     index:
       welcome: |
-        <h3>Aktuelle Events</h3>
+        <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
   users:
     nav:
