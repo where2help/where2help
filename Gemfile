@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'rails', '~> 5.0'
+gem 'rails', '5.0.0.1'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
@@ -37,7 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-json_expectations'
   gem 'factory_girl_rails'
-  gem 'rails-controller-testing'
+  gem 'rails-controller-testing', "1.0.1"
   gem "better_errors"
   gem "binding_of_caller"
 end
@@ -50,7 +50,7 @@ end
 group :development do
   gem 'web-console'
   gem 'spring'
-  gem 'bullet'
+  gem 'bullet', "5.3.0"
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
