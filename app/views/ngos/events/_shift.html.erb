@@ -9,7 +9,7 @@
   </div>
   <div class="col-xs-8 visible-xs-block"><br></div>
   <div class="col-xs-12 col-sm-4">
-    <%= progress_bar(needed: shift.volunteers_needed, signed_up: shift.volunteers_count) %>
+    <%= render(partial: 'progress_bar/progress_bar', object: shift.progress_bar) %>
   </div>
 </div>
 
