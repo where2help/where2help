@@ -24,9 +24,9 @@ ActiveAdmin.register User do
     ability_ids: [],
     language_ids: []
 
-  controller do 
+  controller do
     after_create do
       @user.send_confirmation_instructions
     end
-  end  
+  end
 end

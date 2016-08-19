@@ -31,18 +31,15 @@ ActiveAdmin.register Ngo do
     redirect_to collection_path, alert: 'Ausgewählte NGOs wurden deaktiviert.'
   end
 
-  permit_params :name,
-    :email,
-    :identifier,
-    :locale,
-    :aasm_state,
-    contact_attributes: [
-      :id,
-      :first_name,
-      :last_name,
-      :email,
-      :phone,
-      :street,
-      :zip,
-      :city]
+  permit_params :name, :email, :identifier, :locale, :aasm_state,
+                contact_attributes: [ :id, :first_name, :last_name, :email, :phone,
+                                      :street, :zip, :city ]
+
+  controller do
+    before_update do
+      if @ngo.aasm_state == "admin_confirmed" && @ngo.changed_attributes[:aasm_state] == "pending"
+        NgoMailer.admin_confirmed(@ngo).deliver_later
+      end
+    end
+  end
 end

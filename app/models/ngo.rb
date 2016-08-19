@@ -65,13 +65,13 @@ class Ngo < ApplicationRecord
     AdminMailer.new_ngo(self).deliver_later
   end
 
-  def send_admin_confirmation
-    NgoMailer.admin_confirmed(self).deliver_later
-  end
-
   def reset_confirmations
     update(confirmation_token: nil,
             confirmed_at: nil,
             confirmation_sent_at: nil)
+  end
+
+  def send_admin_confirmation
+    NgoMailer.admin_confirmed(self).deliver_later
   end
 end
