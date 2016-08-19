@@ -75,7 +75,7 @@ namespace :db do
     end
 
     Event.all.each do |event|
-      uri = URI.parse("http://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=" + ERB::Util.url_encode(event.address) + "&crs=EPSG:4326")
+      uri = URI.parse("https://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=" + ERB::Util.url_encode(event.address) + "&crs=EPSG:4326")
       response = Net::HTTP.get_response(uri)
       if response.body.length > 1
         feature = JSON.parse(response.body)["features"].first

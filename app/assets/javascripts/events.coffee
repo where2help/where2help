@@ -31,7 +31,7 @@ document.addEventListener "turbolinks:load", ->
     queryTokenizer: Bloodhound.tokenizers.whitespace
     limit: 7
     remote:
-      url: "http://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=%QUERY&crs=EPSG:4326"
+      url: "https://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=%QUERY&crs=EPSG:4326"
       filter: (addresses) ->
         updateCoordinates addresses.features[0]
         addresses.features
