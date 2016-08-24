@@ -8,11 +8,7 @@
   <div class="col-sm-3 col-sm-push-9 text-center">
     <%= opt_button_for @shift, current_user if @shift.starts_at > Time.now() %>
 
-    <p>
-      <%= progress_bar(needed: @shift.volunteers_needed,
-                       signed_up: @shift.volunteers_count,
-                       current_user: @shift.users.include?(current_user)) %>
-    </p>
+    <p><%= render @shift.progress_bar(current_user) %></p>
   </div>
   <div class="col-sm-9 col-sm-pull-3">
     <ul class="fa-ul">
