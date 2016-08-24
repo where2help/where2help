@@ -55,11 +55,13 @@ class Event < ApplicationRecord
   end
 
   def volunteers_needed
-    available_shifts.map(&:volunteers_needed).inject(:+)
+    available_shifts.map(&:volunteers_needed).inject(:+) ||
+      shifts.map(&:volunteers_needed).inject(:+)
   end
 
   def volunteers_count
-    available_shifts.map(&:volunteers_count).inject(:+)
+    available_shifts.map(&:volunteers_count).inject(:+) ||
+      shifts.map(&:volunteers_count).inject(:+)
   end
 
   def ngo_volunteers_needed

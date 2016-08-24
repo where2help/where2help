@@ -172,20 +172,36 @@ RSpec.describe Event, type: :model do
   end
 
   describe '#volunteers_needed and #volunteers_count' do
-    let(:event) { create :event, :with_shift }
+    context 'when upcoming shifts' do
+      let(:event) { create :event, :skip_validate }
+      before do
+        create_list :shift, 2, event: event, volunteers_needed: 2, volunteers_count: 1
+        create :shift, :skip_validate, :past, event: event, volunteers_needed: 100
+        create :shift, event: event, volunteers_needed: 10, volunteers_count: 0
+      end
 
-    before do
-      create_list :shift, 2, event: event, volunteers_needed: 2, volunteers_count: 1
-      create :shift, :skip_validate, :past, event: event, volunteers_needed: 100
-      create :shift, event: event, volunteers_needed: 100, volunteers_count: 100
+      it 'sums up all available_shifts volunteers_needed' do
+        expect(event.volunteers_needed).to eq 14
+      end
+
+      it 'sums up all available_shifts volunteers_count' do
+        expect(event.volunteers_count).to eq 2
+      end
     end
+    context 'when no upcoming shifts at all' do
+      let(:event) { create :event, :skip_validate }
+      before do
+        create_list :shift, 2, :skip_validate, :past,
+          event: event, volunteers_needed: 10, volunteers_count: 1
+      end
 
-    it 'sums up all available_shifts volunteers_needed' do
-      expect(event.volunteers_needed).to eq 14
-    end
+      it 'sums up all shifts volunteers_needed' do
+        expect(event.volunteers_needed).to eq 20
+      end
 
-    it 'sums up all available_shifts volunteers_count' do
-      expect(event.volunteers_count).to eq 2
+      it 'sums up all shifts volunteers_count' do
+        expect(event.volunteers_count).to eq 2
+      end
     end
   end
 
