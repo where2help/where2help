@@ -6,8 +6,8 @@ de:
         other: Fähigkeiten
       contact: Kontakt
       event:
-        one: Event
-        other: Events
+        one: Einsatz
+        other: Einsätze
       language:
         one: Sprache
         other: Sprachen
@@ -18,8 +18,8 @@ de:
         one: NGO
         other: NGOs
       shift:
-        one: Einsatz
-        other: Einsätze
+        one: Mein Einsatz
+        other: Meine Einsätze
       users:
         one: Freiwilliger
         other: Freiwillige
