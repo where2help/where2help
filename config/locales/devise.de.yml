@@ -104,7 +104,7 @@ de:
     shared:
       links:
         back: Zurück
-        didn_t_receive_confirmation_instructions: Keine Anleitung zur Bestätigung der Registrierungerhalten?
+        didn_t_receive_confirmation_instructions: Keine Anleitung zur Bestätigung der Registrierung erhalten?
         didn_t_receive_unlock_instructions: Keine Anleitung zum Entsperren erhalten?
         forgot_your_password: Passwort vergessen?
         sign_in: Anmelden
