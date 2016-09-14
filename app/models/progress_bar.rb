@@ -20,17 +20,17 @@ class ProgressBar
   def missing_item(size, me=0)
     missing = @needed - @people
     size = 100 - size - me
-    ProgressBar::Item.new size: size, num: missing, type: :missing
+    Item.new size: size, num: missing, type: :missing
   end
 
   def needed_item(size)
-    ProgressBarItem.new size: size, num: @needed-1, type: :needed
+    Item.new size: size, num: @needed-1, type: :needed
   end
 
   def full_item(size, me=0)
     surplus = @people - @needed
     size = 100 - size - me
-    ProgressBarItem.new size: size, num: surplus, type: :needed
+    Item.new size: size, num: surplus, type: :needed
   end
 
   def people_missing
