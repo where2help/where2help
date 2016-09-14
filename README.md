@@ -71,7 +71,6 @@ Set up the following environment variables:
 * SECRET_KEY_BASE
 * RAILS_ENV
 * LANG
-* RACK_ENV
 * RAILS_SERVE_STATIC_FILE
 
 ## CI

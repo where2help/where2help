@@ -77,5 +77,8 @@ test:
 #
 # You can use this database configuration with:
 
+staging:
+  url: <%= ENV['DATABASE_URL'] %>
+
 production:
   url: <%= ENV['DATABASE_URL'] %>
