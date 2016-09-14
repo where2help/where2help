@@ -44,7 +44,7 @@ en:
         missing: missing
         needed: needed
         starts_at: Begins
-        surplus: Überschuss
+        full: surplus
         volunteers_needed: Helpers Needed
         you: YOU!
       user:
@@ -74,6 +74,6 @@ en:
         missing: missing
         needed: needed
         starts_at: Begins
-        surplus: Überschuss
+        full: surplus
         volunteers_needed: Helpers Needed
         you: YOU!

@@ -45,7 +45,7 @@ de:
         missing: fehlen
         needed: benötigt
         starts_at: Beginn
-        surplus: zu viel
+        full: zu viel
         volunteers_needed: Anzahl benötigter Freiwilliger
         you: DU!
       user:
@@ -75,6 +75,6 @@ de:
         missing: fehlen
         needed: benötigt
         starts_at: Beginn
-        surplus: zu viel
+        full: zu viel
         volunteers_needed: Anzahl benötigter Freiwilliger
         you: DU!

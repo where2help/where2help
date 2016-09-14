@@ -24,13 +24,13 @@ class ProgressBar
   end
 
   def needed_item(size)
-    Item.new size: size, num: @needed-1, type: :needed
+    Item.new size: size, num: @needed-1, type: :missing
   end
 
   def full_item(size, me=0)
     surplus = @people - @needed
     size = 100 - size - me
-    Item.new size: size, num: surplus, type: :needed
+    Item.new size: size, num: surplus, type: :full
   end
 
   def people_missing
