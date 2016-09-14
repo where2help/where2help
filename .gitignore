@@ -35,8 +35,8 @@ pickle-email-*.html
 # developers might have their own workflows
 Procfile.dev
 .ruby-gemset
-.ruby-version
 
 # your own ENV related stuff. Copy over .env.example locally
 .env
 .env.test
+.ruby-env
