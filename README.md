@@ -64,13 +64,11 @@ To run the server as an interactive shell (to use e.g. byebug or pry)
 Set up the following environment variables:
 
 * DATABASE_URL
-* WHERE2HELP_DATABASE_PASSWORD
 * SENDGRID_USERNAME
 * SENDGRID_PASSWORD
 * FQDN
 * SECRET_KEY_BASE
 * RAILS_ENV
-* LANG
 * RAILS_SERVE_STATIC_FILE
 
 ## CI
