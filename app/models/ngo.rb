@@ -10,7 +10,7 @@ class Ngo < ApplicationRecord
   accepts_nested_attributes_for :contact, reject_if: :all_blank
 
   validates :name, presence: true
-  validates :identifier, presence: true
+  # validates :identifier, presence: true
   validates_presence_of :contact
   validates :terms_and_conditions, acceptance: true
 
