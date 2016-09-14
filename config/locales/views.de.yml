@@ -5,10 +5,10 @@ de:
       content: Neue NGO Account Anfrage
   ngo_mailer:
     admin_confirmed:
-      subject: "[where2help] Ihr Account wurde bestätigt"
+      subject: "[where2help] Account wurde bestätigt"
       greeting: "Hallo %{name}"
       content: |
-        Euer Account ist jetzt freigeschalten. Wenn Ihr eure E-Mail Adresse bereits bestätigt habt,
+        Euer Account ist jetzt freigeschalten. Wenn Ihr Eure E-Mail Adresse bereits bestätigt habt,
         könnt Ihr jetzt loslegen Einsätze zu erstellen!
       link: Bei Where2Help Loslegen
   user_mailer:
@@ -16,10 +16,11 @@ de:
       subject: "[where2help] Einsatz wurde abgesagt"
       greeting: "Hallo %{name}"
       content: |
-        %{title} am %{date} wurde abgesagt, Du brauchst nicht zu kommen!
+        %{title} am %{date} wurde abgesagt.
+        Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
   application:
     empty_message:
-      message: Wir haben gerade nichts für dich...
+      message: Wir haben gerade nichts für Dich...
   events:
     load_more: Mehr anzeigen
     index:
@@ -41,8 +42,8 @@ de:
         profile: Profil
         min_characters: Zeichen mindestens
         motivation_txt: |
-          <strong>Wissen wann und wo ich als Freiwillige/r gebraucht werde!</strong>
-          Erfahre wo Du gerade gebraucht wirst und melde Dich direkt online oder via der Where2Help Smartphone App an.
+          <strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst!</strong>
+          Erfahre, wo Du gerade gebraucht wirst und melde Dich direkt online oder via where2help Smartphone App an.
           Wir freuen uns auf Dich!
   ngos:
     events:
@@ -86,12 +87,12 @@ de:
         min_characters: Zeichen mindestens
         motivation_txt: |
           <strong>Wissen wann, wo und wie viele Freiwillige erscheinen!</strong>
-          Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann, wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich Freiwillige online oder via Where2Help Smartphone App eintragen können. Ihr behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt haben.
+          Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann, wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich Freiwillige online oder via where2help Smartphone App eintragen können. Ihr behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt haben.
           Wir freuen uns auf Euch!
   pages:
     home:
-      subline_user: Wissen wann und wo ich als Freiwillige/r gebraucht werde
-      subline_ngo: Wissen wann und wo wie viele Freiwillige erscheinen
+      subline_user: Wissen, wann und wo Du als Freiwillige/r gebraucht wirst
+      subline_ngo: Wissen, wann und wo wie viele Freiwillige mithelfen
       headline: Freiwillige Hilfe organisieren leicht gemacht
       sign_up_ngo: Als NGO registrieren
       sign_up_user: Als Freiwillige/r registrieren
@@ -107,7 +108,7 @@ de:
     schedule:
       your_shifts: |+
         <h3>Deine Einsätze</h3>
-        <p>Sei bitte pünklich. Falls Du doch nicht kommen kannst, sag bitte frühzeitig ab.</p>
+        <p>Sei bitte pünktlich. Falls Du doch nicht kommen kannst, sag bitte so früh wie möglich ab.</p>
       past: Vergangene
       upcoming: Bevorstehende
       all: Alle
