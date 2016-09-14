@@ -73,13 +73,12 @@ Set up the following environment variables:
 
 ## CI
 
-[Travis CI](https://travis-ci.org/) is set up to automatically deploy applications to [Heroku](https://www.heroku.com):
+[Travis CI](https://travis-ci.org/) is set up to automatically deploy to [Heroku](https://www.heroku.com):
 
 * the `master` branch is automatically deployed to the staging environment:
-https://staging-where2help.herokuapp.com/
-
-* the more stable `fsw` branch is automatically deployed to:
 https://where2help.herokuapp.com/
+
+* the more stable `fsw` branch deployed by FSW by hand
 
 If you want to skip continuous integration for your commit, add this to your commit message:
 
@@ -90,7 +89,7 @@ If you want to skip continuous integration for your commit, add this to your com
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.
-* Start a feature/bugfix branch.
+* Start a feature/bugfix branch, `master` should always be stable.
 * Commit and push until you are happy with your contribution.
 * Make sure to add tests for it, if possible.
 * If you're interested in working on an issue that has been assigned to somebody, we encourage you to get in touch with them first!
