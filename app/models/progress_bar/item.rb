@@ -1,27 +1,30 @@
 class ProgressBar::Item
   include ActionView::Helpers::TagHelper
 
-  def initialize(size: 0, num: nil, type: :you)
-    @txt = text(num, type)
-    @css = "progress-bar -#{type.to_s}"
-    @size = "width: #{size}%"
+  def initialize(width:, amount: nil, type:)
+    @width = "width: #{width}%"
+    @amount = amount
+    @type = type
   end
 
   def render
-    content_tag :div, @txt.html_safe, class: @css, style: @size
+    content_tag(:div, text, class: css_class, style: @width)
   end
 
   private
 
-  attr_reader :txt, :css, :size
+  attr_reader :width, :amount, :type
 
-  def text(num, type)
-    num ||= smile
-    desc = I18n.t "activerecord.attributes.shift.#{type.to_s}"
-    "#{num} #{desc}"
+  def css_class
+    @css_class ||= "progress-bar -#{type}"
   end
 
-  def smile
+  def text
+    desc = I18n.t "activerecord.attributes.shift.#{type.to_s}"
+    "#{amount || smiley} #{desc}".html_safe
+  end
+
+  def smiley
     content_tag(:i, '', class: 'fa fa-smile-o')
   end
 end

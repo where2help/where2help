@@ -1,10 +1,13 @@
 class ProgressBar
-  attr_reader :items, :needed, :people
 
-  def initialize(parent)
-    @people = parent.volunteers_count
-    @needed = parent.volunteers_needed
-    @items = build_items
+  def initialize(progress:, total:, offset: 0)
+    @progress = progress
+    @total    = total
+    @offset   = offset
+  end
+
+  def items
+    @items ||= build_items
   end
 
   def to_partial_path
@@ -13,31 +16,46 @@ class ProgressBar
 
   private
 
+  attr_reader :progress, :total, :offset
+
   def build_items
-    @people <= @needed ? people_missing : full_bar
+    items = []
+    items << offset_item unless offset.zero?
+    items << progress_item
+    items << rest_item
   end
 
-  def missing_item(size, me=0)
-    missing = @needed - @people
-    size = 100 - size - me
-    Item.new size: size, num: missing, type: :missing
+  def offset_item
+    Item.new(width: offset_pct, type: :offset)
   end
 
-  def needed_item(size)
-    Item.new size: size, num: @needed-1, type: :missing
+  def progress_item
+    amount = [@progress, @total].min - @offset
+    Item.new(width: progress_pct, amount: amount, type: :progress)
   end
 
-  def full_item(size, me=0)
-    surplus = @people - @needed
-    size = 100 - size - me
-    Item.new size: size, num: surplus, type: :full
+  def rest_item
+    min, max = [@progress, @total].minmax
+    amount = max - min
+    Item.new(width: rest_pct, amount: amount, type: rest_type)
   end
 
-  def people_missing
-    raise NotImplementedError, "people_missing not implemented for #{self.class}"
+  def rest_type
+    @progress > @total ? :full : :rest
   end
 
-  def full_bar
-    raise NotImplementedError, "full_bar not implemented for #{self.class}"
+  def progress_pct
+    min, max = [@progress, @total].minmax
+    (100.0 * (min-@offset) / max).ceil
+  end
+
+  def rest_pct
+    100 - progress_pct - offset_pct
+  end
+
+  def offset_pct
+    return 0 if @offset.zero?
+    total = [@progress, @total].max
+    (100.0 / total).ceil
   end
 end

@@ -42,12 +42,8 @@ de:
       event/shifts:
         confirmed_so_far: zugesagt
         ends_at: Ende
-        missing: fehlen
-        needed: benötigt
         starts_at: Beginn
-        full: zu viel
         volunteers_needed: Anzahl benötigter Freiwilliger
-        you: DU!
       user:
         first_name: Vorname
         last_name: Nachname
@@ -70,11 +66,10 @@ de:
         terms_and_conditions: Nutzungsbedingungen
         remember_me: Angemeldet bleiben
       shift:
-        people: zugesagt
+        progress: zugesagt
         ends_at: Ende
-        missing: fehlen
-        needed: benötigt
+        rest: fehlen
         starts_at: Beginn
         full: zu viel
         volunteers_needed: Anzahl benötigter Freiwilliger
-        you: DU!
+        offset: DU!
