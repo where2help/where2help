@@ -206,35 +206,40 @@ RSpec.describe Event, type: :model do
   end
 
   describe '#progress_bar' do
-    context 'when called without params' do
-      let(:event) { create :event, :with_shift }
+    let(:event) { create :event, :with_shift }
+    let(:user) { create :user }
 
-      subject { event.progress_bar }
+    subject { event.progress_bar user }
 
-      it 'returns a public progress bar' do
-        expect(subject).to be_a ProgressBar::Public
+    context 'when user no participant' do
+      it 'returns a new ProgressBar without offset' do
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 0).
+          and_call_original
+        expect(subject).to be_a ProgressBar
       end
     end
-    context 'when called with user argument' do
-      let(:user) { create :user }
-
-      subject { event.progress_bar user }
-
-      context 'when user not part of event yet' do
-        let(:event) { create :event, :with_shift }
-
-        it 'returns a public progress bar' do
-          expect(subject).to be_a ProgressBar::Public
-        end
+    context 'when user participant' do
+      before do
+        shift = event.shifts.first
+        create(:participation, shift: shift, user: user)
       end
-      context 'when user part of upcoming shift' do
-        let(:event) { create :event, :skip_validate }
-        let(:shift) { create :shift, event: event }
-        let!(:participation) { create :participation, shift: shift, user: user }
 
-        it 'returns a private progress bar' do
-          expect(subject).to be_a ProgressBar::Personal
-        end
+      it 'returns a new ProgressBar with offset 1' do
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 1).
+          and_call_original
+        expect(subject).to be_a ProgressBar
+      end
+    end
+    context 'when user nil' do
+      let(:user) { nil }
+
+      it 'returns a new ProgressBar without offset' do
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 0).
+          and_call_original
+        expect(subject).to be_a ProgressBar
       end
     end
   end
