@@ -16,8 +16,14 @@ de:
       subject: "[where2help] Einsatz wurde abgesagt"
       greeting: "Hallo %{name}"
       content: |
-        %{title} am %{date} wurde abgesagt.
+        "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} abgesagt.
         Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
+    shift_updated: 
+      subject: "[where2help] Einsatz wurde geändert"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} verändert.
+        Vielen Dank für Dein Engagement!
   application:
     empty_message:
       message: Wir haben gerade nichts für Dich...

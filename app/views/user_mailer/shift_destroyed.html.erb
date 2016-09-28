@@ -5,6 +5,10 @@
   </head>
   <body>
     <h2><%= t('.greeting', name: @user.first_name) %></h2>
-    <p><%= t('.content', title: @shift.event.title, date: I18n.localize(@shift.starts_at, format:'%d. %b %Y %H:%M')) %></p>
+    <p><%= t('.content', title: @shift.event.title, 
+	                 date: I18n.localize(@shift.starts_at, format:'%d. %b %Y'),
+			 time: I18n.localize(@shift.starts_at, format:'%H:%M'),
+	                 ngo_name: @shift.event.ngo.name)		 
+	%></p>
   </body>
 </html>
