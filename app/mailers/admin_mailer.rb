@@ -1,6 +1,5 @@
 class AdminMailer < ApplicationMailer
-  default from: 'no-reply@where2help.at',
-          to: proc { admins.pluck(:email) }
+  default to: proc { admins.pluck(:email) }
 
   def new_ngo(ngo)
     @ngo = ngo

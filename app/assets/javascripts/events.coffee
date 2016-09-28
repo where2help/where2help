@@ -58,6 +58,6 @@ document.addEventListener "turbolinks:load", ->
   districtToZip = (district) ->
     district = district.replace(/,.*/, "")
     if district.length > 1
-      "10#{district}"
+      "1#{district}0"
     else
       "10#{district}0"
