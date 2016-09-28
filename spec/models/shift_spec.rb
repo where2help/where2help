@@ -135,32 +135,37 @@ RSpec.describe Shift, type: :model do
   end
 
   describe '#progress_bar' do
-    context 'when called without params' do
-      let(:shift) { create :shift, :with_event }
+    let(:shift) { create :shift, :with_event }
+    let(:user) { create :user }
 
-      subject { shift.progress_bar }
+    subject { shift.progress_bar user }
 
-      it 'returns a public progress bar' do
-        expect(subject).to be_a ProgressBar::Public
+    context 'when user no participant' do
+      it 'returns a new ProgressBar without offset' do
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 0).
+          and_call_original
+        expect(subject).to be_a ProgressBar
       end
     end
-    context 'when called with user argument' do
-      let(:user) { create :user }
-      let(:shift) { create :shift, :with_event }
+    context 'when user participant' do
+      before { create(:participation, shift: shift, user: user) }
 
-      subject { shift.progress_bar user }
-
-      context 'when user not in shift yet' do
-        it 'returns a public progress bar' do
-          expect(subject).to be_a ProgressBar::Public
-        end
+      it 'returns a new ProgressBar with offset 1' do
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 1).
+          and_call_original
+        expect(subject).to be_a ProgressBar
       end
-      context 'when user in shift' do        
-        let!(:participation) { create :participation, shift: shift, user: user }
+    end
+    context 'when user nil' do
+      let(:user) { nil }
 
-        it 'returns a private progress bar' do
-          expect(subject).to be_a ProgressBar::Personal
-        end
+      it 'returns a new ProgressBar without offset' do
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 0).
+          and_call_original
+        expect(subject).to be_a ProgressBar
       end
     end
   end

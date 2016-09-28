@@ -1,6 +1,4 @@
 class UserMailer < ApplicationMailer
-  default from: 'no-reply@where2help.at'
-
   def shift_destroyed(shift, user)
     @shift = shift
     @user = user

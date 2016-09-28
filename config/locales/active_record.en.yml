@@ -41,12 +41,8 @@ en:
       event/shifts:
         confirmed_so_far: confirmed
         ends_at: Ends
-        missing: missing
-        needed: needed
         starts_at: Begins
-        full: surplus
         volunteers_needed: Helpers Needed
-        you: YOU!
       user:
         first_name: First Name
         last_name: Last Name
@@ -69,11 +65,10 @@ en:
         terms_and_conditions: Terms & Conditions
         remember_me: Remember Me
       shift:
-        people: confirmed
+        progress: confirmed
         ends_at: Ends
-        missing: missing
-        needed: needed
+        rest: missing
         starts_at: Begins
         full: surplus
         volunteers_needed: Helpers Needed
-        you: YOU!
+        offset: YOU!

@@ -1,6 +1,4 @@
 class Shift < ApplicationRecord
-  include Measurable
-
   default_scope { order(starts_at: :asc) }
   paginates_per 10
 
@@ -12,19 +10,27 @@ class Shift < ApplicationRecord
   validate :not_in_past
   validate :ends_at_after_starts_at
 
-  scope :not_full, -> { where('volunteers_needed > volunteers_count') }
-  scope :past, -> { where('starts_at < NOW()').reorder(starts_at: :desc) }
-  scope :upcoming, -> { where('starts_at > NOW()') }
+  scope :not_full,  -> { where('volunteers_needed > volunteers_count') }
+  scope :past,      -> { where('starts_at < NOW()').reorder(starts_at: :desc) }
+  scope :upcoming,  -> { where('starts_at > NOW()') }
   scope :available, -> { upcoming.not_full }
 
   before_destroy :notify_volunteers_about_destroy, prepend: true
   before_update  :notify_volunteers_about_update, prepend: true
 
-  def self.filter(scope=nil)
+  def self.filter(scope = nil)
     scope ||= :upcoming
     valid_scope = [:all, :past, :upcoming].include? scope
     raise ArgumentError.new('Invalid scope given') unless valid_scope
     send(scope)
+  end
+
+  def progress_bar(user = nil)
+    offset = users.where(id: user.try(:id)).count
+    ProgressBar.new(
+      progress: volunteers_count,
+      total:    volunteers_needed,
+      offset:   offset)
   end
 
   private

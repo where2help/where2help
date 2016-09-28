@@ -27,10 +27,6 @@
           <%= f.email_field :email, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :identifier %>
-          <%= f.text_field :identifier, class: 'form-control' %>
-        </div>
-        <div class="form-group">
           <%= f.label :password %>
           <% if @minimum_password_length %>
           <em>(<%= "#{@minimum_password_length} #{t('.min_characters')}" %>)</em>

@@ -76,12 +76,9 @@ test:
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
 #
 # You can use this database configuration with:
-#
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
+
+staging:
+  url: <%= ENV['DATABASE_URL'] %>
+
 production:
-  <<: *default
-  database: where2help_production
-  username: where2help
-  password: <%= ENV['WHERE2HELP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

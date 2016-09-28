@@ -45,15 +45,15 @@ div.map {
 .progress-bar {
   height: 26px;
   padding-top: 4px;
-  overflow-y: hidden;
+  overflow: hidden;
 
-  &.-you {
+  &.-offset {
     @extend .progress-bar-striped, .progress-bar-info;
   }
-  &.-people {
+  &.-progress {
     @extend .progress-bar-striped, .progress-bar-success;
   }
-  &.-missing {
+  &.-rest {
     @extend .progress-bar-striped;
     background-color: $darkgray-light;
   }

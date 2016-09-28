@@ -69,3 +69,6 @@ gem 'cocoon'
 gem 'aasm'
 # Pagination
 gem 'kaminari'
+
+# Console
+gem 'pry-rails'
