@@ -7,7 +7,6 @@ ActiveAdmin.register Ngo do
   Ngo.aasm.states.map {|s| scope(s.human_name, s.name.to_sym) }
 
   filter :name
-  filter :identifier
   filter :email
   filter :confirmed_at
   filter :aasm_state, as: :select, collection: Ngo.aasm.states_for_select
@@ -31,7 +30,7 @@ ActiveAdmin.register Ngo do
     redirect_to collection_path, alert: 'Ausgewählte NGOs wurden deaktiviert.'
   end
 
-  permit_params :name, :email, :identifier, :locale, :aasm_state,
+  permit_params :name, :email, :locale, :aasm_state,
                 contact_attributes: [ :id, :first_name, :last_name, :email, :phone,
                                       :street, :zip, :city ]
 
