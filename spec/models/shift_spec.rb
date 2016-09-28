@@ -11,7 +11,7 @@ RSpec.describe Shift, type: :model do
 
   describe 'callbacks' do
     describe 'before_destroy' do
-      let(:shift) { create :shift, :with_event }
+      let(:shift) { create :shift, :with_event, :with_ngo }
       before { create_list :participation, 4, shift: shift}
 
       it 'sends an email to each user' do
@@ -21,7 +21,7 @@ RSpec.describe Shift, type: :model do
       end
     end
     describe 'users' do
-      let(:shift) { create :shift, :with_event }
+      let(:shift) { create :shift, :with_event, :with_ngo}
       let(:user) { create :user }
 
       before { shift.users << user }
