@@ -37,6 +37,17 @@ RSpec.describe Shift, type: :model do
         }.not_to change{User.count}
       end
     end
+
+    describe 'before_update' do
+      let(:shift) { create :shift, :with_event, :with_ngo }
+      before { create_list :participation, 4, shift: shift}
+
+      it 'sends an email to each user' do
+        expect{
+          shift.save
+        }.to change { ActionMailer::Base.deliveries.count }.by 4
+      end
+    end
   end
 
   describe 'scopes' do
