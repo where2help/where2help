@@ -24,7 +24,6 @@ namespace :db do
     Ngo.create(
       email: 'ngo@example.com',
       name: Faker::Company.name,
-      identifier: Faker::Company.ein,
       password: '12345678',
       confirmed_at: Time.now,
       aasm_state: 'admin_confirmed',
@@ -40,7 +39,6 @@ namespace :db do
       Ngo.create(
         email: Faker::Internet.email,
         name: Faker::Company.name,
-        identifier: Faker::Company.ein,
         password: '12345678',
         confirmed_at: Time.now,
         aasm_state: 'admin_confirmed',
