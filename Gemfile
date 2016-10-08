@@ -64,7 +64,6 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'formtastic-bootstrap'
 gem 'cocoon'
 
-
 # Statemachine
 gem 'aasm'
 gem 'paranoia', '~> 2.2.0.pre'
@@ -73,3 +72,6 @@ gem 'kaminari'
 
 # Console
 gem 'pry-rails'
+
+# Task Scheduling
+gem 'whenever', require: false
