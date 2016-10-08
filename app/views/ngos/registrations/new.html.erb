@@ -37,9 +37,12 @@
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off' %>
         </div>
-        <%= f.label :terms_and_conditions do %>
-          <%= f.check_box :terms_and_conditions %> <%= f.object.class.human_attribute_name(:terms_and_conditions) %>
-        <% end %>
+        <div class="form-group">
+          <%= f.label :terms_and_conditions do %>
+            <%= f.check_box :terms_and_conditions %> <%= t('.accept_terms_and_conditions') %>
+          <% end %>
+          <%= render 'terms_and_conditions', resource: f.object %>
+        </div>
         <%= f.button t('devise.registrations.new.sign_up'), data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
         <%= render "ngos/shared/links" %>
       </div>

@@ -18,7 +18,7 @@ de:
       content: |
         "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} abgesagt.
         Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
-    shift_updated: 
+    shift_updated:
       subject: "[where2help] Einsatz wurde geändert"
       greeting: "Hallo %{name}"
       content: |
@@ -39,18 +39,45 @@ de:
       profile: Profil
     sessions:
       new:
-        please_login: Als Freiwillige/r anmelden
         login: Anmelden
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO anmelden
+        please_login: Als Freiwillige/r anmelden
     registrations:
       new:
-        sign_up: Als Freiwillige/r registrieren
-        profile: Profil
+        accept_terms_and_conditions: Ich akzeptiere die
         min_characters: Zeichen mindestens
         motivation_txt: |
           <strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst!</strong>
           Erfahre, wo Du gerade gebraucht wirst und melde Dich direkt online an.
           Wir freuen uns auf Dich!
+        sign_up: Als Freiwillige/r registrieren
+        profile: Profil
+      terms_and_conditions:
+        close: Schließen
+        body: |
+          Zweck von „where2help“ (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfeleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
+
+          Ziel ist es, durch die Nutzung von w2h den Bedarf der flüchtlingsbetreuenden Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
+
+          Betreiber von w2h ist der Fonds Soziales Wien (FSW).
+
+          Der Betreiber übernimmt keine Haftung für die von den NutzerInnen erzeugten Inhalte.
+
+          Um w2h zu nutzen, ist eine Registrierung erforderlich.
+
+          Durch die Registrierung stimmen Sie zu, dass Ihre bekanntgegebenen Daten elektronisch verarbeitet und an die betreffenden Organisationen/Initiativen, die freiwillige HelferInnen über w2h suchen, übermittelt werden. Ebenso erklären Sie sich im Zusammenhang mit Ihrer freiwilligen Tätigkeit, speziell im Fall akuter Hilfseinsätze, mit der Zusendung von Informationen an Sie einverstanden.
+
+          Ein Widerruf der Registrierung bei w2h durch Sie ist jederzeit und ohne Angabe von Gründen möglich.
+
+          Mit der Registrierung entsteht weder ein Anspruch auf Nutzung von w2h noch auf Einsatz als freiwillige HelferIn.
+
+          Der FSW behält sich das Recht vor, bereits registrierte NutzerInnen von der Teilnahme an w2h ohne Angabe von Gründen auszuschließen, sowie w2h jederzeit ohne vorherige Ankündigung und ohne Angabe von Gründen zu verändern oder einzustellen, insbesondere wenn dies aus rechtlichen und/oder technischen Gründen erforderlich ist.
+
+          Aufgrund der Registrierung bei w2h sind NutzerInnen während der Ausübung ihrer freiwilligen Tätigkeit unfall- und haftpflichtversichert. Davon ausgenommen sind berufliche oder entgeltliche Tätigkeiten und freiwillige Einsätze im Rahmen eines Vereines oder einer Organisation/Initiative, welche über eine eigene Unfall- und Haftpflichtversicherung für Freiwillige verfügen. Schäden sind von der freiwilligen HelferIn unverzüglich der betreffenden Organisation zu melden. Im Schadensfall stimmen Sie einer Übermittlung Ihrer Daten inkl. der Zusage zu einem Einsatz an die Versicherung zu.
+
+          Hinweis auf Google/Apple:
+          w2h und die darin enthaltenen Informationen stehen in keiner Verbindung zu Google Inc. oder Apple Inc. und werden in keiner Weise von Google Inc. oder Apple Inc. gesponsert, unterstützt oder organisiert.
+        title: Nutzungsbedingungen für freiwillige HelferInnen
   ngos:
     events:
       index:
@@ -88,13 +115,41 @@ de:
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwillige/r anmelden
     registrations:
       new:
-        sign_up: Als NGO registrieren	
+        accept_terms_and_conditions: Ich akzeptiere die
+        sign_up: Als NGO registrieren
         profile: NGO-Profil
         min_characters: Zeichen mindestens
         motivation_txt: |
           <strong>Wissen wann, wo und wie viele Freiwillige erscheinen!</strong>
           Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann, wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich Freiwillige online eintragen können. Ihr behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt haben.
           Wir freuen uns auf Euch!
+      terms_and_conditions:
+        close: Schließen
+        body: |
+          Zweck von „where2help“ (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfsleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
+
+          Ziel ist es, durch die Nutzung von w2h den Bedarf der flüchtlingsbetreuenden Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
+
+          Betreiber von w2h ist der Fonds Soziales Wien (FSW).
+
+          Der Betreiber übernimmt keine Haftung für die von den NutzerInnen erzeugten Inhalte.
+
+          Um w2h zu nutzen, ist eine Registrierung erforderlich.
+
+          Mit der Registrierung stimmen Sie den Nutzungsbedingungen, der elektronischen Verarbeitung der von Ihnen bekanntgegebenen Daten sowie der Übermittlung dieser Daten an registrierte NutzerInnen zu. Ebenso erklären Sie sich im Zusammenhang mit Ihrer freiwilligen Tätigkeit, speziell im Fall akuter Hilfseinsätze, mit der Zusendung von Informationen an Ihre Organisation/Initiative einverstanden
+
+          Der FSW behält sich das Recht vor, Organisationen/Initiativen aus wichtigen Gründen nicht in das w2h-Angebot aufzunehmen.
+
+          Der FSW behält sich weiters das Recht vor, bereits registrierte Organisationen/Initiativen von der Teilnahme an w2h aus wichtigen Gründen auszuschließen, sowie w2h jederzeit ohne vorherige Ankündigung und ohne Angabe von Gründen zu verändern oder einzustellen, insbesondere wenn dies aus rechtlichen und/oder technischen Gründen erforderlich ist.
+
+          Ein Widerruf der Registrierung bei w2h seitens der Organisation/Initiative ist jederzeit und ohne Angabe von Gründen möglich.
+
+          Mit der Registrierung entsteht weder ein Anspruch auf Nutzung von w2h noch auf
+
+          Einsatz von freiwilligen HelferInnen.
+
+          Aufgrund der Registrierung bei w2h sind freiwillige HelferInnen während der Ausübung ihrer freiwilligen Tätigkeit unfall- und haftpflichtversichert. Davon ausgenommen sind berufliche oder entgeltliche Tätigkeiten und freiwillige Einsätze im Rahmen eines Vereines oder einer Organisation/Initiative, welche über eine eigene Unfall- und Haftpflichtversicherung für Freiwillige verfügen. Organisationen/Initiativen verpflichten sich, alle Einsätze mit Namen der Freiwilligen, Einsatzort, Tätigkeit, Datum und Uhrzeit zu erfassen sowie im Schadensfall unverzüglich Meldung an den Betreiber zu erstatten und die Einsatzdaten an <a href="mailto:contact@where2help.wien">contact@where2help.wien</a> zu übermitteln.
+        title: Nutzungsbedingungen für Organisationen/Initiativen
   pages:
     home:
       subline_user: Wissen, wann und wo Du als Freiwillige/r gebraucht wirst
