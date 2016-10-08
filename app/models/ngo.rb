@@ -1,5 +1,6 @@
 class Ngo < ApplicationRecord
   include AASM
+  acts_as_paranoid
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, :validatable
 

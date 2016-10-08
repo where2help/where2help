@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008121823) do
+ActiveRecord::Schema.define(version: 20161008180355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,9 +83,11 @@ ActiveRecord::Schema.define(version: 20161008121823) do
     t.datetime "updated_at",                          null: false
     t.integer  "locale",                 default: 0
     t.string   "aasm_state"
-    t.index ["confirmation_token"], name: "index_ngos_on_confirmation_token", unique: true, using: :btree
-    t.index ["email"], name: "index_ngos_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_ngos_on_reset_password_token", unique: true, using: :btree
+    t.datetime "deleted_at"
+    t.index ["confirmation_token"], name: "index_ngos_on_confirmation_token", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["deleted_at"], name: "index_ngos_on_deleted_at", using: :btree
+    t.index ["email"], name: "index_ngos_on_email", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["reset_password_token"], name: "index_ngos_on_reset_password_token", where: "(deleted_at IS NULL)", using: :btree
   end
 
   create_table "participations", force: :cascade do |t|

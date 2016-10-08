@@ -1,9 +1,11 @@
 ActiveAdmin.register Ngo do
+  include Concerns::Views
+  include Concerns::Scopes
+
   menu priority: 2
   actions :all, except: [:new, :create]
   includes :contact
 
-  scope I18n.t('active_admin.all'), :all, default: true
   Ngo.aasm.states.map {|s| scope(s.human_name, s.name.to_sym) }
 
   filter :name
@@ -11,10 +13,6 @@ ActiveAdmin.register Ngo do
   filter :confirmed_at
   filter :aasm_state, as: :select, collection: Ngo.aasm.states_for_select
   filter :created_at
-
-  index { render 'index', context: self }
-  show { render 'show', context: self }
-  form partial: 'form'
 
   batch_action :confirm do |ids|
     batch_action_collection.find(ids).each do |ngo|

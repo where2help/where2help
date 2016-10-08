@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   it { is_expected.to act_as_paranoid }
 
   describe 'validations' do
-    it { expect(build :user).to be_valid }
+    it { expect(create :user).to be_valid }
 
     it { is_expected.to validate_presence_of :email }
     it { is_expected.to validate_length_of :first_name }
