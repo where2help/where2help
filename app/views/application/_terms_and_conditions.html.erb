@@ -1,0 +1,22 @@
+<%= link_to(
+  resource.class.human_attribute_name(:terms_and_conditions), '#',
+  data: { toggle: 'modal', target: '#terms_and_conditions' }
+) %>
+<div class="modal fade" id="terms_and_conditions" tabindex="-1" role="dialog" aria-labelledby="terms_and_conditions">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= t("#{module_for(resource)}.registrations.terms_and_conditions.title") %></h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_format t("#{module_for(resource)}.registrations.terms_and_conditions.body") %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <%= t("#{module_for(resource)}.registrations.terms_and_conditions.close") %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

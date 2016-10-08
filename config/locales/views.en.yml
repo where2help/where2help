@@ -41,13 +41,16 @@ en:
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
     registrations:
       new:
-        sign_up: Sign up as a Helper
-        profile: Helper Profile
+        accept_terms_and_conditions: I accept the
         min_characters: characters minimum
         motivation_txt: |
           <strong>Knowing when and where I am needed as a helper!</strong>
           Find out where you are currently needed the most and sign up for a shift online or via the Where2Help smartphone app.
           Looking forward to you!
+        sign_up: Sign up as a Helper
+        profile: Helper Profile
+      terms_and_conditions:
+        close: Close
   ngos:
     events:
       index:
