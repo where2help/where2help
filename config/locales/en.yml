@@ -2,6 +2,9 @@ en:
   active_admin:
     all: All
     back: Back to Min App
+    scopes:
+      without_deleted: Active
+      only_deleted: Deleted
   helpers:
     shifts_helper:
       share: Teilen

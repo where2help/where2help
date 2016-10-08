@@ -7,6 +7,9 @@ de:
       labels:
         confirm: Bestätige
         deactivate: Deaktiviere
+    scopes:
+      without_deleted: Aktiv
+      only_deleted: Gelöscht
   helpers:
     shifts_helper:
       share: Teilen

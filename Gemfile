@@ -67,6 +67,7 @@ gem 'cocoon'
 
 # Statemachine
 gem 'aasm'
+gem 'paranoia', '~> 2.2.0.pre'
 # Pagination
 gem 'kaminari'
 

@@ -2,10 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  it 'has a valid factory' do
-    expect(create :user).to be_valid
-  end
-
   it { is_expected.to have_many(:spoken_languages).dependent(:destroy) }
   it { is_expected.to have_many(:languages) }
   it { is_expected.to have_many(:qualifications).dependent(:destroy) }
@@ -13,8 +9,11 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_many(:participations).dependent(:destroy) }
   it { is_expected.to have_many(:shifts) }
   it { is_expected.to define_enum_for(:locale).with([:de, :en]) }
+  it { is_expected.to act_as_paranoid }
 
   describe 'validations' do
+    it { expect(build :user).to be_valid }
+
     it { is_expected.to validate_presence_of :email }
     it { is_expected.to validate_length_of :first_name }
     it { is_expected.to validate_length_of :last_name }
