@@ -7,8 +7,8 @@ namespace :db do
 
   desc 'Populate DB with sample data'
   task populate: :environment do
-    [Ngo, Event].each(&:destroy_all)
-    [User].each { |model| model.unscoped.map(&:really_destroy!) }
+    [Event].each(&:destroy_all)
+    [Ngo, User].each { |model| model.unscoped.map(&:really_destroy!) }
     User.create(
       email: 'admin@example.com',
       first_name: 'admin_first',

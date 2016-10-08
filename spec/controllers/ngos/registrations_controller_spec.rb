@@ -78,35 +78,33 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
   end
 
   describe 'DELETE destroy' do
-    let!(:ngo) { create(:ngo,
-      email: 'ngo@ngo.we',
-      confirmed_at: Faker::Time.backward(5),
-      aasm_state: 'admin_confirmed',
-      confirmation_token: Faker::Bitcoin.address) }
-
-    let(:destroy_ngo) { -> { delete :destroy; ngo.reload } }
+    let(:ngo) { create(:ngo, :confirmed) }
 
     before { sign_in ngo }
 
-    it 'returns a 302 found status' do
-      delete :destroy
-      expect(response).to have_http_status 302
-    end
+    subject { delete :destroy }
 
-    it 'does not destroy ngo record' do
-      expect(destroy_ngo).not_to change{Ngo.count}
-    end
+    context 'when already created event' do
+      before { create(:event, :with_shift, ngo: ngo) }
 
-    it 'resets confirmed_at' do
-      expect(destroy_ngo).to change{ngo.confirmed_at}.to nil
-    end
+      it 'does not delete account' do
+        expect { subject }.not_to change { Ngo.count }
+      end
 
-    it 'resets confirmation_token' do
-      expect(destroy_ngo).to change{ngo.confirmation_token}.to nil
+      it 'renders :edit' do
+        subject
+        expect(response).to render_template :edit
+      end
     end
+    context 'when no events created yet' do
+      it 'soft deletes account' do
+        expect { subject }.to change { Ngo.count }
+      end
 
-    it 'sets aasm_state to :deactivated' do
-      expect(destroy_ngo).to change{ngo.deactivated?}.to true
+      it 'redirects to root' do
+        subject
+        expect(response).to redirect_to root_url
+      end
     end
   end
 end

@@ -38,6 +38,11 @@ div.map {
   }
 }
 
+.delete-acount-btn {
+  @extend .btn, .btn-link;
+  color: $grapefruit-dark;
+}
+
 .progress {
   height: 26px;
 }
