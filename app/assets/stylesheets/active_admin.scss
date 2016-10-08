@@ -15,6 +15,6 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
-.status_tag.admin_confirmed, .status_tag.von_admin_bestätigt { background: #8CC152; }
+.status_tag.confirmed, .status_tag.bestätigt { background: #8CC152; }
 .status_tag.pending, .status_tag.unbestätigt { background: #F6BB42; }
-.status_tag.deactivated, .status_tag.deaktiviert { background: #DA4453; }
+.status_tag.deleted, .status_tag.gelöscht { background: #DA4453; }

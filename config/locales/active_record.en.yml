@@ -56,10 +56,10 @@ en:
         confirmed_at: Confirmed
         created_at: Created
         current_password: Current Password
-        aasm_state: Status
-        aasm_state/pending: Unconfirmed
-        aasm_state/admin_confirmed: Admin Confirmed
-        aasm_state/deactivated: Deactivated
+        state: State
+        state-pending: Pending
+        state-confirmed: Confirmed
+        state-deleted: Deleted
         password: Password
         password_confirmation: Password Confirmation
         terms_and_conditions: Terms & Conditions

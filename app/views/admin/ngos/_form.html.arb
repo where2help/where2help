@@ -4,7 +4,6 @@ active_admin_form_for [:admin, resource] do |f|
     input :name
     input :email
     input :locale, as: :select, collection: Ngo.locales.keys, include_blank: false
-    input :aasm_state, as: :select, collection: Ngo.aasm.states_for_select, include_blank: false
   end
   inputs Contact.model_name.human, for: [:contact, (f.object.contact || f.object.build_contact)] do |c|
     c.input :first_name

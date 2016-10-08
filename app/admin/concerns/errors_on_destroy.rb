@@ -1,5 +1,5 @@
 module Concerns
-  module DestroyErrors
+  module ErrorsOnDestroy
     def self.included(base)
       base.send(:after_destroy, :check_model_errors)
       base.send(:controller) do

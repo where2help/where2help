@@ -1,11 +1,12 @@
 class Ngo < ApplicationRecord
-  include AASM
-  
   acts_as_paranoid
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, :validatable
 
   enum locale: { de: 0, en: 1 }
+
+  scope :pending,   -> { where(admin_confirmed_at: nil) }
+  scope :confirmed, -> { where.not(admin_confirmed_at: nil) }
 
   has_many :events, dependent: :restrict_with_error
   has_one :contact, dependent: :destroy, inverse_of: :ngo
@@ -17,24 +18,20 @@ class Ngo < ApplicationRecord
 
   after_commit :request_admin_confirmation, on: :create
 
-  aasm do
-    state :pending, initial: true
-    state :admin_confirmed
-    state :deactivated
-
-    event :admin_confirm do
-      transitions from: :pending, to: :admin_confirmed, after: :send_admin_confirmation
-      transitions from: :deactivated, to: :admin_confirmed
+  def confirm!
+    if !confirmed? && update(admin_confirmed_at: Time.now)
+      send_admin_confirmation
     end
+  end
 
-    event :deactivate, after: :reset_confirmations do
-      transitions from: [:pending, :admin_confirmed], to: :deactivated
-    end
+  def state
+    %w(deleted confirmed).each { |state| return state if send("#{state}?") }
+    'pending'
   end
 
   def self.send_reset_password_instructions(attributes={})
    recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
-   if !recoverable.admin_confirmed?
+   if !recoverable.confirmed?
      recoverable.errors[:base] << I18n.t('devise.failure.not_admin_confirmed')
    elsif recoverable.persisted?
      recoverable.send_reset_password_instructions
@@ -44,12 +41,12 @@ class Ngo < ApplicationRecord
 
   # overwrite devise to require admin confirmation too
   def active_for_authentication?
-    super && admin_confirmed?
+    super && confirmed?
   end
 
   # custom message if requires admin confirmation
   def inactive_message
-    admin_confirmed? ? :not_admin_confirmed : super
+    confirmed? ? :not_admin_confirmed : super
   end
 
   def new_event
@@ -62,14 +59,12 @@ class Ngo < ApplicationRecord
 
   private
 
-  def request_admin_confirmation
-    AdminMailer.new_ngo(self).deliver_later
+  def confirmed?
+    !admin_confirmed_at.nil?
   end
 
-  def reset_confirmations
-    update(confirmation_token: nil,
-            confirmed_at: nil,
-            confirmation_sent_at: nil)
+  def request_admin_confirmation
+    AdminMailer.new_ngo(self).deliver_later
   end
 
   def send_admin_confirmation

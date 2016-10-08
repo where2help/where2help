@@ -6,8 +6,8 @@ FactoryGirl.define do
     password { Faker::Internet.password }
 
     trait :confirmed do
-      confirmed_at Time.now
-      aasm_state 'admin_confirmed'
+      confirmed_at { Time.now }
+      admin_confirmed_at { Time.now }
     end
   end
 end

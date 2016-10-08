@@ -27,7 +27,7 @@ namespace :db do
       name: Faker::Company.name,
       password: '12345678',
       confirmed_at: Time.now,
-      aasm_state: 'admin_confirmed',
+      admin_confirmed_at: Time.now,
       contact: Contact.new(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
@@ -42,7 +42,22 @@ namespace :db do
         name: Faker::Company.name,
         password: '12345678',
         confirmed_at: Time.now,
-        aasm_state: 'admin_confirmed',
+        admin_confirmed_at: Time.now,
+        contact: Contact.new(
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
+          email: Faker::Internet.email,
+          phone: Faker::PhoneNumber.cell_phone,
+          street: Faker::Address.secondary_address,
+          zip: Faker::Address.zip,
+          city: Faker::Address.city))
+    end
+    2.times do
+      Ngo.create(
+        email: Faker::Internet.email,
+        name: Faker::Company.name,
+        password: '12345678',
+        confirmed_at: Time.now,
         contact: Contact.new(
           first_name: Faker::Name.first_name,
           last_name: Faker::Name.last_name,

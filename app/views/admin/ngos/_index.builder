@@ -4,6 +4,6 @@ context.instance_eval do
   column :name
   column :email
   column :locale
-  column(:aasm_state){ |ngo| status_tag(ngo.aasm.human_state) }
+  column(:state){ |ngo| status_tag(Ngo.human_attribute_name("state-#{ngo.state}")) }
   actions
 end

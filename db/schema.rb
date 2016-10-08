@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008180355) do
+ActiveRecord::Schema.define(version: 20161008223225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,8 +82,9 @@ ActiveRecord::Schema.define(version: 20161008180355) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "locale",                 default: 0
-    t.string   "aasm_state"
     t.datetime "deleted_at"
+    t.datetime "admin_confirmed_at"
+    t.index ["admin_confirmed_at"], name: "index_ngos_on_admin_confirmed_at", where: "(deleted_at IS NULL)", using: :btree
     t.index ["confirmation_token"], name: "index_ngos_on_confirmation_token", where: "(deleted_at IS NULL)", using: :btree
     t.index ["deleted_at"], name: "index_ngos_on_deleted_at", using: :btree
     t.index ["email"], name: "index_ngos_on_email", where: "(deleted_at IS NULL)", using: :btree

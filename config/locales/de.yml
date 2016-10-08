@@ -6,8 +6,9 @@ de:
       button_label: Stapelverarbeitung
       labels:
         confirm: Bestätige
-        deactivate: Deaktiviere
     scopes:
+      confirmed: Bestätigt
+      pending: Unbestätigt
       without_deleted: Aktiv
       only_deleted: Gelöscht
   helpers:

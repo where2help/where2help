@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   include Concerns::Views
-  include Concerns::Scopes
+  include Concerns::Paranoid
 
   menu priority: 3
   actions :all

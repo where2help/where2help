@@ -57,10 +57,10 @@ de:
         confirmed_at: Bestätigt
         created_at: Erstellt
         current_password: Aktuelles Passwort
-        aasm_state: Status
-        aasm_state/pending: Unbestätigt
-        aasm_state/admin_confirmed: Von Admin Bestätigt
-        aasm_state/deactivated: Deaktiviert
+        state: Status
+        state-pending: Unbestätigt
+        state-confirmed: Bestätigt
+        state-deleted: Gelöscht
         password: Passwort
         password_confirmation: Passwortbestätigung
         terms_and_conditions: Nutzungsbedingungen
