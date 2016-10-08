@@ -50,7 +50,6 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
         :name,
         :email,
         :password, :password_confirmation,
-        :identifier,
         :terms_and_conditions,
         contact_attributes: [
           :email,

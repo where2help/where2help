@@ -8,7 +8,6 @@ RSpec.describe Ngo, type: :model do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of :name }
-#    it { is_expected.to validate_presence_of :identifier }
     it { is_expected.to validate_presence_of :contact }
     it { is_expected.to validate_acceptance_of :terms_and_conditions }
     it { is_expected.to have_many(:events).dependent(:restrict_with_error) }

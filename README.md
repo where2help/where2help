@@ -17,6 +17,8 @@ Start up postgres (if not already running)
 
 Setup the database
 
+    $ createuser --superuser postgres
+    
     $ rails db:setup
 
 Populate database with sample data

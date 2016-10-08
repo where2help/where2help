@@ -1,5 +1,8 @@
 ---
 en:
+  time:
+    formats:
+      admin: "%a %d.%m.%Y, %H:%M"
   errors:
     messages:
       not_in_past: may not be a thing of the past

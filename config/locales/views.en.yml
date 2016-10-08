@@ -16,7 +16,14 @@ en:
       subject: "[where2help] Event got cancelled"
       greeting: "Hi %{name}"
       content: |
-        %{title} at %{date} got cancelled, you don't need to come!
+        %{title} on %{date} at %{time} got cancelled by %{ngo_name}, you don't need to come!
+        Thank you for your support! Looking forward to your next mission.
+    shift_updated:
+      subject: "[where2help] Event was changed"
+      greeting: "Hallo %{name}"
+      content: |
+        %{title} on %{date} at %{time} was cancelled by %{ngo_name}, please update your notes!
+        Thanks you your support!
   application:
     empty_message:
       message: Nothing there for you at the moment...

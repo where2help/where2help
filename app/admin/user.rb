@@ -2,6 +2,9 @@ ActiveAdmin.register User do
   actions :all
   includes :languages, :abilities
 
+  scope :without_deleted, default: true
+  scope :only_deleted
+
   filter :email
   filter :phone
   filter :first_name

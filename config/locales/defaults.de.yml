@@ -209,6 +209,7 @@ de:
   time:
     am: vormittags
     formats:
+      admin: "%a %d.%m.%Y, %H:%M"
       default: "%A, %d. %B %Y, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
       short: "%d. %B, %H:%M Uhr"

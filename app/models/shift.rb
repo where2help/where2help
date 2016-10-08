@@ -15,7 +15,8 @@ class Shift < ApplicationRecord
   scope :upcoming,  -> { where('starts_at > NOW()') }
   scope :available, -> { upcoming.not_full }
 
-  before_destroy :notify_volunteers, prepend: true
+  before_destroy :notify_volunteers_about_destroy, prepend: true
+  before_update  :notify_volunteers_about_update, prepend: true
 
   def self.filter(scope = nil)
     scope ||= :upcoming
@@ -34,10 +35,16 @@ class Shift < ApplicationRecord
 
   private
 
-  def notify_volunteers
+  def notify_volunteers_about_destroy
     users.find_each do |user|
       # calling deliver_now here because othewise won't have shift available
       UserMailer.shift_destroyed(self, user).deliver_now
+    end
+  end
+
+  def notify_volunteers_about_update
+    users.find_each do |user|
+      UserMailer.shift_updated(self, user).deliver_now
     end
   end
 
