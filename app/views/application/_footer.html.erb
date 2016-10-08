@@ -1,0 +1,16 @@
+<footer>
+  <div class="footer-content">
+    <% unless current_user || current_ngo %>
+      <% if I18n.locale == :en %>
+         <%= link_to(request.get? ? url_for(locale: :de, action: request.parameters['action']) : root_path(locale: :de)) do %>
+         <span class="badge badge-default">Bevorzugen Sie Deutsch?</span>
+         <% end %>
+      <% else %>
+        <%= link_to(request.get? ? url_for(locale: :en, action: request.parameters['action']) : root_path(locale: :en)) do %>
+          <span class="badge badge-default">Do you prefer English?</span>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p class="text-muted">made with <i class="fa fa-heart"></i> in vienna</p>
+  </div>
+</footer>
