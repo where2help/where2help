@@ -1,6 +1,7 @@
 ActiveAdmin.register Ngo do
   include Concerns::Views
   include Concerns::Scopes
+  include Concerns::DestroyErrors
 
   menu priority: 2
   actions :all, except: [:new, :create]
