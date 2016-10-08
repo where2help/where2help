@@ -50,7 +50,7 @@ end
 group :development do
   gem 'web-console'
   gem 'spring'
-  gem 'bullet', "5.3.0"
+  gem 'bullet'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
