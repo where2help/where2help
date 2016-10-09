@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   include AASM
 
+  acts_as_paranoid
+
   belongs_to :ngo
   has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
   has_many :available_shifts, -> { available }, class_name: 'Shift'

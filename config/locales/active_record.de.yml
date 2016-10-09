@@ -32,6 +32,9 @@ de:
         zip: Postleitzahl
         city: Stadt
       event:
+        coordinates: Koordinaten
+        created_at: Erstellt
+        updated_at: Geändert
         title: Titel
         description: Beschreibung
         address: Adresse
@@ -72,4 +75,6 @@ de:
         starts_at: Beginn
         full: zu viel
         volunteers_needed: Anzahl benötigter Freiwilliger
+        volunteers_count: Zusagen
+        volunteers: Freiwillige
         offset: DU!

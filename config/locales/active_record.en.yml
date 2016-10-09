@@ -32,6 +32,8 @@ en:
         zip: Post Code
         city: City
       event:
+        created_at: Created
+        updated_at: Updated
         title: Title
         description: Description
         address: Address
@@ -71,4 +73,6 @@ en:
         starts_at: Begins
         full: surplus
         volunteers_needed: Helpers Needed
+        volunteers_count: Confirmed
+        volunteers: Helpers
         offset: YOU!
