@@ -60,7 +60,7 @@ class Ngo < ApplicationRecord
   private
 
   def confirmed?
-    !admin_confirmed_at.nil?
+    admin_confirmed_at.present?
   end
 
   def request_admin_confirmation
