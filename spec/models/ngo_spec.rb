@@ -55,13 +55,13 @@ RSpec.describe Ngo, type: :model do
       end
     end
     context 'when already confirmed by admin' do
-      let!(:ngo) { create(:ngo, admin_confirmed_at: Time.now - 1.day) }
+      let!(:ngo) { create(:ngo, admin_confirmed_at: 2.days.ago) }
 
       it 'does not update the record' do
         expect {
           ngo.confirm!
           ngo.reload
-        }.not_to change { ngo.admin_confirmed_at }
+        }.not_to change { ngo.admin_confirmed_at.to_i }
       end
 
       it 'does not send an email' do
