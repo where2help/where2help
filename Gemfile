@@ -70,8 +70,5 @@ gem 'paranoia', '~> 2.2.0.pre'
 # Pagination
 gem 'kaminari'
 
-# Console
-gem 'pry-rails'
-
 # Task Scheduling
 gem 'whenever', require: false
