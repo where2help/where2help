@@ -1,6 +1,7 @@
 ActiveAdmin.register Ngo do
   include Concerns::Views
-  include Concerns::Paranoid
+  include Concerns::ParanoidScopes
+  include Concerns::ParanoidFind
   include Concerns::ErrorsOnDestroy
 
   menu priority: 2
