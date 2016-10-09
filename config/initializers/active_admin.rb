@@ -1,4 +1,7 @@
 ActiveAdmin.setup do |config|
+  # Move resources in own directory
+  config.load_paths = [File.join(Rails.root, 'app', 'admin', 'resources')]
+  
   # == Site Title
   #
   # Set the title that is displayed on the main layout
