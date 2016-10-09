@@ -55,7 +55,7 @@ RSpec.describe Ngo, type: :model do
       end
     end
     context 'when already confirmed by admin' do
-      let!(:ngo) { create(:ngo, admin_confirmed_at: Time.now) }
+      let!(:ngo) { create(:ngo, admin_confirmed_at: Time.now - 1.day) }
 
       it 'does not update the record' do
         expect {
