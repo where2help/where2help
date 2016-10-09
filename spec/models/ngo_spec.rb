@@ -28,11 +28,11 @@ RSpec.describe Ngo, type: :model do
     describe 'contact' do
       let(:ngo) { create :ngo }
 
-      it 'destroys contact record on destroy' do
-        create(:contact, ngo: ngo)
-        expect{
+      it 'marks contact record as deleted' do
+        contact = create(:contact, ngo: ngo)
+        expect {
           ngo.destroy
-        }.to change{Contact.count}.by -1
+        }.to change { contact.deleted_at }
       end
     end
   end

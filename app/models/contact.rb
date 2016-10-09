@@ -1,4 +1,6 @@
 class Contact < ApplicationRecord
+  acts_as_paranoid without_default_scope: true
+
   belongs_to :ngo
 
   validates :first_name, length: { in: 1..50 }
