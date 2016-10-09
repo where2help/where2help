@@ -4,10 +4,15 @@ RSpec.describe Shift, type: :model do
   it { is_expected.to have_many(:participations).dependent(:destroy) }
   it { is_expected.to have_many(:users) }
   it { is_expected.to belong_to(:event) }
+  it { is_expected.to act_as_paranoid }
 
-  it { is_expected.to validate_presence_of(:volunteers_needed) }
-  it { is_expected.to validate_presence_of(:starts_at) }
-  it { is_expected.to validate_presence_of(:ends_at) }
+  describe 'validations' do
+    it { expect(create :shift, :with_event).to be_valid }
+
+    it { is_expected.to validate_presence_of(:volunteers_needed) }
+    it { is_expected.to validate_presence_of(:starts_at) }
+    it { is_expected.to validate_presence_of(:ends_at) }
+  end
 
   describe 'callbacks' do
     describe 'before_destroy' do

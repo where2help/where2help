@@ -34,6 +34,7 @@ de:
       event:
         coordinates: Koordinaten
         created_at: Erstellt
+        deleted_at: Gelöscht
         updated_at: Geändert
         title: Titel
         description: Beschreibung
@@ -52,6 +53,7 @@ de:
         last_name: Nachname
         confirmed_at: Bestätigt
         created_at: Erstellt
+        deleted_at: Gelöscht
         phone: Telefonnummer
         terms_and_conditions: Nutzungsbedingungen
         languages: Sprachen
@@ -59,6 +61,7 @@ de:
         identifier: Identifikationsnummer
         confirmed_at: Bestätigt
         created_at: Erstellt
+        deleted_at: Gelöscht
         current_password: Aktuelles Passwort
         state: Status
         state-pending: Unbestätigt
@@ -70,6 +73,7 @@ de:
         remember_me: Angemeldet bleiben
       shift:
         progress: zugesagt
+        deleted_at: Gelöscht
         ends_at: Ende
         rest: fehlen
         starts_at: Beginn

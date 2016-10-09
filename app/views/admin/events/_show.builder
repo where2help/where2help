@@ -5,9 +5,7 @@ context.instance_eval do
       row :ngo
       row :title
       row :address
-      row(:coordinates) do |event|
-        "(#{event.lat}, #{event.lng})"
-      end
+      row(:coordinates) { |event| "(#{event.lat}, #{event.lng})" }
       row(:state){ |event| status_tag(event.aasm.human_state) }
       row :created_at
       row :updated_at
@@ -15,8 +13,7 @@ context.instance_eval do
   end
   panel Shift.model_name.human(count: 2) do
     if event.deleted?
-      # @shifts = event.shifts.only_deleted
-      @shifts = event.shifts
+      @shifts = event.shifts.only_deleted
     else
       @shifts = event.shifts
     end
@@ -25,6 +22,7 @@ context.instance_eval do
         row :id
         row :starts_at
         row :ends_at
+        row :deleted_at
         row :volunteers_needed
         row :volunteers_count
         row :volunteers do

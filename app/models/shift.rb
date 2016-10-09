@@ -1,5 +1,6 @@
 class Shift < ApplicationRecord
-  default_scope { order(starts_at: :asc) }
+  acts_as_paranoid without_default_scope: true
+  default_scope { where(deleted_at: nil).order(starts_at: :asc) }
   paginates_per 10
 
   has_many :participations, dependent: :destroy

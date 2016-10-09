@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009093923) do
+ActiveRecord::Schema.define(version: 20161009104919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,7 +121,9 @@ ActiveRecord::Schema.define(version: 20161009093923) do
     t.integer  "volunteers_count",  default: 0
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["event_id"], name: "index_shifts_on_event_id", using: :btree
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_shifts_on_deleted_at", using: :btree
+    t.index ["event_id"], name: "index_shifts_on_event_id", where: "(deleted_at IS NULL)", using: :btree
   end
 
   create_table "spoken_languages", force: :cascade do |t|
