@@ -21,12 +21,11 @@
 .home-row {
   @extend .row;
   color: $white;
-  padding-top: 2.5%;
 }
 
 .home-col {
   @extend .col-xs-12;
-  padding-top: 5%;
+  padding-top: 3em;
   .fa-ul {
     display: table;
     margin: 0 auto;

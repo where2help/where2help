@@ -8,6 +8,7 @@ gem 'sass-rails'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'flag-icons-rails'
 gem 'momentjs-rails'
 
 gem 'devise'

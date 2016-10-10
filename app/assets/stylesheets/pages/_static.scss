@@ -1,0 +1,20 @@
+.pages-static {
+  .pages-static-section {
+    @extend .col-md-10, .col-md-offset-1;
+  }
+  .pages-title {
+    @extend .page-header, .text-center;
+    @media (max-width: $screen-sm-min) {
+      font-size: 5vw;
+    }
+  }
+  .pages-nav-link {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  h3 {
+    @media (max-width: $screen-sm-min) {
+      font-size: 3.5vw;
+    }
+  }
+}

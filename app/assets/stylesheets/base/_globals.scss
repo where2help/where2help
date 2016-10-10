@@ -18,9 +18,14 @@ footer {
   }
 
   .footer-content {
+    position: relative;
     @extend .container;
-    @extend .text-center;
-    margin-top: 2em;
+    margin-top: 1em;
+
+    .footer-info {
+      @extend .col-sm-12;
+      margin-bottom: 1em;
+    }
   }
 }
 

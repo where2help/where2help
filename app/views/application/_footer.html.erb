@@ -1,16 +1,15 @@
 <footer>
   <div class="footer-content">
-    <% unless current_user || current_ngo %>
-      <% if I18n.locale == :en %>
-         <%= link_to(request.get? ? url_for(locale: :de, action: request.parameters['action']) : root_path(locale: :de)) do %>
-         <span class="badge badge-default">Bevorzugen Sie Deutsch?</span>
-         <% end %>
-      <% else %>
-        <%= link_to(request.get? ? url_for(locale: :en, action: request.parameters['action']) : root_path(locale: :en)) do %>
-          <span class="badge badge-default">Do you prefer English?</span>
-        <% end %>
+    <div class="footer-info text-center">
+      <span class="text-muted">Made with <i class="fa fa-heart"></i> in Vienna</span>
+      <span>&#124;</span>
+      <%= link_to t('application.terms_and_conditions'), terms_and_conditions_path %>
+      <span>&#124;</span>
+      <%= mail_to 'contact@where2help.wien' %>
+      <% unless current_user || current_ngo %>
+        <span>&#124;</span>
+        <%= render 'language_switcher' %>
       <% end %>
-    <% end %>
-    <p class="text-muted">made with <i class="fa fa-heart"></i> in vienna</p>
+    </div>
   </div>
 </footer>

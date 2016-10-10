@@ -27,6 +27,7 @@ en:
   application:
     empty_message:
       message: Nothing there for you at the moment...
+    terms_and_conditions: Terms and Conditions
   events:
     load_more: Show more
     index:

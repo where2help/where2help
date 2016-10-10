@@ -27,6 +27,7 @@ de:
   application:
     empty_message:
       message: Wir haben gerade nichts für Dich...
+    terms_and_conditions: Nutzungsbedingungen
   events:
     load_more: Mehr anzeigen
     index:

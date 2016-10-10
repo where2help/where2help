@@ -71,6 +71,7 @@ Rails.application.routes.draw do
     root 'ngos/events#index'
   end
   root 'pages#home'
+  get 'terms_and_conditions', to: 'pages#terms_and_conditions'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
