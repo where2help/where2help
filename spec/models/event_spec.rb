@@ -10,6 +10,7 @@ RSpec.describe Event, type: :model do
     it { expect(create :event, :with_shift).to be_valid }
 
     it { is_expected.to validate_presence_of :address }
+    it { is_expected.to validate_presence_of :person }
     it { is_expected.to validate_length_of :title }
   end
 
