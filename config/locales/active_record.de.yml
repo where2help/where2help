@@ -43,6 +43,10 @@ de:
         state/pending: Unsichtbar
         state/published: Sichtbar
         shifts: Einsätze
+        state-pending: Unsichtbar
+        state-published: Sichtbar
+        state-deleted: Gelöscht
+        published_at: Veröffentlicht
       event/shifts:
         confirmed_so_far: zugesagt
         ends_at: Ende
@@ -58,7 +62,7 @@ de:
         terms_and_conditions: Nutzungsbedingungen
         languages: Sprachen
       ngo:
-        identifier: Identifikationsnummer
+        admin_confirmed_at: Von Admin Bestätigt
         confirmed_at: Bestätigt
         created_at: Erstellt
         deleted_at: Gelöscht
