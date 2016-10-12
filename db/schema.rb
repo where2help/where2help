@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012172243) do
+ActiveRecord::Schema.define(version: 20161012175641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,9 +57,8 @@ ActiveRecord::Schema.define(version: 20161012172243) do
     t.string   "address"
     t.float    "lat"
     t.float    "lng"
-    t.string   "state",        default: "pending", null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "ngo_id"
     t.string   "title"
     t.datetime "deleted_at"

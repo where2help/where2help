@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-  include AASM
 
   acts_as_paranoid
 
