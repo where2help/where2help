@@ -1,5 +1,6 @@
 json.extract! @event, :id,
                       :title,
+                      :event
                       :description,
                       :address,
                       :lat,

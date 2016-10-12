@@ -63,6 +63,7 @@ RSpec.describe "Events", type: :request do
                                     "address" => event.address,
                                     "lat" => event.lat,
                                     "lng" => event.lng,
+				    "person" => event.person,
                                     "state" => event.state,
                                     "organization_name" => event.ngo.name,
                                     "shifts" =>

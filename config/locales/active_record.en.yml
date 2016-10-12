@@ -41,6 +41,7 @@ en:
         state: Status
         state/pending: Invisible
         state/published: Visible
+        person: Contact on site
       event/shifts:
         confirmed_so_far: confirmed
         ends_at: Ends

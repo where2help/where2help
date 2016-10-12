@@ -4,6 +4,7 @@ context.instance_eval do
       row :id
       row :ngo
       row :title
+      row :person
       row :address
       row(:coordinates) { |event| "(#{event.lat}, #{event.lng})" }
       row(:state){ |event| status_tag(event.aasm.human_state) }

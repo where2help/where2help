@@ -6,6 +6,7 @@ json.array!(@events) do |event|
                        :lat,
                        :lng,
                        :state,
+                       :person,
                        :created_at,
                        :updated_at
   json.organization_name event.ngo.name

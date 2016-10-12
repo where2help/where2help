@@ -43,6 +43,7 @@ de:
         state/pending: Unsichtbar
         state/published: Sichtbar
         shifts: Einsätze
+        person: Kontakt vor Ort
       event/shifts:
         confirmed_so_far: zugesagt
         ends_at: Ende
