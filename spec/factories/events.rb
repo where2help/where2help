@@ -7,7 +7,7 @@ FactoryGirl.define do
     lng 1.5
 
     trait :published do
-      state 'published'
+      published_at { Time.now }
     end
 
     trait :with_shift do
@@ -27,7 +27,7 @@ FactoryGirl.define do
         event.shifts << build(:shift, :full, event: nil)
       end
     end
-    
+
     trait :skip_validate do
       to_create {|instance| instance.save(validate: false) }
     end

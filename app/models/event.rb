@@ -23,13 +23,21 @@ class Event < ApplicationRecord
   scope :upcoming, -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
   scope :past, -> { where(id: Shift.past.pluck(:event_id).uniq) }
 
-  aasm column: :state do
-    state :pending, initial: true
-    state :published
+  # new stuff for state:
+  scope :pending, -> { where(published_at: nil) }
+  scope :published, -> { where.not(published_at: nil) }
 
-    event :publish do
-      transitions from: :pending, to: :published
-    end
+  def state
+    %w(deleted published).each { |state| return state if send("#{state}?") }
+    'pending'
+  end
+
+  def published?
+    published_at.present?
+  end
+
+  def publish!
+    update(published_at: Time.now) unless published?
   end
 
   def self.filter(scope=nil, order=nil)
