@@ -3,6 +3,8 @@
     <div class="footer-info text-center">
       <span class="text-muted">Made with <i class="fa fa-heart"></i> in Vienna</span>
       <span>&#124;</span>
+      <%= link_to t('application.imprint'), 'http://fsw.at/impressum/', target: '_blank' %>
+      <span>&#124;</span>
       <%= link_to t('application.terms_and_conditions'), terms_and_conditions_path %>
       <span>&#124;</span>
       <%= mail_to 'contact@where2help.wien' %>

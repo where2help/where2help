@@ -28,6 +28,7 @@ de:
     empty_message:
       message: Wir haben gerade nichts für Dich...
     terms_and_conditions: Nutzungsbedingungen
+    imprint: Impressum
   events:
     load_more: Mehr anzeigen
     index:
