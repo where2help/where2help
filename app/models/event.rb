@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-
   acts_as_paranoid
 
   belongs_to :ngo
@@ -22,8 +21,6 @@ class Event < ApplicationRecord
   }
   scope :upcoming, -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
   scope :past, -> { where(id: Shift.past.pluck(:event_id).uniq) }
-
-  # new stuff for state:
   scope :pending, -> { where(published_at: nil) }
   scope :published, -> { where.not(published_at: nil) }
 
