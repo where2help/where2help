@@ -3,6 +3,7 @@ FactoryGirl.define do
     title { Faker::StarWars.planet }
     description { Faker::Hipster.paragraph(2) }
     address "MyString"
+    person "Mrs. Doe, tel: 012345678"
     lat 1.5
     lng 1.5
 

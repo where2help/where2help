@@ -41,6 +41,7 @@ en:
         state: Status
         state/pending: Invisible
         state/published: Visible
+        person: Contact on site
         state-pending: Invisible
         state-published: Visible
         state-deleted: Deleted

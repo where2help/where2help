@@ -9,6 +9,7 @@ class Event < ApplicationRecord
   validates :title, length: { in: 1..100 }
   validates :address, presence: true
   validates :shifts, presence: true
+  validates :person, presence: true
 
   accepts_nested_attributes_for :shifts, allow_destroy: true
 

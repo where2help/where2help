@@ -4,6 +4,7 @@ context.instance_eval do
   column :ngo
   column :title
   column :address
+  column :person
   column(:state){ |ngo| status_tag(Event.human_attribute_name("state-#{ngo.state}")) }
   column :created_at
   column :published_at
