@@ -35,6 +35,10 @@ class Event < ApplicationRecord
     published_at.present?
   end
 
+  def pending?
+    published_at.blank?
+  end
+
   def publish!
     update(published_at: Time.now) unless published?
   end
