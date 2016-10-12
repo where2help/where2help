@@ -5,6 +5,9 @@ context.instance_eval do
   column :title
   column :address
   column :person
-  column(:state){ |event| status_tag(event.aasm.human_state) }
+  column(:state){ |ngo| status_tag(Event.human_attribute_name("state-#{ngo.state}")) }
+  column :created_at
+  column :published_at
+  column :deleted_at
   actions
 end

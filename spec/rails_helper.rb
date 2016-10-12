@@ -4,7 +4,6 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'factory_girl_rails'
-require 'aasm/rspec'
 
 require 'faker'
 require "rspec/json_expectations"
