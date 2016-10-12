@@ -7,6 +7,9 @@ ActiveAdmin.register Event do
   actions :all, except: [:new, :edit, :update]
   includes :shifts
 
+  scope :pending
+  scope :published
+
   filter :ngo
   filter :title
   filter :address

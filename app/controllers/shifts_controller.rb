@@ -3,7 +3,7 @@ class ShiftsController < ApplicationController
 
   def show
     @shift = Shift.includes(:event).
-      where(events: { state: 'published'}).
+      where.not(events: { published_at: nil }).
       find(params[:id])
   end
 

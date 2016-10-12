@@ -41,6 +41,11 @@ en:
         state: Status
         state/pending: Invisible
         state/published: Visible
+        person: Contact on site
+        state-pending: Invisible
+        state-published: Visible
+        state-deleted: Deleted
+        published_at: Published
       event/shifts:
         confirmed_so_far: confirmed
         ends_at: Ends
@@ -56,7 +61,7 @@ en:
         terms_and_conditions: Terms & Conditions
         languages: Languages
       ngo:
-        identifier: Identifier
+        admin_confirmed_at: Admin Confirmed
         confirmed_at: Confirmed
         created_at: Created
         deleted_at: Deleted

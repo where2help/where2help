@@ -9,6 +9,7 @@ de:
     scopes:
       confirmed: Bestätigt
       pending: Unbestätigt
+      published: Sichtbar
       without_deleted: Aktiv
       only_deleted: Gelöscht
   helpers:

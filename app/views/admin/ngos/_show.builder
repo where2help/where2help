@@ -6,6 +6,10 @@ context.instance_eval do
       row :email
       row :locale
       row(:state){ |ngo| status_tag(Ngo.human_attribute_name("state-#{ngo.state}")) }
+      row :created_at
+      row :confirmed_at
+      row :admin_confirmed_at
+      row :deleted_at
     end
   end
   panel Contact.model_name.human do

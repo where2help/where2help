@@ -17,7 +17,7 @@ module EventsHelper
 
   def event_label(event)
     attrs = event_label_attr event
-    state = t "activerecord.attributes.event.state/" + event.aasm.current_state.to_s
+    state = t "activerecord.attributes.event.state/" + event.state
     content_tag(:div, class: 'ngo-event-item-state') do
       concat content_tag(:i, nil, class: "fa #{attrs[:icon_class]} fa-fw")
       concat content_tag(:span, attrs[:state], class: attrs[:label_class])
@@ -33,7 +33,7 @@ module EventsHelper
       state_class = 'label label-info'
       icon_class = 'fa-eye'
     end
-    state = t "activerecord.attributes.event.state/" + event.aasm.current_state.to_s
+    state = t "activerecord.attributes.event.state/" + event.state
     concat content_tag(:i, nil, class: "fa-li fa #{icon_class} fa-fw")
     content_tag(:span, state, class: state_class)
   end
@@ -53,7 +53,7 @@ module EventsHelper
       attrs[:label_class] = 'label label-info'
       attrs[:icon_class] = 'fa-eye'
     end
-    attrs[:state] = t "activerecord.attributes.event.state/" + event.aasm.current_state.to_s
+    attrs[:state] = t "activerecord.attributes.event.state/" + event.state
     attrs
   end
 end

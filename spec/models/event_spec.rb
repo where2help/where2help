@@ -8,26 +8,10 @@ RSpec.describe Event, type: :model do
 
   describe 'validations' do
     it { expect(create :event, :with_shift).to be_valid }
-    
+
     it { is_expected.to validate_presence_of :address }
+    it { is_expected.to validate_presence_of :person }
     it { is_expected.to validate_length_of :title }
-  end
-
-  describe 'state' do
-    let(:event) { create :event, :with_shift }
-
-    it 'has initial state :pending' do
-      expect(event).to be_pending
-    end
-
-    it 'can transition from pending to :publish' do
-      expect(event).to transition_from(:pending).to(:published).on_event(:publish)
-    end
-
-    it 'cannot transition from :published to anywhere' do
-      event = create :event, :published, :with_shift
-      expect(event).to_not allow_transition_to :pending
-    end
   end
 
   describe 'callbacks' do
@@ -126,6 +110,33 @@ RSpec.describe Event, type: :model do
         end
         it 'excludes events with upcoming shifts' do
           expect(events).not_to include upcoming_event
+        end
+      end
+    end
+    describe '.pending, .published' do
+      let!(:published_events) { create_list :event, 3, :with_shift, :published }
+      let!(:pending_event) { create :event, :with_shift }
+
+      context '.pending' do
+        subject { described_class.pending }
+
+        it 'returns only events with published_at nil' do
+          expect(subject).to match_array [pending_event]
+        end
+
+        it 'ignores records with published_at date' do
+          expect(subject).not_to include published_events.first
+        end
+      end
+      context '.published' do
+        subject { described_class.published }
+
+        it 'returns only events with published_at set' do
+          expect(subject).to match_array published_events
+        end
+
+        it 'ignores records without published_at date' do
+          expect(subject).not_to include pending_event
         end
       end
     end
@@ -243,6 +254,46 @@ RSpec.describe Event, type: :model do
           with(progress: anything, total: anything, offset: 0).
           and_call_original
         expect(subject).to be_a ProgressBar
+      end
+    end
+  end
+
+  describe '#state' do
+    it 'returns "pending" by default' do
+      event = create(:event, :with_shift)
+      expect(event.state).to eq 'pending'
+    end
+
+    it 'returns "deleted" if soft deleted' do
+      event = create(:event, :with_shift, deleted_at: Time.now)
+      expect(event.state).to eq 'deleted'
+    end
+
+    it 'returns "published" if published and not soft deleted' do
+      event = create(:event, :with_shift, :published)
+      expect(event.state).to eq 'published'
+    end
+  end
+
+  describe '#publish!' do
+    context 'when not published yet' do
+      let!(:event) { create(:event, :with_shift) }
+
+      it 'adds published_at timestamp' do
+        expect {
+          event.publish!
+          event.reload
+        }.to change { event.published_at }
+      end
+    end
+    context 'when already published' do
+      let!(:event) { create(:event, :with_shift, published_at: 2.days.ago) }
+
+      it 'does not update the record' do
+        expect {
+          event.publish!
+          event.reload
+        }.not_to change { event.published_at.to_i }
       end
     end
   end

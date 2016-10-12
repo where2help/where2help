@@ -4,8 +4,7 @@ RSpec.describe "Events", type: :request do
   describe "GET /events" do
     it 'returns the events' do
       ngo = create :ngo
-      event = create :event, :with_shift, state: :published,
-                                          ngo: ngo
+      event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events", as: :json, headers: token_header
 
       expect(response).to be_success
@@ -25,16 +24,15 @@ RSpec.describe "Events", type: :request do
                                          "volunteers_needed" => event.shifts.first.volunteers_needed,
                                          "volunteers_count" => event.shifts.first.volunteers_count,
                                          "current_user_assigned" => false
-                                      }] 
+                                      }]
                                     }])
     end
-  end  
+  end
 
   describe "GET /events?minimal=true" do
     it 'returns the events with minimal json' do
       ngo = create :ngo
-      event = create :event, :with_shift, state: :published,
-                                          ngo: ngo
+      event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events?minimal=true", as: :json, headers: token_header
       expect(response).to be_success
       expect(json).to include_json([{"id" => event.id,
@@ -43,17 +41,16 @@ RSpec.describe "Events", type: :request do
                                        "volunteers_needed" => event.shifts.first.volunteers_needed,
                                        "volunteers_count" => event.shifts.first.volunteers_count,
                                        "current_user_assigned" => false
-                                    }] 
+                                    }]
                                  }])
     end
-  end  
+  end
 
 
   describe "GET /events/:id" do
     it 'returns the event' do
       ngo = create :ngo
-      event = create :event, :with_shift, state: :published,
-                                          ngo: ngo
+      event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events/" + event.id.to_s, as: :json, headers: token_header
 
       expect(response).to be_success
@@ -63,6 +60,7 @@ RSpec.describe "Events", type: :request do
                                     "address" => event.address,
                                     "lat" => event.lat,
                                     "lng" => event.lng,
+				    "person" => event.person,
                                     "state" => event.state,
                                     "organization_name" => event.ngo.name,
                                     "shifts" =>
@@ -73,16 +71,15 @@ RSpec.describe "Events", type: :request do
                                       "volunteers_needed" => event.shifts.first.volunteers_needed,
                                       "volunteers_count" => event.shifts.first.volunteers_count,
                                       "current_user_assigned" => false
-                                    }] 
+                                    }]
                                   })
     end
-  end  
-  
+  end
+
   describe "GET /events/:id?minimal=true" do
     it 'returns the event with minimal json' do
       ngo = create :ngo
-      event = create :event, :with_shift, state: :published,
-                                          ngo: ngo
+      event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events/" + event.id.to_s + "?minimal=true", as: :json, headers: token_header
       expect(response).to be_success
       expect(json).to include_json({"id" => event.id,
@@ -91,8 +88,8 @@ RSpec.describe "Events", type: :request do
                                       "volunteers_needed" => event.shifts.first.volunteers_needed,
                                       "volunteers_count" => event.shifts.first.volunteers_count,
                                       "current_user_assigned" => false
-                                    }] 
+                                    }]
                                   })
     end
-  end  
+  end
 end

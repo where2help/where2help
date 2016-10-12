@@ -1,6 +1,4 @@
 class Event < ApplicationRecord
-  include AASM
-
   acts_as_paranoid
 
   belongs_to :ngo
@@ -11,6 +9,7 @@ class Event < ApplicationRecord
   validates :title, length: { in: 1..100 }
   validates :address, presence: true
   validates :shifts, presence: true
+  validates :person, presence: true
 
   accepts_nested_attributes_for :shifts, allow_destroy: true
 
@@ -22,14 +21,24 @@ class Event < ApplicationRecord
   }
   scope :upcoming, -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
   scope :past, -> { where(id: Shift.past.pluck(:event_id).uniq) }
+  scope :pending, -> { where(published_at: nil) }
+  scope :published, -> { where.not(published_at: nil) }
 
-  aasm column: :state do
-    state :pending, initial: true
-    state :published
+  def state
+    %w(deleted published).each { |state| return state if send("#{state}?") }
+    'pending'
+  end
 
-    event :publish do
-      transitions from: :pending, to: :published
-    end
+  def published?
+    published_at.present?
+  end
+
+  def pending?
+    published_at.blank?
+  end
+
+  def publish!
+    update(published_at: Time.now) unless published?
   end
 
   def self.filter(scope=nil, order=nil)

@@ -4,11 +4,14 @@ context.instance_eval do
       row :id
       row :ngo
       row :title
+      row :person
       row :address
       row(:coordinates) { |event| "(#{event.lat}, #{event.lng})" }
-      row(:state){ |event| status_tag(event.aasm.human_state) }
+      row(:state){ |ngo| status_tag(Event.human_attribute_name("state-#{ngo.state}")) }
       row :created_at
       row :updated_at
+      row :published_at
+      row :deleted_at
     end
   end
   panel Shift.model_name.human(count: 2) do
