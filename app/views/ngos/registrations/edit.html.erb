@@ -8,6 +8,10 @@
   <%= f.input :email, autofocus: true %>
   <%= f.input :locale, as: :select, collection: Ngo.locales.keys.to_a %>
 
+    <%= f.fields_for :contact do |ff| %>
+      <%= ff.input :first_name %>
+    <% end %>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Erwarten Bestätigung für: <%= resource.unconfirmed_email %></div>
   <% end %>

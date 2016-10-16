@@ -77,6 +77,27 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
     end
   end
 
+  describe 'PUT update' do
+    let(:ngo) { create :ngo, :confirmed }
+    let(:params) {
+      {
+        id: ngo, ngo: {email: "hello"}
+      }
+    }
+
+    before do
+      sign_in ngo, scope: :ngo
+      put :update, params: params
+      ngo.reload
+    end
+
+    it 'updates the contact of the NGO' do
+      expect(ngo.email).to eq(params[:ngo][:email])
+    end
+
+
+  end
+
   describe 'DELETE destroy' do
     let(:ngo) { create(:ngo, :confirmed) }
 
