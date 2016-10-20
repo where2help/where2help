@@ -24,7 +24,19 @@ footer {
 
     .footer-info {
       @extend .col-sm-12;
+      text-align: center;
       margin-bottom: 1em;
+      @media (max-width: $screen-xs-min) {
+        text-align: right;
+      }
+    }
+    .footer-separator {
+      @extend .hidden-xs;
+    }
+    .footer-txt {
+      @media (max-width: $screen-xs-min) {
+        display: block;
+      }
     }
   }
 }
