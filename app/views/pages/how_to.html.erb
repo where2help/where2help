@@ -1,0 +1,13 @@
+<div class="pages-static">
+  <section class="pages-static-section">
+    <h2 class="pages-title"><i class="fa fa-question-circle-o" aria-hidden="true"></i> <%= t('.title') %></h2>
+
+    <%= link_to t('.title_ngos'), '#ngos', class: 'pages-nav-link' %>
+    <%= link_to t('.title_users'), '#users', class: 'pages-nav-link' %>
+
+    <h3 id="ngos"><i class="fa fa-users" aria-hidden="true"></i> <%= t('.title_ngos') %></h3>
+    <%= simple_format t('.text_ngos') %>
+    <h3 id="users"><i class="fa fa-user" aria-hidden="true"></i> <%= t('.title_users') %></h3>
+    <%= simple_format t('.text_users') %>
+  </div>
+</div>

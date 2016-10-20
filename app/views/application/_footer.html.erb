@@ -7,6 +7,8 @@
       <span class="footer-separator">&#124;</span>
       <%= link_to t('application.terms_and_conditions'), terms_and_conditions_path, class: 'footer-txt' %>
       <span class="footer-separator">&#124;</span>
+      <%= link_to 'How To', how_to_path, class: 'footer-txt' %>
+      <span class="footer-separator">&#124;</span>
       <%= mail_to 'contact@where2help.wien', nil, class: 'footer-txt' %>
       <% unless current_user || current_ngo %>
         <span class="footer-separator">&#124;</span>

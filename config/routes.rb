@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   end
   root 'pages#home'
   get 'terms_and_conditions', to: 'pages#terms_and_conditions'
+  get 'how_to', to: 'pages#how_to'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

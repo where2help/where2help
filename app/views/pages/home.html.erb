@@ -4,7 +4,6 @@
     <%= image_tag 'logo.svg', class: 'img-responsive logo-img' %>
   </div>
   <div class="home-col">
-    <h5 class="text-center"><%= t('.headline') %></h5>
     <ul class="fa-ul text-left">
       <li><h6><i class="fa-li fa fa-user" aria-hidden="true"></i><%= t('.subline_user') %></h6></li>
       <li><h6><i class="fa-li fa fa-users" aria-hidden="true"></i><%= t('.subline_ngo') %></h6></li>
@@ -29,5 +28,8 @@
     <%= link_to new_ngo_session_path, class: 'btn-signup btn-lg' do %>
       <i class="fa fa-sign-in" aria-hidden="true"></i> <%= t('pages.home.login_ngo') %>
     <% end %>
+  </div>
+  <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 home-col text-center">
+    <%= link_to 'So funktioniert where2help', how_to_path, class: 'btn btn-sm' %>
   </div>
 </div>
