@@ -57,7 +57,7 @@ de:
       terms_and_conditions:
         close: Schließen
         body: |
-          Zweck von „where2help“ (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfeleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
+          Zweck von "where2help" (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfeleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
 
           Ziel ist es, durch die Nutzung von w2h den Bedarf der flüchtlingsbetreuenden Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
 
@@ -128,7 +128,7 @@ de:
       terms_and_conditions:
         close: Schließen
         body: |
-          Zweck von „where2help“ (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfsleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
+          Zweck von "where2help" (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfsleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
 
           Ziel ist es, durch die Nutzung von w2h den Bedarf der flüchtlingsbetreuenden Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
 
@@ -164,13 +164,13 @@ de:
       title_users: Du willst als Freiwillige/r mitmachen?
       text_ngos: |
         <strong>Schritt 1: Registriert Euch als NGO</strong>
-        Klickt auf den Button „Als NGO registrieren“. Legt Euer Profil mit Eurem Namen, Eurer E-MailAdresse und einem Passwort an und gebt Eure Kontaktmöglichkeiten bekannt. Akzeptiert die Nutzungsbedingungen und schließt den ersten Schritt mit einem Klick auf den Button 'Registrieren' ab.
+        Klickt auf den Button "Als NGO registrieren". Legt Euer Profil mit Eurem Namen, Eurer E-Mail-Adresse und einem Passwort an und gebt Eure Kontaktmöglichkeiten bekannt. Akzeptiert die Nutzungsbedingungen und schließt den ersten Schritt mit einem Klick auf den Button "Registrieren" ab.
 
         <strong>Schritt 2: Bestätigt Eure Registrierung</strong>
         where2help schickt Euch ein E-Mail mit einem Bestätigungslink. Folgt dem Link und schließt die Registrierung damit ab.
 
         <strong>Schritt 3: Veröffentlicht Eure Hilfsanfragen</strong>
-        Meldet Euch auf where2help mit Eurer registrierten E-Mail-Adresse und Eurem Passwort an. Unter 'Einsatz hinzufügen' könnt Ihr eine neue Hilfsanfrage anlegen. Dafür gebt Ihr einen aussagekräftigen Titel, eine Beschreibung, Ort und Zeit sowie die Anzahl der benötigten HelferInnen und eine Kontaktperson vor Ort an. Ihr könnt zusätzliche Schichten hinzufügen. Klickt abschließend auf 'Schicht speichern' und 'Veröffentlichen' um den Einsatz für alle sichtbar zu machen.
+        Meldet Euch auf where2help mit Eurer registrierten E-Mail-Adresse und Eurem Passwort an. Unter "Einsatz hinzufügen" könnt Ihr eine neue Hilfsanfrage anlegen. Dafür gebt Ihr einen aussagekräftigen Titel, eine Beschreibung, Ort und Zeit sowie die Anzahl der benötigten HelferInnen und eine Kontaktperson vor Ort an. Ihr könnt zusätzliche Schichten hinzufügen. Klickt abschließend auf "Schicht speichern" und "Veröffentlichen", um den Einsatz für alle sichtbar zu machen.
 
         <strong>Schritt 4: Behaltet den Überblick</strong>
         Als NGO findet Ihr auf where2help alle Eure Hilfsanfragen übersichtlich aufgelistet. Ihr erhaltet einen genauen Überblick, wie viele HelferInnen sich bereits angemeldet haben - einschließlich Namen und Kontaktmöglichkeiten. Ihr könnt alle von Euch erstellten Einsätze in Eure Kalender eintragen lassen. Wenn Ihr eine Hilfsanfrage löscht oder verändert, werden angemeldete HelferInnen automatisch per E-Mail verständigt.
@@ -178,16 +178,16 @@ de:
         Gutes Gelingen!
       text_users: |
         <strong>Schritt 1: Registriere Dich</strong>
-        Klicke auf den Button 'Als Freiwillige/r registrieren'. Gib Deinen Namen und Deine E-Mail-Adresse an. Wähle ein Passwort und akzeptiere die Nutzungsbedingungen. Schließe den ersten Schritt mit einem Klick auf den Button 'Registrieren' ab.
+        Klicke auf den Button "Als Freiwillige/r registrieren". Gib Deinen Namen und Deine E-Mail-Adresse an. Wähle ein Passwort und akzeptiere die Nutzungsbedingungen. Schließe den ersten Schritt mit einem Klick auf den Button 'Registrieren' ab.
 
         <strong>Schritt 2: Bestätige Deine Registrierung</strong>
         where2help schickt Dir eine E-Mail mit einem Bestätigungslink. Folge dem Link und bestätige damit Deine Registrierung.
 
         <strong>Schritt 3: Finde heraus, wo Du gebraucht wirst</strong>
-        Klicke auf 'Als Freiwillige/r anmelden'. Melde Dich mit Deiner registrierten E-Mail-Adresse und Deinem Passwort an. Verschaffe Dir einen Überblick darüber, wo und wann Deine Hilfe gebraucht wird. Melde Dich direkt für einen Einsatz an. Deine Termine kannst Du auch in den Kalender Deines Mobiltelefons, Notebooks oder Tablets übertragen.
+        Klicke auf "Als Freiwillige/r anmelden". Melde Dich mit Deiner registrierten E-Mail-Adresse und Deinem Passwort an. Verschaffe Dir einen Überblick darüber, wo und wann Deine Hilfe gebraucht wird. Melde Dich direkt für einen Einsatz an. Deine Termine kannst Du auch in den Kalender Deines Mobiltelefons, Notebooks oder Tablets übertragen.
 
         <strong>Schritt 4: Behalte den Überblick</strong>
-        Unter dem Punkt 'Einsätze' findest Du alle Deine Hilfseinsätze übersichtlich aufgelistet. Wenn ein Einsatz nicht stattfinden oder sich etwas ändern sollte, wirst Du per E-Mail informiert.
+        Unter dem Punkt "Einsätze" findest Du alle Deine Hilfseinsätze übersichtlich aufgelistet. Wenn ein Einsatz nicht stattfinden oder sich etwas ändern sollte, wirst Du per E-Mail informiert.
 
         <strong>Schritt 5: Komme zum Einsatzort</strong>
         Wenn Du Dich für einen Einsatz angemeldet hast, dann komm bitte pünktlich zum angegeben Treffpunkt. Falls Du einmal doch nicht kannst, melde Dich bitte auf where2help ab.
