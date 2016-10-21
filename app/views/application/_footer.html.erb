@@ -1,15 +1,17 @@
 <footer>
   <div class="footer-content">
-    <div class="footer-info text-center">
-      <span class="text-muted">Made with <i class="fa fa-heart"></i> in Vienna</span>
-      <span>&#124;</span>
-      <%= link_to t('application.imprint'), 'http://fsw.at/impressum/', target: '_blank' %>
-      <span>&#124;</span>
-      <%= link_to t('application.terms_and_conditions'), terms_and_conditions_path %>
-      <span>&#124;</span>
-      <%= mail_to 'contact@where2help.wien' %>
+    <div class="footer-info">
+      <span class="footer-txt text-muted">Made with <i class="fa fa-heart"></i> in Vienna</span>
+      <span class="footer-separator">&#124;</span>
+      <%= link_to t('application.imprint'), 'http://fsw.at/impressum/', target: '_blank', class: 'footer-txt' %>
+      <span class="footer-separator">&#124;</span>
+      <%= link_to t('application.terms_and_conditions'), terms_and_conditions_path, class: 'footer-txt' %>
+      <span class="footer-separator">&#124;</span>
+      <%= link_to 'How To', how_to_path, class: 'footer-txt' %>
+      <span class="footer-separator">&#124;</span>
+      <%= mail_to 'contact@where2help.wien', nil, class: 'footer-txt' %>
       <% unless current_user || current_ngo %>
-        <span>&#124;</span>
+        <span class="footer-separator">&#124;</span>
         <%= render 'language_switcher' %>
       <% end %>
     </div>

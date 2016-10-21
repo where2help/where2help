@@ -150,11 +150,45 @@ en:
     home:
       subline_user: Know where and when I am needed
       subline_ngo: Know where and when how many helpers show up
-      headline: Organising help in an easy fashion
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Helper
       login_user: Login as user
       login_ngo: Login as NGO
+    how_to:
+      title: How w2h works
+      title_ngos: Do you want to organize helpers?
+      title_users: Do you want to help?
+      text_ngos: |
+        <strong>Step 1: Sign up as an NGO</strong>
+        Click on the button ‘Sign up as NGO’. Enter your NGO-profile and your name, your email address and a password. Accept the terms & conditions and end the first step with a click on the button 'Sign up'.
+
+        <strong>Step 2: Confirm your registration</strong>
+        where2help will send you an email with a confirmation link. Follow the link and confirm your account.
+
+        <strong>Step 3: Publish your help enquiries</strong>
+        Log in to where2help with your registered email address and your password. Under 'Add event', you can enter a new help enquiry. To do so, you specify a concise title, a description, address, date and time as well as the number of helpers needed. Don’t forget the contact person on the spot. You can add some more shifts through 'Add Shift'. Then click on 'Save Shift' and 'Publish' to publish your event.
+
+        <strong>Step 4: Keep track of things</strong>
+        As an NGO, you can find your help enquiries listed clearly on where2help. You will receive a precise overview of how many helpers have already registered – including names and contact options. You can transfer the assignments you have created to your calendar. When you delete or amend a help enquiry, registered helpers will be informed automatically by email.
+
+        We wish you success!
+      text_users: |
+        <strong>Step 1: Sign up</strong>
+        Click on the button 'Sign up as a helper'. Fill in the helper profile. Enter your name and email address. Choose a password and accept the terms & conditions. End the first step with a click on the button 'Sign up'.
+
+        <strong>Step 2: Confirm your registration</strong>
+        where2help will send you an email with a confirmation link. Follow the link and confirm your account.
+
+        <strong>Step 3: Find out where you are needed</strong>
+        Click on 'Login as user'. Log in with your registered email address and your password. Gain an overview of where and when your help is needed. Report directly for an assignment. You can transfer your appointments to the calendar of your mobile telephone, notebook or tablet.
+
+        <strong>Step 4: Keep track of things</strong>
+        Under the item 'Einsätze', you can find all your aid missions clearly listed. Whenever an assignment does not take place or something should change, you will be informed by email.
+
+        <strong>Step 5: Come to the location of the assignment</strong>
+        When you have reported for an assignment, please come to the specified meeting place on time. Should you not be able to do so, please sign off on where2help.
+
+        We look forward to seeing you!
   shifts:
     opt_in_btn: I'm In
     opt_out_btn: Can't Make It
