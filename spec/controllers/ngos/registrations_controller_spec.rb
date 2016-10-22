@@ -79,11 +79,7 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
 
   describe 'PUT update' do
     let(:ngo) { create :ngo, :confirmed }
-    let(:params) {
-      {
-        id: ngo, ngo: {email: "hello"}
-      }
-    }
+    let(:params) { {ngo: attributes_for(:ngo, current_password: ngo.password).merge({contact_attributes: attributes_for(:contact)})}}
 
     before do
       sign_in ngo, scope: :ngo
@@ -93,6 +89,9 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
 
     it 'updates the contact of the NGO' do
       expect(ngo.email).to eq(params[:ngo][:email])
+      expect(ngo.name).to eq(params[:ngo][:name])
+      expect(ngo.contact.first_name).to eq(params[:ngo][:contact_attributes][:first_name])
+      expect(ngo.contact.last_name).to eq(params[:ngo][:contact_attributes][:last_name])
     end
 
 
