@@ -13,5 +13,14 @@ document.addEventListener "turbolinks:load", ->
     map.setView(new L.LatLng(lat, long), 15)
     map.addLayer(osm)
     new L.marker([lat, long]).addTo(map)
+    map-element = document.getElementById("shift-map");
+    map.on 'click', (e) ->
+      if map.scrollWheelZoom.enabled()
+        map.scrollWheelZoom.disable()
+        map-element.classList.remove 'activated'
+      else
+        map.scrollWheelZoom.enable()
+        map-element.classList.add 'activated'
+      return
 
   checkMap()
