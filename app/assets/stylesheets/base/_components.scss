@@ -1,10 +1,6 @@
 div.map {
   height: 300px;
   margin-top: 1em;
-  &.activated {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    border: 2px solid rgba(81, 203, 238, 1);
-  }
 }
 
 .calendar-icon {
