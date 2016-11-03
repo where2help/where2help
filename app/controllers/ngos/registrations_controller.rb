@@ -67,7 +67,10 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
       ngo_params.permit(
         :email,
         :password, :password_confirmation, :current_password,
-        :locale
+        :locale,
+        :name,
+        :terms_and_conditions,
+        contact_attributes: [:first_name, :last_name, :email, :phone, :street, :zip, :city, :id]
       )
     end
   end

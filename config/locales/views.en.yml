@@ -113,6 +113,8 @@ en:
         login: Login
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
     registrations:
+      ngo_fields:
+        min_characters: characters minimum
       new:
         accept_terms_and_conditions: I accept the
         sign_up: Sign up as an NGO
