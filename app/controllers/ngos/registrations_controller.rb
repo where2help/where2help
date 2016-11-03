@@ -75,6 +75,10 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def after_update_path_for(resource)
+    edit_ngo_registration_path
+  end
+
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
