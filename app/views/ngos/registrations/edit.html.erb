@@ -9,6 +9,7 @@
       <div class="col-sm-6">
         <%= render 'contact_fields', f: f %>
       </div>
+
       <div class="col-sm-6">
         <%= render 'ngo_fields', f: f %>
         <%= f.input :locale, as: :select, collection: Ngo.locales.keys.to_a %>
@@ -19,14 +20,8 @@
                                        hint: "(" + t("devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes") + ")" %>
 
         <%= f.submit t("devise.registrations.edit.update"), class: "btn btn-primary" %>
-      <% end %>
-      <hr />
-      <%= button_to t("devise.registrations.edit.cancel_my_account"),
-                     registration_path(resource_name),
-                     data: { confirm: t("devise.registrations.edit.are_you_sure") },
-                     method: :delete,
-                     class: "delete-account-btn" %>
       </div>
-    </div>
+    <% end %>
+    <%= render 'registrations/cancel', resource_name: resource_name %>
   </div>
 </div>

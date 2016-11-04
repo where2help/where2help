@@ -79,12 +79,6 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
 
   describe 'PUT update' do
     let(:ngo) { create :ngo, :confirmed }
-    let(:params) do
-      {
-        ngo: attributes_for(:ngo, current_password: ngo.password)
-          .merge({ contact_attributes: attributes_for(:contact) })
-      }
-    end
 
     before do
       sign_in ngo, scope: :ngo
@@ -92,15 +86,37 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
       ngo.reload
     end
 
-    it 'updates the contact of the NGO' do
-      expect(ngo.email).to eq(params[:ngo][:email])
-      expect(ngo.name).to eq(params[:ngo][:name])
-      expect(ngo.contact.first_name).to eq(params[:ngo][:contact_attributes][:first_name])
-      expect(ngo.contact.last_name).to eq(params[:ngo][:contact_attributes][:last_name])
-    end
+    context 'with current password provided' do
+      let(:params) do
+        {
+          ngo: attributes_for(:ngo, current_password: ngo.password)
+            .merge({ contact_attributes: attributes_for(:contact) })
+        }
+      end
 
-    it 'redirect_to :edit' do
-      expect(response).to redirect_to edit_ngo_registration_path
+      it 'updates profile and contact of the NGO' do
+        expect(ngo.email).to eq(params[:ngo][:email])
+        expect(ngo.name).to eq(params[:ngo][:name])
+        expect(ngo.contact.first_name).to eq(params[:ngo][:contact_attributes][:first_name])
+        expect(ngo.contact.last_name).to eq(params[:ngo][:contact_attributes][:last_name])
+      end
+
+      it 'redirects to :edit with :notice flash' do
+        expect(response).to redirect_to edit_ngo_registration_path
+        expect(flash[:notice]).to be_present
+      end
+    end
+    context 'without current password' do
+      let(:params) { { ngo: attributes_for(:ngo, current_password: '') } }
+
+      it 'renders :edit without :notice flash' do
+        expect(response).to render_template :edit
+        expect(flash[:notice]).not_to be_present
+      end
+
+      it 'does not change any attributes' do
+        expect(ngo.email).not_to eq params[:ngo][:email]
+      end
     end
   end
 
