@@ -13,5 +13,9 @@ document.addEventListener "turbolinks:load", ->
     map.setView(new L.LatLng(lat, long), 15)
     map.addLayer(osm)
     new L.marker([lat, long]).addTo(map)
-
+    map.dragging.disable()
+    map.getContainer().addEventListener 'mouseover', ->
+      map.dragging.enable()
+    map.getContainer().addEventListener 'mouseout', ->
+      map.dragging.disable()
   checkMap()
