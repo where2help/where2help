@@ -156,8 +156,8 @@ RSpec.describe ShiftsController, type: :controller do
     end
     context 'when logged in' do
       let(:user) { create :user }
-      let(:upcoming_shifts) { create_list :shift, 10, :with_event, starts_at: Date.tomorrow }
-      let(:past_shifts) { create_list :shift, 10, :with_event, :skip_validate, starts_at: Date.yesterday }
+      let(:upcoming_shifts) { create_list :shift, 10, :with_event, :skip_validate, starts_at: 1.day.from_now, ends_at: 1.day.from_now+2.hours }
+      let(:past_shifts) { create_list :shift, 10, :with_event, :skip_validate, starts_at: 1.day.ago, ends_at: 1.day.ago+2.hours }
 
       before do
         sign_in user
