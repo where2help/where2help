@@ -7,6 +7,7 @@ context.instance_eval do
       row :person
       row :address
       row(:coordinates) { |event| "(#{event.lat}, #{event.lng})" }
+      row(:description) { |event| format_description(event.description) }
       row(:state){ |ngo| status_tag(Event.human_attribute_name("state-#{ngo.state}")) }
       row :created_at
       row :updated_at
