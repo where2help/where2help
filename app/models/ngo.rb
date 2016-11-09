@@ -37,7 +37,7 @@ class Ngo < ApplicationRecord
      recoverable.send_reset_password_instructions
    end
    recoverable
- end
+  end
 
   # overwrite devise to require admin confirmation too
   def active_for_authentication?
@@ -57,11 +57,11 @@ class Ngo < ApplicationRecord
     events.build shifts_attributes: shifts_attr
   end
 
-  private
-
   def confirmed?
     admin_confirmed_at.present?
   end
+
+  private
 
   def request_admin_confirmation
     AdminMailer.new_ngo(self).deliver_later
