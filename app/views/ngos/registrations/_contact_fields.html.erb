@@ -1,33 +1,16 @@
 <h4><i class="fa fa-phone" aria-hidden="true"></i> <%= Contact.model_name.human %></h4>
-<%= f.fields_for :contact, (resource.contact || resource.build_contact) do |c| %>
-  <div class="form-group">
-    <%= c.label :first_name %>
-    <%= c.text_field :first_name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= c.label :last_name %>
-    <%= c.text_field :last_name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= c.label :email %>
-    <%= c.email_field :email, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= c.label :phone %>
-    <%= c.phone_field :phone, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= c.label :street %>
-    <%= c.text_field :street, class: 'form-control' %>
-  </div>
-  <div class="form-group row">
+<%= f.semantic_fields_for :contact, (resource.contact || resource.build_contact) do |c| %>
+  <%= c.input :first_name %>
+  <%= c.input :last_name %>
+  <%= c.input :email %>
+  <%= c.input :phone %>
+  <%= c.input :street %>
+  <div class="row">
     <div class="col-sm-4">
-      <%= c.label :zip %>
-      <%= c.text_field :zip, class: 'form-control' %>
+      <%= c.input :zip %>
     </div>
     <div class="col-sm-8">
-      <%= c.label :city %>
-      <%= c.text_field :city, class: 'form-control' %>
+      <%= c.input :city %>
     </div>
   </div>
 <% end %>
