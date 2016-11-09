@@ -60,7 +60,7 @@ RSpec.describe Event, type: :model do
       subject(:events) { Event.with_available_shifts }
 
       before do
-        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour
+        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
         create :shift, event: first_event, starts_at: Time.now+1.hour
         create :shift, event: second_event, starts_at: Time.now+2.hours
         create :shift, :full, event: full_event
@@ -89,7 +89,7 @@ RSpec.describe Event, type: :model do
 
       before do
         create :shift, event: upcoming_event, starts_at: Time.now+1.hour
-        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour
+        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
       end
 
       describe 'upcoming' do

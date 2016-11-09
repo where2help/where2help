@@ -12,8 +12,8 @@ class Shift < ApplicationRecord
   validate :ends_at_after_starts_at
 
   scope :not_full,  -> { where('volunteers_needed > volunteers_count') }
-  scope :past,      -> { where('starts_at < NOW()').reorder(starts_at: :desc) }
-  scope :upcoming,  -> { where('starts_at > NOW()') }
+  scope :past,      -> { where('ends_at <= NOW()').reorder(starts_at: :desc) }
+  scope :upcoming,  -> { where('ends_at > NOW()') }
   scope :available, -> { upcoming.not_full }
 
   before_destroy :notify_volunteers_about_destroy, prepend: true
