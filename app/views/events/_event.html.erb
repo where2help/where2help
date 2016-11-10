@@ -16,8 +16,9 @@
       <%= ", " + further_events_count.to_s + " weitere "  if further_events_count > 0 %></br>
 
       <strong><%= event.title %></strong><br>
-      <span><%= event.person %></span>
-      <span><%= event.address %></span>
+      <span><%= event.approximate_address.present? ? event.approximate_address : event.address %></span>
+      <span>–</span>
+      <span><%= event.ngo.name %></span>
     </div>
     <div class="col-xs-3 col-sm-2">
       <%= render event.progress_bar(current_user) %>

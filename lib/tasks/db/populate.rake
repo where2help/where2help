@@ -97,7 +97,8 @@ namespace :db do
         zip = feature["properties"]["PostalCode"]
         zip ||= "10#{feature["properties"]["Bezirk"].split(',').first.rjust(2, '0')}"
         address = "#{zip}, #{event.address}"
-        event.update(lng: coords[0], lat: coords[1], address: address)
+        approximate_address = "#{feature["properties"]["Bezirk"]}. Bezirk, #{feature["properties"]["Municipality"]}"
+        event.update(lng: coords[0], lat: coords[1], address: address, approximate_address: approximate_address)
       end
     end
   end

@@ -16,7 +16,7 @@ class Event < ApplicationRecord
   scope :with_available_shifts, -> {
     published.
     where(id: Shift.available.pluck(:event_id).uniq).
-    includes(:available_shifts).
+    includes(:available_shifts, :ngo).
     order("shifts.starts_at").
     references(:available_shifts)
   }
