@@ -57,11 +57,11 @@ RSpec.describe Shift, type: :model do
 
   describe 'scopes' do
     describe '.past' do
-      let!(:upcoming) { create :shift, :with_event, starts_at: Time.now+1.day }
-      let!(:oldest) { create :shift, :with_event, :skip_validate, starts_at: Time.now-1.day }
-      let!(:old) { create :shift, :with_event, :skip_validate, starts_at: Time.now-12.hours }
-      let!(:middle) { create :shift, :with_event, :skip_validate, starts_at: Time.now-2.hours }
-      let!(:newest) { create :shift, :with_event, :skip_validate, starts_at: Time.now-1.hour }
+      let!(:upcoming) { create :shift, :with_event, starts_at: 1.day.from_now, ends_at: 1.day.from_now+2.hours }
+      let!(:oldest) { create :shift, :with_event, :skip_validate, starts_at: 1.day.ago, ends_at: 1.day.ago+2.hours }
+      let!(:old) { create :shift, :with_event, :skip_validate, starts_at: 12.hours.ago, ends_at: 10.hours.ago }
+      let!(:middle) { create :shift, :with_event, :skip_validate, starts_at: 2.hours.ago, ends_at: 1.hour.ago }
+      let!(:newest) { create :shift, :with_event, :skip_validate, starts_at: 1.hour.ago, ends_at: 15.minutes.ago }
 
       subject(:shifts) { Shift.past }
 
@@ -74,7 +74,7 @@ RSpec.describe Shift, type: :model do
       end
     end
     describe '.upcoming' do
-      let!(:past) { create :shift, :with_event, :skip_validate, starts_at: Time.now-1.hour }
+      let!(:past) { create :shift, :with_event, :skip_validate, starts_at: 1.hour.ago, ends_at: 30.minutes.ago }
       let!(:earliest) { create :shift, :with_event, starts_at: Time.now+1.hour }
       let!(:middle) { create :shift, :with_event, :skip_validate, starts_at: Time.now+2.hours }
       let!(:early) { create :shift, :with_event, :skip_validate, starts_at: Time.now+1.day }
