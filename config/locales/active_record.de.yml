@@ -39,6 +39,7 @@ de:
         title: Titel
         description: Beschreibung
         address: Adresse
+        approximate_address: Ungefähre Adresse
         state: Status
         state/pending: Unsichtbar
         state/published: Sichtbar

@@ -26,6 +26,15 @@ document.addEventListener "turbolinks:load", ->
     $('#event_lng').val coords[0]
     $('#event_lat').val coords[1]
 
+    props = suggestion.properties
+    approximate_address = (
+      if props && props["Bezirk"] && props["Municipality"]
+        "#{props["Bezirk"]}. Bezirk, #{props["Municipality"]}"
+      else
+        ""
+    )
+    $('#event_approximate_address').val approximate_address
+
   addressSearch = new Bloodhound
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value')
     queryTokenizer: Bloodhound.tokenizers.whitespace

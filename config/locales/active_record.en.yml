@@ -38,6 +38,7 @@ en:
         title: Title
         description: Description
         address: Address
+        approximate_address: Approximate Address
         state: Status
         state/pending: Invisible
         state/published: Visible
