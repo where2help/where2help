@@ -6,9 +6,7 @@
     <%= render('empty_message') unless @events %>
     <%= render('grouped_events') %>
   </div>
-  <div class="row">
-    <div class="col-xs-12 text-center pagination-btn">
-      <%= load_more_events_btn @events, last_date: @events.any? && @events.last.starts_at.to_date %>
-    </div>
+  <div class="col-xs-12 text-center pagination-btn">
+    <%= load_more_events_btn @events, last_date: @events.any? && @events.last.starts_at.to_date %>
   </div>
 </div>

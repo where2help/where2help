@@ -15,6 +15,12 @@ de:
   helpers:
     shifts_helper:
       share: Teilen
+    events_helper:
+      today: Heute
+      tomorrow: Morgen
+  date:
+    formats:
+      events_date_group: "%A, %d.%m.%Y"
   faker:
     address:
       secondary_address: ["Bognergasse 9","Freyung 7","Graben 7","Himmelpfortgasse 14","Kärntner Ring 17","Kärntner Straße 55","Kohlmarkt 11",

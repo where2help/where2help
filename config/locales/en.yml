@@ -8,3 +8,9 @@ en:
   helpers:
     shifts_helper:
       share: Teilen
+    events_helper:
+      today: Today
+      tomorrow: Tomorrow
+  date:
+    formats:
+      events_date_group: "%A, %Y-%m-%d"
