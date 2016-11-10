@@ -3,7 +3,7 @@
     <%= simple_format t('.welcome') %>
   </div>
   <div class="col-xs-12 col-lg-10 col-lg-offset-1" data-behavior="events-container">
-    <%= render('empty_message') unless @events.any? %>
+    <%= render('empty_message') unless @events %>
     <%= render('grouped_events') %>
   </div>
   <div class="row">

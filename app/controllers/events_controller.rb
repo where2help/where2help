@@ -6,12 +6,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.with_available_shifts.page(params[:page])
-
-    if params[:last_date] && params[:last_date].to_date == @events.first.starts_at.to_date
-      @dayswitch = false
-    else
-      @dayswitch = true
-    end
+    @events = Kaminari.paginate_array(Event.with_available_shifts).page(params[:page])
+    @last_event_date = params[:last_date].try(:to_date)
   end
 end

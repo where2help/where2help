@@ -4,7 +4,17 @@
       <%= render 'calendar_icon', date: event.starts_at %>
     </div>
     <div class="col-xs-6 col-sm-9">
-      <%= event.starts_at.to_s(:time) %> - <%= event.ends_at.to_s(:time) %><br/>
+      <%= event.available_shifts.first.starts_at.to_s(:time) %> - 
+      <%= event.available_shifts.first.ends_at.to_s(:time) %>
+
+      <% if event.available_shifts.size > 1 %>
+           , <%= event.available_shifts.second.starts_at.to_s(:time) %> - 
+           <%= event.available_shifts.second.ends_at.to_s(:time) %>
+      <% end %>      
+
+      <% further_events_count = event.available_shifts.group_by{|shift| shift.starts_at.to_date}.first.second.count - 2 %> 
+      <%= ", " + further_events_count.to_s + " weitere "  if further_events_count > 0 %></br>
+
       <strong><%= event.title %></strong><br>
       <span><%= event.person %></span>
       <span><%= event.address %></span>
