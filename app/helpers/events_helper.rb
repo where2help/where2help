@@ -7,6 +7,16 @@ module EventsHelper
       class: 'btn'
   end
 
+  def format_event_date_group(date)
+    if date.today?
+      "#{t("helpers.events_helper.today")}, #{l date.to_date}"
+    elsif (date-1.day).today?
+      "#{t("helpers.events_helper.tomorrow")}, #{l date.to_date}"
+    else
+      l date.to_date, format: :events_date_group
+    end
+  end
+
   def format_description(description)
     if description.blank?
       '-'

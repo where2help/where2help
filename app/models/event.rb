@@ -15,9 +15,10 @@ class Event < ApplicationRecord
 
   scope :with_available_shifts, -> {
     published.
-    includes(:available_shifts, :shifts).
     where(id: Shift.available.pluck(:event_id).uniq).
-    order('shifts.starts_at ASC')
+    includes(:available_shifts, :ngo).
+    order("shifts.starts_at").
+    references(:available_shifts)
   }
   scope :upcoming, -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
   scope :past, -> { where(id: Shift.past.pluck(:event_id).uniq) }

@@ -1,10 +1,10 @@
-<% @events.group_by{|event| event.starts_at.to_date}.each do |day, eventsgroup| %>
-  <% if (@dayswitch || @not_first_loop) %>
-    <h2><%= l day %></h2>
+<% @events.each do |event| %>
+  <% if @last_event_date != event.starts_at.to_date %>
+    <h2 class="events-date-header">
+      <%= format_event_date_group event.starts_at %>
+    </h2>
   <% end %>
-  <% @not_first_loop = true %>
 
-  <% eventsgroup.each do |event|  %>
-    <%= render(event) %>
-  <% end %>
+  <%= render(event) %>
+  <% @last_event_date = event.starts_at.to_date %>
 <% end %>

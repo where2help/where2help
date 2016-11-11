@@ -23,6 +23,9 @@
       <li class="detail-row">
         <i class="fa-li fa fa-users fa-fw"></i> <%= @shift.event.ngo.name %>
       </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-users fa-fw"></i> <%= @shift.event.person %>
+      </li>
     </ul>
     <p>
       <%= link_to shift_cal_path(@shift, format: :ics), class: "btn btn-block btn-info" do %>
