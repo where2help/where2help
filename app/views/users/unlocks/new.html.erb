@@ -1,16 +1,13 @@
-<h2>Resend unlock instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="row">
+  <%= render 'users/header_sm', txt: t('devise.confirmations.new.resend_unlock_instructions') %>
+  <div class="col-sm-5 col-sm-offset-3">
+    <%= semantic_form_for(resource, as: resource_name, url: unlock_path(resource_name)) do |f| %>
+      <%= f.input :email, label: false, autofocus: true, placeholder: resource.class.human_attribute_name(:email) %>
+      <div class="form-group">
+        <%= f.action :submit, label: t('devise.confirmations.new.resend_unlock_instructions'),
+          button_html: { class: 'btn btn-primary btn-block' } %>
+      </div>
+    <% end %>
+    <%= render 'users/shared/links' %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

@@ -45,6 +45,8 @@ de:
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO anmelden
         please_login: Als Freiwillige/r anmelden
     registrations:
+      edit:
+        title: Profil bearbeiten
       new:
         accept_terms_and_conditions: Ich akzeptiere die
         min_characters: Zeichen mindestens
@@ -194,7 +196,7 @@ de:
         <strong>Schritt 5: Komme zum Einsatzort</strong>
         Wenn Du Dich für einen Einsatz angemeldet hast, dann komm bitte pünktlich zum angegeben Treffpunkt. Falls Du einmal doch nicht kannst, melde Dich bitte auf where2help ab.
 
-        Wir freuen uns auf Dich! 
+        Wir freuen uns auf Dich!
   shifts:
     opt_in_btn: Helfen
     opt_out_btn: Absagen

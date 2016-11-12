@@ -42,6 +42,8 @@ en:
         login: Login
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
     registrations:
+      edit:
+        title: Edit Profile
       new:
         accept_terms_and_conditions: I accept the
         min_characters: characters minimum

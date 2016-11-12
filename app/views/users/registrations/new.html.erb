@@ -1,7 +1,5 @@
 <div class="row">
-  <div class="page-header text-center">
-    <h2><i class="fa fa-user" aria-hidden="true"></i> <%= t('.sign_up') %></h2>
-  </div>
+  <%= render 'users/header_lg', txt: t('.sign_up') %>
   <div class="col-sm-6">
     <%= image_tag 'sign_up_user.png', class: 'img-responsive img-rounded' %>
     <%= simple_format t('.motivation_txt') %>
@@ -23,6 +21,6 @@
                               disable_with: "<i class='fa fa-spinner fa-spin'></i>"
                             } %>
     <% end %>
-    <%= render "users/shared/links" %>
+    <%= render 'users/shared/links' %>
   <div>
 </div>

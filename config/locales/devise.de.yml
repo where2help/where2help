@@ -69,7 +69,7 @@ de:
         min_chars: Zeichen Mindestlänge
       new:
         forgot_your_password: Hast Du Dein Passwort vergessen?
-        send_me_reset_password_instructions: Schicke mir die Anleitung, um mein Passwort zurückzusetzen.
+        send_me_reset_password_instructions: Passwort zurückzusetzen
       no_token: Du kannst Dich nicht auf dieser Seite anmelden, wenn Du nicht von einer Passwort-Zurücksetzen-E-Mail kommst. Wenn Du von solch einer E-Mail kommst, überprüfe bitte, ob Du die gesamte URL verwendest.
       send_instructions: Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen kannst.
       send_paranoid_instructions: Falls Deine E-Mail-Adresse in unserer Datenbank existiert, erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen kannst.
