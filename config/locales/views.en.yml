@@ -115,6 +115,8 @@ en:
         login: Login
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
     registrations:
+      edit:
+        title: Edit Profile
       ngo_fields:
         min_characters: characters minimum
       new:
