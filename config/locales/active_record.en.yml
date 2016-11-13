@@ -67,6 +67,7 @@ en:
         created_at: Created
         deleted_at: Deleted
         current_password: Current Password
+        locale: Language
         state: State
         state-pending: Pending
         state-confirmed: Confirmed

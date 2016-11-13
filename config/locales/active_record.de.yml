@@ -69,6 +69,7 @@ de:
         created_at: Erstellt
         deleted_at: Gelöscht
         current_password: Aktuelles Passwort
+        locale: Sprache
         state: Status
         state-pending: Unbestätigt
         state-confirmed: Bestätigt

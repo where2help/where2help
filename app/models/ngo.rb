@@ -10,7 +10,7 @@ class Ngo < ApplicationRecord
 
   has_many :events, dependent: :restrict_with_error
   has_one :contact, dependent: :destroy, inverse_of: :ngo
-  accepts_nested_attributes_for :contact, reject_if: :all_blank
+  accepts_nested_attributes_for :contact
 
   validates :name, presence: true
   validates_presence_of :contact
