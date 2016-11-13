@@ -12,8 +12,7 @@
         placeholder: resource.class.human_attribute_name(:password_confirmation) %>
 
       <div class="form-group">
-        <%= f.action :submit, label: t('devise.passwords.edit.change_my_password'),
-          button_html: { class: 'btn btn-primary btn-block' } %>
+        <%= f.submit t('devise.passwords.edit.change_my_password'), class: 'btn btn-primary btn-block' %>
       </div>
     <% end %>
     <%= render 'users/shared/links' %>
