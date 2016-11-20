@@ -9,6 +9,7 @@ class Ngo < ApplicationRecord
   scope :confirmed, -> { where.not(admin_confirmed_at: nil) }
 
   has_many :events, dependent: :restrict_with_error
+  has_many :shifts, through: :events
   has_one :contact, dependent: :destroy, inverse_of: :ngo
   accepts_nested_attributes_for :contact
 

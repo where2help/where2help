@@ -28,6 +28,9 @@ gem 'ri_cal'
 gem 'rails_autolink'
 gem 'faker', require: false
 
+gem 'pry-rails'
+gem 'pry-byebug', require: false
+
 
 group :production do
   gem 'rails_12factor'

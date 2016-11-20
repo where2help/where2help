@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   acts_as_paranoid
 
+  attr_accessor :starts_at
+
   belongs_to :ngo
   has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
   has_many :available_shifts, -> { available }, class_name: 'Shift'
@@ -20,10 +22,43 @@ class Event < ApplicationRecord
     order("shifts.starts_at").
     references(:available_shifts)
   }
-  scope :upcoming, -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
-  scope :past, -> { where(id: Shift.past.pluck(:event_id).uniq) }
-  scope :pending, -> { where(published_at: nil) }
+  scope :upcoming,  -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
+  scope :past,      -> { where(id: Shift.past.pluck(:event_id).uniq) }
+  scope :pending,   -> { where(published_at: nil) }
   scope :published, -> { where.not(published_at: nil) }
+
+  def self.filtered_for_ngo(ngo, filters)
+    the_scope, order_by = filters
+    events    = ngo.events
+    event_map = events.each.with_object({}) { |e, h| h[e.id] = e }
+    shifts = Shift.unscoped.not_full
+    shifts = shifts.select("date(starts_at) as starts, max(starts_at) as max_starts_at, event_id")
+      .where(event_id: events.pluck(:id))
+      .group("starts, event_id")
+      .order("max_starts_at, event_id")
+
+    events = shifts.map { |s|
+      e = event_map[s.event_id].clone
+      e.starts_at = s.max_starts_at
+      e
+    }
+
+    if order_by
+      events = events.sort_by{ |event|
+        event.send(order_by)
+      }
+    end
+
+    # skip if no scope
+    case the_scope
+    when :past
+      events = events.select { |e| e.starts_at < Time.now }
+    when :upcoming
+      events = events.select { |e| e.starts_at > Time.now }
+    end
+
+    events
+  end
 
   def state
     %w(deleted published).each { |state| return state if send("#{state}?") }
@@ -57,9 +92,9 @@ class Event < ApplicationRecord
     shifts.first
   end
 
-  def starts_at
-    available_shifts.first.try(:starts_at)
-  end
+  #def starts_at
+    #available_shifts.first.try(:starts_at)
+  #end
 
   def ends_at
     available_shifts.last.try(:ends_at)
