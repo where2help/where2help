@@ -72,7 +72,7 @@ namespace :db do
         event = Event.new(
           title: Faker::Book.title,
           description: Faker::Hipster.paragraph,
-	  person: Faker::Name.first_name + " " + Faker::Name.last_name + ", Tel." + Faker::PhoneNumber.cell_phone,
+          person: Faker::Name.first_name + " " + Faker::Name.last_name + ", Tel." + Faker::PhoneNumber.cell_phone,
           lat: Faker::Address.latitude,
           lng: Faker::Address.longitude,
           address: "#{Faker::Address.secondary_address}",
