@@ -1,7 +1,7 @@
 <%= link_to [:ngos, event], class: "ngo-event-item #{'-invisible' if event.pending?}" do %>
   <div class="row">
     <div class="col-xs-3 col-sm-1 text-left">
-      <%= render 'calendar_icon', date: event.starts_at %>
+      <%= render 'calendar_icon', date: shift.max_starts_at %>
     </div>
     <div class="col-xs-6 col-sm-9">
       <%= time_for_event event %><br/>

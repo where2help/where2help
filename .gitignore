@@ -40,3 +40,4 @@ Procfile.dev
 .env
 .env.test
 .ruby-env
+tags

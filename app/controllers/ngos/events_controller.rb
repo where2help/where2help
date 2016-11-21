@@ -6,7 +6,7 @@ class Ngos::EventsController < ApplicationController
   end
 
   def index
-    @events = Event.filtered_for_ngo(current_ngo, filter_params)
+    @shifts = Shift.filtered_for_ngo(current_ngo, filter_params)
   end
 
   def new

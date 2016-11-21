@@ -142,40 +142,6 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  describe '.filtered_for_ngo' do
-    let(:ngo)          { create :ngo }
-    let(:past_event)   { create :event, :skip_validate, :published, ngo: ngo, title: "D", address: "Doo St." }
-    let(:first_event)  { create :event, :skip_validate, :published, ngo: ngo, title: "B", address: "Coo St." }
-    let(:second_event) { create :event, :skip_validate, :published, ngo: ngo, title: "A", address: "Boo St." }
-    let(:third_event)  { create :event, :skip_validate, :published, ngo: ngo, title: "C", address: "Aoo St." }
-
-    before do
-      create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
-      create :shift, event: first_event, starts_at: Time.now+1.hour
-      create :shift, event: second_event, starts_at: Time.now+2.hours
-      create :shift, event: second_event, starts_at: Time.now+3.hours
-      create :shift, event: second_event, starts_at: Time.now+1.day
-      create :shift, event: third_event, starts_at: Time.now+3.hours
-    end
-
-    it "gets shifts on different dates" do
-      events = Event.filtered_for_ngo(ngo, [nil, nil])
-      expect(events.size).to eq(5)
-    end
-    it "can filter for events in the past" do
-      events = Event.filtered_for_ngo(ngo, [:past, nil])
-      expect(events).to eq([past_event])
-    end
-    it "can order by title" do
-      events = Event.filtered_for_ngo(ngo, [nil, :title])
-      expect(events.uniq).to eq([second_event, first_event, third_event, past_event])
-    end
-    it "can order by address" do
-      events = Event.filtered_for_ngo(ngo, [nil, :address])
-      expect(events.uniq).to eq([third_event, second_event, first_event, past_event])
-    end
-  end
-
   describe '.filter' do
     it 'calls :all scope when passing no params' do
       expect(Event).to receive(:all)
