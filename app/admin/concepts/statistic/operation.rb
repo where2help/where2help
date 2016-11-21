@@ -1,32 +1,44 @@
 class StatisticOperation
   class EventCount
     class Show
-      def call(params)
-        99
+      def call(params = {})
+        Event.count
       end
     end
   end
 
   class TotalParticipants
-    class Show
-      def call(params)
-        33
+    class Upcoming
+      def call(params = {})
+        Shift.upcoming.sum(:volunteers_count)
+      end
+    end
+    class Past
+      def call(params = {})
+        Shift.past.sum(:volunteers_count)
       end
     end
   end
 
   class RequiredVolunteers
     class Show
-      def call(params)
-        120
+      def call(params = {})
+        Shift.upcoming.sum(:volunteers_needed)
       end
     end
   end
 
   class VolunteerWorkHours
     class Show
-      def call(params)
-        1000
+      def call(params = {})
+        seconds = 0
+        Shift.past.find_each do |shift|
+          v_count = shift.volunteers_count
+          next if v_count == 0
+          duration_s = shift.ends_at - shift.starts_at
+          seconds += (duration_s * v_count)
+        end
+        sprintf("%0.2f hrs", seconds.to_f / (60 * 60))
       end
     end
   end

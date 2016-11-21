@@ -26,22 +26,27 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Volunteer Statistics" do
           h4 "Event Count"
           h2 do
-            strong StatisticOperation::EventCount::Show.new.({})
+            strong StatisticOperation::EventCount::Show.new.()
           end
 
-          h4 "Total of participating volunteers for all shifts/events"
+          h4 "Total of FUTURE participating volunteers for all shifts/events"
           h2 do
-            strong StatisticOperation::TotalParticipants::Show.new.({})
+            strong StatisticOperation::TotalParticipants::Upcoming.new.()
+          end
+
+          h4 "Total of PAST participating volunteers for all shifts/events"
+          h2 do
+            strong StatisticOperation::TotalParticipants::Past.new.()
           end
 
           h4 "Sum of required volunteers for all shifts/events"
           h2 do
-            strong StatisticOperation::RequiredVolunteers::Show.new.({})
+            strong StatisticOperation::RequiredVolunteers::Show.new.()
           end
 
           h4 "Sum of volunteer work hours that have been organized through Where2Help"
           h2 do
-            strong StatisticOperation::VolunteerWorkHours::Show.new.({})
+            strong StatisticOperation::VolunteerWorkHours::Show.new.()
           end
         end
       end
