@@ -32,7 +32,7 @@ class Shift < ApplicationRecord
       .group("starts, event_id")
       .order("max_starts_at, event_id")
 
-    if order_by
+    if order_by && Event.order_by_for_select.include?(order_by)
       shifts = shifts.sort_by{ |shift|
         shift.event.send(order_by)
       }
