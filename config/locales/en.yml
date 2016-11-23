@@ -5,6 +5,13 @@ en:
     scopes:
       without_deleted: Active
       only_deleted: Deleted
+    statistics:
+      helper_statistics: Volunteer Statistics
+      event_count: Event Count
+      participants_upcoming: Total of FUTURE participating volunteers for all shifts/events
+      participants_past: Total of PAST participating volunteers for all shifts/events
+      volunteers_needed: Sum of required volunteers for all shifts/events
+      work_hours: Sum of volunteer work hours that have been organized through Where2Help
   helpers:
     shifts_helper:
       share: Teilen
