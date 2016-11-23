@@ -19,7 +19,6 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
-gem 'redis'
 
 gem 'leaflet-rails'
 
