@@ -6,6 +6,13 @@ de:
       button_label: Stapelverarbeitung
       labels:
         confirm: Bestätige
+    statistics:
+      helper_statistics:  Helfer Statistik
+      event_count: Anzahl Events
+      participants_upcoming: Anzahl teilnehmender Helfer in allen ZUKÜNFTIGEN Einsätzen/Events
+      participants_past: Anzahl teilnehmender Helfer in allen VERGANGENEN Einsätzen/Events
+      volunteers_needed: Summe nacgefragter Helfer für alle Einsätze/Events
+      work_hours: Summe freiwilliger Arbeitsstunden die via Where2Help organisiert wurden
     scopes:
       confirmed: Bestätigt
       pending: Unbestätigt

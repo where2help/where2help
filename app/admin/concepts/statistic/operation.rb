@@ -38,7 +38,7 @@ class StatisticOperation
           duration_s = shift.ends_at - shift.starts_at
           seconds += (duration_s * v_count)
         end
-        sprintf("%0.2f hrs", seconds.to_f / (60 * 60))
+        sprintf("%0.2f #{I18n.t "time.hrs"}", seconds.to_f / (60 * 60))
       end
     end
   end
