@@ -6,6 +6,10 @@ Rails.application.routes.draw do
         get :cal
       end
     end
+
+    resources :ongoing_events do
+      post :publish, on: :member
+    end
   end
 
   ActiveAdmin.routes(self)

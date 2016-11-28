@@ -65,7 +65,7 @@ class Ngos::EventsController < ApplicationController
   def filter_params
     [
       (params[:filter_by].present? && params[:filter_by].to_sym) || nil,
-      (params[:order_by].present? && params[:order_by].to_sym) || nil
+      (params[:order_by].present?  && params[:order_by].to_sym)  || nil
     ]
   end
 

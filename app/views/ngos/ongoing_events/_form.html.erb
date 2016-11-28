@@ -2,7 +2,7 @@
   <% if @event.errors.any? %>
     <%= f.semantic_errors :event %>
     <div id="error_explanation" class="alert alert-danger alert-dismissable">
-      <h4><%= @event.errors.count %> <%= t 'ngos.events.form.prohibited' %> </h4>
+      <h4><%= @event.errors.count %> <%= t("ngos.ongoing_events.form.prohibited") %> </h4>
       <ul>
         <% @event.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,25 +12,16 @@
   <% end %>
 
   <%= f.input :title, placeholder: true  %>
-  <%= f.input :description, placeholder: true, :input_html => { :class => 'autogrow', :rows => 5, :cols => 20 } %>
-  <%= f.input :address, placeholder: true, input_html: { class: 'address-autocomplete' } %>
-  <%= f.input :person, placeholder: true %>
+  <%= f.input :description, placeholder: true, :input_html => { :class => "autogrow", :rows => 5, :cols => 20 } %>
+  <%= f.input :address, placeholder: true, input_html: { class: "address-autocomplete" } %>
+  <%= f.input :contact_person, placeholder: true %>
+  <%= f.input :volunteers_needed, label: t("ngos.ongoing_events.model.volunteers_needed") %>
   <%= f.input :lat, as: :hidden, input_html: { class: "address-autocomplete-lat" } %>
   <%= f.input :lng, as: :hidden, input_html: { class: "address-autocomplete-lng" } %>
   <%= f.input :approximate_address, as: :hidden, input_html: { class: "address-autocomplete-approximate-address" } %>
-
-  <hr/>
-  <h3><%= t 'ngos.events.form.shifts' %></h3>
-
-  <%= f.semantic_fields_for :shifts do |shift| %>
-    <%= render 'shift_fields', f: shift %>
-  <% end %>
-
-  <div class="links">
-    <%= link_to_add_association t('ngos.events.form.add_shift'), f, :shifts, class: "btn btn-info" %><br/><br/>
-  </div>
 
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+

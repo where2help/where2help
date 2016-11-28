@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-sm-2">
+    <%= link_to t(".add_an_event"), new_ngos_ongoing_event_path, class: 'btn btn-default' %>
+    <br />
+    <br />
+  </div>
+  <div class="col-sm-10">
+    <%= form_tag ngos_ongoing_events_path, method: :get, id: 'filter-form', class: 'form-inline' do %>
+      <div class="form-group">
+        <%= select_tag :order_by,
+          options_for_select({t(".address") => :address, t(".title") => :title}, params[:order_by]),
+          include_blank: t(".order_by"),
+          onchange: "$('#filter-form').submit();",
+          class: 'form-control' %>
+        &nbsp;
+        <%= select_tag :filter_by,
+          options_for_select({t(".all") => :all, t(".upcoming") => :upcoming, t(".past") => :past}, params[:filter_by]),
+          include_blank: t(".filter_by"),
+          onchange: "$('#filter-form').submit();",
+          class: 'form-control' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group btn-group-justified">
+      <%= link_to "Events", ngos_events_path, class: "btn btn-default" %>
+      <%= link_to "Ongoing Events", ngos_ongoing_events_path, class: "btn btn-default active" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <% if @events.any? %>
+      <h2><%= t("upcoming_events") %></h2>
+      <div class="list-group">
+        <% @events.each do |event| %>
+          <%= link_to [:ngos, event], class: "ngo-event-item #{'-invisible' if event.pending?}" do %>
+            <div class="row">
+              <div class="col-xs-9 col-sm-10">
+                <strong><%= event.title %></strong><br/>
+                <span><%= event.contact_person %></span><br/>
+                <span><%= event.address %></span>
+              </div>
+              <div class="col-xs-3 col-sm-2 text-center">
+                <%= event_label event %>
+                <%= pluralize(event.volunteers_count, t("activerecord.models.users.one"), t("activerecord.models.users.one")) %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

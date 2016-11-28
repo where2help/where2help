@@ -1,0 +1,41 @@
+<div class="event-header">
+  <h2>
+    <%= @event.title %>
+  </h2>
+</div>
+<div class="row">
+  <div class="col-sm-9">
+    <ul class="fa-ul">
+      <li class="detail-row">
+        <%= label_for_event_state @event %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <%= format_description @event.description %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <%= @event.address %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-user fa-fw"></i>
+        <%= @event.contact_person %>
+      </li>
+    </ul>
+    <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
+  </div>
+  <div class="col-sm-3 text-center">
+    <%= button_to publish_ngos_ongoing_event_path(@event), class: "btn-info event-btn", method: :post do %>
+      <i class="fa fa-eye"></i> <%= @event.published? ? t("ngos.events.show.unpublish") : t("ngos.events.show.publish") %>
+    <% end %>
+
+    <%= button_to edit_ngos_ongoing_event_path(@event), class: "btn-warning event-btn", method: :get do %>
+      <i class="fa fa-pencil-square-o"></i> <%= t 'ngos.events.show.edit' %>
+    <% end %>
+
+    <%= button_to [:ngos, @event],  class: "btn-danger event-btn", method: :delete,
+      data: { confirm: t('ngos.events.show.are_you_sure') } do %>
+        <i class="fa fa-trash-o"></i> <%= t 'ngos.events.show.delete' %>
+    <% end %>
+  </div>
+</div>
