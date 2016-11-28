@@ -29,6 +29,11 @@ de:
       message: Wir haben gerade nichts für Dich...
     terms_and_conditions: Nutzungsbedingungen
     imprint: Impressum
+  ongoing_events:
+    index:
+      welcome: |
+        <h3>Ongoing Einsätze</h3>
+        <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
   events:
     load_more: Mehr anzeigen
     index:

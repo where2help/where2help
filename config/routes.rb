@@ -60,7 +60,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events, only: [:index, :show]
+  resources :events,         only: [:index, :show]
+  resources :ongoing_events, only: [:index, :show] do
+    post   :opt_in
+    delete :opt_out
+  end
+
   resources :shifts, only: [:show] do
     post :opt_in
     delete :opt_out

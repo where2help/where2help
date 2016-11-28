@@ -4,6 +4,7 @@ class OngoingEvent < ApplicationRecord
   belongs_to :ngo
 
   scope :newest_first, -> { order(:created_at) }
+  scope :published,    -> { where.not(published_at: nil) }
 
   def pending?
     published_at.blank?
