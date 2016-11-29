@@ -1,3 +1,5 @@
+require "schedule/operation"
+
 class ShiftsController < ApplicationController
   before_action :authenticate_user!
 
