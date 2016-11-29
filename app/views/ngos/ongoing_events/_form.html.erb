@@ -11,11 +11,20 @@
     </div>
   <% end %>
 
-  <%= f.input :title, placeholder: true  %>
-  <%= f.input :description, placeholder: true, :input_html => { :class => "autogrow", :rows => 5, :cols => 20 } %>
-  <%= f.input :address, placeholder: true, input_html: { class: "address-autocomplete" } %>
-  <%= f.input :contact_person, placeholder: true %>
-  <%= f.input :volunteers_needed, label: t("ngos.ongoing_events.model.volunteers_needed") %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :title, placeholder: true  %>
+      <%= f.input :description, placeholder: true, :input_html => { :class => "autogrow", :rows => 5, :cols => 20 } %>
+      <%= f.input :address, placeholder: true, input_html: { class: "address-autocomplete" } %>
+      <%= f.input :contact_person, placeholder: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :volunteers_needed %>
+    </div>
+  </div>
+
   <%= f.input :lat, as: :hidden, input_html: { class: "address-autocomplete-lat" } %>
   <%= f.input :lng, as: :hidden, input_html: { class: "address-autocomplete-lng" } %>
   <%= f.input :approximate_address, as: :hidden, input_html: { class: "address-autocomplete-approximate-address" } %>

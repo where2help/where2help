@@ -1,0 +1,12 @@
+<%= link_to schedule_shift, class: 'list-group-item' do %>
+  <div class="row">
+    <div class="col-xs-3 col-sm-1 text-left">
+      <%= render 'calendar_icon', date: schedule_shift.starts_at %>
+    </div>
+    <div class="col-xs-9 col-sm-10">
+      <%= schedule_shift.starts_at.to_s(:time) %> - <%= schedule_shift.ends_at.to_s(:time) %><br/>
+      <strong><%= schedule_shift.event.title %></strong><br>
+      <span><%= schedule_shift.event.address %></span>
+    </div>
+  </div>
+<% end %>

@@ -19,8 +19,13 @@ class ShiftsController < ApplicationController
   end
 
   def schedule
-    scope = params[:filter].try(:to_sym)
-    @shifts = current_user.shifts.filter(scope).page(params[:page])
+    # could be shifts or ongoing events
+    @collection =
+      ScheduleOperation::Index
+        .present(filter: params[:filter], current_user: current_user)
+        .model
+        .page(params[:page])
+    @item_type = @collection.first && @collection.first.class.name.underscore.to_sym
   end
 
   def cal

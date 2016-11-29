@@ -7,8 +7,8 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="btn-group btn-group-justified">
-      <%= link_to "Events", events_path, class: "btn btn-default" %>
-      <%= link_to "Ongoing Events", ongoing_events_path, class: "btn btn-default active" %>
+      <%= link_to t(".events"), events_path, class: "btn btn-default" %>
+      <%= link_to t(".ongoing_events"), ongoing_events_path, class: "btn btn-default active" %>
     </div>
   </div>
 </div>
@@ -16,7 +16,7 @@
 <div class="row">
   <div class="col-xs-12">
     <% if @events.any? %>
-      <h2><%= t("upcoming_events") %></h2>
+      <h2><%= t(".ongoing_events") %></h2>
       <div class="list-group">
         <% @events.each do |event| %>
           <%= link_to event, class: "list-group-item" do %>

@@ -36,8 +36,8 @@ class OngoingEventOperation
     def process(params)
       ngo          = params.fetch(:current_ngo)
       event_params = params.fetch(:ongoing_event)
-      event        = ngo.ongoing_events.find(params[:id])
-      @model = event.update_attributes(event_params)
+      @model       = ngo.ongoing_events.find(params[:event_id])
+      @model.update_attributes(event_params)
     end
   end
 

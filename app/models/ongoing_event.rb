@@ -5,6 +5,10 @@ class OngoingEvent < ApplicationRecord
   has_many   :participations, dependent: :destroy
   has_many   :users,          through:   :participations
 
+  validates :title, length: { in: 1..100 }
+  validates :address, presence: true
+  validates :contact_person, presence: true
+
   scope :newest_first, -> { order(:created_at) }
   scope :published,    -> { where.not(published_at: nil) }
 

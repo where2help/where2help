@@ -37,11 +37,12 @@ class Ngos::OngoingEventsController < ApplicationController
     @event =
       OngoingEventOperation::Update.(
         current_ngo: current_ngo,
+        event_id: params[:id],
         ongoing_event: event_params(params)
       ).model
     if @event.valid?
       return redirect_to ngos_ongoing_events_url,
-        notice: t("ngos.ongoing_events.messages.update_success")
+        notice: t("ngos.events.messages.update_success")
     end
     render :edit
   end
@@ -57,7 +58,7 @@ class Ngos::OngoingEventsController < ApplicationController
     @event =
       OngoingEventOperation::Publish.(current_ngo: current_ngo, event_id: params[:id]).model
     return redirect_to ngos_ongoing_event_url(@event),
-      notice: t("ngos.ongoing_events.messages.publish_success")
+      notice: t("ngos.events.messages.#{@event.published? ? 'publish' : 'unpublish'}_success")
   end
 
   private

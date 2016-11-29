@@ -26,7 +26,7 @@
   </div>
   <div class="col-sm-3 text-center">
     <%= button_to publish_ngos_ongoing_event_path(@event), class: "btn-info event-btn", method: :post do %>
-      <i class="fa fa-eye"></i> <%= @event.published? ? t("ngos.events.show.unpublish") : t("ngos.events.show.publish") %>
+      <i class="fa fa-eye<%= @event.published? ? "-slash" : "" %>"></i> <%= @event.published? ? t(".unpublish") : t(".publish") %>
     <% end %>
 
     <%= button_to edit_ngos_ongoing_event_path(@event), class: "btn-warning event-btn", method: :get do %>
