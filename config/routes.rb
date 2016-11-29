@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
-  ActiveAdmin.routes(self)
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
     passwords: 'users/passwords',
@@ -83,6 +82,7 @@ Rails.application.routes.draw do
   get 'terms_and_conditions', to: 'pages#terms_and_conditions'
   get 'how_to', to: 'pages#how_to'
 
+  ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # Serve websocket cable requests in-process
