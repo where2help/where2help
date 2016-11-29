@@ -1,5 +1,5 @@
 class OngoingEventOperation
-  class User
+  module User
     class Index < Operation
       def setup_model!(params)
         @model = OngoingEvent.published.newest_first
@@ -15,12 +15,14 @@ class OngoingEventOperation
     class OptIn < Operation
       def process(params)
         user   = params.fetch(:current_user)
-        @model = user.ongoing_events.find(params.fetch(:event_id))
-        if @model.participations.include?(user)
-          return @model.participations.destroy(user)
+        @model = OngoingEvent.find_by(id: params.fetch(:event_id))
+        return nil if @model.nil?
+        if @model.users.include?(user)
+          return @model.users.destroy(user)
         end
-        @model.participations << user
+        @model.users << user
       end
     end
   end
 end
+

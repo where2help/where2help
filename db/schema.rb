@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124145931) do
+ActiveRecord::Schema.define(version: 20161129115347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,10 +129,12 @@ ActiveRecord::Schema.define(version: 20161124145931) do
   create_table "participations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "shift_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.datetime "deleted_at"
+    t.integer  "ongoing_event_id"
     t.index ["deleted_at"], name: "index_participations_on_deleted_at", using: :btree
+    t.index ["ongoing_event_id"], name: "index_participations_on_ongoing_event_id", using: :btree
     t.index ["shift_id"], name: "index_participations_on_shift_id", where: "(deleted_at IS NULL)", using: :btree
     t.index ["user_id"], name: "index_participations_on_user_id", where: "(deleted_at IS NULL)", using: :btree
   end

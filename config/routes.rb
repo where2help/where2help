@@ -62,8 +62,8 @@ Rails.application.routes.draw do
 
   resources :events,         only: [:index, :show]
   resources :ongoing_events, only: [:index, :show] do
-    post   :opt_in
-    delete :opt_out
+    # this is a toggle
+    patch :opt_in, on: :member
   end
 
   resources :shifts, only: [:show] do

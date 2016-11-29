@@ -2,6 +2,8 @@ class OngoingEvent < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :ngo
+  has_many   :participations, dependent: :destroy
+  has_many   :users,          through:   :participations
 
   scope :newest_first, -> { order(:created_at) }
   scope :published,    -> { where.not(published_at: nil) }
