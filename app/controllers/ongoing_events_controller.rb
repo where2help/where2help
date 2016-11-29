@@ -14,6 +14,12 @@ class OngoingEventsController < ApplicationController
     @event = OngoingEventOperation::User::OptIn
       .(current_user: current_user, event_id: params[:id])
       .model
+  end
+
+  def opt_out
+    @event = OngoingEventOperation::User::OptOut
+      .(current_user: current_user, event_id: params[:id])
+      .model
     redirect_to ongoing_event_path(@event)
   end
 end

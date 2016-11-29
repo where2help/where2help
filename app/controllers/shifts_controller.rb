@@ -19,7 +19,8 @@ class ShiftsController < ApplicationController
   end
 
   def schedule
-    # could be shifts or ongoing events
+    # TODO: could be shifts or ongoing events
+    # should be moved to own controller
     @collection =
       ScheduleOperation::Index
         .present(filter: params[:filter], current_user: current_user)

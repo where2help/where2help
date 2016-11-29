@@ -23,12 +23,22 @@
   </div>
   <div class="col-sm-3 text-center">
     <% opted_in = @event.users.include?(current_user) %>
-    <%= button_to opt_in_ongoing_event_path(@event),  class: "btn-#{opted_in ? "danger" : "success"} event-btn", method: :patch do %>
-      <% if opted_in %>
-        <i class="fa fa-close"></i> <%= t 'shifts.opt_out_btn' %>
-      <% else %>
-        <i class="fa fa-thumbs-o-up"></i> <%= t 'shifts.opt_in_btn' %>
-      <% end %>
+    <% if opted_in %>
+      <% path   = opt_out_ongoing_event_path(@event) %>
+      <% color  = "danger" %>
+      <% method = :delete %>
+      <% icon   = "close" %>
+      <% text   = t("shifts.opt_out_btn") %>
+    <% else %>
+      <% path   = opt_in_ongoing_event_path(@event) %>
+      <% color  = "success" %>
+      <% method = :post %>
+      <% icon   = "thumbs-o-up" %>
+      <% text   = t("shifts.opt_in_btn") %>
+    <% end %>
+    
+    <%= button_to path, class: "btn-#{color} event-btn", method: method do %>
+      <i class="fa fa-<%= icon %>"></i> <%= text %>
     <% end %>
   </div>
 </div>

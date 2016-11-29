@@ -17,10 +17,17 @@ class OngoingEventOperation
         user   = params.fetch(:current_user)
         @model = OngoingEvent.find_by(id: params.fetch(:event_id))
         return nil if @model.nil?
-        if @model.users.include?(user)
-          return @model.users.destroy(user)
-        end
+        raise ArgumentError, "User already opted in" if @model.users.include?(user)
         @model.users << user
+      end
+    end
+
+    class OptOut < Operation
+      def process(params)
+        user   = params.fetch(:current_user)
+        @model = OngoingEvent.find_by(id: params.fetch(:event_id))
+        return nil if @model.nil?
+        @model.users.destroy(user) if @model.users.include?(user)
       end
     end
   end
