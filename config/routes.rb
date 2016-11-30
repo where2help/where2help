@@ -76,11 +76,13 @@ Rails.application.routes.draw do
     root 'events#index'
   end
   authenticated :ngo do
-    root 'ngos/events#index'
+    root 'ngos/events#redirect_to_index'
   end
-  root 'pages#home'
+
   get 'terms_and_conditions', to: 'pages#terms_and_conditions'
   get 'how_to', to: 'pages#how_to'
+
+  root 'pages#home'
 
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
