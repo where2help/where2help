@@ -13,8 +13,9 @@ RSpec.describe Ngos::EventsController, type: :controller do
       context 'without events' do
         before { get :index }
 
-        it 'assigns empty @events' do
-          expect(assigns :events).to be_empty
+        it 'assigns empty @shifts' do
+          shifts = assigns :shifts
+          expect(shifts.to_a).to be_empty
         end
         it 'renders :index' do
           expect(response).to render_template 'ngos/events/index'
@@ -29,11 +30,12 @@ RSpec.describe Ngos::EventsController, type: :controller do
 
           before { get :index }
 
-          it "@events includes the signed in ngo's events" do
-            expect(assigns :events).to match_array own_events
+          it "@shifts includes the signed in ngo's events" do
+            events = (assigns :shifts).map(&:event)
+            expect(events).to match_array own_events
           end
-          it "@events does not include the other ngo's events" do
-            expect(assigns :events).to_not include other_event
+          it "@shifts does not include the other ngo's events" do
+            expect(assigns :shifts).to_not include other_event.shifts.first
           end
           it 'renders :index' do
             expect(response).to render_template 'ngos/events/index'
@@ -44,33 +46,37 @@ RSpec.describe Ngos::EventsController, type: :controller do
 
           it 'assigns only past events for filter_by :past' do
             get :index, params: { filter_by: 'past' }
-            expect(assigns :events).to match_array [past_event]
+            events = (assigns :shifts).map(&:event)
+            expect(events).to match_array [past_event]
           end
           it 'assigns only upcoming events for filter_by :upcoming' do
             get :index, params: { filter_by: 'upcoming' }
-            expect(assigns :events).to match_array own_events
+            events = (assigns :shifts).map(&:event)
+            expect(events).to match_array own_events
           end
           it 'assigns all events for filter_by :all' do
             get :index, params: { filter_by: 'all' }
-            expect(assigns :events).to match_array (own_events << past_event)
+            events = (assigns :shifts).map(&:event)
+            expect(events).to match_array (own_events << past_event)
           end
           it 'assigns all events for filter_by nil' do
             get :index, params: { filter_by: '' }
-            expect(assigns :events).to match_array (own_events << past_event)
+            events = (assigns :shifts).map(&:event)
+            expect(events).to match_array (own_events << past_event)
           end
         end
         context 'when invalid filter parameter given' do
-          it 'raises an error' do
-            expect{
-              get :index, params: { filter_by: 'some_random_string' }
-            }.to raise_error ArgumentError
+          it 'returns all shifts' do
+            get :index, params: { filter_by: 'some_random_string' }
+            events = (assigns :shifts).map(&:event)
+            expect(events).to match_array own_events
           end
         end
         context 'when invalid order parameter given' do
-          it 'raises an error' do
-            expect{
-              get :index, params: { order_by: 'some_random_string' }
-            }.to raise_error ArgumentError
+          it 'orders by starts at' do
+            get :index, params: { order_by: 'some_random_string' }
+            events = (assigns :shifts).map(&:event)
+            expect(events).to match_array own_events
           end
         end
         context 'with valid order_by and filter_by parameter' do
@@ -80,10 +86,12 @@ RSpec.describe Ngos::EventsController, type: :controller do
           before { get :index, params: params }
 
           it 'returns all filtered events' do
-            expect(assigns :events).to match_array (own_events << last_event)
+            events = (assigns :shifts).map(&:event)
+            expect(events).to match_array (own_events << last_event)
           end
           it 'returns events ordered' do
-            expect(assigns(:events).first).to eq last_event
+            events = (assigns :shifts).map(&:event)
+            expect(events.first).to eq last_event
           end
         end
       end

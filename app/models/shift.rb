@@ -11,13 +11,44 @@ class Shift < ApplicationRecord
   validate :not_in_past
   validate :ends_at_after_starts_at
 
-  scope :not_full,  -> { where('volunteers_needed > volunteers_count') }
-  scope :past,      -> { where('ends_at <= NOW()').reorder(starts_at: :desc) }
-  scope :upcoming,  -> { where('ends_at > NOW()') }
-  scope :available, -> { upcoming.not_full }
+  scope :not_full,    -> { where('volunteers_needed > volunteers_count') }
+  scope :past,        -> { where('ends_at <= NOW()').reorder(starts_at: :desc) }
+  scope :upcoming,    -> { where('ends_at > NOW()') }
+  scope :available,   -> { upcoming.not_full }
+  scope :not_deleted, -> { where(deleted_at: nil) }
 
   before_destroy :notify_volunteers_about_destroy, prepend: true
   before_update  :notify_volunteers_about_update, prepend: true
+
+  def self.filtered_for_ngo(ngo, filters)
+    the_scope, order_by = filters
+    # unscoped is necessary because default_scope (deprecated?) is
+    # messing up the order by
+    shifts =
+      unscoped
+      .not_deleted
+      .not_full
+      .includes(:event)
+      .select("date(starts_at) as starts, max(starts_at) as max_starts_at, event_id")
+      .where(event_id: ngo.events.pluck(:id))
+      .group("starts, event_id")
+      .order("max_starts_at, event_id")
+
+    if order_by && Event.order_by_for_select.include?(order_by)
+      shifts = shifts.sort_by{ |shift|
+        shift.event.send(order_by)
+      }
+    end
+
+    # skip if no scope
+    case the_scope
+    when :past
+      shifts = shifts.select { |shift| shift.max_starts_at < Time.now }
+    when :upcoming
+      shifts = shifts.select { |shift| shift.max_starts_at > Time.now }
+    end
+    shifts
+  end
 
   def self.filter(scope = nil)
     scope ||= :upcoming
