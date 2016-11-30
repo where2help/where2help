@@ -12,6 +12,10 @@ FactoryGirl.define do
     lat 1.5
     lng 1.5
 
+    trait :published do
+      published_at { Time.now }
+    end
+
     trait :skip_validate do
       to_create {|instance| instance.save(validate: false) }
     end

@@ -1,3 +1,4 @@
+require "ongoing_event/user_operation"
 class OngoingEventsController < ApplicationController
   before_action :authenticate_user!
 

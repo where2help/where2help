@@ -1,5 +1,5 @@
 class OngoingEventOperation
-  module User
+  class User
     class Index < Operation
       def setup_model!(params)
         @model = OngoingEvent.published.newest_first
