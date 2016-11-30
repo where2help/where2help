@@ -150,6 +150,40 @@ RSpec.describe Shift, type: :model do
     end
   end
 
+  describe '.filtered_for_ngo' do
+    let(:ngo)          { create :ngo }
+    let(:past_event)   { create :event, :skip_validate, :published, ngo: ngo, title: "D", address: "Doo St." }
+    let(:first_event)  { create :event, :skip_validate, :published, ngo: ngo, title: "B", address: "Coo St." }
+    let(:second_event) { create :event, :skip_validate, :published, ngo: ngo, title: "A", address: "Boo St." }
+    let(:third_event)  { create :event, :skip_validate, :published, ngo: ngo, title: "C", address: "Aoo St." }
+
+    before do
+      create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
+      create :shift, event: first_event, starts_at: Time.now+1.hour
+      create :shift, event: second_event, starts_at: Time.now+2.hours
+      create :shift, event: second_event, starts_at: Time.now+3.hours
+      create :shift, event: second_event, starts_at: Time.now+1.day
+      create :shift, event: third_event, starts_at: Time.now+3.hours
+    end
+
+    it "gets shifts on different dates" do
+      shifts = Shift.filtered_for_ngo(ngo, [nil, nil])
+      expect(shifts.to_a.size).to eq(5)
+    end
+    it "can filter for shifts in the past" do
+      shifts = Shift.filtered_for_ngo(ngo, [:past, nil])
+      expect(shifts.map(&:event)).to eq([past_event])
+    end
+    it "can order by title" do
+      shifts = Shift.filtered_for_ngo(ngo, [nil, :title])
+      expect(shifts.map(&:event).uniq).to eq([second_event, first_event, third_event, past_event])
+    end
+    it "can order by address" do
+      shifts = Shift.filtered_for_ngo(ngo, [nil, :address])
+      expect(shifts.map(&:event).uniq).to eq([third_event, second_event, first_event, past_event])
+    end
+  end
+
   describe '#progress_bar' do
     let(:shift) { create :shift, :with_event }
     let(:user) { create :user }
