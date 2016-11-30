@@ -1,9 +1,12 @@
+require "ongoing_event/operation"
 class Ngos::OngoingEventsController < ApplicationController
   before_action :authenticate_ngo!
 
   def index
     @events =
-      OngoingEventOperation::Index.present(current_ngo: current_ngo).model
+      OngoingEventOperation::Index
+        .present(current_ngo: current_ngo, order_by: params[:order_by])
+        .model
   end
 
   def show
@@ -22,7 +25,7 @@ class Ngos::OngoingEventsController < ApplicationController
       ongoing_event: event_params(params)
     ).model
     if @event.valid?
-      return redirect_to ngos_ongoing_events_url,
+      return redirect_to ngos_ongoing_event_url(@event),
         notice: t("ngos.ongoing_events.messages.create_success")
     end
     render :new
@@ -41,7 +44,7 @@ class Ngos::OngoingEventsController < ApplicationController
         ongoing_event: event_params(params)
       ).model
     if @event.valid?
-      return redirect_to ngos_ongoing_events_url,
+      return redirect_to ngos_ongoing_event_url(@event),
         notice: t("ngos.events.messages.update_success")
     end
     render :edit

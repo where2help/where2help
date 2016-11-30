@@ -9,7 +9,11 @@ FactoryGirl.define do
     end_date "2016-11-24 16:59:31"
     volunteers_count 1
     volunteers_needed 1
-    latitude 1.5
+    lat 1.5
     lng 1.5
+
+    trait :skip_validate do
+      to_create {|instance| instance.save(validate: false) }
+    end
   end
 end

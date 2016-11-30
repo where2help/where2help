@@ -2,7 +2,21 @@ class OngoingEventOperation
   class Index < Operation
     def setup_model!(params)
       ngo    = params.fetch(:current_ngo)
-      @model = ngo.ongoing_events.newest_first
+      order  = params.fetch(:order_by) { "created" }
+      @model = sort_events(ngo.ongoing_events, order)
+    end
+
+    private
+
+    def sort_events(events, order_by)
+      case order_by
+      when "address"
+        events.order(:address)
+      when "title"
+        events.order(:title)
+      else
+        events.order(created_at: :desc)
+      end
     end
   end
 
@@ -44,7 +58,7 @@ class OngoingEventOperation
   class Destroy < Operation
     def process(params)
       ngo   = params.fetch(:current_ngo)
-      event = ngo.ongoing_events.find(params[:id])
+      event = ngo.ongoing_events.find(params[:event_id])
       event.destroy
       @model = event
     end
