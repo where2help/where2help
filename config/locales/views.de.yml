@@ -29,13 +29,6 @@ de:
       message: Wir haben gerade nichts für Dich...
     terms_and_conditions: Nutzungsbedingungen
     imprint: Impressum
-  ongoing_events:
-    index:
-      events: Einsätze
-      ongoing_events: Dauerhafte Einsätze
-      welcome: |
-        <h3>Dauerhafte Einsätze</h3>
-        <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
   events:
     load_more: Mehr anzeigen
     index:
@@ -44,6 +37,13 @@ de:
       welcome: |
         <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
+  ongoing_events:
+    index:
+      events: Einsätze
+      ongoing_events: Dauerhafte Einsätze
+      welcome: |
+        <h3>Dauerhafte Einsätze</h3>
+        <p>Sieh nach, wo Du gebraucht wirst, trage Dich für Einsätze ein und der Organisator wird dich kontaktieren sobald deine Hilfe benötigt wird!<p>
   users:
     nav:
       schedule: Einsätze
@@ -92,23 +92,6 @@ de:
           w2h und die darin enthaltenen Informationen stehen in keiner Verbindung zu Google Inc. oder Apple Inc. und werden in keiner Weise von Google Inc. oder Apple Inc. gesponsert, unterstützt oder organisiert.
         title: Nutzungsbedingungen für freiwillige HelferInnen
   ngos:
-    ongoing_events:
-      index:
-        add_an_event: Dauerhaften Einsatz hinzufügen
-        events: Einsätze
-        ongoing_events: Dauerhafte Einsätze
-        filter_by: Filtern nach
-        order_by: Ordnen nach
-        upcoming: zukünftige
-        all: alle
-      show:
-        publish: Veröffentlichen
-        unpublish: Unveröffentlichen
-        are_you_sure: Sind Sie sicher?
-        edit: Bearbeiten
-        delete: Löschen
-      form:
-        submit: Dauerhaften Einsatz erstellen
     events:
       index:
         events: Einsätze
@@ -142,6 +125,23 @@ de:
         unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
         publish_fail: Einsatz konnte nicht veröffentlicht werden.
         delete_success: Einsatz wurde erfolgreich verlöscht.
+    ongoing_events:
+      index:
+        add_an_event: Dauerhaften Einsatz hinzufügen
+        events: Einsätze
+        ongoing_events: Dauerhafte Einsätze
+        filter_by: Filtern nach
+        order_by: Ordnen nach
+        upcoming: zukünftige
+        all: alle
+      show:
+        publish: Veröffentlichen
+        unpublish: Unveröffentlichen
+        are_you_sure: Sind Sie sicher?
+        edit: Bearbeiten
+        delete: Löschen
+      form:
+        submit: Dauerhaften Einsatz erstellen
     sessions:
       new:
         please_login: Als NGO anmelden
