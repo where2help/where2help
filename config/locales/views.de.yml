@@ -32,15 +32,15 @@ de:
   ongoing_events:
     index:
       events: Einsätze
-      ongoing_events: Dauerhafter Einsätze
+      ongoing_events: Dauerhafte Einsätze
       welcome: |
-        <h3>Dauerhafter Einsätze</h3>
+        <h3>Dauerhafte Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
   events:
     load_more: Mehr anzeigen
     index:
       events: Einsätze
-      ongoing_events: Dauerhafter Einsätze
+      ongoing_events: Dauerhafte Einsätze
       welcome: |
         <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
@@ -94,9 +94,9 @@ de:
   ngos:
     ongoing_events:
       index:
-        add_an_event: Dauerhafter Einsatz hinzufügen
+        add_an_event: Dauerhafte Einsätze hinzufügen
         events: Einsätze
-        ongoing_events: Dauerhafter Einsätze
+        ongoing_events: Dauerhafte Einsätze
         filter_by: Filtern nach
         order_by: Ordnen nach
         upcoming: zukünftige
@@ -110,7 +110,7 @@ de:
     events:
       index:
         events: Einsätze
-        ongoing_events: Dauerhafter Einsätze
+        ongoing_events: Dauerhafte Einsätze
         add_an_event: Einsatz hinzufügen
         address: Adresse
         all: alle
