@@ -94,7 +94,7 @@ de:
   ngos:
     ongoing_events:
       index:
-        add_an_event: Dauerhafte Einsätze hinzufügen
+        add_an_event: Dauerhaften Einsatz hinzufügen
         events: Einsätze
         ongoing_events: Dauerhafte Einsätze
         filter_by: Filtern nach
@@ -107,6 +107,8 @@ de:
         are_you_sure: Sind Sie sicher?
         edit: Bearbeiten
         delete: Löschen
+      form:
+        submit: Dauerhaften Einsatz erstellen
     events:
       index:
         events: Einsätze
