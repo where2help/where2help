@@ -76,7 +76,7 @@ Rails.application.routes.draw do
     root 'events#index'
   end
   authenticated :ngo do
-    root 'ngos/events#redirect_to_index'
+    root 'ngos/events#index'
   end
 
   get 'terms_and_conditions', to: 'pages#terms_and_conditions'

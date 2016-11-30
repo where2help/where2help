@@ -20,6 +20,10 @@ module ApplicationHelper
     current_page?(path) ? 'active' : ''
   end
 
+  def active_class(controller_names)
+    Array(controller_names).include?(controller_name.sub("_controller", "")) ? "active" : ""
+  end
+
   def bootstrap_class_for(flash_type)
     BOOTSTRAP_FLASH_TYPES[flash_type.to_sym]
   end

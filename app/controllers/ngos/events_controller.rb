@@ -1,10 +1,6 @@
 class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!
 
-  def redirect_to_index
-    redirect_to ngos_events_url
-  end
-
   def show
     find_ngo_event
   end
