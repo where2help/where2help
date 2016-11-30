@@ -11,10 +11,11 @@ class Shift < ApplicationRecord
   validate :not_in_past
   validate :ends_at_after_starts_at
 
-  scope :not_full,  -> { where('volunteers_needed > volunteers_count') }
-  scope :past,      -> { where('ends_at <= NOW()').reorder(starts_at: :desc) }
-  scope :upcoming,  -> { where('ends_at > NOW()') }
-  scope :available, -> { upcoming.not_full }
+  scope :not_full,    -> { where('volunteers_needed > volunteers_count') }
+  scope :past,        -> { where('ends_at <= NOW()').reorder(starts_at: :desc) }
+  scope :upcoming,    -> { where('ends_at > NOW()') }
+  scope :available,   -> { upcoming.not_full }
+  scope :not_deleted, -> { where(deleted_at: nil) }
 
   before_destroy :notify_volunteers_about_destroy, prepend: true
   before_update  :notify_volunteers_about_update, prepend: true
@@ -25,6 +26,7 @@ class Shift < ApplicationRecord
     # messing up the order by
     shifts =
       unscoped
+      .not_deleted
       .not_full
       .includes(:event)
       .select("date(starts_at) as starts, max(starts_at) as max_starts_at, event_id")
