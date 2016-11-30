@@ -303,7 +303,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bullet
-  byebug
   cocoon
   coffee-rails
   database_cleaner
