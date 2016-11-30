@@ -12,12 +12,6 @@
           include_blank: t(".order_by"),
           onchange: "$('#filter-form').submit();",
           class: 'form-control' %>
-        &nbsp;
-        <%= select_tag :filter_by,
-          options_for_select({t(".all") => :all, t(".upcoming") => :upcoming, t(".past") => :past}, params[:filter_by]),
-          include_blank: t(".filter_by"),
-          onchange: "$('#filter-form').submit();",
-          class: 'form-control' %>
       </div>
     <% end %>
   </div>
