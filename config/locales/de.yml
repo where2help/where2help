@@ -11,7 +11,7 @@ de:
       event_count: Anzahl Events
       participants_upcoming: Anzahl teilnehmender Helfer in allen ZUKÜNFTIGEN Einsätzen/Events
       participants_past: Anzahl teilnehmender Helfer in allen VERGANGENEN Einsätzen/Events
-      volunteers_needed: Summe nacgefragter Helfer für alle Einsätze/Events
+      volunteers_needed: Summe nachgefragter Helfer für alle Einsätze/Events
       work_hours: Summe freiwilliger Arbeitsstunden die via Where2Help organisiert wurden
     scopes:
       confirmed: Bestätigt
