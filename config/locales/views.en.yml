@@ -125,6 +125,9 @@ en:
         upcoming: Upcoming
         all: All
       show:
+        contact_person: Contact Person
+        volunteers_count: Volunteer Count
+        volunteers_needed: Volunteers Needed
         publish: Publish
         unpublish: Hide
         are_you_sure: Are you sure?

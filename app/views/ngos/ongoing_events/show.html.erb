@@ -18,8 +18,13 @@
         <%= @event.address %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-user fa-fw"></i>
-        <%= @event.contact_person %>
+        <strong><%= t(".contact_person") %>:</strong> <%= @event.contact_person %>
+      </li>
+      <li class="detail-row">
+        <strong><%= t(".volunteers_needed") %>:</strong> <%= @event.volunteers_needed %>
+      </li>
+      <li class="detail-row">
+        <strong><%= t(".volunteers_count") %>:</strong> <%= @event.volunteers_count %>
       </li>
     </ul>
 

@@ -135,6 +135,9 @@ de:
         upcoming: zukünftige
         all: alle
       show:
+        contact_person: Kontakt vor Ort
+        volunteers_count: Anzahl Freiwilliger
+        volunteers_needed: Anzahl benötigter Freiwilliger
         publish: Veröffentlichen
         unpublish: Unveröffentlichen
         are_you_sure: Sind Sie sicher?
