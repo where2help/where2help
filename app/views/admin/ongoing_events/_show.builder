@@ -15,6 +15,14 @@ context.instance_eval do
       row :updated_at
       row :published_at
       row :deleted_at
+      row :volunteers do
+        table_for ongoing_event.users do
+          column(:id) { |user| link_to(user.id, [:admin, user]) }
+          column(:name) { |user| "#{user.first_name} #{user.last_name}"}
+          column (:email) { |user| mail_to user.email }
+          column :phone
+        end
+      end
     end
   end
 end
