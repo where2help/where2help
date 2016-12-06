@@ -23,8 +23,8 @@ document.addEventListener "turbolinks:load", ->
 
   updateCoordinates = (suggestion) ->
     coords = suggestion.geometry.coordinates
-    $('#event_lng').val coords[0]
-    $('#event_lat').val coords[1]
+    $('.address-autocomplete-lng').val coords[0]
+    $('.address-autocomplete-lat').val coords[1]
 
     props = suggestion.properties
     approximate_address = (
@@ -33,7 +33,7 @@ document.addEventListener "turbolinks:load", ->
       else
         ""
     )
-    $('#event_approximate_address').val approximate_address
+    $('.address-autocomplete-approximate-address').val approximate_address
 
   addressSearch = new Bloodhound
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value')
@@ -48,7 +48,7 @@ document.addEventListener "turbolinks:load", ->
 
   addressSearch.initialize()
 
-  $('.typeahead').typeahead(null,
+  $('.address-autocomplete').typeahead(null,
     name: 'addresse'
     source: addressSearch
     displayKey: (data) ->

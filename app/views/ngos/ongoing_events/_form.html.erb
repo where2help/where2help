@@ -1,0 +1,36 @@
+<%= semantic_form_for([:ngos, @event]) do |f| %>
+  <% if @event.errors.any? %>
+    <%= f.semantic_errors :event %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <h4><%= @event.errors.count %> <%= t("ngos.ongoing_events.form.prohibited") %> </h4>
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.input :title, placeholder: true  %>
+      <%= f.input :description, placeholder: true, :input_html => { :class => "autogrow", :rows => 5, :cols => 20 } %>
+      <%= f.input :address, placeholder: true, input_html: { class: "address-autocomplete" } %>
+      <%= f.input :contact_person, placeholder: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :volunteers_needed %>
+    </div>
+  </div>
+
+  <%= f.input :lat, as: :hidden, input_html: { class: "address-autocomplete-lat" } %>
+  <%= f.input :lng, as: :hidden, input_html: { class: "address-autocomplete-lng" } %>
+  <%= f.input :approximate_address, as: :hidden, input_html: { class: "address-autocomplete-approximate-address" } %>
+
+  <div class="actions">
+    <%= f.submit t(".submit"), class: "btn btn-primary" %>
+  </div>
+<% end %>
+

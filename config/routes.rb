@@ -6,6 +6,10 @@ Rails.application.routes.draw do
         get :cal
       end
     end
+
+    resources :ongoing_events do
+      post :publish, on: :member
+    end
   end
 
   devise_for :users, controllers: {
@@ -55,7 +59,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events, only: [:index, :show]
+  resources :events,         only: [:index, :show]
+  resources :ongoing_events, only: [:index, :show] do
+    post   :opt_in,  on: :member
+    delete :opt_out, on: :member
+  end
+
   resources :shifts, only: [:show] do
     post :opt_in
     delete :opt_out
@@ -69,9 +78,11 @@ Rails.application.routes.draw do
   authenticated :ngo do
     root 'ngos/events#index'
   end
-  root 'pages#home'
+
   get 'terms_and_conditions', to: 'pages#terms_and_conditions'
   get 'how_to', to: 'pages#how_to'
+
+  root 'pages#home'
 
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

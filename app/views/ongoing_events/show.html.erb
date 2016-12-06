@@ -1,0 +1,44 @@
+<div class="event-header">
+  <h2>
+    <%= @event.title %>
+  </h2>
+</div>
+<div class="row">
+  <div class="col-sm-9">
+    <ul class="fa-ul">
+      <li class="detail-row">
+        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <%= format_description @event.description %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <%= @event.address %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-user fa-fw"></i>
+        <%= @event.contact_person %>
+      </li>
+    </ul>
+    <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
+  </div>
+  <div class="col-sm-3 text-center">
+    <% opted_in = @event.users.include?(current_user) %>
+    <% if opted_in %>
+      <% path   = opt_out_ongoing_event_path(@event) %>
+      <% color  = "danger" %>
+      <% method = :delete %>
+      <% icon   = "close" %>
+      <% text   = t("shifts.opt_out_btn") %>
+    <% else %>
+      <% path   = opt_in_ongoing_event_path(@event) %>
+      <% color  = "success" %>
+      <% method = :post %>
+      <% icon   = "thumbs-o-up" %>
+      <% text   = t("shifts.opt_in_btn") %>
+    <% end %>
+    
+    <%= button_to path, class: "btn-#{color} event-btn", method: method do %>
+      <i class="fa fa-<%= icon %>"></i> <%= text %>
+    <% end %>
+  </div>
+</div>

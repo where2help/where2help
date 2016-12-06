@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110173401) do
+ActiveRecord::Schema.define(version: 20161129115347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,13 +98,43 @@ ActiveRecord::Schema.define(version: 20161110173401) do
     t.index ["reset_password_token"], name: "index_ngos_on_reset_password_token", where: "(deleted_at IS NULL)", using: :btree
   end
 
+  create_table "ongoing_events", force: :cascade do |t|
+    t.integer  "ngo_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "address"
+    t.string   "approximate_address"
+    t.string   "contact_person"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "volunteers_count"
+    t.integer  "volunteers_needed"
+    t.datetime "deleted_at"
+    t.datetime "published_at"
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["address"], name: "index_ongoing_events_on_address", using: :btree
+    t.index ["deleted_at"], name: "index_ongoing_events_on_deleted_at", using: :btree
+    t.index ["end_date"], name: "index_ongoing_events_on_end_date", using: :btree
+    t.index ["lat"], name: "index_ongoing_events_on_lat", using: :btree
+    t.index ["lng"], name: "index_ongoing_events_on_lng", using: :btree
+    t.index ["ngo_id"], name: "index_ongoing_events_on_ngo_id", using: :btree
+    t.index ["published_at"], name: "index_ongoing_events_on_published_at", using: :btree
+    t.index ["start_date"], name: "index_ongoing_events_on_start_date", using: :btree
+    t.index ["title"], name: "index_ongoing_events_on_title", using: :btree
+  end
+
   create_table "participations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "shift_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.datetime "deleted_at"
+    t.integer  "ongoing_event_id"
     t.index ["deleted_at"], name: "index_participations_on_deleted_at", using: :btree
+    t.index ["ongoing_event_id"], name: "index_participations_on_ongoing_event_id", using: :btree
     t.index ["shift_id"], name: "index_participations_on_shift_id", where: "(deleted_at IS NULL)", using: :btree
     t.index ["user_id"], name: "index_participations_on_user_id", where: "(deleted_at IS NULL)", using: :btree
   end
@@ -167,4 +197,5 @@ ActiveRecord::Schema.define(version: 20161110173401) do
   end
 
   add_foreign_key "events", "ngos"
+  add_foreign_key "ongoing_events", "ngos"
 end

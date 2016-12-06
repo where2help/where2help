@@ -32,9 +32,18 @@ de:
   events:
     load_more: Mehr anzeigen
     index:
+      events: Einsätze
+      ongoing_events: Dauerhafte Einsätze
       welcome: |
         <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
+  ongoing_events:
+    index:
+      events: Einsätze
+      ongoing_events: Dauerhafte Einsätze
+      welcome: |
+        <h3>Dauerhafte Einsätze</h3>
+        <p>Sieh nach, wo Du gebraucht wirst, trage Dich für Einsätze ein und der Organisator wird dich kontaktieren sobald deine Hilfe benötigt wird!<p>
   users:
     nav:
       schedule: Einsätze
@@ -85,6 +94,8 @@ de:
   ngos:
     events:
       index:
+        events: Einsätze
+        ongoing_events: Dauerhafte Einsätze
         add_an_event: Einsatz hinzufügen
         address: Adresse
         all: alle
@@ -111,7 +122,29 @@ de:
         create_success: Einsatz wurde erfolgreich erzeugt.
         update_success: Einsatz wurde erfolgreich aktualisiert.
         publish_success: Einsatz wurde erfolgreich veröffentlicht.
+        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
         publish_fail: Einsatz konnte nicht veröffentlicht werden.
+        delete_success: Einsatz wurde erfolgreich verlöscht.
+    ongoing_events:
+      index:
+        add_an_event: Dauerhaften Einsatz hinzufügen
+        events: Einsätze
+        ongoing_events: Dauerhafte Einsätze
+        filter_by: Filtern nach
+        order_by: Ordnen nach
+        upcoming: zukünftige
+        all: alle
+      show:
+        contact_person: Kontakt vor Ort
+        volunteers_count: Anzahl Freiwilliger
+        volunteers_needed: Anzahl benötigter Freiwilliger
+        publish: Veröffentlichen
+        unpublish: Unveröffentlichen
+        are_you_sure: Sind Sie sicher?
+        edit: Bearbeiten
+        delete: Löschen
+      form:
+        submit: Dauerhaften Einsatz erstellen
     sessions:
       new:
         please_login: Als NGO anmelden
@@ -213,5 +246,6 @@ de:
       past: Vergangene
       upcoming: Bevorstehende
       all: Alle
+      ongoing: Dauerhafte
     opt_out:
       notice: Schade...

@@ -8,6 +8,9 @@ de:
       event:
         one: Event
         other: Events
+      ongoing_event:
+        one: Dauerhafter Einsatz
+        other: Dauerhafte Einsätze
       language:
         one: Sprache
         other: Sprachen
@@ -49,6 +52,24 @@ de:
         state-published: Sichtbar
         state-deleted: Gelöscht
         published_at: Veröffentlicht
+      ongoing_event:
+        coordinates: Koordinaten
+        created_at: Erstellt
+        deleted_at: Gelöscht
+        updated_at: Geändert
+        title: Titel
+        description: Beschreibung
+        address: Adresse
+        approximate_address: Ungefähre Adresse
+        state: Status
+        state/pending: Unsichtbar
+        state/published: Sichtbar
+        contact_person: Kontakt vor Ort
+        state-pending: Unsichtbar
+        state-published: Sichtbar
+        state-deleted: Gelöscht
+        published_at: Veröffentlicht
+        volunteers_needed: Anzahl benötigter Freiwilliger
       event/shifts:
         confirmed_so_far: zugesagt
         ends_at: Ende
