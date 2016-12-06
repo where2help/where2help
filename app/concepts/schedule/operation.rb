@@ -6,7 +6,7 @@ class ScheduleOperation
       scope = :upcoming if scope.nil?
       case scope
       when :all, :past, :upcoming
-        @model = Shift.send(scope)
+        @model = current_user.shifts.send(scope)
       when :ongoing
         @model = current_user.ongoing_events.published.newest_first
       else
