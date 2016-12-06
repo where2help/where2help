@@ -32,9 +32,18 @@ de:
   events:
     load_more: Mehr anzeigen
     index:
+      events: Einsätze
+      ongoing_events: Dauerhafte Einsätze
       welcome: |
         <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
+  ongoing_events:
+    index:
+      events: Einsätze
+      ongoing_events: Dauerhafte Einsätze
+      welcome: |
+        <h3>Dauerhafte Einsätze</h3>
+        <p>Sieh nach, wo Du gebraucht wirst, trage Dich für Einsätze ein und der Organisator wird dich kontaktieren sobald deine Hilfe benötigt wird!<p>
   users:
     nav:
       schedule: Einsätze
@@ -45,6 +54,8 @@ de:
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO anmelden
         please_login: Als Freiwillige/r anmelden
     registrations:
+      edit:
+        title: Profil bearbeiten
       new:
         accept_terms_and_conditions: Ich akzeptiere die
         min_characters: Zeichen mindestens
@@ -83,6 +94,8 @@ de:
   ngos:
     events:
       index:
+        events: Einsätze
+        ongoing_events: Dauerhafte Einsätze
         add_an_event: Einsatz hinzufügen
         address: Adresse
         all: alle
@@ -109,13 +122,37 @@ de:
         create_success: Einsatz wurde erfolgreich erzeugt.
         update_success: Einsatz wurde erfolgreich aktualisiert.
         publish_success: Einsatz wurde erfolgreich veröffentlicht.
+        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
         publish_fail: Einsatz konnte nicht veröffentlicht werden.
+        delete_success: Einsatz wurde erfolgreich verlöscht.
+    ongoing_events:
+      index:
+        add_an_event: Dauerhaften Einsatz hinzufügen
+        events: Einsätze
+        ongoing_events: Dauerhafte Einsätze
+        filter_by: Filtern nach
+        order_by: Ordnen nach
+        upcoming: zukünftige
+        all: alle
+      show:
+        contact_person: Kontakt vor Ort
+        volunteers_count: Anzahl Freiwilliger
+        volunteers_needed: Anzahl benötigter Freiwilliger
+        publish: Veröffentlichen
+        unpublish: Unveröffentlichen
+        are_you_sure: Sind Sie sicher?
+        edit: Bearbeiten
+        delete: Löschen
+      form:
+        submit: Dauerhaften Einsatz erstellen
     sessions:
       new:
         please_login: Als NGO anmelden
         login: Anmelden
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwillige/r anmelden
     registrations:
+      edit:
+        title: Profil bearbeiten
       ngo_fields:
         min_characters: Zeichen mindestens
       new:
@@ -194,7 +231,7 @@ de:
         <strong>Schritt 5: Komme zum Einsatzort</strong>
         Wenn Du Dich für einen Einsatz angemeldet hast, dann komm bitte pünktlich zum angegeben Treffpunkt. Falls Du einmal doch nicht kannst, melde Dich bitte auf where2help ab.
 
-        Wir freuen uns auf Dich! 
+        Wir freuen uns auf Dich!
   shifts:
     opt_in_btn: Helfen
     opt_out_btn: Absagen
@@ -209,5 +246,6 @@ de:
       past: Vergangene
       upcoming: Bevorstehende
       all: Alle
+      ongoing: Dauerhafte
     opt_out:
       notice: Schade...

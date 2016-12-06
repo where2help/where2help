@@ -1,29 +1,17 @@
 <div class="row">
-  <div class="col-xs-12 text-center">
-    <h2><i class="fa fa-user" aria-hidden="true"></i> <%= t('.please_login') %></h2>
-  </div>
+  <%= render 'users/header_sm', txt: t('.please_login') %>
   <div class="col-sm-4 col-sm-offset-4">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= semantic_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.input :email, label: false, autofocus: true, placeholder: resource.class.human_attribute_name(:email) %>
+      <%= f.input :password, label: false, autocomplete: 'off', placeholder: resource.class.human_attribute_name(:password) %>
+      <%= f.input :remember_me, as: :boolean %>
       <div class="form-group">
-        <%= f.label :email, class: 'sr-only' %><br />
-        <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: resource.class.human_attribute_name(:email) %>
-        <%= f.label :password, class: 'sr-only' %><br />
-        <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: resource.class.human_attribute_name(:password) %>
-      </div>
-      <div class="form-group">
-        <% if devise_mapping.rememberable? -%>
-          <%= f.label :remember_me do %>
-            <%= f.check_box :remember_me %> <%= resource.class.human_attribute_name(:remember_me) %>
-          <% end %>
-        <% end -%>
-      </div>
-      <div class="form-group">
-        <%= f.button t('.login'), data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>" }, class: 'btn btn-primary btn-block' %>
+        <%= f.submit t('.login'), class: 'btn btn-primary btn-block' %>
       </div>
       <div class="form-group">
         <%= link_to t('.login_as_ngo').html_safe, new_ngo_session_path, class: 'btn btn-default btn-block btn-sm' %>
       </div>
     <% end %>
-    <%= render "users/shared/links" %>
+    <%= render 'users/shared/links' %>
   </div>
 </div>

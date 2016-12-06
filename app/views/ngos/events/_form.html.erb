@@ -13,11 +13,11 @@
 
   <%= f.input :title, placeholder: true  %>
   <%= f.input :description, placeholder: true, :input_html => { :class => 'autogrow', :rows => 5, :cols => 20 } %>
-  <%= f.input :address, placeholder: true, input_html: { class: 'typeahead' } %>
+  <%= f.input :address, placeholder: true, input_html: { class: 'address-autocomplete' } %>
   <%= f.input :person, placeholder: true %>
-  <%= f.input :lat, as: :hidden %>
-  <%= f.input :lng, as: :hidden %>
-  <%= f.input :approximate_address, as: :hidden %>
+  <%= f.input :lat, as: :hidden, input_html: { class: "address-autocomplete-lat" } %>
+  <%= f.input :lng, as: :hidden, input_html: { class: "address-autocomplete-lng" } %>
+  <%= f.input :approximate_address, as: :hidden, input_html: { class: "address-autocomplete-approximate-address" } %>
 
   <hr/>
   <h3><%= t 'ngos.events.form.shifts' %></h3>

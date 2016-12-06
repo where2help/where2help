@@ -1,11 +1,9 @@
-<h2><%=  t("devise.registrations.edit.title", resource: t("activerecord.models.ngo.one")) %></h2>
-
 <div class="row">
+  <%= render 'ngos/header_lg', txt: t('.title') %>
   <div class="col-sm-12">
-    <%=  semantic_form_for(resource, as: resource_name,
+    <%= semantic_form_for(resource, as: resource_name,
                                      url: registration_path(resource_name),
                                      html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
       <div class="col-sm-6">
         <%= render 'contact_fields', f: f %>
       </div>
@@ -13,13 +11,9 @@
       <div class="col-sm-6">
         <%= render 'ngo_fields', f: f %>
         <%= f.input :locale, as: :select, collection: Ngo.locales.keys.to_a %>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Erwarten Bestätigung für: <%= resource.unconfirmed_email %></div>
-        <% end %>
-        <%= f.input :current_password, autocomplete: "off",
+        <%= f.input :current_password, autocomplete: 'off',
                                        hint: "(" + t("devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes") + ")" %>
-
-        <%= f.submit t("devise.registrations.edit.update"), class: "btn btn-primary" %>
+        <%= f.submit t('devise.registrations.edit.update'), class: 'btn btn-primary' %>
       </div>
     <% end %>
     <%= render 'registrations/cancel', resource_name: resource_name %>

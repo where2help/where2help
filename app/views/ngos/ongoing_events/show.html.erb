@@ -1,0 +1,76 @@
+<div class="event-header">
+  <h2>
+    <%= @event.title %>
+  </h2>
+</div>
+<div class="row">
+  <div class="col-sm-9">
+    <ul class="fa-ul">
+      <li class="detail-row">
+        <%= label_for_event_state @event %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <%= format_description @event.description %>
+      </li>
+      <li class="detail-row">
+        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <%= @event.address %>
+      </li>
+      <li class="detail-row">
+        <strong><%= t(".contact_person") %>:</strong> <%= @event.contact_person %>
+      </li>
+      <li class="detail-row">
+        <strong><%= t(".volunteers_needed") %>:</strong> <%= @event.volunteers_needed %>
+      </li>
+      <li class="detail-row">
+        <strong><%= t(".volunteers_count") %>:</strong> <%= @event.volunteers_count %>
+      </li>
+    </ul>
+
+    <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
+  </div>
+
+
+  <div class="col-sm-3 text-center">
+    <%= button_to publish_ngos_ongoing_event_path(@event), class: "btn-info event-btn", method: :post do %>
+      <i class="fa fa-eye<%= @event.published? ? "-slash" : "" %>"></i> <%= @event.published? ? t(".unpublish") : t(".publish") %>
+    <% end %>
+
+    <%= button_to edit_ngos_ongoing_event_path(@event), class: "btn-warning event-btn", method: :get do %>
+      <i class="fa fa-pencil-square-o"></i> <%= t 'ngos.events.show.edit' %>
+    <% end %>
+
+    <%= button_to [:ngos, @event],  class: "btn-danger event-btn", method: :delete,
+      data: { confirm: t('ngos.events.show.are_you_sure') } do %>
+        <i class="fa fa-trash-o"></i> <%= t 'ngos.events.show.delete' %>
+    <% end %>
+  </div>
+</div>
+
+<br/><br/>
+
+<div class="row">
+  <div class="col-sm-9">
+    <table class="table table-striped table-bordered table-condensed">
+      <% @event.users.each_with_index do |user, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= user.first_name %> <%= user.last_name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.phone %></td>
+          <td>
+            <% user.languages.each do |language| %>
+             <span class="label label-default"><%= language.name %></span>
+           <% end %>
+         </td>
+         <td>
+           <% user.abilities.each do |ability| %>
+             <span class="badge badge-default"><%= ability.name %></span>
+           <% end %>
+         </td>
+       </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

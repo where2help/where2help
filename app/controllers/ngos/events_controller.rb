@@ -6,7 +6,7 @@ class Ngos::EventsController < ApplicationController
   end
 
   def index
-    @events = current_ngo.events.filter(*filter_params)
+    @shifts = Shift.filtered_for_ngo(current_ngo, filter_params)
   end
 
   def new
@@ -65,7 +65,7 @@ class Ngos::EventsController < ApplicationController
   def filter_params
     [
       (params[:filter_by].present? && params[:filter_by].to_sym) || nil,
-      (params[:order_by].present? && params[:order_by].to_sym) || nil
+      (params[:order_by].present?  && params[:order_by].to_sym)  || nil
     ]
   end
 

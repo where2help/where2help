@@ -8,6 +8,9 @@ en:
       event:
         one: Event
         other: Events
+      ongoing_event:
+        one: Ongoing Event
+        other: Ongoing Events
       language:
         one: Language
         other: Languages
@@ -47,6 +50,23 @@ en:
         state-published: Visible
         state-deleted: Deleted
         published_at: Published
+      ongoing_event:
+        created_at: Created
+        deleted_at: Deleted
+        updated_at: Updated
+        title: Title
+        description: Description
+        address: Address
+        approximate_address: Approximate Address
+        state: Status
+        state/pending: Invisible
+        state/published: Visible
+        contact_person: Contact on site
+        state-pending: Invisible
+        state-published: Visible
+        state-deleted: Deleted
+        published_at: Published
+        volunteers_needed: Helpers Needed
       event/shifts:
         confirmed_so_far: confirmed
         ends_at: Ends
@@ -67,6 +87,7 @@ en:
         created_at: Created
         deleted_at: Deleted
         current_password: Current Password
+        locale: Language
         state: State
         state-pending: Pending
         state-confirmed: Confirmed

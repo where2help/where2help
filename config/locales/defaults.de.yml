@@ -208,6 +208,7 @@ de:
       words_connector: ", "
   time:
     am: vormittags
+    hrs: std
     formats:
       admin: "%a %d.%m.%Y, %H:%M"
       default: "%A, %d. %B %Y, %H:%M Uhr"

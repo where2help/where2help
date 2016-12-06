@@ -35,6 +35,13 @@ en:
       welcome: |
         <h3>Current Events</h3>
         <p>Find out when and where you are needed and sign up for the shifts you want to help in!<p>
+  ongoing_events:
+    index:
+      events: Events
+      ongoing_events: Ongoing Events
+      welcome: |
+        <h3>Ongoing Events</h3>
+        <p>Find out where you are needed, sign up and a volunteer coordinator will get ahold of you when they need you!<p>
   users:
     sessions:
       new:
@@ -42,6 +49,8 @@ en:
         login: Login
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
     registrations:
+      edit:
+        title: Edit Profile
       new:
         accept_terms_and_conditions: I accept the
         min_characters: characters minimum
@@ -107,12 +116,33 @@ en:
         update_success: Event was successfully updated.
         publish_success: Event was successfully published.
         publish_fail: Event could not be published.
+    ongoing_events:
+      index:
+        add_an_event: Add an Ongoing Event
+        events: Events
+        ongoing_events: Ongoing Events
+        order_by: Order By
+        upcoming: Upcoming
+        all: All
+      show:
+        contact_person: Contact Person
+        volunteers_count: Volunteer Count
+        volunteers_needed: Volunteers Needed
+        publish: Publish
+        unpublish: Hide
+        are_you_sure: Are you sure?
+        edit: Edit
+        delete: Delete
+      form:
+        submit: Create Ongoing Event
     sessions:
       new:
         please_login: Login as a NGO
         login: Login
         login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
     registrations:
+      edit:
+        title: Edit Profile
       ngo_fields:
         min_characters: characters minimum
       new:

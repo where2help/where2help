@@ -7,3 +7,5 @@ en:
     messages:
       not_in_past: may not be a thing of the past
       ends_at_before_starts_at: cannot precede Begins
+  time:
+    hrs: hrs

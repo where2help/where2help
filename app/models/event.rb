@@ -20,9 +20,9 @@ class Event < ApplicationRecord
     order("shifts.starts_at").
     references(:available_shifts)
   }
-  scope :upcoming, -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
-  scope :past, -> { where(id: Shift.past.pluck(:event_id).uniq) }
-  scope :pending, -> { where(published_at: nil) }
+  scope :upcoming,  -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
+  scope :past,      -> { where(id: Shift.past.pluck(:event_id).uniq) }
+  scope :pending,   -> { where(published_at: nil) }
   scope :published, -> { where.not(published_at: nil) }
 
   def state

@@ -8,9 +8,10 @@ class Ngo < ApplicationRecord
   scope :pending,   -> { where(admin_confirmed_at: nil) }
   scope :confirmed, -> { where.not(admin_confirmed_at: nil) }
 
-  has_many :events, dependent: :restrict_with_error
-  has_one :contact, dependent: :destroy, inverse_of: :ngo
-  accepts_nested_attributes_for :contact, reject_if: :all_blank
+  has_many :events,         dependent: :restrict_with_error
+  has_many :ongoing_events, dependent: :restrict_with_error
+  has_one :contact,         dependent: :destroy, inverse_of: :ngo
+  accepts_nested_attributes_for :contact
 
   validates :name, presence: true
   validates_presence_of :contact

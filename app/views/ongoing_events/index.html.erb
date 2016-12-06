@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <%= simple_format t(".welcome") %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group btn-group-justified">
+      <%= link_to t(".events"), events_path, class: "btn btn-default" %>
+      <%= link_to t(".ongoing_events"), ongoing_events_path, class: "btn btn-default active" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <% if @events.any? %>
+      <h2><%= t(".ongoing_events") %></h2>
+      <div class="list-group">
+        <% @events.each do |event| %>
+          <%= link_to event, class: "list-group-item" do %>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12">
+                <strong><%= event.title %></strong><br/>
+                <span><%= event.contact_person %></span><br/>
+                <span><%= event.address %></span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 text-center pagination-btn">
+    <%= load_more_events_btn @events %>
+  </div>
+</div>
