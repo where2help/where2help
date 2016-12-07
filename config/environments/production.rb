@@ -87,4 +87,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.default_url_options = { host: ENV['FQDN'] }
   config.action_mailer.default charset: 'utf-8'
+
+  config.piwik_host = ENV['PIWIK_HOST']
+  config.piwik_site_id = ENV['PIWIK_SITE_ID']
 end
