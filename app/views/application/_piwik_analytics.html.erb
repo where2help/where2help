@@ -1,0 +1,28 @@
+<% if [:piwik_host, :piwik_site_id].all? { |c|
+    Rails.configuration.respond_to?(c) && Rails.configuration.send(c).present?
+  } %>
+  <!-- Piwik -->
+  <script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="<%= j(Rails.configuration.piwik_host) %>";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', '<%= j(Rails.configuration.piwik_site_id.to_s) %>']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript>
+    <p>
+      <%= image_tag([
+                      Rails.configuration.piwik_host,
+                      "piwik.php?idsite=",
+                      Rails.configuration.piwik_site_id
+                    ].join, style: "border:0;", alt: "")
+      %>
+    </p>
+  </noscript>
+  <!-- End Piwik Code -->
+<% end %>
