@@ -19,7 +19,7 @@
       <h2><%= t(".ongoing_events") %></h2>
       <div class="list-group">
         <% @events.each do |event| %>
-          <%= link_to event, class: "list-group-item" do %>
+          <%= link_to event, class: "list-group-item ngo-ongoing-event-item" do %>
             <div class="row">
               <div class="col-xs-12 col-sm-12">
                 <strong><%= event.title %></strong><br/>
