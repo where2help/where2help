@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= render 'piwik_analytics' %>
   </head>
   <body>
     <%= navigation_for(current_user || current_ngo) %>
