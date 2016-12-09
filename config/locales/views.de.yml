@@ -18,6 +18,12 @@ de:
       content: |
         "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} abgesagt.
         Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
+    ongoing_event_destroyed:
+      subject: "[where2help] Einsatz wurde abgesagt"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" wurde seitens %{ngo_name} abgesagt.
+        Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
     shift_updated:
       subject: "[where2help] Einsatz wurde geändert"
       greeting: "Hallo %{name}"
@@ -145,6 +151,13 @@ de:
         delete: Löschen
       form:
         submit: Dauerhaften Einsatz erstellen
+      messages:
+        create_success: Einsatz wurde erfolgreich erzeugt.
+        update_success: Einsatz wurde erfolgreich aktualisiert.
+        publish_success: Einsatz wurde erfolgreich veröffentlicht.
+        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
+        publish_fail: Einsatz konnte nicht veröffentlicht werden.
+        delete_success: Einsatz wurde erfolgreich verlöscht.
     sessions:
       new:
         please_login: Als NGO anmelden

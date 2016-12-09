@@ -64,8 +64,19 @@ class OngoingEventOperation
     def process(params)
       ngo   = params.fetch(:current_ngo)
       event = ngo.ongoing_events.find(params[:event_id])
+      notify_users!(event, event.users)
       event.destroy
       @model = event
+    end
+
+    private
+
+    def notify_users!(event, users)
+      users.each do |user|
+        UserMailer
+          .ongoing_event_destroyed(event: event, user: user)
+          .deliver_later
+      end
     end
   end
 

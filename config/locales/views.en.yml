@@ -24,6 +24,12 @@ en:
       content: |
         %{title} on %{date} at %{time} was cancelled by %{ngo_name}, please update your notes!
         Thanks you your support!
+    ongoing_event_destroyed:
+      subject: "[where2help] Event was cancelled"
+      greeting: "Hi %{name}"
+      content: |
+        "%{title}" was cancelled by %{ngo_name}.
+        Thank you for your support! Looking forward to your next mission.
   application:
     empty_message:
       message: Nothing there for you at the moment...
@@ -116,6 +122,7 @@ en:
         update_success: Event was successfully updated.
         publish_success: Event was successfully published.
         publish_fail: Event could not be published.
+        delete_success: Event was successfully removed.
     ongoing_events:
       index:
         add_an_event: Add an Ongoing Event
@@ -135,6 +142,12 @@ en:
         delete: Delete
       form:
         submit: Create Ongoing Event
+      messages:
+        create_success: Event was successfully created.
+        update_success: Event was successfully updated.
+        publish_success: Event was successfully published.
+        publish_fail: Event could not be published.
+        delete_success: Event was successfully removed.
     sessions:
       new:
         please_login: Login as a NGO
