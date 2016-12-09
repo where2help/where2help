@@ -32,7 +32,7 @@ en:
       lock:
         successful: "User locked successfully."
       unlock:
-        successful: "User unlocked successfully.."
+        successful: "User unlocked successfully."
   helpers:
     shifts_helper:
       share: Share
