@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   acts_as_paranoid
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :confirmable, :validatable
+         :recoverable, :rememberable, :confirmable, :validatable,
+         :lockable
 
   enum locale: { de: 0, en: 1 }
 
