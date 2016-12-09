@@ -3,6 +3,10 @@
     <%= @event.title %>
   </h2>
 </div>
+
+<div class="row">
+</div>
+
 <div class="row">
   <div class="col-sm-9">
     <ul class="fa-ul">
@@ -27,6 +31,12 @@
         <strong><%= t(".volunteers_count") %>:</strong> <%= @event.volunteers_count %>
       </li>
     </ul>
+
+    <div class="col-sm-6">
+      <%= render partial: "progress_bar/progress_bar", object: @operation.progress_bar(@event) %>
+    </div>
+
+    <br style="clear: both;"/>
 
     <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
   </div>

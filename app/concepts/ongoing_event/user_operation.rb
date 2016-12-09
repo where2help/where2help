@@ -1,18 +1,18 @@
+require "ongoing_event/progress_bar_helper"
+
 class OngoingEventOperation
   class User
     class Index < Operation
+      include ProgressBarHelper
+
       def setup_model!(params)
         @model = OngoingEvent.published.newest_first
-      end
-
-      def progress_bar(event)
-        ProgressBar.new(
-          progress: event.volunteers_count,
-          total:    event.volunteers_needed)
       end
     end
 
     class Show < Operation
+      include ProgressBarHelper
+
       def setup_model!(params)
         @model = OngoingEvent.published.find(params[:event_id])
       end

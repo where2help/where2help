@@ -9,7 +9,8 @@ class OngoingEventsController < ApplicationController
   end
 
   def show
-    @event = OngoingEventOperation::User::Show.present(event_id: params[:id]).model
+    @operation = OngoingEventOperation::User::Show.present(event_id: params[:id])
+    @event     = @operation.model
   end
 
   def opt_in

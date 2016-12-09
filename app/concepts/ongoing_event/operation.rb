@@ -1,15 +1,13 @@
+require "ongoing_event/progress_bar_helper"
+
 class OngoingEventOperation
   class Index < Operation
+    include ProgressBarHelper
+
     def setup_model!(params)
       ngo    = params.fetch(:current_ngo)
       order  = params.fetch(:order_by) { "created" }
       @model = sort_events(ngo.ongoing_events, order)
-    end
-
-    def progress_bar(event)
-      ProgressBar.new(
-        progress: event.volunteers_count,
-        total:    event.volunteers_needed)
     end
 
     private
@@ -27,6 +25,8 @@ class OngoingEventOperation
   end
 
   class Show < Operation
+    include ProgressBarHelper
+
     def setup_model!(params)
       ngo    = params.fetch(:current_ngo)
       @model = ngo.ongoing_events.find(params[:event_id])

@@ -19,6 +19,12 @@
         <%= @event.contact_person %>
       </li>
     </ul>
+
+    <div class="col-sm-6">
+      <%= render partial: "progress_bar/progress_bar", object: @operation.progress_bar(@event) %>
+    </div>
+
+    <br style="clear: both;"/>
     <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
   </div>
   <div class="col-sm-3 text-center">

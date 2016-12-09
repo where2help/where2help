@@ -11,8 +11,9 @@ class Ngos::OngoingEventsController < ApplicationController
   end
 
   def show
-    @event =
-      OngoingEventOperation::Show.present(current_ngo: current_ngo, event_id: params[:id]).model
+    @operation =
+      OngoingEventOperation::Show.present(current_ngo: current_ngo, event_id: params[:id])
+    @event = @operation.model
   end
 
   def new
