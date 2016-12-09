@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2><%= t('.greeting', name: @user.first_name) %></h2>
+    <p><%= t('.content', title: @event.title, 
+                         ngo_name: @event.ngo.name)		 
+	%></p>
+  </body>
+</html>

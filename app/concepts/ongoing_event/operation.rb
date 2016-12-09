@@ -56,7 +56,21 @@ class OngoingEventOperation
       ngo          = params.fetch(:current_ngo)
       event_params = params.fetch(:ongoing_event)
       @model       = ngo.ongoing_events.find(params[:event_id])
+      handle_user_notification!(params, @model)
       @model.update_attributes(event_params)
+    end
+
+    private
+
+    def handle_user_notification!(params, event)
+      should_notify = params[:notify_users]
+      if should_notify
+        event.users.each do |user|
+          UserMailer
+            .ongoing_event_updated(user: user, event: event)
+            .deliver_later
+        end
+      end
     end
   end
 

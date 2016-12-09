@@ -43,7 +43,8 @@ class Ngos::OngoingEventsController < ApplicationController
       OngoingEventOperation::Update.(
         current_ngo: current_ngo,
         event_id: params[:id],
-        ongoing_event: event_params(params)
+        ongoing_event: event_params(params),
+        notify_users: params[:notify_users]
       ).model
     if @event.valid?
       return redirect_to ngos_ongoing_event_url(@event),

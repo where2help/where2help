@@ -18,17 +18,23 @@ de:
       content: |
         "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} abgesagt.
         Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
+    shift_updated:
+      subject: "[where2help] Einsatz wurde geändert"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} verändert.
+        Vielen Dank für Dein Engagement!
     ongoing_event_destroyed:
       subject: "[where2help] Einsatz wurde abgesagt"
       greeting: "Hallo %{name}"
       content: |
         "%{title}" wurde seitens %{ngo_name} abgesagt.
         Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
-    shift_updated:
+    ongoing_event_updated:
       subject: "[where2help] Einsatz wurde geändert"
       greeting: "Hallo %{name}"
       content: |
-        "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} verändert.
+        "%{title}" wurde seitens %{ngo_name} verändert.
         Vielen Dank für Dein Engagement!
   application:
     empty_message:

@@ -20,16 +20,22 @@ en:
         Thank you for your support! Looking forward to your next mission.
     shift_updated:
       subject: "[where2help] Event was changed"
-      greeting: "Hallo %{name}"
+      greeting: "Hi %{name}"
       content: |
-        %{title} on %{date} at %{time} was cancelled by %{ngo_name}, please update your notes!
-        Thanks you your support!
+        %{title} on %{date} at %{time} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
     ongoing_event_destroyed:
       subject: "[where2help] Event was cancelled"
       greeting: "Hi %{name}"
       content: |
         "%{title}" was cancelled by %{ngo_name}.
         Thank you for your support! Looking forward to your next mission.
+    ongoing_event_updated:
+      subject: "[where2help] Event was changed"
+      greeting: "Hi %{name}"
+      content: |
+        %{title} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
   application:
     empty_message:
       message: Nothing there for you at the moment...
