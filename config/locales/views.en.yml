@@ -142,6 +142,7 @@ en:
         delete: Delete
       form:
         submit: Create Ongoing Event
+        notify_users: Notify the %{user_count} %{volunteers}
       messages:
         create_success: Event was successfully created.
         update_success: Event was successfully updated.
