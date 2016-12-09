@@ -41,7 +41,7 @@
               </div>
               <div class="col-xs-3 col-sm-2 text-center">
                 <%= event_label event %>
-                <%= pluralize(event.volunteers_count, t("activerecord.models.users.one"), t("activerecord.models.users.one")) %>
+                <%= render partial: "progress_bar/progress_bar", object: @operation.progress_bar(event) %>
               </div>
             </div>
           <% end %>

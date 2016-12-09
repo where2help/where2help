@@ -3,8 +3,9 @@ class OngoingEventsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @events =
-      OngoingEventOperation::User::Index.present().model.page(params[:page])
+    @operation =
+      OngoingEventOperation::User::Index.present()
+    @events = @operation.model.page(params[:page])
   end
 
   def show

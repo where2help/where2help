@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129115347) do
+ActiveRecord::Schema.define(version: 20161209095750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,14 +107,14 @@ ActiveRecord::Schema.define(version: 20161129115347) do
     t.string   "contact_person"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "volunteers_count"
+    t.integer  "volunteers_count",    default: 0
     t.integer  "volunteers_needed"
     t.datetime "deleted_at"
     t.datetime "published_at"
     t.float    "lat"
     t.float    "lng"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["address"], name: "index_ongoing_events_on_address", using: :btree
     t.index ["deleted_at"], name: "index_ongoing_events_on_deleted_at", using: :btree
     t.index ["end_date"], name: "index_ongoing_events_on_end_date", using: :btree

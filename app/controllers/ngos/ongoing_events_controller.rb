@@ -3,10 +3,11 @@ class Ngos::OngoingEventsController < ApplicationController
   before_action :authenticate_ngo!
 
   def index
-    @events =
-      OngoingEventOperation::Index
-        .present(current_ngo: current_ngo, order_by: params[:order_by])
-        .model
+    @operation =
+      OngoingEventOperation::Index.present(
+        current_ngo: current_ngo,
+        order_by:    params[:order_by])
+    @events = @operation.model
   end
 
   def show

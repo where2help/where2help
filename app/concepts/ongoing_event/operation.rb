@@ -6,6 +6,12 @@ class OngoingEventOperation
       @model = sort_events(ngo.ongoing_events, order)
     end
 
+    def progress_bar(event)
+      ProgressBar.new(
+        progress: event.volunteers_count,
+        total:    event.volunteers_needed)
+    end
+
     private
 
     def sort_events(events, order_by)
@@ -38,7 +44,6 @@ class OngoingEventOperation
       event_params = params.fetch(:ongoing_event)
       @model = ngo.ongoing_events.create(event_params)
     end
-
   end
 
   class Update < Operation
