@@ -6,6 +6,11 @@ de:
       button_label: Stapelverarbeitung
       labels:
         confirm: Bestätige
+    resource:
+      show:
+        user:
+          lock: "Benützer Sperren"
+          unlock: "Benützer Freigeben"
     statistics:
       helper_statistics:  Helfer Statistik
       event_count: Anzahl Events
@@ -19,6 +24,13 @@ de:
       published: Sichtbar
       without_deleted: Aktiv
       only_deleted: Gelöscht
+
+  admin:
+    users:
+      lock:
+        successful: "Benützer erfolgreich gesperrt."
+      unlock:
+        successful: "Benützer erfolgreich freigegeben."
   helpers:
     shifts_helper:
       share: Teilen

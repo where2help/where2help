@@ -22,4 +22,6 @@ class User < ApplicationRecord
   validates :terms_and_conditions, acceptance: true
 
   accepts_nested_attributes_for :abilities, :languages
+
+  def locked?() access_locked? end
 end
