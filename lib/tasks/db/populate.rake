@@ -10,7 +10,7 @@ namespace :db do
     ActiveRecord::Base.logger.level = :info
     password = "password"
 
-    [Ngo, User, Event].each { |model| model.unscoped.map(&:really_destroy!) }
+    [Ngo, User, Event, OngoingEvent].each { |model| model.unscoped.map(&:really_destroy!) }
     User.create(
       email: 'admin@example.com',
       first_name: 'admin_first',
