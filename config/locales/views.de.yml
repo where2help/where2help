@@ -56,6 +56,10 @@ de:
       welcome: |
         <h3>Dauerhafte Einsätze</h3>
         <p>Sieh nach, wo Du gebraucht wirst, trage Dich für Einsätze ein und der Organisator wird dich kontaktieren sobald deine Hilfe benötigt wird!<p>
+    opt_in:
+      thank_you: |
+        <h1>Danke!</h1>
+        <p>Die Organisation wird Dich zur Vereinbarung Deiner Einsatzplanung kontaktieren.</p>
   users:
     nav:
       schedule: Einsätze
