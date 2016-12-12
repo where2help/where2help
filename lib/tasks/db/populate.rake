@@ -7,24 +7,26 @@ namespace :db do
 
   desc 'Populate DB with sample data'
   task populate: :environment do
+    password = "password"
+
     [Ngo, User, Event].each { |model| model.unscoped.map(&:really_destroy!) }
     User.create(
       email: 'admin@example.com',
       first_name: 'admin_first',
       last_name: 'admin_last',
-      password: '12345678',
+      password: password,
       confirmed_at: Time.now,
       admin: true)
     User.create(
       email: 'user@example.com',
       first_name: 'user_first',
       last_name: 'user_last',
-      password: '12345678',
+      password: password,
       confirmed_at: Time.now)
     Ngo.create(
       email: 'ngo@example.com',
       name: Faker::Company.name,
-      password: '12345678',
+      password: password,
       confirmed_at: Time.now,
       admin_confirmed_at: Time.now,
       contact: Contact.new(
@@ -39,7 +41,7 @@ namespace :db do
       Ngo.create(
         email: Faker::Internet.email,
         name: Faker::Company.name,
-        password: '12345678',
+        password: password,
         confirmed_at: Time.now,
         admin_confirmed_at: Time.now,
         contact: Contact.new(
@@ -55,7 +57,7 @@ namespace :db do
       Ngo.create(
         email: Faker::Internet.email,
         name: Faker::Company.name,
-        password: '12345678',
+        password: password,
         confirmed_at: Time.now,
         contact: Contact.new(
           first_name: Faker::Name.first_name,
