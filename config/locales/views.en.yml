@@ -54,6 +54,10 @@ en:
       welcome: |
         <h3>Ongoing Events</h3>
         <p>Find out where you are needed, sign up and a volunteer coordinator will get ahold of you when they need you!<p>
+    opt_in:
+      thank_you: |
+        <h1>Thank You!</h1>
+        <p>The volunteer coordinator will get ahold of you when they need you.</p>
   users:
     sessions:
       new:
