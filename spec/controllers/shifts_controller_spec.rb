@@ -169,19 +169,22 @@ RSpec.describe ShiftsController, type: :controller do
         context 'without filter' do
           it 'assigns first 10 shifts' do
             get :schedule
-            expect(assigns :collection).to match_array upcoming_shifts
+            actual = (assigns :collection).map(&:object)
+            expect(actual).to match_array upcoming_shifts
           end
         end
         context 'with :past filter' do
           it 'assigns first 10 past' do
             get :schedule, params: {filter: :past}
-            expect(assigns :collection).to match_array past_shifts
+            actual = (assigns :collection).map(&:object)
+            expect(actual).to match_array past_shifts
           end
         end
         context 'with :all filter' do
           it 'assigns first 10' do
             get :schedule, params: {filter: :all}
-            expect(assigns :collection).to match_array past_shifts
+            actual = (assigns :collection).map(&:object)
+            expect(actual).to match_array (past_shifts + upcoming_shifts)
           end
         end
       end
