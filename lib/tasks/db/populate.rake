@@ -23,6 +23,17 @@ namespace :db do
       last_name: 'user_last',
       password: password,
       confirmed_at: Time.now)
+    25.times do |n|
+      User.create(
+        email: "user#{n+1}@example.com",
+        first_name: Faker::Name.first_name,
+        last_name:  Faker::Name.last_name,
+        password:   password,
+        confirmed_at: Time.now)
+    end
+
+    puts "Created #{User.count} Users"
+
     Ngo.create(
       email: 'ngo@example.com',
       name: Faker::Company.name,
@@ -68,6 +79,12 @@ namespace :db do
           zip: Faker::Address.zip,
           city: Faker::Address.city))
     end
+
+    puts "Created #{Ngo.count} NGO's"
+
+    users = User.all
+    random_users = -> { users.shuffle.take(rand(users.size)) }
+
     Ngo.find_each do |ngo|
       10.times do
         start = Time.now + rand(7).days + rand(86400).seconds
@@ -79,8 +96,9 @@ namespace :db do
           lng: Faker::Address.longitude,
           address: "#{Faker::Address.secondary_address}",
           ngo_id: ngo.id)
+
         rand(1..5).times do
-            start = start + 2.hours
+          start = start + 2.hours
           event.shifts.new(
             starts_at: start,
             ends_at: start+2.hours,
@@ -90,18 +108,39 @@ namespace :db do
       end
     end
 
-    Event.all.each do |event|
-      uri = URI.parse("https://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=" + ERB::Util.url_encode(event.address) + "&crs=EPSG:4326")
-      response = Net::HTTP.get_response(uri)
-      if response.body.length > 1
-        feature = JSON.parse(response.body)["features"].first
-        coords = feature["geometry"]["coordinates"]
-        zip = feature["properties"]["PostalCode"]
-        zip ||= "10#{feature["properties"]["Bezirk"].split(',').first.rjust(2, '0')}"
-        address = "#{zip}, #{event.address}"
-        approximate_address = "#{feature["properties"]["Bezirk"]}. Bezirk, #{feature["properties"]["Municipality"]}"
-        event.update(lng: coords[0], lat: coords[1], address: address, approximate_address: approximate_address)
+    puts "Created #{Event.count} Events"
+
+    # Add participations to shifts
+    Shift.available.each do |shift|
+      random_users.().each do |u|
+        shift.users << u
       end
     end
+
+    puts "Created #{Participation.count} Participations"
+
+    VCR.configure do |config|
+      config.default_cassette_options = { record: :new_episodes }
+      config.cassette_library_dir = Rails.root.join("tmp/fixtures/vcr_cassettes")
+      config.hook_into :webmock # or :fakeweb
+    end
+
+    Event.all.each do |event|
+      VCR.use_cassette("populate_locations") do
+        print "\rResolving #{event.address}                         "
+        uri = URI.parse("https://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=" + ERB::Util.url_encode(event.address) + "&crs=EPSG:4326")
+        response = Net::HTTP.get_response(uri)
+        if response.body && response.body.length > 1
+          feature = JSON.parse(response.body)["features"].first
+          coords = feature["geometry"]["coordinates"]
+          zip = feature["properties"]["PostalCode"]
+          zip ||= "10#{feature["properties"]["Bezirk"].split(',').first.rjust(2, '0')}"
+          address = "#{zip}, #{event.address}"
+          approximate_address = "#{feature["properties"]["Bezirk"]}. Bezirk, #{feature["properties"]["Municipality"]}"
+          event.update(lng: coords[0], lat: coords[1], address: address, approximate_address: approximate_address)
+        end
+      end
+    end
+    puts "\nResolved #{Event.count} Addresses"
   end
 end

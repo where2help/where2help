@@ -103,6 +103,8 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (4.2.0)
@@ -251,6 +253,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -289,6 +292,7 @@ GEM
     uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
     uniform_notifier (1.10.0)
+    vcr (2.9.3)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (3.4.0)
@@ -296,6 +300,9 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
+    webmock (1.21.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -347,7 +354,9 @@ DEPENDENCIES
   turbolinks
   tzinfo-data
   uglifier
+  vcr
   web-console
+  webmock
   whenever
 
 RUBY VERSION
