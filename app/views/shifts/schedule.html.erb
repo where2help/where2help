@@ -12,7 +12,13 @@
       <li class="<%= active?(filter: :all) %>"><%=     link_to t('.all'),     schedule_path(filter: :all) %></li>
     </ul>
     <div class="tab-pane" data-behavior="shift-container">
-      <%= (render partial: "schedule_#{@item_type == :ongoing_event ? 'ongoing' : 'shift'}", collection: @collection) || render('empty_message') %>
+      <% if @collection.empty? %>
+        <%= render("empty_message") %>
+      <% else %>
+        <% @collection.each do |item| %>
+          <%= render partial: "schedule_#{item.type}", object: item.object %>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <div class="row">

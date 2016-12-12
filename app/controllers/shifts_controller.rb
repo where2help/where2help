@@ -28,7 +28,6 @@ class ShiftsController < ApplicationController
         .present(filter: params[:filter], current_user: current_user)
         .model
         .page(params[:page])
-    @item_type = @collection.first && @collection.first.class.name.underscore.to_sym
   end
 
   def cal
