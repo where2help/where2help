@@ -47,6 +47,8 @@ en:
       welcome: |
         <h3>Current Events</h3>
         <p>Find out when and where you are needed and sign up for the shifts you want to help in!<p>
+    opt_out:
+      notice: That's too bad...
   ongoing_events:
     index:
       events: Fixed Events
@@ -58,6 +60,8 @@ en:
       thank_you: |
         <h1>Thank You!</h1>
         <p>The volunteer coordinator will get ahold of you when they need you.</p>
+    opt_out:
+      notice: That's too bad...
   schedules:
     show:
       your_shifts: |+
@@ -255,6 +259,16 @@ en:
 
         We look forward to seeing you!
   shifts:
+    opt_in_btn: I'm In
+    opt_out_btn: Can't Make It
+    are_you_sure: Are you sure you can't make it?
+    load_more: Show more
+    thank_you: Thank you! Looking forward to have you onboard.
+    please_come: Please join us at
+    opt_out:
+      notice: That's too bad...
+
+  ongoing_events:
     opt_in_btn: I'm In
     opt_out_btn: Can't Make It
     are_you_sure: Are you sure you can't make it?
