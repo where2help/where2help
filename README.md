@@ -125,3 +125,29 @@ If you want to skip continuous integration for your commit, add this to your com
   * global rules go into `base/`
   * page specific styles into `pages/`
   * site-wide used component rules go into `base/components.scss` *(extract a components/ directory if it gets to big)*
+
+## Development Environment
+
+### Sample Data
+
+To set up a development environment, you can run this command:
+
+> Warning, this will drop you database :scream:
+
+`bundle exec rake db:drop db:setup db:populate`
+
+This will:
+
+* drop your database
+* re-create it
+* load the schema (like running migrations but better)
+* run seeds
+* run the `lib/tasks/db/populate.task` command to load your database with fake data
+
+
+On top of a bunch of other Event data and users, you will get:
+
+* A volunteer with the email address `user@example.com` and password of `password`
+* An NGO with the email address `ngo@example.com` and password of `password`
+* An admin user with the email address `admin@example.com` and password of `password`
+
