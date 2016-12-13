@@ -23,7 +23,7 @@ class OngoingEventsController < ApplicationController
     @event = OngoingEventOperation::User::OptOut
       .(current_user: current_user, event_id: params[:id])
       .model
-    redirect_to ongoing_event_path(@event)
+    redirect_to schedule_path, notice: t('.notice')
   end
 end
 

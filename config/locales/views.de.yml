@@ -50,6 +50,7 @@ de:
         <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
   ongoing_events:
+    are_you_sure: Willst Du wirklich absagen?
     index:
       events: Konkrete Einsätze
       ongoing_events: Dauerhafte Einsätze
@@ -60,6 +61,8 @@ de:
       thank_you: |
         <h1>Danke!</h1>
         <p>Die Organisation wird Dich zur Vereinbarung Deiner Einsatzplanung kontaktieren.</p>
+    opt_out:
+      notice: Schade...
   users:
     nav:
       schedule: Einsätze
