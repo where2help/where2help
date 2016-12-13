@@ -1,3 +1,5 @@
+require "event/operation"
+
 class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!
 
