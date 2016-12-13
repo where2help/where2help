@@ -151,3 +151,10 @@ On top of a bunch of other Event data and users, you will get:
 * An NGO with the email address `ngo@example.com` and password of `password`
 * An admin user with the email address `admin@example.com` and password of `password`
 
+### Emails
+
+You can use the gem `letter_opener` which opens your emails in a browser tab instead of just printing emails to the logs by running the app like this:
+
+`ENABLE_LETTER_OPENER=1 bundle exec rails server`
+
+If you run it without the `ENABLE_LETTER_OPENER` it will run as you would normally expect.

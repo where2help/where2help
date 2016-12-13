@@ -62,7 +62,7 @@ Rails.application.configure do
   }
 
   # Use letter_opener gem by default
-  unless ENV["SKIP_LETTER_OPENER"] || File.split($0).last == "rake"
+  if ENV["ENABLE_LETTER_OPENER"]
     config.action_mailer.delivery_method = :letter_opener
   end
 
