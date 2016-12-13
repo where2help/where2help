@@ -12,6 +12,12 @@ de:
         könnt Ihr jetzt loslegen Einsätze zu erstellen!
       link: Bei Where2Help Loslegen
   user_mailer:
+    event_updated:
+      subject: "[where2help] Einsatz wurde geändert"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" wurde seitens %{ngo_name} verändert.
+        Vielen Dank für Dein Engagement!
     shift_destroyed:
       subject: "[where2help] Einsatz wurde abgesagt"
       greeting: "Hallo %{name}"
@@ -146,6 +152,7 @@ de:
         edit_event: Einsatz aktualisieren
         confirmed_so_far: "Bisher zugesagt: "
         prohibited: "Fehler verhinderte(n), dass dieser Einsatz gespeichert wurde."
+        notify_users: Benachtrichtige die %{user_count} %{volunteers}
       messages:
         create_success: Einsatz wurde erfolgreich erzeugt.
         update_success: Einsatz wurde erfolgreich aktualisiert.

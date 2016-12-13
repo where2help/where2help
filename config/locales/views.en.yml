@@ -12,6 +12,12 @@ en:
         you can go ahead and start creating events!
       link: Get started at Where2Help
   user_mailer:
+    event_updated:
+      subject: "[where2help] Event was changed"
+      greeting: "Hi %{name}"
+      content: |
+        %{title} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
     shift_destroyed:
       subject: "[where2help] Event got cancelled"
       greeting: "Hi %{name}"
