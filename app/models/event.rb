@@ -84,12 +84,12 @@ class Event < ApplicationRecord
   end
 
   def progress_bar(user = nil)
-    offset = available_shifts.joins(:participations)
+    user_shift_count = available_shifts.joins(:participations)
       .where(participations: { user_id: user.try(:id) }).count
     ProgressBar.new(
       progress: volunteers_count,
       total:    volunteers_needed,
-      offset:   offset)
+      offset:   user_shift_count)
   end
 
   private

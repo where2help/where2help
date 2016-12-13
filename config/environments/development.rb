@@ -61,6 +61,12 @@ Rails.application.configure do
     from: 'where2help <no-reply@development-where2help.herokuapp.com>'
   }
 
+  # Use letter_opener gem by default
+  unless ENV["SKIP_LETTER_OPENER"] || File.split($0).last == "rake"
+    config.action_mailer.delivery_method = :letter_opener
+  end
+
+
   config.after_initialize do
     Bullet.enable = true
     Bullet.rails_logger = true

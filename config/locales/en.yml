@@ -9,6 +9,11 @@ en:
       button_label: Batch Processing
       labels:
         confirm: Confirm
+    resource:
+      show:
+        user:
+          lock: "Lock User"
+          unlock: "Unlock User"
     statistics:
       helper_statistics: Volunteer Statistics
       event_count: Event Count
@@ -22,6 +27,12 @@ en:
       published: Published
       without_deleted: Active
       only_deleted: Deleted
+  admin:
+    users:
+      lock:
+        successful: "User locked successfully."
+      unlock:
+        successful: "User unlocked successfully."
   helpers:
     shifts_helper:
       share: Share

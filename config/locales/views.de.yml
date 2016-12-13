@@ -12,6 +12,12 @@ de:
         könnt Ihr jetzt loslegen Einsätze zu erstellen!
       link: Bei Where2Help Loslegen
   user_mailer:
+    event_updated:
+      subject: "[where2help] Einsatz wurde geändert"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" wurde seitens %{ngo_name} verändert.
+        Vielen Dank für Dein Engagement!
     shift_destroyed:
       subject: "[where2help] Einsatz wurde abgesagt"
       greeting: "Hallo %{name}"
@@ -24,6 +30,18 @@ de:
       content: |
         "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} verändert.
         Vielen Dank für Dein Engagement!
+    ongoing_event_destroyed:
+      subject: "[where2help] Einsatz wurde abgesagt"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" wurde seitens %{ngo_name} abgesagt.
+        Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
+    ongoing_event_updated:
+      subject: "[where2help] Einsatz wurde geändert"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" wurde seitens %{ngo_name} verändert.
+        Vielen Dank für Dein Engagement!
   application:
     empty_message:
       message: Wir haben gerade nichts für Dich...
@@ -32,18 +50,34 @@ de:
   events:
     load_more: Mehr anzeigen
     index:
-      events: Einsätze
+      events: Konkrete Einsätze
       ongoing_events: Dauerhafte Einsätze
       welcome: |
         <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
   ongoing_events:
+    are_you_sure: Willst Du wirklich absagen?
     index:
-      events: Einsätze
+      events: Konkrete Einsätze
       ongoing_events: Dauerhafte Einsätze
       welcome: |
         <h3>Dauerhafte Einsätze</h3>
         <p>Sieh nach, wo Du gebraucht wirst, trage Dich für Einsätze ein und der Organisator wird dich kontaktieren sobald deine Hilfe benötigt wird!<p>
+    opt_in:
+      thank_you: |
+        <h1>Danke!</h1>
+        <p>Die Organisation wird Dich zur Vereinbarung Deiner Einsatzplanung kontaktieren.</p>
+    opt_out:
+      notice: Schade...
+  schedules:
+    show:
+      your_shifts: |+
+        <h3>Deine Einsätze</h3>
+        <p>Sei bitte pünktlich. Falls Du doch nicht kommen kannst, sag bitte so früh wie möglich ab.</p>
+      past: Vergangene
+      upcoming: Bevorstehende
+      all: Alle
+      ongoing: Dauerhafte
   users:
     nav:
       schedule: Einsätze
@@ -94,9 +128,9 @@ de:
   ngos:
     events:
       index:
-        events: Einsätze
+        events: Konkrete Einsätze
         ongoing_events: Dauerhafte Einsätze
-        add_an_event: Einsatz hinzufügen
+        add_an_event: Konkreter Einsatz hinzufügen
         address: Adresse
         all: alle
         filter_by: Filtern nach
@@ -118,6 +152,7 @@ de:
         edit_event: Einsatz aktualisieren
         confirmed_so_far: "Bisher zugesagt: "
         prohibited: "Fehler verhinderte(n), dass dieser Einsatz gespeichert wurde."
+        notify_users: Benachtrichtige die %{user_count} %{volunteers}
       messages:
         create_success: Einsatz wurde erfolgreich erzeugt.
         update_success: Einsatz wurde erfolgreich aktualisiert.
@@ -128,7 +163,7 @@ de:
     ongoing_events:
       index:
         add_an_event: Dauerhaften Einsatz hinzufügen
-        events: Einsätze
+        events: Konkrete Einsätze
         ongoing_events: Dauerhafte Einsätze
         filter_by: Filtern nach
         order_by: Ordnen nach
@@ -145,6 +180,14 @@ de:
         delete: Löschen
       form:
         submit: Dauerhaften Einsatz erstellen
+        notify_users: Benachtrichtige die %{user_count} %{volunteers}
+      messages:
+        create_success: Einsatz wurde erfolgreich erzeugt.
+        update_success: Einsatz wurde erfolgreich aktualisiert.
+        publish_success: Einsatz wurde erfolgreich veröffentlicht.
+        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
+        publish_fail: Einsatz konnte nicht veröffentlicht werden.
+        delete_success: Einsatz wurde erfolgreich verlöscht.
     sessions:
       new:
         please_login: Als NGO anmelden
@@ -239,13 +282,5 @@ de:
     load_more: Mehr anzeigen
     thank_you: Danke!
     please_come: Bitte kommen Sie um
-    schedule:
-      your_shifts: |+
-        <h3>Deine Einsätze</h3>
-        <p>Sei bitte pünktlich. Falls Du doch nicht kommen kannst, sag bitte so früh wie möglich ab.</p>
-      past: Vergangene
-      upcoming: Bevorstehende
-      all: Alle
-      ongoing: Dauerhafte
     opt_out:
       notice: Schade...

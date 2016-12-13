@@ -12,6 +12,12 @@ en:
         you can go ahead and start creating events!
       link: Get started at Where2Help
   user_mailer:
+    event_updated:
+      subject: "[where2help] Event was changed"
+      greeting: "Hi %{name}"
+      content: |
+        %{title} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
     shift_destroyed:
       subject: "[where2help] Event got cancelled"
       greeting: "Hi %{name}"
@@ -20,10 +26,22 @@ en:
         Thank you for your support! Looking forward to your next mission.
     shift_updated:
       subject: "[where2help] Event was changed"
-      greeting: "Hallo %{name}"
+      greeting: "Hi %{name}"
       content: |
-        %{title} on %{date} at %{time} was cancelled by %{ngo_name}, please update your notes!
-        Thanks you your support!
+        %{title} on %{date} at %{time} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
+    ongoing_event_destroyed:
+      subject: "[where2help] Event was cancelled"
+      greeting: "Hi %{name}"
+      content: |
+        "%{title}" was cancelled by %{ngo_name}.
+        Thank you for your support! Looking forward to your next mission.
+    ongoing_event_updated:
+      subject: "[where2help] Event was changed"
+      greeting: "Hi %{name}"
+      content: |
+        %{title} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
   application:
     empty_message:
       message: Nothing there for you at the moment...
@@ -35,13 +53,30 @@ en:
       welcome: |
         <h3>Current Events</h3>
         <p>Find out when and where you are needed and sign up for the shifts you want to help in!<p>
+    opt_out:
+      notice: That's too bad...
   ongoing_events:
     index:
-      events: Events
+      events: Fixed Events
       ongoing_events: Ongoing Events
       welcome: |
         <h3>Ongoing Events</h3>
         <p>Find out where you are needed, sign up and a volunteer coordinator will get ahold of you when they need you!<p>
+    opt_in:
+      thank_you: |
+        <h1>Thank You!</h1>
+        <p>The volunteer coordinator will get ahold of you when they need you.</p>
+    opt_out:
+      notice: That's too bad...
+  schedules:
+    show:
+      your_shifts: |+
+        <h3>Your Shifts</h3>
+        <p>(Please be on time. Please cancel early enough if you can't come.)</p>
+      past: Past
+      upcoming: Upcoming
+      all: All
+      ongoing: Ongoing
   users:
     sessions:
       new:
@@ -89,7 +124,7 @@ en:
   ngos:
     events:
       index:
-        add_an_event: Add Event
+        add_an_event: Add Fixed Event
         address: Address
         all: All
         filter_by: Filter By
@@ -116,10 +151,11 @@ en:
         update_success: Event was successfully updated.
         publish_success: Event was successfully published.
         publish_fail: Event could not be published.
+        delete_success: Event was successfully removed.
     ongoing_events:
       index:
         add_an_event: Add an Ongoing Event
-        events: Events
+        events: Fixed Events
         ongoing_events: Ongoing Events
         order_by: Order By
         upcoming: Upcoming
@@ -135,6 +171,13 @@ en:
         delete: Delete
       form:
         submit: Create Ongoing Event
+        notify_users: Notify the %{user_count} %{volunteers}
+      messages:
+        create_success: Event was successfully created.
+        update_success: Event was successfully updated.
+        publish_success: Event was successfully published.
+        publish_fail: Event could not be published.
+        delete_success: Event was successfully removed.
     sessions:
       new:
         please_login: Login as a NGO
@@ -228,7 +271,13 @@ en:
     load_more: Show more
     thank_you: Thank you! Looking forward to have you onboard.
     please_come: Please join us at
-    schedule:
-      your_shifts: |
-        <h3>Your Shifts</h3>
-        <p>(Please be on time. Please cancel early enough if you can't come.)</p>
+    opt_out:
+      notice: That's too bad...
+
+  ongoing_events:
+    opt_in_btn: I'm In
+    opt_out_btn: Can't Make It
+    are_you_sure: Are you sure you can't make it?
+    load_more: Show more
+    thank_you: Thank you! Looking forward to have you onboard.
+    please_come: Please join us at

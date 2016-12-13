@@ -29,7 +29,17 @@
   <%= f.input :lng, as: :hidden, input_html: { class: "address-autocomplete-lng" } %>
   <%= f.input :approximate_address, as: :hidden, input_html: { class: "address-autocomplete-approximate-address" } %>
 
+
   <div class="actions">
+    <% if action_name == "edit" && @event.users.count > 0 %>
+      <div class="form-group">
+        <%= label_tag  do %>
+          <%= check_box_tag "notify_users" %>
+          <% v_name = @event.users.count > 1 ? t("activerecord.models.users.other") : t("activerecord.models.users.one") %>
+          <%= t(".notify_users", user_count: @event.users.count, volunteers: v_name) %>
+        <% end %>
+      </div>
+    <% end %>
     <%= f.submit t(".submit"), class: "btn btn-primary" %>
   </div>
 <% end %>

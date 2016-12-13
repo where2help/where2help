@@ -18,7 +18,7 @@ class Shift < ApplicationRecord
   scope :not_deleted, -> { where(deleted_at: nil) }
 
   before_destroy :notify_volunteers_about_destroy, prepend: true
-  before_update  :notify_volunteers_about_update, prepend: true
+  after_update   :notify_volunteers_about_update,  prepend: true
 
   def self.filtered_for_ngo(ngo, filters)
     the_scope, order_by = filters

@@ -3,12 +3,14 @@ class OngoingEventsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @events =
-      OngoingEventOperation::User::Index.present().model.page(params[:page])
+    @operation =
+      OngoingEventOperation::User::Index.present()
+    @events = @operation.model.page(params[:page])
   end
 
   def show
-    @event = OngoingEventOperation::User::Show.present(event_id: params[:id]).model
+    @operation = OngoingEventOperation::User::Show.present(event_id: params[:id])
+    @event     = @operation.model
   end
 
   def opt_in
@@ -21,7 +23,7 @@ class OngoingEventsController < ApplicationController
     @event = OngoingEventOperation::User::OptOut
       .(current_user: current_user, event_id: params[:id])
       .model
-    redirect_to ongoing_event_path(@event)
+    redirect_to schedule_path, notice: t('.notice')
   end
 end
 

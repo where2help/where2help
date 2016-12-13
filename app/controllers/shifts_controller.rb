@@ -1,5 +1,3 @@
-require "schedule/operation"
-
 class ShiftsController < ApplicationController
   before_action :authenticate_user!
 
@@ -12,23 +10,13 @@ class ShiftsController < ApplicationController
   def opt_in
     find_shift.users << current_user
   rescue ActiveRecord::RecordInvalid => e
+    warn e.message
     redirect_to @shift.event
   end
 
   def opt_out
     current_user.shifts.try(:delete, find_shift)
     redirect_to schedule_path, notice: t('.notice')
-  end
-
-  def schedule
-    # TODO: could be shifts or ongoing events
-    # should be moved to own controller
-    @collection =
-      ScheduleOperation::Index
-        .present(filter: params[:filter], current_user: current_user)
-        .model
-        .page(params[:page])
-    @item_type = @collection.first && @collection.first.class.name.underscore.to_sym
   end
 
   def cal

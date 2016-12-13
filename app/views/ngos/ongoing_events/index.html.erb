@@ -32,7 +32,7 @@
       <h2><%= t(".ongoing_events").titlecase %></h2>
       <div class="list-group">
         <% @events.each do |event| %>
-          <%= link_to [:ngos, event], class: "ngo-event-item #{'-invisible' if event.pending?}" do %>
+          <%= link_to [:ngos, event], class: "ngo-event-item ngo-ongoing-event-item #{'-invisible' if event.pending?}" do %>
             <div class="row">
               <div class="col-xs-9 col-sm-10">
                 <strong><%= event.title %></strong><br/>
@@ -41,7 +41,7 @@
               </div>
               <div class="col-xs-3 col-sm-2 text-center">
                 <%= event_label event %>
-                <%= pluralize(event.volunteers_count, t("activerecord.models.users.one"), t("activerecord.models.users.one")) %>
+                <%= render partial: "progress_bar/progress_bar", object: @operation.progress_bar(event) %>
               </div>
             </div>
           <% end %>

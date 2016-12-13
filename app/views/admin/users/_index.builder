@@ -7,6 +7,7 @@ context.instance_eval do
   column :phone
   column :admin
   column :locale
+  column :locked?
   column :confirmed_at
   actions
 end

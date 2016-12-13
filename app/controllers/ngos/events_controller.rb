@@ -1,3 +1,5 @@
+require "event/operation"
+
 class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!
 
@@ -24,11 +26,22 @@ class Ngos::EventsController < ApplicationController
   end
 
   def edit
-    @event = current_ngo.events.includes(shifts: [:users]).find(params[:id])
+    @operation = EventOperation::Ngo::Update.present(
+      ngo: current_ngo,
+      event_id: params[:id]
+    )
+    @event = @operation.model
   end
 
   def update
-    if find_ngo_event.update(event_params)
+    @operation = EventOperation::Ngo::Update.(
+      ngo: current_ngo,
+      event_id: params[:id],
+      event: event_params,
+      notify_users: params[:notify_users]
+    )
+    @event = @operation.model
+    if @event.valid?
       flash[:notice] = t('ngos.events.messages.update_success')
       redirect_to [:ngos, @event]
     else

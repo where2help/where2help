@@ -1,5 +1,9 @@
+require "ongoing_event/progress_bar_helper"
+
 class OngoingEventOperation
   class Index < Operation
+    include ProgressBarHelper
+
     def setup_model!(params)
       ngo    = params.fetch(:current_ngo)
       order  = params.fetch(:order_by) { "created" }
@@ -21,6 +25,8 @@ class OngoingEventOperation
   end
 
   class Show < Operation
+    include ProgressBarHelper
+
     def setup_model!(params)
       ngo    = params.fetch(:current_ngo)
       @model = ngo.ongoing_events.find(params[:event_id])
@@ -38,7 +44,6 @@ class OngoingEventOperation
       event_params = params.fetch(:ongoing_event)
       @model = ngo.ongoing_events.create(event_params)
     end
-
   end
 
   class Update < Operation
@@ -51,7 +56,21 @@ class OngoingEventOperation
       ngo          = params.fetch(:current_ngo)
       event_params = params.fetch(:ongoing_event)
       @model       = ngo.ongoing_events.find(params[:event_id])
+      handle_user_notification!(params, @model)
       @model.update_attributes(event_params)
+    end
+
+    private
+
+    def handle_user_notification!(params, event)
+      should_notify = params[:notify_users]
+      if should_notify
+        event.users.each do |user|
+          UserMailer
+            .ongoing_event_updated(user: user, event: event)
+            .deliver_later
+        end
+      end
     end
   end
 
@@ -59,8 +78,19 @@ class OngoingEventOperation
     def process(params)
       ngo   = params.fetch(:current_ngo)
       event = ngo.ongoing_events.find(params[:event_id])
+      notify_users!(event, event.users)
       event.destroy
       @model = event
+    end
+
+    private
+
+    def notify_users!(event, users)
+      users.each do |user|
+        UserMailer
+          .ongoing_event_destroyed(event: event, user: user)
+          .deliver_later
+      end
     end
   end
 
