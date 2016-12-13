@@ -17,10 +17,6 @@ RSpec.describe ShiftsController, type: :routing do
     it 'routes DELETE shifts/:id/opt_in to #opt_out' do
       expect(delete: 'shifts/1/opt_out').to route_to 'shifts#opt_out', shift_id: '1'
     end
-
-    it 'routes GET schedule to #schedule' do
-      expect(get: 'schedule').to route_to 'shifts#schedule'
-    end
   end
   describe 'named routes' do
     it 'routes GET shift_path to #show' do
@@ -33,10 +29,6 @@ RSpec.describe ShiftsController, type: :routing do
 
     it 'routes DELETE shift_opt_out_path to #opt_out' do
       expect(delete: shift_opt_out_path('1')).to route_to 'shifts#opt_out', shift_id: '1'
-    end
-
-    it 'routes GET schedule_path to #schedule' do
-      expect(get: schedule_path).to route_to 'shifts#schedule'
     end
   end
 end
