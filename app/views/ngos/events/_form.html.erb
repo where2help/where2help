@@ -31,15 +31,13 @@
   </div>
 
   <div class="actions">
-    <% if action_name == "edit" && @operation %>
-      <% if @operation.has_users? %>
-        <div class="form-group">
-          <%= label_tag do %>
-            <%= check_box_tag "notify_users" %>
-            <%= t(".notify_users", user_count: @operation.user_count, volunteers: @operation.pluralized_users) %>
-          <% end %>
-        </div>
-      <% end %>
+    <% if action_name == "edit" && @operation && @operation.has_users? %>
+      <div class="form-group">
+        <%= label_tag do %>
+          <%= check_box_tag "notify_users" %>
+          <%= t(".notify_users", user_count: @operation.user_count, volunteers: @operation.pluralized_users) %>
+        <% end %>
+      </div>
     <% end %>
     <%= f.submit class: "btn btn-primary" %>
   </div>
