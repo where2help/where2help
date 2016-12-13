@@ -70,7 +70,8 @@ Rails.application.routes.draw do
     delete :opt_out
     get :cal
   end
-  get :schedule, to: 'shifts#schedule'
+
+  resource :schedule, only: :show
 
   authenticated :user do
     root 'events#index'

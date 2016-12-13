@@ -63,6 +63,15 @@ de:
         <p>Die Organisation wird Dich zur Vereinbarung Deiner Einsatzplanung kontaktieren.</p>
     opt_out:
       notice: Schade...
+  schedules:
+    show:
+      your_shifts: |+
+        <h3>Deine Einsätze</h3>
+        <p>Sei bitte pünktlich. Falls Du doch nicht kommen kannst, sag bitte so früh wie möglich ab.</p>
+      past: Vergangene
+      upcoming: Bevorstehende
+      all: Alle
+      ongoing: Dauerhafte
   users:
     nav:
       schedule: Einsätze
@@ -266,13 +275,5 @@ de:
     load_more: Mehr anzeigen
     thank_you: Danke!
     please_come: Bitte kommen Sie um
-    schedule:
-      your_shifts: |+
-        <h3>Deine Einsätze</h3>
-        <p>Sei bitte pünktlich. Falls Du doch nicht kommen kannst, sag bitte so früh wie möglich ab.</p>
-      past: Vergangene
-      upcoming: Bevorstehende
-      all: Alle
-      ongoing: Dauerhafte
     opt_out:
       notice: Schade...

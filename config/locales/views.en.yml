@@ -58,6 +58,15 @@ en:
       thank_you: |
         <h1>Thank You!</h1>
         <p>The volunteer coordinator will get ahold of you when they need you.</p>
+  schedules:
+    show:
+      your_shifts: |+
+        <h3>Your Shifts</h3>
+        <p>(Please be on time. Please cancel early enough if you can't come.)</p>
+      past: Past
+      upcoming: Upcoming
+      all: All
+      ongoing: Ongoing
   users:
     sessions:
       new:
@@ -252,7 +261,3 @@ en:
     load_more: Show more
     thank_you: Thank you! Looking forward to have you onboard.
     please_come: Please join us at
-    schedule:
-      your_shifts: |
-        <h3>Your Shifts</h3>
-        <p>(Please be on time. Please cancel early enough if you can't come.)</p>

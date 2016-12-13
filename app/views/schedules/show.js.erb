@@ -1,0 +1,13 @@
+(function() {
+  var $shiftContainer = $("[data-behavior='shift-container']");
+  var $paginationBtn = $("[data-behavior='shift-pagination']");
+
+  function updateComponent() {
+    <% @collection.each do |item| %>
+      $shiftContainer.append("<%= j render partial: "schedule_#{item.type}", object: item.object %>");
+    <% end %>
+    $paginationBtn.replaceWith("<%= j load_more_shifts_btn @collection, {filter: params[:filter]} %>");
+  }
+
+  updateComponent();
+})();
