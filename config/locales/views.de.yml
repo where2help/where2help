@@ -152,14 +152,14 @@ de:
         edit_event: Einsatz aktualisieren
         confirmed_so_far: "Bisher zugesagt: "
         prohibited: "Fehler verhinderte(n), dass dieser Einsatz gespeichert wurde."
-        notify_users: Benachtrichtige die %{user_count} %{volunteers}
+        notify_users: Benachrichtige die %{user_count} %{volunteers}
       messages:
-        create_success: Einsatz wurde erfolgreich erzeugt.
+        create_success: Einsatz wurde erfolgreich erstellt.
         update_success: Einsatz wurde erfolgreich aktualisiert.
         publish_success: Einsatz wurde erfolgreich veröffentlicht.
         unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
         publish_fail: Einsatz konnte nicht veröffentlicht werden.
-        delete_success: Einsatz wurde erfolgreich verlöscht.
+        delete_success: Einsatz wurde erfolgreich gelöscht.
     ongoing_events:
       index:
         add_an_event: Dauerhaften Einsatz hinzufügen
@@ -180,14 +180,14 @@ de:
         delete: Löschen
       form:
         submit: Dauerhaften Einsatz erstellen
-        notify_users: Benachtrichtige die %{user_count} %{volunteers}
+        notify_users: Benachrichtige die %{user_count} %{volunteers}
       messages:
-        create_success: Einsatz wurde erfolgreich erzeugt.
+        create_success: Einsatz wurde erfolgreich erstellt.
         update_success: Einsatz wurde erfolgreich aktualisiert.
         publish_success: Einsatz wurde erfolgreich veröffentlicht.
         unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
         publish_fail: Einsatz konnte nicht veröffentlicht werden.
-        delete_success: Einsatz wurde erfolgreich verlöscht.
+        delete_success: Einsatz wurde erfolgreich gelöscht.
     sessions:
       new:
         please_login: Als NGO anmelden
