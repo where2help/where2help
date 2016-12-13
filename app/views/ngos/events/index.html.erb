@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <%= link_to t(".add_an_event"), new_ngos_event_path, class: 'btn btn-default' %>
     <br />
     <br />
   </div>
-  <div class="col-sm-10">
+  <div class="col-sm-9">
     <%= form_tag ngos_events_path, method: :get, id: 'filter-form', class: 'form-inline' do %>
       <div class="form-group">
         <%= select_tag :order_by,
