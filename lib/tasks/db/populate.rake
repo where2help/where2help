@@ -3,11 +3,15 @@ namespace :db do
   require "uri"
   require 'json'
   require "faker"
+
+  require Rails.root.join("db", "seeds", "address_data")
+
   Faker::Config.locale = :de
 
   desc 'Populate DB with sample data'
   task populate: :environment do
     ActiveRecord::Base.logger.level = :info
+
     password = "password"
 
     [Ngo, User, Event, OngoingEvent].each { |model| model.unscoped.map(&:really_destroy!) }
@@ -83,20 +87,32 @@ namespace :db do
 
     puts "Created #{Ngo.count} NGO's"
 
-    users = User.all
-    random_users = -> { users.shuffle.take(rand(users.size)) }
+    users        = User.all
+    random_users = -> {
+      users.shuffle.take(rand(users.size))
+    }
+    address_data = AddressData.new
+    approximate_address = -> address {
+      "%s. Bezirk, %s" % [address.bezirk, address.city]
+    }
+    real_address = -> address {
+      zip = address.plz
+      zip ||= "10%s" % address.bezirk.split(',').first.rjust(2, '0')
+      "#{zip}, #{address.address}"
+    }
 
     Ngo.find_each do |ngo|
       10.times do
         start = Time.now + rand(7).days + rand(86400).seconds
-        # NOTE: Secondary address is coming from the base locale file
+        address = address_data.next_address
         event = Event.new(
           title: Faker::Book.title,
           description: Faker::Hipster.paragraph,
           person: Faker::Name.first_name + " " + Faker::Name.last_name + ", Tel." + Faker::PhoneNumber.cell_phone,
-          lat: Faker::Address.latitude,
-          lng: Faker::Address.longitude,
-          address: "#{Faker::Address.secondary_address}",
+          lat: address.coords.lat,
+          lng: address.coords.lng,
+          address: real_address.(address),
+          approximate_address: approximate_address.(address),
           ngo_id: ngo.id)
 
         rand(1..5).times do
@@ -126,13 +142,15 @@ namespace :db do
     Ngo.order("RANDOM()").limit(Ngo.count / 2).all.each do |ngo|
       rand(1..5).times do
         # NOTE: Secondary address is coming from the base locale file
+        address = address_data.next_address
         OngoingEvent.create(
           title: Faker::Book.title,
           description: Faker::Hipster.paragraph,
           contact_person: Faker::Name.first_name + " " + Faker::Name.last_name + ", Tel." + Faker::PhoneNumber.cell_phone,
-          lat: Faker::Address.latitude,
-          lng: Faker::Address.longitude,
-          address: "#{Faker::Address.secondary_address}",
+          lat: address.coords.lat,
+          lng: address.coords.lng,
+          address: real_address.(address),
+          approximate_address: approximate_address.(address),
           volunteers_needed: rand(1..20),
           published_at: Time.now,
           ngo_id: ngo.id)
@@ -148,34 +166,5 @@ namespace :db do
     end
 
     puts "Created #{Participation.where.not(ongoing_event_id: nil).count} OngoingEvent Participations"
-
-    VCR.configure do |config|
-      config.default_cassette_options = { record: :new_episodes }
-      config.cassette_library_dir = Rails.root.join("tmp/fixtures/vcr_cassettes")
-      config.hook_into :webmock # or :fakeweb
-    end
-
-    update_address = -> event {
-      print "\rResolving #{event.address}                         "
-      uri = URI.parse("https://data.wien.gv.at/daten/OGDAddressService.svc/GetAddressInfo?Address=" + ERB::Util.url_encode(event.address) + "&crs=EPSG:4326")
-      response = Net::HTTP.get_response(uri)
-      if response.body && response.body.length > 1
-        feature = JSON.parse(response.body)["features"].first
-        coords = feature["geometry"]["coordinates"]
-        zip = feature["properties"]["PostalCode"]
-        zip ||= "10#{feature["properties"]["Bezirk"].split(',').first.rjust(2, '0')}"
-        address = "#{zip}, #{event.address}"
-        approximate_address = "#{feature["properties"]["Bezirk"]}. Bezirk, #{feature["properties"]["Municipality"]}"
-        event.update(lng: coords[0], lat: coords[1], address: address, approximate_address: approximate_address)
-      end
-    }
-
-    VCR.use_cassette("populate_locations") do
-      (Event.all + OngoingEvent.all).each do |event|
-        update_address.(event)
-      end
-    end
-    puts "\nResolved #{Event.count} Event Addresses"
-    puts "Resolved #{OngoingEvent.count} OngoingEvent Addresses"
   end
 end

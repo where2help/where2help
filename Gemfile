@@ -55,8 +55,6 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'bullet'
   gem 'letter_opener'
-  gem 'vcr'
-  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

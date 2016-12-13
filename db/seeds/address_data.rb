@@ -1,6 +1,7 @@
 require "json"
 
 class AddressData
+  Coords  = Struct.new(:lat, :lng)
   Address = Struct.new(:coords, :bezirk, :address, :street_name, :street_number, :city, :plz)
   def initialize
     @addresses = JSON.load(JSON_DATA).compact.map { |a|
@@ -8,7 +9,7 @@ class AddressData
       next if f.nil?
       p = f.fetch("properties", {})
       Address.new(
-        f.fetch("geometry", {})["coordinates"],
+        Coords.new(*(f["geometry"]["coordinates"].reverse)),
         p["Bezirk"],
         p["Adresse"],
         p["StreetName"],
