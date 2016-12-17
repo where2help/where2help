@@ -48,7 +48,14 @@ class Ngo < ApplicationRecord
 
   # custom message if requires admin confirmation
   def inactive_message
-    confirmed? ? :not_admin_confirmed : super
+    if !confirmed?
+      if email_confirmed?
+        return :not_admin_confirmed
+      else
+        return :unconfirmed
+      end
+    end
+    super
   end
 
   def new_event
@@ -60,10 +67,18 @@ class Ngo < ApplicationRecord
   end
 
   def confirmed?
-    confirmed_at.present? && admin_confirmed_at.present?
+    email_confirmed? && admin_confirmed?
   end
 
   private
+
+  def admin_confirmed?
+    admin_confirmed_at.present?
+  end
+
+  def email_confirmed?
+    confirmed_at.present?
+  end
 
   def request_admin_confirmation
     AdminMailer.new_ngo(self).deliver_later
