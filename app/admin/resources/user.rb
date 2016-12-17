@@ -8,7 +8,6 @@ ActiveAdmin.register User do
   includes :languages, :abilities
 
   filter :email
-  filter :phone
   filter :first_name
   filter :last_name
   filter :admin
@@ -17,13 +16,13 @@ ActiveAdmin.register User do
   filter :created_at
 
   permit_params :email,
-    :first_name,
-    :last_name,
-    :phone,
-    :admin,
-    :locale,
-    ability_ids: [],
-    language_ids: []
+                :first_name,
+                :last_name,
+                :phone,
+                :admin,
+                :locale,
+                ability_ids: [],
+                language_ids: []
 
   member_action :lock, method: :put do
     UserOperation::Lock.(user: resource)

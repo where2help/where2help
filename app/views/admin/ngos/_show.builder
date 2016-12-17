@@ -5,7 +5,10 @@ context.instance_eval do
       row :name
       row :email
       row :locale
-      row(:state){ |ngo| status_tag(Ngo.human_attribute_name("state-#{ngo.state}")) }
+      row(:state){ |ngo|
+        ngo = NgoDecorator.new(ngo)
+        status_tag(ngo.status)
+      }
       row :created_at
       row :confirmed_at
       row :admin_confirmed_at

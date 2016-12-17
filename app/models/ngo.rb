@@ -10,11 +10,12 @@ class Ngo < ApplicationRecord
 
   has_many :events,         dependent: :restrict_with_error
   has_many :ongoing_events, dependent: :restrict_with_error
-  has_one :contact,         dependent: :destroy, inverse_of: :ngo
+  has_one  :contact,        dependent: :destroy, inverse_of: :ngo
+
   accepts_nested_attributes_for :contact
 
-  validates :name, presence: true
-  validates_presence_of :contact
+  validates :name,                 presence: true
+  validates :contact,              presence: true
   validates :terms_and_conditions, acceptance: true
 
   after_commit :request_admin_confirmation, on: :create
@@ -26,18 +27,18 @@ class Ngo < ApplicationRecord
   end
 
   def state
-    %w(deleted confirmed).each { |state| return state if send("#{state}?") }
-    'pending'
+    _state = %w(deleted confirmed).find { |state| send("#{state}?") }
+    _state || 'pending'
   end
 
   def self.send_reset_password_instructions(attributes={})
-   recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
-   if !recoverable.confirmed?
-     recoverable.errors[:base] << I18n.t('devise.failure.not_admin_confirmed')
-   elsif recoverable.persisted?
-     recoverable.send_reset_password_instructions
-   end
-   recoverable
+    recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
+    if !recoverable.confirmed?
+      recoverable.errors[:base] << I18n.t('devise.failure.not_admin_confirmed')
+    elsif recoverable.persisted?
+      recoverable.send_reset_password_instructions
+    end
+    recoverable
   end
 
   # overwrite devise to require admin confirmation too
@@ -51,15 +52,15 @@ class Ngo < ApplicationRecord
   end
 
   def new_event
-    t = Time.now + 15.minutes
-    starts = t - t.sec - t.min%15*60
-    ends = starts +  2.hours
+    t           = Time.now + 15.minutes
+    starts      = t - t.sec - t.min%15*60
+    ends        = starts +  2.hours
     shifts_attr = [{ volunteers_needed: 1, starts_at: starts, ends_at: ends }]
-    events.build shifts_attributes: shifts_attr
+    events.build(shifts_attributes: shifts_attr)
   end
 
   def confirmed?
-    admin_confirmed_at.present?
+    confirmed_at.present? && admin_confirmed_at.present?
   end
 
   private
