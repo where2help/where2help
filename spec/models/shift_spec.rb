@@ -143,11 +143,11 @@ RSpec.describe Shift, type: :model do
     end
 
     it "gets shifts on different dates" do
-      shifts = Shift.filtered_for_ngo(ngo, [nil, nil])
+      shifts = Shift.filtered_for_ngo(ngo, nil)
       expect(shifts.to_a.size).to eq(5)
     end
     it "can filter for shifts in the past" do
-      shifts = Shift.filtered_for_ngo(ngo, [:past, nil])
+      shifts = Shift.filtered_for_ngo(ngo, :past)
       expect(shifts.map(&:event)).to eq([past_event])
     end
   end
