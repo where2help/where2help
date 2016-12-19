@@ -11,6 +11,7 @@
 @import 'font-awesome';
 @import 'flag-icon';
 @import 'leaflet';
+@import 'breakpoint-sass/stylesheets/breakpoint';
 
 // Globals
 @import 'base/globals';
@@ -21,4 +22,5 @@
 @import 'pages/events';
 @import 'pages/registrations';
 @import 'pages/static';
+@import 'partials/layout';
 @import 'partials/modules';

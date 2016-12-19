@@ -4,9 +4,7 @@ class Ngos::OngoingEventsController < ApplicationController
 
   def index
     @operation =
-      OngoingEventOperation::Index.present(
-        current_ngo: current_ngo,
-        order_by:    params[:order_by])
+      OngoingEventOperation::Index.present(current_ngo: current_ngo)
     @events = @operation.model
   end
 

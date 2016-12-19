@@ -131,6 +131,7 @@ de:
         events: Konkrete Einsätze
         ongoing_events: Dauerhafte Einsätze
         add_an_event: Konkreten Einsatz hinzufügen
+        add_an_ongoing_event: Dauerhaften Einsatz hinzufügen
         address: Adresse
         all: alle
         filter_by: Filtern nach
@@ -138,6 +139,8 @@ de:
         past: vergangene
         title: Titel
         upcoming: zukünftige
+      new:
+        title: Neuer Konkreter Einsatz
       show:
         publish: Veröffentlichen
         are_you_sure: Sind Sie sicher?
@@ -162,13 +165,16 @@ de:
         delete_success: Einsatz wurde erfolgreich gelöscht.
     ongoing_events:
       index:
-        add_an_event: Dauerhaften Einsatz hinzufügen
+        add_an_event: Konkreten Einsatz hinzufügen
+        add_an_ongoing_event: Dauerhaften Einsatz hinzufügen
         events: Konkrete Einsätze
         ongoing_events: Dauerhafte Einsätze
         filter_by: Filtern nach
         order_by: Ordnen nach
         upcoming: zukünftige
         all: alle
+      new:
+        title: Neuer Dauerhafte Einsatz
       show:
         contact_person: Kontakt vor Ort
         volunteers_count: Anzahl Freiwilliger
