@@ -21,7 +21,8 @@ class Ngo < ApplicationRecord
   after_commit :request_admin_confirmation, on: :create
 
   def confirm!
-    if !confirmed? && update(admin_confirmed_at: Time.now)
+    if !admin_confirmed?
+      update(admin_confirmed_at: Time.now)
       send_admin_confirmation
     end
   end
