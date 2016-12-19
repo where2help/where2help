@@ -150,14 +150,6 @@ RSpec.describe Shift, type: :model do
       shifts = Shift.filtered_for_ngo(ngo, [:past, nil])
       expect(shifts.map(&:event)).to eq([past_event])
     end
-    it "can order by title" do
-      shifts = Shift.filtered_for_ngo(ngo, [nil, :title])
-      expect(shifts.map(&:event).uniq).to eq([second_event, first_event, third_event, past_event])
-    end
-    it "can order by address" do
-      shifts = Shift.filtered_for_ngo(ngo, [nil, :address])
-      expect(shifts.map(&:event).uniq).to eq([third_event, second_event, first_event, past_event])
-    end
   end
 
   describe '#progress_bar' do
