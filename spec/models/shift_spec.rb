@@ -126,30 +126,6 @@ RSpec.describe Shift, type: :model do
     end
   end
 
-  describe '.filter' do
-    it 'calls :upcoming scope when passing no param' do
-      expect(Shift).to receive(:upcoming)
-      Shift.filter
-    end
-    it 'calls :upcoming scope when passing nil' do
-      expect(Shift).to receive(:upcoming)
-      Shift.filter(nil)
-    end
-    it 'calls :past when passing :past' do
-      expect(Shift).to receive(:past)
-      Shift.filter(:past)
-    end
-    it 'calls :past when passing :all' do
-      expect(Shift).to receive(:all)
-      Shift.filter(:all)
-    end
-    it 'raises ArgumentError when passing a non-existing scope' do
-      expect{
-        Shift.filter(:some_random_crap123)
-      }.to raise_error ArgumentError
-    end
-  end
-
   describe '.filtered_for_ngo' do
     let(:ngo)          { create :ngo }
     let(:past_event)   { create :event, :skip_validate, :published, ngo: ngo, title: "D", address: "Doo St." }
