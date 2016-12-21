@@ -3,12 +3,12 @@ require "event/operation"
 class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!
 
-  def show
-    find_ngo_event
-  end
-
   def index
     @shifts = Shift.filtered_for_ngo(current_ngo, filter_params)
+  end
+
+  def show
+    find_ngo_event
   end
 
   def new
@@ -76,10 +76,7 @@ class Ngos::EventsController < ApplicationController
   private
 
   def filter_params
-    [
-      (params[:filter_by].present? && params[:filter_by].to_sym) || nil,
-      (params[:order_by].present?  && params[:order_by].to_sym)  || nil
-    ]
+    (params[:filter_by].present? && params[:filter_by].to_sym) || nil
   end
 
   def event_params

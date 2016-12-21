@@ -2,3 +2,26 @@
   background-color: #f5f5f5;
 }
 
+.m_ngo-event-toggle-buttons {
+  $dark: #434A54;
+  .btn-default.active,
+  .btn-default:hover,
+  .btn-default:active:focus,
+  .btn-default:active.focus,
+  .btn-default.active:focus,
+  .btn-default.active.focus {
+    background-color: $dark;
+    border-color: $dark !important;
+  }
+  .btn-default {
+    border-color: $dark !important;
+  }
+}
+
+.m_ngo-event-filter-form {
+  $basic: 785px;
+  @include breakpoint($basic) {
+    float: right;
+  }
+}
+

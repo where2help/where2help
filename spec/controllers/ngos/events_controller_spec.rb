@@ -81,17 +81,13 @@ RSpec.describe Ngos::EventsController, type: :controller do
         end
         context 'with valid order_by and filter_by parameter' do
           let!(:last_event) { create(:event, :with_shift, :skip_validate, ngo: ngo, title: 'A'*100) }
-          let(:params) {{ filter_by: 'upcoming', order_by: 'title' }}
+          let(:params) {{ filter_by: 'upcoming'}}
 
           before { get :index, params: params }
 
           it 'returns all filtered events' do
             events = (assigns :shifts).map(&:event)
             expect(events).to match_array (own_events << last_event)
-          end
-          it 'returns events ordered' do
-            events = (assigns :shifts).map(&:event)
-            expect(events.first).to eq last_event
           end
         end
       end

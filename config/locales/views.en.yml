@@ -137,8 +137,10 @@ en:
         are_you_sure: Are you sure?
         edit: Edit
         delete: Delete
+      new:
+        title: New Fixed Event
       form:
-        new: New Event
+        new: New Fixed Event
         shifts: Shifts
         add_shift: Add Shift
         save_shift: Save Shift
@@ -169,6 +171,8 @@ en:
         are_you_sure: Are you sure?
         edit: Edit
         delete: Delete
+      new:
+        title: New Ongoing Event
       form:
         submit: Create Ongoing Event
         notify_users: Notify the %{user_count} %{volunteers}

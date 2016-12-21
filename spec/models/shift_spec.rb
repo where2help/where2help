@@ -126,30 +126,6 @@ RSpec.describe Shift, type: :model do
     end
   end
 
-  describe '.filter' do
-    it 'calls :upcoming scope when passing no param' do
-      expect(Shift).to receive(:upcoming)
-      Shift.filter
-    end
-    it 'calls :upcoming scope when passing nil' do
-      expect(Shift).to receive(:upcoming)
-      Shift.filter(nil)
-    end
-    it 'calls :past when passing :past' do
-      expect(Shift).to receive(:past)
-      Shift.filter(:past)
-    end
-    it 'calls :past when passing :all' do
-      expect(Shift).to receive(:all)
-      Shift.filter(:all)
-    end
-    it 'raises ArgumentError when passing a non-existing scope' do
-      expect{
-        Shift.filter(:some_random_crap123)
-      }.to raise_error ArgumentError
-    end
-  end
-
   describe '.filtered_for_ngo' do
     let(:ngo)          { create :ngo }
     let(:past_event)   { create :event, :skip_validate, :published, ngo: ngo, title: "D", address: "Doo St." }
@@ -167,20 +143,12 @@ RSpec.describe Shift, type: :model do
     end
 
     it "gets shifts on different dates" do
-      shifts = Shift.filtered_for_ngo(ngo, [nil, nil])
+      shifts = Shift.filtered_for_ngo(ngo, nil)
       expect(shifts.to_a.size).to eq(5)
     end
     it "can filter for shifts in the past" do
-      shifts = Shift.filtered_for_ngo(ngo, [:past, nil])
+      shifts = Shift.filtered_for_ngo(ngo, :past)
       expect(shifts.map(&:event)).to eq([past_event])
-    end
-    it "can order by title" do
-      shifts = Shift.filtered_for_ngo(ngo, [nil, :title])
-      expect(shifts.map(&:event).uniq).to eq([second_event, first_event, third_event, past_event])
-    end
-    it "can order by address" do
-      shifts = Shift.filtered_for_ngo(ngo, [nil, :address])
-      expect(shifts.map(&:event).uniq).to eq([third_event, second_event, first_event, past_event])
     end
   end
 

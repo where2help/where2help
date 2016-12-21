@@ -1,34 +1,40 @@
+<br />
+<br />
+
 <div class="row">
-  <div class="col-sm-3">
-    <%= link_to t(".add_an_event"), new_ngos_event_path, class: 'btn btn-default' %>
-    <br />
-    <br />
+  <div class="col-xs-12">
+    <div class="btn-group btn-group-justified m_ngo-event-toggle-buttons">
+      <%= link_to t(".events"),         ngos_events_path,         class: "btn btn-default active" %>
+      <%= link_to t(".ongoing_events"), ngos_ongoing_events_path, class: "btn btn-default" %>
+    </div>
   </div>
-  <div class="col-sm-9">
-    <%= form_tag ngos_events_path, method: :get, id: 'filter-form', class: 'form-inline' do %>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="l_button-stack">
+      <%= link_to new_ngos_event_path, class: 'btn btn-primary' do %>
+         <i class="fa fa-plus"></i> <%= t(".add_an_event") %>
+      <% end %>
+      &nbsp;&nbsp;&nbsp;
+      <%= link_to new_ngos_ongoing_event_path, class: 'btn btn-default' do %>
+        <i class="fa fa-plus"></i> <%= t(".add_an_ongoing_event") %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-2 col-sm-offset-4">
+    <%= form_tag ngos_events_path, method: :get, id: 'filter-form', class: 'form-inline m_ngo-event-filter-form' do %>
       <div class="form-group">
-        <%= select_tag :order_by,
-          options_for_select({t(".address") => :address, t(".title") => :title}, params[:order_by]),
-          include_blank: t(".order_by"),
-          onchange: "$('#filter-form').submit();",
-          class: 'form-control' %>
-        &nbsp;
         <%= select_tag :filter_by,
           options_for_select({t(".all") => :all, t(".upcoming") => :upcoming, t(".past") => :past}, params[:filter_by]),
           include_blank: t(".filter_by"),
           onchange: "$('#filter-form').submit();",
           class: 'form-control' %>
-      <% end %>
       </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12">
-    <div class="btn-group btn-group-justified">
-      <%= link_to t(".events"), ngos_events_path, class: "btn btn-default active" %>
-      <%= link_to t(".ongoing_events"), ngos_ongoing_events_path, class: "btn btn-default" %>
-    </div>
+    <% end %>
   </div>
 </div>
 

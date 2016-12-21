@@ -41,3 +41,5 @@ Procfile.dev
 .env.test
 .ruby-env
 tags
+.DS_Store
+public/assets

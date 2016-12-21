@@ -20,8 +20,7 @@ class Shift < ApplicationRecord
   before_destroy :notify_volunteers_about_destroy, prepend: true
   after_update   :notify_volunteers_about_update,  prepend: true
 
-  def self.filtered_for_ngo(ngo, filters)
-    the_scope, order_by = filters
+  def self.filtered_for_ngo(ngo, filter_params)
     # unscoped is necessary because default_scope (deprecated?) is
     # messing up the order by
     shifts =
@@ -34,27 +33,14 @@ class Shift < ApplicationRecord
       .group("starts, event_id")
       .order("max_starts_at, event_id")
 
-    if order_by && Event.order_by_for_select.include?(order_by)
-      shifts = shifts.sort_by{ |shift|
-        shift.event.send(order_by)
-      }
-    end
-
-    # skip if no scope
-    case the_scope
+    # skip if no filter
+    case filter_params
     when :past
       shifts = shifts.select { |shift| shift.max_starts_at < Time.now }
     when :upcoming
       shifts = shifts.select { |shift| shift.max_starts_at > Time.now }
     end
     shifts
-  end
-
-  def self.filter(scope = nil)
-    scope ||= :upcoming
-    valid_scope = [:all, :past, :upcoming].include? scope
-    raise ArgumentError.new('Invalid scope given') unless valid_scope
-    send(scope)
   end
 
   def progress_bar(user = nil)
