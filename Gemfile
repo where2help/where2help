@@ -69,7 +69,7 @@ gem 'formtastic-bootstrap'
 gem 'cocoon'
 
 # Soft delete
-gem 'paranoia', '~> 2.2.0.pre'
+gem "paranoia", "~> 2.2"
 # Pagination
 gem 'kaminari'
 
