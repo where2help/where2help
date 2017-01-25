@@ -18,15 +18,15 @@ RSpec.describe OngoingEventsController, type: :controller do
     end
     context 'when logged in as user' do
       let(:pending_event) { create :event, :with_shift }
-      let!(:events) { create_list :ongoing_event, 25, :published }
       let!(:next_events) { create_list :ongoing_event, 25, :published }
+      let!(:newest_events) { create_list :ongoing_event, 25, :published }
       before { sign_in create(:user) }
 
       context 'when html request' do
         before { get :index }
 
         it 'assigns first 25 published events with available shifts to @events' do
-          expect(assigns :events).to match_array events
+          expect(assigns :events).to match_array newest_events
         end
 
         it 'excludes pending events' do
