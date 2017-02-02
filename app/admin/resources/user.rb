@@ -41,7 +41,7 @@ ActiveAdmin.register User do
                  .group("users.id")
     if params[:max].present?
       users.having(
-        "COUNT(participations.id) >= :min AND COUNT(users.id) < :max",
+        "COUNT(participations.id) >= :min AND COUNT(participations.id) < :max",
         min: params[:min].to_i,
         max: params[:max].to_i
       )

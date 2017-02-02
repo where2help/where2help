@@ -8,4 +8,4 @@
 //= require moment/de
 //= require icheck.min
 //= require typeahead.bundle
-//= require_tree .
+//= require_tree ./application
