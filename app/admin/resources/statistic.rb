@@ -6,12 +6,14 @@ ActiveAdmin.register_page "Statistic" do
     to_date = Date.parse(params[:to_date])
 
     volunteers_needed = Shift.unscoped.where("starts_at BETWEEN :from and :to", from: from_date, to: to_date).sum(:volunteers_needed)
-    volunteers_count = Participation.unscoped.joins(:shift).where("shifts.starts_at BETWEEN :from and :to", from: from_date, to: to_date).count
+    volunteers_count = (Shift.unscoped do
+      Participation.unscoped.joins(:shift).where("shifts.starts_at BETWEEN :from and :to", from: from_date, to: to_date).count
+    end)
     volunteers_count_needed_percent = volunteers_needed > 0 ? 100 * volunteers_count.to_f / volunteers_needed : 0
 
-    hours_needed = Shift.unscoped.where("starts_at BETWEEN :from and :to", from: from_date, to: to_date).sum("volunteers_needed * (ends_at - starts_at)").to_f
+    hours_needed = Shift.unscoped.where("starts_at BETWEEN :from and :to", from: from_date, to: to_date).sum("volunteers_needed * EXTRACT(EPOCH FROM (ends_at - starts_at)) / 3600").to_f
     hours_invested = (Participation.unscoped do
-      Shift.unscoped.where("starts_at BETWEEN :from and :to", from: from_date, to: to_date).joins(:participations).sum("(ends_at - starts_at)").to_f
+      Shift.unscoped.where("starts_at BETWEEN :from and :to", from: from_date, to: to_date).joins(:participations).sum("EXTRACT(EPOCH FROM (ends_at - starts_at))").to_f / 3600
     end)
     hours_invested_needed_percent = hours_needed > 0 ? 100 * hours_invested.to_f / hours_needed : 0
 
@@ -68,7 +70,7 @@ ActiveAdmin.register_page "Statistic" do
             user_participation_counts += Array.new(user_count - user_participation_counts.size, 0)
 
             if user_participation_counts.any?
-              (bins, freqs) = user_participation_counts.histogram(:bin_boundary => :min)
+              (bins, freqs) = user_participation_counts.histogram(6, :bin_boundary => :min)
               bins.each_with_index do |bin, i|
                 bin_percent = user_count > 0 ? 100 * freqs[i].to_f / user_count : 0
                 max = i+1 < bins.size ? bins[i+1].ceil : nil
@@ -83,9 +85,9 @@ ActiveAdmin.register_page "Statistic" do
             nil # return value displayed in row
           end
           row "Stunden für Schichten" do
-            hours_needed = Shift.unscoped.sum("volunteers_needed * (ends_at - starts_at)").to_f
+            hours_needed = Shift.unscoped.sum("volunteers_needed * EXTRACT(EPOCH FROM (ends_at - starts_at)) / 3600").to_f
             hours_invested = (Participation.unscoped do
-              Shift.unscoped.joins(:participations).sum("(ends_at - starts_at)").to_f
+              Shift.unscoped.joins(:participations).sum("EXTRACT(EPOCH FROM (ends_at - starts_at))").to_f / 3600
             end)
             invested_needed_percent = hours_needed > 0 ? 100 * hours_invested.to_f / hours_needed : 0
             div "#{number_with_precision(hours_needed, precision: 0)} Stunden für Schichten gesucht"
@@ -98,15 +100,15 @@ ActiveAdmin.register_page "Statistic" do
               Shift.unscoped
                    .joins(:participations)
                    .group(:user_id)
-                   .sum("(ends_at - starts_at)")
-                   .map { |_user_id, hours| hours.to_f }
+                   .sum("EXTRACT(EPOCH FROM(ends_at - starts_at))")
+                   .map { |_user_id, hours| hours.to_f / 3600 }
             end)
 
             # add a 0-value for each user who has never participated
             user_hours_invested += Array.new(user_count - user_hours_invested.size, 0)
 
             if user_hours_invested.any?
-              (bins, freqs) = user_hours_invested.histogram(:bin_boundary => :min)
+              (bins, freqs) = user_hours_invested.histogram(6, :bin_boundary => :min)
               bins.each_with_index do |bin, i|
                 bin_percent = user_count > 0 ? 100 * freqs[i].to_f / user_count : 0
                 max = i+1 < bins.size ? bins[i+1] : nil
@@ -122,17 +124,21 @@ ActiveAdmin.register_page "Statistic" do
           end
           row "Schichten pro NGO" do
             ngo_count = Ngo.unscoped.count
-            ngo_shift_counts = Shift.unscoped
-                                    .joins(:event)
-                                    .group("ngo_id")
-                                    .count
-                                    .map { |_ngo_id, count| count }
+            ngo_shift_counts = (
+              Event.unscoped do
+                Shift.unscoped
+                      .joins(:event)
+                      .group("ngo_id")
+                      .count
+                      .map { |_ngo_id, count| count }
+              end
+            )
 
             # add a 0-value for each NGO who has not created a single shift
             ngo_shift_counts += Array.new(ngo_count - ngo_shift_counts.size, 0)
 
             if ngo_shift_counts.any?
-              (bins, freqs) = ngo_shift_counts.histogram(:bin_boundary => :min)
+              (bins, freqs) = ngo_shift_counts.histogram(6, :bin_boundary => :min)
               bins.each_with_index do |bin, i|
                 bin_percent = ngo_count > 0 ? 100 * freqs[i].to_f / ngo_count : 0
                 max = i+1 < bins.size ? bins[i+1].ceil : nil
@@ -171,7 +177,7 @@ ActiveAdmin.register_page "Statistic" do
             user_participation_counts += Array.new(user_count - user_participation_counts.size, 0)
 
             if user_participation_counts.any?
-              (bins, freqs) = user_participation_counts.histogram(:bin_boundary => :min)
+              (bins, freqs) = user_participation_counts.histogram(6, :bin_boundary => :min)
               bins.each_with_index do |bin, i|
                 bin_percent = user_count > 0 ? 100 * freqs[i].to_f / user_count : 0
                 max = i+1 < bins.size ? bins[i+1].ceil : nil
