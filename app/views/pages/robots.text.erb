@@ -1,0 +1,7 @@
+<%- if Rails.env.production? %>
+User-agent: *
+Disallow:
+<%- else %>
+User-agent: *
+Disallow: /
+<%- end %>
