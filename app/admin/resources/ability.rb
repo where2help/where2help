@@ -1,4 +1,6 @@
 ActiveAdmin.register Ability do
+  menu priority: 6
+
   actions :all
 
   filter :name

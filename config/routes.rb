@@ -83,6 +83,8 @@ Rails.application.routes.draw do
   get 'terms_and_conditions', to: 'pages#terms_and_conditions'
   get 'how_to', to: 'pages#how_to'
 
+  get 'robots.txt', to: 'pages#robots'
+
   root 'pages#home'
 
   ActiveAdmin.routes(self)

@@ -9,7 +9,7 @@ class OngoingEvent < ApplicationRecord
   validates :address, presence: true
   validates :contact_person, presence: true
 
-  scope :newest_first, -> { order(:created_at) }
+  scope :newest_first, -> { order(created_at: :desc) }
   scope :published,    -> { where.not(published_at: nil) }
 
   def pending?

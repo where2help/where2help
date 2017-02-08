@@ -20,7 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: postgres
+  username: <%= ENV['DB_USER'] || "postgres" %>
   host: <%= ENV['DB_HOST'] %>
 
 development:
