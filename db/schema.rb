@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209132106) do
+ActiveRecord::Schema.define(version: 20170125122905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 20161209132106) do
     t.string   "phone"
     t.datetime "deleted_at"
     t.datetime "locked_at"
+    t.datetime "anonymized_at"
     t.index ["api_token"], name: "index_users_on_api_token", where: "(deleted_at IS NULL)", using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", where: "(deleted_at IS NULL)", using: :btree
     t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree

@@ -67,9 +67,10 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'formtastic-bootstrap'
 gem 'cocoon'
+gem 'histogram'
 
 # Soft delete
-gem 'paranoia', '~> 2.2.0.pre'
+gem "paranoia", "~> 2.2"
 # Pagination
 gem 'kaminari'
 

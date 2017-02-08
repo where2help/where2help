@@ -1,4 +1,5 @@
 ActiveAdmin.register Language do
+  menu priority: 7
   actions :all
 
   filter :name
