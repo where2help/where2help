@@ -11,6 +11,12 @@ en:
         Your account has been confirmed. If you already confirmed your emailaddress,
         you can go ahead and start creating events!
       link: Get started at Where2Help
+    ongoing_event_opt_in:
+      subject: "[where2help] New sign-up for \"%{ongoing_event_title}\""
+      greeting: "Hi %{name}"
+      content: |
+        Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper.
+      link: Show contact details
   user_mailer:
     event_updated:
       subject: "[where2help] Event was changed"
@@ -125,6 +131,7 @@ en:
     events:
       index:
         add_an_event: Add Fixed Event
+        add_an_ongoing_event: Add Ongoing Event
         address: Address
         all: All
         filter_by: Filter By
@@ -156,7 +163,8 @@ en:
         delete_success: Event was successfully removed.
     ongoing_events:
       index:
-        add_an_event: Add an Ongoing Event
+        add_an_event: Add Fixed Event
+        add_an_ongoing_event: Add Ongoing Event
         events: Fixed Events
         ongoing_events: Ongoing Events
         order_by: Order By

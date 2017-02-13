@@ -25,7 +25,19 @@ class OngoingEventOperation
         return nil if @model.nil?
         raise ArgumentError, "User already opted in" if @model.users.include?(user)
         @model.users << user
+        notify_ngo!(@model.ngo, @model, user)
       end
+
+      private
+
+        def notify_ngo!(ngo, ongoing_event, user)
+          NgoMailer
+            .ongoing_event_opt_in(
+              ngo: ngo,
+              ongoing_event: ongoing_event,
+              user: user
+            ).deliver_later
+        end
     end
 
     class OptOut < Operation

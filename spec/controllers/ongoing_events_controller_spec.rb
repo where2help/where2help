@@ -93,4 +93,25 @@ RSpec.describe OngoingEventsController, type: :controller do
       end
     end
   end
+
+  describe 'POST opt_in' do
+    let!(:ongoing_event) { create :ongoing_event, :skip_validate }
+
+    context 'when logged in' do
+      let(:user) { create :user }
+
+      before { sign_in user }
+
+      context 'when not opted in yet' do
+        it 'sends a notification email to the NGO' do
+
+          message_delivery = instance_double(ActionMailer::MessageDelivery)
+          expect(NgoMailer).to receive(:ongoing_event_opt_in).and_return(message_delivery)
+          expect(message_delivery).to receive(:deliver_later)
+
+          post :opt_in, params: { id: ongoing_event.id }
+        end
+      end
+    end
+  end
 end

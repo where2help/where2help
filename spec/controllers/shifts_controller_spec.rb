@@ -71,6 +71,12 @@ RSpec.describe ShiftsController, type: :controller do
           post :opt_in, params: { shift_id: shift }
           expect(response).to render_template :opt_in
         end
+
+        it 'does not send any emails' do
+          expect{
+            post :opt_in, params: { shift_id: shift }
+          }.to_not change { ActionMailer::Base.deliveries.count }
+        end
       end
       context 'when already opted in' do
         before { create :participation, user: user, shift: shift }

@@ -11,6 +11,12 @@ de:
         Euer Account ist jetzt freigeschalten. Wenn Ihr Eure E-Mail Adresse bereits bestätigt habt,
         könnt Ihr jetzt loslegen Einsätze zu erstellen!
       link: Bei Where2Help Loslegen
+    ongoing_event_opt_in:
+      subject: "[where2help] Neue Anmeldung für \"%{ongoing_event_title}\""
+      greeting: "Hallo %{name}"
+      content: |
+        Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r angemeldet.
+      link: Kontaktdaten anzeigen
   user_mailer:
     event_updated:
       subject: "[where2help] Einsatz wurde geändert"
