@@ -7,5 +7,6 @@
     <h2><%= t('.greeting', name: @ngo.name) %></h2>
     <p><%= t('.content', ongoing_event_title: @ongoing_event.title) %></p>
     <p><%= link_to t('.link'), ngos_ongoing_event_url(@ongoing_event) %></p>
+    <%= t('.footer_html') %>
   </body>
 </html>

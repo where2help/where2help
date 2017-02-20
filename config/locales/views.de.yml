@@ -15,8 +15,14 @@ de:
       subject: "[where2help] Neue Anmeldung für \"%{ongoing_event_title}\""
       greeting: "Hallo %{name}"
       content: |
-        Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r angemeldet.
-      link: Kontaktdaten anzeigen
+        Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r über where2help.wien angemeldet.
+      link: Kontaktdaten
+      footer_html: |
+        <p>Alles Gute für den Einsatz!</p>
+        <p>
+          Das where2help Team<br/>
+          contact@where2help.wien
+        </p>
   user_mailer:
     event_updated:
       subject: "[where2help] Einsatz wurde geändert"
