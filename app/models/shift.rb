@@ -55,7 +55,7 @@ class Shift < ApplicationRecord
 
   def notify_volunteers_about_destroy
     users.find_each do |user|
-      # calling deliver_now here because othewise won't have shift available
+      # calling deliver_now here because otherwise won't have shift available
       UserMailer.shift_destroyed(self, user).deliver_now
     end
   end
