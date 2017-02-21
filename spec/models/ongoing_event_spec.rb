@@ -9,9 +9,10 @@ RSpec.describe OngoingEvent, type: :model do
 
     it { is_expected.to validate_presence_of :address }
     it { is_expected.to validate_presence_of :contact_person }
+    it { is_expected.to validate_presence_of :ongoing_event_category }
     it { is_expected.to validate_length_of :title }
+    it { is_expected.to belong_to(:ongoing_event_category) }
   end
-
 
   describe 'scopes' do
     let(:full_event) { create :ongoing_event, :published }
