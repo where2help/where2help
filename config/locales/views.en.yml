@@ -59,6 +59,7 @@ en:
       message: Nothing there for you at the moment...
     terms_and_conditions: Terms and Conditions
     imprint: Imprint
+    contact: Contact
   events:
     load_more: Show more
     index:
