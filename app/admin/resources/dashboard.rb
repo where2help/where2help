@@ -104,12 +104,14 @@ ActiveAdmin.register_page "Dashboard" do
             user_participation_counts += Array.new(user_count - user_participation_counts.size, 0)
 
             if user_participation_counts.any?
-              (bins, freqs) = user_participation_counts.histogram(6, :bin_boundary => :min)
+              bin_boundaries = [0, 1, 2, 5, 10, 20]
+              (bins, freqs) = user_participation_counts.histogram(bin_boundaries, :bin_boundary => :min)
               bins.each_with_index do |bin, i|
                 bin_percent = user_count > 0 ? 100 * freqs[i].to_f / user_count : 0
                 max = i+1 < bins.size ? bins[i+1].ceil : nil
+                current_boundary = bin_boundaries[i]
                 div safe_join([
-                  "#{bin.ceil}+ Anmeldungen:",
+                  "#{bin.ceil}#{i+1 == bins.size || bin_boundaries[i+1]-current_boundary > 1 ? "+": ""} Anmeldung#{current_boundary != 1 ? "en" : ""}:",
                   "#{freqs[i].to_i} Freiwillige",
                   "(#{number_to_percentage(bin_percent, precision: 0)})",
                   link_to("Liste", admin_users_path(scope: "by_participation_count", min: bin.ceil, max: max, participation_type: "shift"))
@@ -142,7 +144,8 @@ ActiveAdmin.register_page "Dashboard" do
             user_hours_invested += Array.new(user_count - user_hours_invested.size, 0)
 
             if user_hours_invested.any?
-              (bins, freqs) = user_hours_invested.histogram(6, :bin_boundary => :min)
+              bin_boundaries = [0, 2, 4, 8, 16, 32]
+              (bins, freqs) = user_hours_invested.histogram(bin_boundaries, :bin_boundary => :min)
               bins.each_with_index do |bin, i|
                 bin_percent = user_count > 0 ? 100 * freqs[i].to_f / user_count : 0
                 max = i+1 < bins.size ? bins[i+1] : nil
@@ -172,12 +175,14 @@ ActiveAdmin.register_page "Dashboard" do
             ngo_shift_counts += Array.new(ngo_count - ngo_shift_counts.size, 0)
 
             if ngo_shift_counts.any?
-              (bins, freqs) = ngo_shift_counts.histogram(6, :bin_boundary => :min)
+              bin_boundaries = [0, 1, 2, 5, 10, 20]
+              (bins, freqs) = ngo_shift_counts.histogram(bin_boundaries, :bin_boundary => :min)
               bins.each_with_index do |bin, i|
                 bin_percent = ngo_count > 0 ? 100 * freqs[i].to_f / ngo_count : 0
                 max = i+1 < bins.size ? bins[i+1].ceil : nil
+                current_boundary = bin_boundaries[i]
                 div safe_join([
-                  "#{bin.ceil}+ Schichten erstellt:",
+                  "#{bin.ceil}#{i+1 == bins.size || bin_boundaries[i+1]-current_boundary > 1 ? "+": ""} Schicht#{current_boundary != 1 ? "en" : ""} erstellt:",
                   "#{freqs[i].to_i} NGOs",
                   "(#{number_to_percentage(bin_percent, precision: 0)})",
                   link_to("Liste", admin_ngos_path(scope: "by_created_shifts", min: bin.ceil, max: max))
@@ -211,12 +216,14 @@ ActiveAdmin.register_page "Dashboard" do
             user_participation_counts += Array.new(user_count - user_participation_counts.size, 0)
 
             if user_participation_counts.any?
-              (bins, freqs) = user_participation_counts.histogram(6, :bin_boundary => :min)
+              bin_boundaries = [0, 1, 2, 5, 10, 20]
+              (bins, freqs) = user_participation_counts.histogram(bin_boundaries, :bin_boundary => :min)
               bins.each_with_index do |bin, i|
                 bin_percent = user_count > 0 ? 100 * freqs[i].to_f / user_count : 0
                 max = i+1 < bins.size ? bins[i+1].ceil : nil
+                current_boundary = bin_boundaries[i]
                 div safe_join([
-                  "#{bin.ceil}+ Anmeldungen:",
+                  "#{bin.ceil}#{i+1 == bins.size || bin_boundaries[i+1]-current_boundary > 1 ? "+": ""} Anmeldung#{current_boundary != 1 ? "en" : ""}:",
                   "#{freqs[i].to_i} Freiwillige",
                   "(#{number_to_percentage(bin_percent, precision: 0)})",
                   link_to("Liste", admin_users_path(scope: "by_participation_count", min: bin.ceil, max: max, participation_type: "ongoing_event"))
