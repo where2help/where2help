@@ -139,11 +139,15 @@ namespace :db do
 
     # Ongoing events
     # Take a random sampling of ~ half of the Ngos
+
+    ongoing_event_categories = OngoingEventCategory.all.to_a
+
     Ngo.order("RANDOM()").limit(Ngo.count / 2).all.each do |ngo|
       rand(1..5).times do
         # NOTE: Secondary address is coming from the base locale file
         address = address_data.next_address
         OngoingEvent.create(
+          ongoing_event_category: ongoing_event_categories[rand(ongoing_event_categories.size)],
           title: Faker::Book.title,
           description: Faker::Hipster.paragraph,
           contact_person: Faker::Name.first_name + " " + Faker::Name.last_name + ", Tel." + Faker::PhoneNumber.cell_phone,
