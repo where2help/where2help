@@ -136,12 +136,14 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         end
       end
       context 'with valid params' do
+        let(:ongoing_event_category) { create :ongoing_event_category }
         let(:params) {{ ongoing_event: {
           title: 'event title',
           description: 'huge event description',
           address: 'street with number',
           contact_person: 'person name',
-          volunteers_needed: 1 }}}
+          volunteers_needed: 1,
+          ongoing_event_category_id: ongoing_event_category.id }}}
 
         it 'creates new event record' do
           expect{

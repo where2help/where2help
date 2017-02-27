@@ -70,6 +70,7 @@ en:
         state-deleted: Deleted
         published_at: Published
         volunteers_needed: Helpers Needed
+        ongoing_event_category: Category
       ongoing_event_category:
         name_en: Name (EN)
         name_de: Name (DE)

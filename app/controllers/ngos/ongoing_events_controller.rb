@@ -71,7 +71,7 @@ class Ngos::OngoingEventsController < ApplicationController
     params.require(:ongoing_event).permit(
       :contact_person, :title, :description,
       :address, :approximate_address,:lat, :lng,
-      :volunteers_needed,
+      :volunteers_needed, :ongoing_event_category_id,
       :start_date, :end_date
     )
   end

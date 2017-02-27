@@ -190,6 +190,7 @@ en:
       form:
         submit: Create Ongoing Event
         notify_users: Notify the %{user_count} %{volunteers}
+        pick_one_category: If multiple categories match, pick the best-matching one or create multiple events.
       messages:
         create_success: Event was successfully created.
         update_success: Event was successfully updated.

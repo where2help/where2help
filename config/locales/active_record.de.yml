@@ -73,6 +73,7 @@ de:
         state-deleted: Gelöscht
         published_at: Veröffentlicht
         volunteers_needed: Anzahl benötigter Freiwilliger
+        ongoing_event_category: Kategorie
       ongoing_event_category:
         name_en: Name (EN)
         name_de: Name (DE)
