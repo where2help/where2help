@@ -1,0 +1,16 @@
+<% @events.each do |event| %>
+  <%= link_to event, class: "list-group-item ngo-ongoing-event-item" do %>
+    <div class="row">
+      <div class="col-xs-9 col-sm-10">
+        <div class="col-xs-12 col-sm-12">
+          <strong><%= event.title %></strong><br/>
+          <span><%= event.contact_person %></span><br/>
+          <span><%= event.address %></span>
+        </div>
+      </div>
+      <div class="col-xs-3 col-sm-2">
+        <%= render partial: "progress_bar/progress_bar", object: @operation.progress_bar(event) %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

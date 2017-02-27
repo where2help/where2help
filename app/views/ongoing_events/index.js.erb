@@ -3,7 +3,7 @@
   var $paginationBtn = $("[data-behavior='events-pagination']");
 
   function updateComponent() {
-    $eventsContainer.append("<%= j render 'grouped_events' %>");
+    $eventsContainer.append("<%= j render 'list' %>");
     $paginationBtn.replaceWith("<%= j load_more_events_btn @events %>");
   }
 
