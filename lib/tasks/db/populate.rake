@@ -143,7 +143,7 @@ namespace :db do
     ongoing_event_categories = OngoingEventCategory.all.to_a
 
     Ngo.order("RANDOM()").limit(Ngo.count / 2).all.each do |ngo|
-      rand(1..5).times do
+      rand(3..8).times do
         # NOTE: Secondary address is coming from the base locale file
         address = address_data.next_address
         OngoingEvent.create(

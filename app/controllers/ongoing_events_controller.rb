@@ -1,11 +1,18 @@
 require "ongoing_event/user_operation"
+require "ongoing_event_category/user_operation"
 class OngoingEventsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @operation =
-      OngoingEventOperation::User::Index.present()
-    @events = @operation.model.page(params[:page])
+    if params[:ongoing_event_category_id].present?
+      @operation =
+        OngoingEventOperation::User::Index.present(ongoing_event_category_id: params[:ongoing_event_category_id])
+      @events = @operation.model.page(params[:page].to_i-1).offset(3)
+    else
+      @operation =
+        OngoingEventCategoryOperation::User::Index.present()
+      @ongoing_event_categories = @operation.model
+    end
   end
 
   def show

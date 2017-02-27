@@ -15,19 +15,27 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <% if @events.any? %>
-      <h2><%= t(".ongoing_events") %></h2>
-      <div class="list-group" data-behavior="events-container">
-        <%= render('list') %>
-      </div>
+    <h2><%= t(".ongoing_events") %></h2>
+    <% if @ongoing_event_categories.any? %>
+      <% @ongoing_event_categories.each do |category| %>
+        <div data-behavior="events-category" data-id="<%= category.id %>">
+          <h3><%= category.name %></h3>
+          <%
+          op = OngoingEventOperation::User::Index.present(ongoing_event_category_id: category.id)
+          events = op.model.page(1).per(3)
+          %>
+          <div class="list-group" data-behavior="events-container">
+            <%= render partial: 'list', locals: { events: events } %>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 text-center pagination-btn">
+              <%= load_more_events_btn events, ongoing_event_category_id: category.id %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% else %>
       <%= render('empty_message') %>
     <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 text-center pagination-btn">
-    <%= load_more_events_btn @events %>
   </div>
 </div>
