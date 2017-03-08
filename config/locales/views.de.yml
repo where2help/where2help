@@ -60,6 +60,10 @@ de:
     terms_and_conditions: Nutzungsbedingungen
     imprint: Impressum
     contact: Kontakt
+    cookie_consent:
+      message: Um Ihnen einen bestmöglichen Service zu bieten und die Verwendung mancher Funktionen zu erleichtern, verwenden wir Cookies. Mit der Nutzung dieser Seite erklären Sie sich mit der Verwendung von Cookies einverstanden.
+      dismiss: OK
+      learn_more: Mehr erfahren
   events:
     load_more: Mehr anzeigen
     index:

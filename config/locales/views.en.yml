@@ -60,6 +60,10 @@ en:
     terms_and_conditions: Terms and Conditions
     imprint: Imprint
     contact: Contact
+    cookie_consent:
+      message: Um Ihnen einen bestmöglichen Service zu bieten und die Verwendung mancher Funktionen zu erleichtern, verwenden wir Cookies. Mit der Nutzung dieser Seite erklären Sie sich mit der Verwendung von Cookies einverstanden.
+      dismiss: OK
+      learn_more: Learn more
   events:
     load_more: Show more
     index:

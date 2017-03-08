@@ -71,6 +71,7 @@ gem 'histogram'
 
 # Soft delete
 gem "paranoia", "~> 2.2"
+
 # Pagination
 gem 'kaminari'
 
