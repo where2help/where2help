@@ -72,6 +72,8 @@ de:
       welcome: |
         <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
+      ongoing_events_tip: Möchtest du regelmäßig freiwillig mithelfen?
+      ongoing_events_link: "» Dauerhafte Einsätze ansehen"
   ongoing_events:
     are_you_sure: Willst Du wirklich absagen?
     index:
@@ -80,6 +82,8 @@ de:
       welcome: |
         <h3>Dauerhafte Einsätze</h3>
         <p>Sieh nach, wo Du gebraucht wirst, trage Dich für Einsätze ein und der Organisator wird dich kontaktieren sobald deine Hilfe benötigt wird!<p>
+      events_tip: Möchtest du an einem bestimmten Tag helfen?
+      events_link: "» Konkrete Einsätze ansehen"
     opt_in:
       thank_you: |
         <h1>Danke!</h1>

@@ -16,8 +16,7 @@
 <div class="row">
   <div class="col-xs-12">
     <% if @events.any? %>
-      <h2><%= t(".ongoing_events") %></h2>
-      <div class="list-group">
+      <div class="list-group" style="margin-top: 30px;">
         <% @events.each do |event| %>
           <%= link_to event, class: "list-group-item ngo-ongoing-event-item" do %>
             <div class="row">
@@ -44,5 +43,21 @@
 <div class="row">
   <div class="col-xs-12 text-center pagination-btn">
     <%= load_more_events_btn @events %>
+  </div>
+</div>
+
+<div class="panel panel-default tip-panel">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-2 tip-icon-col">
+        <i class="fa fa-lightbulb-o"></i>
+      </div>
+      <div class="col-sm-10 tip-text-col">
+        <p>
+          <%= t(".events_tip") %><br/>
+          <%= link_to t(".events_link"), events_path %>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
