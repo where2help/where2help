@@ -60,21 +60,35 @@ en:
     terms_and_conditions: Terms and Conditions
     imprint: Imprint
     contact: Contact
+    cookie_consent:
+      message: Um Ihnen einen bestmöglichen Service zu bieten und die Verwendung mancher Funktionen zu erleichtern, verwenden wir Cookies. Mit der Nutzung dieser Seite erklären Sie sich mit der Verwendung von Cookies einverstanden.
+      dismiss: OK
+      learn_more: Learn more
   events:
     load_more: Show more
     index:
       welcome: |
         <h3>Current Events</h3>
         <p>Find out when and where you are needed and sign up for the shifts you want to help in!<p>
+      ongoing_events_tip: Would you like to help on a regular basis?
+      ongoing_events_link: "» Show ongoing events"
     opt_out:
       notice: That's too bad...
   ongoing_events:
+    opt_in_btn: I'm In
+    opt_out_btn: Can't Make It
+    are_you_sure: Are you sure you can't make it?
+    load_more: Show more
+    thank_you: Thank you! Looking forward to have you onboard.
+    please_come: Please join us at
     index:
       events: Fixed Events
       ongoing_events: Ongoing Events
       welcome: |
         <h3>Ongoing Events</h3>
         <p>Find out where you are needed, sign up and a volunteer coordinator will get ahold of you when they need you!<p>
+      events_tip: Would you like to help on a specific day?
+      events_link: "» Show events"
     opt_in:
       thank_you: |
         <h1>Thank You!</h1>
@@ -292,11 +306,3 @@ en:
     please_come: Please join us at
     opt_out:
       notice: That's too bad...
-
-  ongoing_events:
-    opt_in_btn: I'm In
-    opt_out_btn: Can't Make It
-    are_you_sure: Are you sure you can't make it?
-    load_more: Show more
-    thank_you: Thank you! Looking forward to have you onboard.
-    please_come: Please join us at

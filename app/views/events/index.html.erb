@@ -15,10 +15,26 @@
 
 <div class="row">
   <div class="col-xs-12 col-lg-10 col-lg-offset-1" data-behavior="events-container">
-    <%= render('empty_message') unless @events %>
+    <%= render('empty_message') unless @events.any? %>
     <%= render('grouped_events') %>
   </div>
   <div class="col-xs-12 text-center pagination-btn">
     <%= load_more_events_btn @events, last_date: @events.any? && @events.last.starts_at.to_date %>
+  </div>
+</div>
+
+<div class="panel panel-default tip-panel">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-2 tip-icon-col">
+        <i class="fa fa-lightbulb-o"></i>
+      </div>
+      <div class="col-sm-10 tip-text-col">
+        <p>
+          <%= t(".ongoing_events_tip") %><br/>
+          <%= link_to t(".ongoing_events_link"), ongoing_events_path %>
+        </p>
+      </div>
+    </div>
   </div>
 </div>

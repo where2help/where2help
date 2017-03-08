@@ -44,7 +44,7 @@ ActiveAdmin.register_page "Dashboard" do
         attributes_table_for "" do
           row "Registrierungen" do
             div "#{User.unscoped.count} Freiwillige"
-            div "#{Ngo.unscoped.count} NGOs (davon #{Ngo.confirmed.where.not(confirmed_at: nil).count} aktiv*)"
+            div "#{Ngo.unscoped.count} NGOs (davon #{Ngo.confirmed.count} bestätigt*)"
           end
           row "Schichtbeginne" do
             div "#{Shift.unscoped.count} Schichten"
@@ -200,7 +200,7 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
         div style: "color: #b3bcc1;" do
-          div "* Email bestätigt, von Administrator bestätigt und nicht gelöscht."
+          div "* Von Administrator bestätigt und nicht gelöscht."
           div "Bericht erstellt am #{l(Time.zone.now, format: :short)}"
         end
 
