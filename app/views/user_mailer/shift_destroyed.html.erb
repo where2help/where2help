@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h2><%= t('.greeting', name: @user.first_name) %></h2>
-    <p><%= t('.content', title: @shift.event.title, 
-	                 date: I18n.localize(@shift.starts_at, format:'%d. %b %Y'),
-			 time: I18n.localize(@shift.starts_at, format:'%H:%M'),
-	                 ngo_name: @shift.event.ngo.name)		 
-	%></p>
-  </body>
-</html>
+<%= content_for(:teaser, t(".teaser", title: @shift.event.title)) %>
+
+<h2><%= t('.greeting', name: @user.first_name) %></h2>
+<p>
+  <%=
+  t(
+    '.content',
+    title: @shift.event.title, 
+    date: I18n.localize(@shift.starts_at, format:'%d. %b %Y'),
+    time: I18n.localize(@shift.starts_at, format:'%H:%M'),
+    ngo_name: @shift.event.ngo.name
+  )		 
+  %>
+</p>

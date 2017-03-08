@@ -76,3 +76,7 @@ gem 'kaminari'
 
 # Task Scheduling
 gem 'whenever', require: false
+
+# CSS-styled emails, auto-generated text-variants
+gem 'premailer-rails'
+gem 'nokogiri'
