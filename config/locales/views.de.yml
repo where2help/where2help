@@ -1,10 +1,16 @@
 de:
+  layouts:
+    mailer:
+      go_to_site: Where2Help öffnen
+      signature: Das where2help Team
   admin_mailer:
     new_ngo:
+      teaser: "%{ngo_name} hat sich registriert"
       subject: "[where2help] Neue NGO Registrierung"
       content: Neue NGO Account Anfrage
   ngo_mailer:
     admin_confirmed:
+      teaser: "Ihr könnt Where2Help jetzt verwenden"
       subject: "[where2help] Account wurde bestätigt"
       greeting: "Hallo %{name}"
       content: |
@@ -12,43 +18,44 @@ de:
         könnt Ihr jetzt loslegen Einsätze zu erstellen!
       link: Bei Where2Help Loslegen
     ongoing_event_opt_in:
+      teaser: "Unterstützung für den Einsatz"
       subject: "[where2help] Neue Anmeldung für \"%{ongoing_event_title}\""
       greeting: "Hallo %{name}"
       content: |
         Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r über where2help.wien angemeldet.
       link: Kontaktdaten
-      footer_html: |
-        <p>Alles Gute für den Einsatz!</p>
-        <p>
-          Das where2help Team<br/>
-          contact@where2help.wien
-        </p>
+      after_link: Alles Gute für den Einsatz!
   user_mailer:
     event_updated:
+      teaser: "%{title}"
       subject: "[where2help] Einsatz wurde geändert"
       greeting: "Hallo %{name}"
       content: |
         "%{title}" wurde seitens %{ngo_name} verändert.
         Vielen Dank für Dein Engagement!
     shift_destroyed:
+      teaser: "%{title}"
       subject: "[where2help] Einsatz wurde abgesagt"
       greeting: "Hallo %{name}"
       content: |
         "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} abgesagt.
         Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
     shift_updated:
+      teaser: "%{title}"
       subject: "[where2help] Einsatz wurde geändert"
       greeting: "Hallo %{name}"
       content: |
         "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} verändert.
         Vielen Dank für Dein Engagement!
     ongoing_event_destroyed:
+      teaser: "%{title}"
       subject: "[where2help] Einsatz wurde abgesagt"
       greeting: "Hallo %{name}"
       content: |
         "%{title}" wurde seitens %{ngo_name} abgesagt.
         Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
     ongoing_event_updated:
+      teaser: "%{title}"
       subject: "[where2help] Einsatz wurde geändert"
       greeting: "Hallo %{name}"
       content: |
