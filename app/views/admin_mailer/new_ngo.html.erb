@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h2><%= t('.content') %></h2>
-    <p>
-      Name: <%= @ngo.name %><br>
-      E-Mail: <%= @ngo.email %><br>
-    </p>
-    <p><%= link_to @ngo.name, '#' %></p>
-  </body>
-</html>
+<%= content_for(:teaser, t(".teaser", ngo_name: @ngo.name)) %>
+
+<h2><%= t('.content') %></h2>
+<p>
+  Name: <%= @ngo.name %><br>
+  E-Mail: <%= @ngo.email %><br>
+</p>
+<p><%= link_to @ngo.name, '#' %></p>

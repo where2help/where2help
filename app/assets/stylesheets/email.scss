@@ -1,0 +1,64 @@
+body {
+  background: #eeeeee;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333333;
+  font-size: 14px;
+  padding-top: 15px;
+}
+
+.teaser {
+  font-size: 85%;
+  margin-bottom: 20px;
+
+  .right {
+    float: right;
+  }
+
+  &, a {
+    color: #656565;
+  }
+}
+
+.main {
+  background: #ffffff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #00C6D2;
+}
+
+.footer {
+  font-size: 85%;
+  text-align: center;
+
+  &, a {
+    color: #656565;
+  }
+}
+
+.mail-wrapper {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
+}

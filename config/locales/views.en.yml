@@ -1,10 +1,16 @@
 en:
+  layouts:
+    mailer:
+      go_to_site: Open Where2Help
+      signature: The where2help team
   admin_mailer:
     new_ngo:
+      teaser: "%{ngo_name} has signed up"
       subject: "[where2help] New NGO registration"
       content: New NGO account request
   ngo_mailer:
     admin_confirmed:
+      teaser: "You can now use Where2Help"
       subject: "[where2help] Your account has been confirmed"
       greeting: "Hi %{name}"
       content: |
@@ -12,43 +18,44 @@ en:
         you can go ahead and start creating events!
       link: Get started at Where2Help
     ongoing_event_opt_in:
+      teaser: "Support for your event"
       subject: "[where2help] New sign-up for \"%{ongoing_event_title}\""
       greeting: "Hi %{name}"
       content: |
         Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper via where2help.wien.
       link: Contact details
-      footer_html: |
-        <p>All the best!</p>
-        <p>
-          The where2help Team<br/>
-          contact@where2help.wien
-        </p>
+      after_link: All the best!
   user_mailer:
     event_updated:
+      teaser: "%{title}"
       subject: "[where2help] Event was changed"
       greeting: "Hi %{name}"
       content: |
         %{title} was updated by %{ngo_name}, please update your notes!
         Thanks you for your support!
     shift_destroyed:
+      teaser: "%{title}"
       subject: "[where2help] Event got cancelled"
       greeting: "Hi %{name}"
       content: |
         %{title} on %{date} at %{time} got cancelled by %{ngo_name}, you don't need to come!
         Thank you for your support! Looking forward to your next mission.
     shift_updated:
+      teaser: "%{title}"
       subject: "[where2help] Event was changed"
       greeting: "Hi %{name}"
       content: |
         %{title} on %{date} at %{time} was updated by %{ngo_name}, please update your notes!
         Thanks you for your support!
     ongoing_event_destroyed:
+      teaser: "%{title}"
       subject: "[where2help] Event was cancelled"
       greeting: "Hi %{name}"
       content: |
         "%{title}" was cancelled by %{ngo_name}.
         Thank you for your support! Looking forward to your next mission.
     ongoing_event_updated:
+      teaser: "%{title}"
       subject: "[where2help] Event was changed"
       greeting: "Hi %{name}"
       content: |
@@ -274,7 +281,7 @@ en:
         where2help will send you an email with a confirmation link. Follow the link and confirm your account.
 
         <strong>Step 3: Publish your help enquiries</strong>
-        Log in to where2help with your registered email address and your password. Under 'Add event', you can enter a new help enquiry. To do so, you specify a concise title, a description, address, date and time as well as the number of helpers needed. Don’t forget the contact person on the spot. You can add some more shifts through 'Add Shift'. Then click on 'Save Shift' and 'Publish' to publish your event.
+        Log in to where2help with your registered email address and your password. Under 'Add Fixed Event', you can enter a new help enquiry. To do so, you specify a concise title, a description, address, date and time as well as the number of helpers needed. Don’t forget the contact person on the spot. You can add some more shifts through 'Add Shift'. Then click on 'Create Event' and 'Publish' to publish your event.
 
         <strong>Step 4: Keep track of things</strong>
         As an NGO, you can find your help enquiries listed clearly on where2help. You will receive a precise overview of how many helpers have already registered – including names and contact options. You can transfer the assignments you have created to your calendar. When you delete or amend a help enquiry, registered helpers will be informed automatically by email.

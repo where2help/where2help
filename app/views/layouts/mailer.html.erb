@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
+    <meta charset='utf-8'>
+    <%= stylesheet_link_tag :email %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="mail-wrapper">
+      <% if content_for?(:teaser) %>
+        <div class="teaser">
+          <div class="right">
+            <%= link_to t(".go_to_site"), root_url, target: "_blank" %>
+          </div>
+          <div>
+            <%= content_for(:teaser) %>
+          </div>
+        </div>
+      <% end %>
+      <div class="header">
+        <%= link_to root_url, target: "_blank" do %>
+          <%= image_tag(url_for("/email_header.png"), alt: "Where2Help") %>
+        <% end %>
+      </div>
+      <div class="main">
+        <%= yield %>
+        <p>
+          <%= t(".signature") %><br/>
+          <%= mail_to "contact@where2help.wien" %>
+        </p>
+      </div>
+      <hr>
+      <div class="footer">
+        Where2Help - <%= link_to "www.where2help.wien", root_url, target: "_blank" %> - DVR 1070053
+      </div>
+    </div>
   </body>
 </html>
