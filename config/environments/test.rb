@@ -33,6 +33,7 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = { host: 'test.yourhost.com' }
+  config.action_mailer.asset_host = "http://test.yourhost.com"
   config.action_mailer.default_options = {
     from: 'where2help <no-reply@test-where2help.herokuapp.com>'
   }
