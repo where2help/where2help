@@ -1,9 +1,18 @@
-body {
-  background: #eeeeee;
+body, .layout-wrapper {
+  background-color: #eeeeee;
+}
+
+.layout-wrapper {
+  padding-top: 15px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333333;
   font-size: 14px;
-  padding-top: 15px;
+}
+
+.mail-wrapper {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .teaser {
@@ -49,11 +58,6 @@ a {
   }
 }
 
-.mail-wrapper {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .header {
   text-align: center;
