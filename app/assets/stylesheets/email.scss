@@ -1,9 +1,12 @@
-body {
+body, .mail-wrapper {
   background: #eeeeee;
+}
+
+.mail-wrapper {
+  padding-top: 15px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333333;
   font-size: 14px;
-  padding-top: 15px;
 }
 
 .teaser {
