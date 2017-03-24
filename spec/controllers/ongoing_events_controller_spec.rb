@@ -18,19 +18,30 @@ RSpec.describe OngoingEventsController, type: :controller do
     end
     context 'when logged in as user' do
       let(:pending_event) { create :event, :with_shift }
-      let!(:next_events) { create_list :ongoing_event, 25, :published }
-      let!(:newest_events) { create_list :ongoing_event, 25, :published }
+      let!(:categories) { create_list :ongoing_event_category, 5 }
+      let!(:nonempty_category) { categories[2] }
+      let!(:next_events) { create_list :ongoing_event, 25, :published, ongoing_event_category: nonempty_category }
+      let!(:newest_events) { create_list :ongoing_event, 3, :published, ongoing_event_category: nonempty_category }
+      let!(:pending_event) { create :ongoing_event }
       before { sign_in create(:user) }
 
       context 'when html request' do
         before { get :index }
 
-        it 'assigns first 25 published events with available shifts to @events' do
-          expect(assigns :events).to match_array newest_events
+        it 'assigns non-empty categories to @ongoing_event_categories' do
+          expect(assigns :ongoing_event_categories).to match_array([nonempty_category])
+        end
+
+        it 'assigns events for each non-empty category' do
+          expect(assigns(:category_events).keys).to match_array([nonempty_category.id])
+        end
+
+        it 'assigns first 3 most-recent, published events to @category_events' do
+          expect(assigns(:category_events)[nonempty_category.id]).to match_array(newest_events)
         end
 
         it 'excludes pending events' do
-          expect(assigns :events).not_to include pending_event
+          expect(assigns(:category_events)[nonempty_category.id]).not_to include pending_event
         end
 
         it 'renders index.html' do
@@ -39,7 +50,7 @@ RSpec.describe OngoingEventsController, type: :controller do
         end
       end
       context 'when js request (pagination) with page param' do
-        before { get :index, xhr: true, params: { page: 2 } }
+        before { get :index, xhr: true, params: { page: 2, ongoing_event_category_id: categories[2].id } }
 
         it 'assigns next 25 upcoming shifts' do
           expect(assigns :events).to match_array next_events

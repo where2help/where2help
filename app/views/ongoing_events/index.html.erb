@@ -20,16 +20,12 @@
       <% @ongoing_event_categories.each do |category| %>
         <div data-behavior="events-category" data-id="<%= category.id %>">
           <h3><%= category.name %></h3>
-          <%
-          op = OngoingEventOperation::User::Index.present(ongoing_event_category_id: category.id)
-          events = op.model.page(1).per(3)
-          %>
           <div class="list-group" data-behavior="events-container">
-            <%= render partial: 'list', locals: { events: events } %>
+            <%= render partial: 'list', locals: { events: @category_events[category.id] } %>
           </div>
           <div class="row">
             <div class="col-xs-12 text-center pagination-btn">
-              <%= load_more_events_btn events, ongoing_event_category_id: category.id %>
+              <%= load_more_events_btn @category_events[category.id], ongoing_event_category_id: category.id %>
             </div>
           </div>
         </div>
