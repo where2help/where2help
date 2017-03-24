@@ -13,6 +13,7 @@
 
   <div class="row">
     <div class="col-xs-12">
+      <%= f.input :ongoing_event_category, hint: t("ngos.ongoing_events.form.pick_one_category")  %>
       <%= f.input :title, placeholder: true  %>
       <%= f.input :description, placeholder: true, :input_html => { :class => "autogrow", :rows => 5, :cols => 20 } %>
       <%= f.input :address, placeholder: true, input_html: { class: "address-autocomplete" } %>

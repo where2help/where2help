@@ -3,6 +3,7 @@ FactoryGirl.define do
     ngo nil
     title "MyString"
     description "MyText"
+    ongoing_event_category
     address "MyString"
     contact_person "MyString"
     start_date "2016-11-24 16:59:31"

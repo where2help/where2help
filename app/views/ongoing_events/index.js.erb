@@ -1,10 +1,10 @@
 (function() {
-  var $eventsContainer = $("[data-behavior='events-container']");
-  var $paginationBtn = $("[data-behavior='events-pagination']");
+  var $eventsContainer = $("[data-behavior='events-category'][data-id='<%= j params[:ongoing_event_category_id] %>'] [data-behavior='events-container']");
+  var $paginationBtn = $("[data-behavior='events-category'][data-id='<%= j params[:ongoing_event_category_id] %>'] [data-behavior='events-pagination']");
 
   function updateComponent() {
-    $eventsContainer.append("<%= j render 'grouped_events' %>");
-    $paginationBtn.replaceWith("<%= j load_more_events_btn @events %>");
+    $eventsContainer.append("<%= j render partial: 'list', locals: { events: @events } %>");
+    $paginationBtn.replaceWith("<%= j load_more_events_btn @events, ongoing_event_category_id: params[:ongoing_event_category_id] %>");
   }
 
   updateComponent();

@@ -2,6 +2,7 @@ context.instance_eval do
   selectable_column
   id_column
   column :ngo
+  column :ongoing_event_category
   column :title
   column :address
   column :contact_person

@@ -11,6 +11,9 @@ de:
       ongoing_event:
         one: Dauerhafter Einsatz
         other: Dauerhafte Einsätze
+      ongoing_event_category:
+        one: Kategorie
+        other: Kategorien
       language:
         one: Sprache
         other: Sprachen
@@ -70,6 +73,10 @@ de:
         state-deleted: Gelöscht
         published_at: Veröffentlicht
         volunteers_needed: Anzahl benötigter Freiwilliger
+        ongoing_event_category: Kategorie
+      ongoing_event_category:
+        name_en: Name (EN)
+        name_de: Name (DE)
       event/shifts:
         confirmed_so_far: zugesagt
         ends_at: Ende

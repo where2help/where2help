@@ -215,6 +215,7 @@ de:
       form:
         submit: Dauerhaften Einsatz erstellen
         notify_users: Benachrichtige die %{user_count} %{volunteers}
+        pick_one_category: Wenn mehrere Kategorien zutreffen, wähle die am besten passende Kategorie aus oder lege mehrere separate Einsätze an.
       messages:
         create_success: Einsatz wurde erfolgreich erstellt.
         update_success: Einsatz wurde erfolgreich aktualisiert.

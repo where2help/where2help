@@ -3,6 +3,7 @@ context.instance_eval do
     attributes_table_for ongoing_event do
       row :id
       row :ngo
+      row :ongoing_event_category
       row :title
       row :contact_person
       row :address
