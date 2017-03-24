@@ -6,7 +6,9 @@ class OngoingEventOperation
       include ProgressBarHelper
 
       def setup_model!(params)
-        @model = OngoingEvent.published.newest_first
+        @model = OngoingEvent.published.newest_first.where(
+          ongoing_event_category_id: params[:ongoing_event_category_id]
+        )
       end
     end
 

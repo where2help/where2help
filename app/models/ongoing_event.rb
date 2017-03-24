@@ -2,12 +2,14 @@ class OngoingEvent < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :ngo
+  belongs_to :ongoing_event_category
   has_many   :participations, dependent: :destroy
   has_many   :users,          through:   :participations
 
   validates :title, length: { in: 1..100 }
   validates :address, presence: true
   validates :contact_person, presence: true
+  validates :ongoing_event_category, presence: true
 
   scope :newest_first, -> { order(created_at: :desc) }
   scope :published,    -> { where.not(published_at: nil) }

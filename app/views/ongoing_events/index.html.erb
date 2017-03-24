@@ -15,34 +15,25 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <% if @events.any? %>
-      <div class="list-group" style="margin-top: 30px;">
-        <% @events.each do |event| %>
-          <%= link_to event, class: "list-group-item ngo-ongoing-event-item" do %>
-            <div class="row">
-              <div class="col-xs-9 col-sm-10">
-                <div class="col-xs-12 col-sm-12">
-                  <strong><%= event.title %></strong><br/>
-                  <span><%= event.contact_person %></span><br/>
-                  <span><%= event.address %></span>
-                </div>
-              </div>
-              <div class="col-xs-3 col-sm-2">
-                <%= render partial: "progress_bar/progress_bar", object: @operation.progress_bar(event) %>
-              </div>
+
+    <h2><%= t(".ongoing_events") %></h2>
+    <% if @ongoing_event_categories.any? %>
+      <% @ongoing_event_categories.each do |category| %>
+        <div data-behavior="events-category" data-id="<%= category.id %>">
+          <h3><%= category.name %></h3>
+          <div class="list-group" data-behavior="events-container">
+            <%= render partial: 'list', locals: { events: @category_events[category.id] } %>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 text-center pagination-btn">
+              <%= load_more_events_btn @category_events[category.id], ongoing_event_category_id: category.id %>
             </div>
-          <% end %>
-        <% end %>
-      </div>
+          </div>
+        </div>
+      <% end %>
     <% else %>
       <%= render('empty_message') %>
     <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 text-center pagination-btn">
-    <%= load_more_events_btn @events %>
   </div>
 </div>
 

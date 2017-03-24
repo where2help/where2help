@@ -11,5 +11,6 @@ ActiveAdmin.register OngoingEvent do
   filter :ngo
   filter :title
   filter :address
+  filter :ongoing_event_category
   filter :created_at
 end
