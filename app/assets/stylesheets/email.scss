@@ -19,8 +19,12 @@ body, .layout-wrapper {
   font-size: 85%;
   margin-bottom: 20px;
 
+  .left {
+    float: left;
+  }
+
   .right {
-    float: right;
+    text-align: right;
   }
 
   &, a {

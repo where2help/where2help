@@ -9,11 +9,11 @@
       <div class="mail-wrapper">
         <% if content_for?(:teaser) %>
           <div class="teaser">
+            <div class="left">
+              <%= content_for(:teaser) %>
+            </div>
             <div class="right">
               <%= link_to t(".go_to_site"), root_url, target: "_blank" %>
-            </div>
-            <div>
-              <%= content_for(:teaser) %>
             </div>
           </div>
         <% end %>
