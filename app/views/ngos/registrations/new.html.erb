@@ -15,6 +15,7 @@
       </div>
       <div class="col-sm-6">
         <%= render 'ngo_fields', f: f %>
+        <%= f.invisible_captcha :username %>
         <%= f.input :terms_and_conditions, as: :boolean,
           label: "#{t('.accept_terms_and_conditions')} #{render 'terms_and_conditions', resource: f.object}".html_safe %>
         <%= f.submit t('devise.registrations.new.sign_up'), class: 'btn btn-primary btn-block' %>

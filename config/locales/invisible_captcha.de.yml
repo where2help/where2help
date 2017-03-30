@@ -1,0 +1,4 @@
+de:
+  invisible_captcha:
+    sentence_for_humans: "Dieses Feld bitte leer lassen."
+    timestamp_error_message: "Sorry, das war zu schnell! Bitte probiere es noch einmal."
