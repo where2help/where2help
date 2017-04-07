@@ -85,6 +85,9 @@ Rails.application.routes.draw do
 
   get 'robots.txt', to: 'pages#robots'
 
+  get   "/users/notifications",  to: "users/notifications#edit"
+  patch "/users/notfifications", to: "users/notifications#update"
+
   root 'pages#home'
 
   ActiveAdmin.routes(self)
