@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     unlocks: 'ngos/unlocks' }
 
 
+  get   "/users/notifications",  to: "users/notifications#edit"
+  patch "/users/notfifications", to: "users/notifications#update"
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: [] do
@@ -80,13 +83,18 @@ Rails.application.routes.draw do
     root 'ngos/events#index'
   end
 
+  # Webhooks
+
+  # challenge endpoint
+  get "/chatbot/facebook/webhook"
+  # received message endpoint
+  post "/chatbot/facebook/webhook"
+
+  # "Static" Pages
+
   get 'terms_and_conditions', to: 'pages#terms_and_conditions'
   get 'how_to', to: 'pages#how_to'
-
   get 'robots.txt', to: 'pages#robots'
-
-  get   "/users/notifications",  to: "users/notifications#edit"
-  patch "/users/notfifications", to: "users/notifications#update"
 
   root 'pages#home'
 
