@@ -86,9 +86,9 @@ Rails.application.routes.draw do
   # Webhooks
 
   # challenge endpoint
-  get "/chatbot/facebook/webhook"
+  get "/chatbot/facebook/webhook", to: "chatbot/webhooks#challenge"
   # received message endpoint
-  post "/chatbot/facebook/webhook"
+  post "/chatbot/facebook/webhook", to: "chatbot/webhooks#message"
 
   # "Static" Pages
 
