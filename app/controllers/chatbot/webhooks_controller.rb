@@ -3,16 +3,16 @@ class Chatbot::WebhooksController < ApplicationController
     op = ChatbotOperation::Challenge.(params)
     res = op.model
     if res.success
-      return render status: 201, text: res.payload
+      return render status: 201, plain: res.payload
     end
-    render status: 401, text: "Unauthorized"
+    render status: 401, plain: "Unauthorized"
   end
 
   def message
     if verify_request_signature
-      return render text: "OK", status: 201
+      return render plain: "OK", status: 201
     end
-    render status: 401, text: "Unauthorized"
+    render status: 401, plain: "Unauthorized"
   end
 
   private

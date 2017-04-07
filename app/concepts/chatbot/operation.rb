@@ -2,18 +2,30 @@ class ChatbotOperation
   class Challenge < Operation
     Response = Struct.new(:success, :payload)
     def process(params)
-      mode = params["hub.mode"]
-      @model = Response.new
-      if mode == "subscribe"
-        challenge = params["hub.challenge"]
-        token = params["hub.verify_token"]
-        if token == ENV.fetch("FB_CHALLENGE")
-          @model.success = true
-          @model.payload = challenge
-          return
-        end
+      if !correct_mode?(params) || !challenge_matches?(params)
+        @model = failure_request
+      else
+        @model = Response.new(true, challenge(params))
       end
-      @model.success = false
+    end
+
+    private
+
+    def challenge(params)
+      params["hub.challenge"]
+    end
+
+    def failure_request
+      Response.new(false)
+    end
+
+    def correct_mode?(params)
+      params["hub.mode"] == "subscribe"
+    end
+
+    def challenge_matches?(params)
+      token = params["hub.verify_token"]
+      token == ENV.fetch("FB_CHALLENGE")
     end
   end
 
