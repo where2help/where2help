@@ -6,10 +6,11 @@ class OngoingEventCategoryOperation
       include ProgressBarHelper
 
       def setup_model!(params)
-        @model = OngoingEventCategory.joins(:ongoing_events)
-                                     .merge(OngoingEvent.published)
-                                     .distinct
-                                     .ordered
+        @model = OngoingEventCategory
+                   .joins(:ongoing_events)
+                   .merge(OngoingEvent.published)
+                   .distinct
+                   .ordered
       end
     end
   end
