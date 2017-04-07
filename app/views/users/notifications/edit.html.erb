@@ -1,0 +1,78 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1709720362687062',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="row">
+  <%= render 'users/header_lg', txt: "Edit Notifications" %>
+
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="/users/edit">Profile</a></li>
+      <li role="presentation" class="active"><a href="/users/notifications">Notifications</a></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-12">
+    <h3>Update your Notification Settings</h3>
+    <hr />
+    
+    <form>
+      <div class="checkbox">
+        <label>
+          <input id="" name="" checked type="checkbox" /> Notify me of new events that match my profile.
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="" name="" checked type="checkbox" /> Send me a reminder before my shifts or events.
+        </label>
+      </div>
+    </form>
+
+    
+    <br />
+    
+
+    <h3>How you get your Notifications</h3>
+    <p>If you want to receive your notifications over Messenger instead of email, click on the link below and we will contact you there.</p>
+    <p>You will control the settings here.</p>
+    <hr />
+
+    <div class="checkbox">
+      <label>
+        <input id="" name="" checked type="checkbox" /> Contact me over facebook messenger.
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input id="" name="" type="checkbox" /> Contact me over email.
+      </label>
+    </div>
+
+    <br/>
+
+    <h4>Connect with Facebook Messenger now</h4>
+    <div class="fb-messengermessageus" 
+      messenger_app_id="1709720362687062" 
+      page_id="1578916839071595" 
+      data-ref="PASS_THROUGH_PARAM" 
+      color="blue" 
+      size="xlarge">
+    </div>    
+  </div>
+</div>
+
