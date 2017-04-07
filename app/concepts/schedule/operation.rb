@@ -1,14 +1,16 @@
 class ScheduleOperation
   class ShiftPresenter
-    def initialize(shift) @shift = shift    end
-    def type()            :shift            end
-    def order_by()        @shift.starts_at  end
+    attr_reader :object
+    def initialize(object) @object = object  end
+    def type()             :shift            end
+    def order_by()         object.starts_at  end
   end
 
   class OngongEventPresenter
-    def initialize(event) @event = event    end
-    def type()            :ongoing_event    end
-    def order_by()        @event.created_at end
+    attr_reader :object
+    def initialize(object) @object = object  end
+    def type()             :ongoing_event    end
+    def order_by()         object.created_at end
   end
 
   class Index < Operation
