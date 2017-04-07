@@ -119,6 +119,8 @@ GEM
       dotenv (= 2.2.0)
       railties (>= 3.2, < 5.1)
     erubis (2.7.0)
+    ethon (0.10.1)
+      ffi (>= 1.3.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
@@ -127,6 +129,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.6.6)
       i18n (~> 0.5)
+    ffi (1.9.18)
     flag-icons-rails (1.1.2)
       sass (~> 3.2)
     font-awesome-sass (4.7.0)
@@ -167,6 +170,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    messenger_client (0.1.3)
+      typhoeus (~> 1.1.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -300,6 +305,8 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
+    typhoeus (1.1.2)
+      ethon (>= 0.9.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.3)
@@ -345,6 +352,7 @@ DEPENDENCIES
   kaminari
   leaflet-rails
   letter_opener
+  messenger_client
   momentjs-rails
   nokogiri
   paranoia (~> 2.2)

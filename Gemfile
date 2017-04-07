@@ -29,6 +29,7 @@ gem 'faker', require: false
 
 gem 'pry-rails'
 
+gem 'messenger_client'
 
 group :production do
   gem 'rails_12factor'
