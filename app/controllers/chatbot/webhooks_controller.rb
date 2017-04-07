@@ -1,4 +1,6 @@
 class Chatbot::WebhooksController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:message]
+
   def challenge
     op = ChatbotOperation::Challenge.(params)
     res = op.model
@@ -10,6 +12,7 @@ class Chatbot::WebhooksController < ApplicationController
 
   def message
     if verify_request_signature
+      ChatbotOperation::Message.(params)
       return render plain: "OK", status: 201
     end
     render status: 401, plain: "Unauthorized"
@@ -18,6 +21,6 @@ class Chatbot::WebhooksController < ApplicationController
   private
 
   def verify_request_signature
-    Chatbot::AuthorizeRequest.(request, ENV.fetch("FB_MESSENGER_APP_SECRET"))
+    Chatbot::AuthorizeRequest.new.(request, ENV.fetch("FB_MESSENGER_APP_SECRET"))
   end
 end

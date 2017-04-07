@@ -31,6 +31,12 @@ class ChatbotOperation
 
   class Message < Operation
     def process(params)
+      brain    = Chatbot::Brain.new
+      parser   = MessengerClient::MessageParser.new(params)
+      messages = parser.parse
+      messages.each do |msg|
+        brain.hear(msg)
+      end
     end
   end
 end
