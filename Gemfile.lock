@@ -114,6 +114,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dotenv (2.2.0)
+    dotenv-rails (2.2.0)
+      dotenv (= 2.2.0)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -327,6 +331,7 @@ DEPENDENCIES
   coffee-rails
   database_cleaner
   devise
+  dotenv-rails
   factory_girl_rails
   faker
   flag-icons-rails
