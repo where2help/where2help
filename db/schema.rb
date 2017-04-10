@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410143257) do
+ActiveRecord::Schema.define(version: 20170410144454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 20170410143257) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "bot_messages", force: :cascade do |t|
+    t.string   "provider"
+    t.boolean  "from_bot"
+    t.jsonb    "payload"
+    t.integer  "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_bot_messages_on_account_id", using: :btree
+    t.index ["from_bot"], name: "index_bot_messages_on_from_bot", using: :btree
+    t.index ["provider"], name: "index_bot_messages_on_provider", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
