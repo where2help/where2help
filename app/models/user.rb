@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :shifts,         through: :participations
   has_many :ongoing_events, through: :participations
 
+  has_one  :facebook_account
+
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }
   validates :terms_and_conditions, acceptance: true
