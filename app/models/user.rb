@@ -24,4 +24,14 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :abilities, :languages
 
   def locked?() access_locked? end
+
+  def add_setting(k, v)
+    self.settings ||= {}
+    self.settings[k] = v
+    save!
+  end
+  def setting(k)
+    settings = self.settings || {}
+    settings[k]
+  end
 end
