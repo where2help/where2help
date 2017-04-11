@@ -10,9 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    settings = User::Settings.new(resource)
+    settings.setup_new_user!
+  end
 
   # GET /resource/edit
   # def edit
