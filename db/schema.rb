@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410144454) do
+ActiveRecord::Schema.define(version: 20170411134504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,21 @@ ActiveRecord::Schema.define(version: 20170410144454) do
     t.index ["deleted_at"], name: "index_ngos_on_deleted_at", using: :btree
     t.index ["email"], name: "index_ngos_on_email", where: "(deleted_at IS NULL)", using: :btree
     t.index ["reset_password_token"], name: "index_ngos_on_reset_password_token", where: "(deleted_at IS NULL)", using: :btree
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "notified_at"
+    t.integer  "type"
+    t.string   "notifiable_type"
+    t.integer  "notifiable_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["notifiable_id"], name: "index_notifications_on_notifiable_id", using: :btree
+    t.index ["notifiable_type"], name: "index_notifications_on_notifiable_type", using: :btree
+    t.index ["notified_at"], name: "index_notifications_on_notified_at", using: :btree
+    t.index ["type"], name: "index_notifications_on_type", using: :btree
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
   create_table "ongoing_event_categories", force: :cascade do |t|
@@ -234,6 +249,7 @@ ActiveRecord::Schema.define(version: 20170410144454) do
 
   add_foreign_key "events", "ngos"
   add_foreign_key "facebook_accounts", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "ongoing_events", "ngos"
   add_foreign_key "ongoing_events", "ongoing_event_categories"
 end

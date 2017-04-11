@@ -5,6 +5,7 @@ class Shift < ApplicationRecord
 
   has_many :participations, dependent: :destroy
   has_many :users, through: :participations
+  has_many :notifications,  as: :notifiable
   belongs_to :event
 
   validates :volunteers_needed, :starts_at, :ends_at, presence: true
