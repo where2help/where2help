@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     unlocks: 'ngos/unlocks' }
 
 
-  get   "/users/notifications",  to: "users/notifications#edit"
-  patch "/users/notfifications", to: "users/notifications#update"
+  get   "/users/notifications", to: "users/notifications#edit"
+  patch "/users/notifications", to: "users/notifications#update"
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

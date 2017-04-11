@@ -30,45 +30,55 @@
     <h3>Update your Notification Settings</h3>
     <hr />
     
-    <form>
+    <%= form_tag users_notifications_path, method: :patch, class: "form" do %>
       <div class="checkbox">
         <label>
-          <input id="" name="" checked type="checkbox" /> Notify me of new events that match my profile.
+          <%= check_box_tag User::Settings::NEW_EVENT_KEY, @settings.can_notify_new_event?, @settings.can_notify_new_event? %> Notify me of new events that match my profile.
         </label>
       </div>
       <div class="checkbox">
         <label>
-          <input id="" name="" checked type="checkbox" /> Send me a reminder before my shifts or events.
+          <%= check_box_tag User::Settings::UPCOMING_EVENT_KEY, @settings.can_notify_upcoming_event?, @settings.can_notify_upcoming_event? %> Send me a reminder before my shifts or events.
         </label>
       </div>
-    </form>
 
     
+      <br />
+      
+
+      <h3>How you get your Notifications</h3>
+      <p>If you want to receive your notifications over Messenger instead of email, click on the link below and we will contact you there.</p>
+      <p>You will control the settings here.</p>
+      <hr />
+
+      <div class="checkbox">
+        <label>
+          <%= check_box_tag User::Settings::EMAIL_NOTIFICATION_KEY, @settings.can_notify_email?, @settings.can_notify_email? %> Contact me over email.
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+           <%= check_box_tag User::Settings::FB_NOTIFICATION_KEY, @settings.can_notify_facebook?, @settings.can_notify_facebook? %> Contact me over facebook messenger.
+        </label>
+      </div>
+
+      <br />
+      <br />
+
+      <%= submit_tag t(".submit"), class: "btn btn-primary"%>
+
+    <% end %>
+
     <br />
     
 
-    <h3>How you get your Notifications</h3>
-    <p>If you want to receive your notifications over Messenger instead of email, click on the link below and we will contact you there.</p>
-    <p>You will control the settings here.</p>
+    <h3>Connect with Facebook Messenger now</h3>
+
     <hr />
 
-    <div class="checkbox">
-      <label>
-        <input id="" name="" checked type="checkbox" /> Contact me over facebook messenger.
-      </label>
-    </div>
-    <div class="checkbox">
-      <label>
-        <input id="" name="" type="checkbox" /> Contact me over email.
-      </label>
-    </div>
-
-    <br/>
-
-    <h4>Connect with Facebook Messenger now</h4>
     <div class="fb-messengermessageus" 
-      messenger_app_id="1709720362687062" 
-      page_id="1578916839071595" 
+      messenger_app_id="439715396371687" 
+      page_id="264068894054659" 
       data-ref="PASS_THROUGH_PARAM" 
       color="blue" 
       size="xlarge">

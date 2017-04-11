@@ -110,6 +110,11 @@ de:
     nav:
       schedule: Einsätze
       profile: Profil
+    notifications:
+      edit:
+        submit: Nachrichten Einstellungen Speichern
+      update:
+        successful: Gut Gemacht!!!
     sessions:
       new:
         login: Anmelden
