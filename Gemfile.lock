@@ -170,7 +170,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    messenger_client (0.1.4)
+    messenger_client (0.1.5)
       typhoeus (~> 1.1.0)
     method_source (0.8.2)
     mime-types (3.1)
