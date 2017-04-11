@@ -1,10 +1,15 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1709720362687062',
+      appId      : '<%= ENV.fetch("FB_MESSENGER_APP_ID") %>',
       xfbml      : true,
       version    : 'v2.6'
     });
+    FB.Event.subscribe('send_to_messenger', function(e) {
+      console.dir(e)
+       // callback for events triggered by the plugin
+     
+     });
   };
 
   (function(d, s, id){
@@ -76,9 +81,10 @@
 
     <hr />
 
+
     <div class="fb-send-to-messenger" 
-      messenger_app_id="439715396371687" 
-      page_id="264068894054659" 
+      messenger_app_id="<%= ENV.fetch("FB_MESSENGER_APP_ID") %>" 
+      page_id="<%= ENV.fetch("FB_MESSENGER_PAGE_ID") %>" 
       data-ref="<%= @pass_through_id %>" 
       color="blue" 
       size="xlarge">
