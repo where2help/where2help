@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :shifts,         through: :participations
   has_many :ongoing_events, through: :participations
 
+  has_many :notifications, dependent: :destroy
+
   has_one  :facebook_account
 
   validates :first_name, length: { in: 1..50 }

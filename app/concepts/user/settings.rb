@@ -1,6 +1,6 @@
 class User::Settings
-  FB_NOTIFICATION_KEY    = "allow_facebook_notfications"
-  EMAIL_NOTIFICATION_KEY = "allow_email_notfications"
+  FB_NOTIFICATION_KEY    = "allow_facebook_notifications"
+  EMAIL_NOTIFICATION_KEY = "allow_email_notifications"
   NEW_EVENT_KEY          = "notify_new_events"
   UPCOMING_EVENT_KEY     = "notify_upcoming_events"
 
@@ -22,7 +22,24 @@ class User::Settings
   end
 
   def update(params)
-    user.update_attribute(:settings, params)
+    settings = params.slice(
+      FB_NOTIFICATION_KEY,
+      EMAIL_NOTIFICATION_KEY,
+      NEW_EVENT_KEY,
+      UPCOMING_EVENT_KEY
+    )
+    parse_trues(settings)
+    user.update_attribute(:settings, settings)
+  end
+
+  def parse_trues(settings)
+    [ FB_NOTIFICATION_KEY,
+      EMAIL_NOTIFICATION_KEY,
+      NEW_EVENT_KEY,
+      UPCOMING_EVENT_KEY ]
+      .each do |k|
+        settings[k] = settings[k].nil? ? false : true
+      end
   end
 
   def can_notify_facebook?

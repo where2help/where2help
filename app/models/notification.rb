@@ -1,5 +1,5 @@
 class Notification < ApplicationRecord
-  enum type: {
+  enum notification_type: {
     new_event: 10,
     upcoming_event: 30,
   }

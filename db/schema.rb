@@ -123,16 +123,16 @@ ActiveRecord::Schema.define(version: 20170411134504) do
 
   create_table "notifications", force: :cascade do |t|
     t.datetime "notified_at"
-    t.integer  "type"
+    t.integer  "notification_type"
     t.string   "notifiable_type"
     t.integer  "notifiable_id"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["notifiable_id"], name: "index_notifications_on_notifiable_id", using: :btree
     t.index ["notifiable_type"], name: "index_notifications_on_notifiable_type", using: :btree
+    t.index ["notification_type"], name: "index_notifications_on_notification_type", using: :btree
     t.index ["notified_at"], name: "index_notifications_on_notified_at", using: :btree
-    t.index ["type"], name: "index_notifications_on_type", using: :btree
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 

@@ -38,12 +38,12 @@
     <%= form_tag users_notifications_path, method: :patch, class: "form" do %>
       <div class="checkbox">
         <label>
-          <%= check_box_tag User::Settings::NEW_EVENT_KEY, @settings.can_notify_new_event?, @settings.can_notify_new_event? %> Notify me of new events that match my profile.
+          <%= check_box_tag User::Settings::NEW_EVENT_KEY, nil, @settings.can_notify_new_event? %> Notify me of new events that match my profile.
         </label>
       </div>
       <div class="checkbox">
         <label>
-          <%= check_box_tag User::Settings::UPCOMING_EVENT_KEY, @settings.can_notify_upcoming_event?, @settings.can_notify_upcoming_event? %> Send me a reminder before my shifts or events.
+          <%= check_box_tag User::Settings::UPCOMING_EVENT_KEY, nil, @settings.can_notify_upcoming_event? %> Send me a reminder before my shifts or events.
         </label>
       </div>
 
@@ -58,12 +58,12 @@
 
       <div class="checkbox">
         <label>
-          <%= check_box_tag User::Settings::EMAIL_NOTIFICATION_KEY, @settings.can_notify_email?, @settings.can_notify_email? %> Contact me over email.
+          <%= check_box_tag User::Settings::EMAIL_NOTIFICATION_KEY, nil, @settings.can_notify_email? %> Contact me over email.
         </label>
       </div>
       <div class="checkbox">
         <label>
-           <%= check_box_tag User::Settings::FB_NOTIFICATION_KEY, @settings.can_notify_facebook?, @settings.can_notify_facebook? %> Contact me over facebook messenger.
+           <%= check_box_tag User::Settings::FB_NOTIFICATION_KEY, nil, @settings.can_notify_facebook? %> Contact me over facebook messenger.
         </label>
       </div>
 
