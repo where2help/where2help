@@ -18,6 +18,7 @@ class User::Settings
       UPCOMING_EVENT_KEY     => true,
     }
     user.update_attribute(:settings, settings)
+    create_facebook_account
   end
 
   def update(params)
@@ -38,5 +39,12 @@ class User::Settings
 
   def can_notify_upcoming_event?
     !!user.setting(UPCOMING_EVENT_KEY)
+  end
+
+  private
+
+  def create_facebook_account
+    acct = user.create_facebook_account
+    acct.generate_uuid!
   end
 end
