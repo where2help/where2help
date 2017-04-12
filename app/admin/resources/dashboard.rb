@@ -17,6 +17,14 @@ ActiveAdmin.register_page "Dashboard" do
     end)
     hours_invested_needed_percent = hours_needed > 0 ? 100 * hours_invested.to_f / hours_needed : 0
 
+    ongoing_events_created_count = OngoingEvent.unscoped.where("created_at BETWEEN :from and :to", from: from_date, to: to_date).count
+    ongoing_event_volunteers_count = (OngoingEvent.unscoped do
+      Participation.unscoped.joins(:ongoing_event).where("ongoing_events.created_at BETWEEN :from and :to", from: from_date, to: to_date).count
+    end)
+    ongoing_event_distinct_volunteers_count = (OngoingEvent.unscoped do
+      Participation.unscoped.joins(:ongoing_event).where("ongoing_events.created_at BETWEEN :from and :to", from: from_date, to: to_date).count("DISTINCT participations.user_id")
+    end)
+
     render json: {
       update_fields: {
         user_count: User.unscoped.where("created_at BETWEEN :from and :to", from: from_date, to: to_date).count,
@@ -32,6 +40,10 @@ ActiveAdmin.register_page "Dashboard" do
         hours_needed: hours_needed,
         hours_invested: hours_invested,
         hours_invested_needed_percent: ("(" + ActionController::Base.helpers.number_to_percentage(hours_invested_needed_percent, precision: 0) + ")"),
+
+        ongoing_events_created_count: ongoing_events_created_count,
+        ongoing_event_volunteers_count: ongoing_event_volunteers_count,
+        ongoing_event_distinct_volunteers_count: ongoing_event_distinct_volunteers_count,
 
         report_created_at: l(Time.zone.now, format: :short)
       }
@@ -257,6 +269,23 @@ ActiveAdmin.register_page "Dashboard" do
               span "", id: "statistics-field-hours_invested"
               span "Stunden geleistet"
               span "", id: "statistics-field-hours_invested_needed_percent"
+            end
+          end
+          row "Dauerhafte Einsätze erstellt im Zeitraum", class: "statistics-result-row", style: "display: none;" do
+            div do
+              span "", id: "statistics-field-ongoing_events_created_count"
+              span "dauerhafte Einsätze erstellt"
+            end
+          end
+          row "Dauerhafte Einsätze: Anmeldungen im Zeitraum", class: "statistics-result-row", style: "display: none;" do
+            div do
+              span "", id: "statistics-field-ongoing_event_volunteers_count"
+              span "Anmeldungen"
+            end
+            div do
+              span "von"
+              span "", id: "statistics-field-ongoing_event_distinct_volunteers_count"
+              span "verschiedenen Freiwilligen"
             end
           end
           div class: "statistics-result-row", style: "display: none;color: #b3bcc1;" do
