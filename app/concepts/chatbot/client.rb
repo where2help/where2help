@@ -4,8 +4,12 @@ class Chatbot::Client
   end
 
   def send_text(user, msg)
-    fid = user.facebook_account&.facebook_id
-    return if fid.nil?
-    @client.text(recipient_id: fid, text: msg)
+    fb_id = user.facebook_account&.facebook_id
+    return if fb_id.nil?
+    text(fb_id, msg)
+  end
+
+  def text(fb_id, msg)
+    @client.text(recipient_id: fb_id, text: msg)
   end
 end
