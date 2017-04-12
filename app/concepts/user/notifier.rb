@@ -39,7 +39,7 @@ class User::Notifier
     return unless settings.can_notify_new_event?
     was_notified = false
     if settings.can_notify_facebook?
-      msg = "There is a new event you may be interested in. Check out the event #{event.title} at https://where2help.wien/events/#{event.id}."
+      msg = "There is a new event you may be interested in. Check out the event #{event.title} at #{make_event_link(event)}."
       @chatbot_cli.send_text(user, msg)
       was_notified = true
     end
@@ -52,6 +52,17 @@ class User::Notifier
     if was_notified
       event.notifications.create(notified_at: Time.now, notification_type: :new_event, user_id: user.id)
     end
+  end
+
+  def make_event_link(event)
+    resource =
+      case event
+        when OngoingEvent
+          "ongoing_events"
+        else
+          "events"
+      end
+    "https://where2help.wien/#{resource}/#{event.id}"
   end
 
   def notify_upcoming(user, shift)
