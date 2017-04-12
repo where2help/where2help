@@ -5,5 +5,5 @@ class Notification < ApplicationRecord
   }
 
   belongs_to :user
-  belongs_to :shift, polymorphic: true
+  belongs_to :notifiable, polymorphic: true
 end

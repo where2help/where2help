@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
   has_many :available_shifts, -> { available }, class_name: 'Shift'
   has_many :future_shifts, -> { upcoming }, class_name: 'Shift'
+  has_many :notifications, as: :notifiable
 
   validates :title, length: { in: 1..100 }
   validates :address, presence: true

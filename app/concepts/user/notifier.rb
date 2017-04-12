@@ -16,12 +16,45 @@ class User::Notifier
       n_users = s.notifications.map(&:user)
       users_to_notify = (s_users - n_users).uniq
       users_to_notify.each do |u|
-        notify(u, s)
+        notify_upcoming(u, s)
       end
     end
   end
 
-  def notify(user, shift)
+  # We are assuming:
+  #
+  # 1. this can only be run once
+  # 2. We notify all the users because we don't have any categories
+  #
+  def notify_new!(event)
+    User.find_each do |u|
+      notify_new(u, event)
+    end
+  end
+
+  private
+
+  def notify_new(user, event)
+    settings = User::Settings.new(user)
+    return unless settings.can_notify_new_event?
+    was_notified = false
+    if settings.can_notify_facebook?
+      msg = "There is a new event you may be interested in. Check out the event #{event.title} at https://where2help.wien/events/#{event.id}."
+      @chatbot_cli.send_text(user, msg)
+      was_notified = true
+    end
+
+    if settings.can_notify_email?
+      Rails.logger.debug("Sending notification email to #{user.email}")
+      was_notified = true
+    end
+
+    if was_notified
+      event.notifications.create(notified_at: Time.now, notification_type: :new_event, user_id: user.id)
+    end
+  end
+
+  def notify_upcoming(user, shift)
     settings = User::Settings.new(user)
     return unless settings.can_notify_upcoming_event?
     was_notified = false
@@ -38,4 +71,5 @@ class User::Notifier
       shift.notifications.create(notified_at: Time.now, notification_type: :upcoming_event, user_id: user.id)
     end
   end
+
 end
