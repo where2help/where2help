@@ -46,7 +46,7 @@ class ChatbotOperation
       user_id = msg.sender.id
       fb_acct = FacebookAccount.find_by(facebook_id: user_id)
       return if fb_acct.nil?
-      fb_acct.bot_messages.create(provider: :facebook, payload: msg.to_h, from_bot: true)
+      fb_acct.bot_messages.create(provider: :facebook, payload: msg.to_h, from_bot: false)
     end
   end
 
