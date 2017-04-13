@@ -21,18 +21,23 @@ class User::Notifier
     end
   end
 
-  # We are assuming:
-  #
-  # 1. this can only be run once
-  # 2. We notify all the users because we don't have any categories
-  #
   def notify_new!(event)
-    User.find_each do |u|
+    nids = notified_user_ids(event)
+
+    User.where.not(id: nids).each do |u|
       notify_new(u, event)
     end
   end
 
   private
+
+  def notified_user_ids(event)
+    event
+      .notifications
+      .includes(:user)
+      .where(notification_type: :new_event)
+      .map { |n| n.user.id }
+  end
 
   def notify_new(user, event)
     settings = User::Settings.new(user)
