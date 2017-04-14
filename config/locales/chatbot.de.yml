@@ -1,0 +1,19 @@
+de:
+  chatbot:
+    user_yes:
+      - ja
+      - naja
+
+    dont_understand:
+      - Ich verstehe dich nicht
+      - Sorry, keine Ahnung...
+
+    user_hello:
+      - hallo
+      - hi
+      - grüß gott
+
+    hello:
+      - Hallo, Mensch
+      - Servus!
+      - Grrrrrrüß Gottt!

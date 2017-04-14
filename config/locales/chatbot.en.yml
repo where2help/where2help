@@ -1,0 +1,27 @@
+en:
+  chatbot:
+    user_yes:
+      - yes
+      - yeah
+      - yah
+      - yep
+      - si
+      - sí
+      - yo
+
+    dont_understand:
+      - I don't understand
+      - Sorry, I don't get it
+      - I like it, but I don't understand
+
+    user_hello:
+      - hi
+      - hey
+      - hello
+      - yo
+
+    hello:
+      - Hi Human
+      - Hi there
+      - Wassup?
+      - Yo!

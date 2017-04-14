@@ -1,4 +1,4 @@
-class Chatbot::WebhooksController < ApplicationController
+class Api::V1::Chatbot::FacebookController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:message]
 
   def challenge

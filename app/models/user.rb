@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   has_one  :facebook_account
-  has_many :bot_messages, through: :facebook_account
+  has_many :bot_messages, -> { order(created_at: :desc) }, through: :facebook_account
 
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }

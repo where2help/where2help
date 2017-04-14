@@ -35,9 +35,9 @@ class Ngos::EventsController < ApplicationController
 
   def update
     @operation = EventOperation::Ngo::Update.(
-      ngo: current_ngo,
-      event_id: params[:id],
-      event: event_params,
+      ngo:          current_ngo,
+      event_id:     params[:id],
+      event:        event_params,
       notify_users: params[:notify_users]
     )
     @event = @operation.model
@@ -57,6 +57,7 @@ class Ngos::EventsController < ApplicationController
   def publish
     if find_ngo_event.publish!
       flash[:notice] = t('ngos.events.messages.publish_success')
+      User::Notifier::New.(@event)
     else
       flash[:notice] = t('ngos.events.messages.publish_fail')
     end

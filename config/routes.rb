@@ -59,6 +59,12 @@ Rails.application.routes.draw do
           post 'opt_out'
         end
       end
+
+      # Chatbot
+      # challenge endpoint
+      get "/chatbot/facebook", to: "chatbot/facebook#challenge"
+      # received message endpoint
+      post "/chatbot/facebook", to: "chatbot/facebook#message"
     end
   end
 
@@ -82,13 +88,6 @@ Rails.application.routes.draw do
   authenticated :ngo do
     root 'ngos/events#index'
   end
-
-  # Webhooks
-
-  # challenge endpoint
-  get "/chatbot/facebook/webhook", to: "chatbot/webhooks#challenge"
-  # received message endpoint
-  post "/chatbot/facebook/webhook", to: "chatbot/webhooks#message"
 
   # "Static" Pages
 
