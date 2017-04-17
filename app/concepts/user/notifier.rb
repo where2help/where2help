@@ -43,7 +43,7 @@ class User::Notifier
       return unless settings.can_notify_upcoming_event?
       was_notified = false
       if settings.can_notify_facebook?
-        msg = "The shift for #{shift.event.title} is starting #{shift.starts_at}. See you then!"
+        msg = I18n.t("chatbot.shifts.upcoming", title: shift.event.title, starts_at: shift.starts_at, locale: user.locale)
         @chatbot_cli.send_text(user, msg)
         was_notified = true
       end
@@ -96,7 +96,7 @@ class User::Notifier
       return unless settings.can_notify_new_event?
       was_notified = false
       if settings.can_notify_facebook?
-        msg = "There is a new event you may be interested in. Check out the event #{event.title} at #{make_event_link(event)}."
+        msg = I18n.t("chatbot.events.new", title: event.title, link: make_event_link(event), locale: user.locale)
         @chatbot_cli.send_text(user, msg)
         was_notified = true
       end

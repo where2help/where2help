@@ -17,3 +17,9 @@ de:
       - Hallo, Mensch
       - Servus!
       - Grrrrrrüß Gottt!
+
+    shifts:
+      upcoming: Deine Schritt %{title} beginnt um %{starts_at}. Bis dann!"
+
+    events:
+      new: Es gibt ein neues Einsatz. Findest du '%{title}' hier %{link}.

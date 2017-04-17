@@ -21,6 +21,6 @@ class Api::V1::Chatbot::FacebookController < ApplicationController
   private
 
   def verify_request_signature
-    Chatbot::AuthorizeRequest.new.(request, ENV.fetch("FB_MESSENGER_APP_SECRET"))
+    ::Chatbot::AuthorizeRequest.new.(request, ENV.fetch("FB_MESSENGER_APP_SECRET"))
   end
 end

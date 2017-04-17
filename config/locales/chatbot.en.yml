@@ -25,3 +25,9 @@ en:
       - Hi there
       - Wassup?
       - Yo!
+
+    shifts:
+      upcoming: Your shift for %{title} starts at %{starts_at}. See you then!"
+
+    events:
+      new: There is a new event you may be interested in. Check out the event %{title} at %{link}.
