@@ -33,6 +33,20 @@ de:
       content: |
         "%{title}" wurde seitens %{ngo_name} verändert.
         Vielen Dank für Dein Engagement!
+    new_event:
+      teaser: "%{title}"
+      subject: "[where2help] Neue Einsatz erstellt"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" war gerade erstellt. Wenn du Interesse hast, schau mal auf %{link}.
+        Vielen Dank für Dein Engagement!
+    upcoming_event:
+      teaser: "%{title}"
+      subject: "[where2help] Neue Einsatz started bald!"
+      greeting: "Hallo %{name}"
+      content: |
+        "%{title}" startet etwa %{time}. Du kannst mehr Info finden bei %{link}.
+        Vielen Dank für Dein Engagement!
     shift_destroyed:
       teaser: "%{title}"
       subject: "[where2help] Einsatz wurde abgesagt"

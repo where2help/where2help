@@ -43,6 +43,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'pry-byebug', require: false
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -56,7 +57,6 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'bullet'
   gem 'letter_opener'
-  gem 'dotenv-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

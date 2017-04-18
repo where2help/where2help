@@ -38,7 +38,7 @@ Procfile.dev
 
 # your own ENV related stuff. Copy over .env.example locally
 .env
-.env.test
+.env.*
 .ruby-env
 tags
 .DS_Store

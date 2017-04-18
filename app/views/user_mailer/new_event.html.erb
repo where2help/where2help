@@ -1,0 +1,6 @@
+<%= content_for(:teaser, t(".teaser", title: truncate(@event.title))) %>
+
+<h2><%= t('.greeting', name: @user.first_name) %></h2>
+<p>
+  <%= t('.content', title: @event.title, link: @link) %>
+</p>
