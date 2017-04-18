@@ -38,7 +38,9 @@ class User::Settings
       NEW_EVENT_KEY,
       UPCOMING_EVENT_KEY ]
       .each do |k|
-        settings[k] = settings[k].nil? ? false : true
+        setting = settings[k]
+        is_set = !!setting
+        settings[k] = is_set ? true : false
       end
   end
 
