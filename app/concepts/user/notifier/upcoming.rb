@@ -3,22 +3,24 @@ class User::Notifier
     WHEN_UPCOMING = -> { Time.now + 1.day }
 
     def self.call
-      new.notify_upcoming!
+      new.notify!
     end
 
     class Worker < ApplicationJob
       def perform
         ActiveRecord::Base.connection_pool.with_connection do
-          Upcoming.new.notify_upcoming!
+          Upcoming.new.notify!
         end
       end
     end
+
+    attr_reader :chatbot_cli
 
     def initialize
       @chatbot_cli = Chatbot::Client.new
     end
 
-    def notify_upcoming!
+    def notify!
       start  = Time.now
       ending = WHEN_UPCOMING.()
       upcoming_shifts = Shift.includes(:users, [notifications: :user]).where("starts_at > ? AND starts_at < ?", start, ending)
