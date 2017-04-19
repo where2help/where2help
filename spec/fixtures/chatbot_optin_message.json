@@ -1,0 +1,23 @@
+{
+    "object": "page",
+    "entry": [
+        {
+            "id": "fake_entry_id",
+            "time": 1491987658934,
+            "messaging": [
+                {
+                    "recipient": {
+                        "id": "fake_recipient_id"
+                    },
+                    "timestamp": 1491987658934,
+                    "sender": {
+                        "id": "fake_sender_id"
+                    },
+                    "optin": {
+                        "ref": "fake_reference"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "object": "page",
+    "entry": [
+        {
+            "id": "fake_entry_id",
+            "time": 1492607894349,
+            "messaging": [
+                {
+                    "sender": {
+                        "id": "fake_sender_id"
+                    },
+                    "recipient": {
+                        "id": "fake_recipient_id"
+                    },
+                    "timestamp": 1492607882150,
+                    "message": {
+                        "mid": "mid.fake_message_id",
+                        "seq": 34793,
+                        "text": "hi"
+                    }
+                }
+            ]
+        }
+    ]
+}
