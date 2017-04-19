@@ -1,4 +1,6 @@
 class Chatbot::Client
+  attr_reader :client
+
   def initialize
     @client = MessengerClient::Client.new(ENV.fetch("FB_MESSENGER_PAGE_TOKEN"))
   end
@@ -10,7 +12,7 @@ class Chatbot::Client
   end
 
   def text(fb_id, msg)
-    @client.text(recipient_id: fb_id, text: msg)
+    client.text(recipient_id: fb_id, text: msg)
     record_message(fb_id, msg)
   end
 
