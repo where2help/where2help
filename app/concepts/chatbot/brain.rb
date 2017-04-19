@@ -4,7 +4,7 @@ class Chatbot::Brain
     when MessengerClient::Message::Optin then ChatbotOperation::UserSignUp.(msg)
     when MessengerClient::Message::Text  then handle_text_message(msg)
     else
-      puts "Just heard msg:\n#{msg.inspect}\n"
+      Rails.logger.warn "Chatbot::Brain#hear doesn't know how to handle: #{msg.inspect}"
     end
   end
 
