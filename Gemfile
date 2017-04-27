@@ -64,7 +64,7 @@ gem 'sucker_punch'
 
 # Admin Interface
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin'
 gem 'formtastic-bootstrap'
 gem 'cocoon'
 gem 'histogram'
