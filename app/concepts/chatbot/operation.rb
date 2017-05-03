@@ -51,17 +51,30 @@ class ChatbotOperation
   end
 
   class UserSignUp < Operation
-    attr_reader :client
-
-    def initialize
-      @client = Chatbot::Client.new
+    class OnboardingMessageJob < ApplicationJob
+      WAIT_TIME = 1
+      def perform(ref, fb_id)
+        client = Chatbot::Client.new
+        ActiveRecord::Base.connection_pool.with_connection do
+          fb_acct = FacebookAccount.includes(:user).find_by(referencing_id: ref)
+          fb_acct.update_attribute(:facebook_id, fb_id)
+          user = fb_acct.user
+          first_name = user.first_name
+          help_url = Rails.application.routes.url_helpers.users_notifications_url
+          steps = I18n.t("chatbot.onboarding", locale: user.locale)
+          steps.each do |step_text|
+            text = ERB.new(step_text).result(binding)
+            client.text(fb_id, text)
+            sleep(WAIT_TIME)
+          end
+        end
+      end
     end
 
     def process(msg)
-      fb_acct = FacebookAccount.includes(:user).find_by(referencing_id: msg.ref)
-      fb_id   = msg.sender.id
-      fb_acct.update_attribute(:facebook_id, fb_id)
-      client.text(fb_id, "Hi #{fb_acct.user.first_name}, you're connected to Where2Help!")
+      ref   = msg.ref
+      fb_id = msg.sender.id
+      OnboardingMessageJob.perform_later(ref, fb_id)
     end
   end
 end
