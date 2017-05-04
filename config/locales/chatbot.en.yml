@@ -26,12 +26,17 @@ en:
       - Wassup?
       - Yo!
 
-    onboarding:
-      - Hi %{first_name}, great to see you.
-      - We will send you notifications when events you have opted in for are coming up.
-      - We'll also send you notifications if a new event is added that matches your profile.
-      - You can change your notification settings in the Where2Help app (%{help_url}).
-      - If you have any questions type "help".\nSee you around!
+    onboarding: |
+      Hi %{first_name}, great to see you.
+
+      We will send you notifications when events you have opted in for are coming up.
+
+      We'll also send you notifications if a new event is added that matches your profile.
+
+      You can change your notification settings in the Where2Help app (%{help_url}).
+
+      If you have any questions type "help".
+      See you soon!
 
     shifts:
       upcoming: Your shift for %{title} starts at %{starts_at}. See you then!"

@@ -1,24 +1,37 @@
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '<%= ENV.fetch("FB_MESSENGER_APP_ID") %>',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-    FB.Event.subscribe('send_to_messenger', function(e) {
-      console.dir(e)
-       // callback for events triggered by the plugin
-     
-     });
-  };
+  jQuery(function() {
+    if (<%= !@user_has_facebook_account %>) {
+      $(".m_optin-facebook-checkbox").on("change", function() {
+        if ($(this).is(':checked')) {
+          loadFacebookIntoPage();
+          $(".modal").modal("show");
+        }
+      })
+    }
+  })
+  function loadFacebookIntoPage () {
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '<%= ENV.fetch("FB_MESSENGER_APP_ID") %>',
+        xfbml      : true,
+        version    : 'v2.6'
+      });
+      FB.Event.subscribe('send_to_messenger', function(e) {
+        console.dir(e)
+        if (e.event === "opt_in") {
+          $(".modal").modal("hide");
+        }
+       });
+    };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  }
 </script>
 
 <div class="row">
@@ -34,7 +47,7 @@
   <div class="col-sm-12">
     <h3>Update your Notification Settings</h3>
     <hr />
-    
+
     <%= form_tag users_notifications_path, method: :patch, class: "form" do %>
       <div class="checkbox">
         <label>
@@ -47,9 +60,9 @@
         </label>
       </div>
 
-    
+
       <br />
-      
+
 
       <h3>How you get your Notifications</h3>
       <p>If you want to receive your notifications over Messenger instead of email, click on the link below and we will contact you there.</p>
@@ -63,7 +76,7 @@
       </div>
       <div class="checkbox">
         <label>
-           <%= check_box_tag User::Settings::FB_NOTIFICATION_KEY, nil, @settings.can_notify_facebook? %> Contact me over facebook messenger.
+           <%= check_box_tag User::Settings::FB_NOTIFICATION_KEY, nil, @settings.can_notify_facebook?, class: "m_optin-facebook-checkbox" %> Contact me over facebook messenger.
         </label>
       </div>
 
@@ -75,20 +88,31 @@
     <% end %>
 
     <br />
-    
-
-    <h3>Connect with Facebook Messenger now</h3>
-
-    <hr />
 
 
-    <div class="fb-send-to-messenger" 
-      messenger_app_id="<%= ENV.fetch("FB_MESSENGER_APP_ID") %>" 
-      page_id="<%= ENV.fetch("FB_MESSENGER_PAGE_ID") %>" 
-      data-ref="<%= @pass_through_id %>" 
-      color="blue" 
-      size="xlarge">
-    </div>    
+    <div class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><%= t(".facebook_modal_title") %></h4>
+          </div>
+          <div class="modal-body">
+            <div class="fb-send-to-messenger"
+              messenger_app_id="<%= ENV.fetch("FB_MESSENGER_APP_ID") %>"
+              page_id="<%= ENV.fetch("FB_MESSENGER_PAGE_ID") %>"
+              data-ref="<%= @pass_through_id %>"
+              color="blue"
+              size="xlarge">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
   </div>
 </div>
 

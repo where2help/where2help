@@ -120,6 +120,7 @@ en:
     notifications:
       edit:
         submit: Save Settings
+        facebook_modal_title: Click on the link to initiate conversation with facebook
       update:
         successful: Notification Settings Successfully Updated
     registrations:

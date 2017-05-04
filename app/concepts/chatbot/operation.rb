@@ -58,13 +58,12 @@ class ChatbotOperation
         ActiveRecord::Base.connection_pool.with_connection do
           fb_acct = FacebookAccount.includes(:user).find_by(referencing_id: ref)
           fb_acct.update_attribute(:facebook_id, fb_id)
-          user = fb_acct.user
+          user       = fb_acct.user
           first_name = user.first_name
-          help_url = Rails.application.routes.url_helpers.users_notifications_url
-          steps = I18n.t("chatbot.onboarding", locale: user.locale)
-          steps.each do |step_text|
-            text = ERB.new(step_text).result(binding)
-            client.text(fb_id, text)
+          help_url   = Rails.application.routes.url_helpers.users_notifications_url
+          steps = I18n.t("chatbot.onboarding", locale: user.locale, first_name: first_name, help_url: help_url)
+          steps.split("\n\n").each do |step_text|
+            client.text(fb_id, step_text)
             sleep(WAIT_TIME)
           end
         end
