@@ -39,7 +39,11 @@ en:
       See you soon!
 
     shifts:
-      upcoming: Your shift for %{title} starts at %{starts_at}. See you then!"
+      upcoming:
+        text: Your shift for %{title} startson %{starts_at_date} at %{starts_at_time} . See you then!"
+        button_text: View Shift
 
     events:
-      new: There is a new event you may be interested in. Check out the event %{title} at %{link}.
+      new:
+        text: There is a new event you may be interested in. Check out the event %{title} at %{link}.
+        button_text: View On Our Site

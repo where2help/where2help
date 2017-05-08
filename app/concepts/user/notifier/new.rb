@@ -1,4 +1,4 @@
-class User::Notifier
+module User::Notifier
   class New
     def self.call(event)
       Worker.perform_later(event)
@@ -40,8 +40,7 @@ class User::Notifier
       return unless settings.can_notify_new_event?
       was_notified = false
       if settings.can_notify_facebook?
-        msg = I18n.t("chatbot.events.new", title: event.title, link: make_event_link(event), locale: user.locale)
-        chatbot_cli.send_text(user, msg)
+        send_bot_message(event, user)
         was_notified = true
       end
 
@@ -55,15 +54,21 @@ class User::Notifier
       end
     end
 
+    def send_bot_message(event, user)
+      event_link = make_event_link(event)
+      msg        = I18n.t("chatbot.events.new.text", title: event.title, link: event_link, locale: user.locale)
+      btn_text   = I18n.t("chatbot.events.new.button_text")
+      button     = MessengerClient::URLButton.new(btn_text, event_link)
+      chatbot_cli.send_button_template(user, msg, [button])
+    end
+
     def make_event_link(event)
-      resource =
-        case event
-          when OngoingEvent
-            "ongoing_events"
-          else
-            "events"
-        end
-      "https://where2help.wien/#{resource}/#{event.id}"
+      case event
+        when OngoingEvent
+          Rails.application.routes.url_helpers.ongoing_event_url(event)
+        else
+          Rails.application.routes.url_helpers.event_url(event)
+      end
     end
   end
 end

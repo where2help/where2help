@@ -11,6 +11,15 @@ class Chatbot::Client
     text(fb_id, msg)
   end
 
+  def send_button_template(user, text, buttons)
+    fb_id = user.facebook_account&.facebook_id
+    return if fb_id.nil?
+    tpl  = MessengerClient::ButtonTemplate.new(text, buttons)
+    data = tpl.to_json
+    client.send(fb_id, data)
+    record_message(fb_id, data)
+  end
+
   def text(fb_id, msg)
     client.text(recipient_id: fb_id, text: msg)
     record_message(fb_id, msg)
