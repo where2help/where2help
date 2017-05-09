@@ -53,7 +53,7 @@ describe User::Notifier::Upcoming do
     create(:event, ngo: ngo, shifts: [shift])
 
     n = User::Notifier::Upcoming.new
-    expect(n.chatbot_cli).to receive(:send_text).with(user, instance_of(String))
+    expect(n.chatbot_cli).to receive(:send_button_template).with(user, instance_of(String), anything)
     n.notify!
   end
 

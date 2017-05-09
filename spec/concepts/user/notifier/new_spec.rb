@@ -3,6 +3,8 @@ require "rails_helper"
 require "user/notifier/new"
 
 describe User::Notifier::New do
+  include ActiveJob::TestHelper
+
   it "notifies all users of new event" do
     user_count = 3
     users = 1.upto(user_count).map {
@@ -50,7 +52,8 @@ describe User::Notifier::New do
     event = create(:event, ngo: ngo, shifts: [shift])
 
     n = User::Notifier::New.new
-    expect(n.chatbot_cli).to receive(:send_text).with(user, instance_of(String))
+    # Really don't want to stub the buttons
+    expect(n.chatbot_cli).to receive(:send_button_template).with(user, instance_of(String), anything)
     n.notify!(event)
   end
 

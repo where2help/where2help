@@ -3,14 +3,18 @@ require "rails_helper"
 require "chatbot/operation"
 
 describe ChatbotOperation::Message do
+  include ActiveJob::TestHelper
+
   let(:optin_message) { JSON.load(File.read(Rails.root.join("spec", "fixtures", "chatbot_optin_message.json"))) }
-  let(:text_message) { JSON.load(File.read(Rails.root.join("spec", "fixtures", "chatbot_text_message.json"))) }
+  let(:text_message)  { JSON.load(File.read(Rails.root.join("spec", "fixtures", "chatbot_text_message.json"))) }
 
   it "should relate message to user when user connects" do
     ref = "fake_reference" # this is brittle, but it works
     user = create(:user)
     user.create_facebook_account(referencing_id: ref)
-    ChatbotOperation::Message.(optin_message)
+    perform_enqueued_jobs do
+      ChatbotOperation::Message.(optin_message)
+    end
     expect(user.reload.facebook_account.facebook_id).to eq("fake_sender_id")
   end
 
