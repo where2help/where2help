@@ -175,7 +175,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.5)
       mime-types (>= 1.16, < 4)
-    messenger_client (0.1.6)
+    messenger_client (0.1.9)
       typhoeus (~> 1.1.0)
     method_source (0.8.2)
     mime-types (3.1)
@@ -358,7 +358,7 @@ DEPENDENCIES
   kaminari
   leaflet-rails
   letter_opener
-  messenger_client
+  messenger_client (~> 0.1)
   momentjs-rails
   nokogiri
   paranoia (~> 2.2)

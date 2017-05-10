@@ -78,7 +78,7 @@ describe User::Notifier::Upcoming do
     settings.update(
       User::Settings::FB_NOTIFICATION_KEY    => false,
       User::Settings::EMAIL_NOTIFICATION_KEY => false,
-      User::Settings::UPCOMING_EVENT_KEY          => true)
+      User::Settings::UPCOMING_EVENT_KEY     => true)
     shift = create(:shift)
     shift.users << user
     ngo   = create(:ngo)

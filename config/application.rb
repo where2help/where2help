@@ -29,5 +29,14 @@ module Where2help
     config.i18n.default_locale = :de
     config.time_zone = 'Vienna'
     config.autoload_paths += %W["#{config.root}/app/services/"]
+
+    config.after_initialize do
+      Rails.application.reload_routes!
+      require "chatbot/operation"
+      Thread.abort_on_exception = true
+      Thread.new do
+        ChatbotOperation::Initialize.()
+      end
+    end
   end
 end

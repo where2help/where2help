@@ -9,34 +9,52 @@ en:
       - sí
       - yo
 
-    dont_understand:
-      - I don't understand
-      - Sorry, I don't get it
-      - I like it, but I don't understand
-
     user_hello:
       - hi
       - hey
       - hello
       - yo
 
-    hello:
-      - Hi Human
-      - Hi there
-      - Wassup?
-      - Yo!
 
-    onboarding: |
-      Hi %{first_name}, great to see you.
+    responses:
+      dont_understand:
+        - I don't understand
+        - Sorry, I don't get it
+        - I like it, but I don't understand
 
-      We will send you notifications when events you have opted in for are coming up.
+      hello:
+        - Hi Human
+        - Hi there
+        - Wassup?
+        - Yo!
 
-      We'll also send you notifications if a new event is added that matches your profile.
+      help: |
+        We will send you notifications when events you have opted in for are coming up.
 
-      You can change your notification settings in the Where2Help app (%{help_url}).
+        We'll also send you notifications if a new event is added that matches your profile.
 
-      If you have any questions type "help".
-      See you soon!
+        You can change your notification settings in the Where2Help app (%{help_url}).
+
+      get_started: |
+        Hi, the Where2Help bot is here to send notifications for the Where2Help platform %{w2h_url}.
+
+        If you would like to sign up to volunteer for different events, you can register here %{registration_url}.
+
+        After you register, you can link your account to out bot by going to your notifications setting (only visible after you've registered) %{notifications_url}
+
+        Thank you for your interest and we hope to see you soon!
+
+      onboarding: |
+        Hi %{first_name}, great to see you.
+
+        We will send you notifications when events you have opted in for are coming up.
+
+        We'll also send you notifications if a new event is added that matches your profile.
+
+        You can change your notification settings in the Where2Help app (%{help_url}).
+
+        If you have any questions type "help".
+        See you soon!
 
     shifts:
       upcoming:
@@ -47,3 +65,7 @@ en:
       new:
         text: There is a new event you may be interested in. Check out the event %{title} at %{link}.
         button_text: View On Our Site
+
+    menu:
+      help: Help
+      website: Website

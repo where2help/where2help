@@ -4,31 +4,50 @@ de:
       - ja
       - naja
 
-    dont_understand:
-      - Ich verstehe dich nicht
-      - Sorry, keine Ahnung...
-
     user_hello:
       - hallo
       - hi
       - grüß gott
 
-    hello:
-      - Hallo, Mensch
-      - Servus!
-      - Grrrrrrüß Gottt!
 
-    onboarding: |
-      Hi %{first_name}, great to see you.
+    responses:
+      dont_understand:
+        - Ich verstehe dich nicht
+        - Sorry, keine Ahnung...
 
-      We will send you notifications when events you have opted in for are coming up.
+      hello:
+        - Hallo, Mensch
+        - Servus!
+        - Grrrrrrüß Gottt!
 
-      We'll also send you notifications if a new event is added that matches your profile.
+      help: |
+        We will send you notifications when events you have opted in for are coming up.
 
-      You can change your notification settings in the Where2Help app (%{help_url}).
+        We'll also send you notifications if a new event is added that matches your profile.
 
-      If you have any questions type "help".
-      See you soon!
+        You can change your notification settings in the Where2Help app (%{help_url}).
+
+      get_started: |
+        Hi, the Where2Help bot is here to send notifications for the Where2Help platform %{w2h_url}.
+
+        If you would like to sign up to volunteer for different events, you can register here %{registration_url}.
+
+        After you register, you can link your account to out bot by going to your notifications setting (only visible after you've registered) %{notifications_url}
+
+        Thank you for your interest and we hope to see you soon!
+
+
+      onboarding: |
+        Hi %{first_name}, great to see you.
+
+        We will send you notifications when events you have opted in for are coming up.
+
+        We'll also send you notifications if a new event is added that matches your profile.
+
+        You can change your notification settings in the Where2Help app (%{help_url}).
+
+        If you have any questions type "help".
+        See you soon!
 
     shifts:
       upcoming:
@@ -40,22 +59,6 @@ de:
         text: Es gibt ein neues Einsatz. Findest du '%{title}' hier %{link}.
         button_text: Webseite Link
 
-    help:
-
-    hi:
-      input:
-        - hi
-        - hello
-        - hey
-      output:
-        - Oh, hello there
-        - ok, you said hi, right?
-
-      input:
-        - save event
-      output:
-        list:
-          - hi, let me help you
-          - you know, i can
-          - first, ...
-
+    menu:
+      help: Hilfe
+      website: Webseite

@@ -1,4 +1,15 @@
 class ChatbotOperation
+  class Initialize < Operation
+    def process(_opts)
+      # Setup defaults for chatbot
+      bot = Chatbot::Client.new
+      # Get Started (needs to happen before menu)
+      bot.set_get_started
+      # Persistent Menu
+      bot.set_persistent_menu
+    end
+  end
+
   class Challenge < Operation
     Response = Struct.new(:success, :payload)
     def process(params)
@@ -35,8 +46,13 @@ class ChatbotOperation
       parser   = MessengerClient::MessageParser.new(params)
       messages = parser.parse
       messages.each do |msg|
-        record_message(msg)
-        brain.hear(msg)
+        begin
+          record_message(msg)
+          brain.hear(msg)
+        rescue Exception => e
+          Rails.logger.error("Chatbot::Operation::Message Error: #{e}")
+          Rails.logger.error(e.backtrace.join("\n"))
+        end
       end
     end
 
@@ -51,29 +67,11 @@ class ChatbotOperation
   end
 
   class UserSignUp < Operation
-    class OnboardingMessageJob < ApplicationJob
-      WAIT_TIME = 1
-      def perform(ref, fb_id)
-        client = Chatbot::Client.new
-        ActiveRecord::Base.connection_pool.with_connection do
-          fb_acct = FacebookAccount.includes(:user).find_by(referencing_id: ref)
-          fb_acct.update_attribute(:facebook_id, fb_id)
-          user       = fb_acct.user
-          first_name = user.first_name
-          help_url   = Rails.application.routes.url_helpers.users_notifications_url
-          steps = I18n.t("chatbot.onboarding", locale: user.locale, first_name: first_name, help_url: help_url)
-          steps.split("\n\n").each do |step_text|
-            client.text(fb_id, step_text)
-            sleep(WAIT_TIME)
-          end
-        end
-      end
-    end
-
     def process(msg)
       ref   = msg.ref
       fb_id = msg.sender.id
-      OnboardingMessageJob.perform_later(ref, fb_id)
+      fb_acct = FacebookAccount.includes(:user).find_by(referencing_id: ref)
+      fb_acct.update_attribute(:facebook_id, fb_id)
     end
   end
 end
