@@ -1,7 +1,10 @@
 module Chatbot
   class Brain
+    attr_reader :fbid
+
     def hear(msg)
       Rails.logger.debug("Chatbot::Brain received: #{msg.inspect}")
+      @fbid = msg.sender.id
       case msg
       when MessengerClient::Message::Optin    then handle_optin(msg)
       when MessengerClient::Message::Text     then handle_text_message(msg)
@@ -18,10 +21,11 @@ module Chatbot
     ##########################
 
     def handle_text_message(msg)
-      fb_id, user = get_user(msg)
-      locale = get_locale(fb_id, user)
+      return handle_unregistered_user(msg) if user.nil?
       case msg.text
-      when /\A#{I18n.t("chatbot.user_hello", locale: locale).join("|")}/i
+      when list_matcher("chatbot.user.help", locale)
+        send_messages(msg, "chatbot.responses.help", help_url: help_url)
+      when list_matcher("chatbot.user.hello", locale)
         random_message(msg, "chatbot.responses.hello")
       else
         random_message(msg, "chatbot.responses.dont_understand")
@@ -29,6 +33,7 @@ module Chatbot
     end
 
     def handle_postback(msg)
+      return handle_unregistered_user(msg) if user.nil?
       case msg.postback.to_s
       when Postbacks::GET_STARTED then
         opts = {
@@ -42,56 +47,73 @@ module Chatbot
       end
     end
 
-    def help_url
-      Rails.application.routes.url_helpers.users_notifications_url
-    end
 
     def handle_optin(msg)
       ChatbotOperation::UserSignUp.(msg)
-      fb_id, user = get_user(msg)
       first_name  = user.first_name
       message     = I18n.t("chatbot.responses.onboarding", locale: user.locale, first_name: first_name, help_url: help_url)
-      Chatbot::Brain::MultiMessageJob.perform_later(fb_id, message)
+      MultiMessageJob.perform_later(fbid, message)
+    end
+
+    def handle_unregistered_user(msg)
+      info_url          = Rails.application.routes.url_helpers.root_url
+      registration_url  = Rails.application.routes.url_helpers.new_user_registration_url
+      notifications_url = Rails.application.routes.url_helpers.users_notifications_url
+      message = I18n.t("chatbot.responses.please_register",
+                       locale:            profile.w2h_locale,
+                       first_name:        profile.first_name,
+                       notifications_url: notifications_url,
+                       info_url:          info_url,
+                       registration_url:  registration_url)
+      MultiMessageJob.perform_later(fbid, message)
     end
 
     ##########################
     # Message Utils
     ##########################
 
+    def list_matcher(locale_key, l)
+      /\A#{I18n.t(locale_key, locale: l).join("|")}/i
+    end
+
     def random_message(msg, locale_key, locals = {})
-      fb_id, user = get_user(msg)
-      locale      = get_locale(fb_id, user)
-      text        = I18n.t(locale_key, {locale: locale}.merge(locals)).sample
-      MultiMessageJob.perform_later(fb_id, text)
+      text = I18n.t(locale_key, {locale: locale}.merge(locals)).sample
+      MultiMessageJob.perform_later(fbid, text)
     end
 
     def send_messages(msg, locale_key, local = {})
-      fb_id, user = get_user(msg)
-      locale      = get_locale(fb_id, user)
-      text        = I18n.t(locale_key, {locale: locale}.merge(local))
-      MultiMessageJob.perform_later(fb_id, text)
+      text = I18n.t(locale_key, {locale: locale}.merge(local))
+      MultiMessageJob.perform_later(fbid, text)
     end
 
-    def get_user(msg)
-      fb_id   = msg.sender.id
-      fb_acct = FacebookAccount.includes(:user).find_by(facebook_id: fb_id)
-      if fb_acct.nil?
-        [fb_id, nil]
-      else
-        [fb_id, fb_acct.user]
-      end
+    def user
+      @user ||= get_user
     end
 
-    def get_locale(fb_id, user)
-      return get_user_locale(fb_id) if user.nil?
-      user.locale
+    def locale
+      @locale ||= (user&.locale || get_user_locale)
     end
 
-    def get_user_locale(fb_id)
-      client  = Chatbot::Client.new
-      profile = client.get_profile(fb_id)
-      locale  = Locale.from_facebook(profile["locale"])
-      locale.locale
+    def chatbot_cli
+      @chatbot_cli ||= Chatbot::Client.new
+    end
+
+    def profile
+      @profile ||= chatbot_cli.get_profile(fbid)
+    end
+
+    def get_user
+      fb_acct = FacebookAccount.includes(:user).find_by(facebook_id: fbid)
+      return nil if fb_acct.nil?
+      fb_acct.user
+    end
+
+    def get_user_locale
+      profile.w2h_locale
+    end
+
+    def help_url
+      Rails.application.routes.url_helpers.users_notifications_url
     end
 
     class MultiMessageJob < ApplicationJob

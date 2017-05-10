@@ -36,8 +36,9 @@ module Chatbot
       record_message(fb_id, msg)
     end
 
-    def get_profile(fb_id, scopes = %w(locale))
-      client.get_profile(facebook_id: fb_id, scopes: scopes)
+    def get_profile(fb_id, scopes = %w(locale first_name last_name timezone))
+      res = client.get_profile(facebook_id: fb_id, scopes: scopes)
+      FacebookUser.new(res)
     end
 
     def record_message(fb_id, msg)

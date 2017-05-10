@@ -1,14 +1,17 @@
 de:
   chatbot:
-    user_yes:
-      - ja
-      - naja
+    user:
+      yes:
+        - ja
+        - naja
 
-    user_hello:
-      - hallo
-      - hi
-      - grüß gott
+      hello:
+        - hallo
+        - hi
+        - grüß gott
 
+      help:
+        - hilf
 
     responses:
       dont_understand:
@@ -35,6 +38,13 @@ de:
         After you register, you can link your account to out bot by going to your notifications setting (only visible after you've registered) %{notifications_url}
 
         Thank you for your interest and we hope to see you soon!
+
+      please_register: |
+        Hi %{first_name}. This bot can only help you if you are registered at the Where2Help website.
+
+        If you would like to sign up to volunteer for different events, you can register here %{registration_url} or get more information here %{info_url}.
+
+        If you're already registered, you will need to connect your account to the bot. You can update the settings here %{notifications_url} if you are logged into the Where2Help site.
 
 
       onboarding: |
