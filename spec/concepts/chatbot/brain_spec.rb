@@ -6,10 +6,6 @@ require "chatbot/facebook_user"
 describe Chatbot::Brain do
   include ActiveJob::TestHelper
 
-  before(:each) do
-    Chatbot::FacebookUser.stub(:new).and_return(OpenStruct.new(locale: "de", first_name: "Max", last_name: "Mustermann"))
-  end
-
   let(:fbid) { "facebook_id" }
 
   let(:brain) {
