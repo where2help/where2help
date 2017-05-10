@@ -32,7 +32,7 @@ module Chatbot
     end
 
     def text(fb_id, msg)
-      client.text(recipient_id: fb_id, text: msg)
+      client.text(recipient_id: fb_id, text: msg) unless fb_id.nil?
       record_message(fb_id, msg)
     end
 
