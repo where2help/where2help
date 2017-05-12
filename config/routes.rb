@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  default_url_options :host => (ENV["FQDN"] || "localhost:3000")
+
   namespace :ngos do
     resources :events do
       member do

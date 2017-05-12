@@ -1,6 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  Rails.application.routes.default_url_options[:host] = ENV["FQDN"] || "localhost:3000"
 
   # Code is not reloaded between requests.
   config.cache_classes = true
