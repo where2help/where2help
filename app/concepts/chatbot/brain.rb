@@ -72,8 +72,8 @@ module Chatbot
     # Message Utils
     ##########################
 
-    def list_matcher(locale_key, l)
-      /\A#{I18n.t(locale_key, locale: l).join("|")}/i
+    def list_matcher(locale_key, l, only_at_start = true)
+      /#{only_at_start ? "^" : ""}(#{I18n.t(locale_key, locale: l).join("|")})/i
     end
 
     def random_message(msg, locale_key, locals = {})
