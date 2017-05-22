@@ -64,9 +64,16 @@ de:
         text: Deine Schritt %{title} beginnt %{starts_at_date} um %{starts_at_time}. Bis dann!"
         button_text: Schritt Anschauen
 
+      updated:
+        text: Deine Schritt %{title} ist aktualisiert werden. Findet jetzt statt %{date} um %{starts_at} bis %{ends_at}. Bis dann!"
+        button_text: Schritt Anschauen
+
     events:
       new:
         text: Es gibt ein neues Einsatz. Findest du '%{title}' hier %{link}.
+        button_text: Webseite Link
+      updated:
+        text: Die Einsatz '%{title}' war gerade aktualaziert. Findest du die neue Information hier %{link}.
         button_text: Webseite Link
 
     menu:

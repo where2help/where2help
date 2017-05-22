@@ -34,7 +34,7 @@ module Where2help
       config.after_initialize do
         Rails.application.reload_routes!
         require "chatbot/operation"
-        Thread.abort_on_exception = true
+        #Thread.abort_on_exception = true
         Thread.new do
           ChatbotOperation::Initialize.()
         end

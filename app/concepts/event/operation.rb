@@ -8,9 +8,10 @@ class EventOperation
       end
 
       def process(ngo:, event_id:, event:, notify_users:, **)
-        @model = ngo.events.find(event_id)
-        @model.update_attributes(event)
+        @model = ngo.events.includes(shifts: :users).find(event_id)
+        @model.attributes = event
         notify_users! if notify_users
+        @model.save!
       end
 
       def has_users?
@@ -37,10 +38,20 @@ class EventOperation
       private
 
       def notify_users!
-        users = @model.shifts.flat_map { |shift| shift.users }.uniq
-        users.each do |user|
-          UserMailer.event_updated(event: @model, user: user).deliver_later
+        if @model.changes.any?
+          return notify_event(model)
         end
+        shifts =
+          @model.shifts.select { |shift| shift.changes.any? }
+        notify_shifts(shifts)
+      end
+
+      def notify_shifts(shifts)
+        User::Notifier::ShiftChanged.(shifts: shifts)
+      end
+
+      def notify_event(event)
+        User::Notifier::EventChanged.(event: event)
       end
     end
   end

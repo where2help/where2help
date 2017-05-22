@@ -69,13 +69,20 @@ en:
 
     shifts:
       upcoming:
-        text: Your shift for %{title} startson %{starts_at_date} at %{starts_at_time} . See you then!"
+        text: Your shift for %{title} starts on %{starts_at_date} at %{starts_at_time} . See you then!"
+        button_text: View Shift
+
+      updated:
+        text: Your shift for the event '%{title}' has been changed. It now takes place on %{date} from %{starts_at} to %{ends_at}. You can update your volunteer status for this shift by clicking the button below."
         button_text: View Shift
 
     events:
       new:
         text: There is a new event you may be interested in. Check out the event %{title} at %{link}.
         button_text: View On Our Site
+      updated:
+        text: The event '%{title}' has been updated. You can find the updated information here %{link}.
+        button_text: View Event
 
     menu:
       help: Help

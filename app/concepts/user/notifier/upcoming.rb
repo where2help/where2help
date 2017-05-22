@@ -58,19 +58,15 @@ module User::Notifier
     end
 
     def send_bot_message(user, shift)
-      msg        = I18n.t("chatbot.shifts.upcoming.text", title: shift.event.title, starts_at_date: pretty_date(shift.starts_at), starts_at_time: pretty_time(shift.starts_at), locale: user.locale)
+      msg        = I18n.t("chatbot.shifts.upcoming.text",
+                          title:           shift.event.title,
+                          starts_at_date:  Utils.pretty_date(shift.starts_at),
+                          starts_at_time:  Utils.pretty_time(shift.starts_at),
+                          locale:          user.locale)
       btn_text   = I18n.t("chatbot.shifts.upcoming.button_text", locale: user.locale)
       event_link = Rails.application.routes.url_helpers.event_url(shift.event)
       button     = MessengerClient::URLButton.new(btn_text, event_link)
       @chatbot_cli.send_button_template(user, msg, [button])
-    end
-
-    def pretty_date(time)
-      time.strftime("%A, %d %b %Y")
-    end
-
-    def pretty_time(time)
-      time.strftime("%H:%M")
     end
   end
 end
