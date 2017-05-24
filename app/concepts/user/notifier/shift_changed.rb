@@ -22,9 +22,12 @@ module User::Notifier
 
     def notify!(user, shift)
       settings = User::Settings.new(user)
+      Rails.logger.info("Updating users about updated event")
       return unless settings.can_notify_updated_event?
+      Rails.logger.info("User has notification settings set")
       was_notified = false
       if settings.can_notify_facebook?
+        Rails.logger.info("User has notification settings set")
         send_bot_message(shift, user)
         was_notified = true
       end
@@ -47,11 +50,12 @@ module User::Notifier
                           link:       event_link,
                           date:       Utils.pretty_date(shift.starts_at),
                           starts_at:  Utils.pretty_time(shift.starts_at),
-                          ends_at:    pretty_time(shift.ends_at),
+                          ends_at:    Utils.pretty_time(shift.ends_at),
                           locale:     user.locale)
       btn_text = I18n.t("chatbot.shifts.updated.button_text")
+      Rails.logger.info("Sending bot message #{msg} to user #{user.id}")
       button   = MessengerClient::URLButton.new(btn_text, event_link)
-      chatbot_cli.send_button_template(user, msg, [button])
+      @cli.send_button_template(user, msg, [button])
     end
 
     def make_event_link(event)

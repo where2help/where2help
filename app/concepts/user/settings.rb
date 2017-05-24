@@ -3,6 +3,7 @@ class User::Settings
   EMAIL_NOTIFICATION_KEY = "allow_email_notifications"
   NEW_EVENT_KEY          = "notify_new_events"
   UPCOMING_EVENT_KEY     = "notify_upcoming_events"
+  UPDATED_EVENT_KEY      = "notify_updated_event"
 
   attr_reader :user
 
@@ -16,6 +17,7 @@ class User::Settings
       EMAIL_NOTIFICATION_KEY => true,
       NEW_EVENT_KEY          => true,
       UPCOMING_EVENT_KEY     => true,
+      UPDATED_EVENT_KEY      => true,
     }
     user.update_attribute(:settings, settings)
     create_facebook_account
@@ -26,7 +28,8 @@ class User::Settings
       FB_NOTIFICATION_KEY,
       EMAIL_NOTIFICATION_KEY,
       NEW_EVENT_KEY,
-      UPCOMING_EVENT_KEY
+      UPCOMING_EVENT_KEY,
+      UPDATED_EVENT_KEY
     )
     parse_trues(settings)
     user.update_attribute(:settings, settings)
@@ -36,8 +39,9 @@ class User::Settings
     [ FB_NOTIFICATION_KEY,
       EMAIL_NOTIFICATION_KEY,
       NEW_EVENT_KEY,
-      UPCOMING_EVENT_KEY ]
-      .each do |k|
+      UPCOMING_EVENT_KEY,
+      UPDATED_EVENT_KEY
+    ].each do |k|
         setting = settings[k]
         is_set = !!setting
         settings[k] = is_set ? true : false
@@ -58,6 +62,10 @@ class User::Settings
 
   def can_notify_upcoming_event?
     !!user.setting(UPCOMING_EVENT_KEY)
+  end
+
+  def can_notify_updated_event?
+    !!user.setting(UPDATED_EVENT_KEY)
   end
 
   private

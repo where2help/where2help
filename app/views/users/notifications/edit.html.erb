@@ -71,12 +71,18 @@
           <%= check_box_tag User::Settings::NEW_EVENT_KEY, nil, @settings.can_notify_new_event? %> Notify me of new events that match my profile.
         </label>
       </div>
+
       <div class="checkbox">
         <label>
           <%= check_box_tag User::Settings::UPCOMING_EVENT_KEY, nil, @settings.can_notify_upcoming_event? %> Send me a reminder before my shifts or events.
         </label>
       </div>
 
+      <div class="checkbox">
+        <label>
+          <%= check_box_tag User::Settings::UPDATED_EVENT_KEY, nil, @settings.can_notify_updated_event? %> Send me a reminder if one of my shifts or events is updated.
+        </label>
+      </div>
 
       <br />
 

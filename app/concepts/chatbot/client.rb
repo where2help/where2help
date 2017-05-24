@@ -27,17 +27,20 @@ module Chatbot
       return if fb_id.nil?
       tpl  = MessengerClient::ButtonTemplate.new(text, buttons)
       data = tpl.to_json
-      client.send(fb_id, data)
+      res = client.send(fb_id, data)
+      log_res(res)
       record_message(fb_id, data)
     end
 
     def text(fb_id, msg)
-      client.text(recipient_id: fb_id, text: msg) unless fb_id.nil?
+      res = client.text(recipient_id: fb_id, text: msg) unless fb_id.nil?
+      log_res(res)
       record_message(fb_id, msg)
     end
 
     def get_profile(fb_id, scopes = %w(locale first_name last_name timezone))
       res = client.get_profile(facebook_id: fb_id, scopes: scopes)
+      log_res(res)
       FacebookUser.new(res)
     end
 
@@ -45,6 +48,10 @@ module Chatbot
       acct = FacebookAccount.find_by(facebook_id: fb_id)
       return if acct.nil?
       acct.bot_messages.create(provider: :facebook, from_bot: true, payload: msg)
+    end
+
+    def log_res(res)
+      Rails.logger.info("FB MESSENGER RESPONSE #{res.success? ? '' : 'UN'}SUCCESSFUL (#{res.code})\nBODY: #{res.body}")
     end
   end
 end
