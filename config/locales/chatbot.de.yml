@@ -50,7 +50,7 @@ de:
       onboarding: |
         Hi %{first_name}, great to see you.
 
-        We will send you notifications when events you have opted in for are coming up.
+        We will send you notifications 24 hours your opted in events are taking place.
 
         We'll also send you notifications if a new event is added that matches your profile.
 
