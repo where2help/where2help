@@ -112,6 +112,10 @@ en:
       all: All
       ongoing: Ongoing
   users:
+    nav:
+      schedule: Schedule
+      profile: Profile
+      notifications: Notifications
     sessions:
       new:
         please_login: Login as a Helper
@@ -119,6 +123,19 @@ en:
         login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
     notifications:
       edit:
+        title: Update Your Notification Settings
+        source_title: How You Get Your Notifications
+        notification_times:
+          new: Notify me of new events that match my profile.
+          reminder: Send me a reminder before my shifts or events.
+          update: Send me a reminder if one of my shifts or events is updated.
+        notification_types:
+          email: Contact me over email.
+          facebook: Contact me over facebook messenger.
+        description: |
+          If you want to receive your notifications over Messenger instead of email, click on the link below and we will contact you there.
+          <br/>
+          You will control the settings here.
         submit: Save Settings
         facebook_modal_title: Click on the link to initiate conversation with facebook
       update:

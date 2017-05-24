@@ -56,50 +56,51 @@
 
   <div class="col-sm-12">
     <ul class="nav nav-tabs">
-      <li role="presentation"><a href="/users/edit">Profile</a></li>
-      <li role="presentation" class="active"><a href="/users/notifications">Notifications</a></li>
+      <li role="presentation"><a href="/users/edit"><%= t("users.nav.profile") %></a></li>
+      <li role="presentation" class="active"><a href="/users/notifications"><%= t("users.nav.notifications") %></a></li>
     </ul>
   </div>
 
   <div class="col-sm-12">
-    <h3>Update your Notification Settings</h3>
+    <h3><%= t(".title") %></h3>
     <hr />
 
     <%= form_tag users_notifications_path, method: :patch, class: "form" do %>
       <div class="checkbox">
         <label>
-          <%= check_box_tag User::Settings::NEW_EVENT_KEY, nil, @settings.can_notify_new_event? %> Notify me of new events that match my profile.
+          <%= check_box_tag User::Settings::NEW_EVENT_KEY, nil, @settings.can_notify_new_event? %> <%= t(".notification_times.new") %>
         </label>
       </div>
 
       <div class="checkbox">
         <label>
-          <%= check_box_tag User::Settings::UPCOMING_EVENT_KEY, nil, @settings.can_notify_upcoming_event? %> Send me a reminder before my shifts or events.
+          <%= check_box_tag User::Settings::UPCOMING_EVENT_KEY, nil, @settings.can_notify_upcoming_event? %> <%= t(".notification_times.reminder") %>
         </label>
       </div>
 
       <div class="checkbox">
         <label>
-          <%= check_box_tag User::Settings::UPDATED_EVENT_KEY, nil, @settings.can_notify_updated_event? %> Send me a reminder if one of my shifts or events is updated.
+          <%= check_box_tag User::Settings::UPDATED_EVENT_KEY, nil, @settings.can_notify_updated_event? %> <%= t(".notification_times.update") %>
         </label>
       </div>
 
       <br />
 
 
-      <h3>How you get your Notifications</h3>
-      <p>If you want to receive your notifications over Messenger instead of email, click on the link below and we will contact you there.</p>
-      <p>You will control the settings here.</p>
+      <h3><%= t(".source_title") %></h3>
+      <p>
+        <%= t(".description").html_safe %>
+      </p>
       <hr />
 
       <div class="checkbox">
         <label>
-          <%= check_box_tag User::Settings::EMAIL_NOTIFICATION_KEY, nil, @settings.can_notify_email? %> Contact me over email.
+          <%= check_box_tag User::Settings::EMAIL_NOTIFICATION_KEY, nil, @settings.can_notify_email? %> <%= t(".notification_types.email") %>
         </label>
       </div>
       <div class="checkbox">
         <label>
-           <%= check_box_tag User::Settings::FB_NOTIFICATION_KEY, nil, @settings.can_notify_facebook?, class: "m_optin-facebook-checkbox" %> Contact me over facebook messenger.
+           <%= check_box_tag User::Settings::FB_NOTIFICATION_KEY, nil, @settings.can_notify_facebook?, class: "m_optin-facebook-checkbox" %>  <%= t(".notification_types.facebook") %>
         </label>
       </div>
 
