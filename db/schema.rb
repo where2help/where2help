@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529091107) do
+ActiveRecord::Schema.define(version: 20170529131742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,16 +40,11 @@ ActiveRecord::Schema.define(version: 20170529091107) do
     t.boolean  "from_bot"
     t.jsonb    "payload"
     t.integer  "account_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "provider"
-    t.datetime "sent_at"
-    t.datetime "last_send_attempt"
-    t.text     "error_message"
     t.index ["account_id"], name: "index_bot_messages_on_account_id", using: :btree
     t.index ["from_bot"], name: "index_bot_messages_on_from_bot", using: :btree
-    t.index ["last_send_attempt"], name: "index_bot_messages_on_last_send_attempt", using: :btree
-    t.index ["sent_at"], name: "index_bot_messages_on_sent_at", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -133,10 +128,15 @@ ActiveRecord::Schema.define(version: 20170529091107) do
     t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.datetime "sent_at"
+    t.datetime "last_send_attempt"
+    t.text     "error_message"
+    t.index ["last_send_attempt"], name: "index_notifications_on_last_send_attempt", using: :btree
     t.index ["notifiable_id"], name: "index_notifications_on_notifiable_id", using: :btree
     t.index ["notifiable_type"], name: "index_notifications_on_notifiable_type", using: :btree
     t.index ["notification_type"], name: "index_notifications_on_notification_type", using: :btree
     t.index ["notified_at"], name: "index_notifications_on_notified_at", using: :btree
+    t.index ["sent_at"], name: "index_notifications_on_sent_at", using: :btree
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
