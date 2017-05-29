@@ -32,6 +32,10 @@ module Chatbot
       record_message(fb_id, data)
     end
 
+    def send_list_template(user, stuff)
+      Rails.logger.warn("Send list template: NOOP")
+    end
+
     def text(fb_id, msg)
       res = client.text(recipient_id: fb_id, text: msg) unless fb_id.nil?
       log_res(res)
