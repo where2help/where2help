@@ -29,6 +29,7 @@ class Notification::Batcher
   end
 
   def send_notification(message_template)
+    ChatbotOperation::BatchNotification.(message_template)
     message_template.notifications
   end
 

@@ -75,6 +75,7 @@ de:
     notifications:
       header: You have received %{count} notifications.
       button_text: Alle Einsätze
+      view: Anzeigen
 
     menu:
       help: Hilfe

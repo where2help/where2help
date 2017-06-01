@@ -2,17 +2,21 @@ module Chatbot
   class Brain
     attr_reader :fbid
 
-    def hear(msg)
+    def initialize(msg)
       Rails.logger.debug("Chatbot::Brain received: #{msg.inspect}")
+      @msg  = msg
       @fbid = msg.sender.id
-      case msg
-      when MessengerClient::Message::Optin    then handle_optin(msg)
-      when MessengerClient::Message::Text     then handle_text_message(msg)
-      when MessengerClient::Message::Postback then handle_postback(msg)
+    end
+
+    def hear
+      case @msg
+      when MessengerClient::Message::Optin    then handle_optin
+      when MessengerClient::Message::Text     then handle_text_message
+      when MessengerClient::Message::Postback then handle_postback
       else
-        Rails.logger.warn "Chatbot::Brain#hear doesn't know how to handle: #{msg.inspect}"
-        random_message(msg, "chatbot.responses.dont_understand")
-        send_messages(msg, "chatbot.responses.help", help_url: help_url)
+        Rails.logger.warn "Chatbot::Brain#hear doesn't know how to handle: #{@msg.inspect}"
+        random_message("chatbot.responses.dont_understand")
+        send_messages("chatbot.responses.help", help_url: help_url)
       end
     end
 
@@ -20,42 +24,42 @@ module Chatbot
     # Handlers
     ##########################
 
-    def handle_text_message(msg)
-      return handle_unregistered_user(msg) if user.nil?
-      case msg.text
+    def handle_text_message
+      return handle_unregistered_user if user.nil?
+      case @msg.text
       when list_matcher("chatbot.user.help", locale)
-        send_messages(msg, "chatbot.responses.help", help_url: help_url)
+        send_messages("chatbot.responses.help", help_url: help_url)
       when list_matcher("chatbot.user.hello", locale)
-        random_message(msg, "chatbot.responses.hello")
+        random_message("chatbot.responses.hello")
       else
-        random_message(msg, "chatbot.responses.dont_understand")
+        random_message("chatbot.responses.dont_understand")
       end
     end
 
-    def handle_postback(msg)
-      return handle_unregistered_user(msg) if user.nil?
-      case msg.postback.to_s
+    def handle_postback
+      return handle_unregistered_user if user.nil?
+      case @msg.postback.to_s
       when Postbacks::GET_STARTED then
         opts = {
           w2h_url:           Rails.application.routes.url_helpers.root_url,
           registration_url:  Rails.application.routes.url_helpers.new_user_registration_url,
           notifications_url: Rails.application.routes.url_helpers.users_notifications_url,
         }
-        send_messages(msg, "chatbot.responses.get_started", opts)
-      when Postbacks::HELP_PAYLOAD then send_messages(msg, "chatbot.responses.help", help_url: help_url)
-      else random_message(msg, "chatbot.responses.dont_understand")
+        send_messages("chatbot.responses.get_started", opts)
+      when Postbacks::HELP_PAYLOAD then send_messages("chatbot.responses.help", help_url: help_url)
+      else random_message("chatbot.responses.dont_understand")
       end
     end
 
 
-    def handle_optin(msg)
-      ChatbotOperation::UserSignUp.(msg)
+    def handle_optin
+      ChatbotOperation::UserSignUp.(@msg)
       first_name  = user.first_name
       message     = I18n.t("chatbot.responses.onboarding", locale: user.locale, first_name: first_name, help_url: help_url)
       MultiMessageJob.perform_later(fbid, message)
     end
 
-    def handle_unregistered_user(msg)
+    def handle_unregistered_user
       info_url          = Rails.application.routes.url_helpers.root_url
       registration_url  = Rails.application.routes.url_helpers.new_user_registration_url
       notifications_url = Rails.application.routes.url_helpers.users_notifications_url
@@ -76,12 +80,12 @@ module Chatbot
       /#{only_at_start ? "^" : ""}(#{I18n.t(locale_key, locale: l).join("|")})/i
     end
 
-    def random_message(msg, locale_key, locals = {})
+    def random_message(locale_key, locals = {})
       text = I18n.t(locale_key, {locale: locale}.merge(locals)).sample
       MultiMessageJob.perform_later(fbid, text)
     end
 
-    def send_messages(msg, locale_key, local = {})
+    def send_messages(locale_key, local = {})
       text = I18n.t(locale_key, {locale: locale}.merge(local))
       MultiMessageJob.perform_later(fbid, text)
     end

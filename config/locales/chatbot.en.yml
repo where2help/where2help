@@ -84,6 +84,11 @@ en:
         text: The event '%{title}' has been updated. You can find the updated information here %{link}.
         button_text: View Event
 
+    notifications:
+      header: You have received %{count} notifications.
+      button_text: All Events
+      view: View
+
     menu:
       help: Help
       website: Website

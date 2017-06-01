@@ -42,13 +42,12 @@ class ChatbotOperation
 
   class Message < Operation
     def process(params)
-      brain    = Chatbot::Brain.new
       parser   = MessengerClient::MessageParser.new(params)
       messages = parser.parse
       messages.each do |msg|
         begin
           record_message(msg)
-          brain.hear(msg)
+          Chatbot::Brain.new(msg).hear
         rescue Exception => e
           Rails.logger.error("Chatbot::Operation::Message Error: #{e}")
           Rails.logger.error(e.backtrace.join("\n"))
@@ -63,6 +62,37 @@ class ChatbotOperation
       fb_acct = FacebookAccount.find_by(facebook_id: user_id)
       return if fb_acct.nil?
       fb_acct.bot_messages.create(provider: :facebook, payload: msg.to_h, from_bot: false)
+    end
+  end
+
+  class BatchNotification < Operation
+    def process(template)
+      @template = template
+      user  = template.notifications.first.user
+      @fbid = user.facebook_account.facebook_id
+      @cli  = Chatbot::Client.new
+      send_header_message
+      send_list_template
+    end
+
+    def send_header_message
+      @cli.text(@fbid, @template.header)
+    end
+
+    def send_list_template
+      template_items = @template.parts.map { |part|
+        btn = MessengerClient::URLButton.new(I18n.t("chatbot.notifications.view", locale: @template.locale), part.url)
+        MessengerClient::TemplateItem.new(
+          part.to_message,
+          nil,
+          nil,
+          part.url,
+          [btn]
+        )
+      }
+      next_button = @template.next_button
+      button = MessengerClient::URLButton.new(next_button.text, next_button.url)
+      @cli.send_list_template(@fbid, template_items, [button])
     end
   end
 
