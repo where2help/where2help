@@ -3,20 +3,46 @@ class Notification::Presenter
     def to_message() text end
   end
 
-  def present(notification)
-    send(notification.notification_type, notification)
+  MessageTemplate = Struct.new(:header, :parts, :next_button, :notifications)
+  NextButton      = Struct.new(:url, :text)
+
+  def self.present_batch(notifications)
+    count  = notifications.size
+    locale = notifications.first.user.locale
+    hd     = header(count, locale)
+    parts  = notifications.map { |notif| new(notif).present }
+    button = next_button(locale)
+    MessageTemplate.new(hd, parts, button, notifications)
   end
 
-  def new_event(notification)
-    with_event_data(notification) { |event, user, link|
+  def self.header(count, locale)
+    I18n.t("chatbot.notifications.header", count: count, locale: locale)
+  end
+
+  def self.next_button(locale)
+    url  = Rails.application.routes.url_helpers.events_url
+    text = I18n.t("chatbot.notifications.button_text", locale: locale)
+    NextButton.new(url, text)
+  end
+
+  def initialize(notification)
+    @notification = notification
+  end
+
+  def present
+    send(@notification.notification_type)
+  end
+
+  def new_event
+    with_event_data { |event, user, link|
       msg = I18n.t("chatbot.events.new.text", title: event.title, locale: user.locale)
       Message.new(msg, link)
     }
   end
 
-  def upcoming_event(notification)
-    user       = notification.user
-    shift      = notification.notifiable
+  def upcoming_event
+    user       = @notification.user
+    shift      = @notification.notifiable
     event      = shift.event
     event_link = make_event_link(event)
     msg = I18n.t("chatbot.shifts.upcoming.text",
@@ -27,9 +53,9 @@ class Notification::Presenter
     Message.new(msg, event_link)
   end
 
-  def updated_shift(notification)
-    user       = notification.user
-    shift      = notification.notifiable
+  def updated_shift
+    user       = @notification.user
+    shift      = @notification.notifiable
     event      = shift.event
     event_link = make_event_link(event)
     msg        = I18n.t("chatbot.shifts.updated.text",
@@ -41,8 +67,8 @@ class Notification::Presenter
     Message.new(msg, event_link)
   end
 
-  def updated_event(notification)
-    with_event_data(notification) { |event, user, link|
+  def updated_event
+    with_event_data { |event, user, link|
       msg = I18n.t("chatbot.events.updated.text", title: event.title, locale: user.locale)
       Message.new(msg, link)
     }
@@ -50,9 +76,9 @@ class Notification::Presenter
 
   private
 
-  def with_event_data(notification)
-    event      = notification.notifiable
-    user       = notification.user
+  def with_event_data
+    event      = @notification.notifiable
+    user       = @notification.user
     event_link = make_event_link(event)
     yield(event, user, event_link)
   end

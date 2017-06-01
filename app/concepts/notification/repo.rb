@@ -1,6 +1,12 @@
-class Notfication::Repo
+class Notification::Repo
   def unsent
-    Notification.where(sent_at: nil)
+    Notification
+      .includes(:user)
+      .where(sent_at: nil)
+  end
+
+  def unsent_by_user
+    unsent
   end
 
   def current_failed_messages

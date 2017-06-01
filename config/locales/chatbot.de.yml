@@ -72,6 +72,10 @@ de:
       updated:
         text: Das Einsatz '%{title}' war gerade aktualaziert.
 
+    notifications:
+      header: You have received %{count} notifications.
+      button_text: Alle Einsätze
+
     menu:
       help: Hilfe
       website: Webseite
