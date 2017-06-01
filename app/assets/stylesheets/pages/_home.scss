@@ -22,6 +22,11 @@
   color: $white;
 }
 
+.home-bg-row {
+  @extend .row;
+  background-color: $white;
+}
+
 .home-col {
   @extend .col-xs-12;
   padding-top: 2.5em;
@@ -31,5 +36,19 @@
     @media (max-width: $screen-xs-min) {
       padding-left: 1.5em;
     }
+  }
+}
+
+.home-desc-col {
+  @extend .home-col;
+
+  text-align: center;
+
+  h1 {
+    @extend .container-based-max-width;
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
   }
 }

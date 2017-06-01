@@ -3,12 +3,9 @@
   <div class="col-sm-8 col-sm-offset-2 home-col">
     <%= image_tag 'logo.svg', class: 'img-responsive logo-img' %>
   </div>
-  <div class="home-col">
-    <ul class="fa-ul text-left">
-      <li><h6><i class="fa-li fa fa-user" aria-hidden="true"></i><%= t('.subline_user') %></h6></li>
-      <li><h6><i class="fa-li fa fa-users" aria-hidden="true"></i><%= t('.subline_ngo') %></h6></li>
-    </ul>
-  <div>
+  <div class="home-desc-col">
+    <h1><%= t('.short_description') %></h1>
+  </div>
   <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 home-col">
     <%= link_to new_user_registration_path, class: 'btn-register' do %>
       <i class="fa fa-user" aria-hidden="true"></i> <%= t('.sign_up_user') %>
@@ -31,5 +28,28 @@
   </div>
   <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 home-col text-center">
     <%= link_to 'So funktioniert where2help', how_to_path, class: 'btn btn-sm' %>
+  </div>
+</div>
+
+<div class="home-bg-row">
+  <div class="col-sm-5 col-md-4 home-col">LOGO</div>
+  <div class="col-sm-7 col-md-8 home-col">Content</div>
+
+  <div class="col-sm-7 col-md-8 home-col">Content</div>
+  <div class="col-sm-5 col-md-4 home-col">Logo</div>
+
+  <div class="col-sm-5 col-md-4 home-col">LOGO</div>
+  <div class="col-sm-7 col-md-8 home-col">Content</div>
+</div>
+
+<div class="home-row">
+  <div class="home-col">
+    <h2><%= t('.register_subheader') %></h2>
+  </div>
+</div>
+
+<div class="home-bg-row">
+  <div class="home-col">
+    <h2><%= t('.ngo_subheader') %></h2>
   </div>
 </div>

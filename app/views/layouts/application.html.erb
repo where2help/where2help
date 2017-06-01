@@ -16,7 +16,13 @@
   </head>
   <body>
     <%= navigation_for(current_user || current_ngo) %>
-    <main class="container">
+
+    <%
+      container_class = 'container'
+      container_class = 'container-fluid' if current_page?('/')
+    %>
+
+    <main class="<%= container_class %>">
       <%= flash_messages %>
       <%= yield %>
     </main>

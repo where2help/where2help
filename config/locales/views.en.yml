@@ -264,12 +264,15 @@ en:
         title: Terms of use for organizations/initiatives
   pages:
     home:
+      short_description: Portal for volunteers and organisations for refugee aid in Vienna
       subline_user: Know where and when I am needed
       subline_ngo: Know where and when how many helpers show up
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Helper
       login_user: Login as user
       login_ngo: Login as NGO
+      register_subheader: Help now
+      ngo_subheader: Informations for NGOs
     how_to:
       title: How w2h works
       title_ngos: Do you want to organize helpers?

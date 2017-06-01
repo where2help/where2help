@@ -269,12 +269,13 @@ de:
         title: Nutzungsbedingungen für Organisationen/Initiativen
   pages:
     home:
-      subline_user: Wissen, wann und wo Du als Freiwillige/r gebraucht wirst
-      subline_ngo: Wissen, wann und wo wie viele Freiwillige mithelfen
+      short_description: Plattform für Freiwillige und Organisationen in der Flüchtlingshilfe Wien
       sign_up_ngo: Als NGO registrieren
       sign_up_user: Als Freiwillige/r registrieren
       login_user: Als Freiwillige/r anmelden
       login_ngo: Als NGO anmelden
+      register_subheader: Jetzt mithelfen
+      ngo_subheader: Informationen für NGOs
     how_to:
       title: So funktioniert w2h
       title_ngos: Ihr wollt freiwillige Hilfe organisieren?
