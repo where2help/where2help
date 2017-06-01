@@ -6,9 +6,8 @@ class Notification::Presenter
   MessageTemplate = Struct.new(:header, :parts, :next_button, :notifications)
   NextButton      = Struct.new(:url, :text)
 
-  def self.present_batch(notifications)
+  def self.present_batch(notifications, locale)
     count  = notifications.size
-    locale = notifications.first.user.locale
     hd     = header(count, locale)
     parts  = notifications.map { |notif| new(notif).present }
     button = next_button(locale)

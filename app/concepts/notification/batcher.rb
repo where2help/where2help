@@ -23,7 +23,9 @@ class Notification::Batcher
   end
 
   def present_notifications(notifs)
-    Notification::Presenter.present_batch(notifs)
+    return [] if notifs.empty?
+    locale = notifs.first.user.locale
+    Notification::Presenter.present_batch(notifs, locale)
   end
 
   def send_notification(message_template)
@@ -31,7 +33,7 @@ class Notification::Batcher
   end
 
   def mark_sent(notifications)
-    notfication.each do |n|
+    notifications.each do |n|
       now = Time.now
       n.update_attributes(sent_at: now)
     end
