@@ -30,9 +30,9 @@ module User::Notifier
     def notified_user_ids(event)
       event
         .notifications
-        .includes(:user)
+        .joins(:user)
         .where(notification_type: :new_event)
-        .map { |n| n.user.id }
+        .pluck(:user_id)
     end
 
     def notify_new(user, event)
