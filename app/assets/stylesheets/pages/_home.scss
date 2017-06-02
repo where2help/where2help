@@ -17,9 +17,97 @@
   @extend .btn, .btn-block;
 }
 
+.home-bg-row, .home-row {
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top:0;
+    text-align: center;
+  }
+}
+
 .home-row {
   @extend .row;
   color: $white;
+}
+
+.home-register-row {
+  @extend .row;
+
+  font-size: 24px;
+  text-align: center;
+
+  input[type="submit"] {
+    width: auto;
+    font-size: 24px;
+    display: inline-block;
+  }
+
+  .confirmation-missing {
+    font-size: 14px;
+  }
+}
+
+.home-padded-container {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.home-bg-row {
+  @extend .row, .home-padded-container;
+  background-color: $white;
+}
+
+.home-teaser-container {
+  h2 {
+    max-width: 80%;
+    text-align: left;
+    font-weight: normal;
+  }
+}
+
+.home-teaser-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-cta-container {
+  text-align: center;
+  padding-bottom: 75px;
+}
+
+.btn-cta {
+  display: inline;
+  font-size: 32px;
+  margin-bottom: 75px;
+}
+
+.ngo-section {
+  text-align: center;
+
+  div {
+    margin-bottom: 24px;
+    margin-top: 24px;
+
+    .btn-cta {
+      font-size: 24px;
+    }
+  }
+}
+
+.home-register-container {
+  .home-register-description {
+    font-size: 16px;
+  }
+
+  div.img-container {
+    text-align: center;
+    margin-bottom: 10px;
+
+    img {
+      max-width: 100%;
+    }
+  }
 }
 
 .home-col {
@@ -31,5 +119,26 @@
     @media (max-width: $screen-xs-min) {
       padding-left: 1.5em;
     }
+  }
+}
+
+.home-bounded-container {
+  @extend .container-based-max-width;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-desc-col {
+  @extend .home-col;
+
+  text-align: center;
+
+  h1 {
+    @extend .container-based-max-width;
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
   }
 }

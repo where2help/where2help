@@ -14,9 +14,21 @@
     <%= render 'piwik_analytics' %>
     <%= render 'cookie_consent' %>
   </head>
-  <body>
+
+  <%
+    body_class = ''
+    container_class = 'container'
+
+    if current_page?('/') && !user_signed_in?
+      container_class = 'container-fluid'
+      body_class = 'relative-footer'
+    end
+  %>
+
+  <body class="<%= body_class %>">
     <%= navigation_for(current_user || current_ngo) %>
-    <main class="container">
+
+    <main class="<%= container_class %>">
       <%= flash_messages %>
       <%= yield %>
     </main>

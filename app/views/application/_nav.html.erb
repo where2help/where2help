@@ -7,13 +7,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to image_tag('logo_small.svg'), root_path, class: "navbar-brand" %>
-    </div>
+      <%= link_to image_tag('logo.svg'), root_path, class: "navbar-brand" %>
+    </div >
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left">
         <li class="<%= active?(new_user_session_path) %>"><%= link_to t('pages.home.login_user'), new_user_session_path %></li>
         <li class="<%= active?(new_ngo_session_path) %>"><%= link_to t('pages.home.login_ngo'), new_ngo_session_path %></li>
       </ul>
+
+      <a href="<%= root_url %>#home_help_now_header" data-turbolinks="false" class="btn btn-primary pull-right nav-help-now"><%= t('pages.home.register_subheader') %></a>
     </div>
   </div>
 </nav>

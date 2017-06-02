@@ -42,6 +42,10 @@ footer {
   }
 }
 
+.navbar .nav-help-now {
+  margin-top: 8px;
+}
+
 .navbar-brand {
   img {
     margin-top: -0.5em;
@@ -64,5 +68,47 @@ footer {
     .thumbnail a > img[src$="svg"],
     .carousel-inner > .item > img[src$="svg"],
     .carousel-inner > .item > a > img[src$="svg"] { width: 100%; }
+  }
+}
+
+.container-based-max-width {
+  @media screen and (min-width: 768px) {
+    max-width: 750px;
+  }
+
+  @media screen and (min-width: 992px){
+    max-width: 990px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1170px;
+  }
+}
+
+.relative-footer {
+  margin-bottom: 0;
+
+  .navbar {
+    .navbar-brand {
+      -webkit-transition: all 2s;
+      transition: all 2s;
+      max-width: 0;
+      opacity: 0;
+    }
+
+    .passed-header {
+      max-width: 100%;
+      opacity: 1;
+    }
+  }
+
+  footer {
+    position: relative;
+    .footer-content {
+      margin-top: 0;
+      .footer-info {
+        margin-top: 14px;
+      }
+    }
   }
 }

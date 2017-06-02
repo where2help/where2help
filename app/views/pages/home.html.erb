@@ -1,35 +1,112 @@
 <div class="home-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= image_path(LandingPage::Image.next_image_path) %>);"></div>
 <div class="home-row">
-  <div class="col-sm-8 col-sm-offset-2 home-col">
-    <%= image_tag 'logo.svg', class: 'img-responsive logo-img' %>
-  </div>
   <div class="home-col">
-    <ul class="fa-ul text-left">
-      <li><h6><i class="fa-li fa fa-user" aria-hidden="true"></i><%= t('.subline_user') %></h6></li>
-      <li><h6><i class="fa-li fa fa-users" aria-hidden="true"></i><%= t('.subline_ngo') %></h6></li>
-    </ul>
-  <div>
-  <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 home-col">
-    <%= link_to new_user_registration_path, class: 'btn-register' do %>
-      <i class="fa fa-user" aria-hidden="true"></i> <%= t('.sign_up_user') %>
-    <% end %>
+    <div class="home-bounded-container">
+      <div class="col-sm-8 col-sm-offset-2 home-col">
+        <%= image_tag 'logo.svg', class: 'img-responsive logo-img main-logo' %>
+      </div>
+      <div class="home-desc-col">
+        <h1><%= t('.short_description') %></h1>
+      </div>
+      <div class="home-col home-cta-container">
+        <a href="#home_help_now_header" data-turbolinks="false" class="btn-register btn-cta"><%= t('.btn_help_now') %></a>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-5 col-md-4 home-col">
-    <%= link_to new_ngo_registration_path, class: 'btn-register' do %>
-      <i class="fa fa-users" aria-hidden="true"></i> <%= t('.sign_up_ngo') %>
-    <% end %>
+</div>
+
+<div class="home-bg-row home-teaser-container">
+  <div class="col-xs-12">
+    <div class="home-bounded-container">
+      <div class="row">
+        <div class="col-sm-5 col-md-4 home-col">
+          <%= image_tag 'logo_small.svg', class: 'img-responsive logo-img teaser-img' %>
+        </div>
+        <div class="col-sm-7 col-md-8 home-col">
+          <h2><%= t('.ngo_teaser_subheader') %></h2>
+          <p><%= t('.ngo_teaser_text') %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-5 col-sm-push-7 col-md-4 col-md-push-8 home-col">
+          <%= image_tag 'logo_small.svg', class: 'img-responsive logo-img teaser-img' %>
+        </div>
+        <div class="col-sm-7 col-sm-pull-5 col-md-8 col-md-pull-4 home-col">
+          <h2><%= t('.help_once_teaser_subheader') %></h2>
+          <p><%= t('.help_once_text') %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-5 col-md-4 home-col">
+          <%= image_tag 'logo_small.svg', class: 'img-responsive logo-img teaser-img' %>
+        </div>
+        <div class="col-sm-7 col-md-8 home-col">
+          <h2><%= t('.help_constantly_teaser_subheader') %></h2>
+          <p><%= t('.help_constantly_text') %></p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 home-col">
-    <%= link_to new_user_session_path, class: 'btn-signup btn-lg' do %>
-      <i class="fa fa-sign-in" aria-hidden="true"></i> <%= t('pages.home.login_user') %>
-    <% end %>
+</div>
+
+<div class="home-row home-padded-container home-register-container">
+  <div class="home-col">
+    <div class="home-bounded-container">
+
+      <h2 id="home_help_now_header"><%= t('.register_subheader') %></h2>
+      <%= semantic_form_for(User.new, as: 'user', url: registration_path('user')) do |f| %>
+      <div class="home-row">
+        <div class="home-col col-sm-6 col-md-5 home-register-description">
+          <div class="img-container">
+            <%= image_tag 'landing_page/landing-background-1.jpg' %>
+          </div>
+
+          <p><%= t('.register.description').html_safe %></p>
+
+          <p><%= link_to t('application.cookie_consent.learn_more'), how_to_path %></p>
+        </div>
+
+        <div class="home-col col-sm-6 col-md-7">
+              <%= f.input :first_name, autofocus: true %>
+              <%= f.input :last_name %>
+              <%= f.input :email %>
+              <%= f.input :phone %>
+              <%= f.input :password, autocomplete: 'off', hint: "(#{@minimum_password_length} #{t('users.registrations.new.min_characters')})" %>
+              <%= f.input :password_confirmation, autocomplete: 'off' %>
+              <%= f.invisible_captcha :username %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-5"><%= t('.register.safe_data_transport') %></div>
+        <div class="col-xs-12 col-sm-6 col-md-7">
+          <%= f.input :terms_and_conditions, as: :boolean, label: "#{t('.accept_terms_and_conditions')} #{render 'terms_and_conditions', resource: f.object}".html_safe %>
+        </div>
+      </div>
+      <div class="home-register-row">
+        <div class="home-col col-sm-6 col-md-5"><%= link_to t('.register.already_registered'), new_user_session_path %></div>
+        <div class="home-col col-sm-6 col-md-7">
+          <%= f.submit t('devise.registrations.new.sign_up'), class: 'btn btn-primary btn-block' %>
+          <br />
+          <%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions'), new_confirmation_path('user'), class: 'confirmation-missing' %><br />
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <div class="col-sm-5 col-md-4 home-col">
-    <%= link_to new_ngo_session_path, class: 'btn-signup btn-lg' do %>
-      <i class="fa fa-sign-in" aria-hidden="true"></i> <%= t('pages.home.login_ngo') %>
-    <% end %>
-  </div>
-  <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 home-col text-center">
-    <%= link_to 'So funktioniert where2help', how_to_path, class: 'btn btn-sm' %>
+</div>
+
+<div class="home-bg-row">
+  <div class="col-xs-12">
+    <div class="home-bounded-container ngo-section">
+      <h2><%= t('.ngo_subheader') %></h2>
+
+      <p><strong><%= t('.ngo.teaser') %></strong></p>
+      <p><%= t('.ngo.description') %></p>
+      <div><%= link_to t('application.cookie_consent.learn_more'), how_to_path, class: 'btn-register btn-cta' %></div>
+      <p>
+        <%= link_to t('ngos.registrations.new.sign_up'), new_registration_path('ngo') %> &nbsp;
+        <%= link_to t('pages.home.login_ngo'), new_ngo_session_path %>
+      </p>
+    </div>
   </div>
 </div>
