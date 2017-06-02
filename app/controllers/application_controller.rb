@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include ActionView::Helpers::UrlHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -22,9 +21,14 @@ class ApplicationController < ActionController::Base
     valid_roles = ['user', 'ngo']
 
     is_role_known = valid_roles.include?(cookies[:last_role])
-    is_root_page = current_page?('/')
 
-    if(request.get? && is_role_known && is_root_page)
+    path = request.fullpath
+    path = path.slice(0, path.index('?')) unless path.index('?').blank?
+    path = path.slice(0, path.index('#')) unless path.index('#').blank?
+    
+    is_root_page = path == '/'
+
+    if(request.get? && is_role_known && is_root_page && !user_signed_in?)
       if(cookies[:last_role] == 'user')
         redirect_to new_user_session_path
       else
