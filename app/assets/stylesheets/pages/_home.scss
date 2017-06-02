@@ -96,8 +96,13 @@
 }
 
 .home-register-container {
+  .home-register-description {
+    font-size: 16px;
+  }
+
   div.img-container {
     text-align: center;
+    margin-bottom: 10px;
 
     img {
       max-width: 100%;

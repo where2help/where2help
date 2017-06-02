@@ -285,8 +285,7 @@ en:
         safe_data_transport: Your data are send over a secured connection.
       ngo:
         teaser: Organize voluntars with Where2Help
-        description: HIER FEHLT NOCH TEXT. HIER FEHLT NOCH TEXT. HIER FEHLT NOCH TEXT.
-
+        description:
     how_to:
       title: How w2h works
       title_ngos: Do you want to organize helpers?

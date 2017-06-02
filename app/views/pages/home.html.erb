@@ -3,13 +3,13 @@
   <div class="home-col">
     <div class="home-bounded-container">
       <div class="col-sm-8 col-sm-offset-2 home-col">
-        <%= image_tag 'logo.svg', class: 'img-responsive logo-img' %>
+        <%= image_tag 'logo.svg', class: 'img-responsive logo-img main-logo' %>
       </div>
       <div class="home-desc-col">
         <h1><%= t('.short_description') %></h1>
       </div>
       <div class="home-col home-cta-container">
-        <a href="#home_help_now_header" class="btn-register btn-cta"><%= t('.btn_help_now') %></a>
+        <a href="#home_help_now_header" data-turbolinks="false" class="btn-register btn-cta"><%= t('.btn_help_now') %></a>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
       <h2 id="home_help_now_header"><%= t('.register_subheader') %></h2>
       <%= semantic_form_for(User.new, as: 'user', url: registration_path('user')) do |f| %>
       <div class="home-row">
-        <div class="home-col col-sm-6 col-md-5">
+        <div class="home-col col-sm-6 col-md-5 home-register-description">
           <div class="img-container">
             <%= image_tag 'landing_page/landing-background-1.jpg' %>
           </div>
