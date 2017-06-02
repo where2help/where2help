@@ -17,6 +17,15 @@
   @extend .btn, .btn-block;
 }
 
+.home-bg-row, .home-row {
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top:0;
+    text-align: center;
+  }
+}
+
 .home-row {
   @extend .row;
   color: $white;
@@ -25,6 +34,30 @@
 .home-bg-row {
   @extend .row;
   background-color: $white;
+}
+
+.teaser-container {
+  padding-top: 75px;
+  padding-bottom: 75px;
+
+  h2 {
+    max-width: 80%;
+    text-align: left;
+    font-weight: normal;
+  }
+}
+
+.teaser-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-cta {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 32px;
+  margin-bottom: 75px;
 }
 
 .home-col {
@@ -37,6 +70,13 @@
       padding-left: 1.5em;
     }
   }
+}
+
+.home-bounded-container {
+  @extend .container-based-max-width;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-desc-col {

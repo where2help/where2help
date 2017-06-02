@@ -273,6 +273,13 @@ en:
       login_ngo: Login as NGO
       register_subheader: Help now
       ngo_subheader: Informations for NGOs
+      ngo_teaser_subheader: Choose to help in one of 50 NGOs
+      ngo_teaser_text: … like ABZ Austria, Big Brothers Big Sisters, Caritas, Concordia, Habibi Flüchtlingsprojekte, Integrationshaus, Interface, ProVita, SOS Kinderdorf, The Connection or Zeitraum.
+      help_once_teaser_subheader: Help once
+      help_once_text: … teaching German with Agenda 21+, translate for the Red Cross or take care of refugees with WWO.
+      help_constantly_teaser_subheader: Help constantly
+      help_constantly_text: … for example as buddy in Volkshilfe, day to day with Don Bosco or teach in the WUK.
+      btn_help_now: Help now
     how_to:
       title: How w2h works
       title_ngos: Do you want to organize helpers?
