@@ -54,21 +54,43 @@
     <div class="home-bounded-container">
 
       <h2 id="home_help_now_header"><%= t('.register_subheader') %></h2>
+      <%= semantic_form_for(User.new, as: 'user', url: registration_path('user')) do |f| %>
       <div class="home-row">
         <div class="home-col col-sm-6 col-md-5">
           <div class="img-container">
             <%= image_tag 'landing_page/landing-background-1.jpg' %>
           </div>
 
-          <p><%= simple_format t('.register.description') %></p>
+          <p><%= t('.register.description').html_safe %></p>
 
           <p><%= link_to t('application.cookie_consent.learn_more'), how_to_path %></p>
         </div>
 
         <div class="home-col col-sm-6 col-md-7">
-
+              <%= f.input :first_name, autofocus: true %>
+              <%= f.input :last_name %>
+              <%= f.input :email %>
+              <%= f.input :phone %>
+              <%= f.input :password, autocomplete: 'off', hint: "(#{@minimum_password_length} #{t('users.registrations.new.min_characters')})" %>
+              <%= f.input :password_confirmation, autocomplete: 'off' %>
+              <%= f.invisible_captcha :username %>
         </div>
       </div>
+          <div class="row">
+            <div class="home-col col-sm-6 col-md-5"><%= t('.register.safe_data_transport') %></div>
+            <div class="home-col col-sm-6 col-md-7">
+              <%= f.input :terms_and_conditions, as: :boolean, label: "#{t('.accept_terms_and_conditions')} #{render 'terms_and_conditions', resource: f.object}".html_safe %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="home-col col-sm-6 col-md-5"><%= link_to t('.register.already_registered'), new_user_session_path %></div>
+            <div class="home-col col-sm-6 col-md-7">
+              <%= f.submit t('devise.registrations.new.sign_up'), class: 'btn btn-primary btn-block' %>
+              <br />
+              <%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions'), new_confirmation_path('user') %><br />
+            </div>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>
