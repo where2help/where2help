@@ -280,6 +280,12 @@ en:
       help_constantly_teaser_subheader: Help constantly
       help_constantly_text: … for example as buddy in Volkshilfe, day to day with Don Bosco or teach in the WUK.
       btn_help_now: Help now
+      register:
+        description: <strong>Know when and where we need your help:</strong><ul><li>Know, where you're needed</li><li>Register now, online</li><li>We're looking forward to meeting you!</li></ul>
+      ngo:
+        teaser: Organize voluntars with Where2Help
+        description: HIER FEHLT NOCH TEXT. HIER FEHLT NOCH TEXT. HIER FEHLT NOCH TEXT.
+
     how_to:
       title: How w2h works
       title_ngos: Do you want to organize helpers?

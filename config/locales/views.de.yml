@@ -283,6 +283,11 @@ de:
       help_constantly_teaser_subheader: Regelmäßig Zeit spenden
       help_constantly_text: … unter anderem als Buddy bei der Volkshilfe, im Alltag bei Don Bosco oder beim Unterrichten im WUK.
       btn_help_now: Jetzt mithelfen
+      register:
+        description: <strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>
+      ngo:
+        teaser: Organisiere frewillige Hilfe mit Where2Help
+        description: HIER FEHLT NOCH TEXT. HIER FEHLT NOCH TEXT. HIER FEHLT NOCH TEXT.
     how_to:
       title: So funktioniert w2h
       title_ngos: Ihr wollt freiwillige Hilfe organisieren?

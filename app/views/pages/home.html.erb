@@ -8,8 +8,8 @@
       <div class="home-desc-col">
         <h1><%= t('.short_description') %></h1>
       </div>
-      <div class="home-col">
-        <button class="btn-register btn-cta"><%= t('.btn_help_now') %></button>
+      <div class="home-col cta-container">
+        <a href="#home_help_now_header" class="btn-register btn-cta"><%= t('.btn_help_now') %></a>
       </div>
     </div>
   </div>
@@ -49,12 +49,25 @@
   </div>
 </div>
 
-<div class="home-row">
+<div class="home-row home-padded-container register-container">
   <div class="home-col">
     <div class="home-bounded-container">
 
-      <h2><%= t('.register_subheader') %></h2>
+      <h2 id="home_help_now_header"><%= t('.register_subheader') %></h2>
       <div class="home-row">
+        <div class="home-col col-sm-6 col-md-5">
+          <div class="img-container">
+            <%= image_tag 'landing_page/landing-background-1.jpg' %>
+          </div>
+
+          <p><%= simple_format t('.register.description') %></p>
+
+          <p><%= link_to t('application.cookie_consent.learn_more'), how_to_path %></p>
+        </div>
+
+        <div class="home-col col-sm-6 col-md-7">
+
+        </div>
       </div>
     </div>
   </div>
@@ -62,11 +75,16 @@
 
 <div class="home-bg-row">
   <div class="col-xs-12">
-    <div class="home-bounded-container">
+    <div class="home-bounded-container ngo-section">
       <h2><%= t('.ngo_subheader') %></h2>
-      <div class="row">
 
-      </div>
+      <p><strong><%= t('.ngo.teaser') %></strong></p>
+      <p><%= t('.ngo.description') %></p>
+      <div><%= link_to t('application.cookie_consent.learn_more'), how_to_path, class: 'btn-register btn-cta' %></div>
+      <p>
+        <%= link_to t('ngos.registrations.new.sign_up'), new_registration_path('ngo') %> &nbsp;
+        <%= link_to t('pages.home.login_ngo'), new_ngo_session_path %>
+      </p>
     </div>
   </div>
 </div>
