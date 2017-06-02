@@ -31,6 +31,23 @@
   color: $white;
 }
 
+.home-register-row {
+  @extend .row;
+
+  font-size: 24px;
+  text-align: center;
+
+  input[type="submit"] {
+    width: auto;
+    font-size: 24px;
+    display: inline-block;
+  }
+
+  .confirmation-missing {
+    font-size: 14px;
+  }
+}
+
 .home-padded-container {
   padding-top: 75px;
   padding-bottom: 75px;
