@@ -58,7 +58,7 @@
   background-color: $white;
 }
 
-.teaser-container {
+.home-teaser-container {
   h2 {
     max-width: 80%;
     text-align: left;
@@ -66,12 +66,12 @@
   }
 }
 
-.teaser-img {
+.home-teaser-img {
   margin-left: auto;
   margin-right: auto;
 }
 
-.cta-container {
+.home-cta-container {
   text-align: center;
   padding-bottom: 75px;
 }
@@ -95,7 +95,7 @@
   }
 }
 
-.register-container {
+.home-register-container {
   div.img-container {
     text-align: center;
 
@@ -135,19 +135,5 @@
     font-size: 32px;
     font-weight: bold;
     text-align: center;
-  }
-}
-
-body {
-  margin-bottom: 0;
-}
-
-footer {
-  position: relative;
-  .footer-content {
-    margin-top: 0;
-    .footer-info {
-      margin-top: 14px;
-    }
   }
 }

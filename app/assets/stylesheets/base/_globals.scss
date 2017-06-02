@@ -80,3 +80,17 @@ footer {
     max-width: 1170px;
   }
 }
+
+.relative-footer {
+  margin-bottom: 0;
+
+  footer {
+    position: relative;
+    .footer-content {
+      margin-top: 0;
+      .footer-info {
+        margin-top: 14px;
+      }
+    }
+  }
+}
