@@ -1,9 +1,4 @@
 class Chatbot::Presenter
-  def initialize(user, notifications)
-    @locale = user.locale
-    @notifications = notifications
-  end
-
-  def to_json
+  def batch_notifications(template)
   end
 end

@@ -75,6 +75,13 @@ de:
       content: |
         "%{title}" wurde seitens %{ngo_name} verändert.
         Vielen Dank für Dein Engagement!
+    batch_notifications:
+      subject: "[where2help] Neue Updates"
+      greeting: "Hallo %{name}"
+      update: Update
+      updates: Updates
+      teaser: Du hast %{update_plural}.
+
   application:
     empty_message:
       message: Wir haben gerade nichts für Dich...

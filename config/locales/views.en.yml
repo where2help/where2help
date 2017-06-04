@@ -61,6 +61,13 @@ en:
       content: |
         %{title} was updated by %{ngo_name}, please update your notes!
         Thanks you for your support!
+    batch_notifications:
+      subject: "[where2help] New Updates"
+      greeting: "Hello %{name}"
+      update: Update
+      updates: Updates
+      teaser: You have %{update_plural}.
+
   application:
     empty_message:
       message: Nothing there for you at the moment...

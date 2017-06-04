@@ -1,0 +1,16 @@
+<%= content_for(:teaser, t(".teaser", update_plural: @updates_text, locale: @locale)) %>
+
+<h2><%= t('.greeting', name: @user.first_name, locale: @locale) %></h2>
+
+<p>
+  <%= t(".teaser", update_plural: @updates_text, locale: @locale) %>
+</p>
+
+<% @notifications.each do |notification| %>
+  <p>
+    <%= notification.text %>
+    <br />
+    <%= link_to "Link", notification.url %>
+  </p>
+  <hr />
+<% end %>

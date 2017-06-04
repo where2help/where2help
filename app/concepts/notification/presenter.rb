@@ -3,15 +3,16 @@ class Notification::Presenter
     def to_message() text end
   end
 
-  MessageTemplate = Struct.new(:header, :parts, :next_button, :locale, :notifications)
+  MessageTemplate = Struct.new(:header, :parts, :next_button, :locale, :user, :notifications)
   NextButton      = Struct.new(:url, :text)
 
-  def self.present_batch(notifications, locale)
+  def self.present_batch(notifications, user)
     count  = notifications.size
+    locale = user.locale
     hd     = header(count, locale)
     parts  = notifications.map { |notif| new(notif).present }
     button = next_button(locale)
-    MessageTemplate.new(hd, parts, button, locale, notifications)
+    MessageTemplate.new(hd, parts, button, locale, user, notifications)
   end
 
   def self.header(count, locale)

@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  include ActionView::Helpers::TextHelper
   def shift_destroyed(shift, user)
     @shift = shift
     @user = user
@@ -56,6 +57,20 @@ class UserMailer < ApplicationMailer
     @shift = shift
     @link  = events_url(@shift.event)
     I18n.with_locale(@user.locale) do
+      mail.to(@user.email)
+    end
+  end
+
+  def batch_notifications(user:, notifications:)
+    @user          = user
+    @count         = notifications.size
+    @locale        = user.locale
+    @notifications = notifications.map { |n| OpenStruct.new(n)}
+    I18n.with_locale(@locale) do
+      @updates_text = pluralize(
+        @count,
+        I18n.t("user_mailer.batch_notifications.update"),
+        I18n.t("user_mailer.batch_notifications.updates"))
       mail.to(@user.email)
     end
   end
