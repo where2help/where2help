@@ -4,8 +4,8 @@ namespace :user do
     User::Notifier::Upcoming.()
   end
 
-  desc "Check if we have bot messages to send out"
-  task :unsent_messages => :environment do
-    User::Notifier::Unsent.()
+  desc "Send batched unsent notifications via chatbot and email"
+  task :send_unsent_notifications => :environment do
+    Notification::Batcher.()
   end
 end
