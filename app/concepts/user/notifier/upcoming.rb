@@ -41,32 +41,7 @@ module User::Notifier
     end
 
     def notify_upcoming(user, shift)
-      settings = User::Settings.new(user)
-      return unless settings.can_notify_upcoming_event?
-      was_notified = false
-      if settings.can_notify_facebook?
-        send_bot_message(user, shift)
-        was_notified = true
-      end
-      if settings.can_notify_email?
-        UserMailer.upcoming_event(user: user, shift: shift).deliver_later
-        was_notified = true
-      end
-      if was_notified
-        shift.notifications.create(notified_at: Time.now, notification_type: :upcoming_event, user_id: user.id)
-      end
-    end
-
-    def send_bot_message(user, shift)
-      msg = I18n.t("chatbot.shifts.upcoming.text",
-                   title:           shift.event.title,
-                   starts_at_date:  Utils.pretty_date(shift.starts_at),
-                   starts_at_time:  Utils.pretty_time(shift.starts_at),
-                   locale:          user.locale)
-      btn_text   = I18n.t("chatbot.shifts.upcoming.button_text", locale: user.locale)
-      event_link = Rails.application.routes.url_helpers.event_url(shift.event)
-      button     = MessengerClient::URLButton.new(btn_text, event_link)
-      @chatbot_cli.send_button_template(user, msg, [button])
+      shift.notifications.create(notified_at: Time.now, notification_type: :upcoming_event, user_id: user.id)
     end
   end
 end
