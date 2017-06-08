@@ -277,19 +277,19 @@ de:
       register_subheader: Jetzt mithelfen
       ngo_subheader: Informationen für NGOs
       ngo_teaser_subheader: Wähle aus Hilfseinsätzen von über 50 NGOs
-      ngo_teaser_text: … wie ABZ Austria, Big Brothers Big Sisters, Caritas, Concordia, Habibi Flüchtlingsprojekte, Integrationshaus, Interface, ProVita, SOS Kinderdorf, The Connection oder Zeitraum.
+      ngo_teaser_text: … und Initiativen, die derzeit in der Flüchtlingsbetreuung in Wien aktiv sind.
       help_once_teaser_subheader: Einmalig mithelfen
-      help_once_text: … in Sprachcafés der Agenda 21+, beim Dolmetschen fürs Rote Kreuz oder in der Flüchtlingsbetreuung bei der WWO.
+      help_once_text: … in Sprachcafés, beim Dolmetschen oder in der Flüchtlingsbetreuung.
       help_constantly_teaser_subheader: Regelmäßig Zeit spenden
-      help_constantly_text: … unter anderem als Buddy bei der Volkshilfe, im Alltag bei Don Bosco oder beim Unterrichten im WUK.
+      help_constantly_text: … unter anderem als Buddy, im Alltag oder beim Unterrichten.
       btn_help_now: Jetzt mithelfen
       register:
         description: <strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>
         safe_data_transport: Deine Daten werden gesichert übertragen.
         already_registered: Ich bin bereits registriert
       ngo:
-        teaser: Organisiere frewillige Hilfe mit Where2Help
-        description:
+        teaser: Organisiere freiwillige Hilfe mit Where2Help
+        description: Lorem Ipsum Dolor Sit Amet
     how_to:
       title: So funktioniert w2h
       title_ngos: Ihr wollt freiwillige Hilfe organisieren?

@@ -9,61 +9,93 @@
   background-position: center top;
 }
 
-.btn-register {
-  @extend .btn, .btn-primary, .btn-lg, .btn-block;
-}
+.home-section {
+  @extend .row;
 
-.btn-signup {
-  @extend .btn, .btn-block;
-}
+  padding-top: 15px;
+  padding-bottom: 15px;
 
-.home-bg-row, .home-row {
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top:0;
-    text-align: center;
+  @media(min-width: $screen-sm-min) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @media(min-width: $screen-md-min) {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  @media(min-width: $screen-lg-min) {
+    padding-top: 180px;
+    padding-bottom: 180px;
   }
 }
 
-.home-row {
-  @extend .row;
-  color: $white;
+.home-logo {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media(min-width: $screen-sm-min) {
+    margin-top: 50px;
+  }
 }
 
-.home-register-row {
-  @extend .row;
+.home-section-bg-light {
+  background-color: $gray-lighter;
+}
 
-  font-size: 24px;
+.home-section-bg-image {
+  color: #fff;
+}
+
+.home-section-centered {
   text-align: center;
+}
 
-  input[type="submit"] {
-    width: auto;
-    font-size: 24px;
-    display: inline-block;
+.home-signup-form {
+  .help-block {
+    color: rgba(255,255,255,0.5);
+  }
+  input.form-control {
+    background-color: rgba(255,255,255,0.3);
+    border: 1px white solid;
   }
 
-  .confirmation-missing {
-    font-size: 14px;
+  .btn-signup {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .btn-already-registered, .btn-signup {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 
-.home-padded-container {
-  padding-top: 75px;
-  padding-bottom: 75px;
+.home-container {
+  max-width: 800px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.home-bg-row {
-  @extend .row, .home-padded-container;
-  background-color: $white;
-}
+.home-teaser {
+  margin-bottom: 75px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 
-.home-teaser-container {
+  font-size: 16px;
+
   h2 {
-    max-width: 80%;
-    text-align: left;
-    font-weight: normal;
+    font-size: 24px;
   }
+}
+
+
+#home_help_now_header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .home-teaser-img {
@@ -73,72 +105,32 @@
 
 .home-cta-container {
   text-align: center;
-  padding-bottom: 75px;
-}
+  padding-top: 30px;
+  padding-bottom: 30px;
 
-.btn-cta {
-  display: inline;
-  font-size: 32px;
-  margin-bottom: 75px;
-}
+  .btn-primary {
+    font-size: 150%;
+  }
 
-.ngo-section {
-  text-align: center;
-
-  div {
-    margin-bottom: 24px;
-    margin-top: 24px;
-
-    .btn-cta {
-      font-size: 24px;
-    }
+  @media(min-width: $screen-sm-min) {
+    margin-bottom: 100px;
   }
 }
 
-.home-register-container {
-  .home-register-description {
-    font-size: 16px;
-  }
-
-  div.img-container {
-    text-align: center;
-    margin-bottom: 10px;
-
-    img {
-      max-width: 100%;
-    }
-  }
-}
-
-.home-col {
-  @extend .col-xs-12;
-  padding-top: 2.5em;
-  .fa-ul {
-    display: table;
-    margin: 0 auto;
-    @media (max-width: $screen-xs-min) {
-      padding-left: 1.5em;
-    }
-  }
-}
-
-.home-bounded-container {
-  @extend .container-based-max-width;
-  width: 100%;
+.home-desc {
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  h1 {
+    line-height: 150%;
+    font-size: 34px;
+  }
 }
 
-.home-desc-col {
-  @extend .home-col;
+.teaser-img-container {
+  max-width: 150px;
+}
 
-  text-align: center;
-
-  h1 {
-    @extend .container-based-max-width;
-    display: inline-block;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-  }
+.registration-img-container {
+  margin-bottom: 10px;
 }
