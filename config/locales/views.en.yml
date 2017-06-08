@@ -133,7 +133,7 @@ en:
         title: Update Your Notification Settings
         source_title: How You Get Your Notifications
         notification_times:
-          new: Notify me of new events that match my profile.
+          new: Notify me of new events.
           reminder: Send me a reminder before my shifts or events.
           update: Send me a reminder if one of my shifts or events is updated.
         notification_types:

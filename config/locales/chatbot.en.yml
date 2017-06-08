@@ -19,7 +19,6 @@ en:
       help:
         - help
 
-
     responses:
       dont_understand:
         - I don't understand

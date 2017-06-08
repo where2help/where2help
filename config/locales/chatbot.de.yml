@@ -3,77 +3,85 @@ de:
     user:
       yes:
         - ja
-        - naja
+        - klar
+        - definitiv
+        - sicher
+        - yo
+        - jo
+        - jap
 
       hello:
         - hallo
         - hi
         - grüß gott
+        - servus
+        - hey
+        - guten tag
+        - sehr geehrte damen und herren
 
       help:
-        - hilf
+        - hilfe
 
     responses:
       dont_understand:
-        - Ich verstehe dich nicht
-        - Sorry, keine Ahnung...
+        - Das habe ich leider nicht verstanden.
+        - Sorry, das habe ich nicht verstanden...
 
       hello:
-        - Hallo, Mensch
+        - Hallo!
         - Servus!
-        - Grrrrrrüß Gottt!
+        - Hi!
 
       help: |
-        We will send you notifications when events you have opted in for are coming up.
+        Wir senden dir Erinnerungen für Einsätze, zu denen du dich angemeldet hast, bevor sie starten.
 
-        We'll also send you notifications if a new event is added that matches your profile.
+        Außerdem informieren wir dich gelegentlich über neue Einsätze, die auf Where2Help.wien erstellt wurden.
 
-        You can change your notification settings in the Where2Help app (%{help_url}).
+        Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
 
       get_started: |
-        Hi, the Where2Help bot is here to send notifications for the Where2Help platform %{w2h_url}.
+        Hallo, über den Where2Help Chatbot erhältst du Benachrichtigungen von Where2Help.wien: %{w2h_url}
 
-        If you would like to sign up to volunteer for different events, you can register here %{registration_url}.
+        Wenn du freiwillig bei verschiedenen Einsätzen mithelfen möchtest, kannst du dich hier registrieren: %{registration_url}
 
-        After you register, you can link your account to out bot by going to your notifications setting (only visible after you've registered) %{notifications_url}
+        Nach der Registrierung kannst deinen Facebook Account unter folgendem Link verknüpfen: %{notifications_url}
 
-        Thank you for your interest and we hope to see you soon!
+        Danke für dein Interesse - wir freuen uns auf Dich!
 
       please_register: |
-        Hi %{first_name}. This bot can only help you if you are registered at the Where2Help website.
+        Hi %{first_name}. Dieser Chatbot kann nur Nachrichten an registrierte Nutzer von Where2Help.wien senden.
 
-        If you would like to sign up to volunteer for different events, you can register here %{registration_url} or get more information here %{info_url}.
+        Wenn du freiwillig bei verschiedenen Einsätzen mithelfen möchtest, kannst du dich hier registrieren: %{registration_url}
 
-        If you're already registered, you will need to connect your account to the bot. You can update the settings here %{notifications_url} if you are logged into the Where2Help site.
-
+        Wenn du bereits registriert bist, kannst du deinen Account in den Benachrichtigungs-Einstellungen mit Facebook verknüpfen: %{notifications_url}
 
       onboarding: |
-        Hi %{first_name}, great to see you.
+        Hallo %{first_name}, danke dass du unseren Chatbot ausprobierst.
 
-        We will send you notifications 24 hours your opted in events are taking place.
+        24 Stunden vor Einsätzen, zu denen du dich angemeldet hast, erhältst du vom Where2Help Chatbot Termin-Erinnerungen.
 
-        We'll also send you notifications if a new event is added that matches your profile.
+        Außerdem erhältst du gelegentlich Benachrichtigungen über neue Einsätze auf Where2Help.wien.
 
-        You can change your notification settings in the Where2Help app (%{help_url}).
+        Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
 
-        If you have any questions type "help".
-        See you soon!
+        Wenn du Hilfe brauchst, schreibe einfache "hilfe".
+        Bis bald!
 
     shifts:
       upcoming:
-        text: Deine Schritt %{title} beginnt %{starts_at_date} um %{starts_at_time}. Bis dann!"
+        text: Dein Einsatz %{title} beginnt %{starts_at_date} um %{starts_at_time}. Bis dann!"
 
       updated:
-        text: Deine Schritt %{title} ist aktualisiert werden. Findet jetzt statt %{date} um %{starts_at} bis %{ends_at}. Bis dann!"
+        text: Dein Einsatz %{title} wurde geändert. Er beginnt %{date} um %{starts_at} bis %{ends_at}. Bis dann!"
 
     events:
       new:
-        text: Das Einsatz '%{title}' ist gerade hergestellt.
+        text: "Neuer Einsatz: %{title}"
       updated:
-        text: Das Einsatz '%{title}' war gerade aktualaziert.
+        text: "Einsatz geändert: %{title}"
 
     notifications:
-      header: You have received %{count} notifications.
+      header: Du hast %{count} neue Benachrichtigungen.
       button_text: Alle Einsätze
       view: Anzeigen
 
