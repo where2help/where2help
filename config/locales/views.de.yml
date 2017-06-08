@@ -269,6 +269,8 @@ de:
         title: Nutzungsbedingungen für Organisationen/Initiativen
   pages:
     home:
+      start: Start
+      how_to: So funktioniert's
       short_description: Plattform für Freiwillige und Organisationen in der Flüchtlingshilfe Wien
       sign_up_ngo: Als NGO registrieren
       sign_up_user: Als Freiwillige/r registrieren

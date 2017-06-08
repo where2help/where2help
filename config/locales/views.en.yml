@@ -264,6 +264,8 @@ en:
         title: Terms of use for organizations/initiatives
   pages:
     home:
+      start: Start
+      how_to: How it works
       short_description: Portal for volunteers and organisations for refugee aid in Vienna
       subline_user: Know where and when I am needed
       subline_ngo: Know where and when how many helpers show up

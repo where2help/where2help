@@ -15,23 +15,13 @@
     <%= render 'cookie_consent' %>
   </head>
 
-  <%
-    body_class = ''
-    container_class = 'container'
-
-    if current_page?('/') && !user_signed_in?
-      container_class = 'container-fluid'
-      body_class = 'relative-footer'
-    end
-  %>
-
-  <body class="<%= body_class %>">
+  <%= content_tag(:body, class: ("relative-footer" if landing_page?)) do %>
     <%= navigation_for(current_user || current_ngo) %>
 
-    <main class="<%= container_class %>">
+    <%= content_tag(:main, class: (landing_page? ? "container-fluid" : "container")) do %>
       <%= flash_messages %>
       <%= yield %>
-    </main>
+    <% end %>
     <%= render 'footer' %>
-  </body>
+  <% end %>
 </html>

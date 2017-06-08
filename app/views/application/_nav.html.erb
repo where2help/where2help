@@ -11,11 +11,13 @@
     </div >
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left">
+        <li class="<%= active?(root_path) %>"><%= link_to t('pages.home.start'), root_path %></li>
+        <li class="<%= active?(how_to_path) %>"><%= link_to t('pages.home.how_to'), how_to_path %></li>
         <li class="<%= active?(new_user_session_path) %>"><%= link_to t('pages.home.login_user'), new_user_session_path %></li>
         <li class="<%= active?(new_ngo_session_path) %>"><%= link_to t('pages.home.login_ngo'), new_ngo_session_path %></li>
       </ul>
 
-      <a href="<%= root_url %>#home_help_now_header" data-turbolinks="false" class="btn btn-primary pull-right nav-help-now"><%= t('pages.home.register_subheader') %></a>
+      <%= link_to t('pages.home.register_subheader'), root_url(anchor: "home_help_now_header"), data: { turbolinks: false }, class: "btn btn-primary pull-right nav-help-now" %>
     </div>
   </div>
 </nav>

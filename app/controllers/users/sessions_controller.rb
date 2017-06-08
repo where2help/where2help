@@ -7,15 +7,15 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
-
-  # DELETE /resource/sign_out
-  def destroy
-    cookies[:last_role] = 'user'
+  def create
+    cookies.permanent[:last_role] = "user"
     super
   end
+
+  # DELETE /resource/sign_out
+  # def destroy
+  #   supe
+  # end
 
   # protected
 

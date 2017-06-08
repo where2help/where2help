@@ -71,20 +71,6 @@ footer {
   }
 }
 
-.container-based-max-width {
-  @media screen and (min-width: 768px) {
-    max-width: 750px;
-  }
-
-  @media screen and (min-width: 992px){
-    max-width: 990px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    max-width: 1170px;
-  }
-}
-
 .relative-footer {
   margin-bottom: 0;
 

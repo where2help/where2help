@@ -37,4 +37,8 @@ module ApplicationHelper
     end
     nil
   end
+
+  def landing_page?
+    controller.is_a?(PagesController) && params[:action] == "home"
+  end
 end
