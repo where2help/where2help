@@ -39,6 +39,11 @@ namespace :db do
 
     puts "Created #{User.count} Users"
 
+    User.find_each do |user|
+      s = User::Settings.new(user)
+      s.setup_new_user!
+    end
+
     Ngo.create(
       email: 'ngo@example.com',
       name: Faker::Company.name,
