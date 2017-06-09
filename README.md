@@ -25,10 +25,29 @@ Populate database with sample data
 
     $ rails db:populate
 
+Set up your environmental vars
+
+    $ cp .env.example .env
+
+    # Then edit it to add dummy data or your real config data
+
 Start up rails!
 
     $ rails server
 
+
+## Run the chatbot
+
+I prefer to use [ngrok local tunnel](https://ngrok.com/) for this.
+
+Download and install it then run:
+
+    # cmd   protocol  eu/us       port rails is running on
+    $ ngrok http      --region=eu 3000
+
+You will see your https:// url in the output. Now take this url (ex. https://f6ca333c.eu.ngrok.io) and add it to your webhook config in your Facebook Messenger App settings with the path `/api/v1/chatbot/facebook`. So in our example you would enter `https://f6ca333c.eu.ngrok.io/api/v1/chatbot/facebook`.
+
+Now, when you send messages to the bot, you will now receive them in your locally running app.
 
 ## Run the project in Docker
 
