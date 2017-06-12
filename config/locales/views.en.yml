@@ -286,8 +286,8 @@ en:
         description: <strong>Know when and where we need your help:</strong><ul><li>Know, where you're needed</li><li>Register now, online</li><li>We're looking forward to meeting you!</li></ul>
         safe_data_transport: Your data are send over a secured connection.
       ngo:
-        teaser: Organize voluntars with Where2Help
-        description:
+        teaser: Organize volunteers with Where2Help
+        description: Lorem Ipsum
     how_to:
       title: How w2h works
       title_ngos: Do you want to organize helpers?
