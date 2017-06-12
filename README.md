@@ -18,7 +18,7 @@ Start up postgres (if not already running)
 Setup the database
 
     $ createuser --superuser postgres
-    
+
     $ rails db:setup
 
 Populate database with sample data
@@ -132,7 +132,7 @@ If you want to skip continuous integration for your commit, add this to your com
 
 To set up a development environment, you can run this command:
 
-> Warning, this will drop you database :scream:
+> Warning, this will drop your database :scream:
 
 `bundle exec rake db:drop db:setup db:populate`
 
