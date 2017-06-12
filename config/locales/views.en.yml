@@ -264,12 +264,30 @@ en:
         title: Terms of use for organizations/initiatives
   pages:
     home:
+      start: Start
+      how_to: How it works
+      short_description: Portal for volunteers and organisations for refugee aid in Vienna
       subline_user: Know where and when I am needed
       subline_ngo: Know where and when how many helpers show up
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Helper
       login_user: Login as user
       login_ngo: Login as NGO
+      register_subheader: Help now
+      ngo_subheader: Informations for NGOs
+      ngo_teaser_subheader: Choose to help in one of 50 NGOs
+      ngo_teaser_text: … and other initiatives currently active in refugee support.
+      help_once_teaser_subheader: Help once
+      help_once_text: … teaching German, translating or taking care of refugees.
+      help_constantly_teaser_subheader: Help regularly
+      help_constantly_text: … for instance as a buddy, in day-to-day life or teaching.
+      btn_help_now: Help now
+      register:
+        description: <strong>Know when and where we need your help:</strong><ul><li>Know, where you're needed</li><li>Register now, online</li><li>We're looking forward to meeting you!</li></ul>
+        safe_data_transport: Your data are send over a secured connection.
+      ngo:
+        teaser: Organize volunteers with Where2Help
+        description: Lorem Ipsum
     how_to:
       title: How w2h works
       title_ngos: Do you want to organize helpers?

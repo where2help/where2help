@@ -1,3 +1,7 @@
 $black-nav: #333;
 $blue-light: #00C6D2;
 $yellow-light: #f3efe0;
+
+$brand-primary: #00c6d2;
+$aqua-dark: $brand-primary;
+$aqua-light: lighten($aqua-dark, 5%);

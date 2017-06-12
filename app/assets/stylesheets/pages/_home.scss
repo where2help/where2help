@@ -9,27 +9,128 @@
   background-position: center top;
 }
 
-.btn-register {
-  @extend .btn, .btn-primary, .btn-lg, .btn-block;
-}
-
-.btn-signup {
-  @extend .btn, .btn-block;
-}
-
-.home-row {
+.home-section {
   @extend .row;
-  color: $white;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  @media(min-width: $screen-sm-min) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @media(min-width: $screen-md-min) {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  @media(min-width: $screen-lg-min) {
+    padding-top: 180px;
+    padding-bottom: 180px;
+  }
 }
 
-.home-col {
-  @extend .col-xs-12;
-  padding-top: 2.5em;
-  .fa-ul {
-    display: table;
-    margin: 0 auto;
-    @media (max-width: $screen-xs-min) {
-      padding-left: 1.5em;
-    }
+.home-logo {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media(min-width: $screen-sm-min) {
+    margin-top: 50px;
   }
+}
+
+.home-section-bg-light {
+  background-color: $gray-lighter;
+}
+
+.home-section-bg-image {
+  color: #fff;
+}
+
+.home-section-centered {
+  text-align: center;
+}
+
+.home-signup-form {
+  .help-block {
+    color: rgba(255,255,255,0.5);
+  }
+  input.form-control {
+    background-color: rgba(255,255,255,0.3);
+    border: 1px white solid;
+  }
+
+  .btn-signup {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .btn-already-registered, .btn-signup {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.home-container {
+  max-width: 800px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-teaser {
+  margin-bottom: 75px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  font-size: 16px;
+
+  h2 {
+    font-size: 24px;
+  }
+}
+
+
+#home_help_now_header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.home-teaser-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-cta-container {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .btn-primary {
+    font-size: 150%;
+  }
+
+  @media(min-width: $screen-sm-min) {
+    margin-bottom: 100px;
+  }
+}
+
+.home-desc {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  h1 {
+    line-height: 150%;
+    font-size: 34px;
+  }
+}
+
+.teaser-img-container {
+  max-width: 150px;
+}
+
+.registration-img-container {
+  margin-bottom: 10px;
 }
