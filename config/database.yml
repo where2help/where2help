@@ -78,6 +78,8 @@ test:
 # You can use this database configuration with:
 
 staging:
+  adapter: postgresql
+  pool: 25
   url: <%= ENV['DATABASE_URL'] %>
 
 production:
