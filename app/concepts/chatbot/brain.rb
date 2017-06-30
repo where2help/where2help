@@ -77,7 +77,7 @@ module Chatbot
     ##########################
 
     def list_matcher(locale_key, l, only_at_start = true)
-      /#{only_at_start ? "^" : ""}(#{I18n.t(locale_key, locale: l).join("|")})/i
+      /#{only_at_start ? "^" : ""}(#{I18n.t(locale_key, locale: l).map{ |str| Regexp.escape(str) }.join("|")})/i
     end
 
     def random_message(locale_key, locals = {})
