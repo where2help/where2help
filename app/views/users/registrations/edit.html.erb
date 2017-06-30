@@ -1,13 +1,17 @@
 <div class="row">
-  <%= render 'users/header_lg', txt: t('.title') %>
-
   <div class="col-sm-12">
+    <%= render 'users/header_lg', txt: t('.title') %>
     <ul class="nav nav-tabs">
-      <li role="presentation"><a href="/users/edit"><%= t("users.nav.profile") %></a></li>
-      <li role="presentation" class="active"><a href="/users/notifications"><%= t("users.nav.notifications") %></a></li>
+      <li role="presentation" class="active">
+        <%= link_to t("users.nav.profile"), edit_user_registration_path %>
+      </li>
+      <li role="presentation">
+        <%= link_to t("users.nav.notifications"), edit_users_notifications_path %>
+      </li>
     </ul>
   </div>
-
+</div>
+<div class="row">
   <div class="col-sm-12">
     <%= semantic_form_for(resource, as: resource_name,
                                     url: registration_path(resource_name),

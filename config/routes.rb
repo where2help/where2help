@@ -28,9 +28,12 @@ Rails.application.routes.draw do
     sessions: 'ngos/sessions',
     unlocks: 'ngos/unlocks' }
 
+  namespace :users do
+    resource :notifications, only: [:edit, :update]
+  end
 
-  get   "/users/notifications", to: "users/notifications#edit"
-  patch "/users/notifications", to: "users/notifications#update"
+  #get   "/users/notifications", to: "users/notifications#edit"
+  #patch "/users/notifications", to: "users/notifications#update"
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

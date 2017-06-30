@@ -56,8 +56,12 @@
 
   <div class="col-sm-12">
     <ul class="nav nav-tabs">
-      <li role="presentation"><a href="/users/edit"><%= t("users.nav.profile") %></a></li>
-      <li role="presentation" class="active"><a href="/users/notifications"><%= t("users.nav.notifications") %></a></li>
+      <li role="presentation">
+        <%= link_to t("users.nav.profile"), edit_user_registration_path %>
+      </li>
+      <li role="presentation" class="active">
+        <%= link_to t("users.nav.notifications"), edit_users_notifications_path %>
+      </li>
     </ul>
   </div>
 

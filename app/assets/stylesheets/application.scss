@@ -1,6 +1,5 @@
 // Variables and mixins
 @import 'base/variables';
-@import 'base/overwrites';
 
 // Vendor
 @import 'bootstrap-sprockets';
@@ -24,3 +23,4 @@
 @import 'pages/static';
 @import 'partials/layout';
 @import 'partials/modules';
+@import 'partials/overrides';
