@@ -123,8 +123,8 @@
           </div>
           <div class="modal-body">
             <div class="fb-send-to-messenger"
-              messenger_app_id="<%= ENV.fetch("FB_MESSENGER_APP_ID") %>"
-              page_id="<%= ENV.fetch("FB_MESSENGER_PAGE_ID") %>"
+              messenger_app_id="<%= ENV["FB_MESSENGER_APP_ID"] %>"
+              page_id="<%= ENV["FB_MESSENGER_PAGE_ID"] %>"
               data-ref="<%= @pass_through_id %>"
               color="blue"
               size="xlarge">
