@@ -49,6 +49,17 @@ You will see your https:// url in the output. Now take this url (ex. https://f6c
 
 Now, when you send messages to the bot, you will now receive them in your locally running app.
 
+### Setup chatbot menu and get started button
+
+If you change the get started action or add/remove items from the persistent menu, you will need to run
+
+```bash
+bundle exec rails chatbot:init
+```
+
+This will send the necessary request to facebook and update the desired items.
+
+
 ## Run the project in Docker
 
 Make sure you have [Docker](https://www.docker.com/) and Docker-Compose setup and running.
