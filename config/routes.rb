@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # This is necessary to make url helpers work outside of controllers/helpers
   default_url_options :host => (ENV["FQDN"] || "localhost:3000")
 
   namespace :ngos do
