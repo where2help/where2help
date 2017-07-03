@@ -3,9 +3,11 @@ de:
   chatbot:
     events:
       new:
-        text: 'Neuer Einsatz: %{title}'
+        button_text: View On Our Site
+        text: There is a new event you may be interested in. Check out the event %{title} at %{link}.
       updated:
-        text: 'Einsatz geändert: %{title}'
+        button_text: View Event
+        text: The event '%{title}' has been updated. You can find the updated information here %{link}.
     menu:
       help: Hilfe
       website: Webseite
@@ -54,8 +56,10 @@ de:
         Wenn du bereits registriert bist, kannst du deinen Account in den Benachrichtigungs-Einstellungen mit Facebook verknüpfen: %{notifications_url}
     shifts:
       upcoming:
+        button_text: View Shift
         text: Dein Einsatz %{title} beginnt %{starts_at_date} um %{starts_at_time}. Bis dann!"
       updated:
+        button_text: View Shift
         text: Dein Einsatz %{title} wurde geändert. Er beginnt %{date} um %{starts_at} bis %{ends_at}. Bis dann!"
     user:
       hello:
