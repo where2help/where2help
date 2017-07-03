@@ -1,3 +1,4 @@
+require "json"
 module Chatbot
   class Client
     attr_reader :client
@@ -50,7 +51,8 @@ module Chatbot
     def get_profile(fb_id, scopes = %w(locale first_name last_name timezone))
       res = client.get_profile(facebook_id: fb_id, scopes: scopes)
       log_res(res)
-      FacebookUser.new(res)
+      profile = JSON.load(res.body)
+      FacebookUser.new(profile)
     end
 
     def record_message(fb_id, msg)

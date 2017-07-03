@@ -43,7 +43,7 @@ module Chatbot
         opts = {
           w2h_url:           Rails.application.routes.url_helpers.root_url,
           registration_url:  Rails.application.routes.url_helpers.new_user_registration_url,
-          notifications_url: Rails.application.routes.url_helpers.users_notifications_url,
+          notifications_url: Rails.application.routes.url_helpers.edit_users_notifications_url,
         }
         send_messages("chatbot.responses.get_started", opts)
       when Postbacks::HELP_PAYLOAD then send_messages("chatbot.responses.help", help_url: help_url)
@@ -62,7 +62,7 @@ module Chatbot
     def handle_unregistered_user
       info_url          = Rails.application.routes.url_helpers.root_url
       registration_url  = Rails.application.routes.url_helpers.new_user_registration_url
-      notifications_url = Rails.application.routes.url_helpers.users_notifications_url
+      notifications_url = Rails.application.routes.url_helpers.edit_users_notifications_url
       message = I18n.t("chatbot.responses.please_register",
                        locale:            profile.w2h_locale,
                        first_name:        profile.first_name,
@@ -117,7 +117,7 @@ module Chatbot
     end
 
     def help_url
-      Rails.application.routes.url_helpers.users_notifications_url
+      Rails.application.routes.url_helpers.edit_users_notifications_url
     end
 
     class MultiMessageJob < ApplicationJob
