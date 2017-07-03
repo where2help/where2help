@@ -1,44 +1,22 @@
+---
 de:
   chatbot:
-    user:
-      yes:
-        - ja
-        - klar
-        - definitiv
-        - sicher
-        - yo
-        - jo
-        - jap
-
-      hello:
-        - hallo
-        - hi
-        - grüß gott
-        - servus
-        - hey
-        - guten tag
-        - sehr geehrte damen und herren
-
-      help:
-        - hilfe
-
+    events:
+      new:
+        text: 'Neuer Einsatz: %{title}'
+      updated:
+        text: 'Einsatz geändert: %{title}'
+    menu:
+      help: Hilfe
+      website: Webseite
+    notifications:
+      button_text: Alle Einsätze
+      header: Du hast %{count} neue Benachrichtigungen.
+      view: Anzeigen
     responses:
       dont_understand:
-        - Das habe ich leider nicht verstanden.
-        - Sorry, das habe ich nicht verstanden...
-
-      hello:
-        - Hallo!
-        - Servus!
-        - Hi!
-
-      help: |
-        Wir senden dir Erinnerungen für Einsätze, zu denen du dich angemeldet hast, bevor sie starten.
-
-        Außerdem informieren wir dich gelegentlich über neue Einsätze, die auf Where2Help.wien erstellt wurden.
-
-        Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
-
+      - Das habe ich leider nicht verstanden.
+      - Sorry, das habe ich nicht verstanden...
       get_started: |
         Hallo, über den Where2Help Chatbot erhältst du Benachrichtigungen von Where2Help.wien: %{w2h_url}
 
@@ -47,14 +25,16 @@ de:
         Nach der Registrierung kannst deinen Facebook Account unter folgendem Link verknüpfen: %{notifications_url}
 
         Danke für dein Interesse - wir freuen uns auf Dich!
+      hello:
+      - Hallo!
+      - Servus!
+      - Hi!
+      help: |
+        Wir senden dir Erinnerungen für Einsätze, zu denen du dich angemeldet hast, bevor sie starten.
 
-      please_register: |
-        Hi %{first_name}. Dieser Chatbot kann nur Nachrichten an registrierte Nutzer von Where2Help.wien senden.
+        Außerdem informieren wir dich gelegentlich über neue Einsätze, die auf Where2Help.wien erstellt wurden.
 
-        Wenn du freiwillig bei verschiedenen Einsätzen mithelfen möchtest, kannst du dich hier registrieren: %{registration_url}
-
-        Wenn du bereits registriert bist, kannst du deinen Account in den Benachrichtigungs-Einstellungen mit Facebook verknüpfen: %{notifications_url}
-
+        Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
       onboarding: |
         Hallo %{first_name}, danke dass du unseren Chatbot ausprobierst.
 
@@ -66,25 +46,33 @@ de:
 
         Wenn du Hilfe brauchst, schreibe einfache "hilfe".
         Bis bald!
+      please_register: |
+        Hi %{first_name}. Dieser Chatbot kann nur Nachrichten an registrierte Nutzer von Where2Help.wien senden.
 
+        Wenn du freiwillig bei verschiedenen Einsätzen mithelfen möchtest, kannst du dich hier registrieren: %{registration_url}
+
+        Wenn du bereits registriert bist, kannst du deinen Account in den Benachrichtigungs-Einstellungen mit Facebook verknüpfen: %{notifications_url}
     shifts:
       upcoming:
         text: Dein Einsatz %{title} beginnt %{starts_at_date} um %{starts_at_time}. Bis dann!"
-
       updated:
         text: Dein Einsatz %{title} wurde geändert. Er beginnt %{date} um %{starts_at} bis %{ends_at}. Bis dann!"
-
-    events:
-      new:
-        text: "Neuer Einsatz: %{title}"
-      updated:
-        text: "Einsatz geändert: %{title}"
-
-    notifications:
-      header: Du hast %{count} neue Benachrichtigungen.
-      button_text: Alle Einsätze
-      view: Anzeigen
-
-    menu:
-      help: Hilfe
-      website: Webseite
+    user:
+      hello:
+      - hallo
+      - hi
+      - grüß gott
+      - servus
+      - hey
+      - guten tag
+      - sehr geehrte damen und herren
+      help:
+      - hilfe
+      'true':
+      - ja
+      - klar
+      - definitiv
+      - sicher
+      - yo
+      - jo
+      - jap

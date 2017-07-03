@@ -44,6 +44,7 @@ group :development, :test do
   gem "binding_of_caller"
   gem 'pry-byebug', require: false
   gem 'dotenv-rails'
+  gem "i18n-tasks", "~> 0.9.15"
 end
 
 group :test do

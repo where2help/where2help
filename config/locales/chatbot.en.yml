@@ -1,43 +1,25 @@
+---
 en:
   chatbot:
-    user:
-      yes:
-        - yes
-        - yeah
-        - yah
-        - yep
-        - si
-        - sí
-        - yo
-
-      hello:
-        - hi
-        - hey
-        - hello
-        - yo
-
-      help:
-        - help
-
+    events:
+      new:
+        button_text: View On Our Site
+        text: There is a new event you may be interested in. Check out the event %{title} at %{link}.
+      updated:
+        button_text: View Event
+        text: The event '%{title}' has been updated. You can find the updated information here %{link}.
+    menu:
+      help: Help
+      website: Website
+    notifications:
+      button_text: All Events
+      header: You have received %{count} notifications.
+      view: View
     responses:
       dont_understand:
-        - I don't understand
-        - Sorry, I don't get it
-        - I like it, but I don't understand
-
-      hello:
-        - Hi Human
-        - Hi there
-        - Wassup?
-        - Yo!
-
-      help: |
-        We will send you notifications 24 hours your opted in events are taking place.
-
-        We'll also send you notifications if a new event is added that matches your profile.
-
-        You can change your notification settings in the Where2Help app (%{help_url}).
-
+      - I don't understand
+      - Sorry, I don't get it
+      - I like it, but I don't understand
       get_started: |
         Hi, the Where2Help bot is here to send notifications for the Where2Help platform %{w2h_url}.
 
@@ -46,14 +28,17 @@ en:
         After you register, you can link your account to out bot by going to your notifications setting (only visible after you've registered) %{notifications_url}
 
         Thank you for your interest and we hope to see you soon!
+      hello:
+      - Hi Human
+      - Hi there
+      - Wassup?
+      - Yo!
+      help: |
+        We will send you notifications 24 hours your opted in events are taking place.
 
-      please_register: |
-        Hi %{first_name}. This bot can only help you if you are registered at the Where2Help website.
+        We'll also send you notifications if a new event is added that matches your profile.
 
-        If you would like to sign up to volunteer for different events, you can register here %{registration_url} or get more information here %{info_url}.
-
-        If you're already registered, you will need to connect your account to the bot. You can update the settings here %{notifications_url} if you are logged into the Where2Help site.
-
+        You can change your notification settings in the Where2Help app (%{help_url}).
       onboarding: |
         Hi %{first_name}, great to see you.
 
@@ -65,29 +50,32 @@ en:
 
         If you have any questions type "help".
         See you soon!
+      please_register: |
+        Hi %{first_name}. This bot can only help you if you are registered at the Where2Help website.
 
+        If you would like to sign up to volunteer for different events, you can register here %{registration_url} or get more information here %{info_url}.
+
+        If you're already registered, you will need to connect your account to the bot. You can update the settings here %{notifications_url} if you are logged into the Where2Help site.
     shifts:
       upcoming:
+        button_text: View Shift
         text: Your shift for %{title} starts on %{starts_at_date} at %{starts_at_time} . See you then!"
-        button_text: View Shift
-
       updated:
+        button_text: View Shift
         text: Your shift for the event '%{title}' has been changed. It now takes place on %{date} from %{starts_at} to %{ends_at}. You can update your volunteer status for this shift by clicking the button below."
-        button_text: View Shift
-
-    events:
-      new:
-        text: There is a new event you may be interested in. Check out the event %{title} at %{link}.
-        button_text: View On Our Site
-      updated:
-        text: The event '%{title}' has been updated. You can find the updated information here %{link}.
-        button_text: View Event
-
-    notifications:
-      header: You have received %{count} notifications.
-      button_text: All Events
-      view: View
-
-    menu:
-      help: Help
-      website: Website
+    user:
+      hello:
+      - hi
+      - hey
+      - hello
+      - yo
+      help:
+      - help
+      'true':
+      - true
+      - yeah
+      - yah
+      - yep
+      - si
+      - sí
+      - yo
