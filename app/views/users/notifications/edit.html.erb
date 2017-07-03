@@ -1,54 +1,6 @@
 <script>
-  function removeFacebook() {
-    $("#fb-root").remove()
-    $("#facebook-jssdk").remove()
-    FB = null
-  }
-
-  $(document).on('turbolinks:load', function(event){
-    removeFacebook()
-  });
-
-  jQuery(function() {
-    if (<%= !@user_has_facebook_account %>) {
-      $(".m_optin-facebook-checkbox").on("change", function() {
-        if ($(this).is(':checked')) {
-          loadFacebookIntoPage();
-          $(".modal").modal("show");
-        }
-      })
-    }
-
-    $("body").on("hidden.bs.modal", function(e) {
-      removeFacebook()
-    })
-  })
-  function loadFacebookIntoPage () {
-    window.fbAsyncInit = function() {
-      fbInit()
-      FB.Event.subscribe('send_to_messenger', function(e) {
-        if (e.event === "opt_in") {
-          $(".modal").modal("hide");
-        }
-       });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  }
-
-  function fbInit() {
-    FB.init({
-      appId      : '<%= ENV.fetch("FB_MESSENGER_APP_ID") %>',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  }
+  var optin = new FBOptin(<%= @user_has_facebook_account.inspect %>, '<%= ENV["FB_MESSENGER_APP_ID"] %>')
+  optin.init()
 </script>
 
 <div class="row">
