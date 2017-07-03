@@ -17,6 +17,8 @@ en:
     terms_and_conditions: Terms and Conditions
   events:
     index:
+      events: Scheduled Events
+      ongoing_events: Ongoing Events
       ongoing_events_link: "» Show ongoing events"
       ongoing_events_tip: Would you like to help on a regular basis?
       welcome: |
@@ -125,7 +127,7 @@ en:
         profile: NGO-Profile
         sign_up: Sign up as an NGO
       ngo_fields:
-        min_characters: characters minimum
+        min_characters: minimum characters
       terms_and_conditions:
         body: |
           It is the aim of ‘where2help’ (w2h) clearly to present the needs for voluntary aid services of refugee-supporting organizations/initiatives for potential volunteer helpers.
