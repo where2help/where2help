@@ -42,9 +42,8 @@ de:
       teaser: Ihr könnt Where2Help jetzt verwenden
     ongoing_event_opt_in:
       after_link: Alles Gute für den Einsatz!
-      content: 'Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r über where2help.wien angemeldet.
-
-'
+      content: |
+        Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r über where2help.wien angemeldet.
       greeting: Hallo %{name}
       link: Kontaktdaten
       subject: '[where2help] Neue Anmeldung für "%{ongoing_event_title}"'

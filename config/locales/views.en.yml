@@ -42,9 +42,8 @@ en:
       teaser: You can now use Where2Help
     ongoing_event_opt_in:
       after_link: All the best!
-      content: 'Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper via where2help.wien.
-
-'
+      content:  |
+        Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper via where2help.wien.
       greeting: Hi %{name}
       link: Contact details
       subject: '[where2help] New sign-up for "%{ongoing_event_title}"'
