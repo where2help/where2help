@@ -8,12 +8,12 @@ describe Chatbot::Brain do
 
   let(:fbid) { "facebook_id" }
 
-  let(:brain) {
-    the_brain = described_class.new
+  def brain(msg)
+    the_brain = described_class.new(msg)
     # I'm going to have to change the design
     the_brain.instance_variable_set("@fbid", fbid)
     the_brain
-  }
+  end
 
   context "#handle_text_message hello" do
     it "handles english locale" do
@@ -25,7 +25,7 @@ describe Chatbot::Brain do
       msg    = Struct.new(:sender, :text).new(sender, text)
       expected_responses = I18n.t("chatbot.responses.hello", locale: locale)
       perform_enqueued_jobs do
-        brain.handle_text_message(msg)
+        brain(msg).handle_text_message
       end
       response = BotMessage.where(from_bot: true).first.payload
       expect(expected_responses).to include(response)
@@ -40,7 +40,7 @@ describe Chatbot::Brain do
       msg    = Struct.new(:sender, :text).new(sender, text)
       expected_responses = I18n.t("chatbot.responses.hello", locale: locale)
       perform_enqueued_jobs do
-        brain.handle_text_message(msg)
+        brain(msg).handle_text_message
       end
       response = BotMessage.where(from_bot: true).first.payload
       expect(expected_responses).to include(response)
@@ -57,7 +57,7 @@ describe Chatbot::Brain do
       msg    = Struct.new(:sender, :text).new(sender, text)
       expected_responses = I18n.t("chatbot.responses.dont_understand", locale: locale)
       perform_enqueued_jobs do
-        brain.handle_text_message(msg)
+        brain(msg).handle_text_message
       end
       response = BotMessage.where(from_bot: true).first.payload
       expect(expected_responses).to include(response)
