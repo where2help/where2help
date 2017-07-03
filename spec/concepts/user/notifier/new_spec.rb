@@ -41,7 +41,7 @@ describe User::Notifier::New do
     expect(Notification.count).to eq(user_count)
   end
 
-  it "notifies by facebook" do
+  it "creates notification for batching" do
     user = create(:user)
     settings = User::Settings.new(user)
     settings.update(User::Settings::FB_NOTIFICATION_KEY => true, User::Settings::NEW_EVENT_KEY => true)
@@ -52,24 +52,7 @@ describe User::Notifier::New do
     event = create(:event, ngo: ngo, shifts: [shift])
 
     n = User::Notifier::New.new
-    # Really don't want to stub the buttons
-    expect(n.chatbot_cli).to receive(:send_button_template).with(user, instance_of(String), anything)
-    n.notify!(event)
-  end
-
-  it "notifies by email" do
-    user = create(:user)
-    settings = User::Settings.new(user)
-    settings.setup_new_user!
-
-    shift = create(:shift)
-    shift.users << user
-    ngo   = create(:ngo)
-    event = create(:event, ngo: ngo, shifts: [shift])
-
-    n = User::Notifier::New.new
-    expect(UserMailer).to receive(:new_event).with(user: user, event: event).and_return(Struct.new(:deliver_later).new(nil))
-    n.notify!(event)
+    expect { n.notify!(event) }.to change(Notification, :count).by(1)
   end
 
   it "doesn't notify when user has notifications turned off" do
