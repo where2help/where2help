@@ -85,10 +85,10 @@ class Notification::Presenter
 
   def make_event_link(event)
     case event
-      when OngoingEvent
-        Rails.application.routes.url_helpers.ongoing_event_url(event)
-      else
-        Rails.application.routes.url_helpers.event_url(event)
+    when OngoingEvent
+      Rails.application.routes.url_helpers.ongoing_event_url(event)
+    else
+      Rails.application.routes.url_helpers.event_url(event)
     end
   end
 end

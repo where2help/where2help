@@ -4,10 +4,10 @@ de:
     events:
       new:
         button_text: View On Our Site
-        text: There is a new event you may be interested in. Check out the event %{title} at %{link}.
+        text: There is a new event you may be interested in.
       updated:
         button_text: View Event
-        text: The event '%{title}' has been updated. You can find the updated information here %{link}.
+        text: The event '%{title}' has been updated.
     menu:
       help: Hilfe
       website: Webseite

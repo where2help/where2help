@@ -41,7 +41,7 @@ module User::Notifier
     end
 
     def notify_upcoming(user, shift)
-      shift.notifications.create(notified_at: Time.now, notification_type: :upcoming_event, user_id: user.id)
+      Notification::Operation::Create.(parent: shift, type: :upcoming_event, user_id: user.id, immediate: true)
     end
   end
 end

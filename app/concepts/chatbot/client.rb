@@ -23,6 +23,10 @@ module Chatbot
       text(fb_id, msg)
     end
 
+    def make_url_button(text, url)
+      MessengerClient::URLButton.new(text, url)
+    end
+
     def send_button_template(user, text, buttons)
       fb_id = user.facebook_account&.facebook_id
       return if fb_id.nil?

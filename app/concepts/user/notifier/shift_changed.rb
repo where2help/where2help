@@ -21,7 +21,7 @@ module User::Notifier
     end
 
     def notify!(user, shift)
-      shift.notifications.create(notified_at: Time.now, notification_type: :updated_shift, user_id: user.id)
+      Notification::Operation::Create.(parent: shift, type: :updated_shift, user_id: user.id, immediate: true)
     end
   end
 end

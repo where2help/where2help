@@ -13,7 +13,7 @@ describe User::Notifier::Upcoming do
     shift = create(:shift)
     user = users.first
     shift.users << user
-    ngo   = create(:ngo)
+    ngo = create(:ngo)
     create(:event, ngo: ngo, shifts: [shift])
 
     n = User::Notifier::Upcoming.new

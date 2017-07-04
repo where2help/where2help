@@ -36,7 +36,7 @@ module User::Notifier
     end
 
     def notify_new(user, event)
-      event.notifications.create(notified_at: Time.now, notification_type: :new_event, user_id: user.id)
+      Notification::Operation::Create.(parent: event, type: :new_event, user_id: user.id)
     end
   end
 end
