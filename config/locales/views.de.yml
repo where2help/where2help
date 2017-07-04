@@ -42,8 +42,9 @@ de:
       teaser: Ihr könnt Where2Help jetzt verwenden
     ongoing_event_opt_in:
       after_link: Alles Gute für den Einsatz!
-      content: |
-        Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r über where2help.wien angemeldet.
+      content: 'Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r über where2help.wien angemeldet.
+
+'
       greeting: Hallo %{name}
       link: Kontaktdaten
       subject: '[where2help] Neue Anmeldung für "%{ongoing_event_title}"'
@@ -184,12 +185,29 @@ de:
     thank_you: Thank you! Looking forward to have you onboard.
   pages:
     home:
+      btn_help_now: Jetzt mithelfen
+      help_constantly_teaser_subheader: Regelmäßig Zeit spenden
+      help_constantly_text: "… unter anderem als Buddy, im Alltag oder beim Unterrichten."
+      help_once_teaser_subheader: Einmalig mithelfen
+      help_once_text: "… in Sprachcafés, beim Dolmetschen oder in der Flüchtlingsbetreuung."
+      how_to: So funktioniert's
       login_ngo: Als NGO anmelden
       login_user: Als Freiwillige/r anmelden
+      ngo:
+        description: Lorem Ipsum Dolor Sit Amet
+        teaser: Organisiere freiwillige Hilfe mit Where2Help
+      ngo_subheader: Informationen für NGOs
+      ngo_teaser_subheader: Wähle aus Hilfseinsätzen von über 50 NGOs
+      ngo_teaser_text: "… und Initiativen, die derzeit in der Flüchtlingsbetreuung in Wien aktiv sind."
+      register:
+        already_registered: Ich bin bereits registriert
+        description: "<strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>"
+        safe_data_transport: Deine Daten werden gesichert übertragen.
+      register_subheader: Jetzt mithelfen
+      short_description: Plattform für Freiwillige und Organisationen in der Flüchtlingshilfe Wien
       sign_up_ngo: Als NGO registrieren
       sign_up_user: Als Freiwillige/r registrieren
-      subline_ngo: Wissen, wann und wo wie viele Freiwillige mithelfen
-      subline_user: Wissen, wann und wo Du als Freiwillige/r gebraucht wirst
+      start: Start
     how_to:
       text_ngos: |
         <strong>Schritt 1: Registriert Euch als NGO</strong>

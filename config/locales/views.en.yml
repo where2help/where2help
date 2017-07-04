@@ -42,8 +42,9 @@ en:
       teaser: You can now use Where2Help
     ongoing_event_opt_in:
       after_link: All the best!
-      content:  |
-        Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper via where2help.wien.
+      content: 'Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper via where2help.wien.
+
+'
       greeting: Hi %{name}
       link: Contact details
       subject: '[where2help] New sign-up for "%{ongoing_event_title}"'
@@ -178,10 +179,28 @@ en:
     thank_you: Thank you! Looking forward to have you onboard.
   pages:
     home:
+      btn_help_now: Help now
+      help_constantly_teaser_subheader: Help regularly
+      help_constantly_text: "… for instance as a buddy, in day-to-day life or teaching."
+      help_once_teaser_subheader: Help once
+      help_once_text: "… teaching German, translating or taking care of refugees."
+      how_to: How it works
       login_ngo: Login as NGO
       login_user: Login as user
+      ngo:
+        description: Lorem Ipsum
+        teaser: Organize volunteers with Where2Help
+      ngo_subheader: Informations for NGOs
+      ngo_teaser_subheader: Choose to help in one of 50 NGOs
+      ngo_teaser_text: "… and other initiatives currently active in refugee support."
+      register:
+        description: "<strong>Know when and where we need your help:</strong><ul><li>Know, where you're needed</li><li>Register now, online</li><li>We're looking forward to meeting you!</li></ul>"
+        safe_data_transport: Your data are send over a secured connection.
+      register_subheader: Help now
+      short_description: Portal for volunteers and organisations for refugee aid in Vienna
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Helper
+      start: Start
       subline_ngo: Know where and when how many helpers show up
       subline_user: Know where and when I am needed
     how_to:

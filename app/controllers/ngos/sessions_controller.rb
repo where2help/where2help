@@ -7,13 +7,14 @@ class Ngos::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    cookies.permanent[:last_role] = "ngo"
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
-  #   super
+  #   supe
   # end
 
   # protected
