@@ -1,3 +1,5 @@
+require "notification/operation"
+
 module User::Notifier
   class New
     def self.call(event)
@@ -36,7 +38,7 @@ module User::Notifier
     end
 
     def notify_new(user, event)
-      Notification::Operation::Create.(parent: event, type: :new_event, user_id: user.id)
+      NotificationOperation::Create.(parent: event, type: :new_event, user_id: user.id)
     end
   end
 end

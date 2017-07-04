@@ -1,3 +1,4 @@
+require "notification/operation"
 module User::Notifier
   class Upcoming
     WHEN_UPCOMING = -> { Time.now + 1.day }
@@ -41,7 +42,7 @@ module User::Notifier
     end
 
     def notify_upcoming(user, shift)
-      Notification::Operation::Create.(parent: shift, type: :upcoming_event, user_id: user.id, immediate: true)
+      NotificationOperation::Create.(parent: shift, type: :upcoming_event, user_id: user.id, immediate: true)
     end
   end
 end

@@ -1,5 +1,5 @@
-class Notification::Operation
-  class Create < ::Operation
+module NotificationOperation
+  class Create < Operation
     def process(parent:, type:, user_id:, immediate: false, **)
       notif = parent.notifications.create(notified_at: Time.now, notification_type: type, user_id: user_id)
       send_notification(notif, user_id) if immediate

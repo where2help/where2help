@@ -1,3 +1,4 @@
+require "notification/operation"
 module User::Notifier
   class ShiftChanged
     def self.call(shifts:)
@@ -21,7 +22,7 @@ module User::Notifier
     end
 
     def notify!(user, shift)
-      Notification::Operation::Create.(parent: shift, type: :updated_shift, user_id: user.id, immediate: true)
+      NotificationOperation::Create.(parent: shift, type: :updated_shift, user_id: user.id, immediate: true)
     end
   end
 end

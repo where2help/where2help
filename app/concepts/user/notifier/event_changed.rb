@@ -1,3 +1,4 @@
+require "notification/operation"
 module User::Notifier
   class EventChanged
     def self.call(event:)
@@ -23,7 +24,7 @@ module User::Notifier
     end
 
     def notify!(user, event)
-      Notification::Operation::Create.(parent: event, type: :updated_event, user_id: user.id, immediate: true)
+      NotificationOperation::Create.(parent: event, type: :updated_event, user_id: user.id, immediate: true)
     end
   end
 end
