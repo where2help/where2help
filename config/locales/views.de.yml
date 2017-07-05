@@ -290,8 +290,9 @@ de:
         safe_data_transport: Deine Daten werden gesichert übertragen.
         already_registered: Ich bin bereits registriert
       ngo:
-        teaser: Organisiere freiwillige Hilfe mit Where2Help
-        description: Lorem Ipsum Dolor Sit Amet
+        feature1: Organisiere freiwillige Hilfe mit Where2Help
+        feature2: Erhalte einen genauen Überblick über Deine Einsätze
+        feature3: Vereinfache die Administration der Freiwilligen
     how_to:
       title: So funktioniert w2h
       title_ngos: Ihr wollt freiwillige Hilfe organisieren?

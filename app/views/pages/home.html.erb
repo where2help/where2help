@@ -106,8 +106,17 @@
   <div class="ngo-section">
     <h2><%= t('.ngo_subheader') %></h2>
 
-    <p><strong><%= t('.ngo.teaser') %></strong></p>
-    <p><%= t('.ngo.description') %></p>
+    <ul>
+      <li>
+        <%= t('.ngo.feature1') %>
+      </li>
+      <li>
+        <%= t('.ngo.feature2') %>
+      </li>
+      <li>
+        <%= t('.ngo.feature3') %>
+      </li>
+    </ul>
     <div><%= link_to t('application.cookie_consent.learn_more'), how_to_path, class: 'btn btn-default' %></div>
     <p>
       <%= link_to t('ngos.registrations.new.sign_up'), new_registration_path('ngo') %> &nbsp;
