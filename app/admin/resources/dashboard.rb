@@ -28,7 +28,9 @@ ActiveAdmin.register_page "Dashboard" do
     render json: {
       update_fields: {
         user_count: User.unscoped.where("created_at BETWEEN :from and :to", from: from_date, to: to_date).count,
+        user_confirmed_count: User.where('confirmed_at IS NOT NULL').where("created_at BETWEEN :from and :to", from: from_date, to: to_date).count,
         ngo_count: Ngo.unscoped.where("created_at BETWEEN :from and :to", from: from_date, to: to_date).count,
+        ngo_confirmed_count: Ngo.confirmed.where("created_at BETWEEN :from and :to", from: from_date, to: to_date).count,
 
         shift_count: Shift.unscoped.where("starts_at BETWEEN :from and :to", from: from_date, to: to_date).count,
         shift_distinct_event_count: Shift.unscoped.where("starts_at BETWEEN :from and :to", from: from_date, to: to_date).count("DISTINCT event_id"),
@@ -55,8 +57,8 @@ ActiveAdmin.register_page "Dashboard" do
       tab 'Statistik gesamt bisher' do
         attributes_table_for "" do
           row "Registrierungen" do
-            div "#{User.unscoped.count} Freiwillige"
-            div "#{Ngo.unscoped.count} NGOs (davon #{Ngo.confirmed.count} bestätigt*)"
+            div "#{User.unscoped.count} Freiwillige (davon #{User.where('confirmed_at IS NOT NULL').count} bestätigt¹)"
+            div "#{Ngo.unscoped.count} NGOs (davon #{Ngo.confirmed.count} bestätigt²)"
           end
           row "Schichtbeginne" do
             div "#{Shift.unscoped.count} Schichten"
@@ -212,7 +214,8 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
         div style: "color: #b3bcc1;" do
-          div "* Von Administrator bestätigt und nicht gelöscht."
+          div "¹ Email-Adresse bestätigt und nicht gelöscht."
+          div "² Von Administrator bestätigt und nicht gelöscht."
           div "Bericht erstellt am #{l(Time.zone.now, format: :short)}"
         end
 
@@ -231,11 +234,15 @@ ActiveAdmin.register_page "Dashboard" do
           row "Registrierungen im Zeitraum", class: "statistics-result-row", style: "display: none;" do
             div do
               span "", id: "statistics-field-user_count"
-              span "Freiwillige"
+              span "Freiwillige (davon "
+              span "", id: "statistics-field-user_confirmed_count"
+              span "bestätigt¹)"
             end
             div do
               span "", id: "statistics-field-ngo_count"
-              span "NGOs"
+              span "NGOs (davon "
+              span "", id: "statistics-field-ngo_confirmed_count"
+              span "bestätigt²)"
             end
           end
           row "Schichtbeginne im Zeitraum", class: "statistics-result-row", style: "display: none;" do
@@ -289,6 +296,8 @@ ActiveAdmin.register_page "Dashboard" do
             end
           end
           div class: "statistics-result-row", style: "display: none;color: #b3bcc1;" do
+            div "¹ Email-Adresse bestätigt und nicht gelöscht."
+            div "² Von Administrator bestätigt und nicht gelöscht."
             span "Bericht erstellt am"
             span "", id: "statistics-field-report_created_at"
           end
