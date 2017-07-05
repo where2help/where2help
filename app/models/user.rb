@@ -19,8 +19,7 @@ class User < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
-  has_one  :facebook_account
-  has_many :bot_messages, -> { order(created_at: :desc) }, through: :facebook_account
+  has_many :bot_messages, -> { order(created_at: :desc) }
 
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }
@@ -29,14 +28,4 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :abilities, :languages
 
   def locked?() access_locked? end
-
-  def add_setting(k, v)
-    self.settings ||= {}
-    self.settings[k] = v
-    save!
-  end
-  def setting(k)
-    settings = self.settings || {}
-    settings[k]
-  end
 end

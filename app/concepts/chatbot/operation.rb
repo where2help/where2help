@@ -59,9 +59,9 @@ class ChatbotOperation
 
     def record_message(msg)
       user_id = msg.sender.id
-      fb_acct = FacebookAccount.find_by(facebook_id: user_id)
-      return if fb_acct.nil?
-      fb_acct.bot_messages.create(provider: :facebook, payload: msg.to_h, from_bot: false)
+      user = User.find_by(facebook_id: user_id)
+      return if user.nil?
+      user.bot_messages.create(provider: :facebook, payload: msg.to_h, from_bot: false)
     end
   end
 
@@ -69,7 +69,7 @@ class ChatbotOperation
     def process(template)
       @template = template
       user  = template.notifications.first.user
-      @fbid = user.facebook_account.facebook_id
+      @fbid = user.facebook_id
       @cli  = Chatbot::Client.new
       send_header_message
       send_list_template
@@ -100,8 +100,8 @@ class ChatbotOperation
     def process(msg)
       ref   = msg.ref
       fb_id = msg.sender.id
-      fb_acct = FacebookAccount.includes(:user).find_by(referencing_id: ref)
-      fb_acct.update_attribute(:facebook_id, fb_id)
+      user = User.find_by(facebook_reference_id: ref)
+      user.update_attributes(facebook_id: fb_id) unless user.nil?
     end
   end
 end

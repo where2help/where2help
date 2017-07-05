@@ -3,7 +3,7 @@ class User::Settings
   EMAIL_NOTIFICATION_KEY = "allow_email_notifications"
   NEW_EVENT_KEY          = "notify_new_events"
   UPCOMING_EVENT_KEY     = "notify_upcoming_events"
-  UPDATED_EVENT_KEY      = "notify_updated_event"
+  UPDATED_EVENT_KEY      = "notify_updated_events"
 
   attr_reader :user
 
@@ -12,15 +12,11 @@ class User::Settings
   end
 
   def setup_new_user!
-    settings = {
-      FB_NOTIFICATION_KEY    => false,
-      EMAIL_NOTIFICATION_KEY => true,
-      NEW_EVENT_KEY          => true,
-      UPCOMING_EVENT_KEY     => true,
-      UPDATED_EVENT_KEY      => true,
-    }
-    user.update_attribute(:settings, settings)
-    create_facebook_account
+    initialize_reference_id!
+  end
+
+  def initialize_reference_id!
+    user.update_attributes(facebook_reference_id: generate_uuid)
   end
 
   def update(params)
@@ -32,7 +28,10 @@ class User::Settings
       UPDATED_EVENT_KEY
     )
     parse_trues(settings)
-    user.update_attribute(:settings, settings)
+    # I don't want to have to type check the params. Could be a hash, could be a ActionController::Parameters
+    # So we'll treat it like a hash and it will always work.
+    params = ActionController::Parameters.new(settings)
+    user.update_attributes(params.permit(*settings.keys))
   end
 
   def parse_trues(settings)
@@ -49,29 +48,34 @@ class User::Settings
   end
 
   def can_notify_facebook?
-    !!user.setting(FB_NOTIFICATION_KEY)
+    !!user.send(FB_NOTIFICATION_KEY)
   end
 
   def can_notify_email?
-    !!user.setting(EMAIL_NOTIFICATION_KEY)
+    !!user.send(EMAIL_NOTIFICATION_KEY)
   end
 
   def can_notify_new_event?
-    !!user.setting(NEW_EVENT_KEY)
+    !!user.send(NEW_EVENT_KEY)
   end
 
   def can_notify_upcoming_event?
-    !!user.setting(UPCOMING_EVENT_KEY)
+    !!user.send(UPCOMING_EVENT_KEY)
   end
 
   def can_notify_updated_event?
-    !!user.setting(UPDATED_EVENT_KEY)
+    !!user.send(UPDATED_EVENT_KEY)
   end
 
   private
 
-  def create_facebook_account
-    acct = user.create_facebook_account
-    acct.generate_uuid!
+  def generate_uuid
+    loop do
+      uuid = SecureRandom.uuid
+      # make sure uuid is unique
+      if User.find_by(facebook_reference_id: uuid).nil?
+        return uuid
+      end
+    end
   end
 end

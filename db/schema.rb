@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529131742) do
+ActiveRecord::Schema.define(version: 20170704152005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20170529131742) do
   create_table "bot_messages", force: :cascade do |t|
     t.boolean  "from_bot"
     t.jsonb    "payload"
-    t.integer  "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "provider"
-    t.index ["account_id"], name: "index_bot_messages_on_account_id", using: :btree
+    t.integer  "user_id"
     t.index ["from_bot"], name: "index_bot_messages_on_from_bot", using: :btree
+    t.index ["user_id"], name: "index_bot_messages_on_user_id", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -79,17 +79,6 @@ ActiveRecord::Schema.define(version: 20170529131742) do
     t.index ["deleted_at"], name: "index_events_on_deleted_at", using: :btree
     t.index ["ngo_id"], name: "index_events_on_ngo_id", where: "(deleted_at IS NULL)", using: :btree
     t.index ["published_at"], name: "index_events_on_published_at", where: "(deleted_at IS NULL)", using: :btree
-  end
-
-  create_table "facebook_accounts", force: :cascade do |t|
-    t.string   "facebook_id"
-    t.integer  "user_id"
-    t.string   "referencing_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["facebook_id"], name: "index_facebook_accounts_on_facebook_id", using: :btree
-    t.index ["referencing_id"], name: "index_facebook_accounts_on_referencing_id", using: :btree
-    t.index ["user_id"], name: "index_facebook_accounts_on_user_id", using: :btree
   end
 
   create_table "languages", force: :cascade do |t|
@@ -223,8 +212,8 @@ ActiveRecord::Schema.define(version: 20170529131742) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                        default: "",    null: false
+    t.string   "encrypted_password",           default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -233,27 +222,35 @@ ActiveRecord::Schema.define(version: 20170529131742) do
     t.datetime "confirmation_sent_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "admin",                  default: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.boolean  "admin",                        default: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.string   "api_token"
     t.datetime "api_token_valid_until"
-    t.integer  "locale",                 default: 0
+    t.integer  "locale",                       default: 0
     t.string   "phone"
     t.datetime "deleted_at"
     t.datetime "locked_at"
     t.datetime "anonymized_at"
-    t.jsonb    "settings"
+    t.boolean  "allow_facebook_notifications", default: false
+    t.boolean  "allow_email_notifications",    default: true
+    t.boolean  "notify_new_events",            default: true
+    t.boolean  "notify_upcoming_events",       default: true
+    t.boolean  "notify_updated_events",        default: true
+    t.string   "facebook_id"
+    t.string   "facebook_reference_id"
     t.index ["api_token"], name: "index_users_on_api_token", where: "(deleted_at IS NULL)", using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", where: "(deleted_at IS NULL)", using: :btree
     t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
     t.index ["email"], name: "index_users_on_email", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["facebook_id"], name: "index_users_on_facebook_id", using: :btree
+    t.index ["facebook_reference_id"], name: "index_users_on_facebook_reference_id", using: :btree
     t.index ["locked_at"], name: "index_users_on_locked_at", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", where: "(deleted_at IS NULL)", using: :btree
   end
 
+  add_foreign_key "bot_messages", "users"
   add_foreign_key "events", "ngos"
-  add_foreign_key "facebook_accounts", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "ongoing_events", "ngos"
   add_foreign_key "ongoing_events", "ongoing_event_categories"

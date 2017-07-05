@@ -3,9 +3,8 @@ class Users::NotificationsController < ApplicationController
 
   def edit
     @settings = User::Settings.new(current_user)
-    fb_acct = current_user.facebook_account
-    @pass_through_id           = fb_acct.referencing_id
-    @user_has_facebook_account = fb_acct.facebook_id.present?
+    @pass_through_id           = current_user.facebook_reference_id
+    @user_has_facebook_account = current_user.facebook_id.present?
   end
 
   def update

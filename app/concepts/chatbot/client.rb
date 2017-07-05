@@ -18,7 +18,7 @@ module Chatbot
     end
 
     def send_text(user, msg)
-      fb_id = user.facebook_account&.facebook_id
+      fb_id = user.facebook_id
       return if fb_id.nil?
       text(fb_id, msg)
     end
@@ -28,7 +28,7 @@ module Chatbot
     end
 
     def send_button_template(user, text, buttons)
-      fb_id = user.facebook_account&.facebook_id
+      fb_id = user.facebook_id
       return if fb_id.nil?
       tpl  = MessengerClient::ButtonTemplate.new(text, buttons)
       data = tpl.to_json
@@ -60,9 +60,9 @@ module Chatbot
     end
 
     def record_message(fb_id, msg)
-      acct = FacebookAccount.find_by(facebook_id: fb_id)
-      return if acct.nil?
-      acct.bot_messages.create(provider: :facebook, from_bot: true, payload: msg)
+      user = User.find_by(facebook_id: fb_id)
+      return if user.nil?
+      user.bot_messages.create(provider: :facebook, from_bot: true, payload: msg)
     end
 
     def log_res(res)

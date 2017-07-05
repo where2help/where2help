@@ -107,9 +107,7 @@ module Chatbot
     end
 
     def get_user
-      fb_acct = FacebookAccount.includes(:user).find_by(facebook_id: fbid)
-      return nil if fb_acct.nil?
-      fb_acct.user
+      User.find_by(facebook_id: fbid)
     end
 
     def get_user_locale
