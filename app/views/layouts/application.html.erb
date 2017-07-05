@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
     <title>where2help | Freiwillig für Wien</title>
     <%= tag(:link, rel: 'canonical', href: request.base_url) %>
@@ -14,12 +14,14 @@
     <%= render 'piwik_analytics' %>
     <%= render 'cookie_consent' %>
   </head>
-  <body>
+
+  <%= content_tag(:body, class: ("relative-footer" if landing_page?)) do %>
     <%= navigation_for(current_user || current_ngo) %>
-    <main class="container">
+
+    <%= content_tag(:main, class: (landing_page? ? "container-fluid" : "container")) do %>
       <%= flash_messages %>
       <%= yield %>
-    </main>
+    <% end %>
     <%= render 'footer' %>
-  </body>
+  <% end %>
 </html>

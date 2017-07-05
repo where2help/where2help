@@ -63,8 +63,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sucker_punch'
 
 # Admin Interface
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
+gem 'activeadmin'
 gem 'formtastic-bootstrap'
 gem 'cocoon'
 gem 'histogram'
