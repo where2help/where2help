@@ -48,7 +48,11 @@ class ProgressBar
 
   def progress_pct
     min, max = [@progress, @total].minmax
-    (100.0 * (min-@offset) / max).ceil
+    if max != 0
+      (100.0 * (min-@offset) / max).ceil
+    else
+      0
+    end
   end
 
   def rest_pct
