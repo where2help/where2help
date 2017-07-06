@@ -26,4 +26,16 @@ describe ChatbotOperation::Message do
     text = payload["_text"]
     expect(text).to eq("hi")
   end
+
+  context "UserSignUp", focus: true do
+    it "adds facebook id" do
+      user = create(:user)
+      settings = User::Settings.new(user)
+      settings.setup_new_user!
+      fbid = "1234567890"
+      msg = OpenStruct.new(sender: OpenStruct.new(id: fbid), ref: user.facebook_reference_id)
+      ChatbotOperation::UserSignUp.(msg)
+      expect(user.reload.facebook_id).to eq(fbid)
+    end
+  end
 end
