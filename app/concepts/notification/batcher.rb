@@ -4,16 +4,6 @@ class Notification::Batcher
   end
 
   def start
-    user_notifications =
-      unsent_messages
-        .map { |_k, user_notifs|
-          filter_notifications(user_notifs)
-        }
-    notification_templates =
-      user_notifications
-        .map { |user_notifs|
-          present_notifications(user_notifs)
-        }
     notification_templates.each do |template|
       send_notification(template)
     end
@@ -23,6 +13,20 @@ class Notification::Batcher
     Notification::Repo.new.unsent
       .to_a
       .group_by { |n| n.user_id }
+  end
+
+  def notification_templates
+    user_notifications
+      .map { |user_notifs|
+        present_notifications(user_notifs)
+      }
+  end
+
+  def user_notifications
+    unsent_messages
+      .map { |_k, user_notifs|
+        filter_notifications(user_notifs)
+      }
   end
 
   def filter_notifications(notifs)
