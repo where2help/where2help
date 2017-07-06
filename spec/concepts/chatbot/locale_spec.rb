@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe Chatbot::Locale, focus: true do
+describe Chatbot::Locale do
   context ".from_facebook" do
     it "converts to rails style locale" do
       expect(Chatbot::Locale.from_facebook("en_US").locale).to eq("en")
