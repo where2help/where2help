@@ -312,5 +312,44 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
       end
     end
   end
+
+  describe 'GET renew' do
+    context 'when not signed in' do
+      it 'redirects to ngo sign_in' do
+        get :renew, params: { token: 1 }
+        expect(response).to redirect_to new_ngo_session_path
+      end
+    end
+    context 'given a signed in NGO' do
+      let(:ngo) { create :ngo, :confirmed }
+      let(:event) { create :ongoing_event, ngo: ngo }
+      let(:params) {{ token: event.token }}
+
+      before { sign_in ngo, scope: :ngo }
+
+      context 'when owning the event' do
+
+        it 'updates event renewed_at attribute' do
+          expect{
+            get :renew, params: params
+            event.reload
+          }.to change{event.renewed_at}
+        end
+        it 'redirects to event' do
+          get :renew, params: params
+          expect(response).to redirect_to [:ngos, event]
+        end
+      end
+      context 'when not owning the event' do
+        let(:event) { create :ongoing_event }
+
+        it 'raises ActiveRecord::RecordNotFound' do
+          expect{
+            get :renew, params: params
+          }.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+    end
+  end
 end
 

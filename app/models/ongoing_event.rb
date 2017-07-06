@@ -1,5 +1,6 @@
 class OngoingEvent < ApplicationRecord
   acts_as_paranoid
+  has_secure_token
 
   belongs_to :ngo
   belongs_to :ongoing_event_category
@@ -27,10 +28,6 @@ class OngoingEvent < ApplicationRecord
     published_at.present?
   end
 
-  def pending?
-    published_at.blank?
-  end
-
   def publish!
     update(published_at: Time.now) unless published?
   end
@@ -41,5 +38,9 @@ class OngoingEvent < ApplicationRecord
 
   def toggle_published!
     published? ? unpublish! : publish!
+  end
+
+  def renew!
+    update(renewed_at: Time.now)
   end
 end

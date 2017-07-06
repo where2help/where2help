@@ -65,6 +65,13 @@ class Ngos::OngoingEventsController < ApplicationController
       notice: t("ngos.events.messages.#{@event.published? ? 'publish' : 'unpublish'}_success")
   end
 
+  def renew
+    binding.pry
+    @event = OngoingEventOperation::Renew.(current_ngo: current_ngo, token: params[:token]).model
+    return redirect_to ngos_ongoing_event_url(@event),
+      notice: t("ngos.events.messages.renew_success")
+  end
+
   private
 
   def event_params(params)
@@ -72,7 +79,7 @@ class Ngos::OngoingEventsController < ApplicationController
       :contact_person, :title, :description,
       :address, :approximate_address,:lat, :lng,
       :volunteers_needed, :ongoing_event_category_id,
-      :start_date, :end_date
+      :start_date, :end_date, :token
     )
   end
 end

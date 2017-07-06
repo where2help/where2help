@@ -88,4 +88,13 @@ class OngoingEventOperation
       @model = event
     end
   end
+
+  class Renew < Operation
+    def process(params)
+      ngo   = params.fetch(:current_ngo)
+      event = ngo.ongoing_events.find_by(token: params[:token])
+      event.renew!
+      @model = event
+    end
+  end
 end
