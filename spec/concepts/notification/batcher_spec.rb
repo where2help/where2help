@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe Notification::Batcher, focus: true do
+describe Notification::Batcher do
   context "#unsent_messages" do
     it "gets unsent notifications" do
       sent = Notification.create(sent_at: Time.now - 86400)
