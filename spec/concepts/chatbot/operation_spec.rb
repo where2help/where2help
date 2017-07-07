@@ -11,23 +11,23 @@ describe ChatbotOperation::Message do
   it "should relate message to user when user connects" do
     ref = "fake_reference" # this is brittle, but it works
     user = create(:user)
-    user.create_facebook_account(referencing_id: ref)
+    user.update_attributes(facebook_reference_id: ref)
     perform_enqueued_jobs do
       ChatbotOperation::Message.(optin_message)
     end
-    expect(user.reload.facebook_account.facebook_id).to eq("fake_sender_id")
+    expect(user.reload.facebook_id).to eq("fake_sender_id")
   end
 
   it "should save a record of a text message" do
     user = create(:user)
-    user.create_facebook_account(facebook_id: "fake_sender_id")
+    user.update_attributes(facebook_id: "fake_sender_id")
     ChatbotOperation::Message.(text_message)
     payload = user.reload.bot_messages.where(from_bot: false).first.payload
     text = payload["_text"]
     expect(text).to eq("hi")
   end
 
-  context "UserSignUp", focus: true do
+  context "UserSignUp" do
     it "adds facebook id" do
       user = create(:user)
       settings = User::Settings.new(user)

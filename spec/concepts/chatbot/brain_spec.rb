@@ -19,8 +19,7 @@ describe Chatbot::Brain do
     it "handles english locale" do
       locale = "en"
       text   = I18n.t("chatbot.user.hello", locale: locale).sample
-      user   = create(:user, locale: locale)
-      user.create_facebook_account(facebook_id: fbid)
+      create(:user, locale: locale, facebook_id: fbid)
       sender = Struct.new(:id).new(fbid)
       msg    = Struct.new(:sender, :text).new(sender, text)
       expected_responses = I18n.t("chatbot.responses.hello", locale: locale)
@@ -34,8 +33,7 @@ describe Chatbot::Brain do
     it "handles german locale" do
       locale = "de"
       text   = I18n.t("chatbot.user.hello", locale: locale).sample
-      user   = create(:user, locale: locale)
-      user.create_facebook_account(facebook_id: fbid)
+      create(:user, locale: locale, facebook_id: fbid)
       sender = Struct.new(:id).new(fbid)
       msg    = Struct.new(:sender, :text).new(sender, text)
       expected_responses = I18n.t("chatbot.responses.hello", locale: locale)
@@ -51,8 +49,7 @@ describe Chatbot::Brain do
     it "falls back to a do not understand response when it doesn't understand" do
       locale = "de"
       text   = "foobazboooooooo"
-      user   = create(:user, locale: locale)
-      user.create_facebook_account(facebook_id: fbid)
+      user   = create(:user, locale: locale, facebook_id: fbid)
       sender = Struct.new(:id).new(fbid)
       msg    = Struct.new(:sender, :text).new(sender, text)
       expected_responses = I18n.t("chatbot.responses.dont_understand", locale: locale)

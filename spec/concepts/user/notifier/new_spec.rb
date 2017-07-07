@@ -6,7 +6,7 @@ describe User::Notifier::New do
   include ActiveJob::TestHelper
 
   it "notifies all users of new event" do
-    user_count = 3
+    user_count = 2
     users = 1.upto(user_count).map {
       user = create(:user)
       User::Settings.new(user).setup_new_user!
@@ -24,7 +24,7 @@ describe User::Notifier::New do
   end
 
   it "doesn't notify same user twice" do
-    user_count = 3
+    user_count = 2
     users = 1.upto(user_count).map {
       user = create(:user)
       User::Settings.new(user).setup_new_user!

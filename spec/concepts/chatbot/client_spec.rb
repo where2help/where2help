@@ -13,8 +13,7 @@ describe Chatbot::Client do
     it "sends a text message to the user" do
       msg     = "hi there"
       fb_id   = "1234"
-      fb_acct = OpenStruct.new(facebook_id:      fb_id)
-      user    = OpenStruct.new(facebook_account: fb_acct)
+      user    = create(:user, facebook_id: fb_id)
       expect(cli.client).to receive(:text).with(recipient_id: fb_id, text: msg)
       cli.send_text(user, msg)
     end
@@ -29,8 +28,7 @@ describe Chatbot::Client do
     it "records the message sent to the user" do
       msg     = "hi there"
       fb_id   = "1234"
-      fb_acct = FacebookAccount.create(facebook_id: fb_id)
-      user    = OpenStruct.new(facebook_account: fb_acct)
+      user = create(:user, facebook_id: fb_id)
       expect {
         cli.send_text(user, msg)
       }.to change(BotMessage, :count).by(1)
@@ -39,8 +37,7 @@ describe Chatbot::Client do
     it "doesn't create a bot message if it can't find the facebook id" do
       msg     = "hi there"
       fb_id   = "1234"
-      fb_acct = OpenStruct.new(facebook_id:      fb_id)
-      user    = OpenStruct.new(facebook_account: fb_acct)
+      user = OpenStruct.new(facebook_id:      fb_id)
       expect {
         cli.send_text(user, msg)
       }.to change(BotMessage, :count).by(0)
@@ -51,7 +48,7 @@ describe Chatbot::Client do
     it "records the message sent to the id" do
       msg     = "hi there"
       fb_id   = "1234"
-      FacebookAccount.create(facebook_id: fb_id)
+      user = create(:user, facebook_id: fb_id)
       expect {
         cli.text(fb_id, msg)
       }.to change(BotMessage, :count).by(1)
