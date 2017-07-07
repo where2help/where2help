@@ -32,6 +32,7 @@ class User::Settings
     # So we'll treat it like a hash and it will always work.
     params = ActionController::Parameters.new(settings)
     user.update_attributes(params.permit(*settings.keys))
+    user
   end
 
   def parse_trues(settings)
