@@ -12,8 +12,8 @@
 .home-section {
   @extend .row;
 
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   @media(min-width: $screen-sm-min) {
     padding-top: 100px;
@@ -26,6 +26,14 @@
   @media(min-width: $screen-lg-min) {
     padding-top: 180px;
     padding-bottom: 180px;
+  }
+
+  h2 {
+    font-size: 26px;
+
+    @media(min-width: $screen-sm-min) {
+      font-size: 35px;
+    }
   }
 }
 
@@ -123,12 +131,20 @@
   margin-right: auto;
   h1 {
     line-height: 150%;
-    font-size: 34px;
+    font-size: 28px;
+
+    @media(min-width: $screen-sm-min) {
+      font-size: 34px;
+    }
   }
 }
 
 .teaser-img-container {
-  max-width: 150px;
+  max-width: 80px;
+
+  @media(min-width: $screen-sm-min) {
+    max-width: 150px;
+  }
 }
 
 .registration-img-container {
