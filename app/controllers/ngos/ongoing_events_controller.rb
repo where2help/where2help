@@ -66,7 +66,6 @@ class Ngos::OngoingEventsController < ApplicationController
   end
 
   def renew
-    binding.pry
     @event = OngoingEventOperation::Renew.(current_ngo: current_ngo, token: params[:token]).model
     return redirect_to ngos_ongoing_event_url(@event),
       notice: t("ngos.events.messages.renew_success")

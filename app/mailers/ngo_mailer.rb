@@ -32,6 +32,18 @@ class NgoMailer < ApplicationMailer
     end
   end
 
+  def notify_of_expired_ongoing_event(ngo:, ongoing_event:)
+    @ngo = ngo
+    @ongoing_event = ongoing_event
+
+    ongoing_event_title = truncate_event_title(ongoing_event.title)
+    subject = default_i18n_subject(ongoing_event_title: ongoing_event_title)
+
+    I18n.with_locale(@ngo.locale) do
+      mail(to: @ngo.email, subject: subject)
+    end
+  end
+
   private
 
   def truncate_event_title(event_title)

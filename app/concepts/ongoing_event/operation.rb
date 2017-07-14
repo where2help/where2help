@@ -29,6 +29,7 @@ class OngoingEventOperation
       ngo          = params.fetch(:current_ngo)
       event_params = params.fetch(:ongoing_event)
       @model = ngo.ongoing_events.create(event_params)
+      @model.renew!
     end
   end
 
@@ -43,6 +44,7 @@ class OngoingEventOperation
       event_params = params.fetch(:ongoing_event)
       @model       = ngo.ongoing_events.find(params[:event_id])
       handle_user_notification!(params, @model)
+      @model.renew!
       @model.update_attributes(event_params)
     end
 

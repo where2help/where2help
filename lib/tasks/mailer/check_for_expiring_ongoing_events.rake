@@ -22,9 +22,9 @@ namespace :mailer do
     puts "Checking for ongoing events published 3 months ago or earlier..."
 
     expiring_events = OngoingEvent
-      .where("published_at < ?", 3.months.ago)
-      .where("renewed_at < ?", 3.months.ago)
-      .where("notified_of_expiry_at < ? OR notified_of_expiry_at IS NULL", 3.months.ago)
+      .where("renewed_at < ?", Rails.configuration.require_ongoing_event_renewal_every.ago)
+      .where("notified_of_expiry_at < ? OR notified_of_expiry_at IS NULL", Rails.configuration.remind_of_ongoing_events_before_expiry.ago)
+      .where("renewed_at > notified_of_expiry_at")
     if expiring_events.any?
       puts "#{expiring_events.size} event#{"s" if expiring_events.size > 1} expiring:"
       expiring_events.each do |ongoing_event|

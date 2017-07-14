@@ -39,6 +39,14 @@ de:
       unpublish_link: "unpublish event. "
       fourth_paragraph: "After unpublishing you can still access the list of already signed up volunteers."
       note: "NOTE: If you do not confirm or update the event, it will automatically be unpublished in 14 days due to inactivity."
+    notify_of_expired_ongoing_event:
+      teaser: "Your event has been unpublished!"
+      subject: "[where2help] Confirmation to unpublish your event"
+      greeting: "Hi %{name}"
+      first_paragraph: |
+        We have unpublished your ongoing event. If you would like to visit your event, "%{ongoing_event_title}", please click
+      event_link: "here."
+      second_paragraph: "Thank you for publishing your event with us!"
   user_mailer:
     event_updated:
       teaser: "%{title}"
