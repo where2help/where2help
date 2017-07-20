@@ -16,7 +16,7 @@ module Chatbot
     def locale_menu(fb_locale, locale)
       {
         locale: fb_locale,
-        composer_input_disabled: true,
+        composer_input_disabled: false,
         call_to_actions: menu_buttons(locale)
       }
     end
