@@ -18,6 +18,7 @@ class Ngos::EventsController < ApplicationController
   def create
     @event = current_ngo.events.new event_params
     if @event.save
+      User::Notifier::New.(@event)
       flash[:notice] = t('ngos.events.messages.create_success')
       redirect_to [:ngos, @event]
     else
