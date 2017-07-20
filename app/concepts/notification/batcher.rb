@@ -1,3 +1,4 @@
+require "chatbot/operation"
 class Notification::Batcher
   def self.call
     new.start
