@@ -29,7 +29,7 @@ FBOptin.prototype.init = function() {
       fbInit()
       FB.Event.subscribe('send_to_messenger', function(e) {
         if (e.event === "opt_in") {
-          $(".modal").modal("hide");
+          $("form").submit()
         }
        });
     };
