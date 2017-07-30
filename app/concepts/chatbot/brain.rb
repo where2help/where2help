@@ -46,7 +46,12 @@ module Chatbot
           notifications_url: Rails.application.routes.url_helpers.edit_users_notifications_url,
         }
         send_messages("chatbot.responses.get_started", opts)
-      when Postbacks::HELP_PAYLOAD then send_messages("chatbot.responses.help", help_url: help_url)
+      when Postbacks::HELP_PAYLOAD
+        settings = User::Settings.new(user)
+        message = ""
+        message += I18n.t("chatbot.responses.help.upcoming" + "\n", locale: user.locale) if settings.can_notify_upcoming_event?
+        message += I18n.t("chatbot.responses.help.new" + "\n",      locale: user.locale) if settings.can_notify_new_event?
+        message += I18n.t("chatbot.responses.help.rest",            locale: user.locale, help_url: help_url)
       else random_message("chatbot.responses.dont_understand")
       end
     end
@@ -54,8 +59,12 @@ module Chatbot
 
     def handle_optin
       ChatbotOperation::UserSignUp.(@msg)
-      first_name  = user.first_name
-      message     = I18n.t("chatbot.responses.onboarding", locale: user.locale, first_name: first_name, help_url: help_url)
+      first_name = user.first_name
+      settings = User::Settings.new(user)
+      message = I18n.t("chatbot.responses.onboarding.greeting",         locale: user.locale, first_name: first_name)
+      message += "\n" + I18n.t("chatbot.responses.onboarding.upcoming", locale: user.locale) if settings.can_notify_upcoming_event?
+      message += "\n" + I18n.t("chatbot.responses.onboarding.new",      locale: user.locale) if settings.can_notify_new_event?
+      message += "\n" + I18n.t("chatbot.responses.onboarding.rest",     locale: user.locale, help_url: help_url)
       MultiMessageJob.perform_later(fbid, message)
     end
 

@@ -33,23 +33,21 @@ en:
       - Hi there
       - Wassup?
       - Yo!
-      help: |
-        We will send you notifications 24 hours your opted in events are taking place.
+      help:
+        upcoming: We will send you notifications 24 hours your opted in events are taking place.
+        new: We'll also send you notifications if a new event is added that matches your profile.
+        rest: |
+          You can change your notification settings in the Where2Help app (%{help_url}).
+      onboarding:
+        greeting: Hi %{first_name}, great to see you.
+        upcoming: We will send you notifications 24 hours before your opted in events are taking place.
+        new: We'll send you notifications if a new event is added that matches your profile.
+        rest: |
+          You can change your notification settings in the Where2Help app (%{help_url}).
 
-        We'll also send you notifications if a new event is added that matches your profile.
+          If you have any questions type "help".
 
-        You can change your notification settings in the Where2Help app (%{help_url}).
-      onboarding: |
-        Hi %{first_name}, great to see you.
-
-        We will send you notifications 24 hours your opted in events are taking place.
-
-        We'll also send you notifications if a new event is added that matches your profile.
-
-        You can change your notification settings in the Where2Help app (%{help_url}).
-
-        If you have any questions type "help".
-        See you soon!
+          See you soon!
       please_register: |
         Hi %{first_name}. This bot can only help you if you are registered at the Where2Help website.
 
