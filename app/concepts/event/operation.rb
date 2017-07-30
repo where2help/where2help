@@ -11,7 +11,7 @@ class EventOperation
         @model = ngo.events.includes(shifts: :users).find(event_id)
         @model.attributes = event
         notify_users! if notify_users
-        @model.save!
+        @model.save
       end
 
       def has_users?

@@ -1,4 +1,10 @@
 require "notification/operation"
+
+# This checks for upcoming events, then creates notifications
+# for users that are subscribed to them. The message is sent immediately.
+#
+# Needs to be called once an hour or some regular time interval.
+
 module User::Notifier
   class Upcoming
     WHEN_UPCOMING = -> { Time.now + 1.day }
