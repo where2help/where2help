@@ -3,11 +3,11 @@ de:
   chatbot:
     events:
       new:
-        button_text: View On Our Site
-        text: There is a new event you may be interested in.
+        button_text: Anzeigen
+        text: Neue Einsatz '%{title}'.
       updated:
-        button_text: View Event
-        text: The event '%{title}' has been updated.
+        button_text: Anzeigen
+        text: Einsatz '%{title}' aktualisiert.
     menu:
       help: Hilfe
       website: Webseite
