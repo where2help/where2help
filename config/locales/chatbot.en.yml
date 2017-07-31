@@ -7,7 +7,8 @@ en:
         text: New event '%{title}'.
       updated:
         button_text: View
-        text: '%{title}' has been updated.
+        text: |
+          '%{title}' has been updated.
     menu:
       help: Help
       website: Website
