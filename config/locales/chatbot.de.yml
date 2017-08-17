@@ -39,12 +39,12 @@ de:
 
       onboarding:
         greeting: Hallo %{first_name}, danke dass du unseren Chatbot ausprobierst.
-        upcoming: 24 Stunden vor Einsätzen, zu denen du dich angemeldet hast, erhältst du vom Where2Help Chatbot Termin-Erinnerungen.
+        upcoming: 24 Stunden vor Einsätzen, zu denen du dich angemeldet hast, erhältst du vom Where2Help Chatbot eine Termin-Erinnerung.
         new: Außerdem erhältst du gelegentlich Benachrichtigungen über neue Einsätze auf Where2Help.wien.
         rest: |
           Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
 
-          Wenn du Hilfe brauchst, schreibe einfache "hilfe".
+          Wenn du Hilfe brauchst, schreibe einfach "hilfe".
 
           Bis bald!
       please_register: |
@@ -55,10 +55,10 @@ de:
         Wenn du bereits registriert bist, kannst du deinen Account in den Benachrichtigungs-Einstellungen mit Facebook verknüpfen: %{notifications_url}
     shifts:
       upcoming:
-        button_text: View Shift
+        button_text: Einsatz anzeigen
         text: Dein Einsatz %{title} beginnt %{starts_at_date} um %{starts_at_time}. Bis dann!"
       updated:
-        button_text: View Shift
+        button_text: Einsatz anzeigen
         text: Dein Einsatz %{title} wurde geändert. Er beginnt %{date} um %{starts_at} bis %{ends_at}. Bis dann!"
     user:
       hello:
@@ -79,3 +79,9 @@ de:
       - yo
       - jo
       - jap
+      - yap
+      - yep
+      - jep
+      - jup
+      - yup
+      - auf jeden fall

@@ -10,8 +10,8 @@ de:
     resource:
       show:
         user:
-          lock: Benützer Sperren
-          unlock: Benützer Freigeben
+          lock: Benutzer Sperren
+          unlock: Benutzer Freigeben
     scopes:
       confirmed: Bestätigt
       only_deleted: Gelöscht
@@ -28,9 +28,9 @@ de:
   admin:
     users:
       lock:
-        successful: Benützer erfolgreich gesperrt.
+        successful: Benutzer erfolgreich gesperrt.
       unlock:
-        successful: Benützer erfolgreich freigegeben.
+        successful: Benutzer erfolgreich freigegeben.
   date:
     formats:
       events_date_group: "%A, %d.%m.%Y"
