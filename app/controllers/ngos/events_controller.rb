@@ -89,6 +89,6 @@ class Ngos::EventsController < ApplicationController
   end
 
   def find_ngo_event
-    @event = current_ngo.events.find params[:id]
+    @event = current_ngo.events.includes(shifts: [{users: [:abilities, :spoken_languages, :languages]}, :event]).find params[:id]
   end
 end
