@@ -47,8 +47,8 @@ class Notification::Presenter
     event_link = make_event_link(event)
     msg = I18n.t("chatbot.shifts.upcoming.text",
                  title:           shift.event.title,
-                 starts_at_date:  Notification::Utils.pretty_date(shift.starts_at),
-                 starts_at_time:  Notification::Utils.pretty_time(shift.starts_at),
+                 starts_at_date:  Notification::Utils.pretty_date(shift.starts_at, user.locale),
+                 starts_at_time:  Notification::Utils.pretty_time(shift.starts_at, user.locale),
                  locale:          user.locale)
     Message.new(msg, event_link)
   end
@@ -59,11 +59,11 @@ class Notification::Presenter
     event      = shift.event
     event_link = make_event_link(event)
     msg        = I18n.t("chatbot.shifts.updated.text",
-                        title:      event.title,
-                        date:       Notification::Utils.pretty_date(shift.starts_at),
-                        starts_at:  Notification::Utils.pretty_time(shift.starts_at),
-                        ends_at:    Notification::Utils.pretty_time(shift.ends_at),
-                        locale:     user.locale)
+                   title:      event.title,
+                   date:       Notification::Utils.pretty_date(shift.starts_at, user.locale),
+                   starts_at:  Notification::Utils.pretty_time(shift.starts_at, user.locale),
+                   ends_at:    Notification::Utils.pretty_time(shift.ends_at, user.locale),
+                   locale:     user.locale)
     Message.new(msg, event_link)
   end
 
