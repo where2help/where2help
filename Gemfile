@@ -31,7 +31,7 @@ gem 'pry-rails'
 
 gem 'messenger_client', "~> 0.2"
 
-group :production do
+group :staging, :production do
   gem 'rails_12factor'
 end
 
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "i18n-tasks", "~> 0.9.15"
 end
+
 
 group :test do
   gem 'database_cleaner'
