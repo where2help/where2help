@@ -33,7 +33,7 @@ de:
       - Hi!
       help:
         upcoming: Wir senden dir Erinnerungen für Einsätze, zu denen du dich angemeldet hast, bevor sie starten.
-        new: Außerdem informieren wir dich gelegentlich über neue Einsätze, die auf Where2Help.wien erstellt wurden.
+        new: Informieren wir dich gelegentlich über neue Einsätze, die auf Where2Help.wien erstellt wurden.
         rest: |
           Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
 

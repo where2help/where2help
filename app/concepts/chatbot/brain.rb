@@ -16,7 +16,7 @@ module Chatbot
       else
         Rails.logger.warn "Chatbot::Brain#hear doesn't know how to handle: #{@msg.inspect}"
         random_message("chatbot.responses.dont_understand")
-        send_messages("chatbot.responses.help", help_url: help_url)
+        handle_help
       end
     end
 
@@ -28,7 +28,7 @@ module Chatbot
       return handle_unregistered_user if user.nil?
       case @msg.text
       when list_matcher("chatbot.user.help", locale)
-        send_messages("chatbot.responses.help", help_url: help_url)
+        handle_help
       when list_matcher("chatbot.user.hello", locale)
         random_message("chatbot.responses.hello")
       else
@@ -47,11 +47,7 @@ module Chatbot
         }
         send_messages("chatbot.responses.get_started", opts)
       when Postbacks::HELP_PAYLOAD
-        settings = User::Settings.new(user)
-        message = ""
-        message += I18n.t("chatbot.responses.help.upcoming" + "\n", locale: user.locale) if settings.can_notify_upcoming_event?
-        message += I18n.t("chatbot.responses.help.new" + "\n",      locale: user.locale) if settings.can_notify_new_event?
-        message += I18n.t("chatbot.responses.help.rest",            locale: user.locale, help_url: help_url)
+        handle_help
       else random_message("chatbot.responses.dont_understand")
       end
     end
@@ -68,6 +64,7 @@ module Chatbot
       MultiMessageJob.perform_later(fbid, message)
     end
 
+
     def handle_unregistered_user
       info_url          = Rails.application.routes.url_helpers.root_url
       registration_url  = Rails.application.routes.url_helpers.new_user_registration_url
@@ -80,6 +77,22 @@ module Chatbot
                        registration_url:  registration_url)
       MultiMessageJob.perform_later(fbid, message)
     end
+
+
+    def handle_help
+      settings = User::Settings.new(user)
+      parts = []
+      if settings.can_notify_upcoming_event?
+        parts << I18n.t("chatbot.responses.help.upcoming", locale: user.locale)
+      end
+      if settings.can_notify_new_event?
+        parts << I18n.t("chatbot.responses.help.new", locale: user.locale)
+      end
+      parts << I18n.t("chatbot.responses.help.rest", locale: user.locale, help_url: help_url)
+      message = parts.join("\n\n")
+      MultiMessageJob.perform_later(fbid, message)
+    end
+
 
     ##########################
     # Message Utils
