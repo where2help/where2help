@@ -1,6 +1,7 @@
 require "ongoing_event/operation"
 class Ngos::OngoingEventsController < ApplicationController
   before_action :authenticate_ngo!
+  skip_before_action :authenticate_ngo!, if: -> { authentication_skippable }
 
   def index
     @operation =
@@ -9,9 +10,12 @@ class Ngos::OngoingEventsController < ApplicationController
   end
 
   def show
+    current_ngo = current_ngo || Ngo.find_by_id(params[:ngo_id])
+    sign_in current_ngo if params[:sign_in]
     @operation =
       OngoingEventOperation::Show.present(current_ngo: current_ngo, event_id: params[:id])
     @event = @operation.model
+    @event.unpublish! if params[:unpublish]
   end
 
   def new
@@ -66,9 +70,15 @@ class Ngos::OngoingEventsController < ApplicationController
   end
 
   def renew
-    @event = OngoingEventOperation::Renew.(current_ngo: current_ngo, token: params[:token]).model
-    return redirect_to ngos_ongoing_event_url(@event),
-      notice: t("ngos.events.messages.renew_success")
+    current_ngo = current_ngo || Ngo.find_by_id(params[:ngo_id])
+    @event = OngoingEventOperation::Renew.(current_ngo: current_ngo, token: params[:token], event_id: params[:id]).model
+    if signed_in?
+      redirect_to ngos_ongoing_event_url(@event),
+        notice: t("ngos.events.messages.renew_success")
+    else
+      redirect_to new_ngo_session_path,
+        notice: t("ngos.events.messages.renew_success")
+    end
   end
 
   private
@@ -80,5 +90,10 @@ class Ngos::OngoingEventsController < ApplicationController
       :volunteers_needed, :ongoing_event_category_id,
       :start_date, :end_date, :token
     )
+  end
+
+  def authentication_skippable
+    event = OngoingEvent.find_by_id(params[:ongoing_event_id] || params[:id])
+    (action_name == "show" || action_name == "renew") && event && event.token == params[:token]
   end
 end

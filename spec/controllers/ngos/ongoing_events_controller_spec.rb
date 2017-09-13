@@ -71,7 +71,7 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
       context 'when owning the event' do
         let(:event) { create :ongoing_event, ngo: ngo }
 
-        before { get :show, params: { id: event } }
+        before { get :show, params: { id: event, ngo_id: ngo.id } }
 
         it 'assigns @event' do
           expect(assigns :event).to eq event
@@ -85,7 +85,7 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
 
         it 'raises ActiveRecord::RecordNotFound' do
           expect{
-            get :show, params: { id: event }
+            get :show, params: { id: event, ngo_id: ngo.id }
           }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
@@ -187,7 +187,7 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
 
         it 'raises ActiveRecord::RecordNotFound' do
           expect{
-            get :show, params: { id: event }
+            get :show, params: { id: event, ngo_id: ngo.id }
           }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
@@ -316,14 +316,14 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
   describe 'GET renew' do
     context 'when not signed in' do
       it 'redirects to ngo sign_in' do
-        get :renew, params: { token: 1 }
+        get :renew, params: { id: 1 }
         expect(response).to redirect_to new_ngo_session_path
       end
     end
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
       let(:event) { create :ongoing_event, ngo: ngo }
-      let(:params) {{ token: event.token }}
+      let(:params) {{ token: event.token, ngo_id: ngo.id, id: event.id }}
 
       before { sign_in ngo, scope: :ngo }
 
@@ -352,4 +352,3 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
     end
   end
 end
-

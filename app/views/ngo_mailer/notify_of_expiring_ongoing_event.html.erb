@@ -4,10 +4,10 @@
 <p><%= t('.first_paragraph',
          ongoing_event_title: @ongoing_event.title,
          ongoing_event_published_at: @ongoing_event_published_at) %></p>
-<p><%= link_to t('.confirm_link'), ngos_ongoing_event_renew_url(@ongoing_event, token: @ongoing_event.token) %></p>
+<p><%= link_to t('.confirm_link'), renew_ngos_ongoing_event_url(@ongoing_event, ngo_id: @ngo, token: @ongoing_event.token) %></p>
 <p><%= t('.second_paragraph') %></p>
-<p><%= link_to t('.update_link'), ngos_ongoing_event_url(@ongoing_event) %></p>
+<p><%= link_to t('.update_link'), ngos_ongoing_event_url(@ongoing_event, ngo_id: @ngo, token: @ongoing_event.token, sign_in: true) %></p>
 <p><%= t('.third_paragraph') %></p>
-<button><%= link_to t('.unpublish_link'), ngos_ongoing_event_url(@ongoing_event), method: :delete %></button>
+<button><%= link_to t('.unpublish_link'), ngos_ongoing_event_url(@ongoing_event, ngo_id: @ngo, token: @ongoing_event.token, unpublish: true) %></button>
 <p><%= t('.fourth_paragraph') %></p>
 <p><%= t('.note') %></p>

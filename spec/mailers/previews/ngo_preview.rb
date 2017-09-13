@@ -14,7 +14,7 @@ class NgoPreview < ActionMailer::Preview
   end
 
   def notify_of_expiring_ongoing_event
-    ongoing_event = OngoingEvent.where(id: 45)[0]
+    ongoing_event = OngoingEvent.first
     NgoMailer.notify_of_expiring_ongoing_event(
       ngo: ongoing_event.ngo,
       ongoing_event: ongoing_event
@@ -22,7 +22,7 @@ class NgoPreview < ActionMailer::Preview
   end
 
   def notify_of_expired_ongoing_event
-    ongoing_event = OngoingEvent.where(id: 45)[0]
+    ongoing_event = OngoingEvent.first
     NgoMailer.notify_of_expired_ongoing_event(
       ngo: ongoing_event.ngo,
       ongoing_event: ongoing_event

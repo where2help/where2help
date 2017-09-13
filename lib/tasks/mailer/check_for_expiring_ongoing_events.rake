@@ -19,10 +19,10 @@ end
 namespace :mailer do
   desc "Check if any NGOs should be notified about their expiring ongoing events"
   task check_for_expiring_ongoing_events: :environment do
-    puts "Checking for ongoing events published 3 months ago or earlier..."
+    puts "Checking for ongoing events published #{Rails.configuration.require_ongoing_event_renewal_every} ago or earlier..."
 
     expiring_events = OngoingEvent
-      .where("renewed_at < ?", Rails.configuration.require_ongoing_event_renewal_every.ago)
+      .where("renewed_at < ?", (Rails.configuration.require_ongoing_event_renewal_every - Rails.configuration.remind_of_ongoing_events_before_expiry).ago)
       .where("notified_of_expiry_at < ? OR notified_of_expiry_at IS NULL", Rails.configuration.remind_of_ongoing_events_before_expiry.ago)
       .where("renewed_at > notified_of_expiry_at")
     if expiring_events.any?

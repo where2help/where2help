@@ -8,6 +8,6 @@ every 1.day, at: '2:00 pm' do
   rake 'mailer:check_for_expiring_ongoing_events'
 end
 
-every 1.day, at: '2:00 pm' do
+every 1.day, at: '1:00 pm' do
   rake 'ongoing_events:unpublished_unrenewed'
 end

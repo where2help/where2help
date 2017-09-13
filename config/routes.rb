@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     resources :ongoing_events do
       post :publish, on: :member
-      get :renew
+      get :renew, on: :member
     end
   end
 
