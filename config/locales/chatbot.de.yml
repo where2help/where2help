@@ -4,7 +4,7 @@ de:
     events:
       new:
         button_text: Anzeigen
-        text: Neue Einsatz '%{title}'.
+        text: Neuer Einsatz '%{title}'.
       updated:
         button_text: Anzeigen
         text: Einsatz '%{title}' aktualisiert.
@@ -33,7 +33,7 @@ de:
       - Hi!
       help:
         upcoming: Wir senden dir Erinnerungen für Einsätze, zu denen du dich angemeldet hast, bevor sie starten.
-        new: Informieren wir dich gelegentlich über neue Einsätze, die auf Where2Help.wien erstellt wurden.
+        new: Wir informieren wir dich gelegentlich über neue Einsätze, die auf Where2Help.wien erstellt wurden.
         rest: |
           Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
 
@@ -56,10 +56,10 @@ de:
     shifts:
       upcoming:
         button_text: Einsatz anzeigen
-        text: Dein Einsatz %{title} beginnt %{starts_at_date} um %{starts_at_time}. Bis dann!"
+        text: Dein Einsatz %{title} beginnt am %{starts_at_date} um %{starts_at_time}. Bis dann!
       updated:
         button_text: Einsatz anzeigen
-        text: Dein Einsatz %{title} wurde geändert. Er beginnt %{date} um %{starts_at} bis %{ends_at}. Bis dann!"
+        text: Dein Einsatz %{title} wurde geändert. Er beginnt am %{date} um %{starts_at} bis %{ends_at}. Bis dann!
     user:
       hello:
       - hallo
