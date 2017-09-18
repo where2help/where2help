@@ -122,7 +122,7 @@ de:
         accept_terms_and_conditions: Ich akzeptiere die
         min_characters: Zeichen mindestens
         motivation_txt: |
-          <strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst!</strong>
+          <strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst!</strong>
           Erfahre, wo Du gerade gebraucht wirst und melde Dich direkt online an.
           Wir freuen uns auf Dich!
         sign_up: Als Freiwillige/r registrieren
@@ -239,7 +239,7 @@ de:
         profile: NGO-Profil
         min_characters: Zeichen mindestens
         motivation_txt: |
-          <strong>Wissen wann, wo und wie viele Freiwillige erscheinen!</strong>
+          <strong>Wissen, wann, wo und wie viele Freiwillige erscheinen!</strong>
           Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann, wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich Freiwillige online eintragen können. Ihr behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt haben.
           Wir freuen uns auf Euch!
       terms_and_conditions:
@@ -286,7 +286,7 @@ de:
       help_constantly_text: … unter anderem als Buddy, im Alltag oder beim Unterrichten.
       btn_help_now: Jetzt mithelfen
       register:
-        description: <strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>
+        description: <strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>
         safe_data_transport: Deine Daten werden gesichert übertragen.
         already_registered: Ich bin bereits registriert
       ngo:
