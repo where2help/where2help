@@ -93,7 +93,8 @@ class ChatbotOperation
 
     def send_button_template
       part = @template.parts.first
-      @cli.send_button_template(@fbid, part.to_message, [button(part.url)])
+      user = Struct.new(:facebook_id).new(@fbid)
+      @cli.send_button_template(user, part.to_message, [button(part.url)])
     end
 
     def send_list_template
