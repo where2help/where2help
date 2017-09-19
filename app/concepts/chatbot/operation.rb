@@ -80,7 +80,7 @@ class ChatbotOperation
     end
 
     def notify_with_list?
-      template.notifications.size > 1
+      @template.notifications.size > 1
     end
 
     def send_header_message
@@ -92,7 +92,7 @@ class ChatbotOperation
     end
 
     def send_button_template
-      part = template.parts.first
+      part = @template.parts.first
       @cli.send_button_template(@fbid, part.to_message, [button(part.url)])
     end
 
