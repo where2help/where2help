@@ -4,3 +4,7 @@
 <p>
   <%= t('.content', title: @shift.event.title, link: @link, time: @shift.starts_at) %>
 </p>
+
+<% content_for(:footer) do %>
+  <p><%= link_to t("application.change_notification_settings_hint"), edit_users_notifications_url %></p>
+<% end %>

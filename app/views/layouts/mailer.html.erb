@@ -31,7 +31,12 @@
         </div>
         <hr>
         <div class="footer">
-          Where2Help - <%= link_to "www.where2help.wien", root_url, target: "_blank" %> - DVR 1070053
+          <% if content_for?(:footer) %>
+            <%= content_for(:footer) %>
+          <% end %>
+          <p>
+            Where2Help - <%= link_to "www.where2help.wien", root_url, target: "_blank" %> - DVR 1070053
+          </p>
         </div>
       </div>
     </div>

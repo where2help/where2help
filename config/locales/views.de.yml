@@ -15,6 +15,7 @@ de:
       message: Wir haben gerade nichts für Dich...
     imprint: Impressum
     terms_and_conditions: Nutzungsbedingungen
+    change_notification_settings_hint: "Benachrichtigungs-Einstellungen ändern"
   events:
     index:
       events: Konkrete Einsätze

@@ -14,3 +14,7 @@
   </p>
   <hr />
 <% end %>
+
+<% content_for(:footer) do %>
+  <p><%= link_to t("application.change_notification_settings_hint"), edit_users_notifications_url %></p>
+<% end %>
