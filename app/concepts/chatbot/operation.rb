@@ -72,22 +72,38 @@ class ChatbotOperation
       @fbid = user.facebook_id
       @cli  = Chatbot::Client.new
       send_header_message
-      send_list_template
+      if notify_with_list?
+        send_list_template
+      else
+        send_button_template
+      end
+    end
+
+    def notify_with_list?
+      template.notifications.size > 1
     end
 
     def send_header_message
       @cli.text(@fbid, @template.header)
     end
 
+    def button(url)
+      MessengerClient::URLButton.new(I18n.t("chatbot.notifications.view", locale: @template.locale), url)
+    end
+
+    def send_button_template
+      part = template.parts.first
+      @cli.send_button_template(@fbid, part.to_message, [button(part.url)])
+    end
+
     def send_list_template
       template_items = @template.parts.map { |part|
-        btn = MessengerClient::URLButton.new(I18n.t("chatbot.notifications.view", locale: @template.locale), part.url)
         MessengerClient::TemplateItem.new(
           part.to_message,
           nil,
           nil,
           part.url,
-          [btn]
+          [button(part.url)]
         )
       }
       next_button = @template.next_button
