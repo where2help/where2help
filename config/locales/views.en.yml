@@ -25,6 +25,28 @@ en:
         Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper via where2help.wien.
       link: Contact details
       after_link: All the best!
+    notify_of_expiring_ongoing_event:
+      teaser: "Confirm that your event is still active"
+      subject: "[where2help] Please confirm that your ongoing event is still active"
+      greeting: "Hi %{name}"
+      first_paragraph: |
+        We want to remind you that your event "%{ongoing_event_title}" (published on "%{ongoing_event_published_at}") is still active. Please verify its up-to-dateness and click the following button if you are still actively looking for volunteers for it:
+      confirm_link: "Confirm up-to-dateness"
+      second_paragraph: |
+        If any part of event data (e.g. the number of outdated volunteers) is outdated, please update it.
+      update_link: "Update event data"
+      third_paragraph: "If you are not looking for any additional volunteers, please unpublish the event by clicking the following button: "
+      unpublish_link: "unpublish event. "
+      fourth_paragraph: "After unpublishing you can still access the list of already signed up volunteers."
+      note: "NOTE: If you do not confirm or update the event, it will automatically be unpublished in 14 days due to inactivity."
+    notify_of_expired_ongoing_event:
+      teaser: "Your event has been unpublished!"
+      subject: "[where2help] Confirmation to unpublish your event"
+      greeting: "Hi %{name}"
+      first_paragraph: |
+        We have unpublished your ongoing event. If you would like to visit your event, "%{ongoing_event_title}", please click
+      event_link: "here."
+      second_paragraph: "Thank you for publishing your event with us!"
   user_mailer:
     event_updated:
       teaser: "%{title}"
@@ -189,6 +211,7 @@ en:
         publish_success: Event was successfully published.
         publish_fail: Event could not be published.
         delete_success: Event was successfully removed.
+        renew_success: Event was successfully renewed.
     ongoing_events:
       index:
         add_an_event: Add Fixed Event

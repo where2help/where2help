@@ -29,5 +29,7 @@ module Where2help
     config.i18n.default_locale = :de
     config.time_zone = 'Vienna'
     config.autoload_paths += %W["#{config.root}/app/services/"]
+    config.require_ongoing_event_renewal_every = 3.months
+    config.remind_of_ongoing_events_before_expiry = 2.weeks
   end
 end

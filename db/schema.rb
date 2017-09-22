@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221111814) do
+ActiveRecord::Schema.define(version: 20170704194828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,9 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "ongoing_event_category_id"
+    t.datetime "renewed_at"
+    t.string   "token"
+    t.datetime "notified_of_expiry_at"
     t.index ["address"], name: "index_ongoing_events_on_address", using: :btree
     t.index ["deleted_at"], name: "index_ongoing_events_on_deleted_at", using: :btree
     t.index ["end_date"], name: "index_ongoing_events_on_end_date", using: :btree
@@ -134,6 +137,7 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.index ["published_at"], name: "index_ongoing_events_on_published_at", using: :btree
     t.index ["start_date"], name: "index_ongoing_events_on_start_date", using: :btree
     t.index ["title"], name: "index_ongoing_events_on_title", using: :btree
+    t.index ["token"], name: "index_ongoing_events_on_token", unique: true, using: :btree
   end
 
   create_table "participations", force: :cascade do |t|

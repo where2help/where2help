@@ -1,0 +1,11 @@
+<%= content_for(:teaser, t(".teaser", ongoing_event_title: @ongoing_event.title)) %>
+
+<h2><%= t('.greeting', name: @ngo.name) %></h2>
+<p>
+  <span>
+    <%= t('.first_paragraph',
+              ongoing_event_title: @ongoing_event.title) %>
+  </span>
+  <span><%= link_to t('.event_link'), ngos_ongoing_event_url(@ongoing_event, ngo_id: @ngo, token: @ongoing_event.token) %></span>
+</p>
+<p><%= t('.second_paragraph') %></p>
