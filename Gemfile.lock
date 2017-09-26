@@ -198,14 +198,14 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.1)
     momentjs-rails (2.17.1)
       railties (>= 3.1)
     multi_json (1.12.1)
     nio4r (2.0.0)
-    nokogiri (1.7.2)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     paranoia (2.2.0)
       activerecord (>= 4.0, < 5.1)
@@ -415,4 +415,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.14.6
+   1.15.4

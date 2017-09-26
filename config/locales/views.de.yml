@@ -127,7 +127,7 @@ de:
         accept_terms_and_conditions: Ich akzeptiere die
         min_characters: Zeichen mindestens
         motivation_txt: |
-          <strong>Wissen wann, wo und wie viele Freiwillige erscheinen!</strong>
+          <strong>Wissen, wann, wo und wie viele Freiwillige erscheinen!</strong>
           Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann, wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich Freiwillige online eintragen können. Ihr behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt haben.
           Wir freuen uns auf Euch!
         profile: NGO-Profil
@@ -195,14 +195,15 @@ de:
       login_ngo: Als NGO anmelden
       login_user: Als Freiwillige/r anmelden
       ngo:
-        description: Lorem Ipsum Dolor Sit Amet
-        teaser: Organisiere freiwillige Hilfe mit Where2Help
+        feature1: Organisiere freiwillige Hilfe mit Where2Help
+        feature2: Erhalte einen genauen Überblick über Deine Einsätze
+        feature3: Vereinfache die Administration der Freiwilligen
       ngo_subheader: Informationen für NGOs
       ngo_teaser_subheader: Wähle aus Hilfseinsätzen von über 50 NGOs
       ngo_teaser_text: "… und Initiativen, die derzeit in der Flüchtlingsbetreuung in Wien aktiv sind."
       register:
         already_registered: Ich bin bereits registriert
-        description: "<strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>"
+        description: "<strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>"
         safe_data_transport: Deine Daten werden gesichert übertragen.
       register_subheader: Jetzt mithelfen
       short_description: Plattform für Freiwillige und Organisationen in der Flüchtlingshilfe Wien
@@ -349,7 +350,7 @@ de:
         accept_terms_and_conditions: Ich akzeptiere die
         min_characters: Zeichen mindestens
         motivation_txt: |
-          <strong>Wissen wann und wo Du als Freiwillige/r gebraucht wirst!</strong>
+          <strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst!</strong>
           Erfahre, wo Du gerade gebraucht wirst und melde Dich direkt online an.
           Wir freuen uns auf Dich!
         profile: Profil

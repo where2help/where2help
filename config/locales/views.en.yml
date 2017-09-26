@@ -127,7 +127,7 @@ en:
         profile: NGO-Profile
         sign_up: Sign up as an NGO
       ngo_fields:
-        min_characters: minimum characters
+        min_characters: characters minimum
       terms_and_conditions:
         body: |
           It is the aim of ‘where2help’ (w2h) clearly to present the needs for voluntary aid services of refugee-supporting organizations/initiatives for potential volunteer helpers.
@@ -188,9 +188,10 @@ en:
       login_ngo: Login as NGO
       login_user: Login as user
       ngo:
-        description: Lorem Ipsum
-        teaser: Organize volunteers with Where2Help
-      ngo_subheader: Informations for NGOs
+        feature1: Organize voluntary help with Where2Help
+        feature2: Get an overview of all your events
+        feature3: Simplify management of volunteers
+      ngo_subheader: Information for NGOs
       ngo_teaser_subheader: Choose to help in one of 50 NGOs
       ngo_teaser_text: "… and other initiatives currently active in refugee support."
       register:
