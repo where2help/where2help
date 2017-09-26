@@ -1,14 +1,15 @@
+---
 de:
   activerecord:
     attributes:
       user:
+        abilities: Fähigkeiten
         current_password: Bisheriges Passwort
         email: E-Mail
         locale: Sprache
         password: Passwort
         password_confirmation: Passwortbestätigung
         remember_me: Angemeldet bleiben
-        abilities: Fähigkeiten
     models:
       user: Benutzer
   devise:
@@ -62,11 +63,11 @@ de:
       success: Du hast Dich erfolgreich mit Deinem %{kind}-Account angemeldet
     passwords:
       edit:
-        change_my_password: "Ändere mein Passwort"
+        change_my_password: Ändere mein Passwort
         change_your_password: Passwort ändern
         confirm_new_password: Neues Passwort bestätigen
-        new_password: Neues Passwort
         min_chars: Zeichen Mindestlänge
+        new_password: Neues Passwort
       new:
         forgot_your_password: Hast Du Dein Passwort vergessen?
         send_me_reset_password_instructions: Passwort zurückzusetzen
@@ -76,8 +77,8 @@ de:
       updated: Dein Passwort wurde geändert. Du bist jetzt angemeldet.
       updated_not_active: Dein Passwort wurde geändert.
     registrations:
+      deactivated: Servus! Dein Account wurde erfolgreich deaktviert. Du kannst ihn jederzeit wieder aktivieren.
       destroyed: Dein Account wurde gelöscht.
-      deactivated: "Servus! Dein Account wurde erfolgreich deaktviert. Du kannst ihn jederzeit wieder aktivieren."
       edit:
         are_you_sure: Bist Du sicher?
         cancel_my_account: Konto löschen

@@ -1,5 +1,90 @@
+---
 en:
   activerecord:
+    attributes:
+      contact:
+        city: City
+        first_name: First Name
+        last_name: Last Name
+        phone: Phone
+        street: Street
+        zip: Post Code
+      event:
+        address: Address
+        approximate_address: Approximate Address
+        created_at: Created
+        deleted_at: Deleted
+        description: Description
+        person: Contact on site
+        published_at: Published
+        state: Status
+        state-deleted: Deleted
+        state-pending: Invisible
+        state-published: Visible
+        state/pending: Invisible
+        state/published: Visible
+        title: Title
+        updated_at: Updated
+      event/shifts:
+        confirmed_so_far: confirmed
+        ends_at: Ends
+        starts_at: Begins
+        volunteers_needed: Helpers Needed
+      ngo:
+        admin_confirmed_at: Admin Confirmed
+        confirmed_at: Confirmed
+        created_at: Created
+        current_password: Current Password
+        deleted_at: Deleted
+        locale: Language
+        password: Password
+        password_confirmation: Password Confirmation
+        remember_me: Remember Me
+        state: State
+        state-confirmed: Confirmed
+        state-deleted: Deleted
+        state-pending: Pending
+        terms_and_conditions: Terms & Conditions
+      ongoing_event:
+        address: Address
+        approximate_address: Approximate Address
+        contact_person: Contact on site
+        created_at: Created
+        deleted_at: Deleted
+        description: Description
+        ongoing_event_category: Category
+        published_at: Published
+        state: Status
+        state-deleted: Deleted
+        state-pending: Invisible
+        state-published: Visible
+        state/pending: Invisible
+        state/published: Visible
+        title: Title
+        updated_at: Updated
+        volunteers_needed: Helpers Needed
+      ongoing_event_category:
+        name_de: Name (DE)
+        name_en: Name (EN)
+      shift:
+        ends_at: Ends
+        full: surplus
+        offset: YOU!
+        progress: confirmed
+        rest: missing
+        starts_at: Begins
+        volunteers: Helpers
+        volunteers_count: Confirmed
+        volunteers_needed: Helpers Needed
+      user:
+        confirmed_at: Confirmed
+        created_at: Created
+        deleted_at: Deleted
+        first_name: First Name
+        languages: Languages
+        last_name: Last Name
+        phone: Phone Number
+        terms_and_conditions: Terms & Conditions
     models:
       ability:
         one: Ability
@@ -8,12 +93,6 @@ en:
       event:
         one: Event
         other: Events
-      ongoing_event:
-        one: Ongoing Event
-        other: Ongoing Events
-      ongoing_event_category:
-        one: Category
-        other: Categories
       language:
         one: Language
         other: Languages
@@ -23,93 +102,15 @@ en:
       ngo:
         one: NGO
         other: NGOs
+      ongoing_event:
+        one: Ongoing Event
+        other: Ongoing Events
+      ongoing_event_category:
+        one: Category
+        other: Categories
       shift:
         one: Shift
         other: Shifts
       users:
         one: Helper
         other: Helpers
-    attributes:
-      contact:
-        first_name: First Name
-        last_name: Last Name
-        phone: Phone
-        street: Street
-        zip: Post Code
-        city: City
-      event:
-        created_at: Created
-        deleted_at: Deleted
-        updated_at: Updated
-        title: Title
-        description: Description
-        address: Address
-        approximate_address: Approximate Address
-        state: Status
-        state/pending: Invisible
-        state/published: Visible
-        person: Contact on site
-        state-pending: Invisible
-        state-published: Visible
-        state-deleted: Deleted
-        published_at: Published
-      ongoing_event:
-        created_at: Created
-        deleted_at: Deleted
-        updated_at: Updated
-        title: Title
-        description: Description
-        address: Address
-        approximate_address: Approximate Address
-        state: Status
-        state/pending: Invisible
-        state/published: Visible
-        contact_person: Contact on site
-        state-pending: Invisible
-        state-published: Visible
-        state-deleted: Deleted
-        published_at: Published
-        volunteers_needed: Helpers Needed
-        ongoing_event_category: Category
-      ongoing_event_category:
-        name_en: Name (EN)
-        name_de: Name (DE)
-      event/shifts:
-        confirmed_so_far: confirmed
-        ends_at: Ends
-        starts_at: Begins
-        volunteers_needed: Helpers Needed
-      user:
-        first_name: First Name
-        last_name: Last Name
-        confirmed_at: Confirmed
-        created_at: Created
-        deleted_at: Deleted
-        phone: Phone Number
-        terms_and_conditions: Terms & Conditions
-        languages: Languages
-      ngo:
-        admin_confirmed_at: Admin Confirmed
-        confirmed_at: Confirmed
-        created_at: Created
-        deleted_at: Deleted
-        current_password: Current Password
-        locale: Language
-        state: State
-        state-pending: Pending
-        state-confirmed: Confirmed
-        state-deleted: Deleted
-        password: Password
-        password_confirmation: Password Confirmation
-        terms_and_conditions: Terms & Conditions
-        remember_me: Remember Me
-      shift:
-        progress: confirmed
-        ends_at: Ends
-        rest: missing
-        starts_at: Begins
-        full: surplus
-        volunteers_needed: Helpers Needed
-        volunteers_count: Confirmed
-        volunteers: Helpers
-        offset: YOU!

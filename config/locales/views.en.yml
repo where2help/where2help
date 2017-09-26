@@ -1,162 +1,63 @@
+---
 en:
+  admin_mailer:
+    new_ngo:
+      content: New NGO account request
+      subject: "[where2help] New NGO registration"
+      teaser: "%{ngo_name} has signed up"
+  application:
+    contact: Contact
+    cookie_consent:
+      dismiss: OK
+      learn_more: Learn more
+      message: Um Ihnen einen bestmöglichen Service zu bieten und die Verwendung mancher Funktionen zu erleichtern, verwenden wir Cookies. Mit der Nutzung dieser Seite erklären Sie sich mit der Verwendung von Cookies einverstanden.
+    empty_message:
+      message: Nothing there for you at the moment...
+    imprint: Imprint
+    terms_and_conditions: Terms and Conditions
+  events:
+    index:
+      ongoing_events_link: "» Show ongoing events"
+      ongoing_events_tip: Would you like to help on a regular basis?
+      welcome: |
+        <h3>Current Events</h3>
+        <p>Find out when and where you are needed and sign up for the shifts you want to help in!<p>
+    load_more: Show more
+    opt_out:
+      notice: That's too bad...
   layouts:
     mailer:
       go_to_site: Open Where2Help
       signature: The where2help team
-  admin_mailer:
-    new_ngo:
-      teaser: "%{ngo_name} has signed up"
-      subject: "[where2help] New NGO registration"
-      content: New NGO account request
   ngo_mailer:
     admin_confirmed:
-      teaser: "You can now use Where2Help"
-      subject: "[where2help] Your account has been confirmed"
-      greeting: "Hi %{name}"
       content: |
         Your account has been confirmed. If you already confirmed your emailaddress,
         you can go ahead and start creating events!
+      greeting: Hi %{name}
       link: Get started at Where2Help
+      subject: "[where2help] Your account has been confirmed"
+      teaser: You can now use Where2Help
     ongoing_event_opt_in:
-      teaser: "Support for your event"
-      subject: "[where2help] New sign-up for \"%{ongoing_event_title}\""
-      greeting: "Hi %{name}"
-      content: |
-        Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper via where2help.wien.
-      link: Contact details
       after_link: All the best!
-  user_mailer:
-    event_updated:
-      teaser: "%{title}"
-      subject: "[where2help] Event was changed"
-      greeting: "Hi %{name}"
-      content: |
-        %{title} was updated by %{ngo_name}, please update your notes!
-        Thanks you for your support!
-    shift_destroyed:
-      teaser: "%{title}"
-      subject: "[where2help] Event got cancelled"
-      greeting: "Hi %{name}"
-      content: |
-        %{title} on %{date} at %{time} got cancelled by %{ngo_name}, you don't need to come!
-        Thank you for your support! Looking forward to your next mission.
-    shift_updated:
-      teaser: "%{title}"
-      subject: "[where2help] Event was changed"
-      greeting: "Hi %{name}"
-      content: |
-        %{title} on %{date} at %{time} was updated by %{ngo_name}, please update your notes!
-        Thanks you for your support!
-    ongoing_event_destroyed:
-      teaser: "%{title}"
-      subject: "[where2help] Event was cancelled"
-      greeting: "Hi %{name}"
-      content: |
-        "%{title}" was cancelled by %{ngo_name}.
-        Thank you for your support! Looking forward to your next mission.
-    ongoing_event_updated:
-      teaser: "%{title}"
-      subject: "[where2help] Event was changed"
-      greeting: "Hi %{name}"
-      content: |
-        %{title} was updated by %{ngo_name}, please update your notes!
-        Thanks you for your support!
-  application:
-    empty_message:
-      message: Nothing there for you at the moment...
-    terms_and_conditions: Terms and Conditions
-    imprint: Imprint
-    contact: Contact
-    cookie_consent:
-      message: Um Ihnen einen bestmöglichen Service zu bieten und die Verwendung mancher Funktionen zu erleichtern, verwenden wir Cookies. Mit der Nutzung dieser Seite erklären Sie sich mit der Verwendung von Cookies einverstanden.
-      dismiss: OK
-      learn_more: Learn more
-  events:
-    load_more: Show more
-    index:
-      welcome: |
-        <h3>Current Events</h3>
-        <p>Find out when and where you are needed and sign up for the shifts you want to help in!<p>
-      ongoing_events_tip: Would you like to help on a regular basis?
-      ongoing_events_link: "» Show ongoing events"
-    opt_out:
-      notice: That's too bad...
-  ongoing_events:
-    opt_in_btn: I'm In
-    opt_out_btn: Can't Make It
-    are_you_sure: Are you sure you can't make it?
-    load_more: Show more
-    thank_you: Thank you! Looking forward to have you onboard.
-    please_come: Please join us at
-    index:
-      events: Fixed Events
-      ongoing_events: Ongoing Events
-      welcome: |
-        <h3>Ongoing Events</h3>
-        <p>Find out where you are needed, sign up and a volunteer coordinator will get ahold of you when they need you!<p>
-      events_tip: Would you like to help on a specific day?
-      events_link: "» Show events"
-    opt_in:
-      thank_you: |
-        <h1>Thank You!</h1>
-        <p>The volunteer coordinator will get ahold of you when they need you.</p>
-    opt_out:
-      notice: That's too bad...
-  schedules:
-    show:
-      your_shifts: |+
-        <h3>Your Shifts</h3>
-        <p>(Please be on time. Please cancel early enough if you can't come.)</p>
-      past: Past
-      upcoming: Upcoming
-      all: All
-      ongoing: Ongoing
-  users:
-    sessions:
-      new:
-        please_login: Login as a Helper
-        login: Login
-        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
-    registrations:
-      edit:
-        title: Edit Profile
-      new:
-        accept_terms_and_conditions: I accept the
-        min_characters: characters minimum
-        motivation_txt: |
-          <strong>Knowing when and where I am needed as a helper!</strong>
-          Find out where you are currently needed the most and sign up for a shift online or via the Where2Help smartphone app.
-          Looking forward to you!
-        sign_up: Sign up as a Helper
-        profile: Helper Profile
-      terms_and_conditions:
-        close: Close
-        body: |
-          It is the aim of ‘where2help’ (w2h) clearly to present the needs for voluntary aid services of refugee-supporting organizations/initiatives for potential volunteer helpers.
+      content: 'Your ongoing event "%{ongoing_event_title}" has received a new sign-up from a helper via where2help.wien.
 
-          The goal of using w2h is optimally to match the requirements of refugee-supporting organizations and the offers by volunteer helpers.
-
-          The operator of w2h is the “Fonds Soziales Wien” (Vienna Social Fund, abbreviated as FSW).
-
-          The operator assumes no liability for the contents generated by users.
-
-          Registration is necessary to use w2h.
-
-          By registering, you consent to the data you specify being processed electronically and passed on to the organizations/initiatives concerned and seeking volunteer helpers via w2h. Similarly, you agree to information being sent to you in relation to your volunteer work, especially in the event of acute emergencies.
-
-          You may revoke your registration at w2h any time and without specifying any reasons.
-
-          Registration does not produce any entitlement to use of w2h or employment as a volunteer helper.
-
-          The FSW reserves the right to exclude registered users from participating in w2h without specifying any reasons and to change or close w2h any time without prior notification and without specifying any grounds, in particular if this is necessary for legal and/or technical reasons.
-
-          As a result of registration at w2h, users will be insured against accident and third-party liability while performing their volunteer work. Exceptions are professional or paid activities and voluntary assignments within the framework of an organization/initiative in possession of its own accident and third-party insurance for volunteers. Damages must be reported by the volunteer helper to the organization in question immediately. In the event of damages, you consent to your data, including the agreement to an assignment, being passed on to the insurance company.
-
-          Reference to Google/Apple:
-          w2h and the information contained therein are in no way connected to Google Inc. or Apple Inc. and are not in any way sponsored, supported or organized by Google Inc. or Apple Inc.
-        title: Terms of use for volunteer helpers
+'
+      greeting: Hi %{name}
+      link: Contact details
+      subject: '[where2help] New sign-up for "%{ongoing_event_title}"'
+      teaser: Support for your event
   ngos:
     events:
+      form:
+        add_shift: Add Shift
+        confirmed_so_far: 'Opted in so far: '
+        delete_shift: Remove Shift
+        edit_event: Edit Event
+        new: New Fixed Event
+        prohibited: error(s) prohibited this event from being saved
+        save_shift: Save Shift
+        shifts: Shifts
       index:
         add_an_event: Add Fixed Event
         add_an_ongoing_event: Add Ongoing Event
@@ -167,80 +68,65 @@ en:
         past: Past
         title: Title
         upcoming: Upcoming
-      show:
-        publish: Publish
-        are_you_sure: Are you sure?
-        edit: Edit
-        delete: Delete
-      new:
-        title: New Fixed Event
-      form:
-        new: New Fixed Event
-        shifts: Shifts
-        add_shift: Add Shift
-        save_shift: Save Shift
-        delete_shift: Remove Shift
-        edit_event: Edit Event
-        confirmed_so_far: "Opted in so far: "
-        prohibited: "error(s) prohibited this event from being saved"
       messages:
         create_success: Event was successfully created.
-        update_success: Event was successfully updated.
-        publish_success: Event was successfully published.
-        publish_fail: Event could not be published.
         delete_success: Event was successfully removed.
+        publish_fail: Event could not be published.
+        publish_success: Event was successfully published.
+        update_success: Event was successfully updated.
+      new:
+        title: New Fixed Event
+      show:
+        are_you_sure: Are you sure?
+        delete: Delete
+        edit: Edit
+        publish: Publish
     ongoing_events:
+      form:
+        notify_users: Notify the %{user_count} %{volunteers}
+        pick_one_category: If multiple categories match, pick the best-matching one or create multiple events.
+        submit: Create Ongoing Event
       index:
         add_an_event: Add Fixed Event
         add_an_ongoing_event: Add Ongoing Event
+        all: All
         events: Fixed Events
         ongoing_events: Ongoing Events
         order_by: Order By
         upcoming: Upcoming
-        all: All
-      show:
-        contact_person: Contact Person
-        volunteers_count: Volunteer Count
-        volunteers_needed: Volunteers Needed
-        publish: Publish
-        unpublish: Hide
-        are_you_sure: Are you sure?
-        edit: Edit
-        delete: Delete
-      new:
-        title: New Ongoing Event
-      form:
-        submit: Create Ongoing Event
-        notify_users: Notify the %{user_count} %{volunteers}
-        pick_one_category: If multiple categories match, pick the best-matching one or create multiple events.
       messages:
         create_success: Event was successfully created.
-        update_success: Event was successfully updated.
-        publish_success: Event was successfully published.
-        publish_fail: Event could not be published.
         delete_success: Event was successfully removed.
-    sessions:
+        publish_fail: Event could not be published.
+        publish_success: Event was successfully published.
+        update_success: Event was successfully updated.
       new:
-        please_login: Login as a NGO
-        login: Login
-        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
+        title: New Ongoing Event
+      show:
+        are_you_sure: Are you sure?
+        contact_person: Contact Person
+        delete: Delete
+        edit: Edit
+        publish: Publish
+        unpublish: Hide
+        volunteers_count: Volunteer Count
+        volunteers_needed: Volunteers Needed
     registrations:
       edit:
         title: Edit Profile
-      ngo_fields:
-        min_characters: characters minimum
       new:
         accept_terms_and_conditions: I accept the
-        sign_up: Sign up as an NGO
-        profile: NGO-Profile
         min_characters: characters minimum
         motivation_txt: |
           <strong>Know where and when how many helpers show up!</strong>
           Publish specific help-requests, when, where how many helpers are needed. Divide your events into shifts where helpers can directly sign up for via the web application or the Where2Help mobile apps.
           You always keep an overview on how many helpers have signed up to help.
           Looking forward to you!
+        profile: NGO-Profile
+        sign_up: Sign up as an NGO
+      ngo_fields:
+        min_characters: characters minimum
       terms_and_conditions:
-        close: Close
         body: |
           It is the aim of ‘where2help’ (w2h) clearly to present the needs for voluntary aid services of refugee-supporting organizations/initiatives for potential volunteer helpers.
 
@@ -261,38 +147,62 @@ en:
           Registration does not produce any entitlement to use of w2h or employment of volunteer helpers.
 
           As a result of registration at w2h, volunteer helpers will be insured against accident and third-party liability while performing their volunteer work. Exceptions are professional or paid activities and voluntary assignments within the framework of an organization/initiative in possession of its own accident and third-party insurance for volunteers. Organizations/initiatives undertake to record all assignments with volunteers’ names, place of assignment, activity, date and time, to make a report to the operator immediately in the event of damages and to send the assignment data to <a href="mailto:contact@where2help.wien">contact@where2help.wien</a>.
+        close: Close
         title: Terms of use for organizations/initiatives
+    sessions:
+      new:
+        login: Login
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
+        please_login: Login as a NGO
+  ongoing_events:
+    are_you_sure: Are you sure you can't make it?
+    index:
+      events: Fixed Events
+      events_link: "» Show events"
+      events_tip: Would you like to help on a specific day?
+      ongoing_events: Ongoing Events
+      welcome: |
+        <h3>Ongoing Events</h3>
+        <p>Find out where you are needed, sign up and a volunteer coordinator will get ahold of you when they need you!<p>
+    load_more: Show more
+    opt_in:
+      thank_you: |
+        <h1>Thank You!</h1>
+        <p>The volunteer coordinator will get ahold of you when they need you.</p>
+    opt_in_btn: I'm In
+    opt_out:
+      notice: That's too bad...
+    opt_out_btn: Can't Make It
+    please_come: Please join us at
+    thank_you: Thank you! Looking forward to have you onboard.
   pages:
     home:
-      start: Start
-      how_to: How it works
-      short_description: Portal for volunteers and organisations for refugee aid in Vienna
-      subline_user: Know where and when I am needed
-      subline_ngo: Know where and when how many helpers show up
-      sign_up_ngo: Sign up as NGO
-      sign_up_user: Sign up as Helper
-      login_user: Login as user
-      login_ngo: Login as NGO
-      register_subheader: Help now
-      ngo_subheader: Information for NGOs
-      ngo_teaser_subheader: Choose to help in one of 50 NGOs
-      ngo_teaser_text: … and other initiatives currently active in refugee support.
-      help_once_teaser_subheader: Help once
-      help_once_text: … teaching German, translating or taking care of refugees.
-      help_constantly_teaser_subheader: Help regularly
-      help_constantly_text: … for instance as a buddy, in day-to-day life or teaching.
       btn_help_now: Help now
-      register:
-        description: <strong>Know when and where we need your help:</strong><ul><li>Know, where you're needed</li><li>Register now, online</li><li>We're looking forward to meeting you!</li></ul>
-        safe_data_transport: Your data are send over a secured connection.
+      help_constantly_teaser_subheader: Help regularly
+      help_constantly_text: "… for instance as a buddy, in day-to-day life or teaching."
+      help_once_teaser_subheader: Help once
+      help_once_text: "… teaching German, translating or taking care of refugees."
+      how_to: How it works
+      login_ngo: Login as NGO
+      login_user: Login as user
       ngo:
         feature1: Organize voluntary help with Where2Help
         feature2: Get an overview of all your events
         feature3: Simplify management of volunteers
+      ngo_subheader: Information for NGOs
+      ngo_teaser_subheader: Choose to help in one of 50 NGOs
+      ngo_teaser_text: "… and other initiatives currently active in refugee support."
+      register:
+        description: "<strong>Know when and where we need your help:</strong><ul><li>Know, where you're needed</li><li>Register now, online</li><li>We're looking forward to meeting you!</li></ul>"
+        safe_data_transport: Your data are send over a secured connection.
+      register_subheader: Help now
+      short_description: Portal for volunteers and organisations for refugee aid in Vienna
+      sign_up_ngo: Sign up as NGO
+      sign_up_user: Sign up as Helper
+      start: Start
+      subline_ngo: Know where and when how many helpers show up
+      subline_user: Know where and when I am needed
     how_to:
-      title: How w2h works
-      title_ngos: Do you want to organize helpers?
-      title_users: Do you want to help?
       text_ngos: |
         <strong>Step 1: Sign up as an NGO</strong>
         Click on the button ‘Sign up as NGO’. Enter your NGO-profile and your name, your email address and a password. Accept the terms & conditions and end the first step with a click on the button 'Sign up'.
@@ -324,12 +234,104 @@ en:
         When you have reported for an assignment, please come to the specified meeting place on time. Should you not be able to do so, please sign off on where2help.
 
         We look forward to seeing you!
+      title: How w2h works
+      title_ngos: Do you want to organize helpers?
+      title_users: Do you want to help?
+  schedules:
+    show:
+      all: All
+      ongoing: Ongoing
+      past: Past
+      upcoming: Upcoming
+      your_shifts: |
+        <h3>Your Shifts</h3>
+        <p>(Please be on time. Please cancel early enough if you can't come.)</p>
   shifts:
-    opt_in_btn: I'm In
-    opt_out_btn: Can't Make It
     are_you_sure: Are you sure you can't make it?
     load_more: Show more
-    thank_you: Thank you! Looking forward to have you onboard.
-    please_come: Please join us at
+    opt_in_btn: I'm In
     opt_out:
       notice: That's too bad...
+    opt_out_btn: Can't Make It
+    please_come: Please join us at
+    thank_you: Thank you! Looking forward to have you onboard.
+  user_mailer:
+    event_updated:
+      content: |
+        %{title} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
+      greeting: Hi %{name}
+      subject: "[where2help] Event was changed"
+      teaser: "%{title}"
+    ongoing_event_destroyed:
+      content: |
+        "%{title}" was cancelled by %{ngo_name}.
+        Thank you for your support! Looking forward to your next mission.
+      greeting: Hi %{name}
+      subject: "[where2help] Event was cancelled"
+      teaser: "%{title}"
+    ongoing_event_updated:
+      content: |
+        %{title} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
+      greeting: Hi %{name}
+      subject: "[where2help] Event was changed"
+      teaser: "%{title}"
+    shift_destroyed:
+      content: |
+        %{title} on %{date} at %{time} got cancelled by %{ngo_name}, you don't need to come!
+        Thank you for your support! Looking forward to your next mission.
+      greeting: Hi %{name}
+      subject: "[where2help] Event got cancelled"
+      teaser: "%{title}"
+    shift_updated:
+      content: |
+        %{title} on %{date} at %{time} was updated by %{ngo_name}, please update your notes!
+        Thanks you for your support!
+      greeting: Hi %{name}
+      subject: "[where2help] Event was changed"
+      teaser: "%{title}"
+  users:
+    registrations:
+      edit:
+        title: Edit Profile
+      new:
+        accept_terms_and_conditions: I accept the
+        min_characters: characters minimum
+        motivation_txt: |
+          <strong>Knowing when and where I am needed as a helper!</strong>
+          Find out where you are currently needed the most and sign up for a shift online or via the Where2Help smartphone app.
+          Looking forward to you!
+        profile: Helper Profile
+        sign_up: Sign up as a Helper
+      terms_and_conditions:
+        body: |
+          It is the aim of ‘where2help’ (w2h) clearly to present the needs for voluntary aid services of refugee-supporting organizations/initiatives for potential volunteer helpers.
+
+          The goal of using w2h is optimally to match the requirements of refugee-supporting organizations and the offers by volunteer helpers.
+
+          The operator of w2h is the “Fonds Soziales Wien” (Vienna Social Fund, abbreviated as FSW).
+
+          The operator assumes no liability for the contents generated by users.
+
+          Registration is necessary to use w2h.
+
+          By registering, you consent to the data you specify being processed electronically and passed on to the organizations/initiatives concerned and seeking volunteer helpers via w2h. Similarly, you agree to information being sent to you in relation to your volunteer work, especially in the event of acute emergencies.
+
+          You may revoke your registration at w2h any time and without specifying any reasons.
+
+          Registration does not produce any entitlement to use of w2h or employment as a volunteer helper.
+
+          The FSW reserves the right to exclude registered users from participating in w2h without specifying any reasons and to change or close w2h any time without prior notification and without specifying any grounds, in particular if this is necessary for legal and/or technical reasons.
+
+          As a result of registration at w2h, users will be insured against accident and third-party liability while performing their volunteer work. Exceptions are professional or paid activities and voluntary assignments within the framework of an organization/initiative in possession of its own accident and third-party insurance for volunteers. Damages must be reported by the volunteer helper to the organization in question immediately. In the event of damages, you consent to your data, including the agreement to an assignment, being passed on to the insurance company.
+
+          Reference to Google/Apple:
+          w2h and the information contained therein are in no way connected to Google Inc. or Apple Inc. and are not in any way sponsored, supported or organized by Google Inc. or Apple Inc.
+        close: Close
+        title: Terms of use for volunteer helpers
+    sessions:
+      new:
+        login: Login
+        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
+        please_login: Login as a Helper

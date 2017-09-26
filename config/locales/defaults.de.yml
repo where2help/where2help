@@ -5,9 +5,8 @@ de:
       messages:
         record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
         restrict_dependent_destroy:
-          has_one: Datensatz kann nicht gelöscht werden, da ein abhängiger %{record}-Datensatz
-            existiert.
           has_many: Datensatz kann nicht gelöscht werden, da abhängige %{record} existieren.
+          has_one: Datensatz kann nicht gelöscht werden, da ein abhängiger %{record}-Datensatz existiert.
   date:
     abbr_day_names:
     - So
@@ -18,7 +17,7 @@ de:
     - Fr
     - Sa
     abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mär
@@ -44,7 +43,7 @@ de:
       long: "%e. %B %Y"
       short: "%e. %b"
     month_names:
-    -
+    - 
     - Januar
     - Februar
     - März
@@ -109,7 +108,6 @@ de:
     messages:
       accepted: muss akzeptiert werden
       blank: muss ausgefüllt werden
-      present: darf nicht ausgefüllt werden
       confirmation: stimmt nicht mit %{attribute} überein
       empty: muss ausgefüllt werden
       ends_at_before_starts_at: kann nicht vor dem Anfang liegen
@@ -126,6 +124,8 @@ de:
       not_an_integer: muss ganzzahlig sein
       not_in_past: darf nicht in der Vergangenheit liegen
       odd: muss ungerade sein
+      other_than: darf nicht gleich %{count} sein
+      present: darf nicht ausgefüllt werden
       taken: ist bereits vergeben
       too_long:
         one: ist zu lang (mehr als 1 Zeichen)
@@ -136,7 +136,6 @@ de:
       wrong_length:
         one: hat die falsche Länge (muss genau 1 Zeichen haben)
         other: hat die falsche Länge (muss genau %{count} Zeichen haben)
-      other_than: darf nicht gleich %{count} sein
     template:
       body: 'Bitte überprüfen Sie die folgenden Felder:'
       header:
@@ -208,10 +207,10 @@ de:
       words_connector: ", "
   time:
     am: vormittags
-    hrs: std
     formats:
       admin: "%a %d.%m.%Y, %H:%M"
       default: "%A, %d. %B %Y, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
       short: "%d. %B, %H:%M Uhr"
+    hrs: std
     pm: nachmittags

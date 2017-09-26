@@ -1,249 +1,137 @@
+---
 de:
+  admin_mailer:
+    new_ngo:
+      content: Neue NGO Account Anfrage
+      subject: "[where2help] Neue NGO Registrierung"
+      teaser: "%{ngo_name} hat sich registriert"
+  application:
+    contact: Kontakt
+    cookie_consent:
+      dismiss: OK
+      learn_more: Mehr erfahren
+      message: Um Ihnen einen bestmöglichen Service zu bieten und die Verwendung mancher Funktionen zu erleichtern, verwenden wir Cookies. Mit der Nutzung dieser Seite erklären Sie sich mit der Verwendung von Cookies einverstanden.
+    empty_message:
+      message: Wir haben gerade nichts für Dich...
+    imprint: Impressum
+    terms_and_conditions: Nutzungsbedingungen
+  events:
+    index:
+      events: Konkrete Einsätze
+      ongoing_events: Dauerhafte Einsätze
+      ongoing_events_link: "» Dauerhafte Einsätze ansehen"
+      ongoing_events_tip: Möchtest du regelmäßig freiwillig mithelfen?
+      welcome: |
+        <h3>Aktuelle Einsätze</h3>
+        <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
+    load_more: Mehr anzeigen
   layouts:
     mailer:
       go_to_site: Where2Help öffnen
       signature: Das where2help Team
-  admin_mailer:
-    new_ngo:
-      teaser: "%{ngo_name} hat sich registriert"
-      subject: "[where2help] Neue NGO Registrierung"
-      content: Neue NGO Account Anfrage
   ngo_mailer:
     admin_confirmed:
-      teaser: "Ihr könnt Where2Help jetzt verwenden"
-      subject: "[where2help] Account wurde bestätigt"
-      greeting: "Hallo %{name}"
       content: |
         Euer Account ist jetzt freigeschalten. Wenn Ihr Eure E-Mail Adresse bereits bestätigt habt,
         könnt Ihr jetzt loslegen Einsätze zu erstellen!
+      greeting: Hallo %{name}
       link: Bei Where2Help Loslegen
+      subject: "[where2help] Account wurde bestätigt"
+      teaser: Ihr könnt Where2Help jetzt verwenden
     ongoing_event_opt_in:
-      teaser: "Unterstützung für den Einsatz"
-      subject: "[where2help] Neue Anmeldung für \"%{ongoing_event_title}\""
-      greeting: "Hallo %{name}"
-      content: |
-        Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r über where2help.wien angemeldet.
-      link: Kontaktdaten
       after_link: Alles Gute für den Einsatz!
-  user_mailer:
-    event_updated:
-      teaser: "%{title}"
-      subject: "[where2help] Einsatz wurde geändert"
-      greeting: "Hallo %{name}"
-      content: |
-        "%{title}" wurde seitens %{ngo_name} verändert.
-        Vielen Dank für Dein Engagement!
-    shift_destroyed:
-      teaser: "%{title}"
-      subject: "[where2help] Einsatz wurde abgesagt"
-      greeting: "Hallo %{name}"
-      content: |
-        "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} abgesagt.
-        Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
-    shift_updated:
-      teaser: "%{title}"
-      subject: "[where2help] Einsatz wurde geändert"
-      greeting: "Hallo %{name}"
-      content: |
-        "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} verändert.
-        Vielen Dank für Dein Engagement!
-    ongoing_event_destroyed:
-      teaser: "%{title}"
-      subject: "[where2help] Einsatz wurde abgesagt"
-      greeting: "Hallo %{name}"
-      content: |
-        "%{title}" wurde seitens %{ngo_name} abgesagt.
-        Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
-    ongoing_event_updated:
-      teaser: "%{title}"
-      subject: "[where2help] Einsatz wurde geändert"
-      greeting: "Hallo %{name}"
-      content: |
-        "%{title}" wurde seitens %{ngo_name} verändert.
-        Vielen Dank für Dein Engagement!
-  application:
-    empty_message:
-      message: Wir haben gerade nichts für Dich...
-    terms_and_conditions: Nutzungsbedingungen
-    imprint: Impressum
-    contact: Kontakt
-    cookie_consent:
-      message: Um Ihnen einen bestmöglichen Service zu bieten und die Verwendung mancher Funktionen zu erleichtern, verwenden wir Cookies. Mit der Nutzung dieser Seite erklären Sie sich mit der Verwendung von Cookies einverstanden.
-      dismiss: OK
-      learn_more: Mehr erfahren
-  events:
-    load_more: Mehr anzeigen
-    index:
-      events: Konkrete Einsätze
-      ongoing_events: Dauerhafte Einsätze
-      welcome: |
-        <h3>Aktuelle Einsätze</h3>
-        <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
-      ongoing_events_tip: Möchtest du regelmäßig freiwillig mithelfen?
-      ongoing_events_link: "» Dauerhafte Einsätze ansehen"
-  ongoing_events:
-    are_you_sure: Willst Du wirklich absagen?
-    index:
-      events: Konkrete Einsätze
-      ongoing_events: Dauerhafte Einsätze
-      welcome: |
-        <h3>Dauerhafte Einsätze</h3>
-        <p>Sieh nach, wo Du gebraucht wirst, trage Dich für Einsätze ein und der Organisator wird dich kontaktieren sobald deine Hilfe benötigt wird!<p>
-      events_tip: Möchtest du an einem bestimmten Tag helfen?
-      events_link: "» Konkrete Einsätze ansehen"
-    opt_in:
-      thank_you: |
-        <h1>Danke!</h1>
-        <p>Die Organisation wird Dich zur Vereinbarung Deiner Einsatzplanung kontaktieren.</p>
-    opt_out:
-      notice: Schade...
-  schedules:
-    show:
-      your_shifts: |+
-        <h3>Deine Einsätze</h3>
-        <p>Sei bitte pünktlich. Falls Du doch nicht kommen kannst, sag bitte so früh wie möglich ab.</p>
-      past: Vergangene
-      upcoming: Bevorstehende
-      all: Alle
-      ongoing: Dauerhafte
-  users:
-    nav:
-      schedule: Einsätze
-      profile: Profil
-    sessions:
-      new:
-        login: Anmelden
-        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO anmelden
-        please_login: Als Freiwillige/r anmelden
-    registrations:
-      edit:
-        title: Profil bearbeiten
-      new:
-        accept_terms_and_conditions: Ich akzeptiere die
-        min_characters: Zeichen mindestens
-        motivation_txt: |
-          <strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst!</strong>
-          Erfahre, wo Du gerade gebraucht wirst und melde Dich direkt online an.
-          Wir freuen uns auf Dich!
-        sign_up: Als Freiwillige/r registrieren
-        profile: Profil
-      terms_and_conditions:
-        close: Schließen
-        body: |
-          Zweck von "where2help" (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfeleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
+      content: 'Für den dauerhaften Einsatz "%{ongoing_event_title}" hat sich soeben ein/e Freiwillige/r über where2help.wien angemeldet.
 
-          Ziel ist es, durch die Nutzung von w2h den Bedarf der flüchtlingsbetreuenden Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
-
-          Betreiber von w2h ist der Fonds Soziales Wien (FSW).
-
-          Der Betreiber übernimmt keine Haftung für die von den NutzerInnen erzeugten Inhalte.
-
-          Um w2h zu nutzen, ist eine Registrierung erforderlich.
-
-          Durch die Registrierung stimmen Sie zu, dass Ihre bekanntgegebenen Daten elektronisch verarbeitet und an die betreffenden Organisationen/Initiativen, die freiwillige HelferInnen über w2h suchen, übermittelt werden. Ebenso erklären Sie sich im Zusammenhang mit Ihrer freiwilligen Tätigkeit, speziell im Fall akuter Hilfseinsätze, mit der Zusendung von Informationen an Sie einverstanden.
-
-          Ein Widerruf der Registrierung bei w2h durch Sie ist jederzeit und ohne Angabe von Gründen möglich.
-
-          Mit der Registrierung entsteht weder ein Anspruch auf Nutzung von w2h noch auf Einsatz als freiwillige HelferIn.
-
-          Der FSW behält sich das Recht vor, bereits registrierte NutzerInnen von der Teilnahme an w2h ohne Angabe von Gründen auszuschließen, sowie w2h jederzeit ohne vorherige Ankündigung und ohne Angabe von Gründen zu verändern oder einzustellen, insbesondere wenn dies aus rechtlichen und/oder technischen Gründen erforderlich ist.
-
-          Aufgrund der Registrierung bei w2h sind NutzerInnen während der Ausübung ihrer freiwilligen Tätigkeit unfall- und haftpflichtversichert. Davon ausgenommen sind berufliche oder entgeltliche Tätigkeiten und freiwillige Einsätze im Rahmen eines Vereines oder einer Organisation/Initiative, welche über eine eigene Unfall- und Haftpflichtversicherung für Freiwillige verfügen. Schäden sind von der freiwilligen HelferIn unverzüglich der betreffenden Organisation zu melden. Im Schadensfall stimmen Sie einer Übermittlung Ihrer Daten inkl. der Zusage zu einem Einsatz an die Versicherung zu.
-
-          Hinweis auf Google/Apple:
-          w2h und die darin enthaltenen Informationen stehen in keiner Verbindung zu Google Inc. oder Apple Inc. und werden in keiner Weise von Google Inc. oder Apple Inc. gesponsert, unterstützt oder organisiert.
-        title: Nutzungsbedingungen für freiwillige HelferInnen
+'
+      greeting: Hallo %{name}
+      link: Kontaktdaten
+      subject: '[where2help] Neue Anmeldung für "%{ongoing_event_title}"'
+      teaser: Unterstützung für den Einsatz
   ngos:
     events:
+      form:
+        add_shift: Schicht hinzufügen
+        confirmed_so_far: 'Bisher zugesagt: '
+        delete_shift: Schicht löschen
+        edit_event: Einsatz aktualisieren
+        new: Neuer Einsatz
+        notify_users: Benachrichtige die %{user_count} %{volunteers}
+        prohibited: Fehler verhinderte(n), dass dieser Einsatz gespeichert wurde.
+        save_shift: Schicht speichern
+        shifts: Schichten
       index:
-        events: Konkrete Einsätze
-        ongoing_events: Dauerhafte Einsätze
         add_an_event: Konkreten Einsatz hinzufügen
         add_an_ongoing_event: Dauerhaften Einsatz hinzufügen
         address: Adresse
         all: alle
+        events: Konkrete Einsätze
         filter_by: Filtern nach
+        ongoing_events: Dauerhafte Einsätze
         order_by: Ordnen nach
         past: vergangene
         title: Titel
         upcoming: zukünftige
+      messages:
+        create_success: Einsatz wurde erfolgreich erstellt.
+        delete_success: Einsatz wurde erfolgreich gelöscht.
+        publish_fail: Einsatz konnte nicht veröffentlicht werden.
+        publish_success: Einsatz wurde erfolgreich veröffentlicht.
+        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
+        update_success: Einsatz wurde erfolgreich aktualisiert.
       new:
         title: Neuer Konkreter Einsatz
       show:
-        publish: Veröffentlichen
         are_you_sure: Sind Sie sicher?
-        edit: Bearbeiten
         delete: Löschen
-      form:
-        new: Neuer Einsatz
-        shifts: Schichten
-        add_shift: Schicht hinzufügen
-        save_shift: Schicht speichern
-        delete_shift: Schicht löschen
-        edit_event: Einsatz aktualisieren
-        confirmed_so_far: "Bisher zugesagt: "
-        prohibited: "Fehler verhinderte(n), dass dieser Einsatz gespeichert wurde."
-        notify_users: Benachrichtige die %{user_count} %{volunteers}
-      messages:
-        create_success: Einsatz wurde erfolgreich erstellt.
-        update_success: Einsatz wurde erfolgreich aktualisiert.
-        publish_success: Einsatz wurde erfolgreich veröffentlicht.
-        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
-        publish_fail: Einsatz konnte nicht veröffentlicht werden.
-        delete_success: Einsatz wurde erfolgreich gelöscht.
+        edit: Bearbeiten
+        publish: Veröffentlichen
     ongoing_events:
+      form:
+        notify_users: Benachrichtige die %{user_count} %{volunteers}
+        pick_one_category: Wenn mehrere Kategorien zutreffen, wähle die am besten passende Kategorie aus oder lege mehrere separate Einsätze an.
+        submit: Dauerhaften Einsatz erstellen
       index:
         add_an_event: Konkreten Einsatz hinzufügen
         add_an_ongoing_event: Dauerhaften Einsatz hinzufügen
+        all: alle
         events: Konkrete Einsätze
-        ongoing_events: Dauerhafte Einsätze
         filter_by: Filtern nach
+        ongoing_events: Dauerhafte Einsätze
         order_by: Ordnen nach
         upcoming: zukünftige
-        all: alle
+      messages:
+        create_success: Einsatz wurde erfolgreich erstellt.
+        delete_success: Einsatz wurde erfolgreich gelöscht.
+        publish_fail: Einsatz konnte nicht veröffentlicht werden.
+        publish_success: Einsatz wurde erfolgreich veröffentlicht.
+        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
+        update_success: Einsatz wurde erfolgreich aktualisiert.
       new:
         title: Neuer Dauerhafte Einsatz
       show:
+        are_you_sure: Sind Sie sicher?
         contact_person: Kontakt vor Ort
-        volunteers_count: Anzahl Freiwilliger
-        volunteers_needed: Anzahl benötigter Freiwilliger
+        delete: Löschen
+        edit: Bearbeiten
         publish: Veröffentlichen
         unpublish: Unveröffentlichen
-        are_you_sure: Sind Sie sicher?
-        edit: Bearbeiten
-        delete: Löschen
-      form:
-        submit: Dauerhaften Einsatz erstellen
-        notify_users: Benachrichtige die %{user_count} %{volunteers}
-        pick_one_category: Wenn mehrere Kategorien zutreffen, wähle die am besten passende Kategorie aus oder lege mehrere separate Einsätze an.
-      messages:
-        create_success: Einsatz wurde erfolgreich erstellt.
-        update_success: Einsatz wurde erfolgreich aktualisiert.
-        publish_success: Einsatz wurde erfolgreich veröffentlicht.
-        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
-        publish_fail: Einsatz konnte nicht veröffentlicht werden.
-        delete_success: Einsatz wurde erfolgreich gelöscht.
-    sessions:
-      new:
-        please_login: Als NGO anmelden
-        login: Anmelden
-        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwillige/r anmelden
+        volunteers_count: Anzahl Freiwilliger
+        volunteers_needed: Anzahl benötigter Freiwilliger
     registrations:
       edit:
         title: Profil bearbeiten
-      ngo_fields:
-        min_characters: Zeichen mindestens
       new:
         accept_terms_and_conditions: Ich akzeptiere die
-        sign_up: Als NGO registrieren
-        profile: NGO-Profil
         min_characters: Zeichen mindestens
         motivation_txt: |
           <strong>Wissen, wann, wo und wie viele Freiwillige erscheinen!</strong>
           Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann, wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich Freiwillige online eintragen können. Ihr behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt haben.
           Wir freuen uns auf Euch!
+        profile: NGO-Profil
+        sign_up: Als NGO registrieren
+      ngo_fields:
+        min_characters: Zeichen mindestens
       terms_and_conditions:
-        close: Schließen
         body: |
           Zweck von "where2help" (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfsleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
 
@@ -266,37 +154,56 @@ de:
           Mit der Registrierung entsteht weder ein Anspruch auf Nutzung von w2h noch auf Einsatz von freiwilligen HelferInnen.
 
           Aufgrund der Registrierung bei w2h sind freiwillige HelferInnen während der Ausübung ihrer freiwilligen Tätigkeit unfall- und haftpflichtversichert. Davon ausgenommen sind berufliche oder entgeltliche Tätigkeiten und freiwillige Einsätze im Rahmen eines Vereines oder einer Organisation/Initiative, welche über eine eigene Unfall- und Haftpflichtversicherung für Freiwillige verfügen. Organisationen/Initiativen verpflichten sich, alle Einsätze mit Namen der Freiwilligen, Einsatzort, Tätigkeit, Datum und Uhrzeit zu erfassen sowie im Schadensfall unverzüglich Meldung an den Betreiber zu erstatten und die Einsatzdaten an <a href="mailto:contact@where2help.wien">contact@where2help.wien</a> zu übermitteln.
+        close: Schließen
         title: Nutzungsbedingungen für Organisationen/Initiativen
+    sessions:
+      new:
+        login: Anmelden
+        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Als Freiwillige/r anmelden
+        please_login: Als NGO anmelden
+  ongoing_events:
+    are_you_sure: Willst Du wirklich absagen?
+    index:
+      events: Konkrete Einsätze
+      events_link: "» Konkrete Einsätze ansehen"
+      events_tip: Möchtest du an einem bestimmten Tag helfen?
+      ongoing_events: Dauerhafte Einsätze
+      welcome: |
+        <h3>Dauerhafte Einsätze</h3>
+        <p>Sieh nach, wo Du gebraucht wirst, trage Dich für Einsätze ein und der Organisator wird dich kontaktieren sobald deine Hilfe benötigt wird!<p>
+    opt_in:
+      thank_you: |
+        <h1>Danke!</h1>
+        <p>Die Organisation wird Dich zur Vereinbarung Deiner Einsatzplanung kontaktieren.</p>
+    opt_out:
+      notice: Schade...
   pages:
     home:
-      start: Start
-      how_to: So funktioniert's
-      short_description: Plattform für Freiwillige und Organisationen in der Flüchtlingshilfe Wien
-      sign_up_ngo: Als NGO registrieren
-      sign_up_user: Als Freiwillige/r registrieren
-      login_user: Als Freiwillige/r anmelden
-      login_ngo: Als NGO anmelden
-      register_subheader: Jetzt mithelfen
-      ngo_subheader: Informationen für NGOs
-      ngo_teaser_subheader: Wähle aus Hilfseinsätzen von über 50 NGOs
-      ngo_teaser_text: … und Initiativen, die derzeit in der Flüchtlingsbetreuung in Wien aktiv sind.
-      help_once_teaser_subheader: Einmalig mithelfen
-      help_once_text: … in Sprachcafés, beim Dolmetschen oder in der Flüchtlingsbetreuung.
-      help_constantly_teaser_subheader: Regelmäßig Zeit spenden
-      help_constantly_text: … unter anderem als Buddy, im Alltag oder beim Unterrichten.
       btn_help_now: Jetzt mithelfen
-      register:
-        description: <strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>
-        safe_data_transport: Deine Daten werden gesichert übertragen.
-        already_registered: Ich bin bereits registriert
+      help_constantly_teaser_subheader: Regelmäßig Zeit spenden
+      help_constantly_text: "… unter anderem als Buddy, im Alltag oder beim Unterrichten."
+      help_once_teaser_subheader: Einmalig mithelfen
+      help_once_text: "… in Sprachcafés, beim Dolmetschen oder in der Flüchtlingsbetreuung."
+      how_to: So funktioniert's
+      login_ngo: Als NGO anmelden
+      login_user: Als Freiwillige/r anmelden
       ngo:
         feature1: Organisiere freiwillige Hilfe mit Where2Help
         feature2: Erhalte einen genauen Überblick über Deine Einsätze
         feature3: Vereinfache die Administration der Freiwilligen
+      ngo_subheader: Informationen für NGOs
+      ngo_teaser_subheader: Wähle aus Hilfseinsätzen von über 50 NGOs
+      ngo_teaser_text: "… und Initiativen, die derzeit in der Flüchtlingsbetreuung in Wien aktiv sind."
+      register:
+        already_registered: Ich bin bereits registriert
+        description: "<strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>"
+        safe_data_transport: Deine Daten werden gesichert übertragen.
+      register_subheader: Jetzt mithelfen
+      short_description: Plattform für Freiwillige und Organisationen in der Flüchtlingshilfe Wien
+      sign_up_ngo: Als NGO registrieren
+      sign_up_user: Als Freiwillige/r registrieren
+      start: Start
     how_to:
-      title: So funktioniert w2h
-      title_ngos: Ihr wollt freiwillige Hilfe organisieren?
-      title_users: Du willst als Freiwillige/r mitmachen?
       text_ngos: |
         <strong>Schritt 1: Registriert Euch als NGO</strong>
         Klickt auf den Button "Als NGO registrieren". Legt Euer Profil mit Eurem Namen, Eurer E-Mail-Adresse und einem Passwort an und gebt Eure Kontaktmöglichkeiten bekannt. Akzeptiert die Nutzungsbedingungen und schließt den ersten Schritt mit einem Klick auf den Button "Registrieren" ab.
@@ -328,12 +235,107 @@ de:
         Wenn Du Dich für einen Einsatz angemeldet hast, dann komm bitte pünktlich zum angegeben Treffpunkt. Falls Du einmal doch nicht kannst, melde Dich bitte auf where2help ab.
 
         Wir freuen uns auf Dich!
+      title: So funktioniert w2h
+      title_ngos: Ihr wollt freiwillige Hilfe organisieren?
+      title_users: Du willst als Freiwillige/r mitmachen?
+  schedules:
+    show:
+      all: Alle
+      ongoing: Dauerhafte
+      past: Vergangene
+      upcoming: Bevorstehende
+      your_shifts: |
+        <h3>Deine Einsätze</h3>
+        <p>Sei bitte pünktlich. Falls Du doch nicht kommen kannst, sag bitte so früh wie möglich ab.</p>
   shifts:
-    opt_in_btn: Helfen
-    opt_out_btn: Absagen
     are_you_sure: Willst Du wirklich absagen?
     load_more: Mehr anzeigen
-    thank_you: Danke!
-    please_come: Bitte kommen Sie um
+    opt_in_btn: Helfen
     opt_out:
       notice: Schade...
+    opt_out_btn: Absagen
+    please_come: Bitte kommen Sie um
+    thank_you: Danke!
+  user_mailer:
+    event_updated:
+      content: |
+        "%{title}" wurde seitens %{ngo_name} verändert.
+        Vielen Dank für Dein Engagement!
+      greeting: Hallo %{name}
+      subject: "[where2help] Einsatz wurde geändert"
+      teaser: "%{title}"
+    ongoing_event_destroyed:
+      content: |
+        "%{title}" wurde seitens %{ngo_name} abgesagt.
+        Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
+      greeting: Hallo %{name}
+      subject: "[where2help] Einsatz wurde abgesagt"
+      teaser: "%{title}"
+    ongoing_event_updated:
+      content: |
+        "%{title}" wurde seitens %{ngo_name} verändert.
+        Vielen Dank für Dein Engagement!
+      greeting: Hallo %{name}
+      subject: "[where2help] Einsatz wurde geändert"
+      teaser: "%{title}"
+    shift_destroyed:
+      content: |
+        "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} abgesagt.
+        Vielen Dank für Dein Engagement! Wir freuen uns auf Deinen nächsten Einsatz.
+      greeting: Hallo %{name}
+      subject: "[where2help] Einsatz wurde abgesagt"
+      teaser: "%{title}"
+    shift_updated:
+      content: |
+        "%{title}" am %{date} um %{time} wurde seitens %{ngo_name} verändert.
+        Vielen Dank für Dein Engagement!
+      greeting: Hallo %{name}
+      subject: "[where2help] Einsatz wurde geändert"
+      teaser: "%{title}"
+  users:
+    nav:
+      profile: Profil
+      schedule: Einsätze
+    registrations:
+      edit:
+        title: Profil bearbeiten
+      new:
+        accept_terms_and_conditions: Ich akzeptiere die
+        min_characters: Zeichen mindestens
+        motivation_txt: |
+          <strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst!</strong>
+          Erfahre, wo Du gerade gebraucht wirst und melde Dich direkt online an.
+          Wir freuen uns auf Dich!
+        profile: Profil
+        sign_up: Als Freiwillige/r registrieren
+      terms_and_conditions:
+        body: |
+          Zweck von "where2help" (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfeleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
+
+          Ziel ist es, durch die Nutzung von w2h den Bedarf der flüchtlingsbetreuenden Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
+
+          Betreiber von w2h ist der Fonds Soziales Wien (FSW).
+
+          Der Betreiber übernimmt keine Haftung für die von den NutzerInnen erzeugten Inhalte.
+
+          Um w2h zu nutzen, ist eine Registrierung erforderlich.
+
+          Durch die Registrierung stimmen Sie zu, dass Ihre bekanntgegebenen Daten elektronisch verarbeitet und an die betreffenden Organisationen/Initiativen, die freiwillige HelferInnen über w2h suchen, übermittelt werden. Ebenso erklären Sie sich im Zusammenhang mit Ihrer freiwilligen Tätigkeit, speziell im Fall akuter Hilfseinsätze, mit der Zusendung von Informationen an Sie einverstanden.
+
+          Ein Widerruf der Registrierung bei w2h durch Sie ist jederzeit und ohne Angabe von Gründen möglich.
+
+          Mit der Registrierung entsteht weder ein Anspruch auf Nutzung von w2h noch auf Einsatz als freiwillige HelferIn.
+
+          Der FSW behält sich das Recht vor, bereits registrierte NutzerInnen von der Teilnahme an w2h ohne Angabe von Gründen auszuschließen, sowie w2h jederzeit ohne vorherige Ankündigung und ohne Angabe von Gründen zu verändern oder einzustellen, insbesondere wenn dies aus rechtlichen und/oder technischen Gründen erforderlich ist.
+
+          Aufgrund der Registrierung bei w2h sind NutzerInnen während der Ausübung ihrer freiwilligen Tätigkeit unfall- und haftpflichtversichert. Davon ausgenommen sind berufliche oder entgeltliche Tätigkeiten und freiwillige Einsätze im Rahmen eines Vereines oder einer Organisation/Initiative, welche über eine eigene Unfall- und Haftpflichtversicherung für Freiwillige verfügen. Schäden sind von der freiwilligen HelferIn unverzüglich der betreffenden Organisation zu melden. Im Schadensfall stimmen Sie einer Übermittlung Ihrer Daten inkl. der Zusage zu einem Einsatz an die Versicherung zu.
+
+          Hinweis auf Google/Apple:
+          w2h und die darin enthaltenen Informationen stehen in keiner Verbindung zu Google Inc. oder Apple Inc. und werden in keiner Weise von Google Inc. oder Apple Inc. gesponsert, unterstützt oder organisiert.
+        close: Schließen
+        title: Nutzungsbedingungen für freiwillige HelferInnen
+    sessions:
+      new:
+        login: Anmelden
+        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Als NGO anmelden
+        please_login: Als Freiwillige/r anmelden
