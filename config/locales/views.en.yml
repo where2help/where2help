@@ -6,6 +6,7 @@ en:
       subject: "[where2help] New NGO registration"
       teaser: "%{ngo_name} has signed up"
   application:
+    change_notification_settings_hint: Change notification settings
     contact: Contact
     cookie_consent:
       dismiss: OK
@@ -57,6 +58,7 @@ en:
         delete_shift: Remove Shift
         edit_event: Edit Event
         new: New Fixed Event
+        notify_users: Notify the %{user_count} %{volunteers}
         prohibited: error(s) prohibited this event from being saved
         save_shift: Save Shift
         shifts: Shifts
@@ -65,7 +67,9 @@ en:
         add_an_ongoing_event: Add Ongoing Event
         address: Address
         all: All
+        events: Fixed Events
         filter_by: Filter By
+        ongoing_events: Ongoing Events
         order_by: Order By
         past: Past
         title: Title
@@ -75,6 +79,7 @@ en:
         delete_success: Event was successfully removed.
         publish_fail: Event could not be published.
         publish_success: Event was successfully published.
+        unpublish_success: Event was successfully unpublished.
         update_success: Event was successfully updated.
       new:
         title: New Fixed Event
@@ -93,6 +98,7 @@ en:
         add_an_ongoing_event: Add Ongoing Event
         all: All
         events: Fixed Events
+        filter_by: Filtern nach
         ongoing_events: Ongoing Events
         order_by: Order By
         upcoming: Upcoming
@@ -101,6 +107,7 @@ en:
         delete_success: Event was successfully removed.
         publish_fail: Event could not be published.
         publish_success: Event was successfully published.
+        unpublish_success: Event was successfully unpublished.
         update_success: Event was successfully updated.
       new:
         title: New Ongoing Event
@@ -202,8 +209,6 @@ en:
       sign_up_ngo: Sign up as NGO
       sign_up_user: Sign up as Helper
       start: Start
-      subline_ngo: Know where and when how many helpers show up
-      subline_user: Know where and when I am needed
     how_to:
       text_ngos: |
         <strong>Step 1: Sign up as an NGO</strong>
@@ -271,6 +276,13 @@ en:
       greeting: Hi %{name}
       subject: "[where2help] Event was changed"
       teaser: "%{title}"
+    new_event:
+      content: |
+        "%{title}" has just been created. If you're interested find the details here: %{link}.
+        Thanks you for your support!
+      greeting: Hi %{name}
+      subject: "[where2help] New event"
+      teaser: "%{title}"
     ongoing_event_destroyed:
       content: |
         "%{title}" was cancelled by %{ngo_name}.
@@ -299,6 +311,13 @@ en:
       greeting: Hi %{name}
       subject: "[where2help] Event was changed"
       teaser: "%{title}"
+    upcoming_event:
+      content: |
+        "%{title}" starts at %{time}. More info: %{link}.
+        Thanks you for your support!
+      greeting: Hi %{name}
+      subject: "[where2help] Upcoming event"
+      teaser: "%{title}"
   users:
     nav:
       notifications: Notifications
@@ -320,7 +339,8 @@ en:
           facebook: Contact me over facebook messenger.
         source_title: How You Get Your Notifications
         submit: Save Settings
-        title: Update Your Notification Settings
+        subtitle: Update Your Notification Settings
+        title: Notifications
       update:
         successful: Notification Settings Successfully Updated
     registrations:

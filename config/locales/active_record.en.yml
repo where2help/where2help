@@ -12,11 +12,13 @@ en:
       event:
         address: Address
         approximate_address: Approximate Address
+        coordinates: Coordinates
         created_at: Created
         deleted_at: Deleted
         description: Description
         person: Contact on site
         published_at: Published
+        shifts: Shifts
         state: Status
         state-deleted: Deleted
         state-pending: Invisible
@@ -49,6 +51,7 @@ en:
         address: Address
         approximate_address: Approximate Address
         contact_person: Contact on site
+        coordinates: Coordinates
         created_at: Created
         deleted_at: Deleted
         description: Description
@@ -67,6 +70,7 @@ en:
         name_de: Name (DE)
         name_en: Name (EN)
       shift:
+        deleted_at: Deleted
         ends_at: Ends
         full: surplus
         offset: YOU!

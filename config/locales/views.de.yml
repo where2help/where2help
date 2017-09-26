@@ -79,7 +79,7 @@ de:
         delete_success: Einsatz wurde erfolgreich gelöscht.
         publish_fail: Einsatz konnte nicht veröffentlicht werden.
         publish_success: Einsatz wurde erfolgreich veröffentlicht.
-        unpublish_success: Einsatz wurde erfolgreich unveröffentlicht.
+        unpublish_success: Veröffentlichung des Einsatzes wurde zurückgenommen.
         update_success: Einsatz wurde erfolgreich aktualisiert.
       new:
         title: Neuer Konkreter Einsatz
@@ -179,6 +179,7 @@ de:
       thank_you: |
         <h1>Danke!</h1>
         <p>Die Organisation wird Dich zur Vereinbarung Deiner Einsatzplanung kontaktieren.</p>
+    opt_in_btn: Helfen
     opt_out:
       notice: Schade...
     opt_out_btn: Can't Make It
@@ -314,7 +315,7 @@ de:
       teaser: "%{title}"
     upcoming_event:
       content: |
-        "%{title}" beginnt in %{time}. Weitere Infos findest du unter %{link}.
+        "%{title}" beginnt am %{time}. Weitere Infos findest du unter %{link}.
         Vielen Dank für Dein Engagement!
       greeting: Hallo %{name}
       subject: "[where2help] Einsatz beginnt bald!"
@@ -340,7 +341,8 @@ de:
           facebook: Benachrichtigungen per Facebook Messenger
         source_title: So erhältst du Benachrichtigungen
         submit: Benachrichtigungs-Einstellungen speichern
-        title: Aktualisiere deine Benachrichtigungs-Einstellungen
+        subtitle: Aktualisiere deine Benachrichtigungs-Einstellungen
+        title: Benachrichtigungen
       update:
         successful: Änderungen gespeichert
     registrations:

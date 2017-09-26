@@ -3,8 +3,10 @@ en:
   activerecord:
     attributes:
       user:
+        abilities: Abilities
         current_password: Current password
         email: Email
+        locale: Locale
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
@@ -34,6 +36,11 @@ en:
         greeting: Welcome %{recipient}!
         instruction: 'You can confirm your account email through the link below:'
         subject: Confirmation instructions
+      ngo_confirmation_instructions:
+        instruction: |
+          You can confirm your account email through the link below:
+          After you have confirmed your email an administrator will activate your account.
+          We will let you know once your account has been enabled. Thanks for your patience!
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.

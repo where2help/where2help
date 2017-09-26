@@ -4,7 +4,7 @@
 </script>
 
 <div class="row">
-  <%= render 'users/header_lg', txt: "Edit Notifications" %>
+  <%= render 'users/header_lg', txt: t(".title") %>
 
   <div class="col-sm-12">
     <ul class="nav nav-tabs">
@@ -18,7 +18,7 @@
   </div>
 
   <div class="col-sm-12">
-    <h3><%= t(".title") %></h3>
+    <h3><%= t(".subtitle") %></h3>
     <hr />
 
     <%= form_tag users_notifications_path, method: :patch, class: "form" do %>

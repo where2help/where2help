@@ -38,7 +38,7 @@ de:
         subject: Anleitung zur Bestätigung Deines Accounts
       ngo_confirmation_instructions:
         instruction: |
-          Folge dem untenstehenden Link, um Dein Konto zu bestätigen."
+          Folge dem untenstehenden Link, um Dein Konto zu bestätigen.
           Nach der Bestätigung wird Dein Konto von einem Administrator aktiviert.
           Nach der Aktivierung erfolgt eine Verständigung per E-Mail. Wir bitten um etwas Geduld.
       password_change:
