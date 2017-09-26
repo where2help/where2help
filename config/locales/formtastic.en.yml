@@ -1,0 +1,14 @@
+---
+en:
+  formtastic:
+    placeholders:
+      event:
+        address: Type a few letters for autocompletion
+        description: Please, give a description, with all information relevant to the volunteers, e.g. where is the meeting point within the building
+        person: Person on site in charge, Mrs. Doe, tel 01 234 567
+        title: Please, give a concise title
+      ongoing_event:
+        address: Type a few letters for autocompletion
+        contact_person: Person on site in charge, Mrs. Doe, tel 01 234 567
+        description: Please, give a description, with all information relevant to the volunteers, e.g. where is the meeting point within the building
+        title: Please, give a concise title

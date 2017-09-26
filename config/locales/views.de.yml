@@ -6,6 +6,7 @@ de:
       subject: "[where2help] Neue NGO Registrierung"
       teaser: "%{ngo_name} hat sich registriert"
   application:
+    change_notification_settings_hint: Benachrichtigungs-Einstellungen ändern
     contact: Kontakt
     cookie_consent:
       dismiss: OK
@@ -15,7 +16,6 @@ de:
       message: Wir haben gerade nichts für Dich...
     imprint: Impressum
     terms_and_conditions: Nutzungsbedingungen
-    change_notification_settings_hint: "Benachrichtigungs-Einstellungen ändern"
   events:
     index:
       events: Konkrete Einsätze

@@ -1,0 +1,43 @@
+---
+de:
+  date:
+    abbr_month_names:
+    - 
+    - Jan
+    - Feb
+    - Mär
+    - Apr
+    - Mai
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Okt
+    - Nov
+    - Dez
+    month_names:
+    - 
+    - Januar
+    - Februar
+    - März
+    - April
+    - Mai
+    - Juni
+    - Juli
+    - August
+    - September
+    - Oktober
+    - November
+    - Dezember
+  formtastic:
+    placeholders:
+      event:
+        address: Tippen Sie einige Buchstaben, um Autovervollständigung zu erhalten
+        description: 'Beschreibung mit allen Informationen, die für Freiwillige relevant sind (z.B.: wo genau der Treffpunkt innerhalb des Hauses ist)'
+        person: Kontakt der verantwortlichen Person vor Ort, Frau Muster, Tel. 0123 456 789
+        title: kurzer, aussagekräftiger Titel
+      ongoing_event:
+        address: Tippen Sie einige Buchstaben, um Autovervollständigung zu erhalten
+        contact_person: Kontakt der verantwortlichen Person vor Ort, Frau Muster, Tel. 0123 456 789
+        description: 'Beschreibung mit allen Informationen, die für Freiwillige relevant sind (z.B.: wo genau der Treffpunkt innerhalb des Hauses ist)'
+        title: kurzer, aussagekräftiger Titel

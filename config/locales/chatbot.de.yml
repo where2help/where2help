@@ -32,14 +32,13 @@ de:
       - Servus!
       - Hi!
       help:
-        upcoming: Wir senden dir Erinnerungen für Einsätze, zu denen du dich angemeldet hast, bevor sie starten.
         new: Wir informieren wir dich gelegentlich über neue Einsätze, die auf Where2Help.wien erstellt wurden.
-        rest: |
-          Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
+        rest: 'Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
 
+'
+        upcoming: Wir senden dir Erinnerungen für Einsätze, zu denen du dich angemeldet hast, bevor sie starten.
       onboarding:
         greeting: Hallo %{first_name}, danke dass du unseren Chatbot ausprobierst.
-        upcoming: 24 Stunden vor Einsätzen, zu denen du dich angemeldet hast, erhältst du vom Where2Help Chatbot eine Termin-Erinnerung.
         new: Außerdem erhältst du gelegentlich Benachrichtigungen über neue Einsätze auf Where2Help.wien.
         rest: |
           Du kannst deine Benachrichtigungs-Einstellungen jederzeit hier ändern: %{help_url}
@@ -47,6 +46,7 @@ de:
           Wenn du Hilfe brauchst, schreibe einfach "hilfe".
 
           Bis bald!
+        upcoming: 24 Stunden vor Einsätzen, zu denen du dich angemeldet hast, erhältst du vom Where2Help Chatbot eine Termin-Erinnerung.
       please_register: |
         Hi %{first_name}. Dieser Chatbot kann nur Nachrichten an registrierte Nutzer von Where2Help.wien senden.
 

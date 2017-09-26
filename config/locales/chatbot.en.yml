@@ -7,8 +7,7 @@ en:
         text: New event '%{title}'.
       updated:
         button_text: View
-        text: |
-          '%{title}' has been updated.
+        text: "'%{title}' has been updated.\n"
     menu:
       help: Help
       website: Website
@@ -35,13 +34,13 @@ en:
       - Wassup?
       - Yo!
       help:
-        upcoming: We will send you notifications 24 hours your opted in events are taking place.
         new: We'll also send you notifications if a new event is added that matches your profile.
-        rest: |
-          You can change your notification settings in the Where2Help app (%{help_url}).
+        rest: 'You can change your notification settings in the Where2Help app (%{help_url}).
+
+'
+        upcoming: We will send you notifications 24 hours your opted in events are taking place.
       onboarding:
         greeting: Hi %{first_name}, great to see you.
-        upcoming: We will send you notifications 24 hours before your opted in events are taking place.
         new: We'll send you notifications if a new event is added that matches your profile.
         rest: |
           You can change your notification settings in the Where2Help app (%{help_url}).
@@ -49,6 +48,7 @@ en:
           If you have any questions type "help".
 
           See you soon!
+        upcoming: We will send you notifications 24 hours before your opted in events are taking place.
       please_register: |
         Hi %{first_name}. This bot can only help you if you are registered at the Where2Help website.
 
