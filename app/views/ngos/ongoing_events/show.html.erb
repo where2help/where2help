@@ -24,16 +24,18 @@
       <li class="detail-row">
         <strong><%= t(".contact_person") %>:</strong> <%= @event.contact_person %>
       </li>
-      <li class="detail-row">
-        <strong><%= t(".volunteers_needed") %>:</strong> <%= @event.volunteers_needed %>
-      </li>
+      <% if @event.volunteers_needed %>
+        <li class="detail-row">
+          <strong><%= t(".volunteers_needed") %>:</strong> <%= @event.volunteers_needed %>
+        </li>
+      <% end %>
       <li class="detail-row">
         <strong><%= t(".volunteers_count") %>:</strong> <%= @event.volunteers_count %>
       </li>
     </ul>
 
     <div class="col-sm-6">
-      <%= render partial: "progress_bar/progress_bar", object: @operation.progress_bar(@event) %>
+      <%= render partial: "progress_bar/progress_bar", object: @operation.progress_bar(@event) if @event.volunteers_needed %>
     </div>
 
     <br style="clear: both;"/>
