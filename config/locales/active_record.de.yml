@@ -1,5 +1,94 @@
+---
 de:
   activerecord:
+    attributes:
+      contact:
+        city: Stadt
+        first_name: Vorname
+        last_name: Nachname
+        phone: Telefon
+        street: Straße
+        zip: Postleitzahl
+      event:
+        address: Adresse
+        approximate_address: Ungefähre Adresse
+        coordinates: Koordinaten
+        created_at: Erstellt
+        deleted_at: Gelöscht
+        description: Beschreibung
+        person: Kontakt vor Ort
+        published_at: Veröffentlicht
+        shifts: Einsätze
+        state: Status
+        state-deleted: Gelöscht
+        state-pending: Unsichtbar
+        state-published: Sichtbar
+        state/pending: Unsichtbar
+        state/published: Sichtbar
+        title: Titel
+        updated_at: Geändert
+      event/shifts:
+        confirmed_so_far: zugesagt
+        ends_at: Ende
+        starts_at: Beginn
+        volunteers_needed: Anzahl benötigter Freiwilliger
+      ngo:
+        admin_confirmed_at: Von Admin Bestätigt
+        confirmed_at: Bestätigt
+        created_at: Erstellt
+        current_password: Aktuelles Passwort
+        deleted_at: Gelöscht
+        locale: Sprache
+        password: Passwort
+        password_confirmation: Passwortbestätigung
+        remember_me: Angemeldet bleiben
+        state: Status
+        state-confirmed: Bestätigt
+        state-deleted: Gelöscht
+        state-pending: Unbestätigt
+        terms_and_conditions: Nutzungsbedingungen
+      ongoing_event:
+        address: Adresse
+        approximate_address: Ungefähre Adresse
+        contact_person: Kontakt vor Ort
+        coordinates: Koordinaten
+        created_at: Erstellt
+        deleted_at: Gelöscht
+        description: Beschreibung
+        ongoing_event_category: Kategorie
+        published_at: Veröffentlicht
+        state: Status
+        state-deleted: Gelöscht
+        state-pending: Unsichtbar
+        state-published: Sichtbar
+        state/pending: Unsichtbar
+        state/published: Sichtbar
+        title: Titel
+        updated_at: Geändert
+        volunteers_needed: Anzahl benötigter Freiwilliger
+      ongoing_event_category:
+        name_de: Name (DE)
+        name_en: Name (EN)
+      shift:
+        deleted_at: Gelöscht
+        ends_at: Ende
+        full: zu viel
+        offset: DU!
+        progress: zugesagt
+        rest: fehlen
+        starts_at: Beginn
+        volunteers: Freiwillige
+        volunteers_count: Zusagen
+        volunteers_needed: Anzahl benötigter Freiwilliger
+      user:
+        confirmed_at: Bestätigt
+        created_at: Erstellt
+        deleted_at: Gelöscht
+        first_name: Vorname
+        languages: Sprachen
+        last_name: Nachname
+        phone: Telefonnummer
+        terms_and_conditions: Nutzungsbedingungen
     models:
       ability:
         one: Fähigkeit
@@ -8,12 +97,6 @@ de:
       event:
         one: Event
         other: Events
-      ongoing_event:
-        one: Dauerhafter Einsatz
-        other: Dauerhafte Einsätze
-      ongoing_event_category:
-        one: Kategorie
-        other: Kategorien
       language:
         one: Sprache
         other: Sprachen
@@ -23,97 +106,15 @@ de:
       ngo:
         one: NGO
         other: NGOs
+      ongoing_event:
+        one: Dauerhafter Einsatz
+        other: Dauerhafte Einsätze
+      ongoing_event_category:
+        one: Kategorie
+        other: Kategorien
       shift:
         one: Einsatz
         other: Einsätze
       users:
         one: Freiwilliger
         other: Freiwillige
-    attributes:
-      contact:
-        first_name: Vorname
-        last_name: Nachname
-        phone: Telefon
-        street: Straße
-        zip: Postleitzahl
-        city: Stadt
-      event:
-        coordinates: Koordinaten
-        created_at: Erstellt
-        deleted_at: Gelöscht
-        updated_at: Geändert
-        title: Titel
-        description: Beschreibung
-        address: Adresse
-        approximate_address: Ungefähre Adresse
-        state: Status
-        state/pending: Unsichtbar
-        state/published: Sichtbar
-        shifts: Einsätze
-        person: Kontakt vor Ort
-        state-pending: Unsichtbar
-        state-published: Sichtbar
-        state-deleted: Gelöscht
-        published_at: Veröffentlicht
-      ongoing_event:
-        coordinates: Koordinaten
-        created_at: Erstellt
-        deleted_at: Gelöscht
-        updated_at: Geändert
-        title: Titel
-        description: Beschreibung
-        address: Adresse
-        approximate_address: Ungefähre Adresse
-        state: Status
-        state/pending: Unsichtbar
-        state/published: Sichtbar
-        contact_person: Kontakt vor Ort
-        state-pending: Unsichtbar
-        state-published: Sichtbar
-        state-deleted: Gelöscht
-        published_at: Veröffentlicht
-        volunteers_needed: Anzahl benötigter Freiwilliger
-        ongoing_event_category: Kategorie
-      ongoing_event_category:
-        name_en: Name (EN)
-        name_de: Name (DE)
-      event/shifts:
-        confirmed_so_far: zugesagt
-        ends_at: Ende
-        starts_at: Beginn
-        volunteers_needed: Anzahl benötigter Freiwilliger
-      user:
-        first_name: Vorname
-        last_name: Nachname
-        confirmed_at: Bestätigt
-        created_at: Erstellt
-        deleted_at: Gelöscht
-        phone: Telefonnummer
-        terms_and_conditions: Nutzungsbedingungen
-        languages: Sprachen
-      ngo:
-        admin_confirmed_at: Von Admin Bestätigt
-        confirmed_at: Bestätigt
-        created_at: Erstellt
-        deleted_at: Gelöscht
-        current_password: Aktuelles Passwort
-        locale: Sprache
-        state: Status
-        state-pending: Unbestätigt
-        state-confirmed: Bestätigt
-        state-deleted: Gelöscht
-        password: Passwort
-        password_confirmation: Passwortbestätigung
-        terms_and_conditions: Nutzungsbedingungen
-        remember_me: Angemeldet bleiben
-      shift:
-        progress: zugesagt
-        deleted_at: Gelöscht
-        ends_at: Ende
-        rest: fehlen
-        starts_at: Beginn
-        full: zu viel
-        volunteers_needed: Anzahl benötigter Freiwilliger
-        volunteers_count: Zusagen
-        volunteers: Freiwillige
-        offset: DU!

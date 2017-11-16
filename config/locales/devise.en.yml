@@ -1,3 +1,4 @@
+---
 en:
   activerecord:
     attributes:
@@ -58,8 +59,8 @@ en:
         change_my_password: Change my password
         change_your_password: Change your password
         confirm_new_password: Confirm new password
-        new_password: New password
         min_chars: characters minimum
+        new_password: New password
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Reset password
@@ -69,8 +70,8 @@ en:
       updated: Your password has been changed successfully. You are now signed in.
       updated_not_active: Your password has been changed successfully.
     registrations:
+      deactivated: Bye! Your account has been successfully deactivated. You can reactivate it any time.
       destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
-      deactivated: "Bye! Your account has been successfully deactivated. You can reactivate it any time."
       edit:
         are_you_sure: Are you sure?
         cancel_my_account: Cancel my account
