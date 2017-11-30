@@ -5,7 +5,7 @@ class OngoingEvent < ApplicationRecord
   belongs_to :ongoing_event_category
   has_many   :participations, dependent: :destroy
   has_many   :users,          through:   :participations
-  has_many   :notifications,  as:        :notifiable
+  has_many   :notifications,  as:        :notifiable, dependent: :destroy
 
   validates :title, length: { in: 1..100 }
   validates :address, presence: true
