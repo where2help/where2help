@@ -38,7 +38,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-json_expectations'
   gem 'factory_bot_rails'
-  gem 'rails-controller-testing', "1.0.1"
+  gem 'rails-controller-testing'
   gem "better_errors"
   gem "binding_of_caller"
   gem 'pry-byebug', require: false
