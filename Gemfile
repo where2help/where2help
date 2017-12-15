@@ -70,6 +70,10 @@ gem 'formtastic-bootstrap'
 gem 'cocoon'
 gem 'histogram'
 
+# TODO upgrade to a newer version of ransack.
+# as of 2017-12-15 when trying to use 1.8.3+ many tests fail
+gem 'ransack', '= 1.8.2'
+
 # Soft delete
 gem "paranoia", "~> 2.2"
 

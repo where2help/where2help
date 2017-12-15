@@ -253,7 +253,7 @@ GEM
     rainbow (2.2.2)
       rake
     rake (12.3.0)
-    ransack (1.8.4)
+    ransack (1.8.2)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       activesupport (>= 3.0)
@@ -382,6 +382,7 @@ DEPENDENCIES
   rails-controller-testing (= 1.0.1)
   rails_12factor
   rails_autolink
+  ransack (= 1.8.2)
   ri_cal
   rspec-json_expectations
   rspec-rails
