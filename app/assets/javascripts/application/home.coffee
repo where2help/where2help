@@ -11,8 +11,10 @@ $(document).ready () ->
         scrollTop: $(href).offset().top
       }, 500)
 
-  $(window).scroll () ->
-    rect = $('.main-logo').get(0).getBoundingClientRect();
+  $(window).scroll ->
+    main_logo = $('.main-logo').get(0)
+    return unless main_logo
+    rect = main_logo.getBoundingClientRect();
     isBigLogoStillVisible = (
       rect.top >= 0 &&
       rect.left >= 0 &&
