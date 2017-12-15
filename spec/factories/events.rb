@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :event do
     title { Faker::StarWars.planet }
     description { Faker::Hipster.paragraph(2) }
@@ -13,7 +13,7 @@ FactoryGirl.define do
 
     trait :with_shift do
       after :build do |event, evaluator|
-        event.shifts << FactoryGirl.build(:shift, event: nil)
+        event.shifts << FactoryBot.build(:shift, event: nil)
       end
     end
 

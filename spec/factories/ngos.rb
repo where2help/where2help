@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :ngo do
     association :contact, strategy: :build
     name { Faker::Company.name }
