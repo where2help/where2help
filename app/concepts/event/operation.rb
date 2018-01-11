@@ -10,8 +10,8 @@ class EventOperation
       def process(ngo:, event_id:, event:, notify_users:, **)
         @model = ngo.events.includes(shifts: :users).find(event_id)
         @model.attributes = event
-        notify_users! if notify_users
         @model.save
+        notify_users! if notify_users
       end
 
       def has_users?
@@ -38,7 +38,7 @@ class EventOperation
       private
 
       def notify_users!
-        if @model.changes.any?
+        if @model.previous_changes.any?
           return notify_event(model)
         end
         shifts =
