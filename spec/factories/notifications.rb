@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :notification do
     notified_at "2017-04-11 15:45:04"
     type 1

@@ -2,7 +2,7 @@ require "rails_helper"
 require "user/settings"
 
 describe User::Settings do
-  let(:user)          { FactoryGirl.create(:user) }
+  let(:user)          { FactoryBot.create(:user) }
   let(:settings)      { User::Settings.new(user) }
   let(:fb_key)        { User::Settings::FB_NOTIFICATION_KEY }
   let(:email_key)     { User::Settings::EMAIL_NOTIFICATION_KEY }

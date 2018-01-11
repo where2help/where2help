@@ -11,19 +11,19 @@ $(document).ready () ->
         scrollTop: $(href).offset().top
       }, 500)
 
-  $(window).scroll () ->
-    logo = $('.main-logo').get(0)
-    if logo
-      rect = logo.getBoundingClientRect();
-      isBigLogoStillVisible = (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
+  $(window).scroll ->
+    main_logo = $('.main-logo').get(0)
+    return unless main_logo
+    rect = main_logo.getBoundingClientRect();
+    isBigLogoStillVisible = (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
 
-      if isBigLogoStillVisible
-        $('.navbar-brand').removeClass('passed-header')
-      else
-        $('.navbar-brand').addClass('passed-header')
+    if isBigLogoStillVisible
+      $('.navbar-brand').removeClass('passed-header')
+    else
+      $('.navbar-brand').addClass('passed-header')
 

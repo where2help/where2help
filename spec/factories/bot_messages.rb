@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :bot_message do
     provider "MyString"
     from_bot false

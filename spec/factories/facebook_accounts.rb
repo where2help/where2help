@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :facebook_account do
     facebook_id "MyString"
     user nil

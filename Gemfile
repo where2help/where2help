@@ -38,8 +38,8 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-json_expectations'
-  gem 'factory_girl_rails'
-  gem 'rails-controller-testing', "1.0.1"
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
   gem "better_errors"
   gem "binding_of_caller"
   gem 'pry-byebug', require: false
@@ -67,11 +67,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sucker_punch'
 
 # Admin Interface
-gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
+gem 'inherited_resources'
 gem 'activeadmin'
 gem 'formtastic-bootstrap'
 gem 'cocoon'
 gem 'histogram'
+
+# TODO upgrade to a newer version of ransack.
+# as of 2017-12-15 when trying to use 1.8.3+ many tests fail
+gem 'ransack', '= 1.8.2'
 
 # Soft delete
 gem "paranoia", "~> 2.2"
