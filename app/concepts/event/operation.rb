@@ -42,7 +42,7 @@ class EventOperation
           return notify_event(model)
         end
         shifts =
-          @model.shifts.select { |shift| shift.changes.any? }
+          @model.shifts.select { |shift| shift.previous_changes.any? }
         notify_shifts(shifts)
       end
 
