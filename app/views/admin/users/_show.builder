@@ -2,7 +2,7 @@ context.instance_eval do
   attributes_table do
     row :id
     if user.locked?
-      row(:locked) { |b| status_tag "LOCKED", :red }
+      row(:locked) { |b| status_tag "LOCKED", class: "red" }
     end
     row :email
     row :first_name

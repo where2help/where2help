@@ -158,3 +158,4 @@ You can use the gem `letter_opener` which opens your emails in a browser tab ins
 `ENABLE_LETTER_OPENER=1 bundle exec rails server`
 
 If you run it without the `ENABLE_LETTER_OPENER` it will run as you would normally expect.
+

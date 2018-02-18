@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :ongoing_event do
     ngo nil
     title "MyString"

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shift do
     starts_at { Time.now+1.day }
     ends_at { Time.now+1.day+2.hours }
@@ -7,13 +7,13 @@ FactoryGirl.define do
 
     trait :with_event do
       after :build do |shift, evaluator|
-        shift.event = FactoryGirl.build(:event)
+        shift.event = FactoryBot.build(:event)
       end
     end
 
     trait :with_ngo do
       after :build do |shift, evaluator|
-        shift.event.ngo = FactoryGirl.build(:ngo)
+        shift.event.ngo = FactoryBot.build(:ngo)
       end
     end
 

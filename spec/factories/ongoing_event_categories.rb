@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :ongoing_event_category do
     sequence :name_en do |n|
       "MyString#{n}"
