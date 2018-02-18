@@ -44,7 +44,7 @@ module ApplicationHelper
 
   def environment_disclaimer
     content_tag(:div, class: "alert #{bootstrap_class_for(:alert)} fade in") do
-      concat content_tag(:p, t("application.environment_disclaimer"))
+      content_tag(:p, t("application.environment_disclaimer"))
     end
   end
 end
