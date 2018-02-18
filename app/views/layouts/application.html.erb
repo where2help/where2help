@@ -19,6 +19,7 @@
     <%= navigation_for(current_user || current_ngo) %>
 
     <%= content_tag(:main, class: (landing_page? ? "container-fluid" : "container")) do %>
+      <%= environment_disclaimer unless Rails.env.production? %>
       <%= flash_messages %>
       <%= yield %>
     <% end %>

@@ -41,4 +41,10 @@ module ApplicationHelper
   def landing_page?
     controller.is_a?(PagesController) && params[:action] == "home"
   end
+
+  def environment_disclaimer
+    content_tag(:div, class: "alert #{bootstrap_class_for(:alert)} fade in") do
+      content_tag(:p, t("application.environment_disclaimer"))
+    end
+  end
 end

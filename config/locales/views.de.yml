@@ -16,6 +16,7 @@ de:
       message: Wir haben gerade nichts für Dich...
     imprint: Impressum
     terms_and_conditions: Nutzungsbedingungen
+    environment_disclaimer: Dies ist eine Testversion von Where2help. Geben Sie keine persönlichen oder vertraulichen Daten ein.
   events:
     index:
       events: Konkrete Einsätze
