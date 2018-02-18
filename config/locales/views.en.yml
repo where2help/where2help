@@ -15,6 +15,7 @@ en:
       message: Nothing there for you at the moment...
     imprint: Imprint
     terms_and_conditions: Terms and Conditions
+    environment_disclaimer: This is a TEST VERSION of Where2help. Do NOT enter any personal or confidential data.
   events:
     index:
       ongoing_events_link: "» Show ongoing events"
