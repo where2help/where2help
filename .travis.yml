@@ -3,7 +3,7 @@ language: ruby
 rvm:
 - 2.3.1
 addons:
-  postgresql: '9.4'
+  postgresql: '9.5'
 before_script:
 - bundle exec rake db:create db:schema:load RAILS_ENV=test
 cache: bundler
