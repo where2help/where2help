@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'rails', '5.0.2'
+gem 'rails', '5.1.5'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
@@ -42,7 +42,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'pry-byebug', require: false
-  gem "i18n-tasks", "~> 0.9.15"
+  gem 'i18n-tasks', '~> 0.9.21'
 end
 
 group :test do
