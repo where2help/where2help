@@ -42,7 +42,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'pry-byebug', require: false
-  gem 'i18n-tasks', '~> 0.9.20'
+  gem 'i18n-tasks', '~> 0.9.21'
 end
 
 group :test do
