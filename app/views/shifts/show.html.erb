@@ -13,23 +13,23 @@
   <div class="col-sm-9 col-sm-pull-3">
     <ul class="fa-ul">
       <li class="detail-row">
-        <i class="fa-li fa fa-clock-o fa-fw"></i>
+        <i class="fa-li far fa-clock fa-fw"></i>
         <%= @shift.starts_at.strftime('%H:%M') %> - <%= @shift.ends_at.strftime('%H:%M') %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <i class="fa-li fas fa-map-marker-alt fa-fw"></i>
         <%= @shift.event.address %>
         <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @shift.event.lat %>" data-long="<%= @shift.event.lng %>"></div>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <i class="fa-li fas fa-info-circle fa-fw"></i>
         <%= format_description @shift.event.description %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-users fa-fw"></i> <%= @shift.event.ngo.name %>
+        <i class="fa-li fas fa-users fa-fw"></i> <%= @shift.event.ngo.name %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-users fa-fw"></i> <%= @shift.event.person %>
+        <i class="fa-li fas fa-users fa-fw"></i> <%= @shift.event.person %>
       </li>
     </ul>
   </div>

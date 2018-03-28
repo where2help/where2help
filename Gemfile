@@ -7,7 +7,7 @@ gem 'puma'
 gem 'sass-rails'
 
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.0.6'
 gem 'flag-icons-rails'
 gem 'momentjs-rails'
 

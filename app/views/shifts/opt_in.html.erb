@@ -9,27 +9,27 @@
     <h1><%= t('shifts.thank_you')%></h1>
     <ul class="fa-ul">
       <li class="detail-row">
-        <i class="fa-li fa fa-clock-o fa-fw"></i>
+        <i class="fa-li far fa-clock fa-fw"></i>
         <%= @shift.starts_at.strftime('%H:%M') %> - <%= @shift.ends_at.strftime('%H:%M') %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <i class="fa-li fas fa-map-marker-alt fa-fw"></i>
         <%= @shift.event.address %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <i class="fa-li fas fa-info-circle fa-fw"></i>
         <%= format_description @shift.event.description %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-users fa-fw"></i> <%= @shift.event.ngo.name %>
+        <i class="fa-li fas fa-users fa-fw"></i> <%= @shift.event.ngo.name %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-users fa-fw"></i> <%= @shift.event.person %>
+        <i class="fa-li fas fa-users fa-fw"></i> <%= @shift.event.person %>
       </li>
     </ul>
     <p>
       <%= link_to shift_cal_path(@shift, format: :ics), class: "btn btn-block btn-info" do %>
-      <i class="fa fa-calendar-plus-o"></i> iCal
+      <i class="far fa-calendar-plus"></i> iCal
       <% end %>
     </p>
     <p><%= link_to "http://www.google.com/calendar/event?" +
@@ -40,7 +40,7 @@
                    "details=#{@shift.event.description} - #{event_url(@shift.event)}&" +
                    "location=#{@shift.event.address}&" +
                    "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow", class: "btn btn-block btn-danger"  do %>
-                   <i class="fa fa-google"></i> <i class="fa fa-calendar-plus-o"></i> Google
+                   <i class="fab fa-google"></i> <i class="far fa-calendar-plus"></i> Google
     <% end %></p>
   </div>
   <div class="col-md-8 hidden-sm hidden-xs">
