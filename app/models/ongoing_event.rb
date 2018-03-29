@@ -1,9 +1,9 @@
 class OngoingEvent < ApplicationRecord
   acts_as_paranoid
 
-  belongs_to :ngo
-  belongs_to :ongoing_event_category
-  has_many   :participations, dependent: :destroy
+  belongs_to :ngo, inverse_of: :ongoing_events
+  belongs_to :ongoing_event_category, inverse_of: :ongoing_events
+  has_many   :participations, dependent: :destroy, inverse_of: :ongoing_event
   has_many   :users,          through:   :participations
 
   validates :title, length: { in: 1..100 }

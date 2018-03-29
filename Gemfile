@@ -70,10 +70,6 @@ gem 'formtastic-bootstrap'
 gem 'cocoon'
 gem 'histogram'
 
-# TODO upgrade to a newer version of ransack.
-# as of 2017-12-15 when trying to use 1.8.3+ many tests fail
-gem 'ransack', '= 1.8.2'
-
 # Soft delete
 gem "paranoia", "~> 2.2"
 
@@ -88,3 +84,5 @@ gem 'premailer-rails'
 gem 'nokogiri'
 
 gem 'invisible_captcha'
+
+gem 'rails-i18n', '~> 5.1' # For rails 5.0.x, 5.1.x and 5.2.x

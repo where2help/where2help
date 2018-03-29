@@ -1,7 +1,7 @@
 class Contact < ApplicationRecord
   acts_as_paranoid without_default_scope: true
 
-  belongs_to :ngo
+  belongs_to :ngo, inverse_of: :contact
 
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }

@@ -1,4 +1,4 @@
 class SpokenLanguage < ApplicationRecord
-  belongs_to :user
-  belongs_to :language
+  belongs_to :user, inverse_of: :spoken_languages
+  belongs_to :language, inverse_of: :spoken_languages
 end
