@@ -56,6 +56,7 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'bullet'
   gem 'letter_opener'
+  gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
