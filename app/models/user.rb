@@ -6,14 +6,14 @@ class User < ApplicationRecord
 
   enum locale: { de: 0, en: 1 }
 
-  has_secure_token :api_token #That's a rails feature!
+  has_secure_token :api_token
 
-  has_many :spoken_languages, dependent: :destroy
+  has_many :spoken_languages, dependent: :destroy, inverse_of: :user
   has_many :languages, through: :spoken_languages
-  has_many :qualifications, dependent: :destroy
+  has_many :qualifications, dependent: :destroy, inverse_of: :user
   has_many :abilities, through: :qualifications
 
-  has_many :participations, dependent: :destroy
+  has_many :participations, dependent: :destroy, inverse_of: :user
   has_many :shifts,         through: :participations
   has_many :ongoing_events, through: :participations
 
@@ -23,5 +23,5 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :abilities, :languages
 
-  def locked?() access_locked? end
+  def locked?; access_locked? end
 end

@@ -3,9 +3,9 @@ class Shift < ApplicationRecord
   default_scope { where(deleted_at: nil).order(starts_at: :asc) }
   paginates_per 10
 
-  has_many :participations, dependent: :destroy
+  has_many :participations, dependent: :destroy, inverse_of: :shift
   has_many :users, through: :participations
-  belongs_to :event
+  belongs_to :event, inverse_of: :shifts
 
   validates :volunteers_needed, :starts_at, :ends_at, presence: true
   validate :not_in_past

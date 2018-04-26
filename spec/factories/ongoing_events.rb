@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :ongoing_event do
-    ngo nil
+    ngo
     title "MyString"
     description "MyText"
     ongoing_event_category

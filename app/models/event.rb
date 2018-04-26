@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
   acts_as_paranoid
 
-  belongs_to :ngo
-  has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy
+  belongs_to :ngo, inverse_of: :events
+  has_many :shifts, -> { order(starts_at: :asc) }, dependent: :destroy, inverse_of: :event
   has_many :available_shifts, -> { available }, class_name: 'Shift'
   has_many :future_shifts, -> { upcoming }, class_name: 'Shift'
 

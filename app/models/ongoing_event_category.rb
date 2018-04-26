@@ -3,8 +3,7 @@ class OngoingEventCategory < ApplicationRecord
             presence: true,
             uniqueness: true
 
-  has_many :ongoing_events,
-            dependent: :restrict_with_error
+  has_many :ongoing_events, dependent: :restrict_with_error, inverse_of: :ongoing_event_category
 
   scope :ordered, -> { order(ordinal: :asc) }
 

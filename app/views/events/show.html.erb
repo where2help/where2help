@@ -8,26 +8,26 @@
   <div class="col-sm-12 ">
     <ul class="fa-ul">
       <li class="detail-row">
-        <i class="fa-li fa fa-clock-o fa-fw"></i>
+        <i class="fa-li far fa-clock fa-fw"></i>
         <%= @event.earliest_shift.starts_at.strftime('%H:%M') %> - <%= @event.earliest_shift.ends_at.strftime('%H:%M') %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-map-marker fa-fw"></i>
+        <i class="fa-li fas fa-map-marker-alt fa-fw"></i>
         <%= @event.address %>
         <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-info-circle fa-fw"></i>
+        <i class="fa-li fas fa-info-circle fa-fw"></i>
         <%= format_description @event.description %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-users fa-fw"></i> <%= @event.ngo.name %>
+        <i class="fa-li fas fa-users fa-fw"></i> <%= @event.ngo.name %>
       </li>
       <li class="detail-row">
-	      <i class="fa-li fa fa-users fa-fw"></i> <%= @event.person %>
+	      <i class="fa-li fas fa-users fa-fw"></i> <%= @event.person %>
       </li>
       <li class="detail-row">
-        <i class="fa-li fa fa-child fa-fw"></i><%= Shift.model_name.human(count: 2) %>
+        <i class="fa-li fas fa-child fa-fw"></i><%= Shift.model_name.human(count: 2) %>
         <div class="event-shifts-list">
           <%= render(@event.future_shifts) || render('empty_message') %>
         </div>

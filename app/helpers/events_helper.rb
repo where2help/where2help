@@ -3,7 +3,7 @@ module EventsHelper
     link_to_next_page events, t('events.load_more'),
       params: params,
       remote: true,
-      data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>", behavior: 'events-pagination' },
+      data: { disable_with: "<i class='fas fa-spinner fa-spin'></i>", behavior: 'events-pagination' },
       class: 'btn'
   end
 
@@ -29,7 +29,7 @@ module EventsHelper
     attrs = event_label_attr event
     state = t "activerecord.attributes.event.state/" + event.state
     content_tag(:div, class: 'ngo-event-item-state') do
-      concat content_tag(:i, nil, class: "fa #{attrs[:icon_class]} fa-fw")
+      concat content_tag(:i, nil, class: "fas #{attrs[:icon_class]} fa-fw")
       concat content_tag(:span, attrs[:state], class: attrs[:label_class])
     end
   end
@@ -44,7 +44,7 @@ module EventsHelper
       icon_class = 'fa-eye'
     end
     state = t "activerecord.attributes.event.state/" + event.state
-    concat content_tag(:i, nil, class: "fa-li fa #{icon_class} fa-fw")
+    concat content_tag(:i, nil, class: "fa-li fas #{icon_class} fa-fw")
     content_tag(:span, state, class: state_class)
   end
 

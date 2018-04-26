@@ -175,15 +175,22 @@ RSpec.describe Ngos::EventsController, type: :controller do
         end
       end
       context 'with valid params' do
-        let(:params) {{ event: {
-          title: 'event title',
-          description: 'huge event description',
-          address: 'street with number',
-	  person: 'person name',
-          shifts_attributes: [ { starts_at: Time.now + 2.hours,
-                                 ends_at: Time.now + 4.hours,
-                                 volunteers_needed: 1,
-                                 volunteers_count: 0 } ] }}}
+        let(:params) {
+          {
+            event: {
+              title: 'event title',
+              description: 'huge event description',
+              address: 'street with number',
+              person: 'person name',
+              shifts_attributes: [{ 
+                starts_at: Time.now + 2.hours,
+                ends_at: Time.now + 4.hours,
+                volunteers_needed: 1,
+                volunteers_count: 0
+              }]
+            }
+          }
+        }
 
         it 'creates new event record' do
           expect{
