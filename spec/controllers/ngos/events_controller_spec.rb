@@ -194,10 +194,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
 
         it 'creates new event record' do
           expect{
-            puts Event.count
-            Rails.application.config.log_level = :debug
-            puts(">>>" + (post :create, params: params).parsed_body.inspect)
-            puts Event.count
+            post :create, params: params
           }.to change{Event.count}.by 1
         end
         it 'redirects to @event' do
