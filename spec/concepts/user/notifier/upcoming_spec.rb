@@ -10,7 +10,7 @@ describe User::Notifier::Upcoming do
       User::Settings.new(user).setup_new_user!
       user
     }
-    shift = create(:shift)
+    shift = create(:shift, :with_event)
     user = users.first
     shift.users << user
     ngo = create(:ngo)
@@ -30,7 +30,7 @@ describe User::Notifier::Upcoming do
       User::Settings.new(user).setup_new_user!
       user
     }
-    shift = create(:shift)
+    shift = create(:shift, :with_event)
     user = users.first
     shift.users << user
     ngo   = create(:ngo)
@@ -49,7 +49,7 @@ describe User::Notifier::Upcoming do
       User::Settings::FB_NOTIFICATION_KEY    => false,
       User::Settings::EMAIL_NOTIFICATION_KEY => false,
       User::Settings::UPCOMING_EVENT_KEY     => true)
-    shift = create(:shift)
+    shift = create(:shift, :with_event)
     shift.users << user
     ngo   = create(:ngo)
     event = create(:event, ngo: ngo, shifts: [shift])

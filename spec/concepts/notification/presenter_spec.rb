@@ -4,7 +4,7 @@ describe Notification::Presenter do
   it "creates a template for my notification" do
     user = create(:user)
     event = create(:event, :with_shift)
-    notif = user.notifications.create(notification_type: :new_event, notifiable: event)
+    notif = user.notifications.create!(notification_type: :new_event, notifiable: event)
     template = Notification::Presenter.present_batch([notif], user)
     parts = template.parts
     url = Rails.application.routes.url_helpers.event_url(event)

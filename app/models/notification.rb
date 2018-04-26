@@ -6,6 +6,6 @@ class Notification < ApplicationRecord
     updated_shift: 70,
   }
 
-  belongs_to :user
-  belongs_to :notifiable, polymorphic: true
+  belongs_to :user, inverse_of: :notifications
+  belongs_to :notifiable, polymorphic: true, inverse_of: :notifications
 end

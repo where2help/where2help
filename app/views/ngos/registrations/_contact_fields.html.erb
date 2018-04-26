@@ -1,4 +1,4 @@
-<h4><i class="fa fa-phone" aria-hidden="true"></i> <%= Contact.model_name.human %></h4>
+<h4><i class="fas fa-phone" aria-hidden="true"></i> <%= Contact.model_name.human %></h4>
 <%= f.semantic_fields_for :contact, (resource.contact || resource.build_contact) do |c| %>
   <%= c.input :first_name %>
   <%= c.input :last_name %>

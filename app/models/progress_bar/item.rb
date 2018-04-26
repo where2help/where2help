@@ -25,6 +25,6 @@ class ProgressBar::Item
   end
 
   def smiley
-    content_tag(:i, '', class: 'fa fa-smile-o')
+    content_tag(:i, '', class: 'far fa-smile')
   end
 end

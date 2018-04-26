@@ -162,7 +162,7 @@ en:
     sessions:
       new:
         login: Login
-        login_as_user: <i class="fa fa-user" aria-hidden="true"></i> Login As A Helper Instead
+        login_as_user: <i class="fas fa-user" aria-hidden="true"></i> Login As A Helper Instead
         please_login: Login as a NGO
   ongoing_events:
     are_you_sure: Are you sure you can't make it?
@@ -385,5 +385,5 @@ en:
     sessions:
       new:
         login: Login
-        login_as_ngo: <i class="fa fa-users" aria-hidden="true"></i> Login As NGO Instead
+        login_as_ngo: <i class="fas fa-users" aria-hidden="true"></i> Login As NGO Instead
         please_login: Login as a Helper

@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'rails', '5.1.5'
+gem 'rails', '5.1.6'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
 
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.0.6'
 gem 'flag-icons-rails'
 gem 'momentjs-rails'
 
@@ -59,6 +59,7 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'bullet'
   gem 'letter_opener'
+  gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -72,10 +73,6 @@ gem 'activeadmin'
 gem 'formtastic-bootstrap'
 gem 'cocoon'
 gem 'histogram'
-
-# TODO upgrade to a newer version of ransack.
-# as of 2017-12-15 when trying to use 1.8.3+ many tests fail
-gem 'ransack', '= 1.8.2'
 
 # Soft delete
 gem "paranoia", "~> 2.2"
@@ -91,3 +88,5 @@ gem 'premailer-rails'
 gem 'nokogiri'
 
 gem 'invisible_captcha'
+
+gem 'rails-i18n', '~> 5.1' # For rails 5.0.x, 5.1.x and 5.2.x

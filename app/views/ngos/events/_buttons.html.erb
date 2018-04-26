@@ -1,24 +1,24 @@
 <% if event.pending? %>
   <%= button_to publish_ngos_event_path(event), class: "btn-info event-btn", method: :post do %>
-    <i class="fa fa-eye"></i> <%= t 'ngos.events.show.publish' %>
+    <i class="fas fa-eye"></i> <%= t 'ngos.events.show.publish' %>
   <% end %>
 <% end %>
 
 <% if event.shifts.last.ends_at > Time.now() %>
   <%= button_to edit_ngos_event_path(event), class: "btn-warning event-btn", method: :get do %>
-    <i class="fa fa-pencil-square-o"></i> <%= t 'ngos.events.show.edit' %>
+    <i class="far fa-edit"></i> <%= t 'ngos.events.show.edit' %>
   <% end %>
 
   <%= button_to [:ngos, event],  class: "btn-danger event-btn", method: :delete,
     data: { confirm: t('ngos.events.show.are_you_sure') } do %>
-      <i class="fa fa-trash-o"></i> <%= t 'ngos.events.show.delete' %>
+      <i class="far fa-trash-alt"></i> <%= t 'ngos.events.show.delete' %>
   <% end %>
 
   <br/><br/>
 <% end %>
 
 <p><%= link_to cal_ngos_event_path(@event, format: :ics), class: "btn btn-block btn-info" do %>
-  <i class="fa fa-calendar-plus-o"></i> iCal
+  <i class="far fa-calendar-plus"></i> iCal
 <% end %></p>
 <p><%= link_to "http://www.google.com/calendar/event?" +
                "action=TEMPLATE&" +
@@ -28,5 +28,5 @@
                "details=#{@event.description} - #{ngos_event_url(@event)}&" +
                "location=#{@event.address}&" +
                "trp=false&sprop=&sprop=name:", target: "_blank", rel:"nofollow", class: "btn btn-block btn-primary"  do %>
-               <i class="fa fa-google"></i> <i class="fa fa-calendar-plus-o"></i> Google
+               <i class="fab fa-google"></i> <i class="far fa-calendar-plus"></i> Google
 <% end %></p>

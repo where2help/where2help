@@ -97,9 +97,9 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
       it 'updates profile and contact of the NGO' do
         expect(ngo.email).to eq(params[:ngo][:email])
         expect(ngo.name).to eq(params[:ngo][:name])
-        ngo.contact.reload
-        expect(ngo.contact.first_name).to eq(params[:ngo][:contact_attributes][:first_name])
-        expect(ngo.contact.last_name).to eq(params[:ngo][:contact_attributes][:last_name])
+        contact = ngo.contact.reload
+        expect(contact.first_name).to eq(params[:ngo][:contact_attributes][:first_name])
+        expect(contact.last_name).to eq(params[:ngo][:contact_attributes][:last_name])
       end
 
       it 'redirects to :edit with :notice flash' do

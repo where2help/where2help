@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :event do
+    ngo
     title { Faker::StarWars.planet }
     description { Faker::Hipster.paragraph(2) }
     address "MyString"
