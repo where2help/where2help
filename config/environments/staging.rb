@@ -49,7 +49,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = ENV["LOG_LEVEL"] || "debug"
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
@@ -96,15 +96,16 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: ENV['FQDN'] }
   config.action_mailer.default charset: 'utf-8'
-end
+  config.action_mailer.asset_host = "https://#{ENV['FQDN']}"
 
-# Sendgrid Settings
-ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.sendgrid.net',
-  :port           => '587',
-  :authentication => :plain,
-  :user_name      => ENV['SENDGRID_USERNAME'],
-  :password       => ENV['SENDGRID_PASSWORD'],
-  :domain         => 'heroku.com',
-  :enable_starttls_auto => true
-}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            ENV["SMTP_EMAIL_ADDRESS"],
+    password:             ENV["SMTP_EMAIL_PASSWORD"],
+    authentication:       :login,
+    enable_starttls_auto: true
+  }
+end

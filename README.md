@@ -66,8 +66,8 @@ To run the server as an interactive shell (to use e.g. byebug or pry)
 Set up the following environment variables:
 
 * DATABASE_URL
-* SENDGRID_USERNAME
-* SENDGRID_PASSWORD
+* SMTP_EMAIL_ADDRESS
+* SMTP_EMAIL_PASSWORD
 * FQDN
 * SECRET_KEY_BASE
 * RAILS_ENV
