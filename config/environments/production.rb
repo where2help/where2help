@@ -101,6 +101,6 @@ Rails.application.configure do
   config.action_mailer.default charset: 'utf-8'
   config.action_mailer.asset_host = "https://#{ENV['FQDN']}"
 
-  config.piwik_host = ENV['PIWIK_HOST']
-  config.piwik_site_id = ENV['PIWIK_SITE_ID']
+  config.matomo_host = ENV['MATOMO_HOST']
+  config.matomo_site_id = ENV['MATOMO_SITE_ID']
 end
