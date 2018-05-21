@@ -48,9 +48,9 @@ end
 
 group :test do
   gem 'database_cleaner'
-  
-  gem 'shoulda-matchers', '= 2.8.0'
-  gem 'shoulda-context', '= 1.2.2'
+
+  gem 'shoulda-matchers'
+  gem 'shoulda-context'
 end
 
 group :development do

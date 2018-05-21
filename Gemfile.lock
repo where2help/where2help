@@ -316,8 +316,8 @@ GEM
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
     shoulda-context (1.2.2)
-    shoulda-matchers (2.8.0)
-      activesupport (>= 3.0.0)
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-commands-rspec (1.0.4)
@@ -405,8 +405,8 @@ DEPENDENCIES
   rspec-json_expectations
   rspec-rails
   sass-rails
-  shoulda-context (= 1.2.2)
-  shoulda-matchers (= 2.8.0)
+  shoulda-context
+  shoulda-matchers
   spring
   spring-commands-rspec
   sucker_punch
