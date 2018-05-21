@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.0'
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'

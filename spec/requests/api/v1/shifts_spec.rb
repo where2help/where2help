@@ -8,7 +8,7 @@ RSpec.describe "Shifts", :type => :request do
                                     headers: token_header,
                                     as: :json
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json).to include_json({opted_id: true})
       expect(Participation.find_by(shift_id: shift.id, user_id: User.first.id)).to be_a Participation
     end
@@ -25,7 +25,7 @@ RSpec.describe "Shifts", :type => :request do
                                      headers: {"Authorization": "Token token=" + response.headers["TOKEN"]},
                                      as: :json
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json).to include_json({opted_out: true})
       expect(Participation.find_by(shift_id: shift.id, user_id: User.first.id)).to be nil
     end

@@ -7,7 +7,7 @@ RSpec.describe "Events", type: :request do
       event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events", as: :json, headers: token_header
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json).to include_json([{"id" => event.id,
                                      "title" => event.title,
                                      "description" => event.description,
@@ -34,7 +34,7 @@ RSpec.describe "Events", type: :request do
       ngo = create :ngo
       event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events?minimal=true", as: :json, headers: token_header
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json).to include_json([{"id" => event.id,
                                      "shifts" =>
                                      [{"id" => event.shifts.first.id,
@@ -53,7 +53,7 @@ RSpec.describe "Events", type: :request do
       event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events/" + event.id.to_s, as: :json, headers: token_header
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json).to include_json({"id" => event.id,
                                     "title" => event.title,
                                     "description" => event.description,
@@ -81,7 +81,7 @@ RSpec.describe "Events", type: :request do
       ngo = create :ngo
       event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events/" + event.id.to_s + "?minimal=true", as: :json, headers: token_header
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json).to include_json({"id" => event.id,
                                     "shifts" =>
                                     [{"id" => event.shifts.first.id,

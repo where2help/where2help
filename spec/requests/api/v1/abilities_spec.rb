@@ -6,7 +6,7 @@ RSpec.describe "Abilities", :type => :request do
       ability = create :ability
       get "/api/v1/abilities", as: :json, headers: token_header
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json[0]).to eq({"id" => ability.id, "name" => ability.name, "description" => ability.description})
     end
   end
@@ -23,7 +23,7 @@ RSpec.describe "Abilities", :type => :request do
     
     it "should enforce login (token)" do
       get "/api/v1/abilities", as: :json
-      expect(response).not_to be_success
+      expect(response).not_to be_successful
     end
   end
 end
