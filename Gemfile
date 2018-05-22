@@ -10,11 +10,10 @@ gem 'sass-rails'
 gem 'bootstrap-sass'
 
 # TODO Upgrade font-awesome-sass to newer version.
-# Starting wkith 5.0.13 however the font-awesome-sass gem depends on
+# Starting with 5.0.13 however the font-awesome-sass gem depends on
 # sassc (instead of sass) and to compile sassc we need GCC 4.6 or newer.
 # On CentOS 6.9 the currently installed version is 4.4.7 (as of
-# 2018-05-22). So for now we have # to stick with the old 5.0.9
-# version which uses sass.
+# 2018-05-22). So for now we have to stick with version 5.0.9.
 # https://github.com/FortAwesome/font-awesome-sass/commit/2cfca7ba60cd7bc065bcabfdbc6c476ca1a2f9ad
 # https://github.com/sass/sassc-ruby/issues/37#issuecomment-205449016
 gem 'font-awesome-sass', '= 5.0.9'
