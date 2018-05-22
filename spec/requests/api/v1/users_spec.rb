@@ -12,7 +12,7 @@ RSpec.describe "Users", :type => :request do
       expect(user.api_token.length).to eq 24
       expect(user.api_token_valid_until).to be > (Time.now + 1.day) 
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response.headers["TOKEN"].length).to eq 24
       expect(json).to include_json({ first_name: user.first_name, 
                                      last_name:  user.last_name,
@@ -57,7 +57,7 @@ RSpec.describe "Users", :type => :request do
       it "logs you out" do
         get "/api/v1/users/logout", as: :json, headers: token_header    
 
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(response.headers["TOKEN"]).to eq nil
         expect(json).to include_json({logged_out: true})
       end
@@ -70,7 +70,7 @@ RSpec.describe "Users", :type => :request do
                                                         password_confirmation: "my new pass" }, 
                                               as: :json, 
                                               headers: token_header
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(json).to include_json({password_changed: true})
         expect(User.first.valid_password?("my new pass")).to eq true
       end
@@ -97,7 +97,7 @@ RSpec.describe "Users", :type => :request do
                                                         password:  "my_password"}, 
                                               as: :json, 
                                               headers: token_header
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(json).to include_json({profile_updated: true})
         expect(User.first.first_name).to eq "Firstname"
         expect(User.first.last_name).to eq "Lastname"
@@ -116,7 +116,7 @@ RSpec.describe "Users", :type => :request do
                                            as: :json
         }.to change(Devise.mailer.deliveries, :count).by(1)
 
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(json).to include_json({password_reset: "maybe"})
       end
     end
@@ -130,7 +130,7 @@ RSpec.describe "Users", :type => :request do
                                                     as: :json
         }.to change(Devise.mailer.deliveries, :count).by(1)
 
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(json).to include_json({resend_confirmation: "maybe"})
       end
     end
@@ -143,7 +143,7 @@ RSpec.describe "Users", :type => :request do
                                            headers: token_header,
                                            as: :json
 
-        expect(response).to be_success
+        expect(response).to be_successful
         expect(json).to include_json({deleted: true})
         
         expect(User.first.confirmation_token).to eq nil

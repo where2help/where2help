@@ -6,7 +6,7 @@ RSpec.describe "Languages", type: :request do
       language = create :language
       get "/api/v1/languages", as: :json, headers: token_header
 
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json[0]).to eq({"id" => language.id, "name" => language.name})
     end
   end  

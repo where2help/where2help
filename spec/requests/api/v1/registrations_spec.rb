@@ -8,7 +8,7 @@ RSpec.describe "Registrations", :type => :request do
                
       post "/api/v1/users/register", params: user, as: :json
       
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(json).to include_json user.except(:password, :password_confirmation)
     end
 
