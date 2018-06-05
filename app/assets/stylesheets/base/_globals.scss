@@ -13,9 +13,6 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: $black-nav;
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    display: none;
-  }
 
   .footer-content {
     position: relative;
