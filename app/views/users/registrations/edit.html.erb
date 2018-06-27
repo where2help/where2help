@@ -9,7 +9,7 @@
         <%= f.input :last_name %>
         <%= f.input :email %>
         <%= f.input :phone %>
-        <%= f.input :locale %>
+        <%= f.input( :locale, member_label: ->(e){ I18n.t("locales.#{e[1]}") }) %>
       </div>
       <div class="col-sm-6">
         <%= f.input :password, autocomplete: "off",

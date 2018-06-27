@@ -1,5 +1,8 @@
 ---
 de:
+  locales:
+    de: Deutsch
+    en: English
   admin_mailer:
     new_ngo:
       content: Neue NGO Account Anfrage
