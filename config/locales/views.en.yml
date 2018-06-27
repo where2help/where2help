@@ -49,6 +49,10 @@ en:
       subject: '[where2help] New sign-up for "%{ongoing_event_title}"'
       teaser: Support for your event
   ngos:
+    nav:
+      events: Events
+      profile: Profile
+      logout: Logout
     events:
       form:
         add_shift: Add Shift
@@ -293,6 +297,10 @@ en:
       subject: "[where2help] Event was changed"
       teaser: "%{title}"
   users:
+    nav:
+      profile: Profile
+      events: Events
+      schedule: Schedule
     registrations:
       edit:
         title: Edit Profile
