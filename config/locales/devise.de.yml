@@ -87,7 +87,7 @@ de:
         title: "%{resource} bearbeiten"
         unhappy: Unglücklich
         update: Aktualisieren
-        we_need_your_current_password_to_confirm_your_changes: Wir benötigen Das aktuelle Passwort, um die Änderung zu bestätigen.
+        we_need_your_current_password_to_confirm_your_changes: Wir benötigen das aktuelle Passwort, um die Änderung zu bestätigen.
       new:
         sign_up: Registrieren
       signed_up: Du hast Dich erfolgreich registriert.
