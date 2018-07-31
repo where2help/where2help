@@ -99,3 +99,5 @@ gem 'nokogiri'
 gem 'invisible_captcha'
 
 gem 'rails-i18n', '~> 5.1' # For rails 5.0.x, 5.1.x and 5.2.x
+
+gem 'dotenv-rails'
