@@ -3,10 +3,10 @@ FactoryBot.define do
     ngo
     title { Faker::StarWars.planet }
     description { Faker::Hipster.paragraph(2) }
-    address "MyString"
-    person "Mrs. Doe, tel: 012345678"
-    lat 1.5
-    lng 1.5
+    address { "MyString" }
+    person { "Mrs. Doe, tel: 012345678" }
+    lat { 1.5 }
+    lng { 1.5 }
 
     trait :published do
       published_at { Time.now }

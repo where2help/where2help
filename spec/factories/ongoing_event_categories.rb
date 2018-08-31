@@ -6,6 +6,6 @@ FactoryBot.define do
     sequence :name_de do |n|
       "MyString#{n}"
     end
-    ordinal 100
+    ordinal { 100 }
   end
 end
