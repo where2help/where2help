@@ -1,25 +1,25 @@
 FactoryBot.define do
   factory :shift do
-    starts_at { Time.now+1.day }
-    ends_at { Time.now+1.day+2.hours }
+    starts_at { Time.now + 1.day }
+    ends_at { Time.now + 1.day + 2.hours }
     volunteers_needed { 10 }
     volunteers_count { 0 }
 
     trait :with_event do
-      after :build do |shift, evaluator|
+      after :build do |shift, _evaluator|
         shift.event = FactoryBot.build(:event)
       end
     end
 
     trait :with_ngo do
-      after :build do |shift, evaluator|
+      after :build do |shift, _evaluator|
         shift.event.ngo = FactoryBot.build(:ngo)
       end
     end
 
     trait :past do
-      starts_at { Time.now-1.day }
-      ends_at { Time.now-1.day+2.hours }
+      starts_at { Time.now - 1.day }
+      ends_at { Time.now - 1.day + 2.hours }
     end
 
     trait :full do
@@ -28,7 +28,7 @@ FactoryBot.define do
     end
 
     trait :skip_validate do
-      to_create {|instance| instance.save(validate: false) }
+      to_create { |instance| instance.save(validate: false) }
     end
   end
 end

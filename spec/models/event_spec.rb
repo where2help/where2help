@@ -7,7 +7,7 @@ RSpec.describe Event, type: :model do
   it { is_expected.to accept_nested_attributes_for :shifts }
 
   describe 'validations' do
-    it { expect(create :event, :with_shift).to be_valid }
+    it { expect(create(:event, :with_shift)).to be_valid }
 
     it { is_expected.to validate_presence_of :address }
     it { is_expected.to validate_presence_of :person }
@@ -19,9 +19,9 @@ RSpec.describe Event, type: :model do
 
     it 'destroys shift record on destroy' do
       create :shift, event: event
-      expect{
+      expect  do
         event.destroy
-      }.to change{Shift.count}.by -1
+      end.to change { Shift.count }.by -1
     end
   end
 
@@ -60,11 +60,11 @@ RSpec.describe Event, type: :model do
       subject(:events) { Event.with_available_shifts }
 
       before do
-        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
-        create :shift, event: first_event, starts_at: Time.now+1.hour
-        create :shift, event: second_event, starts_at: Time.now+2.hours
+        create :shift, :skip_validate, event: past_event, starts_at: Time.now - 1.hour, ends_at: Time.now - 30.minutes
+        create :shift, event: first_event, starts_at: Time.now + 1.hour
+        create :shift, event: second_event, starts_at: Time.now + 2.hours
         create :shift, :full, event: full_event
-        create :shift, event: third_event, starts_at: Time.now+3.hours
+        create :shift, event: third_event, starts_at: Time.now + 3.hours
       end
 
       it 'excludes pending events' do
@@ -88,8 +88,8 @@ RSpec.describe Event, type: :model do
       let(:past_event) { create :event, :skip_validate }
 
       before do
-        create :shift, event: upcoming_event, starts_at: Time.now+1.hour
-        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
+        create :shift, event: upcoming_event, starts_at: Time.now + 1.hour
+        create :shift, :skip_validate, event: past_event, starts_at: Time.now - 1.hour, ends_at: Time.now - 30.minutes
       end
 
       describe 'upcoming' do
@@ -160,20 +160,20 @@ RSpec.describe Event, type: :model do
       Event.filter(:upcoming)
     end
     it 'raises ArgumentError when passing a non-existing scope' do
-      expect{
+      expect do
         Event.filter(:some_random_crap123)
-      }.to raise_error ArgumentError
+      end.to raise_error ArgumentError
     end
   end
 
   describe '#starts_at and #ends_at' do
     let!(:event) { create :event, :with_shift }
-    let!(:first_shift) { create :shift, event: event, starts_at: Time.now+1.hour }
-    let!(:last_shift) { create :shift, event: event, ends_at: Time.now+3.days }
+    let!(:first_shift) { create :shift, event: event, starts_at: Time.now + 1.hour }
+    let!(:last_shift) { create :shift, event: event, ends_at: Time.now + 3.days }
 
     before do
-      create :shift, :full, event: event, starts_at: Time.now+1.hour
-      create :shift, :skip_validate, :past, event: event, starts_at: Time.now+1.hour
+      create :shift, :full, event: event, starts_at: Time.now + 1.hour
+      create :shift, :skip_validate, :past, event: event, starts_at: Time.now + 1.hour
     end
 
     it 'returns starts_at of first available_shift' do
@@ -227,9 +227,9 @@ RSpec.describe Event, type: :model do
 
     context 'when user no participant' do
       it 'returns a new ProgressBar without offset' do
-        expect(ProgressBar).to receive(:new).
-          with(progress: anything, total: anything, offset: 0).
-          and_call_original
+        expect(ProgressBar).to receive(:new)
+          .with(progress: anything, total: anything, offset: 0)
+          .and_call_original
         expect(subject).to be_a ProgressBar
       end
     end
@@ -240,9 +240,9 @@ RSpec.describe Event, type: :model do
       end
 
       it 'returns a new ProgressBar with offset 1' do
-        expect(ProgressBar).to receive(:new).
-          with(progress: anything, total: anything, offset: 1).
-          and_call_original
+        expect(ProgressBar).to receive(:new)
+          .with(progress: anything, total: anything, offset: 1)
+          .and_call_original
         expect(subject).to be_a ProgressBar
       end
     end
@@ -250,9 +250,9 @@ RSpec.describe Event, type: :model do
       let(:user) { nil }
 
       it 'returns a new ProgressBar without offset' do
-        expect(ProgressBar).to receive(:new).
-          with(progress: anything, total: anything, offset: 0).
-          and_call_original
+        expect(ProgressBar).to receive(:new)
+          .with(progress: anything, total: anything, offset: 0)
+          .and_call_original
         expect(subject).to be_a ProgressBar
       end
     end
@@ -280,20 +280,20 @@ RSpec.describe Event, type: :model do
       let!(:event) { create(:event, :with_shift) }
 
       it 'adds published_at timestamp' do
-        expect {
+        expect do
           event.publish!
           event.reload
-        }.to change { event.published_at }
+        end.to change { event.published_at }
       end
     end
     context 'when already published' do
       let!(:event) { create(:event, :with_shift, published_at: 2.days.ago) }
 
       it 'does not update the record' do
-        expect {
+        expect do
           event.publish!
           event.reload
-        }.not_to change { event.published_at.to_i }
+        end.not_to change { event.published_at.to_i }
       end
     end
   end

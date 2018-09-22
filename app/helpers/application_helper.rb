@@ -3,7 +3,7 @@ module ApplicationHelper
     success: 'alert-success',
     error: 'alert-error',
     alert: 'alert-warning',
-    notice: 'alert-info'
+    notice: 'alert-info',
   }
 
   def navigation_for(visitor)

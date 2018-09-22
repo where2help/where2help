@@ -32,14 +32,14 @@ class OngoingEventOperation
 
       private
 
-        def notify_ngo!(ngo, ongoing_event, user)
-          NgoMailer
-            .ongoing_event_opt_in(
-              ngo: ngo,
-              ongoing_event: ongoing_event,
-              user: user
-            ).deliver_later
-        end
+      def notify_ngo!(ngo, ongoing_event, user)
+        NgoMailer
+          .ongoing_event_opt_in(
+            ngo: ngo,
+            ongoing_event: ongoing_event,
+            user: user
+          ).deliver_later
+      end
     end
 
     class OptOut < Operation
@@ -52,4 +52,3 @@ class OngoingEventOperation
     end
   end
 end
-

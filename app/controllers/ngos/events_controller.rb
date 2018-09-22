@@ -34,7 +34,7 @@ class Ngos::EventsController < ApplicationController
   end
 
   def update
-    @operation = EventOperation::Ngo::Update.(
+    @operation = EventOperation::Ngo::Update.call(
       ngo: current_ngo,
       event_id: params[:id],
       event: event_params,
@@ -55,10 +55,10 @@ class Ngos::EventsController < ApplicationController
   end
 
   def publish
-    if find_ngo_event.publish!
-      flash[:notice] = t('ngos.events.messages.publish_success')
+    flash[:notice] = if find_ngo_event.publish!
+      t('ngos.events.messages.publish_success')
     else
-      flash[:notice] = t('ngos.events.messages.publish_fail')
+      t('ngos.events.messages.publish_fail')
     end
     redirect_to [:ngos, @event]
   end
@@ -66,10 +66,12 @@ class Ngos::EventsController < ApplicationController
   def cal
     cal = IcalFile.call item: find_ngo_event, attendee: current_ngo
     respond_to do |format|
-      format.ics { send_data(cal,
-        filename: 'ical.ics',
-        disposition: 'inline; filename=ical.ics',
-        type: 'text/calendar') }
+      format.ics do
+        send_data(cal,
+          filename: 'ical.ics',
+          disposition: 'inline; filename=ical.ics',
+          type: 'text/calendar')
+      end
     end
   end
 

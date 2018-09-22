@@ -1,0 +1,14 @@
+inherit_from:
+  - https://byteq.com/code-style/ruby/rubocop.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'vendor/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
