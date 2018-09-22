@@ -8,10 +8,10 @@ class OngoingEventsController < ApplicationController
       @operation = OngoingEventOperation::User::Index.present(
         ongoing_event_category_id: params[:ongoing_event_category_id]
       )
-      @events = @operation.model.page(params[:page].to_i-1).offset(3)
+      @events = @operation.model.page(params[:page].to_i - 1).offset(3)
     else
       @operation =
-        OngoingEventCategoryOperation::User::Index.present()
+        OngoingEventCategoryOperation::User::Index.present
       @ongoing_event_categories = @operation.model
 
       @category_events = (
@@ -42,4 +42,3 @@ class OngoingEventsController < ApplicationController
     redirect_to schedule_path, notice: t('.notice')
   end
 end
-

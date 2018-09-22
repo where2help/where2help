@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   acts_as_paranoid
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :confirmable, :validatable,
-         :lockable
+    :recoverable, :rememberable, :confirmable, :validatable,
+    :lockable
 
   enum locale: { de: 0, en: 1 }
 
@@ -23,5 +23,7 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :abilities, :languages
 
-  def locked?; access_locked? end
+  def locked?
+    access_locked?
+  end
 end

@@ -3,21 +3,21 @@ module FormtasticBootstrap
     module Base
       module Timeish
         FRAGMENT_CLASSES = {
-          :year   => "col-sm-2",
-          :month  => "col-sm-2",
-          :day    => "col-sm-2",
-          :hour   => "col-sm-offset-2 col-sm-2",
-          :minute => "col-sm-2",
-          :second => "col-sm-0"
+          year: "col-sm-2",
+          month: "col-sm-2",
+          day: "col-sm-2",
+          hour: "col-sm-offset-2 col-sm-2",
+          minute: "col-sm-2",
+          second: "col-sm-0",
         }
 
         FRAGMENT_PLACEHOLDERS = {
-          :year   => nil,
-          :month  => nil,
-          :day    => nil,
-          :hour   => nil,
-          :minute => nil,
-          :second => nil
+          year: nil,
+          month: nil,
+          day: nil,
+          hour: nil,
+          minute: nil,
+          second: nil,
         }
 
         def to_html
@@ -34,13 +34,12 @@ module FormtasticBootstrap
         def row_wrapping(&block)
           template.content_tag(:div,
             template.capture(&block).html_safe,
-            :class => 'row'
-          )
+            class: 'row')
         end
 
         def fragment_html(fragment)
-          template.content_tag(:div, :class => fragment_class(fragment)) do
-            opts = input_options.merge(:prefix => fragment_prefix, :field_name => fragment_name(fragment), :default => value, :include_blank => include_blank?)
+          template.content_tag(:div, class: fragment_class(fragment)) do
+            opts = input_options.merge(prefix: fragment_prefix, field_name: fragment_name(fragment), default: value, include_blank: include_blank?)
             template.send(:"select_#{fragment}", value, opts, fragment_input_html_options(fragment))
           end
         end
@@ -60,7 +59,6 @@ module FormtasticBootstrap
         def fragment_placeholder(fragment)
           (options[:fragment_placeholders] || self.class::FRAGMENT_PLACEHOLDERS)[fragment.to_sym]
         end
-
       end
     end
   end
