@@ -1,2 +1,5 @@
 inherit_gem:
   relaxed-rubocop: .rubocop.yml
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
