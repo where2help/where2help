@@ -9,7 +9,7 @@ gem 'sass-rails'
 
 gem 'bootstrap-sass'
 
-# TODO: Upgrade font-awesome-sass to newer version.
+# TODO Upgrade font-awesome-sass to newer version.
 # Starting with 5.0.13 however the font-awesome-sass gem depends on
 # sassc (instead of sass) and to compile sassc we need GCC 4.6 or newer.
 # On CentOS 6.9 the currently installed version is 4.4.7 (as of
@@ -38,6 +38,7 @@ gem 'rails_autolink'
 gem 'faker', require: false
 
 gem 'pry-rails'
+
 
 group :production do
   gem 'rails_12factor'

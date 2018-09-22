@@ -21,7 +21,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}",
+      'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -64,7 +64,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.asset_host = "http://localhost:3000"
   config.action_mailer.default_options = {
-    from: 'where2help <no-reply@development-where2help.herokuapp.com>',
+    from: 'where2help <no-reply@development-where2help.herokuapp.com>'
   }
 
   # Use letter_opener gem by default

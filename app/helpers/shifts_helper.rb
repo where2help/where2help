@@ -13,7 +13,7 @@ module ShiftsHelper
     end
   end
 
-  def load_more_shifts_btn(shifts, params = {})
+  def load_more_shifts_btn(shifts, params={})
     link_to_next_page shifts, t('shifts.load_more'),
       params: params,
       remote: true,

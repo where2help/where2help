@@ -8,10 +8,10 @@ class LandingPage
       def init
         dir_name = "landing_page"
         dir = Rails.root.join("app", "assets", "images", dir_name, "*.jpg")
-        @images = Dir[dir].map do |path|
+        @images = Dir[dir].map { |path|
           file = path.split("/").last
           "#{dir_name}/#{file}"
-        end
+        }
       end
 
       # This is a global, for all users function so we don't care about

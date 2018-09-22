@@ -10,13 +10,13 @@ RSpec.describe SchedulesController, type: :controller do
     end
     context 'when logged in' do
       let(:user) { create :user }
-      let(:upcoming_shifts) { create_list :shift, 10, :with_event, :skip_validate, starts_at: 1.day.from_now, ends_at: 1.day.from_now + 2.hours }
-      let(:past_shifts) { create_list :shift, 10, :with_event, :skip_validate, starts_at: 1.day.ago, ends_at: 1.day.ago + 2.hours }
+      let(:upcoming_shifts) { create_list :shift, 10, :with_event, :skip_validate, starts_at: 1.day.from_now, ends_at: 1.day.from_now+2.hours }
+      let(:past_shifts) { create_list :shift, 10, :with_event, :skip_validate, starts_at: 1.day.ago, ends_at: 1.day.ago+2.hours }
 
       before do
         sign_in user
-        upcoming_shifts.each { |s| create :participation, user: user, shift: s }
-        past_shifts.each { |s| create :participation, user: user, shift: s }
+        upcoming_shifts.each{|s| create :participation, user: user, shift: s}
+        past_shifts.each{|s| create :participation, user: user, shift: s}
       end
 
       context 'when html request' do
@@ -29,14 +29,14 @@ RSpec.describe SchedulesController, type: :controller do
         end
         context 'with :past filter' do
           it 'assigns first 10 past' do
-            get :show, params: { filter: :past }
+            get :show, params: {filter: :past}
             actual = (assigns :collection).map(&:object)
             expect(actual).to match_array past_shifts
           end
         end
         context 'with :all filter' do
           it 'assigns first 10' do
-            get :show, params: { filter: :all }
+            get :show, params: {filter: :all}
             actual = (assigns :collection).map(&:object)
             expect(actual).to match_array (past_shifts + upcoming_shifts)
           end

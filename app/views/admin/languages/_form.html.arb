@@ -1,4 +1,4 @@
-active_admin_form_for [:admin, resource] do |_f|
+active_admin_form_for [:admin, resource] do |f|
   semantic_errors
   inputs 'Language' do
     input :name

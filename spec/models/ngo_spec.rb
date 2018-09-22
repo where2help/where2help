@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Ngo, type: :model do
+
   it { is_expected.to have_one(:contact).dependent :destroy }
   it { is_expected.to define_enum_for(:locale).with([:de, :en]) }
   it { is_expected.to act_as_paranoid }
 
   describe 'validations' do
-    it { expect(create(:ngo)).to be_valid }
+    it { expect(create :ngo).to be_valid }
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :contact }
     it { is_expected.to validate_acceptance_of :terms_and_conditions }
@@ -29,9 +30,9 @@ RSpec.describe Ngo, type: :model do
 
       it 'marks contact record as deleted' do
         contact = create(:contact, ngo: ngo)
-        expect do
+        expect {
           ngo.destroy
-        end.to change { contact.deleted_at }
+        }.to change { contact.deleted_at }
       end
     end
   end
@@ -43,28 +44,28 @@ RSpec.describe Ngo, type: :model do
       let!(:ngo) { create(:ngo) }
 
       it 'adds an admin_confirmed_at timestamp' do
-        expect do
+        expect {
           ngo.confirm!
           ngo.reload
-        end.to change { ngo.admin_confirmed_at }
+        }.to change { ngo.admin_confirmed_at }
       end
 
       it 'send confirmation email to ngo' do
-        expect { ngo.confirm! }.to have_enqueued_job(ActionMailer::DeliveryJob)
+        expect{ ngo.confirm! }.to have_enqueued_job(ActionMailer::DeliveryJob)
       end
     end
     context 'when already confirmed by admin' do
       let!(:ngo) { create(:ngo, admin_confirmed_at: 2.days.ago) }
 
       it 'does not update the record' do
-        expect do
+        expect {
           ngo.confirm!
           ngo.reload
-        end.not_to change { ngo.admin_confirmed_at.to_i }
+        }.not_to change { ngo.admin_confirmed_at.to_i }
       end
 
       it 'does not send an email' do
-        expect { ngo.confirm! }.not_to have_enqueued_job(ActionMailer::DeliveryJob)
+        expect{ ngo.confirm! }.not_to have_enqueued_job(ActionMailer::DeliveryJob)
       end
     end
   end
@@ -88,7 +89,7 @@ RSpec.describe Ngo, type: :model do
 
   describe '#new_event' do
     let(:ngo) { create :ngo, :confirmed }
-    subject { ngo.new_event }
+    subject{ ngo.new_event }
 
     it 'retuns an event with one shift' do
       expect(subject).to be_a_new Event

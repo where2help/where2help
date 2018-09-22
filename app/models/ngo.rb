@@ -1,7 +1,7 @@
 class Ngo < ApplicationRecord
   acts_as_paranoid
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :confirmable, :validatable
+         :recoverable, :rememberable, :confirmable, :validatable
 
   enum locale: { de: 0, en: 1 }
 
@@ -21,7 +21,7 @@ class Ngo < ApplicationRecord
   after_commit :request_admin_confirmation, on: :create
 
   def confirm!
-    unless admin_confirmed?
+    if !admin_confirmed?
       update(admin_confirmed_at: Time.now)
       send_admin_confirmation
     end
@@ -32,7 +32,7 @@ class Ngo < ApplicationRecord
     _state || 'pending'
   end
 
-  def self.send_reset_password_instructions(attributes = {})
+  def self.send_reset_password_instructions(attributes={})
     recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
     if !recoverable.confirmed?
       recoverable.errors[:base] << I18n.t('devise.failure.not_admin_confirmed')
@@ -49,7 +49,7 @@ class Ngo < ApplicationRecord
 
   # custom message if requires admin confirmation
   def inactive_message
-    unless confirmed?
+    if !confirmed?
       if email_confirmed?
         return :not_admin_confirmed
       else
@@ -61,7 +61,7 @@ class Ngo < ApplicationRecord
 
   def new_event
     t           = Time.now + 15.minutes
-    starts      = t - t.sec - t.min % 15 * 60
+    starts      = t - t.sec - t.min%15*60
     ends        = starts +  2.hours
     shifts_attr = [{ volunteers_needed: 1, starts_at: starts, ends_at: ends }]
     events.build(shifts_attributes: shifts_attr)

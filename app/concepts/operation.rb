@@ -7,9 +7,10 @@ class Operation
     op
   end
 
-  def process(_params)
+  def process(params)
     raise NotImplementedError, "Need to implement the #process method in inherited classes"
   end
+
 
   def self.present(params = {})
     op = new

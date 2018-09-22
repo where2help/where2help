@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20170221111814) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,9 +31,9 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index %w(author_type author_id), name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-    t.index %w(namespace), name: "index_active_admin_comments_on_namespace", using: :btree
-    t.index %w(resource_type resource_id), name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -47,8 +48,8 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.index %w(deleted_at), name: "index_contacts_on_deleted_at", using: :btree
-    t.index %w(ngo_id), name: "index_contacts_on_ngo_id", using: :btree
+    t.index ["deleted_at"], name: "index_contacts_on_deleted_at", using: :btree
+    t.index ["ngo_id"], name: "index_contacts_on_ngo_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -64,9 +65,9 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.datetime "published_at"
     t.string   "person"
     t.string   "approximate_address"
-    t.index %w(deleted_at), name: "index_events_on_deleted_at", using: :btree
-    t.index %w(ngo_id), name: "index_events_on_ngo_id", where: "(deleted_at IS NULL)", using: :btree
-    t.index %w(published_at), name: "index_events_on_published_at", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["deleted_at"], name: "index_events_on_deleted_at", using: :btree
+    t.index ["ngo_id"], name: "index_events_on_ngo_id", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["published_at"], name: "index_events_on_published_at", where: "(deleted_at IS NULL)", using: :btree
   end
 
   create_table "languages", force: :cascade do |t|
@@ -87,14 +88,14 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "locale", default: 0
+    t.integer  "locale",                 default: 0
     t.datetime "deleted_at"
     t.datetime "admin_confirmed_at"
-    t.index %w(admin_confirmed_at), name: "index_ngos_on_admin_confirmed_at", where: "(deleted_at IS NULL)", using: :btree
-    t.index %w(confirmation_token), name: "index_ngos_on_confirmation_token", where: "(deleted_at IS NULL)", using: :btree
-    t.index %w(deleted_at), name: "index_ngos_on_deleted_at", using: :btree
-    t.index %w(email), name: "index_ngos_on_email", where: "(deleted_at IS NULL)", using: :btree
-    t.index %w(reset_password_token), name: "index_ngos_on_reset_password_token", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["admin_confirmed_at"], name: "index_ngos_on_admin_confirmed_at", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["confirmation_token"], name: "index_ngos_on_confirmation_token", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["deleted_at"], name: "index_ngos_on_deleted_at", using: :btree
+    t.index ["email"], name: "index_ngos_on_email", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["reset_password_token"], name: "index_ngos_on_reset_password_token", where: "(deleted_at IS NULL)", using: :btree
   end
 
   create_table "ongoing_event_categories", force: :cascade do |t|
@@ -114,7 +115,7 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.string   "contact_person"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "volunteers_count", default: 0
+    t.integer  "volunteers_count",          default: 0
     t.integer  "volunteers_needed"
     t.datetime "deleted_at"
     t.datetime "published_at"
@@ -123,16 +124,16 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "ongoing_event_category_id"
-    t.index %w(address), name: "index_ongoing_events_on_address", using: :btree
-    t.index %w(deleted_at), name: "index_ongoing_events_on_deleted_at", using: :btree
-    t.index %w(end_date), name: "index_ongoing_events_on_end_date", using: :btree
-    t.index %w(lat), name: "index_ongoing_events_on_lat", using: :btree
-    t.index %w(lng), name: "index_ongoing_events_on_lng", using: :btree
-    t.index %w(ngo_id), name: "index_ongoing_events_on_ngo_id", using: :btree
-    t.index %w(ongoing_event_category_id), name: "index_ongoing_events_on_ongoing_event_category_id", using: :btree
-    t.index %w(published_at), name: "index_ongoing_events_on_published_at", using: :btree
-    t.index %w(start_date), name: "index_ongoing_events_on_start_date", using: :btree
-    t.index %w(title), name: "index_ongoing_events_on_title", using: :btree
+    t.index ["address"], name: "index_ongoing_events_on_address", using: :btree
+    t.index ["deleted_at"], name: "index_ongoing_events_on_deleted_at", using: :btree
+    t.index ["end_date"], name: "index_ongoing_events_on_end_date", using: :btree
+    t.index ["lat"], name: "index_ongoing_events_on_lat", using: :btree
+    t.index ["lng"], name: "index_ongoing_events_on_lng", using: :btree
+    t.index ["ngo_id"], name: "index_ongoing_events_on_ngo_id", using: :btree
+    t.index ["ongoing_event_category_id"], name: "index_ongoing_events_on_ongoing_event_category_id", using: :btree
+    t.index ["published_at"], name: "index_ongoing_events_on_published_at", using: :btree
+    t.index ["start_date"], name: "index_ongoing_events_on_start_date", using: :btree
+    t.index ["title"], name: "index_ongoing_events_on_title", using: :btree
   end
 
   create_table "participations", force: :cascade do |t|
@@ -142,10 +143,10 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.datetime "updated_at",       null: false
     t.datetime "deleted_at"
     t.integer  "ongoing_event_id"
-    t.index %w(deleted_at), name: "index_participations_on_deleted_at", using: :btree
-    t.index %w(ongoing_event_id), name: "index_participations_on_ongoing_event_id", using: :btree
-    t.index %w(shift_id), name: "index_participations_on_shift_id", where: "(deleted_at IS NULL)", using: :btree
-    t.index %w(user_id), name: "index_participations_on_user_id", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["deleted_at"], name: "index_participations_on_deleted_at", using: :btree
+    t.index ["ongoing_event_id"], name: "index_participations_on_ongoing_event_id", using: :btree
+    t.index ["shift_id"], name: "index_participations_on_shift_id", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["user_id"], name: "index_participations_on_user_id", where: "(deleted_at IS NULL)", using: :btree
   end
 
   create_table "qualifications", force: :cascade do |t|
@@ -153,8 +154,8 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.integer  "ability_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index %w(ability_id), name: "index_qualifications_on_ability_id", using: :btree
-    t.index %w(user_id), name: "index_qualifications_on_user_id", using: :btree
+    t.index ["ability_id"], name: "index_qualifications_on_ability_id", using: :btree
+    t.index ["user_id"], name: "index_qualifications_on_user_id", using: :btree
   end
 
   create_table "shifts", force: :cascade do |t|
@@ -162,12 +163,12 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.integer  "volunteers_needed"
-    t.integer  "volunteers_count", default: 0
+    t.integer  "volunteers_count",  default: 0
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.datetime "deleted_at"
-    t.index %w(deleted_at), name: "index_shifts_on_deleted_at", using: :btree
-    t.index %w(event_id), name: "index_shifts_on_event_id", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["deleted_at"], name: "index_shifts_on_deleted_at", using: :btree
+    t.index ["event_id"], name: "index_shifts_on_event_id", where: "(deleted_at IS NULL)", using: :btree
   end
 
   create_table "spoken_languages", force: :cascade do |t|
@@ -175,8 +176,8 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.integer  "language_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index %w(language_id), name: "index_spoken_languages_on_language_id", using: :btree
-    t.index %w(user_id), name: "index_spoken_languages_on_user_id", using: :btree
+    t.index ["language_id"], name: "index_spoken_languages_on_language_id", using: :btree
+    t.index ["user_id"], name: "index_spoken_languages_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -190,21 +191,21 @@ ActiveRecord::Schema.define(version: 20170221111814) do
     t.datetime "confirmation_sent_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "admin", default: false
+    t.boolean  "admin",                  default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "api_token"
     t.datetime "api_token_valid_until"
-    t.integer  "locale", default: 0
+    t.integer  "locale",                 default: 0
     t.string   "phone"
     t.datetime "deleted_at"
     t.datetime "locked_at"
     t.datetime "anonymized_at"
-    t.index %w(api_token), name: "index_users_on_api_token", where: "(deleted_at IS NULL)", using: :btree
-    t.index %w(confirmation_token), name: "index_users_on_confirmation_token", where: "(deleted_at IS NULL)", using: :btree
-    t.index %w(deleted_at), name: "index_users_on_deleted_at", using: :btree
-    t.index %w(email), name: "index_users_on_email", where: "(deleted_at IS NULL)", using: :btree
-    t.index %w(reset_password_token), name: "index_users_on_reset_password_token", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["api_token"], name: "index_users_on_api_token", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
+    t.index ["email"], name: "index_users_on_email", where: "(deleted_at IS NULL)", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", where: "(deleted_at IS NULL)", using: :btree
   end
 
   add_foreign_key "events", "ngos"

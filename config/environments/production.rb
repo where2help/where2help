@@ -54,7 +54,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [:request_id]
+  config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -94,7 +94,7 @@ Rails.application.configure do
 
   config.action_mailer.default_options = {
     from: 'Where2Help <noreply@where2help.wien>',
-    reply_to: 'Where2Help <office@where2help.wien>',
+    reply_to: 'Where2Help <office@where2help.wien>'
   }
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.default_url_options = { host: ENV['FQDN'] }

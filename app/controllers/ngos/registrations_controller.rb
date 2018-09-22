@@ -59,9 +59,7 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
           :last_name,
           :street,
           :zip,
-          :city,
-        ]
-      )
+          :city])
     end
   end
 
@@ -79,7 +77,7 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def after_update_path_for(_resource)
+  def after_update_path_for(resource)
     edit_ngo_registration_path
   end
 

@@ -44,8 +44,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
       user_params.permit(:email, :password, :first_name, :last_name,
-        :phone, :terms_and_conditions,
-        ability_ids: [], language_ids: [])
+                         :phone, :terms_and_conditions,
+                         { ability_ids: [], language_ids: [] })
     end
   end
 
@@ -54,11 +54,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update) do |user_params|
       user_params.permit(:email, :password, :current_password, :first_name,
         :last_name, :phone, :password_confirmation, :locale,
-        ability_ids: [], language_ids: [])
+        { ability_ids: [], language_ids: [] })
     end
   end
 
-  def after_update_path_for(_resource)
+  def after_update_path_for(resource)
     edit_user_registration_path
   end
 

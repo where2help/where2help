@@ -5,7 +5,7 @@ RSpec.describe OngoingEvent, type: :model do
   it { is_expected.to belong_to :ngo }
 
   describe 'validations' do
-    it { expect(create(:ongoing_event)).to be_valid }
+    it { expect(create :ongoing_event).to be_valid }
 
     it { is_expected.to validate_presence_of :address }
     it { is_expected.to validate_presence_of :contact_person }
@@ -70,20 +70,20 @@ RSpec.describe OngoingEvent, type: :model do
       let!(:event) { create(:ongoing_event) }
 
       it 'adds published_at timestamp' do
-        expect do
+        expect {
           event.publish!
           event.reload
-        end.to change { event.published_at }
+        }.to change { event.published_at }
       end
     end
     context 'when already published' do
       let!(:event) { create(:ongoing_event, published_at: 2.days.ago) }
 
       it 'does not update the record' do
-        expect do
+        expect {
           event.publish!
           event.reload
-        end.not_to change { event.published_at.to_i }
+        }.not_to change { event.published_at.to_i }
       end
     end
   end

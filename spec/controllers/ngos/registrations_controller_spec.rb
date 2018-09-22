@@ -12,16 +12,15 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
 
   describe 'POST create' do
     context 'with valid attributes' do
-      let(:params) do
+      let(:params) {
         {
-          ngo: attributes_for(:ngo, email: 'ngo@ngo.we').merge(
+          ngo: attributes_for(:ngo, email: 'ngo@ngo.we').merge({
             password: 'supersecret',
             password_confirmation: 'supersecret',
             terms_and_conditions: 1,
-            contact_attributes: attributes_for(:contact),
-          ),
+            contact_attributes: attributes_for(:contact)})
         }
-      end
+      }
 
       it 'returns a 302 found response' do
         post :create, params: params
@@ -29,15 +28,15 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
       end
 
       it 'creates new ngo record' do
-        expect do
+        expect{
           post :create, params: params
-        end.to change { Ngo.count }.by 1
+        }.to change{Ngo.count}.by 1
       end
 
       it 'creates new contact record' do
-        expect do
+        expect{
           post :create, params: params
-        end.to change { Contact.count }.by 1
+        }.to change{Contact.count}.by 1
       end
 
       it 'sends email to ngo' do
@@ -57,14 +56,13 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
       end
     end
     context 'with missing attributes' do
-      let(:params) do
+      let(:params) {
         {
-          ngo: attributes_for(:ngo, email: 'ngo@ngo.at').merge(
+          ngo: attributes_for(:ngo, email: 'ngo@ngo.at').merge({
             password: 'supersecret',
-            password_confirmation: 'supersecret',
-          ),
+            password_confirmation: 'supersecret'})
         }
-      end
+      }
 
       it 'returns a 200 ok status' do
         post :create, params: params
@@ -72,9 +70,9 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
       end
 
       it 'does not create new ngo record' do
-        expect do
+        expect{
           post :create, params: params
-        end.not_to change { Ngo.count }
+        }.not_to change{Ngo.count}
       end
     end
   end
@@ -92,7 +90,7 @@ RSpec.describe Ngos::RegistrationsController, type: :controller do
       let(:params) do
         {
           ngo: attributes_for(:ngo, current_password: ngo.password)
-            .merge(contact_attributes: attributes_for(:contact)),
+            .merge({ contact_attributes: attributes_for(:contact) })
         }
       end
 

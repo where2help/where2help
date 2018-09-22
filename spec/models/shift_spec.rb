@@ -7,7 +7,7 @@ RSpec.describe Shift, type: :model do
   it { is_expected.to act_as_paranoid }
 
   describe 'validations' do
-    it { expect(create(:shift, :with_event)).to be_valid }
+    it { expect(create :shift, :with_event).to be_valid }
 
     it { is_expected.to validate_presence_of(:volunteers_needed) }
     it { is_expected.to validate_presence_of(:starts_at) }
@@ -17,48 +17,48 @@ RSpec.describe Shift, type: :model do
   describe 'callbacks' do
     describe 'before_destroy' do
       let(:shift) { create :shift, :with_event, :with_ngo }
-      before { create_list :participation, 4, shift: shift }
+      before { create_list :participation, 4, shift: shift}
 
       it 'sends an email to each user' do
-        expect  do
+        expect{
           shift.destroy
-        end.to change { ActionMailer::Base.deliveries.count }.by 4
+        }.to change { ActionMailer::Base.deliveries.count }.by 4
       end
     end
     describe 'users' do
-      let(:shift) { create :shift, :with_event, :with_ngo }
+      let(:shift) { create :shift, :with_event, :with_ngo}
       let(:user) { create :user }
 
       before { shift.users << user }
 
       it 'destroys join record on destroy' do
-        expect  do
+        expect{
           shift.destroy
-        end.to change { Participation.count }.by -1
+        }.to change{Participation.count}.by -1
       end
       it 'does not destroy user record on destroy' do
-        expect  do
+        expect{
           shift.destroy
-        end.not_to change { User.count }
+        }.not_to change{User.count}
       end
     end
 
     describe 'before_update' do
       let(:shift) { create :shift, :with_event, :with_ngo }
-      before { create_list :participation, 4, shift: shift }
+      before { create_list :participation, 4, shift: shift}
 
       it 'sends an email to each user' do
-        expect  do
+        expect{
           shift.save
-        end.to change { ActionMailer::Base.deliveries.count }.by 4
+        }.to change { ActionMailer::Base.deliveries.count }.by 4
       end
     end
   end
 
   describe 'scopes' do
     describe '.past' do
-      let!(:upcoming) { create :shift, :with_event, starts_at: 1.day.from_now, ends_at: 1.day.from_now + 2.hours }
-      let!(:oldest) { create :shift, :with_event, :skip_validate, starts_at: 1.day.ago, ends_at: 1.day.ago + 2.hours }
+      let!(:upcoming) { create :shift, :with_event, starts_at: 1.day.from_now, ends_at: 1.day.from_now+2.hours }
+      let!(:oldest) { create :shift, :with_event, :skip_validate, starts_at: 1.day.ago, ends_at: 1.day.ago+2.hours }
       let!(:old) { create :shift, :with_event, :skip_validate, starts_at: 12.hours.ago, ends_at: 10.hours.ago }
       let!(:middle) { create :shift, :with_event, :skip_validate, starts_at: 2.hours.ago, ends_at: 1.hour.ago }
       let!(:newest) { create :shift, :with_event, :skip_validate, starts_at: 1.hour.ago, ends_at: 15.minutes.ago }
@@ -75,9 +75,9 @@ RSpec.describe Shift, type: :model do
     end
     describe '.upcoming' do
       let!(:past) { create :shift, :with_event, :skip_validate, starts_at: 1.hour.ago, ends_at: 30.minutes.ago }
-      let!(:earliest) { create :shift, :with_event, starts_at: Time.now + 1.hour }
-      let!(:middle) { create :shift, :with_event, :skip_validate, starts_at: Time.now + 2.hours }
-      let!(:early) { create :shift, :with_event, :skip_validate, starts_at: Time.now + 1.day }
+      let!(:earliest) { create :shift, :with_event, starts_at: Time.now+1.hour }
+      let!(:middle) { create :shift, :with_event, :skip_validate, starts_at: Time.now+2.hours }
+      let!(:early) { create :shift, :with_event, :skip_validate, starts_at: Time.now+1.day }
 
       subject(:shifts) { Shift.upcoming }
 
@@ -134,12 +134,12 @@ RSpec.describe Shift, type: :model do
     let(:third_event)  { create :event, :skip_validate, :published, ngo: ngo, title: "C", address: "Aoo St." }
 
     before do
-      create :shift, :skip_validate, event: past_event, starts_at: Time.now - 1.hour, ends_at: Time.now - 30.minutes
-      create :shift, event: first_event, starts_at: Time.now + 1.hour
-      create :shift, event: second_event, starts_at: Time.now + 2.hours
-      create :shift, event: second_event, starts_at: Time.now + 3.hours
-      create :shift, event: second_event, starts_at: Time.now + 1.day
-      create :shift, event: third_event, starts_at: Time.now + 3.hours
+      create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
+      create :shift, event: first_event, starts_at: Time.now+1.hour
+      create :shift, event: second_event, starts_at: Time.now+2.hours
+      create :shift, event: second_event, starts_at: Time.now+3.hours
+      create :shift, event: second_event, starts_at: Time.now+1.day
+      create :shift, event: third_event, starts_at: Time.now+3.hours
     end
 
     it "gets shifts on different dates" do
@@ -160,9 +160,9 @@ RSpec.describe Shift, type: :model do
 
     context 'when user no participant' do
       it 'returns a new ProgressBar without offset' do
-        expect(ProgressBar).to receive(:new)
-          .with(progress: anything, total: anything, offset: 0)
-          .and_call_original
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 0).
+          and_call_original
         expect(subject).to be_a ProgressBar
       end
     end
@@ -170,9 +170,9 @@ RSpec.describe Shift, type: :model do
       before { create(:participation, shift: shift, user: user) }
 
       it 'returns a new ProgressBar with offset 1' do
-        expect(ProgressBar).to receive(:new)
-          .with(progress: anything, total: anything, offset: 1)
-          .and_call_original
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 1).
+          and_call_original
         expect(subject).to be_a ProgressBar
       end
     end
@@ -180,9 +180,9 @@ RSpec.describe Shift, type: :model do
       let(:user) { nil }
 
       it 'returns a new ProgressBar without offset' do
-        expect(ProgressBar).to receive(:new)
-          .with(progress: anything, total: anything, offset: 0)
-          .and_call_original
+        expect(ProgressBar).to receive(:new).
+          with(progress: anything, total: anything, offset: 0).
+          and_call_original
         expect(subject).to be_a ProgressBar
       end
     end
