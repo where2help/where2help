@@ -1,0 +1,8 @@
+inherit_from:
+  - https://byteq.com/code-style/ruby/rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.3
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
