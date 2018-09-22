@@ -9,7 +9,7 @@ context.instance_eval do
       row(:coordinates) { |event| "(#{event.lat}, #{event.lng})" }
       row(:description) { |event| format_description(event.description) }
       row :approximate_address
-      row(:state){ |ngo| status_tag(Event.human_attribute_name("state-#{ngo.state}")) }
+      row(:state) { |ngo| status_tag(Event.human_attribute_name("state-#{ngo.state}")) }
       row :created_at
       row :updated_at
       row :published_at
@@ -17,18 +17,18 @@ context.instance_eval do
     end
   end
   panel Shift.model_name.human(count: 2) do
-    if event.deleted?
-      @shifts = event.shifts.only_deleted
+    @shifts = if event.deleted?
+      event.shifts.only_deleted
     else
-      @shifts = event.shifts
+      event.shifts
     end
     @shifts.each do |shift|
-      if shift.deleted?
-        @users = @users = User.where(
+      @users = if shift.deleted?
+        @users = User.where(
           id: shift.participations.only_deleted.pluck(:user_id)
         )
       else
-        @users = shift.users
+        shift.users
       end
       attributes_table_for shift do
         row :id
@@ -40,7 +40,7 @@ context.instance_eval do
         row :volunteers do
           table_for @users do
             column(:id) { |user| link_to(user.id, [:admin, user]) }
-            column(:name) { |user| "#{user.first_name} #{user.last_name}"}
+            column(:name) { |user| "#{user.first_name} #{user.last_name}" }
             column :email
             column :phone
           end

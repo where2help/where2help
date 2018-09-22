@@ -1,4 +1,4 @@
-$:.push File.expand_path('../lib', __FILE__)
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require 'sassy-maps/version'
 
 Gem::Specification.new do |s|
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files += Dir.glob("lib/**/*.*")
   s.files += Dir.glob("sass/**/*.*")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.require_paths = ["lib"]
+  s.require_paths = %w(lib)
   s.add_dependency('sass', '~> 3.3')
   s.add_development_dependency('bundler')
   s.add_development_dependency('rake')

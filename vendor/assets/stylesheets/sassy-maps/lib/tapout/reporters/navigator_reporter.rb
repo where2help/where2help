@@ -4,11 +4,9 @@ require 'tapout/reporters'
 module Tapout
   module Reporters
     class NavigatorReporter < RuntimeReporter
-
-      def backtrace_snippets(test)
+      def backtrace_snippets(_test)
         ''
       end
-
     end
   end
 end

@@ -1,4 +1,4 @@
-ActiveAdmin.register OngoingEventCategory do |config|
+ActiveAdmin.register OngoingEventCategory do |_config|
   menu priority: 8
   actions :all
 

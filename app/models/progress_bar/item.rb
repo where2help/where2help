@@ -20,7 +20,7 @@ class ProgressBar::Item
   end
 
   def text
-    desc = I18n.t "activerecord.attributes.shift.#{type.to_s}"
+    desc = I18n.t "activerecord.attributes.shift.#{type}"
     "#{amount || smiley} #{desc}".html_safe
   end
 

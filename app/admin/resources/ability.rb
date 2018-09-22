@@ -10,5 +10,5 @@ ActiveAdmin.register Ability do
   form partial: 'form'
 
   permit_params :name,
-                :description
+    :description
 end
