@@ -35,15 +35,15 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
             expect(events).to match_array own_events
           end
           it "@shifts does not include the other ngo's events" do
-            expect(assigns(:events)).to_not include other_event
+            expect(assigns :events).to_not include other_event
           end
           it 'renders :index' do
             expect(response).to render_template 'ngos/ongoing_events/index'
           end
         end
         context 'with valid order_by parameter' do
-          let!(:last_event) { create(:ongoing_event, :skip_validate, ngo: ngo, title: 'A' * 100) }
-          let(:params) { { order_by: 'title' } }
+          let!(:last_event) { create(:ongoing_event, :skip_validate, ngo: ngo, title: 'A'*100) }
+          let(:params) {{ order_by: 'title' }}
 
           before { get :index, params: params }
 
@@ -74,7 +74,7 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         before { get :show, params: { id: event } }
 
         it 'assigns @event' do
-          expect(assigns(:event)).to eq event
+          expect(assigns :event).to eq event
         end
         it 'renders :show' do
           expect(response).to render_template 'ngos/ongoing_events/show'
@@ -84,9 +84,9 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         let(:event) { create :ongoing_event }
 
         it 'raises ActiveRecord::RecordNotFound' do
-          expect do
+          expect{
             get :show, params: { id: event }
-          end.to raise_error(ActiveRecord::RecordNotFound)
+          }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -116,15 +116,15 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
       before { sign_in ngo, scope: :ngo }
 
       context 'with invalid params' do
-        let(:params) { { ongoing_event: { title: '' } } }
+        let(:params) {{ ongoing_event: {title: ''}} }
         it 'does not create new event record' do
-          expect do
+          expect{
             post :create, params: params
-          end.not_to change { OngoingEvent.count }
+          }.not_to change{OngoingEvent.count}
         end
         it 'assigns @event' do
           post :create, params: params
-          expect(assigns(:event)).to be
+          expect(assigns :event).to be
         end
         it 'assigns @event the current signed in ngo' do
           post :create, params: params
@@ -137,21 +137,18 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
       end
       context 'with valid params' do
         let(:ongoing_event_category) { create :ongoing_event_category }
-        let(:params) do
-          { ongoing_event: {
-            title: 'event title',
-            description: 'huge event description',
-            address: 'street with number',
-            contact_person: 'person name',
-            volunteers_needed: 1,
-            ongoing_event_category_id: ongoing_event_category.id,
-          } }
-        end
+        let(:params) {{ ongoing_event: {
+          title: 'event title',
+          description: 'huge event description',
+          address: 'street with number',
+          contact_person: 'person name',
+          volunteers_needed: 1,
+          ongoing_event_category_id: ongoing_event_category.id }}}
 
         it 'creates new event record' do
-          expect do
+          expect{
             post :create, params: params
-          end.to change { OngoingEvent.count }.by 1
+          }.to change{OngoingEvent.count}.by 1
         end
         it 'redirects to @event' do
           post :create, params: params
@@ -179,7 +176,7 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         before { get :edit, params: { id: event } }
 
         it 'assigns @event' do
-          expect(assigns(:event)).to eq event
+          expect(assigns :event).to eq event
         end
         it 'renders :edit' do
           expect(response).to render_template 'ngos/ongoing_events/edit'
@@ -189,9 +186,9 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         let(:event) { create :ongoing_event }
 
         it 'raises ActiveRecord::RecordNotFound' do
-          expect do
+          expect{
             get :show, params: { id: event }
-          end.to raise_error(ActiveRecord::RecordNotFound)
+          }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -206,7 +203,7 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
     end
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
-      let(:params) { { id: event, ongoing_event: { title: 'whatever' } } }
+      let(:params) {{ id: event, ongoing_event: { title: 'whatever' } }}
 
       before { sign_in ngo, scope: :ngo }
 
@@ -219,7 +216,7 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         end
 
         it 'assigns @event' do
-          expect(assigns(:event)).to eq event
+          expect(assigns :event).to eq event
         end
         it 'updates attributes' do
           expect(event).to have_attributes(title: 'whatever')
@@ -232,9 +229,9 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         let(:event) { create :ongoing_event }
 
         it 'raises ActiveRecord::RecordNotFound' do
-          expect do
+          expect{
             put :update, params: params
-          end.to raise_error(ActiveRecord::RecordNotFound)
+          }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -250,15 +247,15 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
       let!(:event) { create :ongoing_event, ngo: ngo }
-      let(:params) { { id: event } }
+      let(:params) {{ id: event }}
 
       before { sign_in ngo, scope: :ngo }
 
       context 'when owning the event' do
         it 'destroys event' do
-          expect do
+          expect{
             delete :destroy, params: params
-          end.to change { OngoingEvent.count }.by -1
+          }.to change{OngoingEvent.count}.by -1
         end
         it 'redirects to index' do
           delete :destroy, params: params
@@ -269,9 +266,9 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         let(:event) { create :ongoing_event }
 
         it 'raises ActiveRecord::RecordNotFound' do
-          expect do
+          expect{
             delete :destroy, params: params
-          end.to raise_error(ActiveRecord::RecordNotFound)
+          }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -287,16 +284,17 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
       let(:event) { create :ongoing_event, ngo: ngo }
-      let(:params) { { id: event } }
+      let(:params) {{ id: event }}
 
       before { sign_in ngo, scope: :ngo }
 
       context 'when owning the event' do
+
         it 'updates event state to published' do
-          expect do
+          expect{
             post :publish, params: params
             event.reload
-          end.to change { event.state }.to 'published'
+          }.to change{event.state}.to 'published'
         end
         it 'redirects to event' do
           post :publish, params: params
@@ -307,11 +305,12 @@ RSpec.describe Ngos::OngoingEventsController, type: :controller do
         let(:event) { create :ongoing_event }
 
         it 'raises ActiveRecord::RecordNotFound' do
-          expect do
+          expect{
             post :publish, params: params
-          end.to raise_error(ActiveRecord::RecordNotFound)
+          }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
   end
 end
+

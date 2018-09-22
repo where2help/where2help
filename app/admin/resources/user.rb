@@ -16,19 +16,19 @@ ActiveAdmin.register User do
   filter :created_at
 
   permit_params :email,
-    :first_name,
-    :last_name,
-    :phone,
-    :admin,
-    :locale,
-    ability_ids: [],
-    language_ids: []
+                :first_name,
+                :last_name,
+                :phone,
+                :admin,
+                :locale,
+                ability_ids: [],
+                language_ids: []
 
   # hidden in menu, just for direct linking
   scope :by_participation_count, if: proc { false } do |users|
     event_type_condition = (
       case params[:participation_type]
-      when "shift"
+      when"shift"
         "shift_id"
       when "ongoing_event"
         "ongoing_event_id"
@@ -37,8 +37,8 @@ ActiveAdmin.register User do
       end
     )
     users = users.unscoped
-      .joins("LEFT JOIN participations ON (participations.user_id = users.id AND participations.#{event_type_condition} IS NOT NULL)")
-      .group("users.id")
+                 .joins("LEFT JOIN participations ON (participations.user_id = users.id AND participations.#{event_type_condition} IS NOT NULL)")
+                 .group("users.id")
     if params[:max].present?
       users.having(
         "COUNT(participations.id) >= :min AND COUNT(participations.id) < :max",
@@ -56,9 +56,9 @@ ActiveAdmin.register User do
   # hidden in menu, just for direct linking
   scope :by_invested_hours, if: proc { false } do |users|
     users = users.unscoped
-      .joins("LEFT JOIN participations ON (participations.user_id = users.id)")
-      .joins("LEFT JOIN shifts ON (shifts.id = participations.shift_id)")
-      .group("users.id")
+                 .joins("LEFT JOIN participations ON (participations.user_id = users.id)")
+                 .joins("LEFT JOIN shifts ON (shifts.id = participations.shift_id)")
+                 .group("users.id")
     duration_sql = "COALESCE(SUM(ends_at - starts_at), INTERVAL '0')"
     if params[:max].present?
       users.having(
@@ -75,12 +75,12 @@ ActiveAdmin.register User do
   end
 
   member_action :lock, method: :put do
-    UserOperation::Lock.call(user: resource)
+    UserOperation::Lock.(user: resource)
     redirect_to resource_path, notice: t(".successful")
   end
 
   member_action :unlock, method: :put do
-    UserOperation::Unlock.call(user: resource)
+    UserOperation::Unlock.(user: resource)
     redirect_to resource_path, notice: t(".successful")
   end
 

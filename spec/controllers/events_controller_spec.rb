@@ -28,19 +28,19 @@ RSpec.describe EventsController, type: :controller do
         before { get :index }
 
         it 'assigns first 25 published events with available shifts to @events' do
-          expect(assigns(:events)).to match_array events
+          expect(assigns :events).to match_array events
         end
 
         it 'excludes pending events' do
-          expect(assigns(:events)).not_to include pending_event
+          expect(assigns :events).not_to include pending_event
         end
 
         it 'excludes events with only past shifts' do
-          expect(assigns(:events)).not_to include past_event
+          expect(assigns :events).not_to include past_event
         end
 
         it 'excludes events with only full shifts' do
-          expect(assigns(:events)).not_to include full_event
+          expect(assigns :events).not_to include full_event
         end
 
         it 'renders index.html' do
@@ -52,7 +52,7 @@ RSpec.describe EventsController, type: :controller do
         before { get :index, xhr: true, params: { page: 2 } }
 
         it 'assigns next 25 upcoming shifts' do
-          expect(assigns(:events)).to match_array next_events
+          expect(assigns :events).to match_array next_events
         end
 
         it 'renders index.js' do
@@ -84,9 +84,9 @@ RSpec.describe EventsController, type: :controller do
         let(:event) { create :event, :with_shift }
 
         it 'throws record not found error' do
-          expect do
+          expect{
             get :show, params: { id: event }
-          end.to raise_error ActiveRecord::RecordNotFound
+          }.to raise_error ActiveRecord::RecordNotFound
         end
       end
       context 'when published event' do
@@ -95,7 +95,7 @@ RSpec.describe EventsController, type: :controller do
         before { get :show, params: { id: event } }
 
         it 'assigns @event' do
-          expect(assigns(:event)).to eq event
+          expect(assigns :event).to eq event
         end
         it 'renders :show' do
           expect(response).to render_template 'events/show'

@@ -30,6 +30,6 @@ module Where2help
     config.i18n.available_locales = [:de, :en]
     config.i18n.default_locale = :de
     config.time_zone = 'Vienna'
-    config.autoload_paths += %W("#{config.root}/app/services/")
+    config.autoload_paths += %W["#{config.root}/app/services/"]
   end
 end

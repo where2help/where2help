@@ -54,7 +54,7 @@ Rails.application.configure do
   config.log_level = ENV["LOG_LEVEL"] || "debug"
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [:request_id]
+  config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -93,7 +93,7 @@ Rails.application.configure do
 
   config.action_mailer.default_options = {
     from: 'Where2Help <no-reply@staging-where2help.herokuapp.com>',
-    reply_to: 'Where2Help <where2helpinaustria@gmail.com>',
+    reply_to: 'Where2Help <where2helpinaustria@gmail.com>'
   }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: ENV['FQDN'] }
@@ -108,6 +108,6 @@ Rails.application.configure do
     user_name:            ENV["SMTP_EMAIL_ADDRESS"],
     password:             ENV["SMTP_EMAIL_PASSWORD"],
     authentication:       :login,
-    enable_starttls_auto: true,
+    enable_starttls_auto: true
   }
 end

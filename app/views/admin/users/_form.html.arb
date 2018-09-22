@@ -9,11 +9,11 @@ active_admin_form_for [:admin, resource] do |f|
     input :locale, as: :select, collection: Ngo.locales.keys, include_blank: false
 
     f.inputs do
-      f.input :abilities, as: :check_boxes
+      f.input :abilities, :as => :check_boxes
     end
 
     f.inputs do
-      f.input :languages, as: :check_boxes
+      f.input :languages, :as => :check_boxes
     end
   end
   actions

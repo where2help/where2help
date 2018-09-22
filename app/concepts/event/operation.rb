@@ -29,15 +29,15 @@ class EventOperation
       end
 
       def pluralized_users
-        user_count == 1 ?
-          I18n.t("activerecord.models.users.one") :
-          I18n.t("activerecord.models.users.other")
+          user_count == 1 ?
+            I18n.t("activerecord.models.users.one") :
+            I18n.t("activerecord.models.users.other")
       end
 
       private
 
       def notify_users!
-        users = @model.shifts.flat_map(&:users).uniq
+        users = @model.shifts.flat_map { |shift| shift.users }.uniq
         users.each do |user|
           UserMailer.event_updated(event: @model, user: user).deliver_later
         end

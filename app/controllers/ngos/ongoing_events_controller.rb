@@ -20,7 +20,7 @@ class Ngos::OngoingEventsController < ApplicationController
   end
 
   def create
-    @event = OngoingEventOperation::Create.call(
+    @event = OngoingEventOperation::Create.(
       current_ngo: current_ngo,
       ongoing_event: event_params(params)
     ).model
@@ -38,7 +38,7 @@ class Ngos::OngoingEventsController < ApplicationController
 
   def update
     @event =
-      OngoingEventOperation::Update.call(
+      OngoingEventOperation::Update.(
         current_ngo: current_ngo,
         event_id: params[:id],
         ongoing_event: event_params(params),
@@ -53,15 +53,15 @@ class Ngos::OngoingEventsController < ApplicationController
 
   def destroy
     @event =
-      OngoingEventOperation::Destroy.call(current_ngo: current_ngo, event_id: params[:id]).model
-    redirect_to ngos_ongoing_events_url,
+      OngoingEventOperation::Destroy.(current_ngo: current_ngo, event_id: params[:id]).model
+    return redirect_to ngos_ongoing_events_url,
       notice: t("ngos.ongoing_events.messages.delete_success")
   end
 
   def publish
     @event =
-      OngoingEventOperation::Publish.call(current_ngo: current_ngo, event_id: params[:id]).model
-    redirect_to ngos_ongoing_event_url(@event),
+      OngoingEventOperation::Publish.(current_ngo: current_ngo, event_id: params[:id]).model
+    return redirect_to ngos_ongoing_event_url(@event),
       notice: t("ngos.events.messages.#{@event.published? ? 'publish' : 'unpublish'}_success")
   end
 
@@ -70,7 +70,7 @@ class Ngos::OngoingEventsController < ApplicationController
   def event_params(params)
     params.require(:ongoing_event).permit(
       :contact_person, :title, :description,
-      :address, :approximate_address, :lat, :lng,
+      :address, :approximate_address,:lat, :lng,
       :volunteers_needed, :ongoing_event_category_id,
       :start_date, :end_date
     )
