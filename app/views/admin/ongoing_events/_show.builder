@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 context.instance_eval do
   panel 'Ongoing Event' do
     attributes_table_for ongoing_event do
@@ -21,7 +19,7 @@ context.instance_eval do
       row :volunteers do
         table_for ongoing_event.users do
           column(:id) { |user| link_to(user.id, [:admin, user]) }
-          column(:name) { |user| "#{user.first_name} #{user.last_name}" }
+          column(:name) { |user| "#{user.first_name} #{user.last_name}"}
           column (:email) { |user| mail_to user.email }
           column :phone
         end

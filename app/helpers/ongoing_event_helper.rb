@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module OngoingEventHelper
   def ongoing_event_opt_in_button_for(event)
     opted_in = event.users.include?(current_user)
@@ -20,10 +18,10 @@ module OngoingEventHelper
     end
 
     link_to path,
-            class: "btn btn-#{color} event-btn",
-            method: method,
-            data: data.merge(disable_with: "<i class='fas fa-spinner fa-spin'></i>") do
-      content_tag(:i, nil, class: "fas fa-#{icon}") + " " + text
+      class: "btn btn-#{color} event-btn",
+      method: method,
+      data: data.merge(disable_with: "<i class='fas fa-spinner fa-spin'></i>") do
+        content_tag(:i, nil, class: "fas fa-#{icon}") + " " + text
     end
   end
 end

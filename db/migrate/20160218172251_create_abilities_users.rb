@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CreateAbilitiesUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :abilities_users do |t|

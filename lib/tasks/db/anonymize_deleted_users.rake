@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 module RakeHelpers
   module Db
     class AnonymizeDeletedUsers
       PASSWORD_ALPHABET = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map(&:to_a).flatten.freeze
-      PASSWORD_LENGTH = 72
+      PASSWORD_LENGTH = 72.freeze
 
       def self.anonymize!(user)
         user.tap do |u|
@@ -19,7 +17,7 @@ module RakeHelpers
       end
 
       def self.generate_password
-        (PASSWORD_LENGTH.times.map do |_i|
+        (PASSWORD_LENGTH.times.map do |i|
           PASSWORD_ALPHABET[rand(PASSWORD_ALPHABET.size)]
         end).join
       end
@@ -39,7 +37,7 @@ namespace :db do
                 .to_a
 
     if users.any?
-      puts "#{users.size} user#{'s' if users.size > 1} non-anonymized, soft-deleted before #{threshold_date}:"
+      puts "#{users.size} user#{"s" if users.size > 1} non-anonymized, soft-deleted before #{threshold_date}:"
 
       users.each do |user|
         print "- Anonymizing user #{user.id}... "

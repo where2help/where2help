@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "ongoing_event/user_operation"
 require "ongoing_event_category/user_operation"
 class OngoingEventsController < ApplicationController
@@ -10,10 +8,10 @@ class OngoingEventsController < ApplicationController
       @operation = OngoingEventOperation::User::Index.present(
         ongoing_event_category_id: params[:ongoing_event_category_id]
       )
-      @events = @operation.model.page(params[:page].to_i - 1).offset(3)
+      @events = @operation.model.page(params[:page].to_i-1).offset(3)
     else
       @operation =
-        OngoingEventCategoryOperation::User::Index.present
+        OngoingEventCategoryOperation::User::Index.present()
       @ongoing_event_categories = @operation.model
 
       @category_events = (
@@ -33,14 +31,15 @@ class OngoingEventsController < ApplicationController
 
   def opt_in
     @event = OngoingEventOperation::User::OptIn
-             .(current_user: current_user, event_id: params[:id])
-             .model
+      .(current_user: current_user, event_id: params[:id])
+      .model
   end
 
   def opt_out
     @event = OngoingEventOperation::User::OptOut
-             .(current_user: current_user, event_id: params[:id])
-             .model
+      .(current_user: current_user, event_id: params[:id])
+      .model
     redirect_to schedule_path, notice: t('.notice')
   end
 end
+

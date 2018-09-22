@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UserMailer < ApplicationMailer
   def shift_destroyed(shift, user)
     @shift = shift

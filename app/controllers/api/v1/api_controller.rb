@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Api::V1::ApiController < ApplicationController
   skip_before_action :verify_authenticity_token # No CSRF for API needed
 
@@ -14,9 +12,9 @@ class Api::V1::ApiController < ApplicationController
   private
 
   def api_authenticate
-    authenticate_or_request_with_http_token do |token, _options|
+    authenticate_or_request_with_http_token do |token, options|
       @current_user = User.where(api_token: token).where("api_token_valid_until > ?", Time.now).try(:first)
-      @current_user&.regenerate_api_token # So that it's single use
+      @current_user.regenerate_api_token if @current_user # So that it's single use
       @current_user.update(api_token_valid_until: Time.now + TOKEN_VALIDITY) if current_user
     end
   end

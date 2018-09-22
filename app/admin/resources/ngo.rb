@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 ActiveAdmin.register Ngo do
   include Concerns::Views
   include Concerns::ParanoidScopes
@@ -7,7 +5,7 @@ ActiveAdmin.register Ngo do
   include Concerns::ErrorsOnDestroy
 
   menu priority: 2
-  actions :all, except: %i[new create]
+  actions :all, except: [:new, :create]
   includes :contact
 
   scope :pending
@@ -23,9 +21,9 @@ ActiveAdmin.register Ngo do
   # hidden in menu, just for direct linking
   scope :by_created_shifts, if: proc { false } do |ngos|
     ngos = ngos.unscoped
-               .joins("LEFT JOIN events ON (events.ngo_id = ngos.id)")
-               .joins("LEFT JOIN shifts ON (shifts.event_id = events.id)")
-               .group("ngos.id")
+                 .joins("LEFT JOIN events ON (events.ngo_id = ngos.id)")
+                 .joins("LEFT JOIN shifts ON (shifts.event_id = events.id)")
+                 .group("ngos.id")
     if params[:max].present?
       ngos.having(
         "COUNT(ngos.id) >= :min AND COUNT(ngos.id) < :max",
@@ -41,11 +39,11 @@ ActiveAdmin.register Ngo do
   end
 
   batch_action :confirm do |ids|
-    batch_action_collection.find(ids).each(&:confirm!)
+    batch_action_collection.find(ids).each { |ngo| ngo.confirm! }
     redirect_to collection_path, alert: 'Ausgewählte NGOs wurden bestätigt.'
   end
 
   permit_params :name, :email, :locale,
-                contact_attributes: %i[id first_name last_name email phone
-                                       street zip city]
+                contact_attributes: [ :id, :first_name, :last_name, :email, :phone,
+                                      :street, :zip, :city ]
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class OngoingEventCategory < ApplicationRecord
   validates :name_en, :name_de,
             presence: true,

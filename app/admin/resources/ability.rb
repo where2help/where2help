@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 ActiveAdmin.register Ability do
   menu priority: 6
 

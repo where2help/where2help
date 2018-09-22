@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UpdateShiftsIndices < ActiveRecord::Migration[5.0]
   def up
     remove_index :shifts, :event_id

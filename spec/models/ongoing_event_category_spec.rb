@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe OngoingEventCategory, type: :model do
   it 'has a valid factory' do
-    expect(create(:ongoing_event_category)).to be_valid
+    expect(create :ongoing_event_category).to be_valid
   end
   it { is_expected.to validate_presence_of :name_en }
   it { is_expected.to validate_presence_of :name_de }

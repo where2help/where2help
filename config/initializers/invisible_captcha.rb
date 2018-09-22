@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 InvisibleCaptcha.setup do |config|
   # config.honeypots           << 'another_fake_attribute'
   # config.visual_honeypots    = false

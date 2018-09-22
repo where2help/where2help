@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Event < ApplicationRecord
   acts_as_paranoid
 
@@ -17,10 +15,10 @@ class Event < ApplicationRecord
 
   scope :with_available_shifts, -> {
     published.
-      where(id: Shift.available.pluck(:event_id).uniq).
-      includes(:available_shifts, :ngo).
-      order("shifts.starts_at").
-      references(:available_shifts)
+    where(id: Shift.available.pluck(:event_id).uniq).
+    includes(:available_shifts, :ngo).
+    order("shifts.starts_at").
+    references(:available_shifts)
   }
   scope :upcoming,  -> { where(id: Shift.upcoming.pluck(:event_id).uniq) }
   scope :past,      -> { where(id: Shift.past.pluck(:event_id).uniq) }
@@ -44,16 +42,15 @@ class Event < ApplicationRecord
     update(published_at: Time.now) unless published?
   end
 
-  def self.filter(scope = nil, order = nil)
+  def self.filter(scope=nil, order=nil)
     scope ||= :all
-    valid_scope = %i[all past upcoming].include? scope
-    raise ArgumentError, 'Invalid scope given' unless valid_scope
-
+    valid_scope = [:all, :past, :upcoming].include? scope
+    raise ArgumentError.new('Invalid scope given') unless valid_scope
     send(scope).try(:order_by, order)
   end
 
   def self.order_by_for_select
-    %i[address title]
+    [:address, :title]
   end
 
   def earliest_shift
@@ -88,20 +85,18 @@ class Event < ApplicationRecord
 
   def progress_bar(user = nil)
     user_shift_count = available_shifts.joins(:participations)
-                                       .where(participations: { user_id: user.try(:id) }).count
+      .where(participations: { user_id: user.try(:id) }).count
     ProgressBar.new(
       progress: volunteers_count,
       total:    volunteers_needed,
-      offset:   user_shift_count
-    )
+      offset:   user_shift_count)
   end
 
   private
 
   def self.order_by(order)
     valid_order = [nil, :address, :title].include? order
-    raise ArgumentError, 'Invalid order key given' unless valid_order
-
+    raise ArgumentError.new('Invalid order key given') unless valid_order
     send :order, order
   end
 end

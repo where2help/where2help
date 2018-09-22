@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe IcalFile do
@@ -11,19 +9,19 @@ RSpec.describe IcalFile do
       subject { described_class.new item: event, attendee: ngo }
 
       it 'has private attribute attendee' do
-        expect(subject.send(:attendee)).to eq ngo
+        expect(subject.send :attendee).to eq ngo
       end
       it 'has private attribute item' do
-        expect(subject.send(:item)).to eq event
+        expect(subject.send :item).to eq event
       end
       it 'has private attribute title' do
-        expect(subject.send(:title)).to eq event.title
+        expect(subject.send :title).to eq event.title
       end
       it 'has private attribute desc' do
-        expect(subject.send(:desc)).to eq event.description
+        expect(subject.send :desc).to eq event.description
       end
       it 'has private attribute address' do
-        expect(subject.send(:address)).to eq event.address
+        expect(subject.send :address).to eq event.address
       end
     end
     context 'when initialized with shift' do
@@ -34,19 +32,19 @@ RSpec.describe IcalFile do
       subject { described_class.new item: shift, attendee: user }
 
       it 'has private attribute attendee' do
-        expect(subject.send(:attendee)).to eq user
+        expect(subject.send :attendee).to eq user
       end
       it 'has private attribute item' do
-        expect(subject.send(:item)).to eq shift
+        expect(subject.send :item).to eq shift
       end
       it 'has private attribute title from event' do
-        expect(subject.send(:title)).to eq event.title
+        expect(subject.send :title).to eq event.title
       end
       it 'has private attribute desc from event' do
-        expect(subject.send(:desc)).to eq event.description
+        expect(subject.send :desc).to eq event.description
       end
       it 'has private attribute address from event' do
-        expect(subject.send(:address)).to eq event.address
+        expect(subject.send :address).to eq event.address
       end
     end
     context 'when initialized with other item' do

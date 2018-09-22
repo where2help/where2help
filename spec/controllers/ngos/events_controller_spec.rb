@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 require 'controllers/shared/ngos_controller'
 
@@ -37,7 +35,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
             expect(events).to match_array own_events
           end
           it "@shifts does not include the other ngo's events" do
-            expect(assigns(:shifts)).to_not include other_event.shifts.first
+            expect(assigns :shifts).to_not include other_event.shifts.first
           end
           it 'renders :index' do
             expect(response).to render_template 'ngos/events/index'
@@ -82,8 +80,8 @@ RSpec.describe Ngos::EventsController, type: :controller do
           end
         end
         context 'with valid order_by and filter_by parameter' do
-          let!(:last_event) { create(:event, :with_shift, :skip_validate, ngo: ngo, title: 'A' * 100) }
-          let(:params) { { filter_by: 'upcoming' } }
+          let!(:last_event) { create(:event, :with_shift, :skip_validate, ngo: ngo, title: 'A'*100) }
+          let(:params) {{ filter_by: 'upcoming'}}
 
           before { get :index, params: params }
 
@@ -110,7 +108,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
         before { get :show, params: { id: event } }
 
         it 'assigns @event' do
-          expect(assigns(:event)).to eq event
+          expect(assigns :event).to eq event
         end
         it 'renders :show' do
           expect(response).to render_template 'ngos/events/show'
@@ -157,15 +155,15 @@ RSpec.describe Ngos::EventsController, type: :controller do
       before { sign_in ngo, scope: :ngo }
 
       context 'with invalid params' do
-        let(:params) { { event: { title: '' } } }
+        let(:params) {{ event: {title: ''}} }
         it 'does not create new event record' do
           expect{
             post :create, params: params
-          }.not_to change{ Event.count }
+          }.not_to change{Event.count}
         end
         it 'assigns @event' do
           post :create, params: params
-          expect(assigns(:event)).to be
+          expect(assigns :event).to be
         end
         it 'assigns @event the current signed in ngo' do
           post :create, params: params
@@ -184,7 +182,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
               description: 'huge event description',
               address: 'street with number',
               person: 'person name',
-              shifts_attributes: [{
+              shifts_attributes: [{ 
                 starts_at: Time.now + 2.hours,
                 ends_at: Time.now + 4.hours,
                 volunteers_needed: 1,
@@ -197,7 +195,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
         it 'creates new event record' do
           expect{
             post :create, params: params
-          }.to change{ Event.count }.by 1
+          }.to change{Event.count}.by 1
         end
         it 'redirects to @event' do
           post :create, params: params
@@ -225,7 +223,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
         before { get :edit, params: { id: event } }
 
         it 'assigns @event' do
-          expect(assigns(:event)).to eq event
+          expect(assigns :event).to eq event
         end
         it 'renders :edit' do
           expect(response).to render_template 'ngos/events/edit'
@@ -252,7 +250,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
     end
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
-      let(:params) { { id: event, event: { title: 'whatever' } } }
+      let(:params) {{ id: event, event: { title: 'whatever' } }}
 
       before { sign_in ngo, scope: :ngo }
 
@@ -265,7 +263,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
         end
 
         it 'assigns @event' do
-          expect(assigns(:event)).to eq event
+          expect(assigns :event).to eq event
         end
         it 'updates attributes' do
           expect(event).to have_attributes(title: 'whatever')
@@ -295,7 +293,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
     end
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
-      let(:params) { { id: event } }
+      let(:params) {{ id: event }}
 
       before { sign_in ngo, scope: :ngo }
 
@@ -305,7 +303,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
         it 'destroys event' do
           expect{
             delete :destroy, params: params
-          }.to change{ Event.count }.by -1
+          }.to change{Event.count}.by -1
         end
         it 'redirects to index' do
           delete :destroy, params: params
@@ -333,7 +331,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
     end
     context 'given a signed in NGO' do
       let(:ngo) { create :ngo, :confirmed }
-      let(:params) { { id: event } }
+      let(:params) {{ id: event }}
 
       before { sign_in ngo, scope: :ngo }
 
@@ -344,7 +342,7 @@ RSpec.describe Ngos::EventsController, type: :controller do
           expect{
             post :publish, params: params
             event.reload
-          }.to change{ event.state }.to 'published'
+          }.to change{event.state}.to 'published'
         end
         it 'redirects to event' do
           post :publish, params: params

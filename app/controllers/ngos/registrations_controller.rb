@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ngos::RegistrationsController < Devise::RegistrationsController
   invisible_captcha only: :create, scope: :ngo, honeypot: :username
 
@@ -54,16 +52,14 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
         :email,
         :password, :password_confirmation,
         :terms_and_conditions,
-        contact_attributes: %i[
-          email
-          phone
-          first_name
-          last_name
-          street
-          zip
-          city
-        ]
-      )
+        contact_attributes: [
+          :email,
+          :phone,
+          :first_name,
+          :last_name,
+          :street,
+          :zip,
+          :city])
     end
   end
 
@@ -76,12 +72,12 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
         :locale,
         :name,
         :terms_and_conditions,
-        contact_attributes: %i[first_name last_name email phone street zip city id]
+        contact_attributes: [:first_name, :last_name, :email, :phone, :street, :zip, :city, :id]
       )
     end
   end
 
-  def after_update_path_for(_resource)
+  def after_update_path_for(resource)
     edit_ngo_registration_path
   end
 

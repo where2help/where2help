@@ -1,14 +1,10 @@
-# frozen_string_literal: true
-
 class ScheduleOperation
   ShiftPresenter = Struct.new(:object) do
     def type()     :shift end
-
     def order_by() object.starts_at end
   end
   OngongEventPresenter = Struct.new(:object) do
     def type()     :ongoing_event end
-
     def order_by() object.created_at end
   end
 
@@ -24,13 +20,13 @@ class ScheduleOperation
       when :all
         shifts = current_user.shifts.all.map { |s| ShiftPresenter.new(s) }
         events = current_user.ongoing_events.published.map { |s| OngongEventPresenter.new(s) }
-        items  = (shifts + events).sort_by(&:order_by)
+        items  = (shifts + events).sort_by { |item| item.order_by }
         @model = paginate(items)
       when :ongoing
         items  = current_user.ongoing_events.published.newest_first.map { |s| OngongEventPresenter.new(s) }
         @model = paginate(items)
       else
-        raise ArgumentError, 'Invalid scope given'
+        raise ArgumentError.new('Invalid scope given')
       end
     end
 

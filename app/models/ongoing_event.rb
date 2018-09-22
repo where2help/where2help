@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class OngoingEvent < ApplicationRecord
   acts_as_paranoid
 

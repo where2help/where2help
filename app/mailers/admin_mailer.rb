@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class AdminMailer < ApplicationMailer
   default to: proc { admins.pluck(:email) }
 

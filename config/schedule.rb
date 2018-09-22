@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 set :environment, ENV['RAILS_ENV']
 
 every 1.month, at: '4:00 am' do

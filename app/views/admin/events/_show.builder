@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 context.instance_eval do
   panel 'Event' do
     attributes_table_for event do
@@ -19,19 +17,19 @@ context.instance_eval do
     end
   end
   panel Shift.model_name.human(count: 2) do
-    @shifts = if event.deleted?
-                event.shifts.only_deleted
-              else
-                event.shifts
-              end
+    if event.deleted?
+      @shifts = event.shifts.only_deleted
+    else
+      @shifts = event.shifts
+    end
     @shifts.each do |shift|
-      @users = if shift.deleted?
-                 @users = User.where(
-                   id: shift.participations.only_deleted.pluck(:user_id)
-                 )
-               else
-                 shift.users
-               end
+      if shift.deleted?
+        @users = @users = User.where(
+          id: shift.participations.only_deleted.pluck(:user_id)
+        )
+      else
+        @users = shift.users
+      end
       attributes_table_for shift do
         row :id
         row :starts_at
@@ -42,7 +40,7 @@ context.instance_eval do
         row :volunteers do
           table_for @users do
             column(:id) { |user| link_to(user.id, [:admin, user]) }
-            column(:name) { |user| "#{user.first_name} #{user.last_name}" }
+            column(:name) { |user| "#{user.first_name} #{user.last_name}"}
             column :email
             column :phone
           end

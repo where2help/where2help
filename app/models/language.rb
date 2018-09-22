@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Language < ApplicationRecord
   has_many :spoken_languages, dependent: :destroy, inverse_of: :language
   has_many :users, through: :spoken_languages

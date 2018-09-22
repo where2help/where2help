@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_170_221_111_814) do
+ActiveRecord::Schema.define(version: 20170221111814) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,7 +88,7 @@ ActiveRecord::Schema.define(version: 20_170_221_111_814) do
     t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "locale", default: 0
+    t.integer  "locale",                 default: 0
     t.datetime "deleted_at"
     t.datetime "admin_confirmed_at"
     t.index ["admin_confirmed_at"], name: "index_ngos_on_admin_confirmed_at", where: "(deleted_at IS NULL)", using: :btree
@@ -116,7 +115,7 @@ ActiveRecord::Schema.define(version: 20_170_221_111_814) do
     t.string   "contact_person"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "volunteers_count", default: 0
+    t.integer  "volunteers_count",          default: 0
     t.integer  "volunteers_needed"
     t.datetime "deleted_at"
     t.datetime "published_at"
@@ -164,7 +163,7 @@ ActiveRecord::Schema.define(version: 20_170_221_111_814) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.integer  "volunteers_needed"
-    t.integer  "volunteers_count", default: 0
+    t.integer  "volunteers_count",  default: 0
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.datetime "deleted_at"
@@ -192,12 +191,12 @@ ActiveRecord::Schema.define(version: 20_170_221_111_814) do
     t.datetime "confirmation_sent_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "admin", default: false
+    t.boolean  "admin",                  default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "api_token"
     t.datetime "api_token_valid_until"
-    t.integer  "locale", default: 0
+    t.integer  "locale",                 default: 0
     t.string   "phone"
     t.datetime "deleted_at"
     t.datetime "locked_at"

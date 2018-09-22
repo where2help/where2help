@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Api::V1::RegistrationsController < Users::RegistrationsController
   skip_before_action :verify_authenticity_token # No CSRF for API needed
   respond_to :json

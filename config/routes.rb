@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
   namespace :ngos do
     resources :events do
@@ -19,15 +17,14 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations',
     sessions: 'users/sessions',
-    unlocks: 'users/unlocks'
-  }
+    unlocks: 'users/unlocks' }
   devise_for :ngos, controllers: {
     confirmations: 'ngos/confirmations',
     passwords: 'ngos/passwords',
     registrations: 'ngos/registrations',
     sessions: 'ngos/sessions',
-    unlocks: 'ngos/unlocks'
-  }
+    unlocks: 'ngos/unlocks' }
+
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
@@ -48,10 +45,10 @@ Rails.application.routes.draw do
       resources :abilities, only: [:index]
 
       devise_scope :user do
-        post "/users/register" => "registrations#create"
+        post "/users/register"=> "registrations#create"
       end
 
-      resources :events, only: %i[show index]
+      resources :events, only: [:show, :index]
 
       resources :shifts, only: [] do
         collection do
@@ -62,8 +59,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events,         only: %i[index show]
-  resources :ongoing_events, only: %i[index show] do
+  resources :events,         only: [:index, :show]
+  resources :ongoing_events, only: [:index, :show] do
     post   :opt_in,  on: :member
     delete :opt_out, on: :member
   end
