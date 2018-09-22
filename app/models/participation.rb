@@ -9,9 +9,9 @@ class Participation < ApplicationRecord
   # So if it is for shifts, don't care if ongoing_event_id is nil and vice versa
   validates :user_id, uniqueness: { scope: :shift_id,
                                     message: "Sie haben schon zugesagt!" },
-                      unless: -> p { p.shift_id.nil? }
+                      unless: ->(p) { p.shift_id.nil? }
 
   validates :user_id, uniqueness: { scope: :ongoing_event_id,
                                     message: "Sie haben schon zugesagt!" },
-                      unless: -> p { p.ongoing_event_id.nil? }
+                      unless: ->(p) { p.ongoing_event_id.nil? }
 end

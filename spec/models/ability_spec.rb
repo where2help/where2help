@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Ability, type: :model do
   it 'has a valid factory' do
-    expect(create :ability).to be_valid
+    expect(create(:ability)).to be_valid
   end
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_uniqueness_of :name }
@@ -20,12 +20,12 @@ RSpec.describe Ability, type: :model do
       it 'destroys join record on destroy' do
         expect{
           ability.destroy
-        }.to change{Qualification.count}.by -1
+        }.to change{ Qualification.count }.by -1
       end
       it 'does not destroy user record on destroy' do
         expect{
           ability.destroy
-        }.not_to change{User.count}
+        }.not_to change{ User.count }
       end
     end
   end

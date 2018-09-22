@@ -8,24 +8,22 @@ RSpec.describe "Events", type: :request do
       get "/api/v1/events", as: :json, headers: token_header
 
       expect(response).to be_successful
-      expect(json).to include_json([{"id" => event.id,
-                                     "title" => event.title,
-                                     "description" => event.description,
+      expect(json).to include_json([{ "id" => event.id,
+                                      "title" => event.title,
+                                      "description" => event.description,
                                       "address" => event.address,
                                       "lat" => event.lat,
                                       "lng" => event.lng,
                                       "state" => event.state,
                                       "organization_name" => event.ngo.name,
                                       "shifts" =>
-                                       [{"id" => event.shifts.first.id,
-                                         "event_id" => event.id,
-                                         "starts_at"=> event.shifts.first.starts_at.strftime("%FT%T.%L%:z"),
-                                         "ends_at" => event.shifts.first.ends_at.strftime("%FT%T.%L%:z"),
-                                         "volunteers_needed" => event.shifts.first.volunteers_needed,
-                                         "volunteers_count" => event.shifts.first.volunteers_count,
-                                         "current_user_assigned" => false
-                                      }]
-                                    }])
+                                       [{ "id" => event.shifts.first.id,
+                                          "event_id" => event.id,
+                                          "starts_at" => event.shifts.first.starts_at.strftime("%FT%T.%L%:z"),
+                                          "ends_at" => event.shifts.first.ends_at.strftime("%FT%T.%L%:z"),
+                                          "volunteers_needed" => event.shifts.first.volunteers_needed,
+                                          "volunteers_count" => event.shifts.first.volunteers_count,
+                                          "current_user_assigned" => false }] }])
     end
   end
 
@@ -35,17 +33,14 @@ RSpec.describe "Events", type: :request do
       event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events?minimal=true", as: :json, headers: token_header
       expect(response).to be_successful
-      expect(json).to include_json([{"id" => event.id,
-                                     "shifts" =>
-                                     [{"id" => event.shifts.first.id,
-                                       "volunteers_needed" => event.shifts.first.volunteers_needed,
-                                       "volunteers_count" => event.shifts.first.volunteers_count,
-                                       "current_user_assigned" => false
-                                    }]
-                                 }])
+      expect(json).to include_json([{ "id" => event.id,
+                                      "shifts" =>
+                                     [{ "id" => event.shifts.first.id,
+                                        "volunteers_needed" => event.shifts.first.volunteers_needed,
+                                        "volunteers_count" => event.shifts.first.volunteers_count,
+                                        "current_user_assigned" => false }] }])
     end
   end
-
 
   describe "GET /events/:id" do
     it 'returns the event' do
@@ -54,25 +49,23 @@ RSpec.describe "Events", type: :request do
       get "/api/v1/events/" + event.id.to_s, as: :json, headers: token_header
 
       expect(response).to be_successful
-      expect(json).to include_json({"id" => event.id,
+      expect(json).to include_json( "id" => event.id,
                                     "title" => event.title,
                                     "description" => event.description,
                                     "address" => event.address,
                                     "lat" => event.lat,
                                     "lng" => event.lng,
-				    "person" => event.person,
+                                    "person" => event.person,
                                     "state" => event.state,
                                     "organization_name" => event.ngo.name,
                                     "shifts" =>
-                                    [{"id" => event.shifts.first.id,
-                                      "event_id" => event.id,
-                                      "starts_at"=> event.shifts.first.starts_at.strftime("%FT%T.%L%:z"),
-                                      "ends_at" => event.shifts.first.ends_at.strftime("%FT%T.%L%:z"),
-                                      "volunteers_needed" => event.shifts.first.volunteers_needed,
-                                      "volunteers_count" => event.shifts.first.volunteers_count,
-                                      "current_user_assigned" => false
-                                    }]
-                                  })
+                                    [{ "id" => event.shifts.first.id,
+                                       "event_id" => event.id,
+                                       "starts_at" => event.shifts.first.starts_at.strftime("%FT%T.%L%:z"),
+                                       "ends_at" => event.shifts.first.ends_at.strftime("%FT%T.%L%:z"),
+                                       "volunteers_needed" => event.shifts.first.volunteers_needed,
+                                       "volunteers_count" => event.shifts.first.volunteers_count,
+                                       "current_user_assigned" => false }] )
     end
   end
 
@@ -82,14 +75,12 @@ RSpec.describe "Events", type: :request do
       event = create :event, :with_shift, :published, ngo: ngo
       get "/api/v1/events/" + event.id.to_s + "?minimal=true", as: :json, headers: token_header
       expect(response).to be_successful
-      expect(json).to include_json({"id" => event.id,
+      expect(json).to include_json( "id" => event.id,
                                     "shifts" =>
-                                    [{"id" => event.shifts.first.id,
-                                      "volunteers_needed" => event.shifts.first.volunteers_needed,
-                                      "volunteers_count" => event.shifts.first.volunteers_count,
-                                      "current_user_assigned" => false
-                                    }]
-                                  })
+                                    [{ "id" => event.shifts.first.id,
+                                       "volunteers_needed" => event.shifts.first.volunteers_needed,
+                                       "volunteers_count" => event.shifts.first.volunteers_count,
+                                       "current_user_assigned" => false }] )
     end
   end
 end

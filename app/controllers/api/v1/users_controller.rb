@@ -1,9 +1,8 @@
 class Api::V1::UsersController < Api::V1::ApiController
-
   attr_accessor :resource
 
-  skip_before_action :api_authenticate, only: [:login, :create, :send_reset, :resend_confirmation]
-  skip_before_action :set_token_header, only: [:login, :create, :send_reset, :resend_confirmationm, :logout]
+  skip_before_action :api_authenticate, only: %i[login create send_reset resend_confirmation]
+  skip_before_action :set_token_header, only: %i[login create send_reset resend_confirmationm logout]
 
   # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" --method=delete -S http://localhost:3000/api/v1/users/unregister
   def unregister
@@ -14,28 +13,27 @@ class Api::V1::UsersController < Api::V1::ApiController
                         api_token:             nil,
                         api_token_valid_until: nil,
                         phone:                 nil)
-    render json: {deleted: true}, status: :ok
+    render json: { deleted: true }, status: :ok
   end
-
 
   # wget --post-data="email=jane@doe.com&password=supersecret" -S http://localhost:3000/api/v1/users/login
   def login
     @user = User.find_by(email: params[:email])
 
     unless @user
-      render json: {logged_in: false }, status: :unauthorized
+      render json: { logged_in: false }, status: :unauthorized
       # render json: {logged_in: false}, status: :not_found
       return
     end
 
-   unless @user.confirmed_at.present?
-      render json: {logged_in: false }, status: :unauthorized
+    unless @user.confirmed_at.present?
+      render json: { logged_in: false }, status: :unauthorized
       # render json: {logged_in: false, user: "not_confirmed"}, status: :forbidden
       return
-    end
+     end
 
     unless @user.valid_password?(params[:password])
-      render json: {logged_in: false}, status: :unauthorized
+      render json: { logged_in: false }, status: :unauthorized
       # render json: {logged_in: false, password: "wrong"}, status: :unauthorized
       return
     end
@@ -47,16 +45,14 @@ class Api::V1::UsersController < Api::V1::ApiController
     render :show
   end
 
-
   # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" -S http://localhost:3000/api/v1/users/logout
   def logout
     if current_user.update(api_token: nil, api_token_valid_until: nil)
-      render json: {logged_out: true}, status: :ok
+      render json: { logged_out: true }, status: :ok
     else
       render json: current_user.errors.messages, status: :bad_request
     end
   end
-
 
   # wget --header="Authorization: Token token=scWTF92WXNiH2WhsjueJk4dN" --post-data="password=mynewpassword&password_confirmation=mynewpassword" -S http://localhost:3000/api/v1/users/change_password
   def change_password
@@ -64,12 +60,12 @@ class Api::V1::UsersController < Api::V1::ApiController
       current_user.password = params[:password]
       current_user.password_confirmation = params[:password_confirmation]
       if current_user.save
-        render json: {password_changed: true}, status: :ok
+        render json: { password_changed: true }, status: :ok
       else
         render json: current_user.errors.messages, status: :bad_request
       end
     else
-      render json: {passwords: "not_matching"}, status: :not_acceptable
+      render json: { passwords: "not_matching" }, status: :not_acceptable
     end
   end
 
@@ -78,27 +74,24 @@ class Api::V1::UsersController < Api::V1::ApiController
     request.session_options[:skip] = true
 
     if current_user.update_attributes(user_params)
-      render json: {profile_updated: true}, status: :ok
+      render json: { profile_updated: true }, status: :ok
     else
       render json: current_user.errors.messages, status: :bad_request
     end
   end
 
-
-
   # wget --post-data="email=jane@doe.com" -S http://localhost:3000/api/v1/users/send_reset
   def send_reset
     @user = User.find_by(email: params[:email])
-    @user.send_reset_password_instructions if @user
-    render json: {password_reset: "maybe"}, status: :ok
+    @user&.send_reset_password_instructions
+    render json: { password_reset: "maybe" }, status: :ok
   end
-
 
   # wget --post-data="email=jane@doe.com" -S http://localhost:3000/api/v1/users/resend_confirmation
   def resend_confirmation
     @user = User.find_by(email: params[:email])
-    @user.send_confirmation_instructions if @user
-    render json: {resend_confirmation: "maybe"}, status: :ok
+    @user&.send_confirmation_instructions
+    render json: { resend_confirmation: "maybe" }, status: :ok
   end
 
   private
@@ -106,6 +99,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   def user_params
     params.require(:user).permit(
       :first_name, :last_name, :email, :locale, :password, :password_confirmation, :phone,
-      language_ids: [], ability_ids: [])
+      language_ids: [], ability_ids: []
+    )
   end
 end

@@ -3,8 +3,8 @@ class EventOperation
     class Update < Operation
       def setup_model!(ngo:, event_id:, **)
         @model = ngo.events
-          .includes(shifts: [:users])
-          .find(event_id)
+                    .includes(shifts: [:users])
+                    .find(event_id)
       end
 
       def process(ngo:, event_id:, event:, notify_users:, **)
@@ -29,15 +29,15 @@ class EventOperation
       end
 
       def pluralized_users
-          user_count == 1 ?
-            I18n.t("activerecord.models.users.one") :
-            I18n.t("activerecord.models.users.other")
+        user_count == 1 ?
+          I18n.t("activerecord.models.users.one") :
+          I18n.t("activerecord.models.users.other")
       end
 
       private
 
       def notify_users!
-        users = @model.shifts.flat_map { |shift| shift.users }.uniq
+        users = @model.shifts.flat_map(&:users).uniq
         users.each do |user|
           UserMailer.event_updated(event: @model, user: user).deliver_later
         end

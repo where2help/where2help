@@ -27,7 +27,7 @@ module Where2help
     # the framework and any gems in your application.
     config.active_job.queue_adapter = :sucker_punch
 
-    config.i18n.available_locales = [:de, :en]
+    config.i18n.available_locales = %i[de en]
     config.i18n.default_locale = :de
     config.time_zone = 'Vienna'
     config.autoload_paths += %W["#{config.root}/app/services/"]

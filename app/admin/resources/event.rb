@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
   include Concerns::ParanoidFind
 
   menu priority: 4
-  actions :all, except: [:new, :edit, :update]
+  actions :all, except: %i[new edit update]
   includes :shifts
 
   scope :pending

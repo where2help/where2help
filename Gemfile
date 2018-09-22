@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.5.1'
 
-gem 'rails', '5.2.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg'
 gem 'puma'
+gem 'rails', '5.2.1'
 gem 'sass-rails'
 
 gem 'bootstrap-sass'
@@ -23,65 +25,65 @@ gem 'momentjs-rails'
 
 gem 'devise'
 
-gem 'uglifier'
 gem 'coffee-rails'
+gem 'uglifier'
 
+gem 'jbuilder'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder'
 
 gem 'leaflet-rails'
 
 gem 'ri_cal'
 
-gem 'rails_autolink'
 gem 'faker', require: false
+gem 'rails_autolink'
 
 gem 'pry-rails'
-
 
 group :production do
   gem 'rails_12factor'
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'rspec-json_expectations'
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
   gem "better_errors"
   gem "binding_of_caller"
-  gem 'pry-byebug', require: false
+  gem 'factory_bot_rails'
   gem 'i18n-tasks', '~> 0.9.21'
+  gem 'pry-byebug', require: false
+  gem 'rails-controller-testing'
+  gem 'rspec-json_expectations'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'database_cleaner'
 
-  gem 'shoulda-matchers'
   gem 'shoulda-context'
+  gem 'shoulda-matchers'
 end
 
 group :development do
-  gem 'web-console'
-  gem 'spring'
-  gem 'spring-commands-rspec'
   gem 'bullet'
   gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem "relaxed-rubocop"
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'web-console'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # ActiveJob backend
 gem 'sucker_punch'
 
 # Admin Interface
-gem 'inherited_resources'
 gem 'activeadmin'
-gem 'formtastic-bootstrap'
 gem 'cocoon'
+gem 'formtastic-bootstrap'
 gem 'histogram'
+gem 'inherited_resources'
 
 # Soft delete
 gem "paranoia", "~> 2.2"
@@ -93,8 +95,8 @@ gem 'kaminari'
 gem 'whenever', require: false
 
 # CSS-styled emails, auto-generated text-variants
-gem 'premailer-rails'
 gem 'nokogiri'
+gem 'premailer-rails'
 
 gem 'invisible_captcha'
 
