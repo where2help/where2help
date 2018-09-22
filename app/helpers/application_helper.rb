@@ -4,7 +4,7 @@ module ApplicationHelper
     error: 'alert-error',
     alert: 'alert-warning',
     notice: 'alert-info'
-  }
+  }.freeze
 
   def navigation_for(visitor)
     if visitor

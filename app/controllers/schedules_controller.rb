@@ -6,8 +6,8 @@ class SchedulesController < ApplicationController
   def show
     @collection =
       ScheduleOperation::Index
-        .present(filter: params[:filter], current_user: current_user)
-        .model
-        .page(params[:page])
+      .present(filter: params[:filter], current_user: current_user)
+      .model
+      .page(params[:page])
   end
 end

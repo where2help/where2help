@@ -5,7 +5,7 @@ class OngoingEventCategoryOperation
     class Index < Operation
       include ProgressBarHelper
 
-      def setup_model!(params)
+      def setup_model!(_params)
         @model = OngoingEventCategory.joins(:ongoing_events)
                                      .merge(OngoingEvent.published)
                                      .distinct

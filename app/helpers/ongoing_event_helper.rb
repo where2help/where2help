@@ -18,10 +18,10 @@ module OngoingEventHelper
     end
 
     link_to path,
-      class: "btn btn-#{color} event-btn",
-      method: method,
-      data: data.merge(disable_with: "<i class='fas fa-spinner fa-spin'></i>") do
-        content_tag(:i, nil, class: "fas fa-#{icon}") + " " + text
+            class: "btn btn-#{color} event-btn",
+            method: method,
+            data: data.merge(disable_with: "<i class='fas fa-spinner fa-spin'></i>") do
+      content_tag(:i, nil, class: "fas fa-#{icon}") + " " + text
     end
   end
 end

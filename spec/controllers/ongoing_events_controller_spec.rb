@@ -29,7 +29,7 @@ RSpec.describe OngoingEventsController, type: :controller do
         before { get :index }
 
         it 'assigns non-empty categories to @ongoing_event_categories' do
-          expect(assigns :ongoing_event_categories).to match_array([nonempty_category])
+          expect(assigns(:ongoing_event_categories)).to match_array([nonempty_category])
         end
 
         it 'assigns events for each non-empty category' do
@@ -53,7 +53,7 @@ RSpec.describe OngoingEventsController, type: :controller do
         before { get :index, xhr: true, params: { page: 2, ongoing_event_category_id: categories[2].id } }
 
         it 'assigns next 25 upcoming shifts' do
-          expect(assigns :events).to match_array next_events
+          expect(assigns(:events)).to match_array next_events
         end
 
         it 'renders index.js' do
@@ -96,7 +96,7 @@ RSpec.describe OngoingEventsController, type: :controller do
         before { get :show, params: { id: event } }
 
         it 'assigns @event' do
-          expect(assigns :event).to eq event
+          expect(assigns(:event)).to eq event
         end
         it 'renders :show' do
           expect(response).to render_template 'ongoing_events/show'
@@ -115,7 +115,6 @@ RSpec.describe OngoingEventsController, type: :controller do
 
       context 'when not opted in yet' do
         it 'sends a notification email to the NGO' do
-
           message_delivery = instance_double(ActionMailer::MessageDelivery)
           expect(NgoMailer).to receive(:ongoing_event_opt_in).and_return(message_delivery)
           expect(message_delivery).to receive(:deliver_later)

@@ -28,7 +28,7 @@ ActiveAdmin.register User do
   scope :by_participation_count, if: proc { false } do |users|
     event_type_condition = (
       case params[:participation_type]
-      when"shift"
+      when "shift"
         "shift_id"
       when "ongoing_event"
         "ongoing_event_id"
@@ -75,12 +75,12 @@ ActiveAdmin.register User do
   end
 
   member_action :lock, method: :put do
-    UserOperation::Lock.(user: resource)
+    UserOperation::Lock.call(user: resource)
     redirect_to resource_path, notice: t(".successful")
   end
 
   member_action :unlock, method: :put do
-    UserOperation::Unlock.(user: resource)
+    UserOperation::Unlock.call(user: resource)
     redirect_to resource_path, notice: t(".successful")
   end
 

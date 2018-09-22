@@ -48,7 +48,8 @@ class Shift < ApplicationRecord
     ProgressBar.new(
       progress: volunteers_count,
       total:    volunteers_needed,
-      offset:   offset)
+      offset:   offset
+    )
   end
 
   private
@@ -67,8 +68,8 @@ class Shift < ApplicationRecord
   end
 
   def not_in_past
-   errors.add(:starts_at, :not_in_past) if starts_at && starts_at < Time.now()
-   errors.add(:ends_at, :not_in_past)   if ends_at && ends_at < Time.now
+    errors.add(:starts_at, :not_in_past) if starts_at && starts_at < Time.now
+    errors.add(:ends_at, :not_in_past) if ends_at && ends_at < Time.now
   end
 
   def ends_at_after_starts_at
