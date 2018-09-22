@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   BOOTSTRAP_FLASH_TYPES = {
     success: 'alert-success',
     error: 'alert-error',
     alert: 'alert-warning',
     notice: 'alert-info'
-  }
+  }.freeze
 
   def navigation_for(visitor)
     if visitor

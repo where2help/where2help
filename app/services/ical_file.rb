@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 class IcalFile < BaseService
-  def initialize(item:nil, attendee:nil)
+  def initialize(item: nil, attendee: nil)
     @item = item
     @attendee = attendee
-    case
-    when item.is_a?(Event)
+    if item.is_a?(Event)
       @title, @desc = item.title, item.description
       @address = item.address
-    when item.is_a?(Shift)
+    elsif item.is_a?(Shift)
       @title, @desc = item.event.title, item.event.description
       @address = item.event.address
     else
-      raise ArgumentError.new 'Invalid item type'
+      raise ArgumentError, 'Invalid item type'
     end
   end
 

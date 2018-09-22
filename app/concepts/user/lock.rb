@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserOperation
   class Lock < Operation
     def process(params)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ProgressBar, type: :model do
@@ -19,7 +21,7 @@ RSpec.describe ProgressBar, type: :model do
         it_behaves_like :a_progress_bar_with_two_items
 
         it 'contains a :progress and a :rest item' do
-          expect(subject.map(&:type)).to eq [:progress, :rest]
+          expect(subject.map(&:type)).to eq %i[progress rest]
           expect(subject.map(&:width)).to eq [0, 100]
         end
       end
@@ -29,7 +31,7 @@ RSpec.describe ProgressBar, type: :model do
         it_behaves_like :a_progress_bar_with_two_items
 
         it 'contains a :progress and a :rest item' do
-          expect(subject.map(&:type)).to eq [:progress, :rest]
+          expect(subject.map(&:type)).to eq %i[progress rest]
           expect(subject.map(&:width)).to eq [80, 20]
         end
       end
@@ -39,7 +41,7 @@ RSpec.describe ProgressBar, type: :model do
         it_behaves_like :a_progress_bar_with_two_items
 
         it 'contains a :progress and a :rest item' do
-          expect(subject.map(&:type)).to eq [:progress, :rest]
+          expect(subject.map(&:type)).to eq %i[progress rest]
           expect(subject.map(&:width)).to eq [100, 0]
         end
       end
@@ -49,7 +51,7 @@ RSpec.describe ProgressBar, type: :model do
         it_behaves_like :a_progress_bar_with_two_items
 
         it 'contains a :progress and a :full item' do
-          expect(subject.map(&:type)).to eq [:progress, :full]
+          expect(subject.map(&:type)).to eq %i[progress full]
           expect(subject.map(&:width)).to eq [20, 80]
         end
       end
@@ -69,7 +71,7 @@ RSpec.describe ProgressBar, type: :model do
         it_behaves_like :a_progress_bar_with_three_items
 
         it 'contains an :offset, :progress and :rest item' do
-          expect(subject.map(&:type)).to eq [:offset, :progress, :rest]
+          expect(subject.map(&:type)).to eq %i[offset progress rest]
           expect(subject.map(&:width)).to eq [10, 0, 90]
         end
       end
@@ -79,7 +81,7 @@ RSpec.describe ProgressBar, type: :model do
         it_behaves_like :a_progress_bar_with_three_items
 
         it 'contains an :offset, :progress and :rest item' do
-          expect(subject.map(&:type)).to eq [:offset, :progress, :rest]
+          expect(subject.map(&:type)).to eq %i[offset progress rest]
           expect(subject.map(&:width)).to eq [10, 20, 70]
         end
       end
@@ -89,7 +91,7 @@ RSpec.describe ProgressBar, type: :model do
         it_behaves_like :a_progress_bar_with_three_items
 
         it 'contains an :offset, :progress and :rest item' do
-          expect(subject.map(&:type)).to eq [:offset, :progress, :rest]
+          expect(subject.map(&:type)).to eq %i[offset progress rest]
           expect(subject.map(&:width)).to eq [10, 90, 0]
         end
       end
@@ -99,7 +101,7 @@ RSpec.describe ProgressBar, type: :model do
         it_behaves_like :a_progress_bar_with_three_items
 
         it 'contains an :offset, :progress and :rest item' do
-          expect(subject.map(&:type)).to eq [:offset, :progress, :full]
+          expect(subject.map(&:type)).to eq %i[offset progress full]
           expect(subject.map(&:width)).to eq [10, 10, 80]
         end
       end

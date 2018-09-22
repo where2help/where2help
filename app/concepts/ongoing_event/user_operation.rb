@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "ongoing_event/progress_bar_helper"
 
 class OngoingEventOperation
@@ -26,20 +28,21 @@ class OngoingEventOperation
         @model = OngoingEvent.find_by(id: params.fetch(:event_id))
         return nil if @model.nil?
         raise ArgumentError, "User already opted in" if @model.users.include?(user)
+
         @model.users << user
         notify_ngo!(@model.ngo, @model, user)
       end
 
       private
 
-        def notify_ngo!(ngo, ongoing_event, user)
-          NgoMailer
-            .ongoing_event_opt_in(
-              ngo: ngo,
-              ongoing_event: ongoing_event,
-              user: user
-            ).deliver_later
-        end
+      def notify_ngo!(ngo, ongoing_event, user)
+        NgoMailer
+          .ongoing_event_opt_in(
+            ngo: ngo,
+            ongoing_event: ongoing_event,
+            user: user
+          ).deliver_later
+      end
     end
 
     class OptOut < Operation
@@ -47,9 +50,9 @@ class OngoingEventOperation
         user   = params.fetch(:current_user)
         @model = OngoingEvent.find_by(id: params.fetch(:event_id))
         return nil if @model.nil?
+
         @model.users.destroy(user) if @model.users.include?(user)
       end
     end
   end
 end
-

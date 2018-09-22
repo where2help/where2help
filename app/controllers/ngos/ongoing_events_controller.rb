@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "ongoing_event/operation"
 class Ngos::OngoingEventsController < ApplicationController
   before_action :authenticate_ngo!
@@ -20,13 +22,13 @@ class Ngos::OngoingEventsController < ApplicationController
   end
 
   def create
-    @event = OngoingEventOperation::Create.(
+    @event = OngoingEventOperation::Create.call(
       current_ngo: current_ngo,
       ongoing_event: event_params(params)
     ).model
     if @event.valid?
       return redirect_to ngos_ongoing_event_url(@event),
-        notice: t("ngos.ongoing_events.messages.create_success")
+                         notice: t("ngos.ongoing_events.messages.create_success")
     end
     render :new
   end
@@ -38,7 +40,7 @@ class Ngos::OngoingEventsController < ApplicationController
 
   def update
     @event =
-      OngoingEventOperation::Update.(
+      OngoingEventOperation::Update.call(
         current_ngo: current_ngo,
         event_id: params[:id],
         ongoing_event: event_params(params),
@@ -46,23 +48,23 @@ class Ngos::OngoingEventsController < ApplicationController
       ).model
     if @event.valid?
       return redirect_to ngos_ongoing_event_url(@event),
-        notice: t("ngos.events.messages.update_success")
+                         notice: t("ngos.events.messages.update_success")
     end
     render :edit
   end
 
   def destroy
     @event =
-      OngoingEventOperation::Destroy.(current_ngo: current_ngo, event_id: params[:id]).model
-    return redirect_to ngos_ongoing_events_url,
-      notice: t("ngos.ongoing_events.messages.delete_success")
+      OngoingEventOperation::Destroy.call(current_ngo: current_ngo, event_id: params[:id]).model
+    redirect_to ngos_ongoing_events_url,
+                notice: t("ngos.ongoing_events.messages.delete_success")
   end
 
   def publish
     @event =
-      OngoingEventOperation::Publish.(current_ngo: current_ngo, event_id: params[:id]).model
-    return redirect_to ngos_ongoing_event_url(@event),
-      notice: t("ngos.events.messages.#{@event.published? ? 'publish' : 'unpublish'}_success")
+      OngoingEventOperation::Publish.call(current_ngo: current_ngo, event_id: params[:id]).model
+    redirect_to ngos_ongoing_event_url(@event),
+                notice: t("ngos.events.messages.#{@event.published? ? 'publish' : 'unpublish'}_success")
   end
 
   private
@@ -70,7 +72,7 @@ class Ngos::OngoingEventsController < ApplicationController
   def event_params(params)
     params.require(:ongoing_event).permit(
       :contact_person, :title, :description,
-      :address, :approximate_address,:lat, :lng,
+      :address, :approximate_address, :lat, :lng,
       :volunteers_needed, :ongoing_event_category_id,
       :start_date, :end_date
     )

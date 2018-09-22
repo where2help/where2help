@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Concerns
   module ParanoidScopes
     def self.included(base)

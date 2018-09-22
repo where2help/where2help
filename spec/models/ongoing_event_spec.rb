@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe OngoingEvent, type: :model do
@@ -5,7 +7,7 @@ RSpec.describe OngoingEvent, type: :model do
   it { is_expected.to belong_to :ngo }
 
   describe 'validations' do
-    it { expect(create :ongoing_event).to be_valid }
+    it { expect(create(:ongoing_event)).to be_valid }
 
     it { is_expected.to validate_presence_of :address }
     it { is_expected.to validate_presence_of :contact_person }

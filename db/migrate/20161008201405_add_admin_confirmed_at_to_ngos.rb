@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddAdminConfirmedAtToNgos < ActiveRecord::Migration[5.0]
   class Ngo < ApplicationRecord
   end

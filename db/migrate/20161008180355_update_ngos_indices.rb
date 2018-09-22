@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdateNgosIndices < ActiveRecord::Migration[5.0]
   def up
     remove_index :ngos, :confirmation_token

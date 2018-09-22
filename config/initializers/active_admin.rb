@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.setup do |config|
   # Move resources in own directory
   config.load_paths = [File.join(Rails.root, 'app', 'admin', 'resources')]

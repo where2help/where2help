@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 module EventsHelper
-  def load_more_events_btn(events, params={})
+  def load_more_events_btn(events, params = {})
     link_to_next_page events, t('events.load_more'),
-      params: params,
-      remote: true,
-      data: { disable_with: "<i class='fas fa-spinner fa-spin'></i>", behavior: 'events-pagination' },
-      class: 'btn'
+                      params: params,
+                      remote: true,
+                      data: { disable_with: "<i class='fas fa-spinner fa-spin'></i>", behavior: 'events-pagination' },
+                      class: 'btn'
   end
 
   def format_event_date_group(date)
     if date.today?
-      "#{t("helpers.events_helper.today")}, #{l date.to_date}"
-    elsif (date-1.day).today?
-      "#{t("helpers.events_helper.tomorrow")}, #{l date.to_date}"
+      "#{t('helpers.events_helper.today')}, #{l date.to_date}"
+    elsif (date - 1.day).today?
+      "#{t('helpers.events_helper.tomorrow')}, #{l date.to_date}"
     else
       l date.to_date, format: :events_date_group
     end
@@ -21,7 +23,7 @@ module EventsHelper
     if description.blank?
       '-'
     else
-      simple_format(auto_link description)
+      simple_format(auto_link(description))
     end
   end
 

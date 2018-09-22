@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LandingPage
   class Image
     class << self

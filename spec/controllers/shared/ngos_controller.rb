@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples :ngos_index do
   context 'when not signed in' do
     it 'redirects to ngo sign_in' do

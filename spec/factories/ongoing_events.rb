@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :ongoing_event do
     ngo
@@ -18,7 +20,7 @@ FactoryBot.define do
     end
 
     trait :skip_validate do
-      to_create {|instance| instance.save(validate: false) }
+      to_create { |instance| instance.save(validate: false) }
     end
   end
 end

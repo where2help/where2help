@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ShiftsController, type: :controller do
@@ -17,7 +19,7 @@ RSpec.describe ShiftsController, type: :controller do
         before { get :show, params: { id: shift } }
 
         it 'assigns @shift' do
-          expect(assigns :shift).to eq shift
+          expect(assigns(:shift)).to eq shift
         end
 
         it 'renders show' do
@@ -59,12 +61,12 @@ RSpec.describe ShiftsController, type: :controller do
         it 'creates participation record' do
           expect{
             post :opt_in, params: { shift_id: shift }
-          }.to change{Participation.count}.by 1
+          }.to change{ Participation.count }.by 1
         end
 
         it 'assigns @shift' do
           post :opt_in, params: { shift_id: shift }
-          expect(assigns :shift).to eq shift
+          expect(assigns(:shift)).to eq shift
         end
 
         it 'renders :opt_in' do
@@ -84,12 +86,12 @@ RSpec.describe ShiftsController, type: :controller do
         it 'does not create participation record' do
           expect{
             post :opt_in, params: { shift_id: shift }
-          }.not_to change{Participation.count}
+          }.not_to change{ Participation.count }
         end
 
         it 'assigns @shift' do
           post :opt_in, params: { shift_id: shift }
-          expect(assigns :shift).to eq shift
+          expect(assigns(:shift)).to eq shift
         end
 
         it 'redirect_to event' do
@@ -120,12 +122,12 @@ RSpec.describe ShiftsController, type: :controller do
         it 'deletes participation record' do
           expect{
             delete :opt_out, params: { shift_id: shift }
-          }.to change{Participation.count}.by -1
+          }.to change{ Participation.count }.by -1
         end
 
         it 'assigns @shift' do
           delete :opt_out, params: { shift_id: shift }
-          expect(assigns :shift).to eq shift
+          expect(assigns(:shift)).to eq shift
         end
 
         it 'redirect_to schedule' do
@@ -134,16 +136,15 @@ RSpec.describe ShiftsController, type: :controller do
         end
       end
       context 'when not opted in' do
-
         it 'does not change participation records' do
           expect{
             delete :opt_out, params: { shift_id: shift }
-          }.not_to change{Participation.count}
+          }.not_to change{ Participation.count }
         end
 
         it 'assigns @shift' do
           delete :opt_out, params: { shift_id: shift }
-          expect(assigns :shift).to eq shift
+          expect(assigns(:shift)).to eq shift
         end
 
         it 'redirect_to schedule' do

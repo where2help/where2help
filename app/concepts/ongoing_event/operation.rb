@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "ongoing_event/progress_bar_helper"
 
 class OngoingEventOperation

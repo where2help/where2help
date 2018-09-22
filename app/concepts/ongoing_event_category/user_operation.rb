@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "ongoing_event_category/progress_bar_helper"
 
 class OngoingEventCategoryOperation
@@ -5,7 +7,7 @@ class OngoingEventCategoryOperation
     class Index < Operation
       include ProgressBarHelper
 
-      def setup_model!(params)
+      def setup_model!(_params)
         @model = OngoingEventCategory.joins(:ongoing_events)
                                      .merge(OngoingEvent.published)
                                      .distinct

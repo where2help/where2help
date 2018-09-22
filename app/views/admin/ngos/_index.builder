@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "concepts/ngo/decorator"
 context.instance_eval do
   selectable_column

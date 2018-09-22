@@ -1,4 +1,6 @@
-ActiveAdmin.register OngoingEventCategory do |config|
+# frozen_string_literal: true
+
+ActiveAdmin.register OngoingEventCategory do |_config|
   menu priority: 8
   actions :all
 

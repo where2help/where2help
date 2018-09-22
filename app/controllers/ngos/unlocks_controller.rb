@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ngos::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
   # def new

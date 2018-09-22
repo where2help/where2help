@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 context.instance_eval do
   panel 'NGO' do
     attributes_table_for ngo do

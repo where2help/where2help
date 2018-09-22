@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Admin::DashboardController, type: :controller do
-
   describe 'GET index' do
     context 'when logged out' do
-
       it 'returns a 302 redirect' do
         get :index
         expect(response).to have_http_status 302

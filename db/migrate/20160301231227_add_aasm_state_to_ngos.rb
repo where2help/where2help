@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddAasmStateToNgos < ActiveRecord::Migration
   def self.up
     add_column :ngos, :aasm_state, :string

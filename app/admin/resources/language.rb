@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Language do
   menu priority: 7
   actions :all

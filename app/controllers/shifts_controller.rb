@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class ShiftsController < ApplicationController
   before_action :authenticate_user!
 
   def show
     @shift = Shift.includes(:event).
-      where.not(events: { published_at: nil }).
-      find(params[:id])
+             where.not(events: { published_at: nil }).
+             find(params[:id])
   end
 
   def opt_in
@@ -22,10 +24,12 @@ class ShiftsController < ApplicationController
   def cal
     cal = IcalFile.call item: find_shift, attendee: current_user
     respond_to do |format|
-      format.ics { send_data(cal,
-        filename: 'ical.ics',
-        disposition: 'inline; filename=ical.ics',
-        type: 'text/calendar') }
+      format.ics {
+        send_data(cal,
+                  filename: 'ical.ics',
+                  disposition: 'inline; filename=ical.ics',
+                  type: 'text/calendar')
+      }
     end
   end
 

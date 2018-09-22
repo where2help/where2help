@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOngoingEvents < ActiveRecord::Migration[5.0]
   def change
     create_table :ongoing_events do |t|

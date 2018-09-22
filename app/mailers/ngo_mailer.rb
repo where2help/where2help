@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NgoMailer < ApplicationMailer
   def admin_confirmed(ngo)
     @ngo = ngo
@@ -21,7 +23,7 @@ class NgoMailer < ApplicationMailer
 
   private
 
-    def truncate_event_title(event_title)
-      ActionController::Base.helpers.truncate(event_title, length: 40)
-    end
+  def truncate_event_title(event_title)
+    ActionController::Base.helpers.truncate(event_title, length: 40)
+  end
 end

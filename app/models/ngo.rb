@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ngo < ApplicationRecord
   acts_as_paranoid
   devise :database_authenticatable, :registerable,
@@ -32,7 +34,7 @@ class Ngo < ApplicationRecord
     _state || 'pending'
   end
 
-  def self.send_reset_password_instructions(attributes={})
+  def self.send_reset_password_instructions(attributes = {})
     recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
     if !recoverable.confirmed?
       recoverable.errors[:base] << I18n.t('devise.failure.not_admin_confirmed')
@@ -61,7 +63,7 @@ class Ngo < ApplicationRecord
 
   def new_event
     t           = Time.now + 15.minutes
-    starts      = t - t.sec - t.min%15*60
+    starts      = t - t.sec - t.min % 15 * 60
     ends        = starts +  2.hours
     shifts_attr = [{ volunteers_needed: 1, starts_at: starts, ends_at: ends }]
     events.build(shifts_attributes: shifts_attr)

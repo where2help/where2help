@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
@@ -7,7 +9,7 @@ RSpec.describe Event, type: :model do
   it { is_expected.to accept_nested_attributes_for :shifts }
 
   describe 'validations' do
-    it { expect(create :event, :with_shift).to be_valid }
+    it { expect(create(:event, :with_shift)).to be_valid }
 
     it { is_expected.to validate_presence_of :address }
     it { is_expected.to validate_presence_of :person }
@@ -21,7 +23,7 @@ RSpec.describe Event, type: :model do
       create :shift, event: event
       expect{
         event.destroy
-      }.to change{Shift.count}.by -1
+      }.to change{ Shift.count }.by -1
     end
   end
 
@@ -60,11 +62,11 @@ RSpec.describe Event, type: :model do
       subject(:events) { Event.with_available_shifts }
 
       before do
-        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
-        create :shift, event: first_event, starts_at: Time.now+1.hour
-        create :shift, event: second_event, starts_at: Time.now+2.hours
+        create :shift, :skip_validate, event: past_event, starts_at: Time.now - 1.hour, ends_at: Time.now - 30.minutes
+        create :shift, event: first_event, starts_at: Time.now + 1.hour
+        create :shift, event: second_event, starts_at: Time.now + 2.hours
         create :shift, :full, event: full_event
-        create :shift, event: third_event, starts_at: Time.now+3.hours
+        create :shift, event: third_event, starts_at: Time.now + 3.hours
       end
 
       it 'excludes pending events' do
@@ -88,8 +90,8 @@ RSpec.describe Event, type: :model do
       let(:past_event) { create :event, :skip_validate }
 
       before do
-        create :shift, event: upcoming_event, starts_at: Time.now+1.hour
-        create :shift, :skip_validate, event: past_event, starts_at: Time.now-1.hour, ends_at: Time.now-30.minutes
+        create :shift, event: upcoming_event, starts_at: Time.now + 1.hour
+        create :shift, :skip_validate, event: past_event, starts_at: Time.now - 1.hour, ends_at: Time.now - 30.minutes
       end
 
       describe 'upcoming' do
@@ -168,12 +170,12 @@ RSpec.describe Event, type: :model do
 
   describe '#starts_at and #ends_at' do
     let!(:event) { create :event, :with_shift }
-    let!(:first_shift) { create :shift, event: event, starts_at: Time.now+1.hour }
-    let!(:last_shift) { create :shift, event: event, ends_at: Time.now+3.days }
+    let!(:first_shift) { create :shift, event: event, starts_at: Time.now + 1.hour }
+    let!(:last_shift) { create :shift, event: event, ends_at: Time.now + 3.days }
 
     before do
-      create :shift, :full, event: event, starts_at: Time.now+1.hour
-      create :shift, :skip_validate, :past, event: event, starts_at: Time.now+1.hour
+      create :shift, :full, event: event, starts_at: Time.now + 1.hour
+      create :shift, :skip_validate, :past, event: event, starts_at: Time.now + 1.hour
     end
 
     it 'returns starts_at of first available_shift' do
@@ -206,7 +208,7 @@ RSpec.describe Event, type: :model do
       let(:event) { create :event, :skip_validate }
       before do
         create_list :shift, 2, :skip_validate, :past,
-          event: event, volunteers_needed: 10, volunteers_count: 1
+                    event: event, volunteers_needed: 10, volunteers_count: 1
       end
 
       it 'sums up all shifts volunteers_needed' do
