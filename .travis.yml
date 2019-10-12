@@ -1,7 +1,8 @@
 sudo: false
 language: ruby
 rvm:
-- 2.5.1
+# 2.5.1 is broken: https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html
+- 2.6.3
 addons:
   postgresql: '9.5'
 before_script:
