@@ -7,15 +7,14 @@ gem 'pg'
 gem 'puma'
 gem 'sass-rails'
 
-gem 'bootstrap-sass'
-
-# TODO: Upgrade font-awesome-sass to newer version.
-# Starting with 5.0.13 however the font-awesome-sass gem depends on
-# sassc (instead of sass) and to compile sassc we need GCC 4.6 or newer.
+# TODO: Upgrade font-awesome-sass and bootstrap-rails to newer version.
+# Starting with font-awesome-sass 5.0.13 and bootstrap-rails 4.4.1 however#
+# these gem depends on sassc (instead of sass) and to compile sassc we need GCC 4.6 or newer.
 # On CentOS 6.9 the currently installed version is 4.4.7 (as of
-# 2018-05-22). So for now we have to stick with version 5.0.9.
+# 2018-05-22). So for now we have to stick with the old versions.
 # https://github.com/FortAwesome/font-awesome-sass/commit/2cfca7ba60cd7bc065bcabfdbc6c476ca1a2f9ad
 # https://github.com/sass/sassc-ruby/issues/37#issuecomment-205449016
+gem 'bootstrap-sass', '= 3.3.7'
 gem 'font-awesome-sass', '= 5.0.9'
 
 gem 'flag-icons-rails'
