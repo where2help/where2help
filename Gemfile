@@ -14,7 +14,7 @@ gem 'sass-rails'
 # 2018-05-22). So for now we have to stick with the old versions.
 # https://github.com/FortAwesome/font-awesome-sass/commit/2cfca7ba60cd7bc065bcabfdbc6c476ca1a2f9ad
 # https://github.com/sass/sassc-ruby/issues/37#issuecomment-205449016
-gem 'bootstrap-sass', '= 3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 gem 'font-awesome-sass', '= 5.0.9'
 
 gem 'flag-icons-rails'
