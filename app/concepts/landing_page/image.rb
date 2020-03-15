@@ -3,14 +3,15 @@ class LandingPage
     class << self
       attr_reader :images
 
+      DIR_NAME = "landing_page"
+
       # This will load all image paths so we can just add images when we want
       # Could probably be pulled out if we need random images anywhere else
       def init
-        dir_name = "landing_page"
-        dir = Rails.root.join("app", "assets", "images", dir_name, "*.jpg")
+        dir = Rails.root.join("app", "assets", "images", DIR_NAME, "*.jpg")
         @images = Dir[dir].map do |path|
           file = path.split("/").last
-          "#{dir_name}/#{file}"
+          "#{DIR_NAME}/#{file}"
         end
       end
 
