@@ -1,4 +1,5 @@
-<div class="home-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= image_path(LandingPage::Image.next_image_path) %>);"></div>
+<% image = LandingPage::Image.next_image %>
+<div class="home-bg" title="<%= image.copyright %>" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= asset_path image.path %>);"></div>
 
 <div class="home-section home-section-bg-image home-section-centered">
   <div class="home-container">
@@ -61,7 +62,8 @@
       <div class="row">
         <div class="col-sm-6 col-md-5 home-register-description">
           <div class="registration-img-container">
-            <%= image_tag 'landing_page/landing-background-hands.jpg', class: "img-responsive img-rounded hidden-xs" %>
+            <% copyright = LandingPage::Image.copyright(:hands) %>
+            <%= image_tag 'landing_page/landing-background-hands.jpg', title: copyright, alt: copyright, class: "img-responsive img-rounded hidden-xs" %>
           </div>
 
           <p><%= t('.register.description').html_safe %></p>
@@ -117,10 +119,26 @@
         <%= t('.ngo.feature3') %>
       </li>
     </ul>
-    <div><%= link_to t('application.cookie_consent.learn_more'), how_to_path, class: 'btn btn-default' %></div>
-    <p>
+
+    <div class="ngo-section-learn-more">
+      <%= link_to t('application.cookie_consent.learn_more'), how_to_path, class: 'btn btn-default' %>
+    </div>
+
+    <p class="ngo-section-navigation-links">
       <%= link_to t('ngos.registrations.new.sign_up'), new_registration_path('ngo') %> &nbsp;
       <%= link_to t('pages.home.login_ngo'), new_ngo_session_path %>
     </p>
+
+    <div class="image-attribution">
+      <h4 class="image-attribution-title">
+        <%= t('pages.home.image_attribution') %>
+      </h4>
+
+      <ul class="image-attribution-list">
+        <% LandingPage::Image.images.each do |image| %>
+          <li><%= image.name.titleize  %>: <%= image.copyright %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

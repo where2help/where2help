@@ -1,26 +1,27 @@
 // Variables and mixins
-@import 'base/variables';
-@import 'base/overwrites';
+@import "base/variables";
+@import "base/overwrites";
 
 // Vendor
-@import 'bootstrap-sprockets';
-@import 'formtastic-bootstrap';
-@import 'bootstrap';
-@import 'bootflat';
-@import 'font-awesome-sprockets';
-@import 'font-awesome';
-@import 'flag-icon';
-@import 'leaflet';
-@import 'breakpoint-sass/stylesheets/breakpoint';
+@import "bootstrap-sprockets";
+@import "formtastic-bootstrap";
+@import "bootstrap";
+@import "bootflat";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "flag-icon";
+@import "leaflet";
+@import "breakpoint-sass/stylesheets/breakpoint";
 
 // Globals
-@import 'base/globals';
-@import 'base/components';
+@import "base/globals";
+@import "base/components";
 
 // Page or controller specific
-@import 'pages/home';
-@import 'pages/events';
-@import 'pages/registrations';
-@import 'pages/static';
-@import 'partials/layout';
-@import 'partials/modules';
+@import "pages/shared";
+@import "pages/home";
+@import "pages/events";
+@import "pages/registrations";
+@import "pages/static";
+@import "partials/layout";
+@import "partials/modules";
