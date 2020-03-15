@@ -15,15 +15,15 @@
   padding-top: 30px;
   padding-bottom: 30px;
 
-  @media(min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) {
     padding-top: 100px;
     padding-bottom: 100px;
   }
-  @media(min-width: $screen-md-min) {
+  @media (min-width: $screen-md-min) {
     padding-top: 150px;
     padding-bottom: 150px;
   }
-  @media(min-width: $screen-lg-min) {
+  @media (min-width: $screen-lg-min) {
     padding-top: 180px;
     padding-bottom: 180px;
   }
@@ -31,7 +31,7 @@
   h2 {
     font-size: 26px;
 
-    @media(min-width: $screen-sm-min) {
+    @media (min-width: $screen-sm-min) {
       font-size: 35px;
     }
   }
@@ -42,7 +42,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  @media(min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) {
     margin-top: 50px;
   }
 }
@@ -61,10 +61,10 @@
 
 .home-signup-form {
   .help-block {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
   }
   input.form-control {
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     border: 1px white solid;
   }
 
@@ -73,7 +73,8 @@
     padding-right: 60px;
   }
 
-  .btn-already-registered, .btn-signup {
+  .btn-already-registered,
+  .btn-signup {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -89,7 +90,7 @@
 
 .home-teaser {
   margin-bottom: 20px;
-  @media(min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) {
     margin-bottom: 75px;
   }
   &:last-child {
@@ -102,7 +103,6 @@
     font-size: 24px;
   }
 }
-
 
 #home_help_now_header {
   text-align: center;
@@ -123,7 +123,7 @@
     font-size: 150%;
   }
 
-  @media(min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) {
     margin-bottom: 100px;
   }
 }
@@ -136,7 +136,7 @@
     line-height: 150%;
     font-size: 28px;
 
-    @media(min-width: $screen-sm-min) {
+    @media (min-width: $screen-sm-min) {
       font-size: 34px;
     }
   }
@@ -146,7 +146,7 @@
   margin-right: -15px;
   margin-top: 30px;
 
-  @media(min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) {
     margin-right: 0;
     max-width: 150px;
   }
@@ -162,5 +162,26 @@
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+  }
+
+  .ngo-section-learn-more {
+    margin-bottom: 10px;
+  }
+
+  .ngo-section-navigation-links {
+    margin-bottom: 30px;
+  }
+}
+
+.image-attribution {
+  color: #333;
+  .image-attribution-title {
+    font-size: 15px;
+  }
+  .image-attribution-list {
+    font-size: 13px;
+    li {
+      list-style: none;
+    }
   }
 }
