@@ -1,14 +1,14 @@
 sudo: false
 language: ruby
 rvm:
-- 2.5.1
+  - 2.5.1
 addons:
-  postgresql: '9.5'
+  postgresql: "9.5"
 before_install:
-- gem update --system
-- gem install bundler
+  - gem update --system
+  - gem install bundler -v 1.17.3
 before_script:
-- bundle exec rake db:create db:schema:load RAILS_ENV=test
+  - bundle exec rake db:create db:schema:load RAILS_ENV=test
 cache: bundler
 notifications:
   slack:
