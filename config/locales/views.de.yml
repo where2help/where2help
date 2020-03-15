@@ -5,8 +5,8 @@ de:
     en: English
   admin_mailer:
     new_ngo:
-      content: Neue NGO Account Anfrage
-      subject: "[where2help] Neue NGO Registrierung"
+      content: Neue NGO / NPO Account Anfrage
+      subject: "[where2help] Neue NGO / NPO Registrierung"
       teaser: "%{ngo_name} hat sich registriert"
   application:
     contact: Kontakt
@@ -136,14 +136,14 @@ de:
           Veröffentlicht Eure Hilfsanfragen mit genauen Angaben wie beispielsweise wann, wo und wie viele Freiwillige gebraucht werden. Teilt Einsätze ein, für die sich Freiwillige online eintragen können. Ihr behaltet immer den Überblick, wie viele Freiwillige bereits ihre Hilfe zugesagt haben.
           Wir freuen uns auf Euch!
         profile: NGO-Profil
-        sign_up: Als NGO registrieren
+        sign_up: Als NGO / NPO registrieren
       ngo_fields:
         min_characters: Zeichen mindestens
       terms_and_conditions:
         body: |
-          Zweck von "where2help" (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfsleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
+          Zweck von "where2help" (w2h) ist es, den Bedarf von Organisationen/Initiativen an freiwilligen Hilfsleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
 
-          Ziel ist es, durch die Nutzung von w2h den Bedarf der flüchtlingsbetreuenden Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
+          Ziel ist es, durch die Nutzung von w2h den Bedarf der Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
 
           Betreiber von w2h ist der Fonds Soziales Wien (FSW).
 
@@ -180,7 +180,7 @@ de:
       new:
         login: Anmelden
         login_as_user: <i class="fas fa-user" aria-hidden="true"></i> Als Freiwillige/r anmelden
-        please_login: Als NGO anmelden
+        please_login: Als NGO / NPO anmelden
   ongoing_events:
     are_you_sure: Willst Du wirklich absagen?
     index:
@@ -201,32 +201,32 @@ de:
     home:
       btn_help_now: Jetzt mithelfen
       help_constantly_teaser_subheader: Regelmäßig Zeit spenden
-      help_constantly_text: "… unter anderem als Buddy, im Alltag oder beim Unterrichten."
+      help_constantly_text: "… bei der Vorsorgung von Menschen im Heimquarantäne, als Buddy oder im Alltag"
       help_once_teaser_subheader: Einmalig mithelfen
-      help_once_text: "… in Sprachcafés, beim Dolmetschen oder in der Flüchtlingsbetreuung."
+      help_once_text: "… bei der Unterstützung der Versorgung von Menschen in der Coronavirus-Krise oder in der Flüchtlingsbetreuung"
       how_to: So funktioniert's
-      login_ngo: Als NGO anmelden
+      login_ngo: Als NGO / NPO anmelden
       login_user: Als Freiwillige/r anmelden
       ngo:
         feature1: Organisiere freiwillige Hilfe mit Where2Help
         feature2: Erhalte einen genauen Überblick über Deine Einsätze
         feature3: Vereinfache die Administration der Freiwilligen
-      ngo_subheader: Informationen für NGOs
-      ngo_teaser_subheader: Wähle aus Hilfseinsätzen von über 50 NGOs
-      ngo_teaser_text: "… und Initiativen, die derzeit in der Flüchtlingsbetreuung in Wien aktiv sind."
+      ngo_subheader: Informationen für NGOs und NPOs
+      ngo_teaser_subheader: Wähle aus Hilfseinsätzen von zahlreichen NGOs und NPOs
+      ngo_teaser_text: "… und Initiativen, die derzeit in Wien aktiv sind."
       register:
         already_registered: Ich bin bereits registriert
         description: "<strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>"
         safe_data_transport: Deine Daten werden gesichert übertragen.
       register_subheader: Jetzt mithelfen
-      short_description: Plattform für Freiwillige und Organisationen in der Flüchtlingshilfe Wien
-      sign_up_ngo: Als NGO registrieren
+      short_description: Plattform für Freiwillige und Organisationen in Wien
+      sign_up_ngo: Als NGO / NPO registrieren
       sign_up_user: Als Freiwillige/r registrieren
       start: Start
     how_to:
       text_ngos: |
-        <strong>Schritt 1: Registriert Euch als NGO</strong>
-        Klickt auf den Button "Als NGO registrieren". Legt Euer Profil mit Eurem Namen, Eurer E-Mail-Adresse und einem Passwort an und gebt Eure Kontaktmöglichkeiten bekannt. Akzeptiert die Nutzungsbedingungen und schließt den ersten Schritt mit einem Klick auf den Button "Registrieren" ab.
+        <strong>Schritt 1: Registriert Euch als NGO / NPO</strong>
+        Klickt auf den Button "Als NGO / NPO registrieren". Legt Euer Profil mit Eurem Namen, Eurer E-Mail-Adresse und einem Passwort an und gebt Eure Kontaktmöglichkeiten bekannt. Akzeptiert die Nutzungsbedingungen und schließt den ersten Schritt mit einem Klick auf den Button "Registrieren" ab.
 
         <strong>Schritt 2: Bestätigt Eure Registrierung</strong>
         where2help schickt Euch ein E-Mail mit einem Bestätigungslink. Folgt dem Link und schließt die Registrierung damit ab.
@@ -235,7 +235,7 @@ de:
         Meldet Euch auf where2help mit Eurer registrierten E-Mail-Adresse und Eurem Passwort an. Unter "Konkreten Einsatz hinzufügen" könnt Ihr eine neue Hilfsanfrage anlegen. Dafür gebt Ihr einen aussagekräftigen Titel, eine Beschreibung, Ort und Zeit sowie die Anzahl der benötigten HelferInnen und eine Kontaktperson vor Ort an. Ihr könnt zusätzliche Schichten hinzufügen. Klickt abschließend auf "Einsatz erstellen" und "Veröffentlichen", um den Einsatz für alle sichtbar zu machen.
 
         <strong>Schritt 4: Behaltet den Überblick</strong>
-        Als NGO findet Ihr auf where2help alle Eure Hilfsanfragen übersichtlich aufgelistet. Ihr erhaltet einen genauen Überblick, wie viele HelferInnen sich bereits angemeldet haben - einschließlich Namen und Kontaktmöglichkeiten. Ihr könnt alle von Euch erstellten Einsätze in Eure Kalender eintragen lassen. Wenn Ihr eine Hilfsanfrage löscht oder verändert, werden angemeldete HelferInnen automatisch per E-Mail verständigt.
+        Als NGO / NPO findet Ihr auf where2help alle Eure Hilfsanfragen übersichtlich aufgelistet. Ihr erhaltet einen genauen Überblick, wie viele HelferInnen sich bereits angemeldet haben - einschließlich Namen und Kontaktmöglichkeiten. Ihr könnt alle von Euch erstellten Einsätze in Eure Kalender eintragen lassen. Wenn Ihr eine Hilfsanfrage löscht oder verändert, werden angemeldete HelferInnen automatisch per E-Mail verständigt.
 
         Gutes Gelingen!
       text_users: |
@@ -331,9 +331,9 @@ de:
         sign_up: Als Freiwillige/r registrieren
       terms_and_conditions:
         body: |
-          Zweck von "where2help" (w2h) ist es, den Bedarf von flüchtlingsbetreuenden Organisationen/Initiativen an freiwilligen Hilfeleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
+          Zweck von "where2help" (w2h) ist es, den Bedarf von Organisationen/Initiativen an freiwilligen Hilfeleistungen für potentielle freiwillige HelferInnen übersichtlich darzustellen.
 
-          Ziel ist es, durch die Nutzung von w2h den Bedarf der flüchtlingsbetreuenden Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
+          Ziel ist es, durch die Nutzung von w2h den Bedarf der Organisationen/Initiativen und das Angebot der freiwilligen HelferInnen optimal zusammenzuführen.
 
           Betreiber von w2h ist der Fonds Soziales Wien (FSW).
 
@@ -366,5 +366,5 @@ de:
     sessions:
       new:
         login: Anmelden
-        login_as_ngo: <i class="fas fa-users" aria-hidden="true"></i> Als NGO anmelden
+        login_as_ngo: <i class="fas fa-users" aria-hidden="true"></i> Als NGO / NPO anmelden
         please_login: Als Freiwillige/r anmelden

@@ -5,8 +5,8 @@ en:
     en: English
   admin_mailer:
     new_ngo:
-      content: New NGO account request
-      subject: "[where2help] New NGO registration"
+      content: New NGO / NPO account request
+      subject: "[where2help] New NGO / NPO registration"
       teaser: "%{ngo_name} has signed up"
   application:
     contact: Contact
@@ -131,14 +131,14 @@ en:
           You always keep an overview on how many helpers have signed up to help.
           Looking forward to you!
         profile: NGO-Profile
-        sign_up: Sign up as an NGO
+        sign_up: Sign up as an NGO / NPO
       ngo_fields:
         min_characters: characters minimum
       terms_and_conditions:
         body: |
-          The purpose of "where2help" (w2h) is to provide potential voluntary helpers with a clear overview of voluntary services required by organisations/initiatives concerned with the care of refugees.
+          The purpose of "where2help" (w2h) is to provide potential voluntary helpers with a clear overview of voluntary services required by organisations/initiatives.
 
-          w2h is aimed at bringing together demand from refugee organisations/initiatives and supply from voluntary helpers in the best possible way.
+          w2h is aimed at bringing together demand from organisations/initiatives and supply from voluntary helpers in the best possible way.
 
           w2h is operated by the Vienna Social Fund (Fonds Soziales Wien – FSW).
 
@@ -175,7 +175,7 @@ en:
       new:
         login: Login
         login_as_user: <i class="fas fa-user" aria-hidden="true"></i> Login As A Helper Instead
-        please_login: Login as a NGO
+        please_login: Login as an NGO / NPO
   ongoing_events:
     are_you_sure: Are you sure you can't make it?
     index:
@@ -201,34 +201,34 @@ en:
     home:
       btn_help_now: Help now
       help_constantly_teaser_subheader: Help regularly
-      help_constantly_text: "… for instance as a buddy, in day-to-day life or teaching."
+      help_constantly_text: "… for instance supporting people during home quarantine, as a buddy, or in day-to-day life."
       help_once_teaser_subheader: Help once
-      help_once_text: "… teaching German, translating or taking care of refugees."
+      help_once_text: "… supporting helping people during the COVID-19 (Corona Virus) Crisis or in refugee care"
       how_to: How it works
-      login_ngo: Login as NGO
+      login_ngo: Login as an NGO / NPO
       login_user: Login as user
       ngo:
         feature1: Organize voluntary help with Where2Help
         feature2: Get an overview of all your events
         feature3: Simplify management of volunteers
-      ngo_subheader: Information for NGOs
-      ngo_teaser_subheader: Choose to help in one of 50 NGOs
-      ngo_teaser_text: "… and other initiatives currently active in refugee support."
+      ngo_subheader: Information for NGOs & NPOs
+      ngo_teaser_subheader: Choose to help in one of many NGOs and NPOs
+      ngo_teaser_text: "… and other initiatives currently active in Vienna."
       register:
         already_registered: I am already registered
         description: "<strong>Know when and where we need your help:</strong><ul><li>Know, where you're needed</li><li>Register now, online</li><li>We're looking forward to meeting you!</li></ul>"
         safe_data_transport: Your data are send over a secured connection.
       register_subheader: Help now
-      short_description: Portal for volunteers and organisations for refugee aid in Vienna
-      sign_up_ngo: Sign up as NGO
+      short_description: Portal for volunteers and organisations in Vienna
+      sign_up_ngo: Sign up as NGO / NPO
       sign_up_user: Sign up as Helper
       start: Start
       subline_ngo: Know where and when how many helpers show up
       subline_user: Know where and when I am needed
     how_to:
       text_ngos: |
-        <strong>Step 1: Sign up as an NGO</strong>
-        Click on the button ‘Sign up as NGO’. Enter your NGO-profile and your name, your email address and a password. Accept the terms & conditions and end the first step with a click on the button 'Sign up'.
+        <strong>Step 1: Sign up as an NGO or NPO</strong>
+        Click on the button ‘Sign up as NGO / NPO’. Enter your NGO or NPO profile and your name, your email address and a password. Accept the terms & conditions and end the first step with a click on the button 'Sign up'.
 
         <strong>Step 2: Confirm your registration</strong>
         where2help will send you an email with a confirmation link. Follow the link and confirm your account.
@@ -237,7 +237,7 @@ en:
         Log in to where2help with your registered email address and your password. Under 'Add Fixed Event', you can enter a new help enquiry. To do so, you specify a concise title, a description, address, date and time as well as the number of helpers needed. Don’t forget the contact person on the spot. You can add some more shifts through 'Add Shift'. Then click on 'Create Event' and 'Publish' to publish your event.
 
         <strong>Step 4: Keep track of things</strong>
-        As an NGO, you can find your help enquiries listed clearly on where2help. You will receive a precise overview of how many helpers have already registered – including names and contact options. You can transfer the assignments you have created to your calendar. When you delete or amend a help enquiry, registered helpers will be informed automatically by email.
+        As an NGO or NPO, you can find your help enquiries listed clearly on where2help. You will receive a precise overview of how many helpers have already registered – including names and contact options. You can transfer the assignments you have created to your calendar. When you delete or amend a help enquiry, registered helpers will be informed automatically by email.
 
         We wish you success!
       text_users: |
@@ -333,9 +333,9 @@ en:
         sign_up: Sign up as a Helper
       terms_and_conditions:
         body: |
-          The purpose of "where2help" (w2h) is to provide potential voluntary helpers with a clear overview of voluntary services required by organisations/initiatives concerned with the care of refugees.
+          The purpose of "where2help" (w2h) is to provide potential voluntary helpers with a clear overview of voluntary services required by organisations/initiatives.
 
-          w2h is aimed at bringing together demand from refugee organisations/initiatives and supply from voluntary helpers in the best possible way.
+          w2h is aimed at bringing together demand from organisations/initiatives and supply from voluntary helpers in the best possible way.
 
           w2h is operated by the Vienna Social Fund (Fonds Soziales Wien – FSW).
 
@@ -369,5 +369,5 @@ en:
     sessions:
       new:
         login: Login
-        login_as_ngo: <i class="fas fa-users" aria-hidden="true"></i> Login As NGO Instead
+        login_as_ngo: <i class="fas fa-users" aria-hidden="true"></i> Login As NGO / NPO Instead
         please_login: Login as a Helper
