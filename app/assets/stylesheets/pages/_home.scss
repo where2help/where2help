@@ -104,6 +104,19 @@
   }
 }
 
+.home-help-now-container {
+  background-color: #ebebeb;
+  color: #33131c;
+  padding: 24px 0px;
+  input.form-control {
+    background-color: #ffffff;
+    border: 1px solid lightgray;
+  }
+  .help-block {
+    color: #33131c;
+  }
+}
+
 #home_help_now_header {
   text-align: center;
   margin-bottom: 30px;

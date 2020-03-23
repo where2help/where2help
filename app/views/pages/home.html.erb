@@ -22,7 +22,7 @@
     <div class="row home-teaser">
       <div class="col-xs-2 col-sm-5 col-md-4">
         <div class="teaser-img-container">
-          <%= image_tag 'logo.png', class: 'img-responsive logo-img teaser-img' %>
+          <%= image_tag 'teardrop_icon.svg', class: 'img-responsive logo-img teaser-img' %>
         </div>
       </div>
       <div class="col-xs-10 col-sm-7 col-md-8">
@@ -33,7 +33,7 @@
     <div class="row home-teaser">
       <div class="col-xs-2 col-sm-5 col-sm-push-7 col-md-4 col-md-push-8">
         <div class="teaser-img-container">
-          <%= image_tag 'logo.png', class: 'img-responsive logo-img teaser-img' %>
+          <%= image_tag 'teardrop_icon.svg', class: 'img-responsive logo-img teaser-img' %>
         </div>
       </div>
       <div class="col-xs-10 col-sm-7 col-sm-pull-5 col-md-8 col-md-pull-4">
@@ -44,7 +44,7 @@
     <div class="row home-teaser">
       <div class="col-xs-2 col-sm-5 col-md-4">
         <div class="teaser-img-container">
-          <%= image_tag 'logo.png', class: 'img-responsive logo-img teaser-img' %>
+          <%= image_tag 'teardrop_icon.svg', class: 'img-responsive logo-img teaser-img' %>
         </div>
       </div>
       <div class="col-xs-10 col-sm-7 col-md-8">
@@ -56,51 +56,53 @@
 </div>
 
 <div class="home-section home-section-bg-image">
-  <div class="container">
-    <h2 id="home_help_now_header"><%= t('.register_subheader') %></h2>
-    <%= semantic_form_for(User.new, as: 'user', url: registration_path('user'), html: {class: "home-signup-form"}) do |f| %>
-      <div class="row">
-        <div class="col-sm-6 col-md-5 home-register-description">
-          <div class="registration-img-container">
-            <% copyright = LandingPage::Image.copyright(:hands) %>
-            <%= image_tag 'landing_page/landing-background-hands.jpg', title: copyright, alt: copyright, class: "img-responsive img-rounded hidden-xs" %>
+  <div class="home-help-now-container">
+    <div class="container">
+      <h2 id="home_help_now_header"><%= t('.register_subheader') %></h2>
+      <%= semantic_form_for(User.new, as: 'user', url: registration_path('user'), html: {class: "home-signup-form"}) do |f| %>
+        <div class="row">
+          <div class="col-sm-6 col-md-5 home-register-description">
+            <div class="registration-img-container">
+              <% copyright = LandingPage::Image.copyright(:hands) %>
+              <%= image_tag 'landing_page/landing-background-hands.jpg', title: copyright, alt: copyright, class: "img-responsive img-rounded hidden-xs" %>
+            </div>
+
+            <p><%= t('.register.description').html_safe %></p>
+
+            <p><%= link_to t('application.cookie_consent.learn_more'), how_to_path %></p>
           </div>
 
-          <p><%= t('.register.description').html_safe %></p>
-
-          <p><%= link_to t('application.cookie_consent.learn_more'), how_to_path %></p>
+          <div class="col-sm-6 col-md-7">
+            <%= f.input :first_name, autofocus: true %>
+            <%= f.input :last_name %>
+            <%= f.input :email %>
+            <%= f.input :phone %>
+            <%= f.input :password, autocomplete: 'off', hint: "(#{User.password_length.min} #{t('users.registrations.new.min_characters')})" %>
+            <%= f.input :password_confirmation, autocomplete: 'off' %>
+            <%= f.invisible_captcha :username %>
+          </div>
         </div>
-
-        <div class="col-sm-6 col-md-7">
-          <%= f.input :first_name, autofocus: true %>
-          <%= f.input :last_name %>
-          <%= f.input :email %>
-          <%= f.input :phone %>
-          <%= f.input :password, autocomplete: 'off', hint: "(#{User.password_length.min} #{t('users.registrations.new.min_characters')})" %>
-          <%= f.input :password_confirmation, autocomplete: 'off' %>
-          <%= f.invisible_captcha :username %>
+        <div class="row">
+          <div class="col-sm-6 col-md-7 col-sm-push-6 col-md-push-5">
+            <%= f.input :terms_and_conditions, as: :boolean, label: "#{t('users.registrations.new.accept_terms_and_conditions')} #{render 'terms_and_conditions', resource: f.object}".html_safe %>
+          </div>
+          <div class="col-sm-6 col-md-5 col-sm-pull-6 col-md-pull-7">
+            <em><%= t('.register.safe_data_transport') %></em>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-7 col-sm-push-6 col-md-push-5">
-          <%= f.input :terms_and_conditions, as: :boolean, label: "#{t('users.registrations.new.accept_terms_and_conditions')} #{render 'terms_and_conditions', resource: f.object}".html_safe %>
+        <div class="row">
+          <div class="col-sm-6 col-md-7 col-sm-push-6 col-md-push-5">
+            <p>
+              <%= f.submit t('devise.registrations.new.sign_up'), class: 'btn btn-primary btn-lg btn-signup' %>
+            </p>
+            <p>
+              <%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions'), new_confirmation_path('user'), class: 'confirmation-missing' %>
+            </p>
+          </div>
+          <div class="col-sm-6 col-md-5 col-sm-pull-6 col-md-pull-7"><%= link_to t('.register.already_registered'), new_user_session_path, class: "btn btn-default btn-lg btn-already-registered" %></div>
         </div>
-        <div class="col-sm-6 col-md-5 col-sm-pull-6 col-md-pull-7">
-          <em><%= t('.register.safe_data_transport') %></em>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-7 col-sm-push-6 col-md-push-5">
-          <p>
-            <%= f.submit t('devise.registrations.new.sign_up'), class: 'btn btn-primary btn-lg btn-signup' %>
-          </p>
-          <p>
-            <%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions'), new_confirmation_path('user'), class: 'confirmation-missing' %>
-          </p>
-        </div>
-        <div class="col-sm-6 col-md-5 col-sm-pull-6 col-md-pull-7"><%= link_to t('.register.already_registered'), new_user_session_path, class: "btn btn-default btn-lg btn-already-registered" %></div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
