@@ -1,7 +1,8 @@
 $black-nav: #333;
-$blue-light: #00C6D2;
+$blue-light: #00c6d2;
 $yellow-light: #f3efe0;
+$brand-red: #c32d3c;
 
-$brand-primary: #00c6d2;
+$brand-primary: $brand-red;
 $aqua-dark: $brand-primary;
 $aqua-light: lighten($aqua-dark, 5%);
