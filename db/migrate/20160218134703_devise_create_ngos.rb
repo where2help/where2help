@@ -1,4 +1,4 @@
-class DeviseCreateNgos < ActiveRecord::Migration
+class DeviseCreateNgos < ActiveRecord::Migration[5.0]
   def change
     create_table :ngos do |t|
       ## Database authenticatable
