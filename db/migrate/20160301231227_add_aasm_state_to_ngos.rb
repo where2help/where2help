@@ -1,4 +1,4 @@
-class AddAasmStateToNgos < ActiveRecord::Migration
+class AddAasmStateToNgos < ActiveRecord::Migration[5.0]
   def self.up
     add_column :ngos, :aasm_state, :string
   end
