@@ -61,6 +61,7 @@ group :test do
 end
 
 group :development do
+  gem 'sitemap_generator'
   gem 'web-console'
   gem 'spring'
   gem 'spring-commands-rspec'
