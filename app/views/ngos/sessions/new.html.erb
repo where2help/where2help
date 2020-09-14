@@ -1,9 +1,9 @@
 <div class="row">
-  <%= render 'ngos/header_sm', txt: t('.please_login') %>
+  <%= render 'ngos/header_lg', txt: t('.please_login') %>
   <div class="col-sm-4 col-sm-offset-4">
     <%= semantic_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.input :email, label: false, autofocus: true, placeholder: resource.class.human_attribute_name(:email) %>
-      <%= f.input :password, label: false, autocomplete: 'off', placeholder: resource.class.human_attribute_name(:password) %>
+      <%= f.input :email, autofocus: true, placeholder: resource.class.human_attribute_name(:email), input_html: { autocomplete: 'email' } %>
+      <%= f.input :password, autocomplete: 'off', placeholder: resource.class.human_attribute_name(:password) %>
       <%= f.input :remember_me, as: :boolean %>
       <div class="form-group">
         <%= f.submit t('.login'), class: 'btn btn-primary btn-block' %>

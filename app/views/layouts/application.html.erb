@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
   <head>
-    <title>where2help | Freiwillig für Wien</title>
+    <title>where2help | <%= @title || 'Freiwillig für Wien' %></title>
     <%= tag(:link, rel: 'canonical', href: request.base_url) %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>

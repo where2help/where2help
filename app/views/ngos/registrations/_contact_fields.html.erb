@@ -1,16 +1,16 @@
-<h4><i class="fas fa-phone" aria-hidden="true"></i> <%= Contact.model_name.human %></h4>
+<h2 class="h4"><i class="fas fa-phone" aria-hidden="true"></i> <%= Contact.model_name.human %></h2>
 <%= f.semantic_fields_for :contact, (resource.contact || resource.build_contact) do |c| %>
-  <%= c.input :first_name %>
-  <%= c.input :last_name %>
-  <%= c.input :email %>
-  <%= c.input :phone %>
-  <%= c.input :street %>
+  <%= c.input :first_name, input_html: { autocomplete: 'given-name' } %>
+  <%= c.input :last_name, input_html: { autocomplete: 'family-name' } %>
+  <%= c.input :email, input_html: { autocomplete: 'email' } %>
+  <%= c.input :phone, input_html: { autocomplete: 'tel' } %>
+  <%= c.input :street, input_html: { autocomplete: 'street-address' } %>
   <div class="row">
     <div class="col-sm-4">
-      <%= c.input :zip %>
+      <%= c.input :zip, input_html: { autocomplete: 'zip' } %>
     </div>
     <div class="col-sm-8">
-      <%= c.input :city %>
+      <%= c.input :city, input_html: { autocomplete: 'city' } %>
     </div>
   </div>
 <% end %>
