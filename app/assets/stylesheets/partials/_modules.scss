@@ -3,7 +3,7 @@
 }
 
 .m_ngo-event-toggle-buttons {
-  $dark: #434A54;
+  $dark: #434a54;
   .btn-default.active,
   .btn-default:hover,
   .btn-default:active:focus,
@@ -25,3 +25,36 @@
   }
 }
 
+.skip-links {
+  position: absolute;
+  top: -40px;
+  left: 0px;
+
+  background-color: white;
+  color: black !important;
+  display: block;
+  font-size: 19px;
+  padding: 12px 29px;
+  z-index: 100;
+}
+
+.skip-links:focus {
+  top: 51px;
+  left: 15px;
+}
+
+.made-with-love {
+  color: #c32d3c;
+}
+
+.has-error {
+  .form-control,
+  .control-label,
+  .help-block {
+    color: #992330;
+  }
+
+  .form-control {
+    border-color: #992330;
+  }
+}

@@ -1,9 +1,9 @@
 <% if I18n.locale == :en %>
-  <%= link_to(locale_path_for(:de), class: 'footer-txt') do %>
+  <%= link_to(locale_path_for(:de), "aria-label": "Deutsche Sprache Flagge Link", class: 'footer-txt') do %>
     <%= flag_icon(:at, class: 'strong') %>
   <% end %>
 <% else %>
-  <%= link_to(locale_path_for(:en), class: 'footer-txt') do %>
+  <%= link_to(locale_path_for(:en), "aria-label": "English Language Flag Link", class: 'footer-txt') do %>
     <%= flag_icon(:gb, class: 'strong') %>
   <% end %>
 <% end %>

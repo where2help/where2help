@@ -9,6 +9,7 @@ de:
       subject: "[where2help] Neue NGO / NPO Registrierung"
       teaser: "%{ngo_name} hat sich registriert"
   application:
+    skip_links: zum Hauptinhalt springen
     contact: Kontakt
     cookie_consent:
       dismiss: OK
@@ -217,7 +218,7 @@ de:
       ngo_teaser_text: "… und Initiativen, die derzeit in Wien aktiv sind."
       register:
         already_registered: Ich bin bereits registriert
-        description: "<strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst:</strong><ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>"
+        description: "<p><strong>Wissen, wann und wo Du als Freiwillige/r gebraucht wirst:</strong></p> <ul><li>Erfahre, wo du gebraucht wirst</li><li>Melde dich direkt online an</li><li>Wir freuen uns auf Dich!</li></ul>"
         safe_data_transport: Deine Daten werden gesichert übertragen.
       register_subheader: Jetzt mithelfen
       short_description: Plattform für Freiwillige und Organisationen in Wien

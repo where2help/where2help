@@ -9,7 +9,7 @@ window.cookieconsent.initialise({
       "text": "#ffffff"
     },
     "button": {
-      "background": "#3bafda",
+      "background": "#d13848",
       "text": "#ffffff"
     }
   },
@@ -18,7 +18,10 @@ window.cookieconsent.initialise({
     "message": "<%= j(t('.message')) %>",
     "dismiss": "<%= j(t('.dismiss')) %>",
     "link": "<%= j(t('.learn_more')) %>",
-    "href": "https://www.fsw.at/p/datenschutz"
+    "href": "https://www.fsw.at/p/datenschutz",
+  },
+  elements: {
+    dismiss: '<a tabindex="0" class="cc-btn cc-dismiss">OK</a>',
   }
 })});
 </script>

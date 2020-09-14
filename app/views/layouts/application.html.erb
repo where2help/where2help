@@ -16,13 +16,16 @@
   </head>
 
   <%= content_tag(:body, class: ("relative-footer" if landing_page?)) do %>
+    <%= link_to t("application.skip_links"), "#main-content-container", class: "skip-links" %>
     <%= navigation_for(current_user || current_ngo) %>
 
-    <%= content_tag(:main, class: (landing_page? ? "container-fluid" : "container")) do %>
+    <%= content_tag(:main, id: "main-content-container", class: (landing_page? ? "container-fluid" : "container")) do %>
       <%= environment_disclaimer unless Rails.env.production? %>
       <%= flash_messages %>
       <%= yield %>
     <% end %>
     <%= render 'footer' %>
+
+    <%= content_for :pixel_container %>
   <% end %>
 </html>

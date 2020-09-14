@@ -23,6 +23,8 @@
 # in your locale, it will replace the abbr title properly. But if you don't want to use
 # abbr tag, you can simply give a string as below
 Formtastic::FormBuilder.required_string = " *"
+Formtastic::FormBuilder.use_required_attribute = true
+Formtastic::FormBuilder.perform_browser_validations = true
 
 # Set the string that will be appended to the labels/fieldsets which are optional
 # Defaults to an empty string ("") and also accepts procs (see required_string above)

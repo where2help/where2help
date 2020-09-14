@@ -14,15 +14,20 @@
       g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
     })();
   </script>
-  <noscript>
-    <p>
-      <%= image_tag([
-                      Rails.configuration.matomo_host,
-                      "piwik.php?idsite=",
-                      Rails.configuration.matomo_site_id
-                    ].join, style: "border:0;", alt: "")
-      %>
-    </p>
-  </noscript>
   <!-- End Piwik Code -->
+
+  <% content_for :pixel_container do %>
+    <noscript>
+      <!-- Piwik -->
+      <p>
+        <%= image_tag([
+                        Rails.configuration.matomo_host,
+                        "piwik.php?idsite=",
+                        Rails.configuration.matomo_site_id
+                      ].join, style: "border:0;", alt: "")
+        %>
+      </p>
+    </noscript>
+    <!-- End Piwik Code -->
+  <% end %>
 <% end %>

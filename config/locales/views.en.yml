@@ -9,6 +9,7 @@ en:
       subject: "[where2help] New NGO / NPO registration"
       teaser: "%{ngo_name} has signed up"
   application:
+    skip_links: Skip to content
     contact: Contact
     cookie_consent:
       dismiss: OK

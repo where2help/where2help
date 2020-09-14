@@ -4,7 +4,7 @@
 <div class="home-section home-section-bg-image home-section-centered">
   <div class="home-container">
     <div class="home-logo">
-      <%= image_tag 'logo.svg', class: 'img-responsive logo-img main-logo' %>
+      <%= image_tag 'logo.svg', alt: 'Where2Help logo', class: 'img-responsive logo-img main-logo' %>
     </div>
     <div class="home-desc">
       <h1><%= t('.short_description') %></h1>
@@ -22,7 +22,7 @@
     <div class="row home-teaser">
       <div class="col-xs-2 col-sm-5 col-md-4">
         <div class="teaser-img-container">
-          <%= image_tag 'teardrop_icon.svg', class: 'img-responsive logo-img teaser-img' %>
+          <%= image_tag 'teardrop_icon.svg', alt: "Where2Help Teardrop Icon", class: 'img-responsive logo-img teaser-img' %>
         </div>
       </div>
       <div class="col-xs-10 col-sm-7 col-md-8">
@@ -33,7 +33,7 @@
     <div class="row home-teaser">
       <div class="col-xs-2 col-sm-5 col-sm-push-7 col-md-4 col-md-push-8">
         <div class="teaser-img-container">
-          <%= image_tag 'teardrop_icon.svg', class: 'img-responsive logo-img teaser-img' %>
+          <%= image_tag 'teardrop_icon.svg', alt: "Where2Help Teardrop Icon", class: 'img-responsive logo-img teaser-img' %>
         </div>
       </div>
       <div class="col-xs-10 col-sm-7 col-sm-pull-5 col-md-8 col-md-pull-4">
@@ -44,7 +44,7 @@
     <div class="row home-teaser">
       <div class="col-xs-2 col-sm-5 col-md-4">
         <div class="teaser-img-container">
-          <%= image_tag 'teardrop_icon.svg', class: 'img-responsive logo-img teaser-img' %>
+          <%= image_tag 'teardrop_icon.svg', alt: "Where2Help Teardrop Icon", class: 'img-responsive logo-img teaser-img' %>
         </div>
       </div>
       <div class="col-xs-10 col-sm-7 col-md-8">
@@ -67,13 +67,13 @@
               <%= image_tag 'landing_page/landing-background-hands.jpg', title: copyright, alt: copyright, class: "img-responsive img-rounded hidden-xs" %>
             </div>
 
-            <p><%= t('.register.description').html_safe %></p>
+            <%= t('.register.description').html_safe %>
 
             <p><%= link_to t('application.cookie_consent.learn_more'), how_to_path %></p>
           </div>
 
           <div class="col-sm-6 col-md-7">
-            <%= f.input :first_name, autofocus: true %>
+            <%= f.input :first_name %>
             <%= f.input :last_name %>
             <%= f.input :email %>
             <%= f.input :phone %>
