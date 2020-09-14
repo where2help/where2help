@@ -58,3 +58,17 @@
     border-color: #992330;
   }
 }
+
+// Make active actionable elements more accessible
+a:focus,
+input[type="submit"]:focus,
+button:focus {
+  outline: 2px dashed #ffffff !important;
+}
+
+.home-section-bg-light,
+.home-help-now-container {
+  a:focus {
+    outline: 2px dashed #333 !important;
+  }
+}

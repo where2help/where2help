@@ -73,10 +73,10 @@
           </div>
 
           <div class="col-sm-6 col-md-7">
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :email %>
-            <%= f.input :phone %>
+            <%= f.input :first_name, input_html: { autocomplete: 'given-name' } %>
+            <%= f.input :last_name, input_html: { autocomplete: 'family-name' } %>
+            <%= f.input :email, input_html: { autocomplete: 'email' } %>
+            <%= f.input :phone, input_html: { autocomplete: 'tel' } %>
             <%= f.input :password, autocomplete: 'off', hint: "(#{User.password_length.min} #{t('users.registrations.new.min_characters')})" %>
             <%= f.input :password_confirmation, autocomplete: 'off' %>
             <%= f.invisible_captcha :username %>
