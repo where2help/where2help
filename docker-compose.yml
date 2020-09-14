@@ -1,11 +1,25 @@
-db:
-  image: postgres
-app:
-  build: .
-  command: bundle exec rails s -p 3000 -b '0.0.0.0'
-  volumes:
-    - .:/web
-  ports:
-    - "3000:3000"
-  links:
-    - db
+version: "3"
+services:
+  db:
+    image: postgres:10-alpine
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: ${DB_USER}
+    volumes:
+      - postgres-w2h:/var/lib/postgresql
+
+  app:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+    volumes:
+      - .:/web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  postgres-w2h:
