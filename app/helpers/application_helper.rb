@@ -47,4 +47,8 @@ module ApplicationHelper
       content_tag(:p, t("application.environment_disclaimer"))
     end
   end
+
+  def render_markdown(raw_markdown)
+    Kramdown::Document.new(raw_markdown).to_html.html_safe
+  end
 end

@@ -10,6 +10,10 @@
       <%= link_to t('application.terms_and_conditions'), terms_and_conditions_path, class: 'footer-txt' %>
       <span class="footer-separator">&#124;</span>
       <%= link_to t('application.imprint'), 'https://www.fsw.at/p/impressum', target: '_blank', class: 'footer-txt' %>
+      <% if I18n.locale == :de %>
+        <span class="footer-separator">&#124;</span>
+        <%= link_to t('application.barrier_free'), barrier_free_path, class: 'footer-txt' %>
+      <% end %>
       <% unless current_user || current_ngo %>
         <span class="footer-separator">&#124;</span>
         <%= render 'language_switcher' %>

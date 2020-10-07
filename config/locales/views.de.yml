@@ -19,6 +19,7 @@ de:
       message: Wir haben gerade nichts für Dich...
     imprint: Impressum
     terms_and_conditions: Nutzungsbedingungen
+    barrier_free: Barrierefreiheit
     environment_disclaimer: Dies ist eine Testversion von Where2help. Geben Sie keine persönlichen oder vertraulichen Daten ein.
   events:
     index:
@@ -260,6 +261,80 @@ de:
       title: So funktioniert w2h
       title_ngos: Ihr wollt freiwillige Hilfe organisieren?
       title_users: Du willst als Freiwillige/r mitmachen?
+
+    barrier_free:
+      body: |
+        ## Erklärung zur Barrierefreiheit
+
+        Der Fonds Soziales Wien ist bemüht, seine Webseiten im Einklang mit dem Wiener Antidiskriminierungsgesetz, LGBl. 35/2004 idgF, zur Umsetzung der[Richtlinie (EU) 2016/2102 des Europäischen Parlaments und des Rates vom 26. Oktober 2016 über den barrierefreien Zugang zu den Websites und mobilen Anwendungen öffentlicher Stellen](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016L2102) (Amtsblatt L 327 vom 2.12.2016, S. 1_)_ barrierefrei zugänglich zu machen.
+
+        Diese Erklärung zur Barrierefreiheit gilt für die Website www.where2help.wien
+
+        ## Stand der Vereinbarkeit mit den Anforderungen
+
+        Diese Website ist wegen der folgenden Unvereinbarkeiten und Ausnahmen nichtmit **Konformitätsstufe AA der &quot;Richtlinien für barrierefreie Webinhalte Web –** [**WCAG 2.1**](https://www.w3.org/TR/WCAG21/) **&quot;** beziehungsweise mit dem geltenden Europäischen Standard EN 301 549 V2.1.2 (2018-08) vereinbar.
+
+        ## Nicht barrierefreie Inhalte
+
+        Die nachstehend aufgeführten Inhalte sind aus den folgenden Gründen nicht barrierefrei:
+
+        a) Unvereinbarkeit mit den Barrierefreiheitsbestimmungen
+
+        - Alternativtexte bei vielen Bildern nicht ausreichend oder fehlend
+        - Überschriftenstruktur tlw. nicht passend
+        - Labels fehlen in manchen Templates
+        - Fehlermeldungen bei Formularen nicht ganz ausreichend
+        - Tastaturbedienbarkeit des Cookiebanners nicht ausreichend
+        - Links unterscheiden sich nur durch Farbunterschied vom Fließtext
+        - Keine Skiplinks
+        - Tastaturfokus nicht gut sichtbar
+        - Cookie Button missverständlich
+        - Kontrast von einigen Elementen nicht ausreichend
+        - Rahmenlinien bei Eingabefelder haben zu wenig Kontrast
+        - Ein paar HTML Fehler mit Accessibility Relevanz
+        - Seitentitel redundant über alle Seiten
+        - Keine Suche oder Sitemap
+
+        Der Fonds Soziales Wien ist bemüht die angeführten Punkte bis Ende 2020 zu überprüfen und hinsichtlich Barrierefreiheit anzupassen.
+
+        ## Erstellung dieser Erklärung zur Barrierefreiheit
+
+        **Erstellungsdatum:** Diese Erklärung wurde am 03.09.2020 erstellt.
+
+        **Vorlage für das Statement:** MODEL ACCESSIBILITY STATEMENT ([https://eur-lex.europa.eu/resource.html?uri=cellar:e1dfb98d-5aa1-11e8-ab41-01aa75ed71a1.0001.02/DOC\_2&amp;format=PDF](https://eur-lex.europa.eu/resource.html?uri=cellar:e1dfb98d-5aa1-11e8-ab41-01aa75ed71a1.0001.02/DOC_2&amp;format=PDF))
+
+        **Grundlage des Statements:** Manuelle und automatisierte Accessibility Evaluierung einer externen Beraterfirma von 4 Seiten der Website [www.where2help.wien](http://www.where2help.wien/)(16.07.2020, PDF 21 Seiten)
+
+        Die Erklärung wurde zuletzt am 22.09.2020 überprüft.
+
+        ## Feedback und Kontaktangaben Beschwerdemöglichkeit
+
+        Sollten Sie auf unserer Seite Barrieren finden (zusätzlich zu den in dieser Erklärung bereits beschriebenen) bitten wir Sie uns diese Barrieren zu melden:
+
+        Per E-Mail an:
+        [webcenter@fsw.at](mailto:webcenter@fsw.at)
+
+        Verantwortlich für diese Seite:
+
+        Fonds Soziales Wien, Stabsstelle Unternehmenskommunikation
+        [webcenter@fsw.at](mailto:webcenter@fsw.at)
+        [Kontaktformular](https://www.fsw.at/kontaktformular)
+
+        Unsere Redaktion wird Ihre Meldung prüfen und wenn notwendig die gemeldeten Mängel beheben.
+
+        ## Durchsetzungsverfahren
+
+        Bei nicht zufriedenstellenden Antworten aus oben genannter Kontaktmöglichkeit können Sie sich mittels Beschwerde an die Stelle zur Bekämpfung von Diskriminierungen wenden. Die Stelle zur Bekämpfung von Diskriminierungen nimmt über das Kontaktformular Beschwerden auf elektronischem Weg entgegen.
+
+        [Kontaktformular der Stelle zur Bekämpfung von Diskriminierungen](https://www.wien.gv.at/formularserver4/user/formular.aspx?pid=243b95371900481e9ed1335ccec6a26a&amp;pn=B2d555436411c4af58b94491f3869a470&amp;lang=de&amp;datamode=urlenc&amp;data=jd%2B%2FfAyuFq9ad6o33tNIaxWO7kXVCVtpXkcnmJ5xfVIBca0j12WriBbbF1Fr6c9KlBHUhnJKZVRahiQDNwMBzckIl7CMCKxaeYtZ0y%2FKAg%2BEOJMfhpXbyItekXofTWYl9mNw4amJL6dkscbxV6iJ2wuGLF7zFMicoARcJ%2B0hf5BdPyh5EF56Od%2BfObN9rObrFy97HRQthPFQy%2F8hGfWH7g%3D%3D)
+
+        Diese Beschwerden werden von der Stelle zur Bekämpfung von Diskriminierungen dahingehend geprüft, ob sie sich auf Verstöße gegen die Vorgaben des Wiener Antidiskriminierungsgesetzes, insbesondere Mängel bei der Einhaltung der Barrierefreiheitsanforderungen, durch das Land oder die Gemeinde Wien oder einer dem Land oder der Gemeinde Wien zuordenbaren Einrichtung beziehen.
+
+        Bei berechtigten Beschwerden hat die Stelle zur Bekämpfung von Diskriminierungen gegenüber der betroffenen Dienststelle der Stadt Wien beziehungsweise gegenüber den betroffenen Rechtsträgern Handlungsempfehlungen auszusprechen und Maßnahmen vorzuschlagen, die der Beseitigung der vorliegenden Mängel dienen.
+
+        [Weitere Informationen zum Beschwerdeverfahren](https://www.wien.gv.at/verwaltung/antidiskriminierung/barrierefreie-websites.html)
+
+        Sind Sie von einer vermuteten Diskriminierung im Hinblick auf mangelnde Barrierefreiheit selbst betroffen, unterstützt Sie die Stelle zur Bekämpfung von Diskriminierungen durch Information und Beratung über Möglichkeiten der Rechtsverfolgung.
   schedules:
     show:
       all: Alle

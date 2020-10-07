@@ -38,6 +38,8 @@ gem 'faker', require: false
 
 gem 'pry-rails'
 
+gem 'kramdown'
+
 group :production do
   gem 'rails_12factor'
 end

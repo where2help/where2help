@@ -82,6 +82,7 @@ Rails.application.routes.draw do
   end
 
   get 'terms_and_conditions', to: 'pages#terms_and_conditions'
+  get 'barrier_free', to: 'pages#barrier_free'
   get 'how_to', to: 'pages#how_to'
 
   get 'robots.txt', to: 'pages#robots'

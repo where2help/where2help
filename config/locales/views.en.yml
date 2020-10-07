@@ -262,6 +262,10 @@ en:
       title: How w2h works
       title_ngos: Do you want to organize helpers?
       title_users: Do you want to help?
+
+    barrier_free:
+      body: |
+        ### No English version available
   schedules:
     show:
       all: All
