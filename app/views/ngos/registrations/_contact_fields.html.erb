@@ -1,16 +1,133 @@
 <h2 class="h4"><i class="fas fa-phone" aria-hidden="true"></i> <%= Contact.model_name.human %></h2>
-<%= f.semantic_fields_for :contact, (resource.contact || resource.build_contact) do |c| %>
-  <%= c.input :first_name, input_html: { autocomplete: 'given-name' } %>
-  <%= c.input :last_name, input_html: { autocomplete: 'family-name' } %>
-  <%= c.input :email, input_html: { autocomplete: 'email' } %>
-  <%= c.input :phone, input_html: { autocomplete: 'tel' } %>
-  <%= c.input :street, input_html: { autocomplete: 'street-address' } %>
+<%= f.fields_for :contact, (resource.contact || resource.build_contact) do |c| %>
+  <div class="accessible-input">
+    <% local_errors = errors[:first_name] %>
+    <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_first_name_input">
+      <span class="form-label">
+        <label for="user_first_name" class=" control-label">
+          <%= t("activerecord.attributes.contact.first_name") %> *
+          <span> </span>
+          <% if local_errors.any? %>
+            <span class="help-inline"><%= local_errors.first %></span>
+          <% end %>
+        </label>
+      </span>
+      <span class="form-wrapper">
+        <%= c.text_field :first_name, autocomplete: "given-name", class: "form-control", maxlength: 50, required: true%>
+      </span>
+    </div>
+  </div>
+
+  <div class="accessible-input">
+    <% local_errors = errors[:last_name] %>
+    <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_last_name_input">
+      <span class="form-label">
+        <label for="user_last_name" class=" control-label">
+          <%= t("activerecord.attributes.contact.last_name") %> *
+          <span> </span>
+          <% if local_errors.any? %>
+            <span class="help-inline"><%= local_errors.first %></span>
+          <% end %>
+        </label>
+      </span>
+      <span class="form-wrapper">
+        <%= c.text_field :last_name, autocomplete: "family-name", class: "form-control", maxlength: 50, required: true%>
+      </span>
+    </div>
+  </div>
+
+  <div class="accessible-input">
+    <% local_errors = errors[:email] %>
+    <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_email_input">
+      <span class="form-label">
+        <label for="user_email" class=" control-label">
+          <%= t("activerecord.attributes.user.email") %> *
+          <span> </span>
+          <% if local_errors.any? %>
+            <span class="help-inline"><%= local_errors.first %></span>
+          <% end %>
+        </label>
+      </span>
+      <span class="form-wrapper">
+        <%= c.email_field :email, autocomplete: "email", class: "form-control", required: true%>
+      </span>
+    </div>
+  </div>
+
+  <div class="accessible-input">
+    <% local_errors = errors[:phone] %>
+    <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_phone_input">
+      <span class="form-label">
+        <label for="user_phone" class=" control-label">
+          <%= t("activerecord.attributes.contact.phone") %> *
+          <span> </span>
+          <% if local_errors.any? %>
+            <span class="help-inline"><%= local_errors.first %></span>
+          <% end %>
+        </label>
+      </span>
+      <span class="form-wrapper">
+        <%= c.text_field :phone, required: true, autocomplete: "tel", class: "form-control" %>
+      </span>
+    </div>
+  </div>
+
+  <div class="accessible-input">
+    <% local_errors = errors[:street] %>
+    <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_street_input">
+      <span class="form-label">
+        <label for="user_street" class=" control-label">
+          <%= t("activerecord.attributes.contact.street") %> *
+          <span> </span>
+          <% if local_errors.any? %>
+            <span class="help-inline"><%= local_errors.first %></span>
+          <% end %>
+        </label>
+      </span>
+      <span class="form-wrapper">
+        <%= c.text_field :street, required: true, autocomplete: "street-address", class: "form-control" %>
+      </span>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-sm-4">
-      <%= c.input :zip, input_html: { autocomplete: 'zip' } %>
+      <div class="accessible-input">
+        <% local_errors = errors[:zip] %>
+        <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_zip_input">
+          <span class="form-label">
+            <label for="user_zip" class=" control-label">
+              <%= t("activerecord.attributes.contact.zip") %> *
+              <span> </span>
+              <% if local_errors.any? %>
+                <span class="help-inline"><%= local_errors.first %></span>
+              <% end %>
+            </label>
+          </span>
+          <span class="form-wrapper">
+            <%= c.text_field :zip, required: true, autocomplete: "zip", class: "form-control" %>
+          </span>
+        </div>
+      </div>
     </div>
     <div class="col-sm-8">
-      <%= c.input :city, input_html: { autocomplete: 'city' } %>
+      <div class="accessible-input">
+        <% local_errors = errors[:city] %>
+        <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_city_input">
+          <span class="form-label">
+            <label for="user_city" class=" control-label">
+              <%= t("activerecord.attributes.contact.city") %> *
+              <span> </span>
+              <% if local_errors.any? %>
+                <span class="help-inline"><%= local_errors.first %></span>
+              <% end %>
+            </label>
+          </span>
+          <span class="form-wrapper">
+            <%= c.text_field :city, required: true, autocomplete: "city", class: "form-control" %>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
