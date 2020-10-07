@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }
+  validates_confirmation_of :password
   validates :terms_and_conditions, acceptance: true
 
   accepts_nested_attributes_for :abilities, :languages

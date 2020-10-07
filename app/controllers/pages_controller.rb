@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   before_action :redirect_to_login_if_possible, only: :home
 
   def home
+    @user = User.new
   end
 
   def robots

@@ -59,7 +59,7 @@
   <div class="home-help-now-container">
     <div class="container">
       <h2 id="home_help_now_header"><%= t('.register_subheader') %></h2>
-      <%= semantic_form_for(User.new, as: 'user', url: registration_path('user'), html: {class: "home-signup-form"}) do |f| %>
+      <%= semantic_form_for(@user, as: 'user', url: registration_path('user'), html: {class: "home-signup-form"}) do |f| %>
         <div class="row">
           <div class="col-sm-6 col-md-5 home-register-description">
             <div class="registration-img-container">

@@ -4,5 +4,9 @@ en:
     messages:
       ends_at_before_starts_at: cannot precede Begins
       not_in_past: may not be a thing of the past
+    template:
+      auth:
+        one: "There is %{count} error in this form:"
+        other: "There are %{count} errors in this form:"
   time:
     hrs: hrs
