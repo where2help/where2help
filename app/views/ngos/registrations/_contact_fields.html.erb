@@ -1,7 +1,7 @@
 <h2 class="h4"><i class="fas fa-phone" aria-hidden="true"></i> <%= Contact.model_name.human %></h2>
 <%= f.fields_for :contact, (resource.contact || resource.build_contact) do |c| %>
   <div class="accessible-input">
-    <% local_errors = errors[:first_name] %>
+    <% local_errors = errors[:"contact.first_name"] %>
     <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_first_name_input">
       <span class="form-label">
         <label for="user_first_name" class=" control-label">
@@ -19,7 +19,7 @@
   </div>
 
   <div class="accessible-input">
-    <% local_errors = errors[:last_name] %>
+    <% local_errors = errors[:"contact.last_name"] %>
     <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_last_name_input">
       <span class="form-label">
         <label for="user_last_name" class=" control-label">
@@ -37,7 +37,7 @@
   </div>
 
   <div class="accessible-input">
-    <% local_errors = errors[:email] %>
+    <% local_errors = errors[:"contact.email"] %>
     <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_email_input">
       <span class="form-label">
         <label for="user_email" class=" control-label">
@@ -55,7 +55,7 @@
   </div>
 
   <div class="accessible-input">
-    <% local_errors = errors[:phone] %>
+    <% local_errors = errors[:"contact.phone"] %>
     <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_phone_input">
       <span class="form-label">
         <label for="user_phone" class=" control-label">
@@ -73,7 +73,7 @@
   </div>
 
   <div class="accessible-input">
-    <% local_errors = errors[:street] %>
+    <% local_errors = errors[:"contact.street"] %>
     <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_street_input">
       <span class="form-label">
         <label for="user_street" class=" control-label">
@@ -93,7 +93,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="accessible-input">
-        <% local_errors = errors[:zip] %>
+        <% local_errors = errors[:"contact.zip"] %>
         <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_zip_input">
           <span class="form-label">
             <label for="user_zip" class=" control-label">
@@ -112,7 +112,7 @@
     </div>
     <div class="col-sm-8">
       <div class="accessible-input">
-        <% local_errors = errors[:city] %>
+        <% local_errors = errors[:"contact.city"] %>
         <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_city_input">
           <span class="form-label">
             <label for="user_city" class=" control-label">
