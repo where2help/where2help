@@ -34,6 +34,7 @@ de:
         volunteers_needed: Anzahl benötigter Freiwilliger
       ngo:
         admin_confirmed_at: Von Admin Bestätigt
+        name: Name
         confirmed_at: Bestätigt
         created_at: Erstellt
         current_password: Aktuelles Passwort

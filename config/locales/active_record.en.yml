@@ -32,6 +32,7 @@ en:
         volunteers_needed: Helpers Needed
       ngo:
         admin_confirmed_at: Admin Confirmed
+        name: Name
         confirmed_at: Confirmed
         created_at: Created
         current_password: Current Password

@@ -9,15 +9,31 @@
 </div>
 <div class="row">
   <div class="col-sm-12">
-    <%= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <% errors = resource.errors.messages %>
+    <% error_messages = resource.errors.full_messages %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="col-sm-6">
-        <%= render 'contact_fields', f: f %>
+        <%#= render 'contact_fields', f: f, errors: errors %>
       </div>
       <div class="col-sm-6">
-        <%= render 'ngo_fields', f: f %>
+        <%= render 'ngo_fields', f: f, errors: errors %>
+
         <%= f.invisible_captcha :username %>
-        <%= f.input :terms_and_conditions, as: :boolean,
-          label: "#{t('.accept_terms_and_conditions')} #{render 'terms_and_conditions', resource: f.object}".html_safe %>
+
+        <div class="accessible-input">
+          <% local_errors = errors[:terms_and_conditions] %>
+          <div class="boolean input optional form-group checkbox <%= local_errors.any? ? 'has-error' : '' %>" id="user_terms_and_conditions_input">
+            <span class="form-wrapper">
+              <label for="user_terms_and_conditions" class=" control-label">
+                <%= f.check_box :terms_and_conditions %>
+                <%= raw(t('.accept_terms_and_conditions') + " " +  render('terms_and_conditions', resource: f.object)) %>
+                <% if local_errors.any? %>
+                  <span class="help-inline"><strong><%= local_errors.first %></strong></span>
+                <% end %>
+              </label>
+            </span>
+          </div>
+        </div>
         <%= f.submit t('devise.registrations.new.sign_up'), class: 'btn btn-primary btn-block' %>
         <%= render 'ngos/shared/links' %>
       </div>
