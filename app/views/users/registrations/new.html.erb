@@ -105,7 +105,8 @@
           </span>
           <span class="form-wrapper">
             <%= f.password_field :password, class: "form-control", required: true, autocomplete: false %>
-            <span class="help-block">(6 Zeichen mindestens)</span>
+            <span class="help-block"><%= "#{User.password_length.min} #{t('users.registrations.new.min_characters')}" %></span>
+
           </span>
         </div>
       </div>
