@@ -32,7 +32,7 @@
             </label>
           </span>
           <span class="form-wrapper">
-            <%= f.text_field :first_name, class: "form-control", maxlength: 50, required: true%>
+            <%= f.text_field :first_name, autocomplete: "given-name", class: "form-control", maxlength: 50, required: true%>
           </span>
         </div>
       </div>
@@ -50,7 +50,7 @@
             </label>
           </span>
           <span class="form-wrapper">
-            <%= f.text_field :last_name, class: "form-control", maxlength: 50, required: true%>
+            <%= f.text_field :last_name, autocomplete: "family-name", class: "form-control", maxlength: 50, required: true%>
           </span>
         </div>
       </div>
@@ -68,7 +68,7 @@
             </label>
           </span>
           <span class="form-wrapper">
-            <%= f.email_field :email, class: "form-control", required: true%>
+            <%= f.email_field :email, autocomplete: "email", class: "form-control", required: true%>
           </span>
         </div>
       </div>
@@ -86,7 +86,7 @@
             </label>
           </span>
           <span class="form-wrapper">
-            <%= f.text_field :phone, class: "form-control" %>
+            <%= f.text_field :phone, autocomplete: "tel", class: "form-control" %>
           </span>
         </div>
       </div>
