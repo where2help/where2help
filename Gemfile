@@ -4,7 +4,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.4'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg'
-gem 'puma', '~> 3'
+gem 'puma', '~> 4'
 gem 'sass-rails'
 
 # TODO: Upgrade font-awesome-sass and bootstrap-rails to newer version.
