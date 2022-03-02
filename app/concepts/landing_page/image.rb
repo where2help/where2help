@@ -6,10 +6,10 @@ class LandingPage
       attr_reader :images
 
       IMAGE_COPYRIGHTS = {
-        delivery: "Getty Images | 917821000 | Eplus Aleksandar Nakic",
+        boy: "Getty Images | 501849354 | bodnarchuck",
+        girl: "Getty Images | 1294309983 | Valeriy_G",
         hands: "Getty Images | 966404738 | iStock Getty Images Plus Bubball",
         string: "Getty Images | 171053447 | Eplus James Brey",
-        veggies: "Getty Images | 678480686 | Eplus People Images"
       }
 
       DIR_NAME = "landing_page"
