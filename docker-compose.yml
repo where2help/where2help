@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:10-alpine
     ports:
-      - 5432:5432
+      - "127.0.0.1:5432:5432"
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_USER: ${DB_USER}
@@ -19,7 +19,7 @@ services:
     volumes:
       - .:/web
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     depends_on:
       - db
 
