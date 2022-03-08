@@ -9,6 +9,8 @@
 Language.create(name: "Englisch")
 Language.create(name: "Deutsch")
 Language.create(name: "Farsi")
+Language.create(name: "Arabisch")
+Language.create(name: "Ukrainisch")
 
 Ability.create(name:        "Medizin",
                description: "kann medizinische Hilfestellung bieten")
