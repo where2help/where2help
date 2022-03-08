@@ -4,6 +4,8 @@ class OngoingEventsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @ongoing_event_categories = []
+    
     if params[:ongoing_event_category_id].present?
       @operation = OngoingEventOperation::User::Index.present(
         ongoing_event_category_id: params[:ongoing_event_category_id]
