@@ -1,26 +1,40 @@
 <div class="row">
   <%= render 'users/header_lg', txt: t('.title') %>
-  <div class="col-sm-12">
-    <%= semantic_form_for(resource, as: resource_name,
-                                    url: registration_path(resource_name),
-                                    html: { method: :put }) do |f| %>
-      <div class="col-sm-6">
+
+  <div class="row">
+    <div class="col-sm-6">
+      <%= semantic_form_for(resource, as: resource_name,
+                                      url: registration_path(resource_name),
+                                      html: { method: :put }) do |f| %>
         <%= f.input :first_name, autofocus: true %>
         <%= f.input :last_name %>
         <%= f.input :email %>
         <%= f.input :phone %>
-        <%= f.input( :locale, member_label: ->(e){ I18n.t("locales.#{e[1]}") }) %>
-      </div>
-      <div class="col-sm-6">
-        <%= f.input :password, autocomplete: "off",
-                               hint: "(" + t("devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it") + ")" %>
-        <%= f.input :password_confirmation, autocomplete: "off" %>
+        <%= f.input( :locale, label: t(".locale"), member_label: ->(e){ I18n.t("locales.#{e[1]}") }) %>
+
+        <div class="mb-12">
+          <%= render 'profile_checkboxes', f: f %>
+        </div>
+
+        <%= f.submit t('.update_profile'), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= semantic_form_for(resource, as: resource_name,
+                                      url: registration_path(resource_name),
+                                      html: { method: :put }) do |f| %>
         <%= f.input :current_password, autocomplete: "off",
                                         hint: "(" + t("devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes") + ")" %>
-        <%= render 'profile_checkboxes', f: f %>
-        <%= f.submit t('devise.registrations.edit.update'), class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+        <%= f.input :password, autocomplete: "off",
+                              hint: "(" + t("devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it") + ")" %>
+        <%= f.input :password_confirmation, autocomplete: "off" %>
+        <%= f.submit t('.update_password'), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
     <%= render 'registrations/cancel', resource_name: resource_name %>
   </div>
 </div>

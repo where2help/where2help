@@ -332,6 +332,9 @@ en:
     registrations:
       edit:
         title: Edit Profile
+        update_profile: Update profile
+        update_password: Update password
+        locale: Interface language
       new:
         accept_terms_and_conditions: I accept the
         min_characters: characters minimum

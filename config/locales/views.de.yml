@@ -402,6 +402,9 @@ de:
     registrations:
       edit:
         title: Profil bearbeiten
+        update_profile: Profil aktualisieren
+        update_password: Passwort aktualisieren
+        locale: Sprache der Benutzeroberfläche
       new:
         accept_terms_and_conditions: Ich akzeptiere die
         min_characters: Zeichen mindestens

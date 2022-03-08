@@ -2,7 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   invisible_captcha only: :create, scope: :user, honeypot: :username
 
   before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -20,9 +19,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    if params[:user][:password].present?
+      configure_account_update_params
+      super
+    else
+      if resource.update_without_password(update_params)
+        redirect_to edit_user_registration_url, notice: t("devise.registrations.updated")
+      else
+        render :edit
+      end
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -52,10 +60,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update) do |user_params|
-      user_params.permit(:email, :password, :current_password, :first_name,
-        :last_name, :phone, :password_confirmation, :locale,
-        ability_ids: [], language_ids: [])
+      user_params.permit(
+        :email,
+        :first_name,
+        :last_name,
+        :phone,
+        :locale,
+        :current_password,
+        :password,
+        :password_confirmation,
+        ability_ids: [],
+        language_ids: [],
+      )
     end
+  end
+
+  def update_params
+    params.require(:user).permit(
+      :email,
+      :first_name,
+      :last_name,
+      :phone,
+      :locale,
+      ability_ids: [],
+      language_ids: []
+    )
   end
 
   def after_update_path_for(_resource)

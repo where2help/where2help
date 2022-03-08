@@ -2,7 +2,6 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
   invisible_captcha only: :create, scope: :ngo, honeypot: :username
 
   before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -86,9 +85,6 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
         contact_attributes: [:first_name, :last_name, :email, :phone, :street, :zip, :city, :id]
       )
     end
-  end
-
-  def full_devise_params
   end
 
   def update_params
