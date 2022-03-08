@@ -3,16 +3,16 @@
     <% local_errors = resource.errors[:name] %>
     <div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_first_name_input">
         <span class="form-label">
-        <label for="user_name" class=" control-label">
-            <%= t("activerecord.attributes.ngo.name") %> *
-            <span> </span>
-            <% if local_errors.any? %>
-            <span class="help-inline"><%= local_errors.first %></span>
-            <% end %>
-        </label>
+            <label for="user_name" class=" control-label">
+                <%= t("activerecord.attributes.ngo.name") %> *
+                <span> </span>
+                <% if local_errors.any? %>
+                <span class="help-inline"><%= local_errors.first %></span>
+                <% end %>
+            </label>
         </span>
         <span class="form-wrapper">
-        <%= f.text_field :name, autocomplete: "name", class: "form-control", maxlength: 50, required: true%>
+          <%= f.text_field :name, autocomplete: "name", class: "form-control", maxlength: 50, required: true %>
         </span>
     </div>
 </div>
@@ -33,42 +33,4 @@
         <%= f.email_field :email, autocomplete: "email", class: "form-control", required: true%>
         </span>
     </div>
-</div>
-
-<div class="accessible-input">
-<% local_errors = resource.errors[:password] %>
-<div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_password_input">
-    <span class="form-label">
-    <label for="user_password" class=" control-label">
-        <%= t("activerecord.attributes.user.password") %> *
-        <span> </span>
-        <% if local_errors.any? %>
-        <span class="help-inline"><%= local_errors.first %></span>
-        <% end %>
-    </label>
-    </span>
-    <span class="form-wrapper">
-    <%= f.password_field :password, class: "form-control", required: true, autocomplete: false %>
-    <span class="help-block"><%= "#{User.password_length.min} #{t('users.registrations.new.min_characters')}" %></span>
-
-    </span>
-</div>
-</div>
-
-<div class="accessible-input">
-<% local_errors = resource.errors[:password_confirmation] %>
-<div class="string input required stringish form-group <%= local_errors.any? ? 'has-error' : '' %>" id="user_password_confirmation_input">
-    <span class="form-label">
-    <label for="user_password_confirmation" class=" control-label">
-        <%= t("activerecord.attributes.user.password_confirmation") %> *
-        <span> </span>
-        <% if local_errors.any? %>
-        <span class="help-inline"><%= local_errors.first %></span>
-        <% end %>
-    </label>
-    </span>
-    <span class="form-wrapper">
-    <%= f.password_field :password_confirmation, class: "form-control", required: true, autocomplete: false %>
-    </span>
-</div>
 </div>

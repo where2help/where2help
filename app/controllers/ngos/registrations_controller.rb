@@ -20,9 +20,18 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    if params[:ngo][:password].present?
+      configure_account_update_params
+      super
+    else
+      if resource.update_without_password(update_params)
+        redirect_to edit_ngo_registration_url, notice: t("devise.registrations.updated")
+      else
+        render :edit
+      end
+    end
+  end
 
   # DELETE /resource
   def destroy
@@ -77,6 +86,19 @@ class Ngos::RegistrationsController < Devise::RegistrationsController
         contact_attributes: [:first_name, :last_name, :email, :phone, :street, :zip, :city, :id]
       )
     end
+  end
+
+  def full_devise_params
+  end
+
+  def update_params
+    params.require(:ngo).permit(
+      :email,
+      :locale,
+      :name,
+      :terms_and_conditions,
+      contact_attributes: [:first_name, :last_name, :email, :phone, :street, :zip, :city, :id]
+    )
   end
 
   def after_update_path_for(_resource)

@@ -34,7 +34,7 @@ de:
       confirmation_instructions:
         action: Mein Konto bestätigen
         greeting: Willkommen %{recipient}!
-        instruction: 'Folge dem untenstehenden Link, um Dein Konto zu bestätigen:'
+        instruction: "Folge dem untenstehenden Link, um Dein Konto zu bestätigen:"
         subject: Anleitung zur Bestätigung Deines Accounts
       ngo_confirmation_instructions:
         instruction: |
@@ -55,7 +55,7 @@ de:
       unlock_instructions:
         action: Mein Konto entsperren
         greeting: Hallo %{recipient}!
-        instruction: 'Folge dem untenstehenden Link, um Dein Konto zu entsperren:'
+        instruction: "Folge dem untenstehenden Link, um Dein Konto zu entsperren:"
         message: Dein Konto wurde aufgrund einer großen Anzahl von fehlgeschlagenen Anmeldeversuchen gesperrt.
         subject: Anleitung für die Account-Freischaltung
     omniauth_callbacks:

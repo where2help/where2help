@@ -130,6 +130,11 @@ de:
     registrations:
       edit:
         title: Profil bearbeiten
+        password: Passwort
+        update_contact: Kontakt aktualisieren
+        update_profile: Profil aktualisieren
+        update_password: Passwort aktualisieren
+
       new:
         accept_terms_and_conditions: Ich akzeptiere die
         min_characters: Zeichen mindestens
