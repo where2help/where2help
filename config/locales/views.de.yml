@@ -30,6 +30,9 @@ de:
       welcome: |
         <h3>Aktuelle Einsätze</h3>
         <p>Sieh nach, wann und wo Du gebraucht wirst und trage Dich für die Einsätze ein, bei denen Du helfen willst!<p>
+      filter_by: Filtern nach
+      available: vorhanden
+      all: alle
     load_more: Mehr anzeigen
   layouts:
     mailer:
@@ -356,6 +359,7 @@ de:
     opt_out:
       notice: Schade...
     opt_out_btn: Absagen
+    full_btn: Voll
     please_come: Bitte kommen Sie um
     thank_you: Danke!
   user_mailer:

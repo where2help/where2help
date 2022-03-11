@@ -4,15 +4,16 @@
       <%= render 'calendar_icon', date: event.starts_at %>
     </div>
     <div class="col-xs-6 col-sm-9">
-      <%= event.available_shifts.first.starts_at.to_s(:time) %> - 
-      <%= event.available_shifts.first.ends_at.to_s(:time) %>
+      <% shifts = show_available?(params) ? event.available_shifts : event.shifts %>
+      <%= shifts.first.starts_at.to_s(:time) %> - 
+      <%= shifts.first.ends_at.to_s(:time) %>
 
-      <% if event.available_shifts.size > 1 %>
-           , <%= event.available_shifts.second.starts_at.to_s(:time) %> - 
-           <%= event.available_shifts.second.ends_at.to_s(:time) %>
+      <% if shifts.size > 1 %>
+          , <%= shifts.second.starts_at.to_s(:time) %> - 
+          <%= shifts.second.ends_at.to_s(:time) %>
       <% end %>      
 
-      <% further_events_count = event.available_shifts.group_by{|shift| shift.starts_at.to_date}.first.second.count - 2 %> 
+      <% further_events_count = shifts.group_by{|shift| shift.starts_at.to_date}.first.second.count - 2 %> 
       <%= ", " + further_events_count.to_s + " weitere "  if further_events_count > 0 %></br>
 
       <strong><%= event.title %></strong><br>
@@ -21,7 +22,7 @@
       <span><%= event.ngo.name %></span>
     </div>
     <div class="col-xs-3 col-sm-2">
-      <%= render event.progress_bar(current_user) %>
+      <%= render event.progress_bar(current_user, params[:filter]) %>
     </div>
   </div>
 <% end %>

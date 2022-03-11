@@ -27,6 +27,9 @@ en:
       welcome: |
         <h3>Current Events</h3>
         <p>Find out when and where you are needed and sign up for the shifts you want to help in!<p>
+      filter_by: Filter by
+      available: available
+      all: all
     load_more: Show more
     opt_out:
       notice: That's too bad...
@@ -286,6 +289,7 @@ en:
     opt_out:
       notice: That's too bad...
     opt_out_btn: Can't Make It
+    full_btn: Full
     please_come: Please join us at
     thank_you: Thank you! Looking forward to have you onboard.
   user_mailer:

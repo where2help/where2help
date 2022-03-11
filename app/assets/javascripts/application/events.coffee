@@ -70,3 +70,8 @@ document.addEventListener "turbolinks:load", ->
       "1#{district}0"
     else
       "10#{district}0"
+
+  $('.filter-select')
+    .on "change", () ->
+      value = $(this).val()
+      window.location.href = "#{window.location.href.split("?")[0]}?filter=#{value}"

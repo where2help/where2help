@@ -13,8 +13,12 @@ h2.events-date-header {
     font-size: 1em;
   }
   @media (max-width: $screen-xs-max) {
-    h2 { font-size: 1.5em; }
-    .calendar-icon { font-size: 1.5em; }
+    h2 {
+      font-size: 1.5em;
+    }
+    .calendar-icon {
+      font-size: 1.5em;
+    }
   }
 }
 
@@ -25,14 +29,16 @@ h2.events-date-header {
     margin-bottom: 15px;
   }
   .calendar-icon {
-    margin-top: -0.5em
+    margin-top: -0.5em;
   }
 }
 
 .twitter-typeahead {
   display: block !important;
 
-  .tt-hint, .tt-input, .tt-menu {
+  .tt-hint,
+  .tt-input,
+  .tt-menu {
     width: 100%;
   }
 
@@ -64,7 +70,7 @@ h2.events-date-header {
   font-size: 400%;
   text-align: center;
 
-  @media(min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) {
     padding-right: 0;
   }
 }
@@ -76,7 +82,20 @@ h2.events-date-header {
   line-height: 170%;
   text-align: center;
 
-  @media(min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) {
     text-align: left;
+  }
+}
+
+.filter-wrapper {
+  display: flex;
+  margin-bottom: 4rem;
+  margin-top: 4.5rem;
+  align-items: center;
+
+  label {
+    min-width: 83px;
+    margin-right: 8px;
+    font-weight: bold;
   }
 }

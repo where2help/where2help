@@ -6,7 +6,9 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Kaminari.paginate_array(Event.with_available_shifts).page(params[:page])
-    @last_event_date = params[:last_date].try(:to_date)
+    list = Event::List.(filter: params[:filter], page: params[:page], last_date: params[:last_date])
+
+    @events = list.events
+    @last_event_date = list.last_event_date
   end
 end

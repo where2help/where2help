@@ -14,6 +14,18 @@
 </div>
 
 <div class="row">
+  <div class="col-xs-12 col-sm-3 col-sm-offset-9">
+    <div class="form-group">
+      <% current_filter = params[:filter].nil? || params[:filter] == "all" ? :all : :available %>
+      <div class="filter-wrapper">
+        <label><%= t(".filter_by") %></label>
+        <%= select_tag :filter, options_for_select([[t(".all"), :all], [t(".available"), :available]], current_filter), class: "form-control filter-select" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-xs-12 col-lg-10 col-lg-offset-1" data-behavior="events-container">
     <%= render('empty_message') unless @events.any? %>
     <%= render('grouped_events') %>
