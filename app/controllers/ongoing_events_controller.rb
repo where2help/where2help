@@ -13,16 +13,18 @@ class OngoingEventsController < ApplicationController
     if params[:ongoing_event_category_id].present?
       @operation = OngoingEventOperation::User::Index.present(
         ongoing_event_category_id: params[:ongoing_event_category_id],
+        user: current_user,
       )
       @events = @operation.model.page(params[:page].to_i - 1).offset(3)
     else
       @operation =
-        OngoingEventCategoryOperation::User::Index.present
+        OngoingEventCategoryOperation::User::Index.present(user: current_user)
       @ongoing_event_categories = @operation.model
 
       @category_events = (@ongoing_event_categories.each_with_object({}) do |category, category_events|
         category_events[category.id] = OngoingEventOperation::User::Index.present(
           ongoing_event_category_id: category.id,
+          user: current_user,
         ).model.page(1).per(3)
       end)
     end
