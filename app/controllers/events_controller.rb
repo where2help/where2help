@@ -7,7 +7,12 @@ class EventsController < ApplicationController
   end
 
   def index
-    list = Event::List.(filter: params[:filter], page: params[:page], last_date: params[:last_date])
+    list = Event::List.(
+      filter: params[:filter],
+      page: params[:page],
+      last_date: params[:last_date],
+      user: current_user,
+    )
 
     @events = list.events
     @last_event_date = list.last_event_date

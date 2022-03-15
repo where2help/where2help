@@ -10,7 +10,7 @@ class Ngo < ApplicationRecord
 
   has_many :events,         dependent: :restrict_with_error, inverse_of: :ngo
   has_many :ongoing_events, dependent: :restrict_with_error, inverse_of: :ngo
-  has_one  :contact,        dependent: :destroy, inverse_of: :ngo
+  has_many :user_blocks, class_name: "NgoUserBlock"
 
   accepts_nested_attributes_for :contact
 
