@@ -5,17 +5,18 @@ class Ngo < ApplicationRecord
 
   enum locale: { de: 0, en: 1 }
 
-  scope :pending,   -> { where(admin_confirmed_at: nil) }
+  scope :pending, -> { where(admin_confirmed_at: nil) }
   scope :confirmed, -> { where.not(admin_confirmed_at: nil) }
 
-  has_many :events,         dependent: :restrict_with_error, inverse_of: :ngo
+  has_many :events, dependent: :restrict_with_error, inverse_of: :ngo
   has_many :ongoing_events, dependent: :restrict_with_error, inverse_of: :ngo
+  has_one :contact, dependent: :destroy, inverse_of: :ngo
   has_many :user_blocks, class_name: "NgoUserBlock"
 
   accepts_nested_attributes_for :contact
 
-  validates :name,                 presence: true
-  validates :contact,              presence: true
+  validates :name, presence: true
+  validates :contact, presence: true
   validates :terms_and_conditions, acceptance: true
 
   after_commit :request_admin_confirmation, on: :create
@@ -29,13 +30,13 @@ class Ngo < ApplicationRecord
 
   def state
     _state = %w(deleted confirmed).find { |state| send("#{state}?") }
-    _state || 'pending'
+    _state || "pending"
   end
 
   def self.send_reset_password_instructions(attributes = {})
     recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
     if !recoverable.confirmed?
-      recoverable.errors[:base] << I18n.t('devise.failure.not_admin_confirmed')
+      recoverable.errors[:base] << I18n.t("devise.failure.not_admin_confirmed")
     elsif recoverable.persisted?
       recoverable.send_reset_password_instructions
     end
@@ -60,9 +61,9 @@ class Ngo < ApplicationRecord
   end
 
   def new_event
-    t           = Time.now + 15.minutes
-    starts      = t - t.sec - t.min % 15 * 60
-    ends        = starts +  2.hours
+    t = Time.now + 15.minutes
+    starts = t - t.sec - t.min % 15 * 60
+    ends = starts + 2.hours
     shifts_attr = [{ volunteers_needed: 1, starts_at: starts, ends_at: ends }]
     events.build(shifts_attributes: shifts_attr)
   end
