@@ -1,4 +1,6 @@
 require "ongoing_event/operation"
+require "event/block"
+
 class Ngos::OngoingEventsController < ApplicationController
   before_action :authenticate_ngo!
 
@@ -22,11 +24,11 @@ class Ngos::OngoingEventsController < ApplicationController
   def create
     @event = OngoingEventOperation::Create.call(
       current_ngo: current_ngo,
-      ongoing_event: event_params(params)
+      ongoing_event: event_params(params),
     ).model
     if @event.valid?
       return redirect_to ngos_ongoing_event_url(@event),
-        notice: t("ngos.ongoing_events.messages.create_success")
+                         notice: t("ngos.ongoing_events.messages.create_success")
     end
     render :new
   end
@@ -42,11 +44,11 @@ class Ngos::OngoingEventsController < ApplicationController
         current_ngo: current_ngo,
         event_id: params[:id],
         ongoing_event: event_params(params),
-        notify_users: params[:notify_users]
+        notify_users: params[:notify_users],
       ).model
     if @event.valid?
       return redirect_to ngos_ongoing_event_url(@event),
-        notice: t("ngos.events.messages.update_success")
+                         notice: t("ngos.events.messages.update_success")
     end
     render :edit
   end
@@ -58,11 +60,21 @@ class Ngos::OngoingEventsController < ApplicationController
       notice: t("ngos.ongoing_events.messages.delete_success")
   end
 
+  def toggle_block
+    Event::Block.toggle(user_id: params[:user_id], ngo: current_ngo)
+
+    operation =
+      OngoingEventOperation::Show.present(current_ngo: current_ngo, event_id: params[:id])
+    event = operation.model
+
+    redirect_to [:ngos, event]
+  end
+
   def publish
     @event =
       OngoingEventOperation::Publish.call(current_ngo: current_ngo, event_id: params[:id]).model
     redirect_to ngos_ongoing_event_url(@event),
-      notice: t("ngos.events.messages.#{@event.published? ? 'publish' : 'unpublish'}_success")
+      notice: t("ngos.events.messages.#{@event.published? ? "publish" : "unpublish"}_success")
   end
 
   private

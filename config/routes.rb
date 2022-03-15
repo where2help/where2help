@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     end
 
     resources :ongoing_events do
-      post :publish, on: :member
+      member do
+        post :publish
+        patch "/toggle_block/:user_id", to: "ongoing_events#toggle_block", as: :toggle_block
+      end
     end
   end
 
