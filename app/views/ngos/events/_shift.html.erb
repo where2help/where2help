@@ -7,32 +7,52 @@
     <strong><%= shift.event.title %></strong><br>
     <span><%= shift.event.address %></span>
   </div>
-  <div class="col-xs-8 visible-xs-block"><br></div>
+  <div class="col-xs-8 visible-xs-block"><br>
+  </div>
   <div class="col-xs-12 col-sm-4">
     <%= render(partial: 'progress_bar/progress_bar', object: shift.progress_bar) %>
   </div>
 </div>
 
 <table class="table table-striped table-bordered table-condensed">
-  <% shift.participations.includes(:user).each_with_index do |participation, index| %>
-    <% user = participation.user %>
-    <tr>
-      <td><%= index + 1 %></td>
-      <td><%= user.first_name %> <%= user.last_name %></td>
-      <td><%= user.email %></td>
-      <td><%= user.phone %></td>
-      <td>
-        <% user.languages.each do |language| %>
-         <span class="label label-default"><%= language.name %></span>
-       <% end %>
-     </td>
-     <td>
-       <% user.abilities.each do |ability| %>
-         <span class="badge badge-default"><%= ability.name %></span>
-       <% end %>
-     </td>
-      <td><%= l participation.created_at, format: :short %></td>
-   </tr>
-  <% end %>
+  <thead>
+    <th></th>
+    <th><%= t(".name") %></th>
+    <th><%= t(".email") %></th>
+    <th><%= t(".phone") %></th>
+    <th><%= t(".languages") %></th>
+    <th><%= t(".skills") %></th>
+    <th><%= t(".enrolled_at") %></th>
+    <th>
+      <span><%= t(".block") %></span>
+      <i class="fas fa-info-circle fa-fw"></i>
+    </th>
+  </thead>
+  <tbody>
+    <% shift.participations.includes(:user).each_with_index do |participation, index| %>
+      <% user = participation.user %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= user.first_name %> <%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        <td>
+          <% user.languages.each do |language| %>
+            <span class="label label-default"><%= language.name %></span>
+          <% end %>
+        </td>
+        <td>
+          <% user.abilities.each do |ability| %>
+            <span class="badge badge-default"><%= ability.name %></span>
+          <% end %>
+        </td>
+        <td><%= l participation.created_at, format: :short %></td>
+        <td>
+          <%= link_to user.blocked_by?(current_ngo) ? "Unblock" : "Block", toggle_block_ngos_event_path(shift.event, user.id), method: :patch %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-<br/><br/>
+<br/>
+<br/>

@@ -14,8 +14,9 @@ class User < ApplicationRecord
   has_many :abilities, through: :qualifications
 
   has_many :participations, dependent: :destroy, inverse_of: :user
-  has_many :shifts,         through: :participations
+  has_many :shifts, through: :participations
   has_many :ongoing_events, through: :participations
+  has_many :blocks, class_name: "NgoUserBlock"
 
   validates :first_name, length: { in: 1..50 }
   validates :last_name, length: { in: 1..50 }
@@ -26,5 +27,9 @@ class User < ApplicationRecord
 
   def locked?
     access_locked?
+  end
+
+  def blocked_by?(ngo)
+    blocks.pluck(:ngo_id).include?(ngo.id)
   end
 end

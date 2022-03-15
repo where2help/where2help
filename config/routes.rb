@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   namespace :ngos do
     resources :events do
       member do
-        post 'publish'
+        post :publish
+        patch "/toggle_block/:user_id", to: "events#toggle_block", as: :toggle_block
         get :cal
       end
     end
@@ -13,32 +14,32 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {
-    confirmations: 'users/confirmations',
-    passwords: 'users/passwords',
-    registrations: 'users/registrations',
-    sessions: 'users/sessions',
-    unlocks: 'users/unlocks',
-  }
+            confirmations: "users/confirmations",
+            passwords: "users/passwords",
+            registrations: "users/registrations",
+            sessions: "users/sessions",
+            unlocks: "users/unlocks",
+          }
   devise_for :ngos, controllers: {
-    confirmations: 'ngos/confirmations',
-    passwords: 'ngos/passwords',
-    registrations: 'ngos/registrations',
-    sessions: 'ngos/sessions',
-    unlocks: 'ngos/unlocks',
-  }
+           confirmations: "ngos/confirmations",
+           passwords: "ngos/passwords",
+           registrations: "ngos/registrations",
+           sessions: "ngos/sessions",
+           unlocks: "ngos/unlocks",
+         }
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: [] do
         collection do
-          post 'login'
-          delete 'unregister'
-          get 'logout'
-          delete 'logout'
-          post 'change_password'
-          post 'send_reset'
-          post 'resend_confirmation'
-          post 'update_profile'
+          post "login"
+          delete "unregister"
+          get "logout"
+          delete "logout"
+          post "change_password"
+          post "send_reset"
+          post "resend_confirmation"
+          post "update_profile"
         end
       end
 
@@ -53,16 +54,16 @@ Rails.application.routes.draw do
 
       resources :shifts, only: [] do
         collection do
-          post 'opt_in'
-          post 'opt_out'
+          post "opt_in"
+          post "opt_out"
         end
       end
     end
   end
 
-  resources :events,         only: [:index, :show]
+  resources :events, only: [:index, :show]
   resources :ongoing_events, only: [:index, :show] do
-    post   :opt_in,  on: :member
+    post :opt_in, on: :member
     delete :opt_out, on: :member
   end
 
@@ -75,19 +76,19 @@ Rails.application.routes.draw do
   resource :schedule, only: :show
 
   authenticated :user do
-    root 'events#index'
+    root "events#index"
   end
   authenticated :ngo do
-    root 'ngos/events#index'
+    root "ngos/events#index"
   end
 
-  get 'terms_and_conditions', to: 'pages#terms_and_conditions'
-  get 'barrier_free', to: 'pages#barrier_free'
-  get 'how_to', to: 'pages#how_to'
+  get "terms_and_conditions", to: "pages#terms_and_conditions"
+  get "barrier_free", to: "pages#barrier_free"
+  get "how_to", to: "pages#how_to"
 
-  get 'robots.txt', to: 'pages#robots'
+  get "robots.txt", to: "pages#robots"
 
-  root 'pages#home'
+  root "pages#home"
 
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -18,15 +18,18 @@
         <%= @event.address %>
       </li>
       <li class="detail-row">
-	<i class="fa-li fas fa-user fa-fw"></i>
-	<%= @event.person %>
+        <i class="fa-li fas fa-user fa-fw"></i>
+        <%= @event.person %>
       </li>
     </ul>
+
     <div id="shift-map" class="map" data-behavior="map-container" data-lat="<%= @event.lat %>" data-long="<%= @event.lng %>"></div>
+
     <div class="panel panel-default">
       <%= render partial: 'shift', collection: @event.shifts %>
     </div>
   </div>
+
   <div class="col-sm-3 text-center">
     <%= render 'buttons', event: @event %>
   </div>

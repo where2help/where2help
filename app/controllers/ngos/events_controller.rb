@@ -1,4 +1,5 @@
 require "event/operation"
+require "event/block"
 
 class Ngos::EventsController < ApplicationController
   before_action :authenticate_ngo!
@@ -18,7 +19,7 @@ class Ngos::EventsController < ApplicationController
   def create
     @event = current_ngo.events.new event_params
     if @event.save
-      flash[:notice] = t('ngos.events.messages.create_success')
+      flash[:notice] = t("ngos.events.messages.create_success")
       redirect_to [:ngos, @event]
     else
       render :new
@@ -28,7 +29,7 @@ class Ngos::EventsController < ApplicationController
   def edit
     @operation = EventOperation::Ngo::Update.present(
       ngo: current_ngo,
-      event_id: params[:id]
+      event_id: params[:id],
     )
     @event = @operation.model
   end
@@ -38,11 +39,11 @@ class Ngos::EventsController < ApplicationController
       ngo: current_ngo,
       event_id: params[:id],
       event: event_params,
-      notify_users: params[:notify_users]
+      notify_users: params[:notify_users],
     )
     @event = @operation.model
     if @event.valid?
-      flash[:notice] = t('ngos.events.messages.update_success')
+      flash[:notice] = t("ngos.events.messages.update_success")
       redirect_to [:ngos, @event]
     else
       render :edit
@@ -54,12 +55,19 @@ class Ngos::EventsController < ApplicationController
     redirect_to action: :index
   end
 
+  def toggle_block
+    Event::Block.toggle(user_id: params[:user_id], ngo: current_ngo)
+
+    find_ngo_event
+    redirect_to [:ngos, @event]
+  end
+
   def publish
     flash[:notice] = if find_ngo_event.publish!
-      t('ngos.events.messages.publish_success')
-    else
-      t('ngos.events.messages.publish_fail')
-    end
+        t("ngos.events.messages.publish_success")
+      else
+        t("ngos.events.messages.publish_fail")
+      end
     redirect_to [:ngos, @event]
   end
 
@@ -68,9 +76,9 @@ class Ngos::EventsController < ApplicationController
     respond_to do |format|
       format.ics do
         send_data(cal,
-          filename: 'ical.ics',
-          disposition: 'inline; filename=ical.ics',
-          type: 'text/calendar')
+                  filename: "ical.ics",
+                  disposition: "inline; filename=ical.ics",
+                  type: "text/calendar")
       end
     end
   end
@@ -84,11 +92,11 @@ class Ngos::EventsController < ApplicationController
   def event_params
     params.require(:event).permit(
       :person, :title, :description, :address, :lat, :lng, :approximate_address,
-      shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at, :_destroy]
+      shifts_attributes: [:id, :volunteers_needed, :starts_at, :ends_at, :_destroy],
     )
   end
 
   def find_ngo_event
-    @event = current_ngo.events.find params[:id]
+    @event = current_ngo.events.includes(shifts: [users: :blocks]).find(params[:id])
   end
 end
