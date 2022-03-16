@@ -4,8 +4,6 @@ require "event/block"
 
 class OngoingEventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_event, only: [:show]
-  before_action :redirect_blocked_unless_participating, only: [:show]
 
   def index
     @ongoing_event_categories = []
@@ -33,6 +31,10 @@ class OngoingEventsController < ApplicationController
   def show
     @operation = OngoingEventOperation::User::Show.present(event_id: params[:id])
     @event = @operation.model
+    if Event::Block.blocked_ongoing_non_participant?(user_id: current_user.id, event: @event)
+      render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+      return
+    end
   end
 
   def opt_in
@@ -46,18 +48,5 @@ class OngoingEventsController < ApplicationController
       .(current_user: current_user, event_id: params[:id])
       .model
     redirect_to schedule_path, notice: t(".notice")
-  end
-
-  private
-
-  def load_event
-    @operation = OngoingEventOperation::User::Show.present(event_id: params[:id])
-    @event = @operation.model
-  end
-
-  def redirect_blocked_unless_participating
-    if Event::Block.blocked_ongoing_non_participant?(user_id: current_user.id, event: @event)
-      redirect_to ongoing_events_url, notice: t(".not_exist")
-    end
   end
 end

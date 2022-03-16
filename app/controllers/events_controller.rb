@@ -1,9 +1,13 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_event, only: [:show]
-  before_action :redirect_blocked_unless_participating, only: [:show]
 
   def show
+    @event = Event.published.find(params[:id])
+
+    if Event::Block.blocked_non_participant?(user_id: current_user.id, event: @event)
+      render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+      return
+    end
   end
 
   def index
@@ -16,17 +20,5 @@ class EventsController < ApplicationController
 
     @events = list.events
     @last_event_date = list.last_event_date
-  end
-
-  private
-
-  def load_event
-    @event = Event.published.find(params[:id])
-  end
-
-  def redirect_blocked_unless_participating
-    if Event::Block.blocked_non_participant?(user_id: current_user.id, event: @event)
-      redirect_to events_url, notice: t(".not_exist")
-    end
   end
 end
