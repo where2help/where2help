@@ -388,3 +388,15 @@ en:
         login: Login
         login_as_ngo: <i class="fas fa-users" aria-hidden="true"></i> Login As NGO / NPO Instead
         please_login: Login as a Helper
+
+  all_events:
+    access: Access
+    block: Block
+    unblock: Unblock
+    name: Name
+    email: E-Mail
+    phone: Phone
+    languages: Languages
+    skills: Skills
+    enrolled_at: Enrolled at
+    blocking_description: Blocking a user hides your events from them. You can unblock by clicking the link again.

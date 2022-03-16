@@ -457,3 +457,15 @@ de:
         login: Anmelden
         login_as_ngo: <i class="fas fa-users" aria-hidden="true"></i> Als NGO / NPO anmelden
         please_login: Als Freiwillige/r anmelden
+
+  all_events:
+    access: Zugang
+    block: sperren
+    unblock: freischalten
+    name: Name
+    email: E-Mail
+    phone: Telefon
+    languages: Sprachen
+    skills: Tätigkeiten
+    enrolled_at: Angemeldet
+    blocking_description: Das Blockieren eines Benutzers verbirgt Ihre Ereignisse vor ihm. Sie können die Blockierung aufheben, indem Sie erneut auf den Link klicken.
