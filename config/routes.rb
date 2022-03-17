@@ -14,6 +14,8 @@ Rails.application.routes.draw do
         patch "/toggle_block/:user_id", to: "ongoing_events#toggle_block", as: :toggle_block
       end
     end
+
+    resources :blocking, only: [:index, :destroy]
   end
 
   devise_for :users, controllers: {

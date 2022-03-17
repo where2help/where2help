@@ -21,10 +21,13 @@
           <ul class="dropdown-menu">
             <li class="<%= active_class("registrations") %>"><%= link_to t('.profile'), edit_ngo_registration_path %></li>
             <li role="separator" class="divider"></li>
+            <li class="<%= active_class("blocking") %>"><%= link_to t('.blocking'), ngos_blocking_index_path %></li>
+            <li role="separator" class="divider"></li>
             <li><%= link_to t('.logout'), destroy_ngo_session_path, method: :delete %></li>
           </ul>
         </li>
       </ul>
-    </div><!--/.nav-collapse -->
+    </div>
+    <!--/.nav-collapse -->
   </div>
 </nav>

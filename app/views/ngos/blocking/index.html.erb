@@ -1,0 +1,22 @@
+<h1>Blocking</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>When blocked</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @blocks.each do |block| %>
+      <tr>
+        <td><%= block.user.first_name %></td>
+        <td><%= block.user.email %></td>
+        <td><%= block.created_at %></td>
+        <td><%= link_to t(".unblock"), ngos_blocking_path(block), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
