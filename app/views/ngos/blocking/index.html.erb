@@ -1,22 +1,30 @@
-<h1>Blocking</h1>
+<h1 class="mb-24 h3"><%= t(".title") %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>When blocked</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @blocks.each do |block| %>
+<div class="mb-24"><%= raw t(".description") %></div>
+
+<% if @blocks.any? %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= block.user.first_name %></td>
-        <td><%= block.user.email %></td>
-        <td><%= block.created_at %></td>
-        <td><%= link_to t(".unblock"), ngos_blocking_path(block), method: :delete %></td>
+        <th></th>
+        <th><%= t(".name") %></th>
+        <th><%= t(".email") %></th>
+        <th><%= t(".blocked_at") %></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @blocks.each_with_index do |block, i| %>
+        <tr>
+          <td><%= i + 1 %></td>
+          <td><%= block.user.first_name %> <%= block.user.last_name %></td>
+          <td><%= block.user.email %></td>
+          <td><%= l block.created_at, format: :short %></td>
+          <td><%= link_to t(".unblock"), ngos_blocking_path(block), method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h2 class="h4"><%= t(".empty") %></h2>
+<% end %>

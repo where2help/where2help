@@ -60,6 +60,7 @@ de:
     nav:
       events: Einsätze
       profile: Profil
+      blocking: gesperrte Benutzer
       logout: Logout
     events:
       form:
@@ -191,6 +192,17 @@ de:
         login: Anmelden
         login_as_user: <i class="fas fa-user" aria-hidden="true"></i> Als Freiwillige/r anmelden
         please_login: Als NGO / NPO anmelden
+    blocking:
+      index:
+        title: Benutzer zusperren
+        description: <p>Das Blockieren eines Benutzers verbirgt Ihre Ereignisse vor ihm.</p>
+        name: Name
+        email: E-Mail
+        blocked_at: Gesperrt an
+        unblock: Freischalten
+        empty: keine gesperrten Benutzer 
+      destroy:
+        removed: Benutzer entsperrt 
   ongoing_events:
     are_you_sure: Willst Du wirklich absagen?
     index:

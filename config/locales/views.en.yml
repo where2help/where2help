@@ -59,6 +59,7 @@ en:
     nav:
       events: Events
       profile: Profile
+      blocking: Blocked users
       logout: Logout
     events:
       form:
@@ -184,6 +185,17 @@ en:
         login: Login
         login_as_user: <i class="fas fa-user" aria-hidden="true"></i> Login As A Helper Instead
         please_login: Login as an NGO / NPO
+    blocking:
+      index:
+        title: Blocking Users
+        description: <p>Blocking a user hides your events from them.<br />They will still be able to view events they are already signed up for.</p>
+        name: Name
+        email: E-Mail
+        blocked_at: Blocked at
+        unblock: Unblock
+        empty: No blocked users 
+      destroy:
+        removed: User unblocked 
   ongoing_events:
     are_you_sure: Are you sure you can't make it?
     index:

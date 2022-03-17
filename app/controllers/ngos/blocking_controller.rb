@@ -9,6 +9,6 @@ class Ngos::BlockingController < ApplicationController
 
   def destroy
     Ngo::Blocking::Unblock.(ngo: current_ngo, block_id: params[:id])
-    redirect_to ngos_blocking_index_url, notice: t(".block_removed")
+    redirect_to ngos_blocking_index_url, notice: t(".removed")
   end
 end
