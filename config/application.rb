@@ -27,6 +27,9 @@ module Where2help
     # the framework and any gems in your application.
     config.active_job.queue_adapter = :sucker_punch
 
+    # Render custom fonts
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
     config.i18n.available_locales = [:de, :en]
     config.i18n.default_locale = :de
     config.time_zone = "Vienna"

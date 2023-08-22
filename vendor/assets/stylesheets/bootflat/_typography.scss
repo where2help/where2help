@@ -1,27 +1,37 @@
 // Variables
 //------------------------------------------------------
-$body-font-color:            $darkgray-dark !default;
-$body-background-color:      $white !default;
+$body-font-color: $darkgray-dark !default;
+$body-background-color: $white !default;
 
-$link-font-color:            $aqua-dark !default; 
-$link-font-color-hover:      $aqua-light !default; 
+$link-font-color: $aqua-dark !default;
+$link-font-color-hover: $aqua-light !default;
 
-$blockquote-border-color:    $mediumgray-light !default;
+$blockquote-border-color: $mediumgray-light !default;
 
-$image-radius:               4px !default;
+$image-radius: 4px !default;
 
 // Exports
 //------------------------------------------------------
 
 @include exports("typography") {
-
   /**
    * typography
    * --------------------------------------------------
    */
+  @font-face {
+    font-family: "FSWSans-Regular";
+    src: url(asset_path("FSWSans-Regular.woff"));
+  }
+
+  @font-face {
+    font-family: "FSWSans-Medium";
+    src: url(asset_path("FSWSans-Medium.woff"));
+    font-weight: bold;
+    font-style: normal;
+  }
 
   body {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: FSWSans-Regular, "Open Sans", Helvetica, Arial, sans-serif;
     // font-family: 'Lato', sans-serif;
     color: $body-font-color;
     background-color: $body-background-color;
@@ -51,7 +61,7 @@ $image-radius:               4px !default;
   .h4,
   .h5,
   .h6 {
-    font-family: inherit;
+    font-family: FSWSans-Medium, "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 700;
     line-height: 1.1;
     color: inherit;
@@ -121,7 +131,4 @@ $image-radius:               4px !default;
     font-style: italic;
     margin: 24px 0;
   }
-
 }
-
-
