@@ -293,7 +293,7 @@ de:
 
         ## Stand der Vereinbarkeit mit den Anforderungen
 
-        Diese Website ist wegen der folgenden Unvereinbarkeiten und Ausnahmen nichtmit **Konformitätsstufe AA der &quot;Richtlinien für barrierefreie Webinhalte Web –** [**WCAG 2.1**](https://www.w3.org/TR/WCAG21/) **&quot;** beziehungsweise mit dem geltenden Europäischen Standard EN 301 549 V2.1.2 (2018-08) vereinbar.
+        Diese Website ist wegen der folgenden Unvereinbarkeiten und Ausnahmen nicht mit **Konformitätsstufe AA der &quot;Richtlinien für barrierefreie Webinhalte Web –** [**WCAG 2.1**](https://www.w3.org/TR/WCAG21/) **&quot;** beziehungsweise mit dem geltenden Europäischen Standard EN 301 549 V2.1.2 (2018-08) vereinbar.
 
         ## Nicht barrierefreie Inhalte
 
@@ -301,22 +301,7 @@ de:
 
         a) Unvereinbarkeit mit den Barrierefreiheitsbestimmungen
 
-        - Alternativtexte bei vielen Bildern nicht ausreichend oder fehlend
-        - Überschriftenstruktur tlw. nicht passend
-        - Labels fehlen in manchen Templates
-        - Fehlermeldungen bei Formularen nicht ganz ausreichend
-        - Tastaturbedienbarkeit des Cookiebanners nicht ausreichend
-        - Links unterscheiden sich nur durch Farbunterschied vom Fließtext
-        - Keine Skiplinks
-        - Tastaturfokus nicht gut sichtbar
-        - Cookie Button missverständlich
-        - Kontrast von einigen Elementen nicht ausreichend
-        - Rahmenlinien bei Eingabefelder haben zu wenig Kontrast
-        - Ein paar HTML Fehler mit Accessibility Relevanz
-        - Seitentitel redundant über alle Seiten
-        - Keine Suche oder Sitemap
-
-        Der Fonds Soziales Wien ist bemüht die angeführten Punkte bis Ende 2020 zu überprüfen und hinsichtlich Barrierefreiheit anzupassen.
+        - Lesereihenfolge des Cookie Banner
 
         ## Erstellung dieser Erklärung zur Barrierefreiheit
 
@@ -324,9 +309,9 @@ de:
 
         **Vorlage für das Statement:** MODEL ACCESSIBILITY STATEMENT ([https://eur-lex.europa.eu/resource.html?uri=cellar:e1dfb98d-5aa1-11e8-ab41-01aa75ed71a1.0001.02/DOC\_2&amp;format=PDF](https://eur-lex.europa.eu/resource.html?uri=cellar:e1dfb98d-5aa1-11e8-ab41-01aa75ed71a1.0001.02/DOC_2&amp;format=PDF))
 
-        **Grundlage des Statements:** Manuelle und automatisierte Accessibility Evaluierung einer externen Beraterfirma von 4 Seiten der Website [www.where2help.wien](http://www.where2help.wien/)(16.07.2020, PDF 21 Seiten)
+        **Grundlage des Statements:** Manuelle und automatisierte Accessibility Evaluierung einer externen Beraterfirma von 4 Seiten der Website [www.where2help.wien](http://www.where2help.wien/)(Februar 2025, PDF 16 Seiten)
 
-        Die Erklärung wurde zuletzt am 22.09.2020 überprüft.
+        Die Erklärung wurde zuletzt am 21.05.2025 überprüft.
 
         ## Feedback und Kontaktangaben Beschwerdemöglichkeit
 
