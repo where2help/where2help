@@ -15,6 +15,9 @@
       <span class="footer-separator">&#124;</span>
       <%= link_to t('application.imprint'), 'https://www.fsw.at/p/impressum', target: '_blank', class: 'footer-txt' %>
 
+      <span class="footer-separator">&#124;</span>
+      <%= link_to t('application.privacy'), privacy_path, class: 'footer-txt' %>
+
       <% if I18n.locale == :de %>
         <span class="footer-separator">&#124;</span>
         <%= link_to t('application.barrier_free'), barrier_free_path, class: 'footer-txt' %>

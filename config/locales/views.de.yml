@@ -20,6 +20,7 @@ de:
       message: Wir haben gerade nichts für Dich...
     imprint: Impressum
     terms_and_conditions: Nutzungsbedingungen
+    privacy: Datenschutz und rechtliche Hinweise
     barrier_free: Barrierefreiheit
     environment_disclaimer: Dies ist eine Testversion von Where2help. Geben Sie keine persönlichen oder vertraulichen Daten ein.
   events:
@@ -163,8 +164,6 @@ de:
 
           Um w2h zu nutzen, ist eine Registrierung erforderlich.
 
-          Durch die Registrierung stimmen Sie zu, dass Ihre bekanntgegebenen Daten (Daten zu Ihrer Person) zu den eingangs angeführten Zwecken verarbeitet und an registrierte NutzerInnen übermittelt werden. Ebenso erklären Sie sich im Zusammenhang mit Ihrer freiwilligen Tätigkeit, speziell im Fall akuter Hilfseinsätze, mit der Zusendung von Informationen an Ihre Organisation/Initiative einverstanden.
-
           Aufgrund der Registrierung bei w2h sind freiwillige HelferInnen während der Ausübung ihrer freiwilligen Tätigkeit unfall- und haftpflichtversichert. Davon ausgenommen sind berufliche oder entgeltliche Tätigkeiten und freiwillige Einsätze im Rahmen eines Vereines oder einer Organisation/Initiative, welche über eine eigene Unfall- und Haftpflichtversicherung für Freiwillige verfügen. Organisationen/Initiativen verpflichten sich, alle Einsätze mit Namen der Freiwilligen, Einsatzort, Tätigkeit, Datum und Uhrzeit zu erfassen sowie im Schadensfall unverzüglich Meldung an den Betreiber zu erstatten und die Einsatzdaten an <a href="mailto:contact@where2help.wien" target="_blank">contact@where2help.wien</a> zu übermitteln.
 
           Der FSW behält sich das Recht vor, Organisationen/Initiativen aus wichtigen Gründen nicht in das w2h-Angebot aufzunehmen.
@@ -173,19 +172,9 @@ de:
 
           Mit der Registrierung entsteht weder ein Anspruch auf Nutzung von w2h noch auf Einsatz von freiwilligen HelferInnen.
 
-          Ihre Registrierung sowie die Datenverarbeitung durch w2h können Sie jederzeit ohne Begründung <a href="https://www.fsw.at/kontaktformular" target="_blank">hier</a> widerrufen.
+          Ihre Registrierung können Sie jederzeit ohne Begründung <a href="https://www.fsw.at/kontaktformular" target="_blank">hier</a> auflösen.
 
-          Ihre Rechte auf Auskunft, Berichtigung oder Löschung von Daten, Einschränkung der Verarbeitung, Widerspruch sowie Datenübertragbarkeit können Sie <a href="https://www.fsw.at/kontaktformular" target="_blank">hier</a> geltend machen.
-
-          Zusätzlich steht Ihnen die Beschwerdemöglichkeit bei der zuständigen Aufsichtsbehörde (Datenschutzbehörde) offen.
-
-          Ihre personenbezogenen Daten werden nur solange gespeichert, als dies von uns für nötig erachtet wird, um die genannten Zwecke zu erreichen und wie dies nach anwendbarem Recht zulässig ist. Wir speichern Ihre personenbezogenen Daten jedenfalls solange gesetzliche Aufbewahrungspflichten bestehen oder Verjährungsfristen potentieller Rechtsansprüche noch nicht abgelaufen sind.
-
-          Kontaktdaten der <strong>zuständigen Datenschutzbeauftragten</strong>: <a href="mailto:datenschutz@fsw.at" target="_blank">datenschutz@fsw.at</a>
-
-          Hinweis auf Google/Apple:
-          w2h und die darin enthaltenen Informationen stehen in keiner Verbindung zu Google Inc. oder Apple Inc. und werden in keiner Weise von Google Inc. oder Apple Inc. gesponsert, unterstützt oder organisiert.
-
+          Informationen zur Verarbeitung von personenbezogenen Daten bzgl. der Webseite www.where2help.wien und deren Angebote sowie Aktualisierungen finden sich unter %{privacy_link}.
         close: Schließen
         title: Nutzungsbedingungen für Organisationen/Initiativen
     sessions:
@@ -341,6 +330,223 @@ de:
         [Weitere Informationen zum Beschwerdeverfahren](https://www.wien.gv.at/verwaltung/antidiskriminierung/barrierefreie-websites.html)
 
         Sind Sie von einer vermuteten Diskriminierung im Hinblick auf mangelnde Barrierefreiheit selbst betroffen, unterstützt Sie die Stelle zur Bekämpfung von Diskriminierungen durch Information und Beratung über Möglichkeiten der Rechtsverfolgung.
+    privacy:
+      body: |
+        Die where2help.wien Seite enthält Informationen über den Fonds Soziales Wien, einschließlich des Angebots der where2help Seite und bemüht sich in diesem Zusammenhang um größtmögliche Aktualität. Jegliche auf dieser Seite enthaltenen Angaben dienen ausschließlich der Information und diese sind so verständlich wie möglich gehalten.
+
+        Im Hinblick auf die technischen Eigenschaften des Internets kann keine Gewähr für die Authentizität, Richtigkeit und Vollständigkeit der im Internet zur Verfügung gestellten Informationen übernommen werden. Es wird auch keine Gewähr für die Verfügbarkeit oder den Betrieb der gegenständlichen Seite und ihrer Inhalte übernommen. Der Fonds Soziales Wien behält sich das Recht vor, Änderungen zu eventuell angegebenen Terminen und Verfügbarkeit jederzeit ohne Ankündigung vorzunehmen.
+
+        ## Inhaltsverzeichnis
+
+        [I. Verantwortlicher für die Datenverarbeitung](#verantwortlicher){: .pages-nav-link}
+        [II. Darstellung der Verarbeitungszwecke sowie Rechtsgrundlagen](#verarbeitungszwecke){: .pages-nav-link}
+        [III. Einsatz von Auftragsverarbeiter:innen](#auftragsverarbeiter){: .pages-nav-link}
+        [IV. Speicherdauer](#speicherdauer){: .pages-nav-link}
+        [V. Rechte der betroffenen Personen und Kontaktdaten der Datenschutzbeauftragten](#rechte){: .pages-nav-link}
+        [Urheberrecht](#urheberrecht){: .pages-nav-link}
+        [Warenzeichen](#warenzeichen){: .pages-nav-link}
+        [Hyperlinks](#hyperlinks){: .pages-nav-link}
+        [Haftungsbeschränkung](#haftungsbeschraenkung){: .pages-nav-link}
+
+        ## Erklärung zum Datenschutz
+
+        Stand August 2026
+
+        Dem Fonds Soziales Wien ist der Schutz von personenbezogenen Daten ein wichtiges Anliegen. Die Verarbeitung von personenbezogenen Daten erfolgt unter Einhaltung sämtlicher anwendbarer nationaler sowie europäischer Datenschutzvorschriften. Hierzu zählen insb. das österreichische Datenschutzgesetz (DSG), die Datenschutzgrundverordnung (DSGVO) sowie das Telekommunikationsgesetz 2021 (TKG 2021).
+
+        Die folgende Erklärung zum Datenschutz enthält Informationen zur Verarbeitung von personenbezogenen Daten sowie die den betroffenen Personen zukommenden Rechte.
+
+        ### I. Verantwortlicher für die Datenverarbeitung
+        {: #verantwortlicher}
+
+        Fonds Soziales Wien (in der Folge: „der Verantwortliche“)<br>
+        Guglgasse 7-9<br>
+        1030 Wien<br>
+        [datenschutz@fsw.at](mailto:datenschutz@fsw.at)
+
+        ### II. Darstellung der Verarbeitungszwecke sowie Rechtsgrundlagen
+        {: #verarbeitungszwecke}
+
+        #### 1. Server-Logfiles
+
+        Beim Aufruf unserer Website übermittelt der Browser des:der Website-Besucher:in automatisch gewisse Informationen an unseren Server. Diese Informationen werden temporär in sogenannten „Logfiles“ gespeichert, die dazu dienen, Zugriffe auf die Website sowie Fehler aufzuzeichnen. Konkret werden in den Logfiles folgende Informationen gespeichert:
+
+        * Anonymisierte IP-Adresse
+        * Datum, Uhrzeit und Zeitzone der Anfrage an unseren Server
+        * Aufgerufene Seite(n)
+        * Zugriffsstatus/HTTP-Statuscode
+        * jeweils übertragene Datenmenge
+        * Browsertyp und -version
+        * Betriebssystem sowie dessen Oberfläche
+        * Website, von der die Anfrage an unseren Server stammt (Referrer-URL)
+
+        Die Anonymisierung der IP-Adressen bei Erstellung der Logfiles erfolgt durch Ausnullen der letzten drei Stellen. Ein Rückschluss auf konkrete IP-Adressen ist dadurch nicht mehr möglich.
+
+        Anhand der anonymisierten IP-Adressen wird zudem eine anonyme Besucherstatistik erstellt.
+
+        Die Logfiles werden für 7 Tage gespeichert und anschließend gelöscht.
+
+        Die Rechtsgrundlage für die Erstellung und Speicherung der Logfiles ist unser berechtigtes Interesse gemäß Art. 6 Abs. 1 lit. f DSGVO an der Sicherstellung eines störungsfreien Betriebs der Website, der Ermittlung und Verbesserung der Besucher:innenerfahrung sowie der Erkennung und Verhinderung illegaler Zugriffe und Attacken.
+
+        #### 2. Einsatz von Cookies bzw. von Diensten zwecks Analyse und Optimierung dieser Website
+
+        Beim ersten Aufruf unserer Website werden Besucher:innen gefragt, ob sie mit dem Einsatz verschiedener Dienste, durch die personenbezogene Daten von Besucher:innen der Website verarbeitet bzw. Cookies erhoben werden, einverstanden sind. Besucher:innen können nach Wahl
+
+        * alle genannten Dienste akzeptieren,
+        * eine selbst getroffene Auswahl akzeptieren oder
+        * keinen der Dienste akzeptieren.
+
+        Sofern der:die Besucher:in den Einsatz des Analyse-/Statistik-Dienstes „Siteimprove“ akzeptiert, werden zwecks Analyse und Optimierung unserer Website folgende Daten verarbeitet:
+
+        * Anonymisierte IP-Adresse
+        * Aufgerufene Seite(n) und Zeitpunkte der Seitenaufrufe
+        * Browsertyp und -version
+        * Spracheinstellung des Browsers
+        * Betriebssystem sowie dessen Oberfläche
+        * Gerätetyp (Computer, Handy), Marke, Modell und Bildschirmauflösung
+        * Land und Region der Besucher:innen
+        * Art der HTML-Anfragen
+        * vom Browser unterstützte Techniken und Formate (z. B. Cookies, Java, Flash, PDF, WindowsMedia, QuickTime, Realplayer, Director, SilverLight, Google Gears)
+        * Anzahl der unterschiedlichen Besucher:innen unserer Website (erfasst durch Cookies)
+        * Website, von der die Anfrage an unseren Server stammt (Referrer-URL)
+
+        Die erhobenen Daten werden ausschließlich für Zwecke der Analyse und Optimierung der Website verarbeitet. Es ist nicht Ziel der Verarbeitung, die Identität einzelner Besucher:innen herauszufinden. Aus diesem Grund werden die IP-Adressen durch Siteimprove sofort und vollständig anonymisiert (Wiederherstellung nicht möglich).
+
+        Weitere Informationen, insbesondere zu sonstigen eingesetzten Diensten, sind unter „Cookie-Einstellungen“ am rechten unteren Seitenrand zu finden (jeweils unter „Alle Details“).
+
+        Die Rechtsgrundlage für die Verarbeitung der personenbezogenen Daten ist die Einwilligung der betroffenen Person (Art. 6 Abs. 1 lit a DSGVO).
+
+        Besucher:innen können ihre Einwilligung jederzeit widerrufen bzw. ändern, indem sie auf „Cookie-Einstellungen“ am rechten unteren Seitenrand klicken und dort eine andere Auswahl treffen oder auf „nichts akzeptieren“ klicken. Wird der Einsatz einzelner oder aller Dienste zunächst akzeptiert, die Entscheidung aber zu einem späteren Zeitpunkt geändert/die Einwilligung widerrufen, werden ab Änderung der Auswahl keine bzw. nur noch die nunmehr ausgewählten Dienste eingesetzt. Die bis zur Änderung der Auswahl erfolgte Datenverarbeitung bleibt jedoch rechtmäßig.
+
+        #### 3. Nutzung des Angebots von where2help als registrierte:r, freiwillige:r Helfer:in
+
+        Der Verantwortliche verarbeitet zum Zweck der Registrierung und Anmeldung von freiwilligen Helfer:innen und zum Zweck, den Bedarf der registrierten NGO/NPO an freiwilligen Helfer:innen und das Angebot registrierter, freiwilliger Helfer:innen zusammenzuführen sowie zur Qualitätssicherung, folgende personenbezogene Daten:
+
+        * Personenstammdaten (z.B.: Name, Kontaktdaten)
+        * Zugangspasswort
+        * Sprachen \[optional\]
+        * Fähigkeiten (z.B.: Übersetzung, Ausbildung) \[optional\]
+        * Zusage zu einem Einsatz
+
+        Die Verarbeitung der angeführten personenbezogenen Daten beruht auf der folgenden Rechtsgrundlage:
+
+        * Art. 6 Abs. 1 lit f DSGVO: berechtigtes Interesse des Fonds Soziales Wien und/oder eines Dritten, die oben genannten Zwecke optimal zu erreichen
+
+        Soweit es zur Erreichung des angeführten Zwecks erforderlich ist, kann ein Datenaustausch mit folgenden Stellen stattfinden:
+
+        * Betreffende, registrierte NGO/NPO, die freiwillige Helfer:innen über diese Webseite suchen
+
+        Nach Übermittlung der Daten der freiwilligen Helfer:innen an die entsprechende, registrierte NGO/NPO durch den Fonds Soziales Wien, ist die jeweilige NGO/NPO für die Erhebung und weitere Verarbeitung der personenbezogenen Daten Verantwortlicher gemäß Art. 4 Z. 7 DSGVO.
+
+        Schadensfall:
+
+        * Sofern die Daten nicht unmittelbar bei der betroffenen Person erhoben werden, können diese durch den Fonds Soziales Wien auch bei folgenden Stellen/Quellen erhoben werden: Registrierte NGO/NPO
+        * Zum Zweck der Meldung an die Versicherung kann es im Schadensfall zu einer Übermittlung von für die Meldung erforderlichen personenbezogenen Daten an die Versicherung kommen. Diese Verarbeitung der personenbezogenen Daten beruht auf Art. 6 Abs. 1 lit f DSGVO: berechtigtes Interesse des Fonds Soziales Wien und/oder eines Dritten sowie auf Art. 6 lit b und f iVm Art. 9 lit f DSGVO, um den genannten Zweck optimal zu erreichen
+
+        Ansonsten erfolgt keine Offenlegung von personenbezogenen Daten an Dritte.
+
+        Zum Widerspruchsrecht bei Verarbeitungen auf Grundlage von berechtigten Interessen siehe Punkt V.
+
+        #### 4. Nutzung des Angebots von where2help als NGO / NPO
+
+        Der Verantwortliche verarbeitet zum Zweck der Registrierung und Anmeldung von NGO/NPO und zum Zweck, den Bedarf registrierter NGO/NPO an freiwilligen Hilfeleistungen durch potenzielle freiwillige Helfer:innen übersichtlich darzustellen und diesen Bedarf mit dem Angebot freiwilliger, registrierter Helfer:innen zusammenzuführen sowie zur Qualitätssicherung dieses Angebots folgende personenbezogene Daten der bei der Registrierung der NGO/NPO angegebenen betroffenen Personen:
+
+        * Personenstammdaten (z.B.: Name, Kontaktdaten, Adresse)
+        * Bedarf an freiwilligen Hilfeleistungen
+        * Zugangspasswort
+
+        Die Verarbeitung der angeführten personenbezogenen Daten beruht auf der folgenden Rechtsgrundlage:
+
+        * Art. 6 Abs. 1 lit f DSGVO: berechtigtes Interesse des Fonds Soziales Wien und/oder eines Dritten, die oben genannten Zwecke optimal zu erreichen
+
+        Soweit es zur Erreichung des angeführten Zwecks erforderlich ist, kann ein Datenaustausch mit folgenden Stellen stattfinden:
+
+        * Registrierte, freiwillige Helfer:innen
+        * Registrierte NGO/NPO
+
+        Nach Übermittlung der Daten der freiwilligen Helfer:innen an die entsprechende, registrierte NGO/NPO durch den Fonds Soziales Wien ist die jeweilige NGO/NPO für die Erhebung und weitere Verarbeitung der personenbezogenen Daten Verantwortlicher gemäß Art. 4 Z. 7 DSGVO.
+
+        Ansonsten erfolgt keine Offenlegung von personenbezogenen Daten an Dritte.
+
+        Zum Widerspruchsrecht bei Verarbeitungen auf Grundlage von berechtigten Interessen siehe Punkt V.
+
+        #### 5. Kontaktanfragen, Beschwerden, Mitteilungen
+
+        Zum Zweck der Bearbeitung von Kontaktanfragen, Beschwerden oder sonstigen Mitteilungen (z.B. mittels Kontaktformular, per E-Mail, telefonisch) verarbeitet der Fonds Soziales Wien die im Zuge der Anfrage, Beschwerde oder Mitteilung bekanntgegebenen personenbezogenen Daten.
+
+        Die Verarbeitung der personenbezogenen Daten beruht auf einer der folgenden Rechtsgrundlagen:
+
+        * Einwilligung zur Datenverarbeitung, sofern eine Einwilligung erteilt wurde (Art. 6 Abs. 1 lit. a bzw. Art. 9 Abs. 2 lit. a DSGVO)
+        * Vertragserfüllung bzw. Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO)
+        * Berechtigtes Interesse des Fonds Soziales Wien (Art. 6 Abs. 1 lit. f DSGVO) an einem umfassenden Kund:innenservice, der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen und einem effizienten Anfragen- und Beschwerdemanagement
+        * Erforderlichkeit für die Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen (Art. 9 Abs. 2 lit. f DSGVO)
+
+        Zum Widerspruchsrecht bei Verarbeitungen auf Grundlage von berechtigten Interessen siehe Punkt V.
+
+        ### III. Einsatz von Auftragsverarbeiter:innen
+        {: #auftragsverarbeiter}
+
+        Neben den bei den einzelnen Verarbeitungszwecken (Punkt II.) dargestellten Empfänger:innen werden vom Fonds Soziales Wien regelmäßig auch Auftragsverarbeiter:innen (insbesondere IT-Dienstleister:innen) eingesetzt, gegenüber denen ebenfalls eine Offenlegung von personenbezogenen Daten erfolgen kann. Sämtliche Auftragsverarbeiter:innen sind gemäß Art. 28 DSGVO vertraglich dazu verpflichtet, die personenbezogenen Daten vertraulich und nur im Rahmen der vereinbarten Leistungserbringung zu verarbeiten.
+
+        ### IV. Speicherdauer
+        {: #speicherdauer}
+
+        Der Fonds Soziales Wien verarbeitet personenbezogene Daten so lange, als dies für die Zwecke, für die sie erhoben bzw. verarbeitet wurden, unbedingt erforderlich ist. Eine darüberhinausgehende Aufbewahrung kann sich aus gesetzlichen Verpflichtungen (z.B. Bundesabgabenordnung) oder gegebenenfalls anhängigen verwaltungsbehördlichen oder gerichtlichen Verfahren ergeben.
+
+        ### V. Rechte der betroffenen Personen und Kontaktdaten der Datenschutzbeauftragten
+        {: #rechte}
+
+        Betroffene Personen haben nach Maßgabe der Art. 15-21 DSGVO folgende Rechte:
+
+        * **Recht auf Auskunft (Art. 15 DSGVO):**
+            * Die betroffene Person hat das Recht, eine Bestätigung darüber zu verlangen, ob ein Verantwortlicher ihre personenbezogenen Daten verarbeitet.
+            * Wenn ja, hat sie das Recht auf diverse Informationen zur Verarbeitung ihrer Daten (Verarbeitungszwecke, Datenkategorien, Rechtsgrundlagen, Empfänger, Speicherfristen etc.)
+            * Die betroffene Person hat außerdem das Recht auf Kopie der personenbezogenen Daten, die Gegenstand der Verarbeitung sind.
+        * **Recht auf Berichtigung (Art. 16 DSGVO):**
+            * Die betroffene Person hat das Recht, die Berichtigung oder Vervollständigung sie betreffender unrichtiger/unvollständiger personenbezogener Daten zu verlangen.
+        * **Recht auf Löschung (Art. 17 DSGVO):**
+            * Die betroffene Person hat bei Vorliegen bestimmter Voraussetzungen das Recht, die Löschung ihrer personenbezogenen Daten zu verlangen. Dies gilt insbesondere, wenn
+                * der Zweck der Verarbeitung weggefallen ist,
+                * die betroffene Person ihre Einwilligung widerrufen oder wirksam gegen die Verarbeitung widersprochen hat,
+                * die Daten unrechtmäßig verarbeitet wurden oder
+                * die Löschung zur Erfüllung einer gesetzlichen Verpflichtung erforderlich ist.
+            * Ein Recht auf Löschung besteht jedoch nicht in den in Art. 17 Abs. 3 DSGVO genannten Fällen.
+        * **Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO):**
+            * Die betroffene Person hat bei Vorliegen der in Art. 18 Abs. 1 genannten Voraussetzungen das Recht, die Einschränkung der Verarbeitung zu verlangen.
+            * Die personenbezogenen Daten dürfen dann – von ihrer Speicherung abgesehen – nur mit Einwilligung, zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen, zum Schutz der Rechte anderer Personen oder aus Gründen eines wichtigen öffentlichen Interesses verarbeitet werden.
+        * **Recht auf Datenübertragbarkeit (Art. 20 DSGVO):**
+            * Wenn die Verarbeitung auf einer Einwilligung oder einem Vertrag beruht und mithilfe automatisierter Verfahren erfolgt, hat die betroffene Person das Recht, ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten bzw. die Übermittlung der Daten an einen anderen Verantwortlichen zu verlangen.
+        * **Recht auf Widerspruch (Art. 21 DSGVO):**
+            * Die betroffene Person hat das Recht, aus Gründen, die sich aus ihrer besonderen Situation ergeben, gegen eine Verarbeitung zu widersprechen, sofern die Verarbeitung aufgrund berechtigter Interessen erfolgt oder der Wahrnehmung von Aufgaben im öffentlichen Interesse dient. Der Verantwortliche hat diesfalls die Verarbeitung einzustellen, es sei denn er kann Gründe vorweisen, die die Interessen, Rechte und Freiheiten der betroffenen Person überwiegen.
+            * Gegen eine Verarbeitung aufgrund berechtigter Interessen zum Zweck der Direktwerbung kann die betroffene Person auch ohne Angabe von Gründen widersprechen. Diesfalls dürfen die Daten der betroffenen Person nicht mehr für Direktwerbung verarbeitet werden.
+
+        Beruht eine Verarbeitung auf der Einwilligung der betroffenen Person, besteht zudem gemäß Art. 7 Abs. 3 DSGVO das Recht, die Einwilligung jederzeit zu widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt.
+
+        Diese Rechte können unter [www.fsw.at/kontaktformular](https://www.fsw.at/kontaktformular) geltend gemacht werden.
+
+        Zusätzlich steht den betroffenen Personen die Beschwerdemöglichkeit bei der zuständigen Aufsichtsbehörde (Datenschutzbehörde) offen.
+
+        Kontaktdaten der zuständigen Datenschutzbeauftragten: [datenschutz@fsw.at](mailto:datenschutz@fsw.at)
+
+        ## Urheberrecht
+        {: #urheberrecht}
+
+        Der gesamte Inhalt dieser Seite ist urheberrechtlich geschützt. Informationen, Texte, Bilder oder Grafiken dieser Seite dürfen nicht, weder im Ganzen noch in Teilen, zu irgendeinem Zweck ohne unsere vorherige schriftliche Zustimmung vervielfältigt, verändert, weitergeleitet, lizensiert oder veröffentlicht werden.
+
+        ## Warenzeichen
+        {: #warenzeichen}
+
+        Alle auf dieser Site sichtbaren Warenzeichen, Logos und Dienstleistungsmarken sind Eigentum des Fonds Soziales Wien oder von Dritten. Es ist untersagt, diese ohne die schriftliche Genehmigung des Fonds Soziales Wien oder eines solchen Dritten in irgendeiner Weise zu nutzen, herunterzuladen, zu kopieren oder zu vertreiben.
+
+        ## Hyperlinks
+        {: #hyperlinks}
+
+        Die fsw.at-Seite kann Hypertext-Links zu anderen Internet-Seiten enthalten, die von dieser Site völlig unabhängig sind. Der Fonds Soziales Wien übernimmt diesbezüglich keine Haftung, insbesondere nicht für deren Inhalt und die Genauigkeit, Vollständigkeit oder Authentizität der in einem dieser Hypertext-Links oder einer anderen Internet-Seite enthaltenen Informationen. Der Zugriff auf andere, mit der fsw.at-Seite verknüpfte Internet-Seiten erfolgt auf Ihre eigene Verantwortung.
+
+        ## Haftungsbeschränkung
+        {: #haftungsbeschraenkung}
+
+        Der Fonds Soziales Wien legt höchsten Wert auf Sicherheit in der Wartung der Internetseiten und aller webbasierten Services. Jede Haftung für unmittelbare, mittelbare oder sonstige Schäden, die aus der Benutzung oder Nichtverfügbarkeit der Daten und Informationen dieser Seite erwachsen, wird unabhängig von deren Ursachen, soweit rechtlich zulässig, ausgeschlossen.
   schedules:
     show:
       all: Alle
@@ -428,26 +634,15 @@ de:
 
           Um w2h zu nutzen, ist eine Registrierung erforderlich.
 
-          Durch die Registrierung stimmen Sie zu, dass Ihre bekanntgegebenen Daten (Daten zu Ihrer Person, Daten zu Ihren Fähigkeiten) zu den eingangs angeführten Zwecken verarbeitet und an die betreffenden Organisationen/Initiativen, die freiwillige HelferInnen über w2h suchen, übermittelt werden. Ebenso erklären Sie sich im Zusammenhang mit Ihrer freiwilligen Tätigkeit, speziell im Fall akuter Hilfseinsätze, mit der Zusendung von Informationen an Sie einverstanden.
-
-          Aufgrund der Registrierung bei w2h sind NutzerInnen während der Ausübung ihrer freiwilligen Tätigkeit unfall- und haftpflichtversichert. Davon ausgenommen sind berufliche oder entgeltliche Tätigkeiten und freiwillige Einsätze im Rahmen eines Vereines oder einer Organisation/Initiative, welche über eine eigene Unfall- und Haftpflichtversicherung für Freiwillige verfügen. Schäden sind von der freiwilligen HelferIn unverzüglich der betreffenden Organisation zu melden. Im Schadensfall stimmen Sie einer Übermittlung Ihrer Daten inkl. der Zusage zu einem Einsatz an die Versicherung zu.
+          Aufgrund der Registrierung bei w2h sind NutzerInnen während der Ausübung ihrer freiwilligen Tätigkeit unfall- und haftpflichtversichert. Davon ausgenommen sind berufliche oder entgeltliche Tätigkeiten und freiwillige Einsätze im Rahmen eines Vereines oder einer Organisation/Initiative, welche über eine eigene Unfall- und Haftpflichtversicherung für Freiwillige verfügen. Schäden sind von der freiwilligen HelferIn unverzüglich der betreffenden Organisation zu melden.
 
           Mit der Registrierung entsteht weder ein Anspruch auf Nutzung von w2h noch auf Einsatz als freiwillige HelferIn.
 
           Der FSW behält sich das Recht vor, bereits registrierte NutzerInnen von der Teilnahme an w2h ohne Angabe von Gründen auszuschließen, sowie w2h jederzeit ohne vorherige Ankündigung und ohne Angabe von Gründen zu verändern oder einzustellen, insbesondere wenn dies aus rechtlichen und/oder technischen Gründen erforderlich ist.
 
-          Ihre Registrierung sowie die Datenverarbeitung durch w2h können Sie jederzeit ohne Begründung <a href="https://www.fsw.at/kontaktformular" target="_blank">hier</a> widerrufen.
+          Ihre Registrierung können Sie jederzeit ohne Begründung <a href="https://www.fsw.at/kontaktformular" target="_blank">hier</a> auflösen.
 
-          Ihre Rechte auf Auskunft, Berichtigung oder Löschung von Daten, Einschränkung der Verarbeitung, Widerspruch sowie Datenübertragbarkeit können Sie <a href="https://www.fsw.at/kontaktformular" target="_blank">hier</a> geltend machen.
-
-          Zusätzlich steht Ihnen die Beschwerdemöglichkeit bei der zuständigen Aufsichtsbehörde (Datenschutzbehörde) offen.
-
-          Ihre personenbezogenen Daten werden nur solange gespeichert, als dies von uns für nötig erachtet wird, um die genannten Zwecke zu erreichen und wie dies nach anwendbarem Recht zulässig ist. Wir speichern Ihre personenbezogenen Daten jedenfalls solange gesetzliche Aufbewahrungspflichten bestehen oder Verjährungsfristen potentieller Rechtsansprüche noch nicht abgelaufen sind.
-
-          Kontaktdaten der <strong>zuständigen Datenschutzbeauftragten</strong>: <a href="mailto:datenschutz@fsw.at" target="_blank">datenschutz@fsw.at</a>
-
-          Hinweis auf Google/Apple:
-          w2h und die darin enthaltenen Informationen stehen in keiner Verbindung zu Google Inc. oder Apple Inc. und werden in keiner Weise von Google Inc. oder Apple Inc. gesponsert, unterstützt oder organisiert.
+          Informationen zur Verarbeitung von personenbezogenen Daten bzgl. der Webseite www.where2help.wien und deren Angebote sowie Aktualisierungen finden sich unter %{privacy_link}.
         close: Schließen
         title: Nutzungsbedingungen für freiwillige HelferInnen
     sessions:

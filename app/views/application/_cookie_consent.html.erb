@@ -1,2 +1,11 @@
 <link type="text/css" rel="stylesheet" href="https://cdn1.legalweb.io/9dc3ace8-e08a-4d3b-a68d-7fa51fda3086.css">
 <script src="https://cdn1.legalweb.io/9dc3ace8-e08a-4d3b-a68d-7fa51fda3086.js" onload="window.lwCdnInit('de')"></script>
+<script>
+  // Turbolinks replaces <body> on every visit, which removes the popup markup
+  // that lwCdnInit appended. The CDN script itself is not re-executed (same src
+  // in <head>), so re-initialize it after each visit. lwCdnInit removes any
+  // existing overlay before appending, so calling it repeatedly is safe.
+  document.addEventListener('turbolinks:load', function () {
+    if (window.lwCdnInit) { window.lwCdnInit('de'); }
+  });
+</script>

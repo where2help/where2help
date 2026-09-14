@@ -51,4 +51,10 @@ module ApplicationHelper
   def render_markdown(raw_markdown)
     Kramdown::Document.new(raw_markdown).to_html.html_safe
   end
+
+  # Link used inside the terms and conditions text, which lives in the locale
+  # files and therefore cannot call route helpers itself.
+  def privacy_link(html_options = {})
+    link_to t('application.privacy'), privacy_path, html_options
+  end
 end

@@ -4,12 +4,12 @@
   <section class="pages-static-section">
     <h1 class="pages-title h2"><i class="fas fa-gavel" aria-hidden="true"></i> <%= t('application.terms_and_conditions') %></h1>
 
-    <%= link_to t('ngos.registrations.terms_and_conditions.title'), '#ngos', class: 'pages-nav-link' %>
     <%= link_to t('users.registrations.terms_and_conditions.title'), '#users', class: 'pages-nav-link' %>
+    <%= link_to t('ngos.registrations.terms_and_conditions.title'), '#ngos', class: 'pages-nav-link' %>
 
-    <h2 id="ngos" class="h3"><i class="fas fa-users" aria-hidden="true"></i> <%= t('ngos.registrations.terms_and_conditions.title') %></h2>
-    <%= simple_format t('ngos.registrations.terms_and_conditions.body') %>
     <h2 id="users" class="h3"><i class="fas fa-user" aria-hidden="true"></i> <%= t('users.registrations.terms_and_conditions.title') %></h2>
-    <%= simple_format t('users.registrations.terms_and_conditions.body') %>
-  </div>
+    <%= simple_format t('users.registrations.terms_and_conditions.body', privacy_link: privacy_link) %>
+    <h2 id="ngos" class="h3"><i class="fas fa-users" aria-hidden="true"></i> <%= t('ngos.registrations.terms_and_conditions.title') %></h2>
+    <%= simple_format t('ngos.registrations.terms_and_conditions.body', privacy_link: privacy_link) %>
+  </section>
 </div>

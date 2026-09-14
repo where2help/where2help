@@ -89,6 +89,7 @@ Rails.application.routes.draw do
 
   get "terms_and_conditions", to: "pages#terms_and_conditions"
   get "barrier_free", to: "pages#barrier_free"
+  get "privacy", to: "pages#privacy"
   get "how_to", to: "pages#how_to"
 
   get "robots.txt", to: "pages#robots"

@@ -10,7 +10,7 @@
         <h4 class="modal-title"><%= t("#{module_for(resource)}.registrations.terms_and_conditions.title") %></h4>
       </div>
       <div class="modal-body">
-        <%= simple_format t("#{module_for(resource)}.registrations.terms_and_conditions.body") %>
+        <%= simple_format t("#{module_for(resource)}.registrations.terms_and_conditions.body", privacy_link: privacy_link(target: "_blank")) %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">
