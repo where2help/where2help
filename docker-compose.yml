@@ -8,20 +8,7 @@ services:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_USER: ${DB_USER}
     volumes:
-      - postgres-w2h:/var/lib/postgresql
-
-  app:
-    build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    environment:
-      DB_HOST: ${DB_HOST}
-      DB_USER: ${DB_USER}
-    volumes:
-      - .:/web
-    ports:
-      - "127.0.0.1:3000:3000"
-    depends_on:
-      - db
+      - ./tmp/postgres:/var/lib/postgresql
 
 volumes:
   postgres-w2h:
