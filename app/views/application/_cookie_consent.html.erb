@@ -2,10 +2,22 @@
 <script src="https://cdn1.legalweb.io/9dc3ace8-e08a-4d3b-a68d-7fa51fda3086.js" onload="window.lwCdnInit('de')"></script>
 <script>
   // Turbolinks replaces <body> on every visit, which removes the popup markup
-  // that lwCdnInit appended. The CDN script itself is not re-executed (same src
-  // in <head>), so re-initialize it after each visit. lwCdnInit removes any
-  // existing overlay before appending, so calling it repeatedly is safe.
+  // that lwCdnInit appended. The CDN script is not re-executed (same src in
+  // <head>), so the popup has to be rebuilt after each visit.
+  //
+  // lwCdnInit can't do that: it calls lwFrontendInit, which only runs once per
+  // page lifetime, so a second call appends fresh markup with no click
+  // handlers. lwChangeLanguage rebuilds the markup and re-binds the handlers.
+  //
+  // The existence of #lwb-content can't serve as the check: pages restored
+  // from the Turbolinks cache contain a copy of the markup without handlers.
+  var lwFirstLoad = true;
   document.addEventListener('turbolinks:load', function () {
-    if (window.lwCdnInit) { window.lwCdnInit('de'); }
+    // The first page load already has a bound popup from the onload init.
+    if (lwFirstLoad) { lwFirstLoad = false; return; }
+    if (!window.lwChangeLanguage) { return; }
+
+    window.lwChangeLanguage('de');
+    window.checkCookieAndShowPopupOrNoticeIfNeeded();
   });
 </script>
